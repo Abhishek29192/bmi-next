@@ -2270,7 +2270,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="TeamSection-alabaster Section-root css-1az4hqf"
+      class="TeamSection-alabaster Section-root css-1qhvo7"
       data-testid="section"
     >
       <div
@@ -2288,7 +2288,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
                 data-testid="typography"
               >
                 Team Section - alabaster
@@ -2401,13 +2401,12 @@ exports[`Sections component renders correctly 1`] = `
                   >
                     <div
                       class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-                      style="padding-bottom: 60px;"
                     >
                       <div
-                        style="margin-bottom: 60px;"
+                        class="css-owtd2n"
                       >
                         <div
-                          class="RichText-root css-1u73y0t"
+                          class="RichText-root RichText-no-bottom-margin TeamSection-description css-1u73y0t"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2416,56 +2415,56 @@ exports[`Sections component renders correctly 1`] = `
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                           </p>
                         </div>
-                      </div>
-                      <div>
                         <div>
-                          <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
-                            data-testid="grid-container"
-                          >
+                          <div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
-                              data-testid="grid-item"
+                              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
+                              data-testid="grid-container"
                             >
                               <div
-                                class="css-1ye4j0i"
-                                data-testid="profile-card"
+                                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
+                                data-testid="grid-item"
                               >
                                 <div
-                                  class="css-1mx28pi"
+                                  class="css-1ye4j0i"
+                                  data-testid="profile-card"
                                 >
                                   <div
-                                    class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
-                                    data-testid="profile-card-head-picture"
+                                    class="css-1mx28pi"
                                   >
-                                    <img
-                                      alt="alt text"
-                                      src="https://testImage.jpg"
-                                      style="object-fit: cover; object-position: center;"
-                                    />
+                                    <div
+                                      class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
+                                      data-testid="profile-card-head-picture"
+                                    >
+                                      <img
+                                        alt="alt text"
+                                        src="https://testImage.jpg"
+                                        style="object-fit: cover; object-position: center;"
+                                      />
+                                    </div>
                                   </div>
-                                </div>
-                                <div
-                                  class="EqualHeights-contentBox css-1kjwaal"
-                                >
                                   <div
-                                    class="css-pbr3p6"
-                                    data-testid="profile-card-body"
-                                    style="height: auto;"
+                                    class="EqualHeights-contentBox css-1kjwaal"
                                   >
-                                    <div>
-                                      <strong
-                                        class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
-                                        data-testid="profile-card-body-name"
-                                      >
-                                        Bob McBobbinson
-                                      </strong>
-                                      <p
-                                        class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
-                                        data-testid="profile-card-body-title"
-                                      >
-                                        CEO
-                                      </p>
+                                    <div
+                                      class="css-pbr3p6"
+                                      data-testid="profile-card-body"
+                                      style="height: auto;"
+                                    >
+                                      <div>
+                                        <strong
+                                          class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
+                                          data-testid="profile-card-body-name"
+                                        >
+                                          Bob McBobbinson
+                                        </strong>
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                                          data-testid="profile-card-body-title"
+                                        >
+                                          CEO
+                                        </p>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -2489,7 +2488,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="TeamSection-white Section-root css-1az4hqf"
+      class="TeamSection-white Section-root css-1qhvo7"
       data-testid="section"
     >
       <div
@@ -2507,7 +2506,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 Typography-underline css-trnnr7-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
                 data-testid="typography"
               >
                 Team Section - undefined colour (2 categories)
@@ -2636,13 +2635,12 @@ exports[`Sections component renders correctly 1`] = `
                   >
                     <div
                       class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-                      style="padding-bottom: 60px;"
                     >
                       <div
-                        style="margin-bottom: 60px;"
+                        class="css-owtd2n"
                       >
                         <div
-                          class="RichText-root css-1u73y0t"
+                          class="RichText-root RichText-no-bottom-margin TeamSection-description css-1u73y0t"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2651,56 +2649,56 @@ exports[`Sections component renders correctly 1`] = `
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                           </p>
                         </div>
-                      </div>
-                      <div>
                         <div>
-                          <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
-                            data-testid="grid-container"
-                          >
+                          <div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
-                              data-testid="grid-item"
+                              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
+                              data-testid="grid-container"
                             >
                               <div
-                                class="css-1ye4j0i"
-                                data-testid="profile-card"
+                                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
+                                data-testid="grid-item"
                               >
                                 <div
-                                  class="css-1mx28pi"
+                                  class="css-1ye4j0i"
+                                  data-testid="profile-card"
                                 >
                                   <div
-                                    class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
-                                    data-testid="profile-card-head-picture"
+                                    class="css-1mx28pi"
                                   >
-                                    <img
-                                      alt="alt text"
-                                      src="https://testImage.jpg"
-                                      style="object-fit: cover; object-position: center;"
-                                    />
+                                    <div
+                                      class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
+                                      data-testid="profile-card-head-picture"
+                                    >
+                                      <img
+                                        alt="alt text"
+                                        src="https://testImage.jpg"
+                                        style="object-fit: cover; object-position: center;"
+                                      />
+                                    </div>
                                   </div>
-                                </div>
-                                <div
-                                  class="EqualHeights-contentBox css-1kjwaal"
-                                >
                                   <div
-                                    class="css-pbr3p6"
-                                    data-testid="profile-card-body"
-                                    style="height: auto;"
+                                    class="EqualHeights-contentBox css-1kjwaal"
                                   >
-                                    <div>
-                                      <strong
-                                        class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
-                                        data-testid="profile-card-body-name"
-                                      >
-                                        Bob McBobbinson
-                                      </strong>
-                                      <p
-                                        class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
-                                        data-testid="profile-card-body-title"
-                                      >
-                                        CEO
-                                      </p>
+                                    <div
+                                      class="css-pbr3p6"
+                                      data-testid="profile-card-body"
+                                      style="height: auto;"
+                                    >
+                                      <div>
+                                        <strong
+                                          class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
+                                          data-testid="profile-card-body-name"
+                                        >
+                                          Bob McBobbinson
+                                        </strong>
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                                          data-testid="profile-card-body-title"
+                                        >
+                                          CEO
+                                        </p>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -2726,57 +2724,60 @@ exports[`Sections component renders correctly 1`] = `
                   >
                     <div
                       class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-                      style="padding-bottom: 60px;"
                     >
-                      <div>
+                      <div
+                        class="css-owtd2n"
+                      >
                         <div>
-                          <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
-                            data-testid="grid-container"
-                          >
+                          <div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
-                              data-testid="grid-item"
+                              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
+                              data-testid="grid-container"
                             >
                               <div
-                                class="css-1ye4j0i"
-                                data-testid="profile-card"
+                                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
+                                data-testid="grid-item"
                               >
                                 <div
-                                  class="css-1mx28pi"
+                                  class="css-1ye4j0i"
+                                  data-testid="profile-card"
                                 >
                                   <div
-                                    class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
-                                    data-testid="profile-card-head-picture"
+                                    class="css-1mx28pi"
                                   >
-                                    <img
-                                      alt="alt text"
-                                      src="https://testImage.jpg"
-                                      style="object-fit: cover; object-position: center;"
-                                    />
+                                    <div
+                                      class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
+                                      data-testid="profile-card-head-picture"
+                                    >
+                                      <img
+                                        alt="alt text"
+                                        src="https://testImage.jpg"
+                                        style="object-fit: cover; object-position: center;"
+                                      />
+                                    </div>
                                   </div>
-                                </div>
-                                <div
-                                  class="EqualHeights-contentBox css-1kjwaal"
-                                >
                                   <div
-                                    class="css-pbr3p6"
-                                    data-testid="profile-card-body"
-                                    style="height: auto;"
+                                    class="EqualHeights-contentBox css-1kjwaal"
                                   >
-                                    <div>
-                                      <strong
-                                        class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
-                                        data-testid="profile-card-body-name"
-                                      >
-                                        Johnny McJohnson
-                                      </strong>
-                                      <p
-                                        class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
-                                        data-testid="profile-card-body-title"
-                                      >
-                                        CEO
-                                      </p>
+                                    <div
+                                      class="css-pbr3p6"
+                                      data-testid="profile-card-body"
+                                      style="height: auto;"
+                                    >
+                                      <div>
+                                        <strong
+                                          class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
+                                          data-testid="profile-card-body-name"
+                                        >
+                                          Johnny McJohnson
+                                        </strong>
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                                          data-testid="profile-card-body-title"
+                                        >
+                                          CEO
+                                        </p>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>

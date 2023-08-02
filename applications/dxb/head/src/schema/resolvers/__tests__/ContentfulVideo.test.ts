@@ -1,5 +1,5 @@
 import { mockResponses } from "@bmi-digital/fetch-mocks";
-import fetchMockJest, { mockClear } from "fetch-mock-jest";
+import fetchMockJest from "fetch-mock-jest";
 import { Node } from "../types/Gatsby";
 
 const source: Node = {
@@ -41,7 +41,6 @@ beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
   fetchMock.reset();
-  mockClear();
 });
 
 describe("ContentfulVideo", () => {
