@@ -9,7 +9,7 @@ import {
   Typography
 } from "@bmi-digital/components";
 import React, { useMemo, useState } from "react";
-import { GlobalStyles, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { Filter } from "@bmi-digital/components/icon";
 import { Filter as FilterType } from "@bmi-digital/components/dist/filters/Filters";
 import { microCopy } from "../constants/microCopies";
@@ -98,18 +98,6 @@ const FiltersSidebar = ({
 
   const mobileView = (
     <>
-      <GlobalStyles
-        styles={{
-          html: {
-            height: "100vh",
-            overflow: "hidden"
-          },
-          body: {
-            paddingRight: "0 !important",
-            height: "100vh"
-          }
-        }}
-      />
       <Button
         variant="opaqueOutlined"
         onClick={handleDrawerToggle}
