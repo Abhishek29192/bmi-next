@@ -12,7 +12,7 @@ import { Box } from "@mui/material";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import fetch, { Response } from "node-fetch";
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useEffect } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
@@ -307,6 +307,24 @@ const DocumentsFooterContent = () => {
   const maxSizeExceeded = remainingSize < 0;
 
   const { selectedAllState, setSelectAllState } = useContext(DocumentContext);
+  const { resetList } = useContext(DownloadListContext);
+
+  useEffect(() => {
+    return () => {
+      setSelectAllState((prevState) => ({
+        ...prevState,
+        isSelectedAll: false
+      }));
+      resetList();
+    };
+  }, []);
+
+  const handleSelectAllToggle = () => {
+    setSelectAllState((prevState) => ({
+      ...prevState,
+      isSelectedAll: !selectedAllState.isSelectedAll
+    }));
+  };
 
   const getMobileViewJSX = (children: React.ReactNode) => {
     if (!showMobileTable) {
@@ -316,23 +334,21 @@ const DocumentsFooterContent = () => {
     return (
       <FooterBottomWrapper>
         <SelectAllCheckboxWrapper>
-          <SelectAllCheckboxLabel>
+          <SelectAllCheckboxLabel
+            variant="text"
+            onClick={handleSelectAllToggle}
+          >
             {getMicroCopy(microCopy.DOWNLOAD_LIST_SELECTALL)}
           </SelectAllCheckboxLabel>
           <Checkbox
             data-testid={`document-table-select-all-footer-checkbox`}
-            name="add"
+            name="selectAll"
             aria-label={getMicroCopy(
               microCopy.DOWNLOAD_LIST_SELECTALL_CHECKBOX
             )}
             value={selectedAllState.isSelectedAll}
             checked={selectedAllState.isSelectedAll}
-            onChange={() =>
-              setSelectAllState((prevState) => ({
-                ...prevState,
-                isSelectedAll: !selectedAllState.isSelectedAll
-              }))
-            }
+            onChange={handleSelectAllToggle}
           />
         </SelectAllCheckboxWrapper>
         {children}
