@@ -123,6 +123,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
         >
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+            data-testid="sample-basket-section-complete-order"
             tabindex="0"
             type="button"
           >

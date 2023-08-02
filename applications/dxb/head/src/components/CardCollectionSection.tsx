@@ -401,6 +401,9 @@ const CardCollectionSection = ({
             {sortedIterableCards.map((card, i) => {
               const { id } = card;
               const cardIsVisible = i >= numberOfCardsToShow;
+              const combinedTestId = `card-collection-grid-item-${
+                cardIsVisible ? "hidden" : "visible"
+              }-${card.id}`;
               return (
                 <Grid
                   key={`${id}-${i}`}
@@ -410,7 +413,7 @@ const CardCollectionSection = ({
                   lg={4}
                   xl={3}
                   className={cardIsVisible ? classes.hidden : ""}
-                  data-testid={`card-collection-grid-item-${card.id}`}
+                  data-testid={combinedTestId}
                 >
                   <CardCollectionItem
                     card={card}

@@ -1321,7 +1321,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <p
                 class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                data-testid="typography"
+                data-testid="document-results-footer-recaptcha"
               >
                 This site is protected by reCAPTCHA and the Google 
                 <a
@@ -2427,7 +2427,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <p
                 class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                data-testid="typography"
+                data-testid="document-results-footer-recaptcha"
               >
                 This site is protected by reCAPTCHA and the Google 
                 <a
@@ -3951,7 +3951,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
         </div>
         <p
           class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-          data-testid="typography"
+          data-testid="document-results-footer-recaptcha"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
@@ -5052,7 +5052,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
         </div>
         <p
           class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-          data-testid="typography"
+          data-testid="document-results-footer-recaptcha"
         >
           This site is protected by reCAPTCHA and the Google 
           <a

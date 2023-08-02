@@ -270,7 +270,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             </div>
             <p
               class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-              data-testid="typography"
+              data-testid="document-results-footer-recaptcha"
             >
               This site is protected by reCAPTCHA and the Google 
               <a

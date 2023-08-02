@@ -136,6 +136,7 @@ const SampleOrderSection = ({
                   endIcon={<ShoppingCart />}
                   variant="outlined"
                   action={cta.action}
+                  data-testid={"complete-order-basket-button"}
                 >
                   {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
                 </Button>

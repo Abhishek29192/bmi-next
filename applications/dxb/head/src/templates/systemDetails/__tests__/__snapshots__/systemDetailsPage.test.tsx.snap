@@ -1896,7 +1896,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="document-results-footer-recaptcha"
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
@@ -4426,7 +4426,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="document-results-footer-recaptcha"
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
@@ -6960,7 +6960,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   </div>
                   <p
                     class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                    data-testid="typography"
+                    data-testid="document-results-footer-recaptcha"
                   >
                     This site is protected by reCAPTCHA and the Google 
                     <a
@@ -9491,7 +9491,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="document-results-footer-recaptcha"
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
@@ -11982,7 +11982,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="document-results-footer-recaptcha"
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
@@ -14512,7 +14512,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="document-results-footer-recaptcha"
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
@@ -17168,7 +17168,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="document-results-footer-recaptcha"
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
