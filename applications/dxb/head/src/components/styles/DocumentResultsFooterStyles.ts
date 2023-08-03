@@ -1,4 +1,9 @@
-import { DownloadList, Pagination, Typography } from "@bmi-digital/components";
+import {
+  DownloadList,
+  Pagination,
+  Typography,
+  Button
+} from "@bmi-digital/components";
 import ErrorIcon from "@mui/icons-material/Error";
 import { buttonClasses } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
@@ -121,7 +126,7 @@ export const SelectAllCheckboxWrapper = styled("div")(() => ({
   alignItems: "center"
 }));
 
-export const SelectAllCheckboxLabel = styled("span")(() => ({
+export const SelectAllCheckboxLabel = styled(Button)(() => ({
   marginRight: "5px"
 }));
 

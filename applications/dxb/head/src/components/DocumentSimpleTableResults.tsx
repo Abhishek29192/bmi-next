@@ -2,7 +2,8 @@ import {
   Checkbox,
   DownloadList,
   DownloadListContext,
-  Table
+  Table,
+  useUpdateEffect
 } from "@bmi-digital/components";
 import classnames from "classnames";
 import { filesize } from "filesize";
@@ -212,7 +213,8 @@ const DocumentSimpleTableResults = ({
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
 
-  const { list, updateList, count } = useContext(DownloadListContext);
+  const { list, updateList, count, resetList } =
+    useContext(DownloadListContext);
   const filteredDocs = documents.filter(
     (document) => !getIsLinkDocument(document)
   );
@@ -221,13 +223,16 @@ const DocumentSimpleTableResults = ({
   const titleField =
     headers.includes("type") && !headers.includes("title") ? "type" : "title";
 
-  const { selectedAllState, setSelectAllState } = useContext(DocumentContext);
+  const {
+    selectedAllState: { isSelectedAll, docsCount },
+    setSelectAllState
+  } = useContext(DocumentContext);
 
-  useEffect(() => {
-    handleSelectAll(selectedAllState.isSelectedAll);
-  }, [selectedAllState.isSelectedAll]);
+  useUpdateEffect(() => {
+    handleSelectAll(isSelectedAll);
+  }, [isSelectedAll]);
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     const currentSelectedDocsCount = getCurrentlySelectedDocumentsCount(
       filteredDocs,
       list
@@ -241,9 +246,19 @@ const DocumentSimpleTableResults = ({
     }));
   }, [list, documents]);
 
+  useEffect(() => {
+    return () => {
+      setSelectAllState((prevState) => ({
+        ...prevState,
+        isSelectedAll: false
+      }));
+      resetList();
+    };
+  }, []);
+
   const handleSelectAll = (selectedAll: boolean): void => {
     if (selectedAll) {
-      if (selectedAllState.docsCount === filteredDocs.length) {
+      if (docsCount === filteredDocs.length) {
         return;
       }
       filteredDocs.forEach((d) => {
@@ -254,7 +269,7 @@ const DocumentSimpleTableResults = ({
         }
       });
     } else {
-      if (count === 0 || selectedAllState.docsCount !== filteredDocs.length) {
+      if (count === 0 || docsCount !== filteredDocs.length) {
         return;
       }
       documents.forEach((d) =>
@@ -299,12 +314,12 @@ const DocumentSimpleTableResults = ({
                     aria-label={`${getMicroCopy(
                       `documentLibrary.headers.add`
                     )}`}
-                    value={selectedAllState.isSelectedAll}
-                    checked={selectedAllState.isSelectedAll}
+                    value={isSelectedAll}
+                    checked={isSelectedAll}
                     onChange={() =>
                       setSelectAllState((prevState) => ({
                         ...prevState,
-                        isSelectedAll: !selectedAllState.isSelectedAll
+                        isSelectedAll: !isSelectedAll
                       }))
                     }
                     disabled={!filteredDocs.length}
