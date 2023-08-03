@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Typography, Icon } from "@bmi-digital/components";
 import { Close } from "@mui/icons-material";
 import { Filter } from "@bmi-digital/components/icon";
+import { GlobalStyles } from "@mui/material";
 import { useSiteContext } from "../../../components/Site";
 import { StyledDrawer } from "./FilterSectionStyles";
 
@@ -33,6 +34,20 @@ const MobileFilters = ({
       }}
     >
       <>
+        {isOpenMobileFilters && (
+          <GlobalStyles
+            styles={{
+              html: {
+                height: "100vh",
+                overflow: "hidden"
+              },
+              body: {
+                paddingRight: "0 !important",
+                height: "100vh"
+              }
+            }}
+          />
+        )}
         <div className={"top"}>
           <div className={"top-box"}>
             <Icon source={Filter} />
