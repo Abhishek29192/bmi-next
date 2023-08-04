@@ -407,20 +407,21 @@ const config = {
         disable: process.env.CI === "true"
       }
     },
-    ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
+    ...(process.env.SPACE_MARKET_CODE && process.env.GATSBY_PREVIEW !== "true"
       ? [
           {
-            resolve: "gatsby-plugin-sitemap",
+            resolve: "@bmi/gatsby-plugin-sitemap",
             options: {
-              output: useCountryCode ? `/${process.env.SPACE_MARKET_CODE}` : "/"
+              output: useCountryCode ? `/${process.env.SPACE_MARKET_CODE}` : "/",
+              ignoreSitemapPathPrefix: true
             }
           }
         ]
       : []),
-    ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
+    ...(process.env.SPACE_MARKET_CODE && process.env.GATSBY_PREVIEW !== "true"
       ? [
           {
-            resolve: "gatsby-plugin-sitemap",
+            resolve: "@bmi/gatsby-plugin-sitemap",
             options: {
               output: useCountryCode
                 ? `/${process.env.SPACE_MARKET_CODE}/images`
