@@ -21,6 +21,7 @@ build_contentful_migrate:
     untracked: false
     paths:
       - applications/dxb/contentful-migrate/dist
+      - applications/dxb/libraries/microcopies/dist
       - applications/dxb/libraries/utils/dist
 
 test_contentful_migrate:
@@ -140,7 +141,7 @@ test_contentful_migrate:
       apt-get update && apt-get install -y jq
       export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
       export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
-      cd applications/dxb/contentful-migrate && yarn build && yarn dxb-update-mc:publish --isConsolidated=$IS_CONSOLIDATED
+      yarn workspace @bmi/contentful-migrate build && yarn workspace @bmi/contentful-migrate update-mc:publish --isConsolidated=$IS_CONSOLIDATED
 
 ##############################################################
 # Market specific migration, microcopy and deploy jobs start from here
@@ -164,7 +165,6 @@ update_mc_qa:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
-        - applications/dxb/head/src/constants/microCopies.ts
       variables:
         CONTENTFUL_ENVIRONMENT: staging
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
@@ -908,7 +908,6 @@ update_mc_poc:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
-        - applications/dxb/head/src/constants/microCopies.ts
       variables:
         CONTENTFUL_ENVIRONMENT: master
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA

@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 import { TableSize } from "@bmi-digital/components";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { microCopy } from "@bmi/microcopies";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
   generateFileNamebyTitle
 } from "../components/DocumentFileUtils";
 import { GetMicroCopy } from "../components/MicroCopy";
-import { microCopy } from "../constants/microCopies";
 import { Document } from "../types/Document";
 import { PseudoZipPIMDocument } from "../types/pim";
 import { downloadAs } from "./client-download";

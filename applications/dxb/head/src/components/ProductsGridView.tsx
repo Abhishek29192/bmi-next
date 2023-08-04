@@ -7,7 +7,7 @@ import {
 import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Link } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import DefaultImage from "../images/DefaultImage.svg";
 import { useSearchParams } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";

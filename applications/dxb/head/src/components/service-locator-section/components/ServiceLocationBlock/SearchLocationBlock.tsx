@@ -5,7 +5,7 @@ import {
   LatLngLiteral as GoogleLatLngLiteral
 } from "@bmi-digital/components";
 import React, { MouseEvent } from "react";
-import { microCopy } from "../../../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import AutoCompleteCountryMap from "../../../../countries/GoogleCountryCodeMap";
 import { useSiteContext } from "../../../Site";
 import { getFilterOptions } from "../../helpers";

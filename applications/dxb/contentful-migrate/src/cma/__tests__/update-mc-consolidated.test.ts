@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { microCopy } from "../../../../head/src/constants/microCopies.js";
+import { microCopy } from "@bmi/microcopies";
 import { BULK_SIZE, CHUNK_SIZE } from "../constants.js";
 import {
   getContentfulLocales,

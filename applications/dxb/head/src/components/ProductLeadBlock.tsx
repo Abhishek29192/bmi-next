@@ -15,7 +15,7 @@ import { Check as CheckIcon, Launch } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import Tab, { TabProps } from "@mui/material/Tab";
 import React, { useRef, useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { DocumentListProvider } from "../contexts/DocumentContext";
 import { Product } from "../types/pim";

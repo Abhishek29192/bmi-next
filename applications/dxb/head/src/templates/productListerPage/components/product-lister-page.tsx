@@ -22,6 +22,7 @@ import React, {
   useState,
   useCallback
 } from "react";
+import { microCopy } from "@bmi/microcopies";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import Breadcrumbs, {
   Data as BreadcrumbsData
@@ -38,7 +39,6 @@ import ResultsPagination from "../../../components/ResultsPagination";
 import RichText, { RichTextData } from "../../../components/RichText";
 import Scrim from "../../../components/Scrim";
 import { Data as SiteData } from "../../../components/Site";
-import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { ProductFilter } from "../../../types/pim";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";

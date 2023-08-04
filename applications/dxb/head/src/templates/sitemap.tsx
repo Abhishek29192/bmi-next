@@ -1,10 +1,10 @@
 import { graphql } from "gatsby";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import { generateGetMicroCopy } from "../components/MicroCopy";
 import Page from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import SitemapSection from "../components/SitemapSection";
-import { microCopy } from "../constants/microCopies";
 
 type Props = {
   data: {

@@ -10,7 +10,7 @@ import {
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { getCTA } from "./Link";
 import { useSiteContext } from "./Site";
 import type { Data as PromoData } from "../components/Promo";

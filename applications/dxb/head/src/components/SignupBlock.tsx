@@ -7,7 +7,7 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { isValidEmail } from "../utils/emailUtils";
 import withGTM from "../utils/google-tag-manager";
 import FormSection, { Data as FormData } from "./FormSection";

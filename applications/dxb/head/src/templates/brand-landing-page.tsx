@@ -8,6 +8,7 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import BackToResults from "../components/BackToResults";
 import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
@@ -22,7 +23,6 @@ import Page, { Data as PageData } from "../components/Page";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Context as SiteContext } from "../components/Site";
 import Video from "../components/Video";
-import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import withGTM from "../utils/google-tag-manager";

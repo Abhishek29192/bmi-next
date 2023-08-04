@@ -2,6 +2,7 @@ import { Container, Section } from "@bmi-digital/components";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
+import { microCopy } from "@bmi/microcopies";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ExploreBar from "../../components/ExploreBar";
@@ -15,7 +16,6 @@ import RelatedProducts from "../../components/RelatedProducts";
 import SampleOrderSection from "../../components/SampleOrderSection";
 import ShareWidgetSection from "../../components/ShareWidgetSection";
 import { Data as SiteData } from "../../components/Site";
-import { microCopy } from "../../constants/microCopies";
 import { Product } from "../../types/pim";
 import { transformMediaSrc } from "../../utils/media";
 import {

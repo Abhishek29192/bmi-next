@@ -9,7 +9,7 @@ import {
 } from "@bmi-digital/components";
 import React, { useContext } from "react";
 import { GoodBetterBest } from "@bmi/pim-types";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import DefaultImage from "../images/DefaultImage.svg";
 import withGTM from "../utils/google-tag-manager";

@@ -1,7 +1,7 @@
 import { Button, ButtonProps, Section } from "@bmi-digital/components";
 import { Add, Remove, ShoppingCart } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import {
   ACTION_TYPES,
   createSample,

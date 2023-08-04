@@ -1,7 +1,7 @@
 import { Grid } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import { useSiteContext } from "./Site";
 import { LocationsSection, LocationsButton } from "./styles/LocationsStyles";

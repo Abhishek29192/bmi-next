@@ -13,6 +13,7 @@ import {
 import { Check as CheckIcon, Launch } from "@mui/icons-material";
 import React from "react";
 import { Asset } from "@bmi/pim-types";
+import { microCopy } from "@bmi/microcopies";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import {
   getClickableActionFromUrl,
@@ -21,7 +22,6 @@ import {
 import RichText from "../../components/RichText";
 import { useSiteContext } from "../../components/Site";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
-import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
 import { classes, StyledLeadBlock } from "./styles/aboutLeadBlockStyles";

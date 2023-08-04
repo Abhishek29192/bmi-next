@@ -2,7 +2,7 @@ import { Button, ButtonProps, useIsClient } from "@bmi-digital/components";
 import { ArrowBack as ArrowBackIcon } from "@bmi-digital/components/icon";
 import { useMediaQuery, useTheme } from "@mui/material";
 import React, { FC, ReactElement } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { getBackToResultsPath, PATHNAME_KEY } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";

@@ -8,6 +8,9 @@
   },
   "references": [
     {
+      "path": "../libraries/microcopies"
+    },
+    {
       "path": "../libraries/utils"
     }
   ]

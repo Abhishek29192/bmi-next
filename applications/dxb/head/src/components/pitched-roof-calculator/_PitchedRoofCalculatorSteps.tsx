@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useConfig } from "../../contexts/ConfigProvider";
 import { devLog } from "../../utils/devLog";
 import { queryElasticSearch } from "../../utils/elasticSearch";

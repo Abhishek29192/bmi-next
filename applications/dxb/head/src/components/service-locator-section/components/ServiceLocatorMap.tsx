@@ -9,7 +9,7 @@ import {
 import { Close as CloseIcon } from "@mui/icons-material";
 import classnames from "classnames";
 import React, { useState } from "react";
-import { microCopy } from "../../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../../Site";
 import { calculateCentre } from "../helpers";
 import { Service } from "../index";

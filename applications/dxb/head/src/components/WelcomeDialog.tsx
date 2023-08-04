@@ -1,7 +1,7 @@
 import { Dialog } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import useStickyState from "../utils/sticky-state";
 import { Logo } from "./BrandLogo";
 import RichText, { RichTextData } from "./RichText";

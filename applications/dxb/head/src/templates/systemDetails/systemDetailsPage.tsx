@@ -7,6 +7,7 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import BrandLogo from "../../components/BrandLogo";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { generateGetMicroCopy } from "../../components/MicroCopy";
@@ -16,7 +17,6 @@ import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../components/ShareWidgetSection";
 import { Data as SiteData } from "../../components/Site";
-import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
 import { transformMediaSrc } from "../../utils/media";

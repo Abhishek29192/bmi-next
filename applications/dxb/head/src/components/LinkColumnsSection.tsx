@@ -11,7 +11,7 @@ import {
 import { Add as AddIcon, Remove as RemoveIcon } from "@mui/icons-material";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import withGTM from "../utils/google-tag-manager";
 import {
   Data as LinkData,

@@ -5,7 +5,7 @@ import {
   WithFormControlProps
 } from "@bmi-digital/components";
 import React, { useContext, useMemo } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../Site";
 import roofs from "./calculation/roofs";
 import { useAnalyticsContext } from "./helpers/analytics";

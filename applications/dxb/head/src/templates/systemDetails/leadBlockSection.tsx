@@ -12,10 +12,10 @@ import { Check as CheckIcon } from "@mui/icons-material";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
 import { GoodBetterBest } from "@bmi/pim-types";
+import { microCopy } from "@bmi/microcopies";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import Link, { Data as LinkData } from "../../components/Link";
 import { useSiteContext } from "../../components/Site";
-import { microCopy } from "../../constants/microCopies";
 import {
   SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
   SYSTEM_CONFIG_QUERY_KEY_REFERER,

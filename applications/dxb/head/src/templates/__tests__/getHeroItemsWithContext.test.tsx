@@ -1,11 +1,11 @@
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import Image from "../../components/Image";
 import { DataTypeEnum, Data as LinkData } from "../../components/Link";
 import { Data as SlideData } from "../../components/Promo";
 import { Context as SiteContext } from "../../components/Site";
 import Video, { ContentfulVideoData } from "../../components/Video";
-import { microCopy } from "../../constants/microCopies";
 import { getHeroItemsWithContext } from "../helpers/getHeroItemsWithContext";
 import { getMockSiteContext } from "../../components/__tests__/utils/SiteContextProvider";
 import type { Data as PageInfoData } from "../../components/PageInfo";

@@ -2,7 +2,7 @@
 import React from "react";
 import { GoodBetterBest } from "@bmi/pim-types";
 import classnames from "classnames";
-import { microCopy, MicroCopyValues } from "../constants/microCopies";
+import { microCopy, MicroCopyValues } from "@bmi/microcopies";
 import { GoodBetterBestIcons } from "../types/GoodBetterBest";
 import {
   IndicatorWrapper,

@@ -1,7 +1,7 @@
 import { Filter, Grid } from "@bmi-digital/components";
 import React, { useEffect, useRef, useState } from "react";
+import { microCopy } from "@bmi/microcopies";
 import FiltersSidebar from "../components/FiltersSidebar";
-import { microCopy } from "../constants/microCopies";
 import { devLog } from "../utils/devLog";
 import {
   Aggregations,

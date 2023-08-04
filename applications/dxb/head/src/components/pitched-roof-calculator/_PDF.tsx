@@ -11,7 +11,7 @@ import {
 } from "@bmi-digital/react-pdf-maker";
 import React from "react";
 import { isElement } from "react-is";
-import { microCopy, MicroCopyValues } from "../../constants/microCopies";
+import { microCopy, MicroCopyValues } from "@bmi/microcopies";
 import EffraBold from "./fonts/Effra_Bd.ttf";
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";

@@ -9,7 +9,7 @@ import {
 } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import React from "react";
-import { microCopy } from "../../../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../../../Site";
 import { getResultDataGtm } from "../../helpers";
 import { Service } from "../../index";

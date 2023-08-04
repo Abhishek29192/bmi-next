@@ -1,6 +1,6 @@
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../../../components/Site";
-import { microCopy } from "../../../constants/microCopies";
 import { AssetType } from "../types";
 import DocumentResults, { DocumentResultData, Format } from "./DocumentResults";
 

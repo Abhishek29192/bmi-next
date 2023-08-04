@@ -10,7 +10,7 @@ import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
 import Image from "../Image";

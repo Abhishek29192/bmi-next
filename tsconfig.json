@@ -120,6 +120,9 @@
       "path": "applications/dxb/libraries/gatsby-source-firestore"
     },
     {
+      "path": "applications/dxb/libraries/microcopies"
+    },
+    {
       "path": "applications/dxb/libraries/pim-api"
     },
     {
