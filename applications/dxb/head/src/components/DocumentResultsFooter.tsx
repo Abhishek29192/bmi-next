@@ -306,7 +306,10 @@ const DocumentsFooterContent = () => {
   const { showMobileTable } = useShowMobileTable();
   const maxSizeExceeded = remainingSize < 0;
 
-  const { selectedAllState, setSelectAllState } = useContext(DocumentContext);
+  const {
+    selectedAllState: { nonLinkedDocumentsCount, isSelectedAll },
+    setSelectAllState
+  } = useContext(DocumentContext);
   const { resetList } = useContext(DownloadListContext);
 
   useEffect(() => {
@@ -322,7 +325,7 @@ const DocumentsFooterContent = () => {
   const handleSelectAllToggle = () => {
     setSelectAllState((prevState) => ({
       ...prevState,
-      isSelectedAll: !selectedAllState.isSelectedAll
+      isSelectedAll: !prevState.isSelectedAll
     }));
   };
 
@@ -337,6 +340,8 @@ const DocumentsFooterContent = () => {
           <SelectAllCheckboxLabel
             variant="text"
             onClick={handleSelectAllToggle}
+            disabled={nonLinkedDocumentsCount === 0}
+            data-testid={`document-table-select-all-footer-button`}
           >
             {getMicroCopy(microCopy.DOWNLOAD_LIST_SELECTALL)}
           </SelectAllCheckboxLabel>
@@ -346,9 +351,10 @@ const DocumentsFooterContent = () => {
             aria-label={getMicroCopy(
               microCopy.DOWNLOAD_LIST_SELECTALL_CHECKBOX
             )}
-            value={selectedAllState.isSelectedAll}
-            checked={selectedAllState.isSelectedAll}
+            value={isSelectedAll}
+            checked={isSelectedAll}
             onChange={handleSelectAllToggle}
+            disabled={nonLinkedDocumentsCount === 0}
           />
         </SelectAllCheckboxWrapper>
         {children}
