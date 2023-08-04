@@ -5,6 +5,7 @@ import { getPathWithCountryCode } from "../utils/path";
 
 // TODO: need to extract getting the combined categories
 export const createSchemaOrgDataForPdpPage = (
+  siteUrl,
   variant?: Product,
   countryCode?: string
 ): ProductSchema => ({
@@ -33,7 +34,7 @@ export const createSchemaOrgDataForPdpPage = (
   model: variant?.name,
   name: variant?.name,
   description: variant?.description,
-  url: getPathWithCountryCode(countryCode, variant?.path)
+  url: `${siteUrl}${getPathWithCountryCode(countryCode, variant?.path)}`
 });
 
 // TODO: What is the desired category here?

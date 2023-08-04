@@ -2,8 +2,10 @@ import { BMI as BmiIcon } from "@bmi-digital/components/logo";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { getPathWithCountryCode } from "../utils/path";
+import { getLogo } from "../components/BrandLogo";
 
 export const createSchemaOrgForHomeAndBrandPage = (
+  siteUrl,
   pageType: string,
   countryCode: string,
   path: string,
@@ -17,14 +19,21 @@ export const createSchemaOrgForHomeAndBrandPage = (
       ? createSchemaOrgForHomePage(countryCode)
       : createSchemaOrgForBrandPage(brandLogo, title);
   const sameAsField =
-    !!sameAs && sameAs.includes(",") ? sameAs.split(",") : sameAs;
+    !!sameAs && sameAs.includes(",")
+      ? sameAs
+          .split(",")
+          .filter(() => Boolean)
+          .map((item) => item.trim())
+      : (sameAs || "").trim();
   const pathWithCountryCode = getPathWithCountryCode(countryCode, path);
   return Object.assign(
     {},
     { "@type": "organization" },
     description && { description },
     countryCode && { inLanguage: countryCode },
-    pathWithCountryCode && { url: pathWithCountryCode },
+    pathWithCountryCode && {
+      url: `${siteUrl}${pathWithCountryCode}`
+    },
     sameAs && { sameAs: sameAsField },
     { ...diffProp }
   );
@@ -49,5 +58,14 @@ export const createSchemaOrgForHomePage = (
 export const createSchemaOrgForBrandPage = (
   brand?: string,
   title?: string
-): Pick<HomeAndBrandPageSchemaOrg, "name" | "logo"> =>
-  Object.assign({}, brand && { logo: brand }, title && { name: title });
+): Pick<HomeAndBrandPageSchemaOrg, "name" | "logo"> => {
+  const BrandLogo = getLogo(brand);
+  return Object.assign(
+    {},
+    brand &&
+      BrandLogo && {
+        logo: renderToString(<BrandLogo />)
+      },
+    title && { name: title }
+  );
+};
