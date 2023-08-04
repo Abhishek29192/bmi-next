@@ -2,7 +2,7 @@ import { HubspotProvider } from "@aaronhayes/react-use-hubspot-form";
 import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { ConfigProvider } from "./src/contexts/ConfigProvider";
-import { modifyTheme } from "./gatsby-ssr";
+import { modifyTheme } from "./src/styles/modifyTheme";
 import type { GatsbyBrowser } from "gatsby";
 import "./src/styles/global.css";
 
