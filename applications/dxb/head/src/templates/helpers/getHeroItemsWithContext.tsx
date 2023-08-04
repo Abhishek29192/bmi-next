@@ -1,10 +1,10 @@
 import { Button, CarouselHeroItem } from "@bmi-digital/components";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import Image from "../../components/Image";
 import Link from "../../components/Link";
 import { Context as SiteContext } from "../../components/Site";
 import Video from "../../components/Video";
-import { microCopy } from "../../constants/microCopies";
 import type { HomepageData } from "../home-page";
 
 export const getHeroItemsWithContext = (

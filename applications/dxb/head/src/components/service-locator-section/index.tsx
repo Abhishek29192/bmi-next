@@ -11,7 +11,7 @@ import {
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
 import { Data as ContentfulImageData } from "../Image";
 import RichText, { RichTextData } from "../RichText";

@@ -54,7 +54,7 @@ const queries = [
             // Ignore contentfulSite as it's global data
             // eslint-disable-next-line no-unused-vars
             const { contentfulSite, ...pageData } =
-              (dataJSON && dataJSON.result && dataJSON.result.data) || {};
+            (dataJSON && dataJSON.result && dataJSON.result.data) || {};
 
             // Get something that might be the page data.
             // Also acts to specify what pages are handled
@@ -115,16 +115,16 @@ const elasticSearchPlugin =
   process.env.GATSBY_DISABLE_SEARCH === "true"
     ? []
     : [
-        {
-          resolve: `@bmi/gatsby-plugin-elasticsearch`,
-          options: {
-            node: process.env.GATSBY_ES_ENDPOINT,
-            apiKey: process.env.ES_ADMIN_APIKEY,
-            queries,
-            chunkSize: process.env.ES_INDEXING_CHUNK_SIZE || 100
-          }
+      {
+        resolve: `@bmi/gatsby-plugin-elasticsearch`,
+        options: {
+          node: process.env.GATSBY_ES_ENDPOINT,
+          apiKey: process.env.ES_ADMIN_APIKEY,
+          queries,
+          chunkSize: process.env.ES_INDEXING_CHUNK_SIZE || 100
         }
-      ];
+      }
+    ];
 
 const ids = [
   process.env.GOOGLE_TAGMANAGER_ID,
@@ -134,16 +134,16 @@ const ids = [
 const googleTagManagerPlugin =
   !process.env.GATSBY_PREVIEW && ids.length
     ? ids.map((id) => ({
-        resolve: "gatsby-plugin-google-tagmanager",
-        options: {
-          id,
-          includeInDevelopment: true,
-          defaultDataLayer: {
-            platform: "gatsby",
-            env: process.env.NODE_ENV
-          }
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id,
+        includeInDevelopment: true,
+        defaultDataLayer: {
+          platform: "gatsby",
+          env: process.env.NODE_ENV
         }
-      }))
+      }
+    }))
     : [];
 
 /**
@@ -341,49 +341,49 @@ const config = {
     process.env.GATSBY_IS_SPA_ENABLED === "true"
       ? []
       : [
-          {
-            resolve: "@bmi/gatsby-source-firestore",
-            options: {
-              credential: {
-                type: "service_account",
-                project_id: process.env.GCP_PROJECT_ID,
-                private_key_id: process.env.FIRESTORE_PRIVATE_KEY_ID,
-                private_key: (process.env.FIRESTORE_PRIVATE_KEY || "").replace(
-                  /\\n/gm,
-                  "\n"
-                ),
-                client_email: process.env.FIRESTORE_CLIENT_EMAIL,
-                client_id: process.env.FIRESTORE_CLIENT_ID,
-                auth_uri: process.env.FIRESTORE_AUTH_URI,
-                token_uri: process.env.FIRESTORE_TOKEN_URI,
-                auth_provider_x509_cert_url:
-                  process.env.FIRESTORE_AUTH_PROVIDER_X509_CERT_URL,
-                client_x509_cert_url: process.env.FIRESTORE_CLIENT_X509_CERT_URL
+        {
+          resolve: "@bmi/gatsby-source-firestore",
+          options: {
+            credential: {
+              type: "service_account",
+              project_id: process.env.GCP_PROJECT_ID,
+              private_key_id: process.env.FIRESTORE_PRIVATE_KEY_ID,
+              private_key: (process.env.FIRESTORE_PRIVATE_KEY || "").replace(
+                /\\n/gm,
+                "\n"
+              ),
+              client_email: process.env.FIRESTORE_CLIENT_EMAIL,
+              client_id: process.env.FIRESTORE_CLIENT_ID,
+              auth_uri: process.env.FIRESTORE_AUTH_URI,
+              token_uri: process.env.FIRESTORE_TOKEN_URI,
+              auth_provider_x509_cert_url:
+              process.env.FIRESTORE_AUTH_PROVIDER_X509_CERT_URL,
+              client_x509_cert_url: process.env.FIRESTORE_CLIENT_X509_CERT_URL
+            },
+            // TODO: Can we type these better?
+            types: [
+              {
+                type: "Product",
+                collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/products`,
+                map: (doc) => ({
+                  // TODO: More explicit data mapping? Any data mapping at all? This is a big complex document.
+                  // Certain things (the arrays) should be split into collections?
+                  ...doc
+                })
               },
-              // TODO: Can we type these better?
-              types: [
-                {
-                  type: "Product",
-                  collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/products`,
-                  map: (doc) => ({
-                    // TODO: More explicit data mapping? Any data mapping at all? This is a big complex document.
-                    // Certain things (the arrays) should be split into collections?
+              {
+                type: "System",
+                collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
+                map: (doc) => {
+                  return {
                     ...doc
-                  })
-                },
-                {
-                  type: "System",
-                  collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
-                  map: (doc) => {
-                    return {
-                      ...doc
-                    };
-                  }
+                  };
                 }
-              ]
-            }
+              }
+            ]
           }
-        ]),
+        }
+      ]),
     ...elasticSearchPlugin,
     `gatsby-plugin-image`,
     // `gatsby-plugin-offline`,
@@ -396,24 +396,25 @@ const config = {
     },
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
       ? [
-          {
-            resolve: "gatsby-plugin-sitemap",
-            options: {
-              output: useCountryCode ? `/${process.env.SPACE_MARKET_CODE}` : "/"
-            }
+        {
+          resolve: "gatsby-plugin-sitemap",
+          options: {
+            output: useCountryCode ? `/${process.env.SPACE_MARKET_CODE}` : "/",
+            ignoreSitemapPathPrefix: true
           }
-        ]
+        }
+      ]
       : []),
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
       ? [
-          {
-            resolve: "gatsby-plugin-sitemap",
-            options: {
-              output: useCountryCode
-                ? `/${process.env.SPACE_MARKET_CODE}/images`
-                : `/images`,
-              entryLimit: 50000,
-              query: `
+        {
+          resolve: "gatsby-plugin-sitemap",
+          options: {
+            output: useCountryCode
+              ? `/${process.env.SPACE_MARKET_CODE}/images`
+              : `/images`,
+            entryLimit: 50000,
+            query: `
                 {
                   site {
                     siteMetadata {
@@ -433,36 +434,37 @@ const config = {
                     }
                   }
                 }`,
-              resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
-              serialize: ({ allContentfulAsset }) => {
-                if (!allContentfulAsset) {
-                  return [];
-                }
-                return allContentfulAsset.nodes.map((node) => ({
-                  url:
-                    node && node.file && node.file.url
-                      ? `https:${node.file.url}`
-                      : "",
-                  changefreq: "daily",
-                  priority: 0.7
-                }));
+            resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+            serialize: ({ allContentfulAsset }) => {
+              if (!allContentfulAsset) {
+                return [];
               }
-            }
+              return allContentfulAsset.nodes.map((node) => ({
+                url:
+                  node && node.file && node.file.url
+                    ? `https:${node.file.url}`
+                    : "",
+                changefreq: "daily",
+                priority: 0.7
+              }));
+            },
+            ignoreSitemapPathPrefix: true
           }
-        ]
+        }
+      ]
       : []),
     ...googleTagManagerPlugin,
     ...(process.env.GATSBY_HUBSPOT_ID && !process.env.GATSBY_PREVIEW
       ? [
-          {
-            resolve: "gatsby-plugin-hubspot",
-            options: {
-              trackingCode: process.env.GATSBY_HUBSPOT_ID,
-              respectDNT: true,
-              productionOnly: false
-            }
+        {
+          resolve: "gatsby-plugin-hubspot",
+          options: {
+            trackingCode: process.env.GATSBY_HUBSPOT_ID,
+            respectDNT: true,
+            productionOnly: false
           }
-        ]
+        }
+      ]
       : []),
     // TODO: This uses dependencies that aren't declared by it, so Yarn isn't happy
     // ...(process.env.HUBSPOT_API_KEY
@@ -477,14 +479,14 @@ const config = {
     //   : []),
     ...(process.env.GATSBY_LEADOO_ID && !process.env.GATSBY_PREVIEW
       ? [
-          {
-            resolve: "@bmi/gatsby-plugin-leadoo",
-            options: {
-              companyCode: process.env.GATSBY_LEADOO_ID,
-              productionOnly: false
-            }
+        {
+          resolve: "@bmi/gatsby-plugin-leadoo",
+          options: {
+            companyCode: process.env.GATSBY_LEADOO_ID,
+            productionOnly: false
           }
-        ]
+        }
+      ]
       : []),
     {
       resolve: `gatsby-plugin-gatsby-cloud`,
@@ -515,27 +517,27 @@ const config = {
       : []),
     ...(process.env.PERFORMANCE_ANALYTICS === "true"
       ? [
-          {
-            resolve: "gatsby-build-newrelic",
-            options: {
-              NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY,
-              NR_ACCOUNT_ID: process.env.NEW_RELIC_ACCOUNT_ID,
-              SITE_NAME: process.env.NEW_RELIC_SITE_NAME,
-              collectTraces: true,
-              collectLogs: true,
-              collectMetrics: true,
-              customTags: {}
-            }
+        {
+          resolve: "gatsby-build-newrelic",
+          options: {
+            NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY,
+            NR_ACCOUNT_ID: process.env.NEW_RELIC_ACCOUNT_ID,
+            SITE_NAME: process.env.NEW_RELIC_SITE_NAME,
+            collectTraces: true,
+            collectLogs: true,
+            collectMetrics: true,
+            customTags: {}
           }
-        ]
+        }
+      ]
       : []),
     // Avoid extra memory consumption as these shouldn't be needed on prod
     ...(process.env.NODE_ENV === "production"
       ? [
-          {
-            resolve: "gatsby-plugin-no-sourcemaps"
-          }
-        ]
+        {
+          resolve: "gatsby-plugin-no-sourcemaps"
+        }
+      ]
       : [])
   ],
   flags: {

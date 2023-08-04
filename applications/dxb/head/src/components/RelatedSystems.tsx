@@ -13,7 +13,7 @@ import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { Add as AddIcon } from "@mui/icons-material";
 import { graphql, Link } from "gatsby";
 import React, { useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { RelatedSystem } from "../types/pim";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";

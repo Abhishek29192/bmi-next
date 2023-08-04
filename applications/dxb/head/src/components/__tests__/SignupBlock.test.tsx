@@ -2,7 +2,7 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import SignupBlock, { Data } from "../SignupBlock";
 import { SourceType } from "../types/FormSectionTypes";
 

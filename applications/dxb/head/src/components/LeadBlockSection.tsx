@@ -9,7 +9,7 @@ import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";

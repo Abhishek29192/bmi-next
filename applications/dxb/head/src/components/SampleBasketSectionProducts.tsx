@@ -9,7 +9,7 @@ import { Remove } from "@mui/icons-material";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { navigate } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import {
   ACTION_TYPES,
   Sample,

@@ -1,6 +1,6 @@
 import { Typography } from "@bmi-digital/components";
 import React from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../Site";
 import { useAnalyticsContext } from "./helpers/analytics";
 import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";

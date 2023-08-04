@@ -1,8 +1,8 @@
 import { RegionCode, ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
-import { microCopy } from "../../constants/microCopies";
 import BasketContext from "../../contexts/SampleBasketContext";
 import Header from "../Header";
 import { DataTypeEnum, Data as LinkData, NavigationData } from "../Link";

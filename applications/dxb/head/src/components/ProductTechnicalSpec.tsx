@@ -1,6 +1,6 @@
 import { Accordion, Table, Typography } from "@bmi-digital/components";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { Product } from "../types/pim";
 import ProductFeaturesTable from "./ProductFeaturesTable";
 import { useSiteContext } from "./Site";

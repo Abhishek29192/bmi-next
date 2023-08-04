@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useState
 } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { devLog } from "../../utils/devLog";
 import { useIsMobileDevice } from "../../utils/useIsMobileDevice";
 import ProgressIndicator from "../ProgressIndicator";

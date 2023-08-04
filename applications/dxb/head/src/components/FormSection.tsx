@@ -33,8 +33,8 @@ import React, {
 } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
+import { microCopy } from "@bmi/microcopies";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
-import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { isValidEmail } from "../utils/emailUtils";
 import getCookie from "../utils/getCookie";

@@ -1,6 +1,7 @@
 import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import {
   createImageAsset,
   createLinkAsset
@@ -8,7 +9,6 @@ import {
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
-import { microCopy } from "../../constants/microCopies";
 import ProductLeadBlock from "../ProductLeadBlock";
 
 beforeEach(() => {

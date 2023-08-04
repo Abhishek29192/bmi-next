@@ -8,7 +8,7 @@ import {
 } from "@bmi-digital/components";
 import React, { useContext, useEffect, useState } from "react";
 import { Box } from "@mui/material";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../Site";
 import protrusionTypes from "./calculation/protrusions";
 import { AnalyticsContext } from "./helpers/analytics";

@@ -10,7 +10,7 @@ import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy, MicroCopyValues } from "../constants/microCopies";
+import { microCopy, MicroCopyValues } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import Image from "./Image";
 import Link, { getCTA } from "./Link";

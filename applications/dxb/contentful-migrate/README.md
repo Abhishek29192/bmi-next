@@ -94,3 +94,11 @@ path: `{PROJECT_RELATIVE_PATH}/roles.json`.
 
 [This documentation](https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles)
 shows some of the accepted key value pairs for roles & permissions.
+
+## Debug errors
+
+Until [the error handling bug](https://github.com/contentful/contentful-migration/issues/1233) is fixed by Contentful, if there are errors on GitLab CI, it's best to clone the environment and then run the migration scripts against the cloned environment locally, this way the bug can be "fixed" in the `node_modules` folder.
+
+1. Navigate to [steps-errors.js](/node_modules/contentful-migration/built/bin/lib/steps-errors.js)
+2. Alter `const fileContents = fs.readFileSync(file, 'utf-8');` to be `const fileContents = fs.readFileSync(file.replace("file:\/\/", ""), 'utf-8');`
+3. Run migration scripts

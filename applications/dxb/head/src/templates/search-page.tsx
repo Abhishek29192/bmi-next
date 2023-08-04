@@ -15,6 +15,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 import { useTheme } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useState } from "react";
+import { microCopy } from "@bmi/microcopies";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
@@ -33,7 +34,6 @@ import SearchTabPanelProducts, {
   getCount as getProductsCount
 } from "../components/SearchTabProducts";
 import { Data as SiteData } from "../components/Site";
-import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { getSearchTabUrl, setSearchTabUrl } from "../utils/filters";
 

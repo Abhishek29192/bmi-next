@@ -10,12 +10,12 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { filesize } from "filesize";
 import React, { useContext } from "react";
+import { microCopy } from "@bmi/microcopies";
 import {
   CopyToClipboard,
   DownloadDocumentButton
 } from "../../../components/DocumentSimpleTableResultCommon";
 import { useSiteContext } from "../../../components/Site";
-import { microCopy } from "../../../constants/microCopies";
 import {
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,

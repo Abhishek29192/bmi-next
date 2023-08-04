@@ -2,7 +2,7 @@ import { DownloadList, DownloadListContextType } from "@bmi-digital/components";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import React, { forwardRef } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
 import {
   getFileSizeByDocumentType,

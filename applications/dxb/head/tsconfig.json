@@ -20,6 +20,9 @@
       "path": "../libraries/gatsby-source-firestore"
     },
     {
+      "path": "../libraries/microcopies"
+    },
+    {
       "path": "../libraries/utils"
     },
     {

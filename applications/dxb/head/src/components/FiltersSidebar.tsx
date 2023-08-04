@@ -12,7 +12,7 @@ import React, { useMemo, useState } from "react";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { Filter } from "@bmi-digital/components/icon";
 import { Filter as FilterType } from "@bmi-digital/components/dist/filters/Filters";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import withGTM from "../utils/google-tag-manager";
 import MobileFilters from "../templates/documentLibrary/components/MobileFilterSection";
 import { useSiteContext } from "./Site";

@@ -1,7 +1,7 @@
 // TODO: Find another place for this file.
 import { isDefined } from "@bmi/utils";
+import { microCopy } from "@bmi/microcopies";
 import type { Product } from "@bmi/firestore-types";
-import { microCopy } from "../../../constants/microCopies";
 import { getPlpFilters } from "./filters";
 import type { ProductFilter } from "../../../types/pim";
 import type {
