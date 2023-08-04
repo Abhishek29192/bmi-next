@@ -4,12 +4,8 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { migrateDown } from "@bmi-digital/contentful-migration";
 import "dotenv/config";
 
-const {
-  CONTENTFUL_ENVIRONMENT,
-  MANAGEMENT_ACCESS_TOKEN,
-  MIGRATION_DRY_RUN,
-  SPACE_ID
-} = process.env;
+const { CONTENTFUL_ENVIRONMENT, MANAGEMENT_ACCESS_TOKEN, SPACE_ID } =
+  process.env;
 
 export const main = async (script?: string) => {
   if (!SPACE_ID || !CONTENTFUL_ENVIRONMENT || !MANAGEMENT_ACCESS_TOKEN) {
@@ -24,12 +20,10 @@ export const main = async (script?: string) => {
 
   return await migrateDown(
     script,
-    "scripts",
     path.dirname(fileURLToPath(import.meta.url)),
     SPACE_ID,
     CONTENTFUL_ENVIRONMENT,
-    MANAGEMENT_ACCESS_TOKEN,
-    MIGRATION_DRY_RUN === "true"
+    MANAGEMENT_ACCESS_TOKEN
   );
 };
 

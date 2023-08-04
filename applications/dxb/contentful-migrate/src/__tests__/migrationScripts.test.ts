@@ -4,34 +4,30 @@ import { jest } from "@jest/globals";
 import type { migrateUp } from "@bmi-digital/contentful-migration";
 
 const mockMigrateUp = jest.fn<typeof migrateUp>();
-jest.mock("@bmi-digital/contentful-migration", () => ({
+jest.unstable_mockModule("@bmi-digital/contentful-migration", () => ({
   migrateUp: (
     projectPath: string,
     spaceId: string,
     contentfulEnvironment: string,
-    managementAccessToken: string,
-    dryRun?: boolean
+    managementAccessToken: string
   ) =>
     mockMigrateUp(
       projectPath,
       spaceId,
       contentfulEnvironment,
-      managementAccessToken,
-      dryRun
+      managementAccessToken
     )
 }));
 
 const runMigrationScripts = async (
   spaceId: string,
   contentfulAlias: string,
-  managementAccessToken: string,
-  isDryRun: boolean
+  managementAccessToken: string
 ) =>
   (await import("../migrationScripts.js")).runMigrationScripts(
     spaceId,
     contentfulAlias,
-    managementAccessToken,
-    isDryRun
+    managementAccessToken
   );
 
 beforeEach(() => {
@@ -41,47 +37,34 @@ beforeEach(() => {
 
 describe("runMigrationScripts", () => {
   it("should return if migrateUp returns a status of 0", async () => {
-    mockMigrateUp.mockResolvedValueOnce(0);
+    mockMigrateUp.mockResolvedValueOnce();
 
     await runMigrationScripts(
       "spaceId",
       "contentfulAlias",
-      "managementAccessToken",
-      false
+      "managementAccessToken"
     );
 
     expect(mockMigrateUp).toHaveBeenCalledWith(
       path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       "spaceId",
       "contentfulAlias",
-      "managementAccessToken",
-      false
+      "managementAccessToken"
     );
   });
 
   it("should throw error when migrateUp does not return a status of 0", async () => {
-    mockMigrateUp.mockResolvedValueOnce(1);
+    mockMigrateUp.mockRejectedValueOnce(new Error("Expected Error"));
 
-    try {
-      await runMigrationScripts(
-        "spaceId",
-        "contentfulAlias",
-        "managementAccessToken",
-        false
-      );
-      expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
-      expect((error as Error).message).toEqual(
-        "Migration failed on contentful environment contentfulAlias, please check the error log above."
-      );
-    }
+    await expect(
+      runMigrationScripts("spaceId", "contentfulAlias", "managementAccessToken")
+    ).rejects.toThrowError("Expected Error");
 
     expect(mockMigrateUp).toHaveBeenCalledWith(
       path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       "spaceId",
       "contentfulAlias",
-      "managementAccessToken",
-      false
+      "managementAccessToken"
     );
   });
 });

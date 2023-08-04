@@ -6,24 +6,20 @@ import type { migrateDown } from "@bmi-digital/contentful-migration";
 jest.unstable_mockModule("dotenv/config", () => ({ config: jest.fn() }));
 
 const mockMigrateDown = jest.fn<typeof migrateDown>();
-jest.mock("@bmi-digital/contentful-migration", () => ({
+jest.unstable_mockModule("@bmi-digital/contentful-migration", () => ({
   migrateDown: (
     script: string,
-    contentType: string,
     projectPath: string,
     spaceId: string,
     contentfulEnvironment: string,
-    managementAccessToken: string,
-    dryRun?: boolean
+    managementAccessToken: string
   ) =>
     mockMigrateDown(
       script,
-      contentType,
       projectPath,
       spaceId,
       contentfulEnvironment,
-      managementAccessToken,
-      dryRun
+      managementAccessToken
     )
 }));
 
@@ -99,12 +95,10 @@ describe("main", () => {
 
     expect(mockMigrateDown).toHaveBeenCalledWith(
       "some-script.js",
-      "scripts",
       path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
   });
 
@@ -113,60 +107,10 @@ describe("main", () => {
 
     expect(mockMigrateDown).toHaveBeenCalledWith(
       "some-script.js",
-      "scripts",
       path.dirname(path.dirname(fileURLToPath(import.meta.url))),
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
-    );
-  });
-
-  it("should pass dry run as false if MIGRATION_DRY_RUN is not set", async () => {
-    delete process.env.MIGRATION_DRY_RUN;
-
-    await main("some-script.js");
-
-    expect(mockMigrateDown).toHaveBeenCalledWith(
-      "some-script.js",
-      "scripts",
-      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
-      process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
-    );
-  });
-
-  it("should pass dry run as false if MIGRATION_DRY_RUN is set to false", async () => {
-    process.env.MIGRATION_DRY_RUN = "false";
-
-    await main("some-script.js");
-
-    expect(mockMigrateDown).toHaveBeenCalledWith(
-      "some-script.js",
-      "scripts",
-      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
-      process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
-    );
-  });
-
-  it("should pass dry run as true if MIGRATION_DRY_RUN is set to true", async () => {
-    process.env.MIGRATION_DRY_RUN = "true";
-
-    await main("some-script.js");
-
-    expect(mockMigrateDown).toHaveBeenCalledWith(
-      "some-script.js",
-      "scripts",
-      path.dirname(path.dirname(fileURLToPath(import.meta.url))),
-      process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      true
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
   });
 });

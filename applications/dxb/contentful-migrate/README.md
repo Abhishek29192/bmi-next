@@ -20,10 +20,12 @@ Copy the `.env.example` file to `.env` and enter the appropriate values.
 As our scripts are written in TypeScript, they need to be built before they can be run.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate build
+yarn workspace @bmi/contentful-migrate build
 ```
 
 ## Initialise environment
+
+<!-- TODO: Update this with the correct information -->
 
 The `init` command creates the content type `Migration` in your Contentful space. This will be used to keep track of the
 current state of each managed content type.
@@ -31,13 +33,13 @@ current state of each managed content type.
 _N.B. This is only needed for empty spaces, not for spaces that have already been initialized._
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate run ctf-migrate init
+yarn workspace @bmi/contentful-migrate migrate-init
 ```
 
-## Create migration script template
+## Create migration script
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate migrateCreate <migration-file-name-without-timestamp>
+yarn workspace @bmi/contentful-migrate migrate-create <migration-file-name-without-timestamp-or-extension>
 ```
 
 ## Run migration scripts
@@ -49,7 +51,7 @@ deleted and all major version named environments that are greater than the previ
 alias pointing to it.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate prod
+yarn workspace @bmi/contentful-migrate start
 ```
 
 ## Run migration scripts in debug mode
@@ -57,7 +59,7 @@ yarn workspace @bmi/dxb-contentful-migrate prod
 This is the same as `prod` but with the `--inspect` flag set.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate debug
+yarn workspace @bmi/contentful-migrate debug
 ```
 
 ## Migrate up
@@ -65,7 +67,7 @@ yarn workspace @bmi/dxb-contentful-migrate debug
 This simply runs the up functions for the migration scripts.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate up
+yarn workspace @bmi/contentful-migrate migrate-up
 ```
 
 ## Migrate down
@@ -73,7 +75,7 @@ yarn workspace @bmi/dxb-contentful-migrate up
 This simply runs the down functions for the migration scripts.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate down <filename-to-run-down-to>
+yarn workspace @bmi/contentful-migrate migrate-down <filename-to-run-down-to>
 ```
 
 ## Create roles

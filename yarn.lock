@@ -1893,14 +1893,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bmi-digital/contentful-migration@npm:^1.3.1":
-  version: 1.3.1
-  resolution: "@bmi-digital/contentful-migration@npm:1.3.1"
+"@bmi-digital/contentful-migration@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@bmi-digital/contentful-migration@npm:1.4.0"
   dependencies:
-    "@contentful/rich-text-from-markdown": ^15.16.5
-    contentful-management: ^10.34.1
-    contentful-migrate: ^0.17.0
-  checksum: fea0896bbe397be43145729970fde51670d915b50bf09fd99351958bd36b277e244d5786dd0dceb17310d3c855b0528a286523afd13e1215b518a429d2b3a899
+    "@contentful/rich-text-from-markdown": ^15.16.6
+    chalk: ^5.3.0
+    contentful-management: ^10.39.2
+    contentful-migration: ^4.14.1
+    dateformat: ^5.0.3
+    migrate: ^2.0.0
+    ora: ^6.3.1
+    rimraf: ^5.0.1
+  checksum: 94f84369c5a4d92d2cce058e205623f0504d350490378cb8d70041fe4de23c8c28cedde43135b1c0ef6b916c52ae239d8080b470c0c0878e3147089f63313538
   languageName: node
   linkType: hard
 
@@ -1996,7 +2001,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^8.8.0
@@ -2022,7 +2027,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     dotenv: ^16.0.3
     env-cmd: ^10.1.0
     eslint: ^8.40.0
@@ -2054,7 +2059,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
@@ -2088,6 +2093,41 @@ __metadata:
     node-graphviz: ^0.1.1
   bin:
     contentful-graph: ./index.js
+  languageName: unknown
+  linkType: soft
+
+"@bmi/contentful-migrate@workspace:applications/dxb/contentful-migrate":
+  version: 0.0.0-use.local
+  resolution: "@bmi/contentful-migrate@workspace:applications/dxb/contentful-migrate"
+  dependencies:
+    "@bmi-digital/contentful-migration": ^1.4.0
+    "@bmi/utils": "workspace:*"
+    "@types/lodash-es": ^4.17.7
+    "@typescript-eslint/eslint-plugin": ^5.59.5
+    "@typescript-eslint/parser": ^5.59.5
+    contentful-management: ^10.39.2
+    copyfiles: ^2.4.1
+    dotenv: ^16.0.3
+    eslint: ^8.40.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-prettier: ^8.8.0
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-jest: ^27.2.1
+    eslint-plugin-jsx-a11y: ^6.7.1
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-react: ^7.32.2
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-security: ^1.7.1
+    eslint-plugin-you-dont-need-lodash-underscore: ^6.12.0
+    jest: ^29.5.0
+    jest-junit: ^16.0.0
+    lodash-es: ^4.17.21
+    migrate: ^2.0.0
+    ora: ^6.3.1
+    prettier: ^2.8.8
+    semver-parser: ^4.1.4
+    ts-jest: ^29.1.0
+    typescript: ^5.0.4
   languageName: unknown
   linkType: soft
 
@@ -2125,7 +2165,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     dotenv: ^16.0.3
     env-cmd: ^10.1.0
     eslint: ^8.40.0
@@ -2157,7 +2197,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
@@ -2214,7 +2254,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     dotenv: ^16.0.3
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
@@ -2230,42 +2270,6 @@ __metadata:
     jest: ^29.5.0
     node-fetch: ^2.6.11
     prettier: ^2.8.8
-  languageName: unknown
-  linkType: soft
-
-"@bmi/dxb-contentful-migrate@workspace:applications/dxb/contentful-migrate":
-  version: 0.0.0-use.local
-  resolution: "@bmi/dxb-contentful-migrate@workspace:applications/dxb/contentful-migrate"
-  dependencies:
-    "@bmi-digital/contentful-migration": ^1.3.1
-    "@bmi/utils": "workspace:*"
-    "@types/lodash-es": ^4.17.7
-    "@typescript-eslint/eslint-plugin": ^5.59.5
-    "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
-    contentful-migrate: ^0.17.0
-    copyfiles: ^2.4.1
-    dotenv: ^16.0.3
-    eslint: ^8.40.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-jest: ^27.2.1
-    eslint-plugin-jsx-a11y: ^6.7.1
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-react: ^7.32.2
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-security: ^1.7.1
-    eslint-plugin-you-dont-need-lodash-underscore: ^6.12.0
-    jest: ^29.5.0
-    jest-junit: ^16.0.0
-    lodash-es: ^4.17.21
-    migrate: ^2.0.0
-    ora: ^6.3.0
-    prettier: ^2.8.8
-    semver-parser: ^4.1.4
-    ts-jest: ^29.1.0
-    typescript: ^5.0.4
   languageName: unknown
   linkType: soft
 
@@ -2311,7 +2315,7 @@ __metadata:
     "@types/uuid": ^9.0.1
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
@@ -2773,7 +2777,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
     contentful: ^10.2.0
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
@@ -2926,7 +2930,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
@@ -3123,7 +3127,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
@@ -3160,7 +3164,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
@@ -3891,7 +3895,7 @@ __metadata:
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
-    contentful-management: ^10.35.3
+    contentful-management: ^10.39.2
     crypto-js: ^4.1.1
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
@@ -4153,7 +4157,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-from-markdown@npm:^15.16.5":
+"@contentful/rich-text-from-markdown@npm:^15.16.5, @contentful/rich-text-from-markdown@npm:^15.16.6":
   version: 15.16.6
   resolution: "@contentful/rich-text-from-markdown@npm:15.16.6"
   dependencies:
@@ -5171,6 +5175,20 @@ __metadata:
   version: 1.2.1
   resolution: "@humanwhocodes/object-schema@npm:1.2.1"
   checksum: c3c35fdb70c04a569278351c75553e293ae339684ed75895edc79facc7276e351115786946658d78133130c0cca80e57e2203bc07f8fa7fe7980300e8deef7db
+  languageName: node
+  linkType: hard
+
+"@isaacs/cliui@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "@isaacs/cliui@npm:8.0.2"
+  dependencies:
+    string-width: ^5.1.2
+    string-width-cjs: "npm:string-width@^4.2.0"
+    strip-ansi: ^7.0.1
+    strip-ansi-cjs: "npm:strip-ansi@^6.0.1"
+    wrap-ansi: ^8.1.0
+    wrap-ansi-cjs: "npm:wrap-ansi@^7.0.0"
+  checksum: b1bf42535d49f11dc137f18d5e4e63a28c5569de438a221c369483731e9dac9fb797af554e8bf02b6192d1e5eba6e6402cf93900c3d0ac86391d00d04876789e
   languageName: node
   linkType: hard
 
@@ -7177,6 +7195,13 @@ __metadata:
   peerDependencies:
     "@parcel/core": ^2.8.3
   checksum: 5b9a9d3407d17750bf037884483005b59333b8876b2112908356781196b42433078de96f1e348b3064d2bd8fa72c629e5c9d092e5d527ff9278c3a1e5726ad9d
+  languageName: node
+  linkType: hard
+
+"@pkgjs/parseargs@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@pkgjs/parseargs@npm:0.11.0"
+  checksum: 5bd7576bb1b38a47a7fc7b51ac9f38748e772beebc56200450c4a817d712232b8f1d3ef70532c80840243c657d491cf6a6be1e3a214cff907645819fdc34aadd
   languageName: node
   linkType: hard
 
@@ -9768,7 +9793,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-styles@npm:^6.0.0":
+"ansi-styles@npm:^6.0.0, ansi-styles@npm:^6.1.0":
   version: 6.2.1
   resolution: "ansi-styles@npm:6.2.1"
   checksum: 5d1ec38c123984bcedd996eac680d548f31828bd679a66db2bdf11844634dde55fec3efa9c6bb1d89056a5e79c1ac540c4c784d592ea1d25028a92227d2f2d5c
@@ -11708,6 +11733,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chalk@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "chalk@npm:5.3.0"
+  checksum: 8297d436b2c0f95801103ff2ef67268d362021b8210daf8ddbe349695333eb3610a71122172ff3b0272f1ef2cf7cc2c41fdaa4715f52e49ffe04c56340feed09
+  languageName: node
+  linkType: hard
+
 "change-case-all@npm:1.0.14":
   version: 1.0.14
   resolution: "change-case-all@npm:1.0.14"
@@ -12646,7 +12678,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^10.0.0, contentful-management@npm:^10.27.4, contentful-management@npm:^10.34.1, contentful-management@npm:^10.35.3":
+"contentful-management@npm:^10.0.0, contentful-management@npm:^10.27.4, contentful-management@npm:^10.34.1":
   version: 10.36.0
   resolution: "contentful-management@npm:10.36.0"
   dependencies:
@@ -12658,6 +12690,21 @@ __metadata:
     lodash.isplainobject: ^4.0.6
     type-fest: ^3.0.0
   checksum: 858e5eb6c46669fd965d230731436385a1861c0b850ec9c57757eb00ee3446caff8084aba9ea4424f24fa7f49536cac8aa47ef144a5685d1043cfdaa3a0c6873
+  languageName: node
+  linkType: hard
+
+"contentful-management@npm:^10.39.2":
+  version: 10.39.2
+  resolution: "contentful-management@npm:10.39.2"
+  dependencies:
+    "@contentful/rich-text-types": ^16.0.3
+    "@types/json-patch": 0.0.30
+    axios: ^0.27.1
+    contentful-sdk-core: ^7.0.1
+    fast-copy: ^3.0.0
+    lodash.isplainobject: ^4.0.6
+    type-fest: ^4.0.0
+  checksum: 604de25633c9c303b9b2ef8993e4cf744f54d8fca4015ecc811249755f1841c53a7fea971bc9f45033631b5a15d26061466c2a0c73167a21f80865f8d2933c82
   languageName: node
   linkType: hard
 
@@ -12700,6 +12747,32 @@ __metadata:
   bin:
     ctf-migrate: bin/ctf-migrate
   checksum: c21893636b048249fe9e876f93a5c2b08fbfa41ec6c96a3f6d24170b4c2b570732347129f52b55f6a02e235f730e016428fe10f47148eb5309b66360569d6eb1
+  languageName: node
+  linkType: hard
+
+"contentful-migration@npm:^4.14.1":
+  version: 4.14.1
+  resolution: "contentful-migration@npm:4.14.1"
+  dependencies:
+    "@hapi/hoek": ^10.0.1
+    axios: ^0.21.0
+    bluebird: ^3.7.2
+    callsites: ^3.1.0
+    cardinal: ^2.1.1
+    chalk: ^4.0.0
+    contentful-management: ^7.51.5
+    didyoumean2: ^5.0.0
+    https-proxy-agent: ^5.0.0
+    inquirer: ^8.1.2
+    joi: ^17.4.0
+    kind-of: ^6.0.3
+    listr2: ^3.13.5
+    lodash: ^4.17.15
+    uuid: ^9.0.0
+    yargs: ^15.3.1
+  bin:
+    contentful-migration: bin/contentful-migration
+  checksum: ad5691d7c0a62c9cad09b505dd881b2e58d7e26981c790e79dc622336931ef8872370d9d8585b5bc60ec1b65eacae5d53d89ceec687c93accff56c4865183c2f
   languageName: node
   linkType: hard
 
@@ -13581,6 +13654,13 @@ __metadata:
   version: 4.6.3
   resolution: "dateformat@npm:4.6.3"
   checksum: e2023b905e8cfe2eb8444fb558562b524807a51cdfe712570f360f873271600b5c94aebffaf11efb285e2c072264a7cf243eadb68f3eba0f8cc85fb86cd25df6
+  languageName: node
+  linkType: hard
+
+"dateformat@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "dateformat@npm:5.0.3"
+  checksum: ccc7a5351080f7ae00496e246ed4d3afdba770f9a8267348d0d04387e23414ef219d9bb6f273a6d628c0ff5f0255ab75977d668dc7ab066b916a196950bdde9a
   languageName: node
   linkType: hard
 
@@ -16238,6 +16318,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"foreground-child@npm:^3.1.0":
+  version: 3.1.1
+  resolution: "foreground-child@npm:3.1.1"
+  dependencies:
+    cross-spawn: ^7.0.0
+    signal-exit: ^4.0.1
+  checksum: 9700a0285628abaeb37007c9a4d92bd49f67210f09067638774338e146c8e9c825c5c877f072b2f75f41dc6a2d0be8664f79ffc03f6576649f54a84fb9b47de0
+  languageName: node
+  linkType: hard
+
 "forever-agent@npm:~0.6.1":
   version: 0.6.1
   resolution: "forever-agent@npm:0.6.1"
@@ -17602,6 +17692,21 @@ __metadata:
   version: 0.4.1
   resolution: "glob-to-regexp@npm:0.4.1"
   checksum: 0486925072d7a916f052842772b61c3e86247f0a80cc0deb9b5a3e8a1a9faad5b04fb6f58986a09f34d3e96cd2a22a24b7e9882fb1cf904c31e9a310de96c429
+  languageName: node
+  linkType: hard
+
+"glob@npm:^10.2.5":
+  version: 10.3.3
+  resolution: "glob@npm:10.3.3"
+  dependencies:
+    foreground-child: ^3.1.0
+    jackspeak: ^2.0.3
+    minimatch: ^9.0.1
+    minipass: ^5.0.0 || ^6.0.2 || ^7.0.0
+    path-scurry: ^1.10.1
+  bin:
+    glob: dist/cjs/src/bin.js
+  checksum: 50effa4208762e508def5688e4d88242db80b5913f65e9c5d5aefb707c59e66a27e845fbf18127157189f6ed0f055e2c94d7112c97a065b9cbfe002e1b26d330
   languageName: node
   linkType: hard
 
@@ -19712,6 +19817,19 @@ __metadata:
     html-escaper: ^2.0.0
     istanbul-lib-report: ^3.0.0
   checksum: 3a147171bffdbd3034856410b6ec81637871d17d10986513328fec23df6b666f66bd08ea480f5b7a5b9f7e8abc30f3e3c2e7d1b661fc57cdc479aaaa677b1011
+  languageName: node
+  linkType: hard
+
+"jackspeak@npm:^2.0.3":
+  version: 2.2.2
+  resolution: "jackspeak@npm:2.2.2"
+  dependencies:
+    "@isaacs/cliui": ^8.0.2
+    "@pkgjs/parseargs": ^0.11.0
+  dependenciesMeta:
+    "@pkgjs/parseargs":
+      optional: true
+  checksum: 70b286206a2729f6a2ba8470f68d4d130f7154f6a767fccabf107b9f6b3871395e89018437c2676c849450b258711cb557a4be6d7b2f889f1fa4d8b364533225
   languageName: node
   linkType: hard
 
@@ -22059,6 +22177,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:^9.1.1 || ^10.0.0":
+  version: 10.0.0
+  resolution: "lru-cache@npm:10.0.0"
+  checksum: 347b7b391091e9f91182b6f683ce04329932a542376a2d7d300637213b99f06c222a3bb0f0db59adf246dac6cef1bb509cab352451a96621d07c41b10a20495f
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:~4.0.0":
   version: 4.0.2
   resolution: "lru-cache@npm:4.0.2"
@@ -22931,6 +23056,13 @@ __metadata:
   version: 5.0.0
   resolution: "minipass@npm:5.0.0"
   checksum: a91d8043f691796a8ac88df039da19933ef0f633e3d7f0d35dcd5373af49131cf2399bfc355f41515dc495e3990369c3858cd319e5c2722b4753c90bf3152462
+  languageName: node
+  linkType: hard
+
+"minipass@npm:^5.0.0 || ^6.0.2 || ^7.0.0":
+  version: 7.0.2
+  resolution: "minipass@npm:7.0.2"
+  checksum: 5e800acfc9dc75eacac5c4969ab50210463a8afbe8b487de1ae681106e17eb93772513854b6a38462b200b5758af95eeeb481945e050ce76f575ff1150fff4b4
   languageName: node
   linkType: hard
 
@@ -24114,7 +24246,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ora@npm:^6.3.0":
+"ora@npm:^6.3.0, ora@npm:^6.3.1":
   version: 6.3.1
   resolution: "ora@npm:6.3.1"
   dependencies:
@@ -24700,6 +24832,16 @@ __metadata:
   dependencies:
     path-root-regex: ^0.1.0
   checksum: aed5cd290df84c46c7730f6a363e95e47a23929b51ab068a3818d69900da3e89dc154cdfd0c45c57b2e02f40c094351bc862db70c2cb00b7e6bd47039a227813
+  languageName: node
+  linkType: hard
+
+"path-scurry@npm:^1.10.1":
+  version: 1.10.1
+  resolution: "path-scurry@npm:1.10.1"
+  dependencies:
+    lru-cache: ^9.1.1 || ^10.0.0
+    minipass: ^5.0.0 || ^6.0.2 || ^7.0.0
+  checksum: e5dc78a7348d25eec61ab166317e9e9c7b46818aa2c2b9006c507a6ff48c672d011292d9662527213e558f5652ce0afcc788663a061d8b59ab495681840c0c1e
   languageName: node
   linkType: hard
 
@@ -27035,6 +27177,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rimraf@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "rimraf@npm:5.0.1"
+  dependencies:
+    glob: ^10.2.5
+  bin:
+    rimraf: dist/cjs/src/bin.js
+  checksum: 9e6062c0aea96f384dd937e6bb06b624c881de2eee79a83d3068193183d44eb9b1f3f68a27a54b9ca8cce56bf34c2951ff4239b093b970e0501a091907031f52
+  languageName: node
+  linkType: hard
+
 "robots-parser@npm:^3.0.0":
   version: 3.0.0
   resolution: "robots-parser@npm:3.0.0"
@@ -27566,6 +27719,13 @@ __metadata:
   version: 3.0.7
   resolution: "signal-exit@npm:3.0.7"
   checksum: 25d272fa73e146048565e08f3309d5b942c1979a6f4a58a8c59d5fa299728e9c2fcd1a759ec870863b1fd38653670240cd420dad2ad9330c71f36608a6a1c912
+  languageName: node
+  linkType: hard
+
+"signal-exit@npm:^4.0.1":
+  version: 4.1.0
+  resolution: "signal-exit@npm:4.1.0"
+  checksum: 41602dce540e46d599edba9d9860193398d135f7ff72cab629db5171516cfae628d21e7bfccde1bbfdf11c48726bc2a6d1a8fb8701125852fbfda7cf19c6aa83
   languageName: node
   linkType: hard
 
@@ -28306,6 +28466,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"string-width-cjs@npm:string-width@^4.2.0, string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.0.0, string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.2, string-width@npm:^4.2.3":
+  version: 4.2.3
+  resolution: "string-width@npm:4.2.3"
+  dependencies:
+    emoji-regex: ^8.0.0
+    is-fullwidth-code-point: ^3.0.0
+    strip-ansi: ^6.0.1
+  checksum: 1e525e92e5eae0afd7454086eed9c818ee84374bb80328fc41217ae72ff5f065ef1c9d7f72da41de40c75fa8bb3dee63d92373fd492c84260a552c636392a47b
+  languageName: node
+  linkType: hard
+
 "string-width@npm:^1.0.1":
   version: 1.0.2
   resolution: "string-width@npm:1.0.2"
@@ -28314,17 +28485,6 @@ __metadata:
     is-fullwidth-code-point: ^1.0.0
     strip-ansi: ^3.0.0
   checksum: c558438baed23a9ab9370bb6a939acbdb2b2ffc517838d651aad0f5b2b674fb85d460d9b1d0b6a4c210dffd09e3235222d89a5bd4c0c1587f78b2bb7bc00c65e
-  languageName: node
-  linkType: hard
-
-"string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.0.0, string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.2, string-width@npm:^4.2.3":
-  version: 4.2.3
-  resolution: "string-width@npm:4.2.3"
-  dependencies:
-    emoji-regex: ^8.0.0
-    is-fullwidth-code-point: ^3.0.0
-    strip-ansi: ^6.0.1
-  checksum: 1e525e92e5eae0afd7454086eed9c818ee84374bb80328fc41217ae72ff5f065ef1c9d7f72da41de40c75fa8bb3dee63d92373fd492c84260a552c636392a47b
   languageName: node
   linkType: hard
 
@@ -28349,7 +28509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-width@npm:^5.0.0":
+"string-width@npm:^5.0.0, string-width@npm:^5.0.1, string-width@npm:^5.1.2":
   version: 5.1.2
   resolution: "string-width@npm:5.1.2"
   dependencies:
@@ -28434,6 +28594,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1, strip-ansi@npm:^6.0.0, strip-ansi@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "strip-ansi@npm:6.0.1"
+  dependencies:
+    ansi-regex: ^5.0.1
+  checksum: 1ae5f212a126fe5b167707f716942490e3933085a5ff6c008ab97ab2f272c8025d3aa218b7bd6ab25729ca20cc81cddb252102f8751e13482a5199e873680952
+  languageName: node
+  linkType: hard
+
 "strip-ansi@npm:^3.0.0, strip-ansi@npm:^3.0.1":
   version: 3.0.1
   resolution: "strip-ansi@npm:3.0.1"
@@ -28458,15 +28627,6 @@ __metadata:
   dependencies:
     ansi-regex: ^4.1.0
   checksum: de4658c8a097ce3b15955bc6008f67c0790f85748bdc025b7bc8c52c7aee94bc4f9e50624516150ed173c3db72d851826cd57e7a85fe4e4bb6dbbebd5d297fdf
-  languageName: node
-  linkType: hard
-
-"strip-ansi@npm:^6.0.0, strip-ansi@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "strip-ansi@npm:6.0.1"
-  dependencies:
-    ansi-regex: ^5.0.1
-  checksum: 1ae5f212a126fe5b167707f716942490e3933085a5ff6c008ab97ab2f272c8025d3aa218b7bd6ab25729ca20cc81cddb252102f8751e13482a5199e873680952
   languageName: node
   linkType: hard
 
@@ -29611,6 +29771,13 @@ __metadata:
   version: 3.9.0
   resolution: "type-fest@npm:3.9.0"
   checksum: 18561a4215d9010ebfeae99ebd66c9262df7c0f4c18e97d418b5ba720f03d1d215054cd183f7b1455b96cc145dc86947f190d727ed7822c98bc047c584693c18
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^4.0.0":
+  version: 4.1.0
+  resolution: "type-fest@npm:4.1.0"
+  checksum: 1727726a98ccd019692e564629e3c84390ba0b2db46cbade1e9c665c870265636e776b8d9a3a9b253d1eb3e55d495be7cbd6c5a1e6fb5481f3597958320f7667
   languageName: node
   linkType: hard
 
@@ -30917,6 +31084,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0, wrap-ansi@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "wrap-ansi@npm:7.0.0"
+  dependencies:
+    ansi-styles: ^4.0.0
+    string-width: ^4.1.0
+    strip-ansi: ^6.0.0
+  checksum: d15fc12c11e4cbc4044a552129ebc75ee3f57aa9c1958373a4db0292d72282f54373b536103987a4a7594db1ef6a4f10acf92978f79b98c49306a4b58c77d4da
+  languageName: node
+  linkType: hard
+
 "wrap-ansi@npm:^3.0.1":
   version: 3.0.1
   resolution: "wrap-ansi@npm:3.0.1"
@@ -30938,14 +31116,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrap-ansi@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "wrap-ansi@npm:7.0.0"
+"wrap-ansi@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "wrap-ansi@npm:8.1.0"
   dependencies:
-    ansi-styles: ^4.0.0
-    string-width: ^4.1.0
-    strip-ansi: ^6.0.0
-  checksum: d15fc12c11e4cbc4044a552129ebc75ee3f57aa9c1958373a4db0292d72282f54373b536103987a4a7594db1ef6a4f10acf92978f79b98c49306a4b58c77d4da
+    ansi-styles: ^6.1.0
+    string-width: ^5.0.1
+    strip-ansi: ^7.0.1
+  checksum: 138ff58a41d2f877eae87e3282c0630fc2789012fc1af4d6bd626eeb9a2f9a65ca92005e6e69a75c7b85a68479fe7443c7dbe1eb8fbaa681a4491364b7c55c60
   languageName: node
   linkType: hard
 

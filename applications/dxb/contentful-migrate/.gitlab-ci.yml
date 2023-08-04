@@ -6,7 +6,7 @@ lint_contentful_migrate:
     - !reference [.run_for_changes_on_mr, rules]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
-    WORKSPACE: "@bmi/dxb-contentful-migrate"
+    WORKSPACE: "@bmi/contentful-migrate"
 
 build_contentful_migrate:
   extends: .build_yarn_workspace
@@ -16,7 +16,7 @@ build_contentful_migrate:
     - if: "$CI_COMMIT_TAG"
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
-    WORKSPACE: "@bmi/dxb-contentful-migrate"
+    WORKSPACE: "@bmi/contentful-migrate"
   artifacts:
     untracked: false
     paths:
@@ -31,7 +31,7 @@ test_contentful_migrate:
     - !reference [.run_for_changes_on_mr, rules]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
-    WORKSPACE: "@bmi/dxb-contentful-migrate"
+    WORKSPACE: "@bmi/contentful-migrate"
   needs:
     - build_contentful_migrate
 
@@ -84,7 +84,7 @@ test_contentful_migrate:
       export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
       export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
 
-      yarn workspace @bmi/dxb-contentful-migrate start
+      yarn workspace @bmi/contentful-migrate start
 
 .deploy_gatsby_cloud:
   stage: deploy
