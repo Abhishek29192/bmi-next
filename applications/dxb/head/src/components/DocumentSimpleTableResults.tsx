@@ -215,7 +215,7 @@ const DocumentSimpleTableResults = ({
 
   const { list, updateList, count, resetList } =
     useContext(DownloadListContext);
-  const filteredDocs = documents.filter(
+  const nonLinkedDocuments = documents.filter(
     (document) => !getIsLinkDocument(document)
   );
 
@@ -228,20 +228,26 @@ const DocumentSimpleTableResults = ({
     setSelectAllState
   } = useContext(DocumentContext);
 
+  useEffect(() => {
+    setSelectAllState((prevState) => ({
+      ...prevState,
+      nonLinkedDocumentsCount: nonLinkedDocuments.length
+    }));
+  }, []);
+
   useUpdateEffect(() => {
     handleSelectAll(isSelectedAll);
   }, [isSelectedAll]);
 
   useUpdateEffect(() => {
     const currentSelectedDocsCount = getCurrentlySelectedDocumentsCount(
-      filteredDocs,
+      nonLinkedDocuments,
       list
     );
 
     setSelectAllState((prevState) => ({
       ...prevState,
-      isSelectedAll:
-        currentSelectedDocsCount === filteredDocs.length ? true : false,
+      isSelectedAll: currentSelectedDocsCount === nonLinkedDocuments.length,
       docsCount: currentSelectedDocsCount
     }));
   }, [list, documents]);
@@ -258,10 +264,10 @@ const DocumentSimpleTableResults = ({
 
   const handleSelectAll = (selectedAll: boolean): void => {
     if (selectedAll) {
-      if (docsCount === filteredDocs.length) {
+      if (docsCount === nonLinkedDocuments.length) {
         return;
       }
-      filteredDocs.forEach((d) => {
+      nonLinkedDocuments.forEach((d) => {
         const documentId = getUniqueId(d);
         // eslint-disable-next-line security/detect-object-injection
         if (!list[documentId]) {
@@ -269,7 +275,7 @@ const DocumentSimpleTableResults = ({
         }
       });
     } else {
-      if (count === 0 || docsCount !== filteredDocs.length) {
+      if (count === 0 || docsCount !== nonLinkedDocuments.length) {
         return;
       }
       documents.forEach((d) =>
@@ -322,7 +328,7 @@ const DocumentSimpleTableResults = ({
                         isSelectedAll: !isSelectedAll
                       }))
                     }
-                    disabled={!filteredDocs.length}
+                    disabled={!nonLinkedDocuments.length}
                   />
                 ) : (
                   getMicroCopy(`documentLibrary.headers.${header}`)

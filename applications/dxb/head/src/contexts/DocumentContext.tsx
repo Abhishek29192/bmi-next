@@ -3,6 +3,7 @@ import React, { createContext, useState } from "react";
 export interface selectAllStateType {
   isSelectedAll: boolean;
   docsCount: number;
+  nonLinkedDocumentsCount: number;
 }
 
 type DocumentContextType = {
@@ -17,7 +18,8 @@ export const DocumentContext = createContext<DocumentContextType>(
 export const DocumentListProvider = ({ children }) => {
   const [selectedAllState, setSelectAllState] = useState<selectAllStateType>({
     isSelectedAll: false,
-    docsCount: 0
+    docsCount: 0,
+    nonLinkedDocumentsCount: 0
   });
 
   return (

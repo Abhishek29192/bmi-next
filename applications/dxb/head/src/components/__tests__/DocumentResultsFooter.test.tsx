@@ -614,25 +614,22 @@ describe("DocumentResultsFooter component", () => {
       sticky: true
     };
 
+    const useShowMobileSpy = jest.spyOn(utils, "useShowMobileTable");
+
     it("should render select all when mobile view", () => {
-      jest.spyOn(utils, "useShowMobileTable").mockReturnValueOnce({
+      useShowMobileSpy.mockReturnValueOnce({
         showMobileTable: true,
         handleTableSizeChange: jest.fn(),
         ref: null
       });
 
       render(
-        <ThemeProvider>
-          <DownloadListContext.Provider
-            value={{
-              ...downloadListProps
-            }}
-          >
-            <DocumentListProvider>
-              <DocumentResultsFooter {...footerProps} />
-            </DocumentListProvider>
-          </DownloadListContext.Provider>
-        </ThemeProvider>
+        getWrappeedFooterComponent(
+          {
+            ...downloadListProps
+          },
+          <DocumentResultsFooter {...footerProps} />
+        )
       );
 
       expect(
@@ -641,33 +638,27 @@ describe("DocumentResultsFooter component", () => {
     });
 
     it("should hide select all when desktop", () => {
-      jest.spyOn(utils, "useShowMobileTable").mockReturnValueOnce({
+      useShowMobileSpy.mockReturnValueOnce({
         showMobileTable: false,
         handleTableSizeChange: jest.fn(),
         ref: null
       });
 
       render(
-        <ThemeProvider>
-          <DownloadListContext.Provider
-            value={{
-              ...downloadListProps
-            }}
-          >
-            <DocumentListProvider>
-              <DocumentResultsFooter {...footerProps} />
-            </DocumentListProvider>
-          </DownloadListContext.Provider>
-        </ThemeProvider>
+        getWrappeedFooterComponent(
+          {
+            ...downloadListProps
+          },
+          <DocumentResultsFooter {...footerProps} />
+        )
       );
-
       expect(
         screen.queryByTestId("document-table-select-all-footer-checkbox")
       ).not.toBeInTheDocument();
     });
 
     it("should select all table checkbox", () => {
-      jest.spyOn(utils, "useShowMobileTable").mockReturnValueOnce({
+      useShowMobileSpy.mockReturnValueOnce({
         showMobileTable: true,
         handleTableSizeChange: jest.fn(),
         ref: null
@@ -675,7 +666,8 @@ describe("DocumentResultsFooter component", () => {
 
       const selectedAllState = {
         isSelectedAll: false,
-        docsCount: 0
+        docsCount: 0,
+        nonLinkedDocumentsCount: 1
       };
 
       const setSelectAllState = jest.fn();
@@ -705,12 +697,51 @@ describe("DocumentResultsFooter component", () => {
       expect(setSelectAllState).toHaveBeenCalled();
     });
 
+    it("select all disabled when no linkedDocs", () => {
+      useShowMobileSpy.mockReturnValueOnce({
+        showMobileTable: true,
+        handleTableSizeChange: jest.fn(),
+        ref: null
+      });
+
+      const selectedAllState = {
+        isSelectedAll: false,
+        docsCount: 0,
+        nonLinkedDocumentsCount: 0
+      };
+
+      render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              ...downloadListProps
+            }}
+          >
+            <DocumentContext.Provider
+              value={{ selectedAllState, setSelectAllState: jest.fn() }}
+            >
+              <DocumentResultsFooter {...footerProps} />
+            </DocumentContext.Provider>
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+
+      const checkbox = screen.getByRole("checkbox");
+
+      const selectAllButton = screen.getByTestId(
+        "document-table-select-all-footer-button"
+      );
+
+      expect(checkbox).toBeDisabled();
+      expect(selectAllButton).toBeDisabled();
+    });
     it("should call clean up", () => {
       const resetList = jest.fn();
 
       const selectedAllState = {
         isSelectedAll: false,
-        docsCount: 0
+        docsCount: 0,
+        nonLinkedDocumentsCount: 1
       };
 
       const setSelectAllState = jest.fn();
