@@ -325,7 +325,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -745,7 +745,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root LinkCard-open css-13gj853-MuiPaper-root-MuiCard-root"
@@ -1557,7 +1557,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -1977,7 +1977,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -2537,7 +2537,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -2873,7 +2873,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -3342,7 +3342,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -3790,7 +3790,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -4349,7 +4349,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -4798,7 +4798,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -5372,7 +5372,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -5904,7 +5904,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -6436,7 +6436,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -7115,7 +7115,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -7693,7 +7693,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -8308,7 +8308,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -8886,7 +8886,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -9464,7 +9464,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -9859,7 +9859,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -10305,7 +10305,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -10723,7 +10723,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
               data-testid="results-list-section"
             >
               <div
-                class="css-1rgic4w"
+                class="css-1sptzt8"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -11168,7 +11168,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -11593,7 +11593,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -12158,7 +12158,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -12555,7 +12555,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root LinkCard-open css-13gj853-MuiPaper-root-MuiCard-root"
@@ -13118,7 +13118,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -13858,7 +13858,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
@@ -14835,7 +14835,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                 data-testid="results-list-section"
               >
                 <div
-                  class="css-1rgic4w"
+                  class="css-1sptzt8"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"

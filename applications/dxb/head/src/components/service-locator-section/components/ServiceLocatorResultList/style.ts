@@ -16,7 +16,6 @@ export const List = styled("div")(({ theme }) => ({
   [`${theme.breakpoints.up("lg")}`]: {
     // maxHeight: "640px",
     maxHeight: "576px",
-    borderBottom: `1px solid ${theme.colours.storm}`,
     borderTop: `1px solid ${theme.colours.storm}`,
     marginBottom: "10px"
   }
