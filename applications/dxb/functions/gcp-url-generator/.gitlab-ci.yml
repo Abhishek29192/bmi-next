@@ -21,7 +21,7 @@ test_gcp-url-generator:
 package_gcp-url-generator:
   extends: .package_function
   needs:
-    - job: build_gcp-upload-file
+    - job: build_gcp-url-generator
       artifacts: true
   variables:
     FUNCTION_NAME: "gcp-url-generator"
