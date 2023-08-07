@@ -394,27 +394,27 @@ const config = {
         disable: process.env.CI === "true"
       }
     },
-    ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
+    ...(process.env.SPACE_MARKET_CODE && process.env.GATSBY_PREVIEW !== "true"
       ? [
-        {
-          resolve: "gatsby-plugin-sitemap",
-          options: {
-            output: useCountryCode ? `/${process.env.SPACE_MARKET_CODE}` : "/",
-            ignoreSitemapPathPrefix: true
+          {
+            resolve: "@bmi/gatsby-plugin-sitemap",
+            options: {
+              output: useCountryCode ? `/${process.env.SPACE_MARKET_CODE}` : "/",
+              ignoreSitemapPathPrefix: true
+            }
           }
-        }
-      ]
+        ]
       : []),
-    ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
+    ...(process.env.SPACE_MARKET_CODE && process.env.GATSBY_PREVIEW !== "true"
       ? [
-        {
-          resolve: "gatsby-plugin-sitemap",
-          options: {
-            output: useCountryCode
-              ? `/${process.env.SPACE_MARKET_CODE}/images`
-              : `/images`,
-            entryLimit: 50000,
-            query: `
+          {
+            resolve: "@bmi/gatsby-plugin-sitemap",
+            options: {
+              output: useCountryCode
+                ? `/${process.env.SPACE_MARKET_CODE}/images`
+                : `/images`,
+              entryLimit: 50000,
+              query: `
                 {
                   site {
                     siteMetadata {

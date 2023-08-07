@@ -6,3 +6,5 @@ yarn workspaces foreach run yalc check
 yarn install --immutable --mode skip-build
 yarn updateReferences
 git add "*tsconfig.json"
+# Needed only until we can use upstream fixes or we take this into our own setup properly
+yarn workspace @bmi/gatsby-plugin-sitemap build
