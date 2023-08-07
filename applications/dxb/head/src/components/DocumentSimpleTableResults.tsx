@@ -231,7 +231,8 @@ const DocumentSimpleTableResults = ({
   useEffect(() => {
     setSelectAllState((prevState) => ({
       ...prevState,
-      nonLinkedDocumentsCount: nonLinkedDocuments.length
+      doesHaveLinkedDocuments:
+        documents.length !== 0 && nonLinkedDocuments.length === 0
     }));
   }, []);
 

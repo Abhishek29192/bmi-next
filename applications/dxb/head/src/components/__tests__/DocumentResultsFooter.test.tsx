@@ -667,7 +667,7 @@ describe("DocumentResultsFooter component", () => {
       const selectedAllState = {
         isSelectedAll: false,
         docsCount: 0,
-        nonLinkedDocumentsCount: 1
+        doesHaveLinkedDocuments: false
       };
 
       const setSelectAllState = jest.fn();
@@ -707,7 +707,7 @@ describe("DocumentResultsFooter component", () => {
       const selectedAllState = {
         isSelectedAll: false,
         docsCount: 0,
-        nonLinkedDocumentsCount: 0
+        doesHaveLinkedDocuments: true
       };
 
       render(
@@ -741,7 +741,7 @@ describe("DocumentResultsFooter component", () => {
       const selectedAllState = {
         isSelectedAll: false,
         docsCount: 0,
-        nonLinkedDocumentsCount: 1
+        doesHaveLinkedDocuments: false
       };
 
       const setSelectAllState = jest.fn();
