@@ -137,6 +137,7 @@ exports[`Document Library page renders correctly  1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -190,6 +191,7 @@ exports[`Document Library page renders correctly  1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -213,6 +215,7 @@ exports[`Document Library page renders correctly  1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -236,6 +239,7 @@ exports[`Document Library page renders correctly  1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -259,6 +263,7 @@ exports[`Document Library page renders correctly  1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -948,7 +953,7 @@ exports[`Document Library page renders correctly  1`] = `
                                         class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                       >
                                         <span
-                                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                           data-gtm="{"id":"filter2","label":"AeroDek","action":"Selector – Filter"}"
                                           data-testid="filter-checkbox"
                                         >
@@ -989,7 +994,7 @@ exports[`Document Library page renders correctly  1`] = `
                                         class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                       >
                                         <span
-                                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                           data-gtm="{"id":"filter2","label":"BMI Components","action":"Selector – Filter"}"
                                           data-testid="filter-checkbox"
                                         >
@@ -1590,6 +1595,7 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
   >
     <div
       class="OverviewCard-clickable MuiBox-root css-8upnc"
+      data-testid="overview-card-box"
     >
       <a
         class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -1748,7 +1754,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <span
                   aria-label="MC: documentLibrary.headers.add"
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   data-testid="document-table-select-all"
                 >
                   <input
@@ -1814,7 +1820,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     aria-label="MC: documentLibrary.download pim document title"
@@ -2006,7 +2012,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <span
                   aria-label="MC: documentLibrary.headers.add"
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   data-testid="document-table-select-all"
                 >
                   <input
@@ -2072,7 +2078,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     aria-label="MC: documentLibrary.download contentful document title"
@@ -2264,7 +2270,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <span
                   aria-label="MC: documentLibrary.headers.add"
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   data-testid="document-table-select-all"
                 >
                   <input
@@ -2330,7 +2336,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     aria-label="MC: documentLibrary.download pim document title"
@@ -2522,7 +2528,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <span
                   aria-label="MC: documentLibrary.headers.add"
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   data-testid="document-table-select-all"
                 >
                   <input
@@ -2588,7 +2594,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     aria-label="MC: documentLibrary.download contentful document title"
@@ -2780,7 +2786,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <span
                   aria-label="MC: documentLibrary.headers.add"
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   data-testid="document-table-select-all"
                 >
                   <input
@@ -2846,7 +2852,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     aria-label="MC: documentLibrary.download pim document title"
@@ -3038,7 +3044,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <span
                   aria-label="MC: documentLibrary.headers.add"
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   data-testid="document-table-select-all"
                 >
                   <input
@@ -3104,7 +3110,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     aria-label="MC: documentLibrary.download pim document title"
@@ -3296,7 +3302,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <span
                   aria-label="MC: documentLibrary.headers.add"
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   data-testid="document-table-select-all"
                 >
                   <input
@@ -3362,7 +3368,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     aria-label="MC: documentLibrary.download pim document title"
@@ -3554,7 +3560,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
               >
                 <span
                   aria-label="MC: documentLibrary.headers.add"
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   data-testid="document-table-select-all"
                 >
                   <input
@@ -3632,7 +3638,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     aria-label="MC: documentLibrary.download pim document title"
@@ -3840,7 +3846,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
               >
                 <span
                   aria-label="MC: documentLibrary.headers.add"
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   data-testid="document-table-select-all"
                 >
                   <input
@@ -3918,7 +3924,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                 >
                   <input
                     aria-label="MC: documentLibrary.download pim document title"
@@ -4128,7 +4134,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   >
                     <input
                       aria-label="Select all documents for product name"

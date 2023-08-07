@@ -49,12 +49,12 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
             </div>
           </div>
           <div
-            class="css-om0yxt"
+            class="css-xhyzf2"
             data-testid="thumbnails-root"
           >
             <button
               aria-label="Scroll left"
-              class="MuiButtonBase-root  ThumbScrollerButton-left css-1qq5z22-MuiButtonBase-root"
+              class="MuiButtonBase-root ThumbScrollerButton-left css-1qq5z22-MuiButtonBase-root"
               data-testid="thumbnail-scroller-left"
               tabindex="-1"
               type="button"
@@ -74,32 +74,10 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
-            <button
-              aria-label="Scroll right"
-              class="MuiButtonBase-root MediaGallery-thumbScrollerHidden ThumbScrollerButton-right css-1qq5z22-MuiButtonBase-root"
-              data-testid="thumbnail-scroller-right"
-              tabindex="-1"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium ThumbScrollerButton-icon css-i4bv87-MuiSvgIcon-root"
-                data-testid="ChevronRightIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                />
-              </svg>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
             <div
-              class="css-1e5dj63"
+              class="css-9kk3b1"
               data-testid="thumbnail-scroller"
-              style="margin-right: 0%;"
+              style="right: 0px;"
             >
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
@@ -207,7 +185,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -219,7 +197,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -286,12 +264,12 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
             </div>
           </div>
           <div
-            class="css-om0yxt"
+            class="css-xhyzf2"
             data-testid="thumbnails-root"
           >
             <button
               aria-label="Scroll left"
-              class="MuiButtonBase-root  ThumbScrollerButton-left css-1qq5z22-MuiButtonBase-root"
+              class="MuiButtonBase-root ThumbScrollerButton-left css-1qq5z22-MuiButtonBase-root"
               data-testid="thumbnail-scroller-left"
               tabindex="-1"
               type="button"
@@ -311,32 +289,10 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
-            <button
-              aria-label="Scroll right"
-              class="MuiButtonBase-root MediaGallery-thumbScrollerHidden ThumbScrollerButton-right css-1qq5z22-MuiButtonBase-root"
-              data-testid="thumbnail-scroller-right"
-              tabindex="-1"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium ThumbScrollerButton-icon css-i4bv87-MuiSvgIcon-root"
-                data-testid="ChevronRightIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                />
-              </svg>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
             <div
-              class="css-1e5dj63"
+              class="css-9kk3b1"
               data-testid="thumbnail-scroller"
-              style="margin-right: 0%;"
+              style="right: 0px;"
             >
               <button
                 class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
@@ -508,7 +464,7 @@ exports[`ProductOverview component renders with default image if there are no im
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -520,7 +476,7 @@ exports[`ProductOverview component renders with default image if there are no im
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"

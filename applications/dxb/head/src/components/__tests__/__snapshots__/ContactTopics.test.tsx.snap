@@ -13,7 +13,7 @@ exports[`ContactTopics component renders correctly 1`] = `
         aria-label="Did you know?1"
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ExpandableCard-collapsed css-ios428-MuiPaper-root-MuiCard-root"
         data-gtm="{"id":"selector-cards2","label":"Did you know?1","action":"Selector - Cards"}"
-        data-testid="expandable-card-Did-you-know?1"
+        data-testid="expandable-card-Did-you-know?1-collapsed"
         role="button"
         style="min-height: 100%;"
       >

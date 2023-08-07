@@ -49,6 +49,8 @@ module.exports = {
       "lodash-es",
       "escape-string-regexp",
       "@bmi-digital/components",
+      "@bmi-digital/fetch-mocks",
+      "@bmi-digital/react-pdf-maker",
       "ora",
       // Dependencies of ora start
       "chalk",

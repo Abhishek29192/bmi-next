@@ -182,7 +182,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -400,7 +400,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -477,7 +477,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -554,7 +554,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -770,7 +770,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-zs2uof-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >

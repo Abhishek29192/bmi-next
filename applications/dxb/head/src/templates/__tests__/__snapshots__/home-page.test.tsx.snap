@@ -137,6 +137,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -190,6 +191,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -213,6 +215,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -236,6 +239,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -259,6 +263,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -747,6 +752,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   01
                 </span>
@@ -857,11 +863,14 @@ exports[`Home Page Template render correctly with all data 1`] = `
                         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                         data-testid="hero-video"
                       >
-                        <button
+                        <div
                           aria-label="label"
-                          class="YoutubeVideo-thumbnail"
+                          class="YoutubeVideo-thumbnail css-14jkchm"
+                          classes="[object Object]"
+                          component="button"
                           data-testid="thumbnail"
                           type="button"
+                          variant="contained"
                         >
                           <img
                             alt="label"
@@ -874,17 +883,14 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           >
                             label
                           </span>
-                          <div
-                            aria-label="label"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                            data-testid="thumbnail-button"
-                            role="button"
+                          <button
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                             tabindex="0"
                             type="button"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                               data-testid="PlayArrowIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -896,8 +902,8 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
-                          </div>
-                        </button>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1144,11 +1150,14 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="video label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained YoutubeVideo-previewImage"
@@ -1202,17 +1211,14 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       >
                         video label
                       </span>
-                      <div
-                        aria-label="video label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1224,8 +1230,8 @@ exports[`Home Page Template render correctly with all data 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

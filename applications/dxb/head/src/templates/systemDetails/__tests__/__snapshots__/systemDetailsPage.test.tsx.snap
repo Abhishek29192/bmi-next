@@ -137,6 +137,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -190,6 +191,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -213,6 +215,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -236,6 +239,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -259,6 +263,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -1492,7 +1497,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                             >
                               <span
                                 aria-label="MC: documentLibrary.headers.add"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 data-testid="document-table-select-all"
                               >
                                 <input
@@ -1564,7 +1569,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
                               <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
                                 <input
                                   aria-label="MC: documentLibrary.download pim-link-document-title"
@@ -1741,7 +1746,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                             >
                               <span
                                 aria-disabled="true"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 tabindex="-1"
                               >
                                 <input
@@ -1900,7 +1905,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-privacy-policy-link"
                     href="https://policies.google.com/privacy"
                     rel="noreferrer noopener"
@@ -1912,7 +1917,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   </a>
                    and 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-terms-of-service-link"
                     href="https://policies.google.com/terms"
                     rel="noreferrer noopener"
@@ -2695,6 +2700,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -2748,6 +2754,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -2771,6 +2778,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -2794,6 +2802,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -2817,6 +2826,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -4022,7 +4032,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                             >
                               <span
                                 aria-label="MC: documentLibrary.headers.add"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 data-testid="document-table-select-all"
                               >
                                 <input
@@ -4094,7 +4104,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                               class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
                               <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
                                 <input
                                   aria-label="MC: documentLibrary.download pim-link-document-title"
@@ -4271,7 +4281,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                             >
                               <span
                                 aria-disabled="true"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 tabindex="-1"
                               >
                                 <input
@@ -4430,7 +4440,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-privacy-policy-link"
                     href="https://policies.google.com/privacy"
                     rel="noreferrer noopener"
@@ -4442,7 +4452,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                   </a>
                    and 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-terms-of-service-link"
                     href="https://policies.google.com/terms"
                     rel="noreferrer noopener"
@@ -5225,6 +5235,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -5278,6 +5289,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -5301,6 +5313,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -5324,6 +5337,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -5347,6 +5361,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -6556,7 +6571,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <span
                                   aria-label="MC: documentLibrary.headers.add"
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                   data-testid="document-table-select-all"
                                 >
                                   <input
@@ -6628,7 +6643,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                               >
                                 <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 >
                                   <input
                                     aria-label="MC: documentLibrary.download pim-link-document-title"
@@ -6805,7 +6820,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <span
                                   aria-disabled="true"
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                   tabindex="-1"
                                 >
                                   <input
@@ -6964,7 +6979,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   >
                     This site is protected by reCAPTCHA and the Google 
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                       data-testid="recaptcha-privacy-policy-link"
                       href="https://policies.google.com/privacy"
                       rel="noreferrer noopener"
@@ -6976,7 +6991,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     </a>
                      and 
                     <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                       data-testid="recaptcha-terms-of-service-link"
                       href="https://policies.google.com/terms"
                       rel="noreferrer noopener"
@@ -7760,6 +7775,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -7813,6 +7829,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -7836,6 +7853,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -7859,6 +7877,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -7882,6 +7901,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -9087,7 +9107,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             >
                               <span
                                 aria-label="MC: documentLibrary.headers.add"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 data-testid="document-table-select-all"
                               >
                                 <input
@@ -9159,7 +9179,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
                               <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
                                 <input
                                   aria-label="MC: documentLibrary.download pim-link-document-title"
@@ -9336,7 +9356,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             >
                               <span
                                 aria-disabled="true"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 tabindex="-1"
                               >
                                 <input
@@ -9495,7 +9515,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-privacy-policy-link"
                     href="https://policies.google.com/privacy"
                     rel="noreferrer noopener"
@@ -9507,7 +9527,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   </a>
                    and 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-terms-of-service-link"
                     href="https://policies.google.com/terms"
                     rel="noreferrer noopener"
@@ -10290,6 +10310,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -10343,6 +10364,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -10366,6 +10388,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -10389,6 +10412,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -10412,6 +10436,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -11578,7 +11603,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                             >
                               <span
                                 aria-label="MC: documentLibrary.headers.add"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 data-testid="document-table-select-all"
                               >
                                 <input
@@ -11650,7 +11675,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                               class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
                               <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
                                 <input
                                   aria-label="MC: documentLibrary.download pim-link-document-title"
@@ -11827,7 +11852,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                             >
                               <span
                                 aria-disabled="true"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 tabindex="-1"
                               >
                                 <input
@@ -11986,7 +12011,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-privacy-policy-link"
                     href="https://policies.google.com/privacy"
                     rel="noreferrer noopener"
@@ -11998,7 +12023,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   </a>
                    and 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-terms-of-service-link"
                     href="https://policies.google.com/terms"
                     rel="noreferrer noopener"
@@ -12781,6 +12806,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -12834,6 +12860,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -12857,6 +12884,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -12880,6 +12908,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -12903,6 +12932,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -14108,7 +14138,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                             >
                               <span
                                 aria-label="MC: documentLibrary.headers.add"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 data-testid="document-table-select-all"
                               >
                                 <input
@@ -14180,7 +14210,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
                               <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
                                 <input
                                   aria-label="MC: documentLibrary.download pim-link-document-title"
@@ -14357,7 +14387,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                             >
                               <span
                                 aria-disabled="true"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 tabindex="-1"
                               >
                                 <input
@@ -14516,7 +14546,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-privacy-policy-link"
                     href="https://policies.google.com/privacy"
                     rel="noreferrer noopener"
@@ -14528,7 +14558,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   </a>
                    and 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-terms-of-service-link"
                     href="https://policies.google.com/terms"
                     rel="noreferrer noopener"
@@ -15311,6 +15341,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -15364,6 +15395,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -15387,6 +15419,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -15410,6 +15443,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -15433,6 +15467,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -16298,7 +16333,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               data-testid="grid-item"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                                 data-gtm="{"id":"cta-click1","label":"related-product-1","action":"/en/p/path/"}"
                                 data-testid="anchor-link"
                                 href="/en/p/path/"
@@ -16335,7 +16370,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               data-testid="grid-item"
                             >
                               <a
-                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                                 data-gtm="{"id":"cta-click1","label":"optional-related-product-1","action":"/en/p/path/"}"
                                 data-testid="anchor-link"
                                 href="/en/p/path/"
@@ -16764,7 +16799,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                             >
                               <span
                                 aria-label="MC: documentLibrary.headers.add"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 data-testid="document-table-select-all"
                               >
                                 <input
@@ -16836,7 +16871,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                             >
                               <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               >
                                 <input
                                   aria-label="MC: documentLibrary.download pim-link-document-title"
@@ -17013,7 +17048,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                             >
                               <span
                                 aria-disabled="true"
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                 tabindex="-1"
                               >
                                 <input
@@ -17172,7 +17207,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 >
                   This site is protected by reCAPTCHA and the Google 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-privacy-policy-link"
                     href="https://policies.google.com/privacy"
                     rel="noreferrer noopener"
@@ -17184,7 +17219,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   </a>
                    and 
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-testid="recaptcha-terms-of-service-link"
                     href="https://policies.google.com/terms"
                     rel="noreferrer noopener"
