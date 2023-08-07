@@ -11,7 +11,7 @@ module.exports = {
     ".yarn/**",
     ".yarn_cache",
     // Needed only until we can use upstream fixes or we take this into our own setup properly
-    "applications/dxb/libraries/gatsby-plugin-sitemap/src"
+    "applications/dxb/libraries/gatsby-plugin-sitemap"
   ],
   rules: {
     "import/extensions": [0, "never"]
