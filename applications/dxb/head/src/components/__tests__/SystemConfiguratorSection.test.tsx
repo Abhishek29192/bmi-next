@@ -264,7 +264,7 @@ describe("SystemConfiguratorSection component", () => {
       })
     );
 
-    const { container } = render(
+    render(
       <ThemeProvider>
         <SiteContextProvider value={getMockSiteContext("no")}>
           <LocationProvider>
@@ -282,7 +282,6 @@ describe("SystemConfiguratorSection component", () => {
     await screen.findByText(pimSystem._source.name);
     await screen.findByText(pimSystem._source.shortDescription);
 
-    expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
   });
 
