@@ -307,7 +307,7 @@ const DocumentsFooterContent = () => {
   const maxSizeExceeded = remainingSize < 0;
 
   const {
-    selectedAllState: { nonLinkedDocumentsCount, isSelectedAll },
+    selectedAllState: { doesHaveLinkedDocuments, isSelectedAll },
     setSelectAllState
   } = useContext(DocumentContext);
   const { resetList } = useContext(DownloadListContext);
@@ -340,7 +340,7 @@ const DocumentsFooterContent = () => {
           <SelectAllCheckboxLabel
             variant="text"
             onClick={handleSelectAllToggle}
-            disabled={nonLinkedDocumentsCount === 0}
+            disabled={doesHaveLinkedDocuments}
             data-testid={`document-table-select-all-footer-button`}
           >
             {getMicroCopy(microCopy.DOWNLOAD_LIST_SELECTALL)}
@@ -354,7 +354,7 @@ const DocumentsFooterContent = () => {
             value={isSelectedAll}
             checked={isSelectedAll}
             onChange={handleSelectAllToggle}
-            disabled={nonLinkedDocumentsCount === 0}
+            disabled={doesHaveLinkedDocuments}
           />
         </SelectAllCheckboxWrapper>
         {children}
