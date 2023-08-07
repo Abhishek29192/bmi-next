@@ -194,7 +194,11 @@ export const Head = ({
       {schemaOrgActivated && (
         <script type="application/ld+json">
           {JSON.stringify(
-            createSchemaOrgDataForPdpPage(variantProduct, countryCode)
+            createSchemaOrgDataForPdpPage(
+              correctGatsbySiteUrl,
+              variantProduct,
+              countryCode
+            )
           )}
         </script>
       )}
@@ -202,6 +206,7 @@ export const Head = ({
         <script type="application/ld+json">
           {JSON.stringify(
             createSchemaOrgForHomeAndBrandPage(
+              correctGatsbySiteUrl,
               pageType,
               countryCode,
               path,
