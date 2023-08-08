@@ -348,12 +348,6 @@
     :versions: []
     :when: 2022-06-21 15:15:40.750004000 Z
 - - :approve
-  - "@bmi/webtools-contentful-migrate"
-  - :who: Benjamin Sproule
-    :why: Our own project
-    :versions: []
-    :when: 2022-06-21 15:15:52.395764000 Z
-- - :approve
   - "@bmi/cms-consolidation-utility"
   - :who: Benjamin Sproule
     :why: Our own project

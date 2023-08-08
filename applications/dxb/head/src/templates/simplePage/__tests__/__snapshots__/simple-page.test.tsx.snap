@@ -124,6 +124,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -177,6 +178,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -200,6 +202,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -223,6 +226,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -246,6 +250,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -1567,6 +1572,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -1620,6 +1626,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -1643,6 +1650,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -1666,6 +1674,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -1689,6 +1698,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -2395,7 +2405,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           class="css-1uy5q6o"
                         >
                           <a
-                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-black css-kan2f7-MuiTypography-root-MuiLink-root"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-black css-1ogz5y4-MuiTypography-root-MuiLink-root"
                             data-gtm="{"id":"cta-click1","label":"Hurtignavigering - ContentfulCardCollectionSectionTitle","action":"#contentfulcardcollectionsectiontitle"}"
                             data-testid="anchor-link"
                             href="#contentfulcardcollectionsectiontitle"
@@ -2463,6 +2473,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 >
                   <div
                     class=" MuiBox-root css-8upnc"
+                    data-testid="overview-card-box"
                   >
                     <div
                       class="OverviewCard-main"
@@ -2473,11 +2484,14 @@ exports[`Simple page renders correctly with full data 1`] = `
                         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                         data-testid="youtube-dialog-wrapper"
                       >
-                        <button
+                        <div
                           aria-label="BMI Group VIDEO LABEL"
-                          class="YoutubeVideo-thumbnail"
+                          class="YoutubeVideo-thumbnail css-14jkchm"
+                          classes="[object Object]"
+                          component="button"
                           data-testid="thumbnail"
                           type="button"
+                          variant="contained"
                         >
                           <img
                             alt="BMI Group VIDEO LABEL"
@@ -2490,17 +2504,14 @@ exports[`Simple page renders correctly with full data 1`] = `
                           >
                             BMI Group VIDEO LABEL
                           </span>
-                          <div
-                            aria-label="BMI Group VIDEO LABEL"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                            data-testid="thumbnail-button"
-                            role="button"
+                          <button
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                             tabindex="0"
                             type="button"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                               data-testid="PlayArrowIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -2512,8 +2523,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
-                          </div>
-                        </button>
+                          </button>
+                        </div>
                       </div>
                       <div
                         class="OverviewCard-body"

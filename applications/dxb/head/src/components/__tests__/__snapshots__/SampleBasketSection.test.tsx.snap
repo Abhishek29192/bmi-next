@@ -383,7 +383,7 @@ exports[`SampleBasketSection component should render form after complete button 
         >
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
@@ -395,7 +395,7 @@ exports[`SampleBasketSection component should render form after complete button 
           </a>
            og 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"

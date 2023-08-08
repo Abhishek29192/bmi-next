@@ -12,9 +12,6 @@
       "path": "applications/dxb/head"
     },
     {
-      "path": "applications/dxb/webtools-contentful-migrate"
-    },
-    {
       "path": "applications/dxb/functions/contentful-default-values"
     },
     {
@@ -139,9 +136,6 @@
     },
     {
       "path": "applications/dxb/scripts/contentful-roles"
-    },
-    {
-      "path": "applications/dxb/webtools-contentful-migrate/node_modules/axios"
     }
   ]
 }

@@ -43,7 +43,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                           <span
                             aria-disabled="true"
                             aria-label="MC: documentLibrary.headers.add"
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                             data-testid="document-table-select-all"
                             tabindex="-1"
                           >
@@ -115,7 +115,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                         >
                           <span
                             aria-disabled="true"
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                             tabindex="-1"
                           >
                             <input
@@ -274,7 +274,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             >
               This site is protected by reCAPTCHA and the Google 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-privacy-policy-link"
                 href="https://policies.google.com/privacy"
                 rel="noreferrer noopener"
@@ -286,7 +286,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
               </a>
                and 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-terms-of-service-link"
                 href="https://policies.google.com/terms"
                 rel="noreferrer noopener"

@@ -33,15 +33,6 @@ updates:
     schedule:
       interval: "weekly"
   ###################################
-  # webtools-contentful-migrate
-  ###################################
-  - package-ecosystem: "npm"
-    registries:
-      - npm-npmjs
-    directory: "/applications/dxb/webtools-contentful-migrate"
-    schedule:
-      interval: "weekly"
-  ###################################
   # cms-consolidation-utility
   ###################################
   - package-ecosystem: "npm"

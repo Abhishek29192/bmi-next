@@ -576,6 +576,7 @@ exports[`Sections component renders correctly 1`] = `
               >
                 <div
                   class="OverviewCard-flat MuiBox-root css-8upnc"
+                  data-testid="overview-card-box"
                 >
                   <div
                     class="OverviewCard-main"
@@ -893,11 +894,14 @@ exports[`Sections component renders correctly 1`] = `
                 data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=abc123-Video","action":"Play"}"
                 data-testid="youtube-dialog-wrapper"
               >
-                <button
+                <div
                   aria-label="Video"
-                  class="YoutubeVideo-thumbnail"
+                  class="YoutubeVideo-thumbnail css-14jkchm"
+                  classes="[object Object]"
+                  component="button"
                   data-testid="thumbnail"
                   type="button"
+                  variant="contained"
                 >
                   <img
                     alt="Video"
@@ -910,17 +914,14 @@ exports[`Sections component renders correctly 1`] = `
                   >
                     Video
                   </span>
-                  <div
-                    aria-label="Video"
-                    class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                    data-testid="thumbnail-button"
-                    role="button"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                       data-testid="PlayArrowIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -932,8 +933,8 @@ exports[`Sections component renders correctly 1`] = `
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </div>
-                </button>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1628,7 +1629,7 @@ exports[`Sections component renders correctly 1`] = `
                     findARoofer.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Pitched-Roof"
                     role="button"
@@ -1644,7 +1645,7 @@ exports[`Sections component renders correctly 1`] = `
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof"
                     role="button"
@@ -1823,7 +1824,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
@@ -1853,7 +1854,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
@@ -1883,7 +1884,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
@@ -2012,7 +2013,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"tel:phone 1"}"
                                       data-testid="anchor-link"
                                       href="tel:phone 1"
@@ -2042,7 +2043,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
                                       data-testid="anchor-link"
                                       href="mailto:test@test.com"
@@ -2072,7 +2073,7 @@ exports[`Sections component renders correctly 1`] = `
                                     class="css-bp47jm"
                                   >
                                     <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-swxrni-MuiTypography-root-MuiLink-root"
+                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
                                       data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"https://www.test.com"}"
                                       data-testid="anchor-link"
                                       href="https://www.test.com"
@@ -2251,13 +2252,7 @@ exports[`Sections component renders correctly 1`] = `
                 <div
                   data-testid="youtube-inline-react-player"
                   style="width: 640px; height: 360px;"
-                >
-                  <div
-                    style="width: 100%; height: 100%;"
-                  >
-                    <div />
-                  </div>
-                </div>
+                />
               </div>
             </div>
           </div>
@@ -3278,7 +3273,7 @@ exports[`Sections component renders correctly 1`] = `
                       aria-hidden="true"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
                       readonly=""
-                      style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding: 0px; width: 100%;"
+                      style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding-top: 0px; padding-bottom: 0px; width: 100%;"
                       tabindex="-1"
                     />
                     <fieldset
@@ -3309,7 +3304,7 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -3351,7 +3346,7 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -3396,7 +3391,7 @@ exports[`Sections component renders correctly 1`] = `
                       class="css-o87bu0"
                     >
                       <span
-                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                       >
                         <input
                           class="PrivateSwitchBase-input css-1m9pwf3"
@@ -3427,7 +3422,7 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         I agree with BMI's 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                           data-testid="label-Data-Protection-Policy-anchor-link"
                           href="https://google.co.uk"
                           rel="noopener"
@@ -3456,7 +3451,7 @@ exports[`Sections component renders correctly 1`] = `
                       class="css-o87bu0"
                     >
                       <span
-                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                       >
                         <input
                           class="PrivateSwitchBase-input css-1m9pwf3"
@@ -3528,7 +3523,7 @@ exports[`Sections component renders correctly 1`] = `
           >
             This site is protected by reCAPTCHA and the Google 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-privacy-policy-link"
               href="https://policies.google.com/privacy"
               rel="noreferrer noopener"
@@ -3540,7 +3535,7 @@ exports[`Sections component renders correctly 1`] = `
             </a>
              and 
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-terms-of-service-link"
               href="https://policies.google.com/terms"
               rel="noreferrer noopener"

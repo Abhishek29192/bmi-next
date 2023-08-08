@@ -12,6 +12,7 @@ exports[`Brands component renders correctly 1`] = `
     >
       <div
         class="OverviewCard-clickable MuiBox-root css-8upnc"
+        data-testid="overview-card-box"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -135,6 +136,7 @@ exports[`Brands component renders correctly 1`] = `
     >
       <div
         class="OverviewCard-clickable MuiBox-root css-8upnc"
+        data-testid="overview-card-box"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -275,6 +277,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
     >
       <div
         class="OverviewCard-clickable MuiBox-root css-8upnc"
+        data-testid="overview-card-box"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -398,6 +401,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
     >
       <div
         class="OverviewCard-clickable MuiBox-root css-8upnc"
+        data-testid="overview-card-box"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"

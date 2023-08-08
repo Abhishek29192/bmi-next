@@ -64,6 +64,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden;"
       >
         <button
@@ -114,6 +115,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -134,6 +136,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -154,6 +157,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -926,6 +930,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden;"
       >
         <button
@@ -976,6 +981,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -996,6 +1002,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -1016,6 +1023,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -1800,6 +1808,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -1853,6 +1862,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -1876,6 +1886,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -1899,6 +1910,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -2481,7 +2493,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"colour-1","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -2529,7 +2541,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"colour-2","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -2913,6 +2925,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -2966,6 +2979,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -2989,6 +3003,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -3012,6 +3027,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -3594,7 +3610,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-1","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -3635,7 +3651,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-2","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -4006,6 +4022,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden;"
       >
         <button
@@ -4056,6 +4073,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -4076,6 +4094,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -4096,6 +4115,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -4632,7 +4652,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"colour-1","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -4677,7 +4697,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"colour-2","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -5049,6 +5069,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden;"
       >
         <button
@@ -5099,6 +5120,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -5119,6 +5141,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -5139,6 +5162,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -5913,6 +5937,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden;"
       >
         <button
@@ -5963,6 +5988,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -5983,6 +6009,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -6003,6 +6030,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -6925,6 +6953,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden;"
       >
         <button
@@ -6975,6 +7004,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -6995,6 +7025,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -7015,6 +7046,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -7782,6 +7814,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -7835,6 +7868,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -7858,6 +7892,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -7881,6 +7916,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -8450,7 +8486,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-1","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -8491,7 +8527,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-2","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -8868,6 +8904,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -8921,6 +8958,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -8944,6 +8982,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -8967,6 +9006,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -9536,7 +9576,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-1","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -9577,7 +9617,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-2","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -9954,6 +9994,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -10007,6 +10048,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -10030,6 +10072,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -10053,6 +10096,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -10635,7 +10679,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"texture-1","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -10676,7 +10720,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"texture-2","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -11053,6 +11097,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -11106,6 +11151,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -11129,6 +11175,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -11152,6 +11199,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -11734,7 +11782,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"colour-1","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -11782,7 +11830,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"colour-2","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -12166,6 +12214,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -12219,6 +12268,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -12242,6 +12292,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -12265,6 +12316,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -12847,7 +12899,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-1","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -12888,7 +12940,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-2","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -13470,6 +13522,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
+        data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -13523,6 +13576,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                      data-testid="language-menu-item"
                       href="/al"
                       tabindex="0"
                     >
@@ -13546,6 +13600,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                      data-testid="language-menu-item"
                       href="/at"
                       tabindex="0"
                     >
@@ -13569,6 +13624,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       aria-pressed="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                      data-testid="language-menu-item"
                       href="/uk"
                       tabindex="0"
                     >
@@ -14151,7 +14207,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-1","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >
@@ -14192,7 +14248,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                                         >
                                           <span
-                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                                             data-gtm="{"id":"filter2","label":"Size-2","action":"Selector – Filter"}"
                                             data-testid="filter-checkbox"
                                           >

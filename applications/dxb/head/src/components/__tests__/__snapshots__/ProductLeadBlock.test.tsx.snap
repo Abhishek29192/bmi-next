@@ -245,7 +245,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-link-1"
                   type="button"
@@ -269,7 +269,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-link-2"
                   type="button"
@@ -550,7 +550,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <span
                             aria-label="MC: documentLibrary.headers.add"
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                             data-testid="document-table-select-all"
                           >
                             <input
@@ -616,7 +616,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                           >
                             <input
                               aria-label="MC: documentLibrary.download Pim Document"
@@ -786,7 +786,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                           >
                             <input
                               aria-label="MC: documentLibrary.download Pim Document"
@@ -956,7 +956,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                           >
                             <input
                               aria-label="MC: documentLibrary.download Pim Document"
@@ -1126,7 +1126,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                           >
                             <input
                               aria-label="MC: documentLibrary.download Pim Document"
@@ -1325,7 +1325,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               >
                 This site is protected by reCAPTCHA and the Google 
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="recaptcha-privacy-policy-link"
                   href="https://policies.google.com/privacy"
                   rel="noreferrer noopener"
@@ -1337,7 +1337,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 </a>
                  and 
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="recaptcha-terms-of-service-link"
                   href="https://policies.google.com/terms"
                   rel="noreferrer noopener"
@@ -1691,7 +1691,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-asset-name"
                   type="button"
@@ -1715,7 +1715,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-asset-name"
                   type="button"
@@ -1996,7 +1996,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         >
                           <span
                             aria-label="MC: documentLibrary.headers.add"
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                             data-testid="document-table-select-all"
                           >
                             <input
@@ -2062,7 +2062,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                           >
                             <input
                               aria-label="MC: documentLibrary.download Pim Document"
@@ -2232,7 +2232,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                            class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                           >
                             <input
                               aria-label="MC: documentLibrary.download Pim Document"
@@ -2431,7 +2431,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               >
                 This site is protected by reCAPTCHA and the Google 
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="recaptcha-privacy-policy-link"
                   href="https://policies.google.com/privacy"
                   rel="noreferrer noopener"
@@ -2443,7 +2443,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 </a>
                  and 
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="recaptcha-terms-of-service-link"
                   href="https://policies.google.com/terms"
                   rel="noreferrer noopener"
@@ -2781,7 +2781,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-asset-name"
                   type="button"
@@ -2805,7 +2805,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-asset-name"
                   type="button"
@@ -3180,7 +3180,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   >
                     <span
                       aria-label="MC: documentLibrary.headers.add"
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="document-table-select-all"
                     >
                       <input
@@ -3246,7 +3246,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-label="MC: documentLibrary.download Pim Document"
@@ -3416,7 +3416,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-label="MC: documentLibrary.download Pim Document"
@@ -3586,7 +3586,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-label="MC: documentLibrary.download Pim Document"
@@ -3756,7 +3756,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-label="MC: documentLibrary.download Pim Document"
@@ -3955,7 +3955,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -3967,7 +3967,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -4039,7 +4039,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         </div>
         <div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
             data-testid="guarantee-inline-link-link-1"
             type="button"
@@ -4063,7 +4063,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         </div>
         <div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways ProductLeadBlockStyles-inline-link Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
             data-testid="guarantee-inline-link-link-2"
             type="button"
@@ -4281,7 +4281,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   >
                     <span
                       aria-label="MC: documentLibrary.headers.add"
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="document-table-select-all"
                     >
                       <input
@@ -4347,7 +4347,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-label="MC: documentLibrary.download Pim Document"
@@ -4517,7 +4517,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-label="MC: documentLibrary.download Pim Document"
@@ -4687,7 +4687,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-label="MC: documentLibrary.download Pim Document"
@@ -4857,7 +4857,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-label="MC: documentLibrary.download Pim Document"
@@ -5056,7 +5056,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -5068,7 +5068,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"

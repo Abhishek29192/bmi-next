@@ -137,6 +137,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -190,6 +191,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -213,6 +215,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -236,6 +239,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -259,6 +263,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -897,6 +902,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -1029,11 +1035,14 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                         data-testid="hero-image-carousel-media"
                       >
-                        <button
+                        <div
                           aria-label="label"
-                          class="YoutubeVideo-thumbnail"
+                          class="YoutubeVideo-thumbnail css-14jkchm"
+                          classes="[object Object]"
+                          component="button"
                           data-testid="thumbnail"
                           type="button"
+                          variant="contained"
                         >
                           <img
                             alt="label"
@@ -1046,17 +1055,14 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           >
                             label
                           </span>
-                          <div
-                            aria-label="label"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                            data-testid="thumbnail-button"
-                            role="button"
+                          <button
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                             tabindex="0"
                             type="button"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                               data-testid="PlayArrowIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -1068,8 +1074,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
-                          </div>
-                        </button>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1138,11 +1144,14 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -1155,17 +1164,14 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1177,8 +1183,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1227,11 +1233,14 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -1244,17 +1253,14 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1266,8 +1272,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1981,6 +1987,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -2034,6 +2041,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -2057,6 +2065,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -2080,6 +2089,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -2103,6 +2113,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -2736,6 +2747,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -3595,6 +3607,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -3648,6 +3661,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -3671,6 +3685,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -3694,6 +3709,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -3717,6 +3733,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -4367,6 +4384,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -4560,11 +4578,14 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -4577,17 +4598,14 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -4599,8 +4617,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4649,11 +4667,14 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -4666,17 +4687,14 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -4688,8 +4706,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -5403,6 +5421,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -5456,6 +5475,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -5479,6 +5499,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -5502,6 +5523,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -5525,6 +5547,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -6156,6 +6179,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -6398,11 +6422,14 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -6415,17 +6442,14 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -6437,8 +6461,8 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -6487,11 +6511,14 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -6504,17 +6531,14 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -6526,8 +6550,8 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -7241,6 +7265,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -7294,6 +7319,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -7317,6 +7343,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -7340,6 +7367,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -7363,6 +7391,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -7996,6 +8025,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -8238,11 +8268,14 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -8255,17 +8288,14 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -8277,8 +8307,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -8327,11 +8357,14 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -8344,17 +8377,14 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -8366,8 +8396,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -9051,6 +9081,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -9104,6 +9135,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -9127,6 +9159,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -9150,6 +9183,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -9173,6 +9207,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -9806,6 +9841,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -10048,11 +10084,14 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -10065,17 +10104,14 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -10087,8 +10123,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -10137,11 +10173,14 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -10154,17 +10193,14 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -10176,8 +10212,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -10891,6 +10927,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -10944,6 +10981,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -10967,6 +11005,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -10990,6 +11029,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -11013,6 +11053,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -11646,6 +11687,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -11888,11 +11930,14 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -11905,17 +11950,14 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -11927,8 +11969,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -11977,11 +12019,14 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -11994,17 +12039,14 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -12016,8 +12058,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -12731,6 +12773,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -12784,6 +12827,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -12807,6 +12851,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -12830,6 +12875,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -12853,6 +12899,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -13498,6 +13545,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -13740,11 +13788,14 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -13757,17 +13808,14 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -13779,8 +13827,8 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -13829,11 +13877,14 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -13846,17 +13897,14 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -13868,8 +13916,8 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -14583,6 +14631,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -14636,6 +14685,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -14659,6 +14709,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -14682,6 +14733,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -14705,6 +14757,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -15348,6 +15401,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -15590,11 +15644,14 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -15607,17 +15664,14 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -15629,8 +15683,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -15679,11 +15733,14 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -15696,17 +15753,14 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -15718,8 +15772,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -16433,6 +16487,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -16486,6 +16541,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -16509,6 +16565,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -16532,6 +16589,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -16555,6 +16613,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -17200,6 +17259,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -17442,11 +17502,14 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -17459,17 +17522,14 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -17481,8 +17541,8 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -17531,11 +17591,14 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -17548,17 +17611,14 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -17570,8 +17630,8 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -18285,6 +18345,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -18338,6 +18399,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -18361,6 +18423,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -18384,6 +18447,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -18407,6 +18471,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -19052,6 +19117,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 </span>
                 <span
                   class="SlideControls-total"
+                  data-testid="slide-controls-total-horizontal"
                 >
                   02
                 </span>
@@ -19294,11 +19360,14 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -19311,17 +19380,14 @@ exports[`Brand Landing Page Template when description is more than 400 character
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -19333,8 +19399,8 @@ exports[`Brand Landing Page Template when description is more than 400 character
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -19383,11 +19449,14 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
-                    <button
+                    <div
                       aria-label="label"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="label"
@@ -19400,17 +19469,14 @@ exports[`Brand Landing Page Template when description is more than 400 character
                       >
                         label
                       </span>
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-testid="thumbnail-button"
-                        role="button"
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -19422,8 +19488,8 @@ exports[`Brand Landing Page Template when description is more than 400 character
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </div>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
