@@ -12,9 +12,6 @@
       "path": "applications/dxb/head"
     },
     {
-      "path": "applications/dxb/webtools-contentful-migrate"
-    },
-    {
       "path": "applications/dxb/functions/contentful-default-values"
     },
     {

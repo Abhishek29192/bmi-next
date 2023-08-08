@@ -510,7 +510,7 @@ export const TwoOneIgnoreDictionary: TwoOneClassificationAttributeDictionary = {
     TwoOneAttribToIgnore.uomType
   ],
   [TwoOneClassToIgnore.bimAttributes]: [TwoOneAttribToIgnore.productPageURL],
-  [TwoOneClassToIgnore.fabDisAssetInformation]: [
+  [TwoOneClassToIgnore.fabDisProductInformation]: [
     TwoOneAttribToIgnore.MANUFACTURER,
     TwoOneAttribToIgnore.IDENTIFIER30,
     TwoOneAttribToIgnore.IDENTIFIER240,
