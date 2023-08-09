@@ -100,18 +100,20 @@ const ProductLeadBlock = ({
     setPage(page);
     setDocuments(product.productDocuments.slice(page, (page + 1) * 24));
   };
+
+  const TabComponent = React.useCallback((props: TabProps) => {
+    return (
+      <GTMTab
+        gtm={{ id: "selector-tabs1", action: "Selector – Tabs" }}
+        {...props}
+      />
+    );
+  }, []);
+
   const displayBy = documentDisplayFormat === "Asset name" ? "title" : "type";
   return (
     <StyledProductLeadBlock>
-      <Tabs
-        initialValue="one"
-        tabComponent={(props: TabProps) => (
-          <GTMTab
-            gtm={{ id: "selector-tabs1", action: "Selector – Tabs" }}
-            {...props}
-          />
-        )}
-      >
+      <Tabs initialValue="one" tabComponent={TabComponent}>
         <Tabs.TabPanel
           heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_ABOUT)}
           index="one"
