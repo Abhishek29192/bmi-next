@@ -1055,14 +1055,17 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           >
                             label
                           </span>
-                          <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                          <div
+                            aria-label="label"
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="thumbnail-button"
+                            role="button"
                             tabindex="0"
                             type="button"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                               data-testid="PlayArrowIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -1074,7 +1077,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                             <span
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
-                          </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1164,14 +1167,17 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1183,7 +1189,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1253,14 +1259,17 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1272,7 +1281,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -4598,14 +4607,17 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -4617,7 +4629,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -4687,14 +4699,17 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -4706,7 +4721,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -6442,14 +6457,17 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -6461,7 +6479,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -6531,14 +6549,17 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -6550,7 +6571,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -8288,14 +8309,17 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -8307,7 +8331,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -8377,14 +8401,17 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -8396,7 +8423,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -10104,14 +10131,17 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -10123,7 +10153,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -10193,14 +10223,17 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -10212,7 +10245,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -11950,14 +11983,17 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -11969,7 +12005,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -12039,14 +12075,17 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -12058,7 +12097,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -13808,14 +13847,17 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -13827,7 +13869,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -13897,14 +13939,17 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -13916,7 +13961,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -15664,14 +15709,17 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -15683,7 +15731,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -15753,14 +15801,17 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -15772,7 +15823,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -17522,14 +17573,17 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -17541,7 +17595,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -17611,14 +17665,17 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -17630,7 +17687,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -19380,14 +19437,17 @@ exports[`Brand Landing Page Template when description is more than 400 character
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -19399,7 +19459,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -19469,14 +19529,17 @@ exports[`Brand Landing Page Template when description is more than 400 character
                       >
                         label
                       </span>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
                         tabindex="0"
                         type="button"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="PlayArrowIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -19488,7 +19551,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>

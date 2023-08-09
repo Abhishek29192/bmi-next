@@ -299,14 +299,17 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                     >
                       video label
                     </span>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                    <div
+                      aria-label="video label"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="thumbnail-button"
+                      role="button"
                       tabindex="0"
                       type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                         data-testid="PlayArrowIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -318,7 +321,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -630,14 +633,17 @@ exports[`OverlapCards component renders correctly 1`] = `
                     >
                       video label
                     </span>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-b4d90n-MuiButtonBase-root-MuiButton-root"
+                    <div
+                      aria-label="video label"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="thumbnail-button"
+                      role="button"
                       tabindex="0"
                       type="button"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-65o6e7-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                         data-testid="PlayArrowIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -649,7 +655,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
