@@ -27,6 +27,8 @@ export const StyledSystemPropertyItem = styled("div")(() => ({
     marginRight: "10px",
     height: "24px",
     width: "24px",
+    flexShrink: "0.5",
+    flexBasis: "2rem",
     path: {
       fill: "#348dbe"
     }

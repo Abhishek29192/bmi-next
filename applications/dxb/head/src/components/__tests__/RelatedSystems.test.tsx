@@ -135,6 +135,60 @@ describe("SystemCard", () => {
     );
   });
 
+  it("shouldn't render system configuration panel when empty system property", () => {
+    const system: EsSystem = createEsSystem();
+    const gtm = { id: "gtm-id" };
+
+    render(
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          systemPropertiesToDisplay={[]}
+          countryCode="en"
+          path={system.path}
+          gtm={gtm}
+        />
+      </ThemeProvider>
+    );
+    expect(screen.queryByTestId("systemProperties")).not.toBeInTheDocument();
+  });
+
+  describe("Render system data as per contentful", () => {
+    it("should render system data as per contentful", () => {
+      const system: EsSystem = createEsSystem();
+      const gtm = { id: "gtm-id" };
+
+      render(
+        <ThemeProvider>
+          <SystemCard
+            system={system}
+            systemPropertiesToDisplay={[
+              "Roof build-up",
+              "Unique Selling Propositions"
+            ]}
+            countryCode="en"
+            path={system.path}
+            gtm={gtm}
+          />
+        </ThemeProvider>
+      );
+
+      const systemPropItems = screen.getAllByTestId("systemPropItemPanel");
+
+      expect(systemPropItems[0]).toHaveTextContent(
+        system.systemAttributes.find((attr) =>
+          attr.code.includes("roofBuildUp")
+        )?.values[0]
+      );
+
+      expect(systemPropItems[2]).not.toHaveTextContent(
+        system.systemAttributes.find((attr) =>
+          attr.code.includes("UniqueSellingPropositions")
+        )?.values[2]
+      );
+    });
+  });
+
   it("renders correctly with related system", () => {
     const system: RelatedSystem = createRelatedSystem();
     const gtm = { id: "gtm-id" };

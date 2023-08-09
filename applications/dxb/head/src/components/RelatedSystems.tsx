@@ -53,26 +53,47 @@ const getFilteredSystemPropertyValuesList = (
     return null;
   }
 
+  if (systemPropertiesToDisplay.length === 0) {
+    return null;
+  }
+
   let filteredSystemAttributes = system.systemAttributes || [];
 
   if (systemPropertiesToDisplay && systemPropertiesToDisplay.length !== 0) {
-    filteredSystemAttributes = filteredSystemAttributes.filter(
-      (attr) =>
-        systemPropertiesToDisplay.includes(attr.code) ||
-        systemPropertiesToDisplay.includes(attr.name)
+    filteredSystemAttributes = filteredSystemAttributes.filter((attr) =>
+      systemPropertiesToDisplay.some(
+        (syspProp) =>
+          attr.code.includes(syspProp) || attr.name.includes(syspProp)
+      )
     );
   }
 
-  const topThreePropertiesToDisplay = filteredSystemAttributes
+  const topThreePropertiesToDisplay = systemPropertiesToDisplay
+    .reduce((accSystemAttributes, currentAttribute) => {
+      return [
+        ...accSystemAttributes,
+        ...filteredSystemAttributes.filter(
+          (systemAttributeObj) =>
+            systemAttributeObj.code.includes(currentAttribute) ||
+            systemAttributeObj.name.includes(currentAttribute)
+        )
+      ];
+    }, [])
     .reduce((acc, curSystemAttrObj) => {
       return [...acc, ...curSystemAttrObj.values];
     }, [])
     .slice(0, 3);
 
+  if (topThreePropertiesToDisplay.length === 0) {
+    return null;
+  }
   return (
     <StyledSystemPropertyContainer data-testid="systemProperties">
       {topThreePropertiesToDisplay.map((attrVal) => (
-        <StyledSystemPropertyItem key={uniqueId()}>
+        <StyledSystemPropertyItem
+          key={uniqueId()}
+          data-testid="systemPropItemPanel"
+        >
           <CheckMarkIcon />
           {attrVal}
         </StyledSystemPropertyItem>
