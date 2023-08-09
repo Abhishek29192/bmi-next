@@ -158,10 +158,12 @@ export const SystemCard = ({
       >
         <div>
           {system.shortDescription}
-          {getFilteredSystemPropertyValuesList(
-            system,
-            systemPropertiesToDisplay
-          )}
+
+          {systemPropertiesToDisplay &&
+            getFilteredSystemPropertyValuesList(
+              system,
+              systemPropertiesToDisplay
+            )}
         </div>
       </GTMOverviewCard>
     </Grid>

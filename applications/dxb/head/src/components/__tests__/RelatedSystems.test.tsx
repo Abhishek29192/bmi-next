@@ -139,7 +139,7 @@ describe("SystemCard", () => {
     const system: EsSystem = createEsSystem();
     const gtm = { id: "gtm-id" };
 
-    render(
+    const { rerender } = render(
       <ThemeProvider>
         <SystemCard
           system={system}
@@ -150,6 +150,20 @@ describe("SystemCard", () => {
         />
       </ThemeProvider>
     );
+    expect(screen.queryByTestId("systemProperties")).not.toBeInTheDocument();
+
+    rerender(
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          systemPropertiesToDisplay={null}
+          countryCode="en"
+          path={system.path}
+          gtm={gtm}
+        />
+      </ThemeProvider>
+    );
+
     expect(screen.queryByTestId("systemProperties")).not.toBeInTheDocument();
   });
 
