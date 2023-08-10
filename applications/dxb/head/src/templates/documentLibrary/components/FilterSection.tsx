@@ -8,15 +8,14 @@ import {
   Filter as FilterType,
   FilterProps,
   Filters,
-  Typography,
-  Icon
+  Typography
 } from "@bmi-digital/components";
 import { Filter } from "@bmi-digital/components/icon";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useMediaQuery, useTheme } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { useSiteContext } from "../../../components/Site";
 import withGTM from "../../../utils/google-tag-manager";
+import { StyledFilterIcon } from "../../../components/styles/FilterMobileStyles";
 import { Root, classes } from "./FilterSectionStyles";
 import MobileFilters from "./MobileFilterSection";
 
@@ -24,7 +23,7 @@ export type Props = {
   filters: FilterType[];
   handleFiltersChange: FilterProps["onChange"];
   clearFilters: () => void;
-  documentsCount?: number;
+  resultsNumber?: number;
   isTechnicalTable: boolean;
 };
 
@@ -33,25 +32,11 @@ const GTMCheckbox = withGTM<CheckboxProps>(Checkbox, {
 });
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
 
-const StyledFilterIcon = styled(Icon)(({ theme }) => ({
-  width: "24px",
-  marginRight: "12px",
-  path: {
-    fill: theme.colours.inter
-  },
-  ellipse: {
-    fill: theme.colours.inter
-  },
-  circle: {
-    fill: theme.colours.inter
-  }
-}));
-
 const DocumentLibraryFilter = ({
   filters,
   handleFiltersChange,
   clearFilters,
-  documentsCount,
+  resultsNumber,
   isTechnicalTable
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
@@ -61,15 +46,20 @@ const DocumentLibraryFilter = ({
   const handleDrawerToggle = () => {
     setIsOpenMobileFilters(!isOpenMobileFilters);
   };
-  filters = filters.map((filter: FilterType) => ({
-    ...filter,
-    defaultExpanded: Boolean(isMobile)
-  }));
+  const memoizedFilters = useMemo(
+    () =>
+      filters.map((filter: FilterType) => ({
+        ...filter,
+        defaultExpanded: Boolean(isMobile)
+      })),
+    [filters, isMobile]
+  );
+
   const filtersComponent = (
     <DownloadListContext.Consumer>
       {() => (
         <Filters
-          filters={filters}
+          filters={memoizedFilters}
           onChange={handleFiltersChange}
           checkboxComponent={(props: CheckboxProps) => (
             <GTMCheckbox
@@ -97,50 +87,50 @@ const DocumentLibraryFilter = ({
     </DownloadListContext.Consumer>
   );
 
+  const mobileView = (
+    <>
+      <Button
+        variant="opaqueOutlined"
+        onClick={handleDrawerToggle}
+        className={classes.filterBtn}
+        data-testid="filters-mobile-btn"
+      >
+        <StyledFilterIcon source={Filter} />
+        {getMicroCopy("documentLibrary.filters.title")}
+      </Button>
+      <div data-testid="mobile-filters">
+        <MobileFilters
+          isOpenMobileFilters={isOpenMobileFilters}
+          clearFilters={clearFilters}
+          handleDrawerToggle={handleDrawerToggle}
+          filtersComponent={filtersComponent}
+          resultsNumber={resultsNumber}
+          showDocumentCount={!isTechnicalTable}
+        />
+      </div>
+    </>
+  );
+
+  const desktopView = (
+    <>
+      <div className={classes.filterBox} data-testid="filter-sidebar-header">
+        <Typography variant="h5">
+          {getMicroCopy("documentLibrary.filters.title")}
+        </Typography>
+        <Button
+          variant="text"
+          onClick={clearFilters}
+          data-testid="filters-clear-all"
+        >
+          {getMicroCopy("documentLibrary.filters.clearAll")}
+        </Button>
+      </div>
+      {filtersComponent}
+    </>
+  );
   return (
     <Root data-testid="document-library-filters">
-      <div className={classes.filterBox}>
-        {isMobile ? (
-          <Button
-            variant="opaqueOutlined"
-            onClick={handleDrawerToggle}
-            className={classes.filterBtn}
-            data-testid="filters-mobile-btn"
-          >
-            <StyledFilterIcon source={Filter} />
-            {getMicroCopy("documentLibrary.filters.title")}
-          </Button>
-        ) : (
-          <>
-            <Typography variant="h5">
-              {getMicroCopy("documentLibrary.filters.title")}
-            </Typography>
-            <Button
-              variant="text"
-              onClick={clearFilters}
-              data-testid="filters-clear-all"
-            >
-              {getMicroCopy("documentLibrary.filters.clearAll")}
-            </Button>
-          </>
-        )}
-      </div>
-      <>
-        {isMobile ? (
-          <div data-testid="mobile-filters">
-            <MobileFilters
-              isOpenMobileFilters={isOpenMobileFilters}
-              clearFilters={clearFilters}
-              handleDrawerToggle={handleDrawerToggle}
-              filtersComponent={filtersComponent}
-              documentsCount={documentsCount}
-              isTechnicalTable={isTechnicalTable}
-            />
-          </div>
-        ) : (
-          filtersComponent
-        )}
-      </>
+      {isMobile ? mobileView : desktopView}
     </Root>
   );
 };

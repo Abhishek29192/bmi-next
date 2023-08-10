@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { getPathWithCountryCode } from "../utils/path";
 import { removePLPFilterPrefix } from "./product-filters";
 import type { Filter } from "@bmi-digital/components";
-import type { ProductFilter } from "../types/pim";
 
 export type URLFilter = {
   name: string;
@@ -29,37 +28,37 @@ export enum SourceEnum {
 export const convertToURLFilters = (
   filters: readonly Filter[]
 ): URLProductFilter[] => {
-  return filters.reduce((carry, { name, value }) => {
+  return filters.reduce((carry: URLProductFilter[], { name, value }) => {
     if (value && value.length) {
-      carry.push({ name: removePLPFilterPrefix(name), value });
+      carry.push({
+        name: removePLPFilterPrefix(name),
+        value: Array.from(value)
+      });
     }
     return carry;
   }, []);
 };
 
-export const uniqueByCode = (uniqueObjects, object) => {
-  uniqueObjects.find((unique) => unique.code === object.code) ||
-    uniqueObjects.push(object);
-  return uniqueObjects;
-};
+export const sortAlphabeticallyBy =
+  <T extends Record<string, unknown>>(propName: keyof T) =>
+  (a: T, b: T) => {
+    // eslint-disable-next-line security/detect-object-injection
+    if (a[propName] < b[propName]) {
+      return -1;
+    }
+    // eslint-disable-next-line security/detect-object-injection
+    if (a[propName] > b[propName]) {
+      return 1;
+    }
+    return 0;
+  };
 
-export const sortAlphabeticallyBy = (propName) => (a, b) => {
-  // eslint-disable-next-line security/detect-object-injection
-  if (a[propName] < b[propName]) {
-    return -1;
-  }
-  // eslint-disable-next-line security/detect-object-injection
-  if (a[propName] > b[propName]) {
-    return 1;
-  }
-  return 0;
-};
-
+// eslint-disable-next-line security/detect-object-injection
 export const updateFilterValue = (
   filters,
-  filterName,
-  filterValue,
-  checked
+  filterName: string,
+  filterValue: string,
+  checked: boolean
 ) => {
   const addToArray = (array, value) => [...array, value];
   const removeFromArray = (array, value) => array.filter((v) => v !== value);
@@ -118,7 +117,9 @@ export const getUpdatedFilters = (filters: Filter[]): Filter[] => {
 
     return {
       ...filter,
-      value: [].concat(currentQueryFilterValue).filter(Boolean)
+      value: ([] as string[])
+        .concat(currentQueryFilterValue || [])
+        .filter(Boolean)
     };
   });
 
@@ -127,7 +128,7 @@ export const getUpdatedFilters = (filters: Filter[]): Filter[] => {
 
 export const setFiltersUrl = (newFilters: Filter[]): void => {
   const location = getWindowLocationFilters();
-  const newUrlFilterValues = convertToURLFilters(newFilters as ProductFilter[]);
+  const newUrlFilterValues = convertToURLFilters(newFilters);
   const newFilterNames = newFilters.map(({ name }) => name);
 
   const urlFilterValues = getURLFilterValues();
@@ -141,9 +142,9 @@ export const setFiltersUrl = (newFilters: Filter[]): void => {
     )?.value;
 
     if (index === -1) {
-      urlFilterValues.push({ name, value });
+      urlFilterValues.push({ name, value: value || [] });
     } else {
-      urlFilterValues[index as number] = { name, value };
+      urlFilterValues[index as number] = { name, value: value || [] };
     }
   });
 
@@ -198,7 +199,7 @@ const replaceHistoryState = ({
     }
   });
   typeof window !== "undefined" && window.dispatchEvent(event);
-  history.replaceState(null, null, `${pathname}?${search}`);
+  history.replaceState(null, "", `${pathname}?${search}`);
 };
 
 export const useSearchParams = (): string => {

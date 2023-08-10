@@ -1,12 +1,14 @@
 import ContentfulFormSection from "../ContentfulFormSection";
-import { Context, Node } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
 const source: Node = {
   id: "source",
-  children: null,
+  children: [],
   parent: null,
-  internal: null
+  internal: { type: "", contentDigest: "", owner: "" }
 };
+
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
 
 const context: Context = {
   nodeModel: {
@@ -58,7 +60,7 @@ describe("ContentfulFormSection resolver", () => {
     expect(
       await ContentfulFormSection.inputs.resolve(
         { ...source, inputs___NODE: ["input-1", "input-2"] },
-        null,
+        args,
         context
       )
     ).toEqual([{ id: "input-1" }, { id: "input-2" }]);
@@ -66,7 +68,7 @@ describe("ContentfulFormSection resolver", () => {
 
   it("should return null if source without inputs___NODE", async () => {
     expect(
-      await ContentfulFormSection.inputs.resolve(source, null, context)
+      await ContentfulFormSection.inputs.resolve(source, args, context)
     ).toBeNull();
   });
 
@@ -79,7 +81,7 @@ describe("ContentfulFormSection resolver", () => {
     it("should throw error if no HUBSPOT_API_KEY", async () => {
       process.env.HUBSPOT_API_KEY = "";
       try {
-        await ContentfulFormSection.inputs.resolve(hubspot, null, context);
+        await ContentfulFormSection.inputs.resolve(hubspot, args, context);
       } catch (error) {
         expect(error).toEqual(new Error("No Hubspot API key provided"));
       }
@@ -89,7 +91,7 @@ describe("ContentfulFormSection resolver", () => {
       context.nodeModel.getNodeById = jest.fn();
 
       expect(
-        await ContentfulFormSection.inputs.resolve(hubspot, null, context)
+        await ContentfulFormSection.inputs.resolve(hubspot, args, context)
       ).toEqual([]);
     });
     it("should return fields if no legalConsentOptions metadata provided", async () => {
@@ -111,7 +113,7 @@ describe("ContentfulFormSection resolver", () => {
         metaData: []
       });
       expect(
-        await ContentfulFormSection.inputs.resolve(hubspot, null, context)
+        await ContentfulFormSection.inputs.resolve(hubspot, args, context)
       ).toEqual([
         {
           children: [],
@@ -200,7 +202,7 @@ describe("ContentfulFormSection resolver", () => {
         ]
       });
       expect(
-        await ContentfulFormSection.inputs.resolve(hubspot, null, context)
+        await ContentfulFormSection.inputs.resolve(hubspot, args, context)
       ).toEqual([
         {
           children: [],
@@ -325,7 +327,7 @@ describe("ContentfulFormSection resolver", () => {
         ]
       });
       expect(
-        await ContentfulFormSection.inputs.resolve(hubspot, null, context)
+        await ContentfulFormSection.inputs.resolve(hubspot, args, context)
       ).toEqual([
         {
           children: [],
@@ -386,7 +388,7 @@ describe("ContentfulFormSection resolver", () => {
         ]
       });
       expect(
-        await ContentfulFormSection.inputs.resolve(hubspot, null, context)
+        await ContentfulFormSection.inputs.resolve(hubspot, args, context)
       ).toEqual([
         {
           children: [],

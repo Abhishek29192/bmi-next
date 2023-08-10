@@ -8,7 +8,7 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import withGTM from "../utils/google-tag-manager";
 import Icon from "./Icon";
 import Image, { Data as ImageData } from "./Image";
@@ -78,7 +78,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
                           {...props}
                         />
                       )}
-                      icon={<Icon name={link.icon} />}
+                      icon={<Icon name={link.icon || ""} />}
                     >
                       {link.label}
                     </ProfileRow>

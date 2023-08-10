@@ -1,4 +1,4 @@
-import { alpha } from "@mui/material";
+import { alpha, formControlLabelClasses, checkboxClasses } from "@mui/material";
 import { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 
@@ -24,7 +24,14 @@ export const StyledListItem = styled("div")(({ theme }) => ({
     bottom: 0,
     top: 0,
     borderBottom: `1px solid ${theme.colours.storm}`,
-    backgroundColor: theme.colours.white
+    backgroundColor: theme.colours.white,
+
+    [theme.breakpoints.up("lg")]: {
+      left: 0,
+      right: 0,
+      borderLeft: `1px solid ${theme.colours.storm}`,
+      borderRight: `1px solid ${theme.colours.storm}`
+    }
   },
 
   "&:first-of-type": {
@@ -47,8 +54,18 @@ export const StyledListItem = styled("div")(({ theme }) => ({
     }
   },
 
+  [`.${formControlLabelClasses.root} .${checkboxClasses.root}`]: {
+    padding: 0
+  },
+
   [theme.breakpoints.up("sm")]: {
     margin: "0 -8px"
+  },
+
+  [theme.breakpoints.up("lg")]: {
+    paddingLeft: "16px",
+    paddingRight: "16px",
+    margin: 0
   }
 }));
 

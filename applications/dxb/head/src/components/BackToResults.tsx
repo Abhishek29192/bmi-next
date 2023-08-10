@@ -2,11 +2,14 @@ import { Button, ButtonProps, useIsClient } from "@bmi-digital/components";
 import { ArrowBack as ArrowBackIcon } from "@bmi-digital/components/icon";
 import { useMediaQuery, useTheme } from "@mui/material";
 import React, { FC, ReactElement } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { getBackToResultsPath, PATHNAME_KEY } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
-import styles from "./styles/BackToResults.module.scss";
+import {
+  BackToResultsElement,
+  BackToResultsSeparator
+} from "./styles/BackToResultsStyles";
 
 const CTABackToResults = withGTM<ButtonProps>(Button);
 
@@ -30,9 +33,8 @@ const BackToResults: FC<Props> = ({
 
   if (urlParams.get(PATHNAME_KEY)) {
     return (
-      <div
+      <BackToResultsElement
         data-testid={dataTestId || "back-to-results-section"}
-        className={styles["BackToResults"]}
       >
         <CTABackToResults
           startIcon={<ArrowBackIcon />}
@@ -53,14 +55,11 @@ const BackToResults: FC<Props> = ({
         </CTABackToResults>
         {isDesktop && (
           <>
-            <div
-              data-testid="back-to-results-separator"
-              className={styles["BackToResults--separator"]}
-            />
+            <BackToResultsSeparator data-testid="back-to-results-separator" />
             {children}
           </>
         )}
-      </div>
+      </BackToResultsElement>
     );
   }
 

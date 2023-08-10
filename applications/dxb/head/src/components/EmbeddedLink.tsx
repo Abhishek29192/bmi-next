@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";
-import styles from "./styles/EmbeddedLink.module.scss";
+import { classes } from "./styles/EmbeddedLink.styles";
 
 type Props = {
   fields: LinkData;
@@ -40,7 +40,7 @@ const EmbeddedLink = ({
       variant={theme === "primary" ? "contained" : "opaqueOutlined"}
       hasDarkBackground={backgroundTheme === "dark"}
       data={transformedFields}
-      className={classnames(styles["EmbeddedLink"], "embeddedLink")}
+      className={classnames([classes.embeddedLink], "embeddedLink")}
     >
       {fields.label}
     </Link>

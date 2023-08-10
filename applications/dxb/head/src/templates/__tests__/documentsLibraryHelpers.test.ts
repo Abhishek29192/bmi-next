@@ -3,7 +3,7 @@ import { compileESQuery } from "../documentLibrary/helpers/documentsLibraryHelpe
 describe("compileESQuery tests", () => {
   describe("when assetTypes is null", () => {
     it("does not generate asset type filter in Query", () => {
-      const generatedQuery = compileESQuery([], 1, "ALL", "Simple", null);
+      const generatedQuery = compileESQuery([], 1, "ALL", "Simple", []);
 
       const expectedQuery = {
         aggs: {

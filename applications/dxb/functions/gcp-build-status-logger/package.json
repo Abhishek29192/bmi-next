@@ -10,12 +10,12 @@
     "build": "run compile && webpack --mode=production",
     "test": "jest --coverage --reporters=default --reporters=jest-junit",
     "compile": "tsc --build",
-    "dev": "yarn build && env-cmd functions-framework --source=dist/dist/function --target=buildStatusLogger --port=9061",
+    "dev": "yarn build && env-cmd functions-framework --source=dist --target=buildStatusLogger --port=9061",
     "dev:top": "yarn build && env-cmd process-top $(yarn bin functions-framework) --source=dist/dist/function --target=buildStatusLogger --port=9061",
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "^1.6.0",
+    "@bmi-digital/functions-logger": "^1.7.5",
     "@bmi/functions-firestore": "workspace:*",
     "@google-cloud/functions-framework": "^3.2.0",
     "dotenv": "^16.0.3",

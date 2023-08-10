@@ -3,7 +3,7 @@
 exports[`MediaGallerySection component renders correctly 1`] = `
 <div>
   <div
-    class="MediaGallerySection Section-root Section-alabaster css-10chrh8"
+    class="Section-root Section-alabaster css-10chrh8"
     data-testid="media-gallery-section-Lorem-ipsum"
   >
     <div
@@ -17,7 +17,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 gridItem css-wuqcfn-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 css-640u2w-MuiGrid2-root"
             data-testid="grid-item"
           >
             <h2
@@ -28,7 +28,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
             </h2>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 gridItem css-r7p5j6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1y7ikt3-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -107,12 +107,12 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="css-16v98zi"
+                class="css-xhyzf2"
                 data-testid="thumbnails-root"
               >
                 <button
                   aria-label="Scroll left"
-                  class="MuiButtonBase-root  ThumbScrollerButton-left css-1qq5z22-MuiButtonBase-root"
+                  class="MuiButtonBase-root ThumbScrollerButton-left css-1qq5z22-MuiButtonBase-root"
                   data-testid="thumbnail-scroller-left"
                   tabindex="-1"
                   type="button"
@@ -132,32 +132,10 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </button>
-                <button
-                  aria-label="Scroll right"
-                  class="MuiButtonBase-root MediaGallery-thumbScrollerHidden ThumbScrollerButton-right css-1qq5z22-MuiButtonBase-root"
-                  data-testid="thumbnail-scroller-right"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium ThumbScrollerButton-icon css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ChevronRightIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
                 <div
-                  class="css-1ojsfml"
+                  class="css-9kk3b1"
                   data-testid="thumbnail-scroller"
-                  style="margin-right: 0%;"
+                  style="right: 0px;"
                 >
                   <button
                     class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
@@ -280,7 +258,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
 exports[`MediaGallerySection component renders correctly with long description 1`] = `
 <div>
   <div
-    class="MediaGallerySection Section-root Section-alabaster css-10chrh8"
+    class="Section-root Section-alabaster css-10chrh8"
     data-testid="media-gallery-section-Lorem-ipsum"
   >
     <div
@@ -294,7 +272,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 gridItem css-wuqcfn-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-lg-8 css-640u2w-MuiGrid2-root"
             data-testid="grid-item"
           >
             <h2
@@ -304,7 +282,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
               Lorem ipsum
             </h2>
             <div
-              class="description"
+              class="css-hix1c1"
             >
               <div
                 class="RichText-root RichText-no-bottom-margin css-1u73y0t"
@@ -325,7 +303,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 gridItem css-r7p5j6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1y7ikt3-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div

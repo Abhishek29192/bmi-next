@@ -8,16 +8,16 @@ import {
   default as OverlapCards
 } from "../OverlapCards";
 import { SiteContextProvider } from "../Site";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider>
       <SiteContextProvider
         value={{
-          node_locale: "en-UK",
+          ...getMockSiteContext("uk", "en-UK"),
           homePage: { title: "Home Page" },
           getMicroCopy: (path) => path,
-          countryCode: "uk",
           reCaptchaKey: "1234",
           reCaptchaNet: false
         }}

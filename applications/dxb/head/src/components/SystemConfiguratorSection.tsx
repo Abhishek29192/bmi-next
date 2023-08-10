@@ -37,8 +37,11 @@ import { SystemCard } from "./RelatedSystems";
 import RichText, { RichTextData } from "./RichText";
 import Scrim from "./Scrim";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SystemConfiguratorSection.module.scss";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
+import {
+  StyledSectionDescription,
+  StyledSectionTitle
+} from "./styles/SystemConfiguratorSection.styles";
 
 export type Data = {
   __typename: "ContentfulSystemConfiguratorSection";
@@ -47,6 +50,7 @@ export type Data = {
   label: string;
   description: RichTextData | null;
   question: QuestionData;
+  systemProperties: string[];
 };
 
 export type NextStepData = {
@@ -85,6 +89,7 @@ export type TitleWithContentData = DefaultTitleWithContentData & {
 export type ResultData = EntryData & {
   __typename: "ContentfulSystemConfiguratorResult";
   recommendedSystems: string[] | null;
+  systemProperties: string[];
 };
 
 type SystemConfiguratorSectionState = {
@@ -161,6 +166,7 @@ const SystemConfiguratorQuestion = ({
       let headers: HeadersInit = {
         "X-Recaptcha-Token": recaptchaToken
       };
+
       if (qaAuthToken) {
         headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
       }
@@ -226,14 +232,14 @@ const SystemConfiguratorQuestion = ({
 
   useEffect(() => {
     if ((selectedAnswer && isReload) || singleAnswer) {
-      getData(selectedAnswer.id, locale);
+      getData(selectedAnswer?.id, locale);
     }
 
     if (singleAnswer && !isReload) {
       pushToDataLayer({
         id: `system-configurator01-selected-auto`,
         label: question.title,
-        action: selectedAnswer.title,
+        action: selectedAnswer?.title,
         event: "dxb.button_click"
       });
     }
@@ -340,7 +346,8 @@ const SystemConfiguratorNoResult = ({
 const SystemConfiguratorResult = ({
   title,
   description,
-  recommendedSystems
+  recommendedSystems,
+  systemProperties
 }: ResultData) => {
   const maxDisplay = 4;
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
@@ -370,8 +377,8 @@ const SystemConfiguratorResult = ({
             pimObject
               .sort(
                 (systemA, systemB) =>
-                  recommendedSystems.indexOf(systemA.code) -
-                  recommendedSystems.indexOf(systemB.code)
+                  recommendedSystems?.indexOf(systemA.code) -
+                  recommendedSystems?.indexOf(systemB.code)
               )
               .slice(0, maxDisplay)
           );
@@ -384,7 +391,7 @@ const SystemConfiguratorResult = ({
       }
     };
 
-    if (recommendedSystems.length > 0) {
+    if (recommendedSystems?.length > 0) {
       fetchESData();
     } else {
       setRecommendedSystemPimObjects([]);
@@ -395,16 +402,15 @@ const SystemConfiguratorResult = ({
     <div ref={ref} data-testid="system-config-result">
       <Section
         backgroundColor="pearl"
-        className={styles["SystemConfigurator-result"]}
         data-testid={`system-configuration-section-${replaceSpaces(title)}`}
       >
-        <Section.Title className={styles["title"]}>{title}</Section.Title>
+        <StyledSectionTitle>{title}</StyledSectionTitle>
         {description && (
-          <div className={styles["description"]}>
+          <StyledSectionDescription>
             <RichText document={description} />
-          </div>
+          </StyledSectionDescription>
         )}
-        {recommendedSystems.length > 0 &&
+        {recommendedSystems?.length > 0 &&
           recommendedSystemPimObjects.length > 0 && (
             <Grid
               container
@@ -418,6 +424,7 @@ const SystemConfiguratorResult = ({
                     data-testid={system.code}
                     key={`${system.code}-${id}`}
                     system={system}
+                    systemPropertiesToDisplay={systemProperties}
                     countryCode={countryCode}
                     gtm={{
                       id: "system-configurator01-results",
@@ -453,16 +460,17 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       SYSTEM_CONFIG_QUERY_KEY_REFERER
     );
     const storedValues = storage.local.getItem(SYSTEM_CONFIG_STORAGE_KEY);
-    setReferer(urlReferer);
+    setReferer(urlReferer ?? "");
 
     setStoredAnswers(
       urlReferer === VALID_REFERER && storedValues
         ? JSON.parse(storedValues)
         : initialStorageState
     );
-  }, []);
+  }, [location.search]);
 
-  const { title, description, __typename, question, locale } = data;
+  const { title, description, __typename, question, locale, systemProperties } =
+    data;
   const [state, setState] = useState<SystemConfiguratorSectionState>({
     locale: locale,
     isLoading: false,
@@ -479,10 +487,10 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
 
   useEffect(() => {
     if (referer === VALID_REFERER && state.isComplete && history) {
-      history.replaceState(null, null, location.pathname);
+      history.replaceState(null, "", location.pathname);
       setStoredAnswers(initialStorageState);
     }
-  }, [referer, state]);
+  }, [location.pathname, referer, state]);
 
   if (state.error) {
     throw state.error;
@@ -497,7 +505,6 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       ) : null}
       <Section
         backgroundColor="white"
-        className={styles["SystemConfigurator"]}
         data-testid={`system-configuration-section-${replaceSpaces(title)}`}
       >
         <Section.Title>{title}</Section.Title>
@@ -516,7 +523,12 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
           </SystemConfiguratorContext.Provider>
         ) : null}
       </Section>
-      {state.result && <SystemConfiguratorResult {...state.result} />}
+      {state.result && (
+        <SystemConfiguratorResult
+          {...state.result}
+          systemProperties={systemProperties}
+        />
+      )}
       {state.noResult && <SystemConfiguratorNoResult {...state.noResult} />}
     </>
   );
@@ -536,6 +548,7 @@ export const query = graphql`
     question {
       ...SystemConfiguratorQuestionFragment
     }
+    systemProperties
   }
   fragment SystemConfiguratorQuestionFragment on ContentfulSystemConfiguratorQuestion {
     __typename

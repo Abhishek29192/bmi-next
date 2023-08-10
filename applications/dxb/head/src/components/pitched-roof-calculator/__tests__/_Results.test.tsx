@@ -43,18 +43,18 @@ jest.mock("../../FormSection", () => {
     title: React.ReactNode;
     description: React.ReactNode;
     onSuccess: () => void;
-    onFormReady?: (_, form: HTMLElement) => void;
+    onFormReady?: (_: unknown, form: HTMLElement) => void;
   }) => {
     const ref = useRef<HTMLIFrameElement>(null);
 
     useEffect(() => {
       // inserts content into iframe document
-      ref.current.contentDocument.body.innerHTML = renderToString(<HSForm />);
-      console.log(ref.current.contentDocument.body.innerHTML);
-      props.onFormReady?.({}, ref.current);
+      ref.current!.contentDocument!.body.innerHTML = renderToString(<HSForm />);
+      console.log(ref.current!.contentDocument!.body.innerHTML);
+      props.onFormReady?.({}, ref.current!);
       // tracks submit event of iframe form
       // eslint-disable-next-line testing-library/no-node-access
-      ref.current.contentDocument.querySelector("form").onsubmit =
+      ref.current!.contentDocument!.querySelector("form")!.onsubmit =
         props.onSuccess;
     }, []);
 
@@ -626,15 +626,15 @@ describe("PitchedRoofCalculator Results component", () => {
     const hsForm = screen.getByTitle<HTMLIFrameElement>("HubSpot Form");
     const emailInput =
       // eslint-disable-next-line testing-library/no-node-access -- screen can't access iframe contents for some reason
-      hsForm.contentDocument.querySelector("input[name=email]");
-    fireEvent.change(emailInput, { target: { value: "test@test.test" } });
+      hsForm.contentDocument!.querySelector("input[name=email]");
+    fireEvent.change(emailInput!, { target: { value: "test@test.test" } });
 
     // eslint-disable-next-line testing-library/no-node-access -- screen can't access iframe contents for some reason
-    const nameInput = hsForm.contentDocument.querySelector("input[name=name]");
-    fireEvent.change(nameInput, { target: { value: "Test Name" } });
+    const nameInput = hsForm.contentDocument!.querySelector("input[name=name]");
+    fireEvent.change(nameInput!, { target: { value: "Test Name" } });
 
     // eslint-disable-next-line testing-library/no-node-access -- screen can't access iframe contents for some reason
-    fireEvent.click(hsForm.contentDocument.getElementById("submit-button"));
+    fireEvent.click(hsForm.contentDocument!.getElementById("submit-button")!);
     await waitFor(() => expect(openPdfMock).toHaveBeenCalledTimes(1));
   });
 
@@ -689,7 +689,7 @@ describe("PitchedRoofCalculator Results component", () => {
       screen.queryByText("MC: results.edited.products.title")
     ).not.toBeInTheDocument();
     fireEvent.click(
-      screen.getByLabelText(`Remove ${resultsProps.variant.clip.name}`)
+      screen.getByLabelText(`Remove ${resultsProps.variant.clip!.name}`)
     );
     expect(
       screen.getByText("MC: results.edited.products.title")
@@ -706,13 +706,13 @@ describe("PitchedRoofCalculator Results component", () => {
     );
 
     const quantityNode = screen.getByLabelText(
-      `Quantity for ${resultsProps.variant.clip.name}`
+      `Quantity for ${resultsProps.variant.clip!.name}`
     );
     const initialQuantity = Number(quantityNode.textContent);
 
     fireEvent.click(
       screen.getByLabelText(
-        `Increase quantity of ${resultsProps.variant.clip.name}`
+        `Increase quantity of ${resultsProps.variant.clip!.name}`
       )
     );
     expect(
@@ -721,12 +721,12 @@ describe("PitchedRoofCalculator Results component", () => {
 
     fireEvent.click(
       screen.getByLabelText(
-        `Increase quantity of ${resultsProps.variant.clip.name}`
+        `Increase quantity of ${resultsProps.variant.clip!.name}`
       )
     );
     expect(
       Number(
-        screen.getByLabelText(`Quantity for ${resultsProps.variant.clip.name}`)
+        screen.getByLabelText(`Quantity for ${resultsProps.variant.clip!.name}`)
           .textContent
       )
     ).toBe(initialQuantity + 2);
@@ -742,17 +742,17 @@ describe("PitchedRoofCalculator Results component", () => {
     );
 
     fireEvent.click(
-      screen.getByLabelText(`Remove ${resultsProps.variant.clip.name}`)
+      screen.getByLabelText(`Remove ${resultsProps.variant.clip!.name}`)
     );
     expect(
-      screen.getByText(resultsProps.variant.clip.name)
+      screen.getByText(resultsProps.variant.clip!.name)
     ).toBeInTheDocument();
 
     fireEvent.click(
-      screen.getByLabelText(`Remove ${resultsProps.variant.clip.name}`)
+      screen.getByLabelText(`Remove ${resultsProps.variant.clip!.name}`)
     );
     expect(
-      screen.queryByText(resultsProps.variant.clip.name)
+      screen.queryByText(resultsProps.variant.clip!.name)
     ).not.toBeInTheDocument();
   });
 
@@ -766,7 +766,7 @@ describe("PitchedRoofCalculator Results component", () => {
     );
 
     fireEvent.click(
-      screen.getByLabelText(`Remove ${resultsProps.variant.clip.name}`)
+      screen.getByLabelText(`Remove ${resultsProps.variant.clip!.name}`)
     );
 
     fireEvent.click(
@@ -892,6 +892,6 @@ describe("replaceImageURLWithImage", () => {
     });
 
     const res = await replaceImageURLWithImage(data);
-    expect(res.image.includes("data:image/jpeg;base64")).toBeTruthy();
+    expect(res.image!.includes("data:image/jpeg;base64")).toBeTruthy();
   });
 });

@@ -2,9 +2,7 @@ import {
   Button,
   ButtonProps,
   IconList,
-  LeadBlock,
-  Section,
-  Typography
+  LeadBlock
 } from "@bmi-digital/components";
 import {
   ArrowBack as ArrowBackIcon,
@@ -13,17 +11,24 @@ import {
 import { Check as CheckIcon } from "@mui/icons-material";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
+import { GoodBetterBest } from "@bmi/pim-types";
+import { microCopy } from "@bmi/microcopies";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import Link, { Data as LinkData } from "../../components/Link";
 import { useSiteContext } from "../../components/Site";
-import { microCopy } from "../../constants/microCopies";
 import {
   SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
   SYSTEM_CONFIG_QUERY_KEY_REFERER,
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
 import withGTM from "../../utils/google-tag-manager";
-import styles from "./styles/leadBlockSection.module.scss";
+import {
+  Description,
+  StyledGoodBetterBestIndicator,
+  StyledSystemDetailsLeadBlockSection,
+  StyledTitle,
+  classes
+} from "./styles/leadBlockSection.styles";
 
 const BlueCheckIcon = () => {
   return <StyledBlueCheckIconInter source={CheckIcon} />;
@@ -35,6 +40,7 @@ type Props = {
   promotionalContent?: string;
   uniqueSellingPropositions?: readonly string[];
   brandLogo?: React.ReactElement;
+  goodBetterBest?: GoodBetterBest;
 };
 
 const LeadBlockSection = ({
@@ -42,7 +48,8 @@ const LeadBlockSection = ({
   cta,
   promotionalContent,
   uniqueSellingPropositions,
-  brandLogo
+  brandLogo,
+  goodBetterBest
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const [selectedSystemId, setSelectedSystemId] = useState("");
@@ -68,9 +75,8 @@ const LeadBlockSection = ({
   );
   const backToYourSelectionBtnHref = `${prevPagePath}?referer=${referer}`;
   return (
-    <Section
+    <StyledSystemDetailsLeadBlockSection
       backgroundColor="white"
-      className={styles["LeadBlockSection"]}
       data-testid="system-details-lead-block-section"
     >
       <LeadBlock>
@@ -78,7 +84,7 @@ const LeadBlockSection = ({
           {brandLogo && (
             <LeadBlock.Content.Section>
               {React.cloneElement(brandLogo, {
-                className: styles["brandLogo"],
+                className: classes.brandLogo,
                 "data-testid":
                   brandLogo.props["data-testid"] || "lead-block-brand-logo"
               })}
@@ -86,28 +92,29 @@ const LeadBlockSection = ({
           )}
 
           <LeadBlock.Content.Section>
-            <Typography
+            <StyledTitle
               variant="h1"
               hasUnderline
               data-testid="system-lead-block-title"
             >
               {name}
-            </Typography>
+            </StyledTitle>
+            {goodBetterBest && (
+              <StyledGoodBetterBestIndicator indicatorType={goodBetterBest} />
+            )}
+            {promotionalContent && (
+              <Description variant="body2" data-testid="system-lead-block-desc">
+                {promotionalContent}
+              </Description>
+            )}
           </LeadBlock.Content.Section>
 
-          {promotionalContent && (
-            <LeadBlock.Content.Section>
-              <Typography variant="body2" data-testid="system-lead-block-desc">
-                {promotionalContent}
-              </Typography>
-            </LeadBlock.Content.Section>
-          )}
-          <LeadBlock.Content.Section className={styles["ctaContainer"]}>
+          <LeadBlock.Content.Section className={classes.ctaContainer}>
             {selectedSystemId && prevPagePath && (
               <GTMButton
                 variant="text"
                 size="large"
-                className={styles["backToYourSelectionBtn"]}
+                className={classes.backToYourSelectionBtn}
                 action={{
                   model: "htmlLink",
                   href: backToYourSelectionBtnHref,
@@ -130,15 +137,15 @@ const LeadBlockSection = ({
                 component={({ children, ...rest }) => (
                   <GTMButton
                     {...rest}
-                    className={styles["quotationBtn"]}
+                    className={classes.quotationBtn}
                     endIcon={<ArrowForwardIcon />}
                     gtm={{
                       id: "cta-click1",
-                      label: cta.label,
+                      label: cta?.label,
                       action:
-                        cta.type === "Dialog"
-                          ? "Form-modal" + cta.dialogContent.__typename
-                          : cta.url
+                        cta?.type === "Dialog"
+                          ? "Form-modal" + cta?.dialogContent?.__typename
+                          : cta?.url
                     }}
                   >
                     {children}
@@ -146,19 +153,19 @@ const LeadBlockSection = ({
                 )}
                 data-testid="system-lead-block-cta-action"
               >
-                {cta.label}
+                {cta?.label}
               </Link>
             )}
           </LeadBlock.Content.Section>
         </LeadBlock.Content>
         {uniqueSellingPropositions && uniqueSellingPropositions.length > 0 && (
           <LeadBlock.Card
-            className={styles["card"]}
+            className={classes.card}
             color="pearl"
             data-testid="system-attributes-card"
           >
             <LeadBlock.Card.Section>
-              <div className={styles["iconList"]}>
+              <div className={classes.iconList}>
                 <IconList>
                   {uniqueSellingPropositions.map((value, id) => (
                     <IconList.Item
@@ -174,7 +181,7 @@ const LeadBlockSection = ({
           </LeadBlock.Card>
         )}
       </LeadBlock>
-    </Section>
+    </StyledSystemDetailsLeadBlockSection>
   );
 };
 

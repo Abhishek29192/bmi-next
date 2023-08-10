@@ -1,6 +1,6 @@
-export type GeneratedObjectWithUrl = {
+type GeneratedUrlMessage = {
   catalog: string | undefined;
   variantCode: string;
   url: string;
 };
-export type PubSubMessage = GeneratedObjectWithUrl[];
+export type PubSubMessage = GeneratedUrlMessage[];

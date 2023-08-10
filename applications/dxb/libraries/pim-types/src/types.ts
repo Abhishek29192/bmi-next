@@ -48,6 +48,7 @@ export type System = {
   systemLayers?: SystemLayer[];
   systemReferences?: SystemReference[];
   description?: HTML;
+  goodBetterBest?: GoodBetterBest;
 };
 
 export type ApprovalStatus =
@@ -614,6 +615,12 @@ export type VariantOption = {
 
 export type BaseProduct = Pick<Product, "code" | "name">;
 
+export enum GoodBetterBest {
+  good = "GOOD",
+  better = "BETTER",
+  best = "BEST"
+}
+
 export type Product = {
   approvalStatus: ApprovalStatus;
   code: string;
@@ -636,6 +643,7 @@ export type Product = {
   seoDescription?: string;
   seoTags?: string[];
   seoTitle?: string;
+  goodBetterBest?: GoodBetterBest;
 };
 
 export enum PimTypes {

@@ -8,7 +8,8 @@ export const getCollapseVariantsByBaseProductCodeQuery = (
     collapse: {
       field: groupByVariant ? "code.keyword" : "baseProduct.code.keyword",
       inner_hits: {
-        name: "all_variants"
+        name: "all_variants",
+        size: 100 // by default ES returns first 3 hits. Increase it to 100 to be consistent with other product queries
       }
     }
   };
@@ -27,16 +28,19 @@ export const getUniqueBaseProductCount = (groupByVariant: boolean) => {
 export const generateUserSelectedFilterTerms = (filters: Filter[]) => {
   return (filters || [])
     .filter((filter) => (filter.value || []).length > 0)
-    .reduce((acc, currFilter) => {
-      const termsQuery = (name: string, value: readonly string[]) => ({
-        terms: {
-          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
-          [`${removePLPFilterPrefix(name).toUpperCase()}.code.keyword`]: value
-        }
-      });
-      const query = termsQuery(currFilter.name, currFilter.value);
-      return [...acc, query];
-    }, []);
+    .reduce(
+      (acc: { terms: { [x: string]: readonly string[] } }[], currFilter) => {
+        const termsQuery = (name: string, value: readonly string[]) => ({
+          terms: {
+            // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
+            [`${removePLPFilterPrefix(name).toUpperCase()}.code.keyword`]: value
+          }
+        });
+        const query = termsQuery(currFilter.name, currFilter.value || []);
+        return [...acc, query];
+      },
+      []
+    );
 };
 
 export const generateAllowFiltersAggs = (allowFilterBy?: string[]) =>

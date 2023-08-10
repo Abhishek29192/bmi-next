@@ -33,15 +33,6 @@ updates:
     schedule:
       interval: "weekly"
   ###################################
-  # webtools-contentful-migrate
-  ###################################
-  - package-ecosystem: "npm"
-    registries:
-      - npm-npmjs
-    directory: "/applications/dxb/webtools-contentful-migrate"
-    schedule:
-      interval: "weekly"
-  ###################################
   # cms-consolidation-utility
   ###################################
   - package-ecosystem: "npm"
@@ -138,15 +129,6 @@ updates:
     registries:
       - npm-npmjs
     directory: "/applications/dxb/libraries/elasticsearch-types"
-    schedule:
-      interval: "weekly"
-  ###################################
-  # gatsby-plugin-meta-redirect
-  ###################################
-  - package-ecosystem: "npm"
-    registries:
-      - npm-npmjs
-    directory: "/applications/dxb/libraries/gatsby-plugin-meta-redirect"
     schedule:
       interval: "weekly"
   ###################################

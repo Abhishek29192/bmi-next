@@ -7,6 +7,7 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import BrandLogo from "../../components/BrandLogo";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { generateGetMicroCopy } from "../../components/MicroCopy";
@@ -16,15 +17,14 @@ import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../components/ShareWidgetSection";
 import { Data as SiteData } from "../../components/Site";
-import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
 import { transformMediaSrc } from "../../utils/media";
 import { transformImages } from "../../utils/product-details-transforms";
 import LeadBlockSection from "./leadBlockSection";
-import styles from "./styles/systemDetailsPage.module.scss";
 import SystemLayersSection from "./systemLayersSection";
 import TabLeadBlock from "./tabLeadBlock";
+import { StyledImageGalarySection } from "./styles/systemDetailsPage.styles";
 
 type Props = {
   pageContext: {
@@ -101,16 +101,15 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         promotionalContent={system.promotionalContent}
         uniqueSellingPropositions={system.uniqueSellingPropositions}
         brandLogo={<BrandLogo brandName={system.brand?.code} />}
+        goodBetterBest={system.goodBetterBest}
       />
-      <Section
+      <StyledImageGalarySection
         backgroundColor="alabaster"
-        className={styles["imageGallery-systemLayers-section"]}
         data-testid="system-details-page-image-gallary-section"
       >
         <Grid container spacing={3}>
           <Grid xs={12} md={12} lg={8}>
             <MediaGallery
-              className={styles["gallery"]}
               media={media}
               layout="short"
               thumbnailComponent={(props: ThumbnailProps) => (
@@ -125,7 +124,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
             </Grid>
           )}
         </Grid>
-      </Section>
+      </StyledImageGalarySection>
       <TabLeadBlock
         system={system}
         aboutLeadBlockGenericContent={resources?.sdpSidebarItems?.[0]}
@@ -175,6 +174,7 @@ export const systemQuery = graphql`
       documents {
         ...PIMSystemDocumentFragment
       }
+      goodBetterBest
       guaranteesAndWarrantiesImages {
         ...PIMAssetFragment
       }

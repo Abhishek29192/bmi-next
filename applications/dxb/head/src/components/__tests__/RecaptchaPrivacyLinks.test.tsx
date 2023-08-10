@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import React from "react";
 import RecaptchaPrivacyLinks from "../RecaptchaPrivacyLinks";
 import { SiteContextProvider } from "../Site";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 describe("RecaptchaPrivacyLinks component", () => {
   describe("When invalid country code is provided", () => {
@@ -11,10 +12,9 @@ describe("RecaptchaPrivacyLinks component", () => {
         <ThemeProvider>
           <SiteContextProvider
             value={{
-              node_locale: "en-UK",
+              ...getMockSiteContext("COUNTRY_CODE", "en-UK"),
               homePage: { title: "Home Page" },
               getMicroCopy: (path) => path,
-              countryCode: "COUNTRY_CODE",
               reCaptchaKey: "1234",
               reCaptchaNet: false
             }}
@@ -45,10 +45,9 @@ describe("RecaptchaPrivacyLinks component", () => {
         <ThemeProvider>
           <SiteContextProvider
             value={{
-              node_locale: "en-UK",
+              ...getMockSiteContext("no", "en-UK"),
               homePage: { title: "Home Page" },
               getMicroCopy: (path) => path,
-              countryCode: "no",
               reCaptchaKey: "1234",
               reCaptchaNet: false
             }}
@@ -80,10 +79,9 @@ describe("RecaptchaPrivacyLinks component", () => {
         <ThemeProvider>
           <SiteContextProvider
             value={{
-              node_locale: "en-UK",
+              ...getMockSiteContext("fi", "en-UK"),
               homePage: { title: "Home Page" },
               getMicroCopy: (path) => path,
-              countryCode: "fi",
               reCaptchaKey: "1234",
               reCaptchaNet: false
             }}
@@ -115,10 +113,9 @@ describe("RecaptchaPrivacyLinks component", () => {
         <ThemeProvider>
           <SiteContextProvider
             value={{
-              node_locale: "en-UK",
+              ...getMockSiteContext("it", "en-UK"),
               homePage: { title: "Home Page" },
               getMicroCopy: (path) => path,
-              countryCode: "it",
               reCaptchaKey: "1234",
               reCaptchaNet: false
             }}
@@ -150,10 +147,9 @@ describe("RecaptchaPrivacyLinks component", () => {
         <ThemeProvider>
           <SiteContextProvider
             value={{
-              node_locale: "en-UK",
+              ...getMockSiteContext("fr", "en-UK"),
               homePage: { title: "Home Page" },
               getMicroCopy: (path) => path,
-              countryCode: "fr",
               reCaptchaKey: "1234",
               reCaptchaNet: false
             }}
@@ -183,10 +179,9 @@ describe("RecaptchaPrivacyLinks component", () => {
         <ThemeProvider>
           <SiteContextProvider
             value={{
-              node_locale: "en-UK",
+              ...getMockSiteContext("de", "en-UK"),
               homePage: { title: "Home Page" },
               getMicroCopy: (path) => path,
-              countryCode: "de",
               reCaptchaKey: "1234",
               reCaptchaNet: false
             }}
@@ -219,10 +214,9 @@ describe("RecaptchaPrivacyLinks component", () => {
         <ThemeProvider>
           <SiteContextProvider
             value={{
-              node_locale: "en-UK",
+              ...getMockSiteContext("at", "en-UK"),
               homePage: { title: "Home Page" },
               getMicroCopy: (path) => path,
-              countryCode: "at",
               reCaptchaKey: "1234",
               reCaptchaNet: false
             }}
@@ -255,7 +249,7 @@ describe("RecaptchaPrivacyLinks component", () => {
         <ThemeProvider>
           <SiteContextProvider
             value={{
-              node_locale: "en-UK",
+              ...getMockSiteContext("de", "en-UK"),
               homePage: { title: "Home Page" },
               getMicroCopy: (path) => path,
               countryCode: "de",

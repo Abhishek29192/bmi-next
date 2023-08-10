@@ -3,7 +3,7 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="Brands Section-root Section-pearl css-10chrh8"
+    class="Section-root Section-pearl css-1ct3z8u"
     data-testid="brands"
   >
     <div
@@ -40,7 +40,7 @@ exports[`Brands component renders correctly 1`] = `
                 tabindex="0"
               >
                 <svg
-                  class="BrandLogo BrandIntroCard-brandLogo css-gn1fhj"
+                  class="BrandIntroCard-brandLogo css-1bpjlyv"
                   data-testid="brandLogo"
                   preserveAspectRatio="xMinYMin"
                   viewBox="0 0 154 100"
@@ -54,7 +54,7 @@ exports[`Brands component renders correctly 1`] = `
                 </svg>
               </a>
               <h6
-                class="MuiTypography-root MuiTypography-subtitle1 css-h5v5bh-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subtitle1 css-195monr-MuiTypography-root"
                 data-testid="brandLogoDescription"
               >
                 Uh-oh.  He don't look happy. He's been using brand X

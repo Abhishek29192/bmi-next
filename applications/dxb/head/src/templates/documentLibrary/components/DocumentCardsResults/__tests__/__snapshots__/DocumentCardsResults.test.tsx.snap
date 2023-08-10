@@ -11,7 +11,8 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="OverviewCard-clickable MuiBox-root css-lww50j"
+        class="OverviewCard-clickable MuiBox-root css-8upnc"
+        data-testid="overview-card-box"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -72,13 +73,13 @@ exports[`Brands component renders correctly 1`] = `
             >
               <button
                 aria-label="Copy contentful document title"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="document-table-actions-copy-url-contentful-document-id"
                 tabindex="0"
                 type="button"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -102,7 +103,7 @@ exports[`Brands component renders correctly 1`] = `
             >
               <a
                 aria-label="Download contentful document title"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                 data-testid="document-table-actions-download-contentful-document-id"
                 href="http://localhost:9000/asset-filename.jpg"
@@ -111,7 +112,7 @@ exports[`Brands component renders correctly 1`] = `
                 target="_blank"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -134,7 +135,8 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="OverviewCard-clickable MuiBox-root css-lww50j"
+        class="OverviewCard-clickable MuiBox-root css-8upnc"
+        data-testid="overview-card-box"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -156,7 +158,7 @@ exports[`Brands component renders correctly 1`] = `
               class="OverviewCard-brandLogo"
             >
               <svg
-                class="BrandLogo css-gn1fhj"
+                class=" css-1bpjlyv"
                 data-testid="brand-logo"
                 preserveAspectRatio="xMinYMin"
                 viewBox="0 0 244 100"
@@ -202,13 +204,13 @@ exports[`Brands component renders correctly 1`] = `
             >
               <button
                 aria-label="Copy contentful document title"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="document-table-actions-copy-url-contentful-document-id"
                 tabindex="0"
                 type="button"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -232,7 +234,7 @@ exports[`Brands component renders correctly 1`] = `
             >
               <a
                 aria-label="Download contentful document title"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                 data-testid="document-table-actions-download-contentful-document-id"
                 href="http://localhost:9000/asset-filename.jpg"
@@ -241,7 +243,7 @@ exports[`Brands component renders correctly 1`] = `
                 target="_blank"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -274,7 +276,8 @@ exports[`Brands component renders correctly for mobile 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="OverviewCard-clickable MuiBox-root css-lww50j"
+        class="OverviewCard-clickable MuiBox-root css-8upnc"
+        data-testid="overview-card-box"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -335,13 +338,13 @@ exports[`Brands component renders correctly for mobile 1`] = `
             >
               <button
                 aria-label="Copy contentful document title"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="document-table-actions-copy-url-contentful-document-id"
                 tabindex="0"
                 type="button"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -365,7 +368,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
             >
               <a
                 aria-label="Download contentful document title"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                 data-testid="document-table-actions-download-contentful-document-id"
                 href="http://localhost:9000/asset-filename.jpg"
@@ -374,7 +377,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
                 target="_blank"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -397,7 +400,8 @@ exports[`Brands component renders correctly for mobile 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="OverviewCard-clickable MuiBox-root css-lww50j"
+        class="OverviewCard-clickable MuiBox-root css-8upnc"
+        data-testid="overview-card-box"
       >
         <a
           class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
@@ -419,7 +423,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
               class="OverviewCard-brandLogo"
             >
               <svg
-                class="BrandLogo css-gn1fhj"
+                class=" css-1bpjlyv"
                 data-testid="brand-logo"
                 preserveAspectRatio="xMinYMin"
                 viewBox="0 0 244 100"
@@ -465,13 +469,13 @@ exports[`Brands component renders correctly for mobile 1`] = `
             >
               <button
                 aria-label="Copy contentful document title"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="document-table-actions-copy-url-contentful-document-id"
                 tabindex="0"
                 type="button"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -495,7 +499,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
             >
               <a
                 aria-label="Download contentful document title"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-aq4cim-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                 data-testid="document-table-actions-download-contentful-document-id"
                 href="http://localhost:9000/asset-filename.jpg"
@@ -504,7 +508,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
                 target="_blank"
               >
                 <svg
-                  class="document-simple-table-results-actionIcon css-546mkb"
+                  class="css-afm3c7"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >

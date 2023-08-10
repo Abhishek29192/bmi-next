@@ -69,6 +69,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -119,8 +120,10 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                   class="css-1qjezyi"
                 >
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -141,8 +144,10 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -163,8 +168,10 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -185,8 +192,10 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -377,95 +386,6 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      <nav
-        class="css-12skhd1"
-      >
-        <div
-          class="Navigation-navigationList Navigation-offset0"
-          data-testid="navigation-list-root"
-        >
-          <ul>
-            <li>
-              <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
-                data-testid="navigation-list-footer"
-              >
-                MC: menu.mainTitle
-              </h6>
-            </li>
-            <li>
-              <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"nav-main-menu","label":"menuNavigationLinkLabel"}"
-                href="menuNavigationLink"
-                tabindex="0"
-                target="_blank"
-              >
-                menuNavigationLinkLabel
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </li>
-            <ul
-              class="Navigation-utilities"
-            >
-              <li>
-                <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-main-menu","label":"menuUtilitiesLinkLabel"}"
-                  href="menuUtilitiesLink"
-                  tabindex="0"
-                >
-                  menuUtilitiesLinkLabel
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ul>
-            <li>
-              <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"nav-main-menu","label":"EN"}"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="Navigation-languageButtonContent"
-                >
-                  <img
-                    alt="English"
-                    class="Navigation-languageIcon"
-                    height="16px"
-                    src="/icons/flags/uk.svg"
-                    width="20px"
-                  />
-                  EN
-                </span>
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ChevronRightIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
     </div>
     <div
       class="Header-searchDrawerContainer"
@@ -527,7 +447,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             menuNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -537,11 +457,11 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuNavigationLink","label":"menuNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuNavigationLink"
@@ -575,7 +495,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             menuUtilitiesLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -585,11 +505,11 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuUtilitiesLink","label":"menuUtilitiesLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuUtilitiesLink"
@@ -623,7 +543,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             footerMainNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -633,11 +553,11 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerMainNavigationLink","label":"footerMainNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerMainNavigationLink"
@@ -671,7 +591,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             footerSecondaryNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -681,11 +601,11 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerSecondaryNavigationLink","label":"footerSecondaryNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerSecondaryNavigationLink"
@@ -943,6 +863,7 @@ exports[`Sitemap renders correctly 1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -993,8 +914,10 @@ exports[`Sitemap renders correctly 1`] = `
                   class="css-1qjezyi"
                 >
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -1015,8 +938,10 @@ exports[`Sitemap renders correctly 1`] = `
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -1037,8 +962,10 @@ exports[`Sitemap renders correctly 1`] = `
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -1059,8 +986,10 @@ exports[`Sitemap renders correctly 1`] = `
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -1251,95 +1180,6 @@ exports[`Sitemap renders correctly 1`] = `
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      <nav
-        class="css-12skhd1"
-      >
-        <div
-          class="Navigation-navigationList Navigation-offset0"
-          data-testid="navigation-list-root"
-        >
-          <ul>
-            <li>
-              <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
-                data-testid="navigation-list-footer"
-              >
-                MC: menu.mainTitle
-              </h6>
-            </li>
-            <li>
-              <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"nav-main-menu","label":"menuNavigationLinkLabel"}"
-                href="menuNavigationLink"
-                tabindex="0"
-                target="_blank"
-              >
-                menuNavigationLinkLabel
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </li>
-            <ul
-              class="Navigation-utilities"
-            >
-              <li>
-                <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-main-menu","label":"menuUtilitiesLinkLabel"}"
-                  href="menuUtilitiesLink"
-                  tabindex="0"
-                >
-                  menuUtilitiesLinkLabel
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ul>
-            <li>
-              <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"nav-main-menu","label":"EN"}"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="Navigation-languageButtonContent"
-                >
-                  <img
-                    alt="English"
-                    class="Navigation-languageIcon"
-                    height="16px"
-                    src="/icons/flags/uk.svg"
-                    width="20px"
-                  />
-                  EN
-                </span>
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ChevronRightIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
     </div>
     <div
       class="Header-searchDrawerContainer"
@@ -1401,7 +1241,7 @@ exports[`Sitemap renders correctly 1`] = `
             menuNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -1411,11 +1251,11 @@ exports[`Sitemap renders correctly 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuNavigationLink","label":"menuNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuNavigationLink"
@@ -1449,7 +1289,7 @@ exports[`Sitemap renders correctly 1`] = `
             menuUtilitiesLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -1459,11 +1299,11 @@ exports[`Sitemap renders correctly 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuUtilitiesLink","label":"menuUtilitiesLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuUtilitiesLink"
@@ -1497,7 +1337,7 @@ exports[`Sitemap renders correctly 1`] = `
             footerMainNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -1507,11 +1347,11 @@ exports[`Sitemap renders correctly 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerMainNavigationLink","label":"footerMainNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerMainNavigationLink"
@@ -1545,7 +1385,7 @@ exports[`Sitemap renders correctly 1`] = `
             footerSecondaryNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -1555,11 +1395,11 @@ exports[`Sitemap renders correctly 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerSecondaryNavigationLink","label":"footerSecondaryNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerSecondaryNavigationLink"
@@ -1817,6 +1657,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -1867,8 +1708,10 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                   class="css-1qjezyi"
                 >
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -1889,8 +1732,10 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -1911,8 +1756,10 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -1933,8 +1780,10 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -2125,95 +1974,6 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      <nav
-        class="css-12skhd1"
-      >
-        <div
-          class="Navigation-navigationList Navigation-offset0"
-          data-testid="navigation-list-root"
-        >
-          <ul>
-            <li>
-              <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
-                data-testid="navigation-list-footer"
-              >
-                MC: menu.mainTitle
-              </h6>
-            </li>
-            <li>
-              <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"nav-main-menu","label":"menuNavigationLinkLabel"}"
-                href="menuNavigationLink"
-                tabindex="0"
-                target="_blank"
-              >
-                menuNavigationLinkLabel
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </li>
-            <ul
-              class="Navigation-utilities"
-            >
-              <li>
-                <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-main-menu","label":"menuUtilitiesLinkLabel"}"
-                  href="menuUtilitiesLink"
-                  tabindex="0"
-                >
-                  menuUtilitiesLinkLabel
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ul>
-            <li>
-              <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"nav-main-menu","label":"EN"}"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="Navigation-languageButtonContent"
-                >
-                  <img
-                    alt="English"
-                    class="Navigation-languageIcon"
-                    height="16px"
-                    src="/icons/flags/uk.svg"
-                    width="20px"
-                  />
-                  EN
-                </span>
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ChevronRightIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
     </div>
     <div
       class="Header-searchDrawerContainer"
@@ -2275,7 +2035,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             menuNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -2285,11 +2045,11 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuNavigationLink","label":"menuNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuNavigationLink"
@@ -2323,7 +2083,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             menuUtilitiesLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -2333,11 +2093,11 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuUtilitiesLink","label":"menuUtilitiesLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuUtilitiesLink"
@@ -2371,7 +2131,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             footerSecondaryNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -2381,11 +2141,11 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerSecondaryNavigationLink","label":"footerSecondaryNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerSecondaryNavigationLink"
@@ -2627,6 +2387,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
     </nav>
     <div
       class="Header-drawer Header-languageDrawer"
+      data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -2677,8 +2438,10 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                   class="css-1qjezyi"
                 >
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
+                    data-testid="language-menu-item"
                     href="/al"
                     tabindex="0"
                   >
@@ -2699,8 +2462,10 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
+                    data-testid="language-menu-item"
                     href="/at"
                     tabindex="0"
                   >
@@ -2721,8 +2486,10 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
+                    data-testid="language-menu-item"
                     href="/uk"
                     tabindex="0"
                   >
@@ -2743,8 +2510,10 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                     />
                   </a>
                   <a
+                    aria-pressed="false"
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
+                    data-testid="language-menu-item"
                     href="/en"
                     tabindex="0"
                   >
@@ -2935,95 +2704,6 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
-      <nav
-        class="css-12skhd1"
-      >
-        <div
-          class="Navigation-navigationList Navigation-offset0"
-          data-testid="navigation-list-root"
-        >
-          <ul>
-            <li>
-              <h6
-                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1nuwz6u-MuiTypography-root"
-                data-testid="navigation-list-footer"
-              >
-                MC: menu.mainTitle
-              </h6>
-            </li>
-            <li>
-              <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"nav-main-menu","label":"menuNavigationLinkLabel"}"
-                href="menuNavigationLink"
-                tabindex="0"
-                target="_blank"
-              >
-                menuNavigationLinkLabel
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </li>
-            <ul
-              class="Navigation-utilities"
-            >
-              <li>
-                <a
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-main-menu","label":"menuUtilitiesLinkLabel"}"
-                  href="menuUtilitiesLink"
-                  tabindex="0"
-                >
-                  menuUtilitiesLinkLabel
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ul>
-            <li>
-              <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"nav-main-menu","label":"EN"}"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="Navigation-languageButtonContent"
-                >
-                  <img
-                    alt="English"
-                    class="Navigation-languageIcon"
-                    height="16px"
-                    src="/icons/flags/uk.svg"
-                    width="20px"
-                  />
-                  EN
-                </span>
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
-                    data-testid="ChevronRightIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
     </div>
     <div
       class="Header-searchDrawerContainer"
@@ -3085,7 +2765,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             menuNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -3095,11 +2775,11 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuNavigationLink","label":"menuNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuNavigationLink"
@@ -3133,7 +2813,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             menuUtilitiesLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -3143,11 +2823,11 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuUtilitiesLink","label":"menuUtilitiesLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuUtilitiesLink"
@@ -3181,7 +2861,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             footerMainNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -3191,11 +2871,11 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerMainNavigationLink","label":"footerMainNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerMainNavigationLink"
@@ -3393,7 +3073,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
             menuUtilitiesLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -3403,11 +3083,11 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuUtilitiesLink","label":"menuUtilitiesLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuUtilitiesLink"
@@ -3441,7 +3121,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
             footerMainNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -3451,11 +3131,11 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerMainNavigationLink","label":"footerMainNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerMainNavigationLink"
@@ -3489,7 +3169,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
             footerSecondaryNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -3499,11 +3179,11 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerSecondaryNavigationLink","label":"footerSecondaryNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerSecondaryNavigationLink"
@@ -3716,7 +3396,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
             menuNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -3726,11 +3406,11 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"menuNavigationLink","label":"menuNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="menuNavigationLink"
@@ -3764,7 +3444,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
             footerMainNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -3774,11 +3454,11 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerMainNavigationLink","label":"footerMainNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerMainNavigationLink"
@@ -3812,7 +3492,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
             footerSecondaryNavigationLabel
           </h2>
           <div
-            class="SitemapBlock"
+            class=" css-hz1pws"
           >
             <div
               class="MasonryGrid-root css-1a7a0ef"
@@ -3822,11 +3502,11 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
                 style="width: 33.333333333333336%;"
               >
                 <h5
-                  class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                   data-testid="typography"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                     data-gtm="{"id":"cta-click1","action":"footerSecondaryNavigationLink","label":"footerSecondaryNavigationLinkLabel"}"
                     data-testid="sitemap-link"
                     href="footerSecondaryNavigationLink"

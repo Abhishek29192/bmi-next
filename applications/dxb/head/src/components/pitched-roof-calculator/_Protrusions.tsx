@@ -7,14 +7,21 @@ import {
   RawTextField
 } from "@bmi-digital/components";
 import React, { useContext, useEffect, useState } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { Box } from "@mui/material";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../Site";
 import protrusionTypes from "./calculation/protrusions";
 import { AnalyticsContext } from "./helpers/analytics";
 import { getFieldTypes, Type } from "./helpers/fieldTypes";
-import FieldContainer from "./subcomponents/_FieldContainer";
-import inputStyles from "./subcomponents/_InputTextField.module.scss";
-import styles from "./_Protrusions.module.scss";
+import {
+  AddAnotherButton,
+  DimensionsContainer,
+  Root,
+  StyledTitle,
+  StyledFieldContainer,
+  ProtrusionWrapper,
+  classes
+} from "./_Protrusions.styles";
 
 type SelectProtrusionProps = {
   id: string;
@@ -37,10 +44,10 @@ const SelectProtrusion = ({
   };
 
   return (
-    <FieldContainer className={styles["fieldsContainer"]}>
+    <StyledFieldContainer>
       <Grid container justifyContent="center">
         {Object.entries(protrusionTypes).map(([type, { illustration }]) => (
-          <Grid key={type} xs={6} lg={2} className={styles["card"]}>
+          <Grid key={type} xs={6} lg={2}>
             <CardInput
               name={`select-protrusion-${id}`}
               value={type}
@@ -59,7 +66,7 @@ const SelectProtrusion = ({
           </Grid>
         ))}
       </Grid>
-    </FieldContainer>
+    </StyledFieldContainer>
   );
 };
 
@@ -108,12 +115,11 @@ const Input = ({
       helperText={helperText}
       rightAdornment={unit}
       fullWidth
-      className={inputStyles["InputTextField"]}
       InputProps={{
-        className: inputStyles["textField"]
+        className: classes.textField
       }}
       inputProps={{
-        className: inputStyles["numberInput"],
+        className: classes.numericInput,
         step: "any"
       }}
       errorText={error}
@@ -153,23 +159,20 @@ const ProtrusionDimensions = ({
   const isAddAnotherBtnDisabled = fields.some((field) => !values[field.name]);
 
   return (
-    <FieldContainer className={styles["fieldsContainer"]}>
-      <Grid container justifyContent="center" className={styles["dimensions"]}>
-        <DimensionsIllustration className={styles["dimensionsIllustration"]} />
-        <Grid container justifyContent="center">
-          {fields.map(({ name, type }: { name: string; type: Type }) => (
-            <Grid key={`protrusion-${id}-${name}`} xs={12} lg={3}>
-              <Input
-                key={`${protrusionType}-${name}`} // make sure to reset the state everytime the protrusionType changes
-                label={name}
-                type={type}
-                // eslint-disable-next-line security/detect-object-injection
-                defaultValue={values[name]}
-                updateField={createUpdateField(name)}
-              />
-            </Grid>
-          ))}
-        </Grid>
+    <DimensionsContainer>
+      <DimensionsIllustration className={classes.dimensionsIllustration} />
+      <Grid container justifyContent="center" mb={{ xs: "12px", sm: "36px" }}>
+        {fields.map(({ name, type }: { name: string; type: Type }) => (
+          <Grid key={`protrusion-${id}-${name}`} xs={12} lg={3}>
+            <Input
+              key={`${protrusionType}-${name}`}
+              label={name}
+              type={type}
+              defaultValue={values[name as string]}
+              updateField={createUpdateField(name)}
+            />
+          </Grid>
+        ))}
       </Grid>
       <Grid xs={12}>
         <Button
@@ -187,9 +190,8 @@ const ProtrusionDimensions = ({
           {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
         </Button>
         {onAddAnother ? (
-          <Button
+          <AddAnotherButton
             variant="outlined"
-            className={styles["addAnotherButton"]}
             disabled={isAddAnotherBtnDisabled}
             onClick={() => {
               pushEvent({
@@ -204,10 +206,10 @@ const ProtrusionDimensions = ({
             }}
           >
             {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER)}
-          </Button>
+          </AddAnotherButton>
         ) : null}
       </Grid>
-    </FieldContainer>
+    </DimensionsContainer>
   );
 };
 
@@ -255,7 +257,7 @@ const Protrusion = ({
   const { type } = values;
 
   return (
-    <div className={styles["protrusion"]}>
+    <ProtrusionWrapper>
       <SelectProtrusion
         id={id}
         defaultValue={type}
@@ -274,22 +276,26 @@ const Protrusion = ({
         />
       ) : null}
       {showRemoveButton ? (
-        <Button
-          variant="text"
-          onClick={() => {
-            pushEvent({
-              event: "dxb.button_click",
-              id: "rc-dimensions-protrusions",
-              label: getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE),
-              action: "removed"
-            });
-            onRemove();
-          }}
-        >
-          {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
-        </Button>
+        <Box mt={{ sm: 2 }}>
+          <Button
+            variant="text"
+            onClick={() => {
+              pushEvent({
+                event: "dxb.button_click",
+                id: "rc-dimensions-protrusions",
+                label: getMicroCopy(
+                  microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE
+                ),
+                action: "removed"
+              });
+              onRemove();
+            }}
+          >
+            {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
+          </Button>
+        </Box>
       ) : null}
-    </div>
+    </ProtrusionWrapper>
   );
 };
 
@@ -359,10 +365,10 @@ const Protrusions = ({
   }, [protrusions]);
 
   return (
-    <div className={styles["Protrusions"]}>
-      <h6 className={styles["title"]}>
+    <Root>
+      <StyledTitle variant="h6">
         {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_TITLE)}
-      </h6>
+      </StyledTitle>
       {protrusions.map(({ id, values }, i) => (
         <Protrusion
           key={id}
@@ -376,7 +382,7 @@ const Protrusions = ({
           showRemoveButton={!values.type && protrusions.length > 1}
         />
       ))}
-    </div>
+    </Root>
   );
 };
 

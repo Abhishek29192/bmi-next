@@ -5,18 +5,18 @@ import createClassification from "../../__tests__/helpers/ClassificationHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import ProductTechnicalSpec from "../ProductTechnicalSpec";
 import { SiteContextProvider } from "../Site";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
     <SiteContextProvider
       value={{
-        node_locale: "en-UK",
+        ...getMockSiteContext("uk", "en-UK"),
         homePage: { title: "Home Page" },
         getMicroCopy: (path) =>
           path === "pdp.noTechSpecMessage"
             ? "No technical specifications found for this product."
             : `MC: ${path}`,
-        countryCode: "uk",
         reCaptchaKey: "1234",
         reCaptchaNet: false
       }}

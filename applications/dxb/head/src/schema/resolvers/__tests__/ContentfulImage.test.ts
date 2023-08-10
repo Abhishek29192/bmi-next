@@ -1,5 +1,5 @@
 import ContentfulImage from "../ContentfulImage";
-import { Context, Node } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
@@ -10,11 +10,13 @@ const context: Context = {
   }
 };
 
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
+
 const source: Node = {
   id: "source",
-  children: null,
+  children: [],
   parent: null,
-  internal: null,
+  internal: { type: "", contentDigest: "", owner: "" },
   image___NODE: "image",
   focalPoint___NODE: "focalPoint"
 };
@@ -23,15 +25,28 @@ describe("ContentfulImage resolver", () => {
   it("should contain specific type", () => {
     expect(ContentfulImage.focalPoint.type).toBe("FocalPoint");
   });
+
   it("should return null if source without image___NODE and focalPoint___NODE", async () => {
     expect(
       await ContentfulImage.focalPoint.resolve(
-        { ...source, image___NODE: null, focalPoint___NODE: null },
-        null,
+        { ...source, image___NODE: undefined, focalPoint___NODE: undefined },
+        args,
         context
       )
     ).toBeNull();
   });
+
+  it("returns null if image file details are undefined", async () => {
+    context.nodeModel.getNodeById = jest.fn().mockResolvedValue({
+      file: {
+        details: {}
+      }
+    });
+    expect(
+      await ContentfulImage.focalPoint.resolve(source, args, context)
+    ).toBeNull();
+  });
+
   it("should return null if no focalPoint found", async () => {
     context.nodeModel.getNodeById = jest.fn().mockResolvedValue({
       file: {
@@ -45,7 +60,7 @@ describe("ContentfulImage resolver", () => {
     });
 
     expect(
-      await ContentfulImage.focalPoint.resolve(source, null, context)
+      await ContentfulImage.focalPoint.resolve(source, args, context)
     ).toBeNull();
   });
   it("should resolve focalPoint", async () => {
@@ -65,7 +80,7 @@ describe("ContentfulImage resolver", () => {
     });
 
     expect(
-      await ContentfulImage.focalPoint.resolve(source, null, context)
+      await ContentfulImage.focalPoint.resolve(source, args, context)
     ).toEqual({ x: 17, y: 67 });
   });
 });

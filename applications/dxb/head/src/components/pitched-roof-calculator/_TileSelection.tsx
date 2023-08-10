@@ -2,11 +2,11 @@ import {
   FormContext,
   Typography,
   withFormControl,
-  WithFormControlProps
+  WithFormControlProps,
+  Grid
 } from "@bmi-digital/components";
-import { Grid } from "@mui/material";
 import React, { useContext } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../Site";
 import { AnalyticsContext } from "./helpers/analytics";
 import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";

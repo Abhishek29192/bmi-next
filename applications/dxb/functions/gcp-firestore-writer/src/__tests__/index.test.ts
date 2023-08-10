@@ -6,17 +6,18 @@ import {
 } from "@bmi/functions-firestore";
 import { createFullyPopulatedProduct, createSystem } from "@bmi/pim-types";
 import {
-  Message,
-  ObjType,
   createDeleteProductItem,
   createDeleteProductMessage,
   createDeleteSystemItem,
   createDeleteSystemMessage,
   createUpdateCategoryMessage,
   createUpdateProductMessage,
-  createUpdateSystemMessage
+  createUpdateSystemMessage,
+  Message,
+  ObjType
 } from "@bmi/pub-sub-types";
-import { CODE_TYPES, OBJECT_TYPES, handleMessage } from "../";
+import { handleMessage } from "../index";
+import { CODE_TYPES, OBJECT_TYPES } from "../constants";
 
 jest.mock("@bmi-digital/functions-logger");
 
@@ -70,12 +71,9 @@ jest.mock("@bmi/functions-firestore", () => ({
 }));
 
 const transformProduct = jest.fn();
-jest.mock("../productTransformer", () => ({
-  transformProduct: () => transformProduct()
-}));
-
 const transformSystem = jest.fn();
-jest.mock("../systemTransformer", () => ({
+jest.mock("@bmi/pim-transformation", () => ({
+  transformProduct: () => transformProduct(),
   transformSystem: () => transformSystem()
 }));
 

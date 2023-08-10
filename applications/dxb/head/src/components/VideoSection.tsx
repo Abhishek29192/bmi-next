@@ -2,8 +2,8 @@ import { replaceSpaces, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import RichText, { RichTextData } from "./RichText";
-import styles from "./styles/VideoSection.module.scss";
 import Video, { ContentfulVideoData } from "./Video";
+import { StyledVideoWrapper } from "./styles/VideoSection.styles";
 
 export type Data = {
   __typename: "ContentfulVideoSection";
@@ -19,17 +19,12 @@ const VideoSection = ({
   data: Data;
 }) => {
   return (
-    <Section
-      className={styles["VideoSection"]}
-      data-testid={`video-section-${replaceSpaces(title)}`}
-    >
-      {title && (
-        <Section.Title className={styles["heading"]}>{title}</Section.Title>
-      )}
+    <Section data-testid={`video-section-${replaceSpaces(title)}`}>
+      {title && <Section.Title>{title}</Section.Title>}
       {description && <RichText document={description} hasNoBottomMargin />}
-      <div className={styles["video"]}>
+      <StyledVideoWrapper>
         <Video layout={"inline"} {...video} />
-      </div>
+      </StyledVideoWrapper>
     </Section>
   );
 };

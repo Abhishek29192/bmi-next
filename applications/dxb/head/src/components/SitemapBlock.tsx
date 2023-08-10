@@ -1,4 +1,4 @@
-import { AnchorLink, MasonryGrid, Typography } from "@bmi-digital/components";
+import { AnchorLink, MasonryGrid } from "@bmi-digital/components";
 import classnames from "classnames";
 import React from "react";
 import {
@@ -8,7 +8,11 @@ import {
   getClickableActionFromUrl
 } from "./Link";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SitemapBlock.module.scss";
+import {
+  classes,
+  StyledSitemapBlock,
+  StyledSitemapItem
+} from "./styles/SitemapBlock.styles";
 
 type Props = {
   links: (NavigationData | NavigationItem | LinkData)[] | null;
@@ -45,14 +49,9 @@ const WrapperComponent = ({
   isChild: boolean;
   children: React.ReactNode;
 }) => (
-  <div
-    className={classnames(
-      styles.SitemapBlock,
-      isChild && styles["SitemapBlock--child"]
-    )}
-  >
+  <StyledSitemapBlock className={classnames(isChild && classes.child)}>
     {isChild ? <div>{children}</div> : <MasonryGrid>{children}</MasonryGrid>}
-  </div>
+  </StyledSitemapBlock>
 );
 
 const SitemapBlock = ({ links, label, level = 0 }: Props) => {
@@ -69,9 +68,8 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
           const { label, linkedPage, url } = linkData as LinkData;
 
           return (
-            <Typography
+            <StyledSitemapItem
               variant={levelVariantMap[level.toString()].link}
-              className={styles["item"]}
               key={`${level}-${label}`}
             >
               <AnchorLink
@@ -86,7 +84,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
               >
                 {label}
               </AnchorLink>
-            </Typography>
+            </StyledSitemapItem>
           );
         }
 
@@ -96,9 +94,8 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
           return (
             <div key={`${level}-${label}`}>
               {label && (
-                <Typography
+                <StyledSitemapItem
                   variant={levelVariantMap[level.toString()].label}
-                  className={styles["item"]}
                 >
                   {link ? (
                     <AnchorLink
@@ -115,7 +112,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
                   ) : (
                     label
                   )}
-                </Typography>
+                </StyledSitemapItem>
               )}
               <SitemapBlock
                 links={links}

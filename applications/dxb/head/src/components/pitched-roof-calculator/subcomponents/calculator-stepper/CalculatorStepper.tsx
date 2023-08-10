@@ -1,11 +1,26 @@
-import { Button, Form, Typography } from "@bmi-digital/components";
 import { ArrowBack as ArrowBackIcon } from "@bmi-digital/components/icon";
 import { useMediaQuery, useTheme } from "@mui/material";
-import Divider from "@mui/material/Divider";
 import classnames from "classnames";
 import React, { FormEvent } from "react";
 import ProgressIndicator from "../../../ProgressIndicator";
-import styles from "./CalculatorStepper.module.scss";
+import {
+  Root,
+  StyledComputation,
+  StyledContent,
+  StyledFooter,
+  StyledFooterBackButtonLink,
+  StepWrapper,
+  StyledFormContent,
+  StyledFormSubmitButton,
+  StyledHR,
+  StyledSkipAndNextButtons,
+  StyledSpinnerContainer,
+  StyledStepTitle,
+  StyledSubTitle,
+  classes,
+  StyledForm,
+  FooterButton
+} from "./CalculatorStepper.styles";
 
 export type Props = {
   selected: string;
@@ -28,15 +43,15 @@ const CalculatorStepper = ({ selected, children, loading }: Props) => {
   });
 
   return (
-    <div className={styles["CalculatorStepper"]}>
+    <Root>
       {loading ? (
-        <div className={styles["spinnerContainer"]}>
-          <ProgressIndicator size={40} className={styles["spinner"]} />
-        </div>
+        <StyledSpinnerContainer>
+          <ProgressIndicator size={40} />
+        </StyledSpinnerContainer>
       ) : (
         current
       )}
-    </div>
+    </Root>
   );
 };
 
@@ -68,40 +83,29 @@ const Step = ({
   children
 }: StepProps) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   const backButton = backLabel ? (
-    <Button
+    <FooterButton
       variant="outlined"
       onClick={backButtonOnClick}
       accessibilityLabel="Back"
       startIcon={<ArrowBackIcon />}
-      className={styles["footerButton"]}
     >
       {backLabel}
-    </Button>
+    </FooterButton>
   ) : null;
 
   const link = linkLabel ? (
-    <Button
-      onClick={linkOnClick}
-      variant="text"
-      className={classnames(
-        styles["footerButton"],
-        styles["footerButton--link"]
-      )}
-    >
+    <StyledFooterBackButtonLink onClick={linkOnClick} variant="text">
       {linkLabel}
-    </Button>
+    </StyledFooterBackButtonLink>
   ) : null;
 
   const nextButton = nextLabel ? (
-    <Form.SubmitButton
-      className={styles["footerButton"]}
-      accessibilityLabel="Next"
-    >
+    <StyledFormSubmitButton accessibilityLabel="Next" component={FooterButton}>
       {nextLabel}
-    </Form.SubmitButton>
+    </StyledFormSubmitButton>
   ) : null;
 
   const totalFooterButtons =
@@ -110,7 +114,7 @@ const Step = ({
     Number(Boolean(link));
 
   const footer = totalFooterButtons ? (
-    <div className={classnames(styles["footer"])}>
+    <StyledFooter>
       {isMobile ? (
         <>
           {nextButton}
@@ -120,52 +124,54 @@ const Step = ({
       ) : (
         <>
           {backButton}
-          <div className={styles["skipAndNextButtons"]}>
+          <StyledSkipAndNextButtons>
             {link}
             {nextButton}
-          </div>
+          </StyledSkipAndNextButtons>
         </>
       )}
-    </div>
+    </StyledFooter>
   ) : null;
 
   const content = (
     <>
-      <div className={styles["formContent"]}>
-        <Typography variant="h4" className={classnames(styles["step-title"])}>
-          {title}
-        </Typography>
-        <Typography variant="h6" className={classnames(styles["computation"])}>
-          {paragraph}
-        </Typography>
-        <Typography variant="body1" className={classnames(styles["subtitle"])}>
-          {subtitle}
-        </Typography>
-        <div className={styles["content"]}>{children}</div>
-        {!footer ? <Divider className={styles["hr"]} /> : null}
-      </div>
+      <StyledFormContent className={classes["formContent"]}>
+        <StyledStepTitle variant="h4">{title}</StyledStepTitle>
+        {paragraph && (
+          <StyledComputation variant="h6">{paragraph}</StyledComputation>
+        )}
+        {subtitle && (
+          <StyledSubTitle variant="body1" className={classes["subtitle"]}>
+            {subtitle}
+          </StyledSubTitle>
+        )}
+        <StyledContent className={classes["content"]}>{children}</StyledContent>
+        {!footer ? <StyledHR /> : null}
+      </StyledFormContent>
       {footer ? footer : null}
     </>
   );
 
   const paddingClasses = classnames(
-    totalFooterButtons === 1 && styles["form--sm-padding"],
-    totalFooterButtons === 2 && styles["form--md-padding"],
-    totalFooterButtons === 3 && styles["form--lg-padding"]
+    totalFooterButtons === 1 && classes["form-sm-padding"],
+    totalFooterButtons === 2 && classes["form-md-padding"],
+    totalFooterButtons === 3 && classes["form-lg-padding"]
   );
 
   return isForm ? (
-    <Form
-      data-testid="calculator-step-form"
-      onSubmit={nextButtonOnClick}
-      className={classnames(paddingClasses, styles["form"])}
-    >
-      {content}
-    </Form>
+    <StepWrapper>
+      <StyledForm
+        data-testid="calculator-step-form"
+        onSubmit={nextButtonOnClick}
+        className={paddingClasses}
+      >
+        {content}
+      </StyledForm>
+    </StepWrapper>
   ) : (
-    <div className={classnames(paddingClasses, styles["stepWithoutForm"])}>
-      {content}
-    </div>
+    <StepWrapper>
+      <div className={paddingClasses}>{content}</div>
+    </StepWrapper>
   );
 };
 

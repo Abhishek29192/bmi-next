@@ -4,18 +4,18 @@ exports[`IEDialog component renders correctly 1`] = `
 <body>
   <div>
     <div
-      class="IEDialog-wrapper"
+      class="css-1hys8yo"
     >
       <div
-        class="IEDialog"
+        class="css-k26gag"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 IEDialog-title Typography-underline css-zqd360-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 IEDialogStyles-IEDialog-title Typography-underline css-zqd360-MuiTypography-root"
           data-testid="dialog-header-title"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium IEDialog-icon css-i4bv87-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium IEDialogStyles-IEDialog-icon css-i4bv87-MuiSvgIcon-root"
             data-testid="ErrorOutlineOutlinedIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -27,7 +27,7 @@ exports[`IEDialog component renders correctly 1`] = `
           IE Dialog Title
         </h3>
         <div
-          class="IEDialog-body css-96lqid"
+          class="IEDialogStyles-IEDialog-body css-96lqid"
         >
           <div
             class="RichText-root css-1u73y0t"
@@ -47,7 +47,7 @@ exports[`IEDialog component renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="IEDialog-actions"
+          class="IEDialogStyles-IEDialog-actions"
         >
           <a
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"

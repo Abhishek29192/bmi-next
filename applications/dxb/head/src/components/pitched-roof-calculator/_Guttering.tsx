@@ -1,6 +1,6 @@
 import { FormContext, Grid } from "@bmi-digital/components";
 import React, { useContext } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../Site";
 import { AnalyticsContext } from "./helpers/analytics";
 import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
@@ -37,9 +37,9 @@ const GutteringSelection = ({ selected, gutters }: GutteringSelectionProps) => {
       >
         {options.map(({ name, mainImage, baseProduct }) => (
           <CardRadioGroup.Item
-            key={baseProduct.code}
-            value={baseProduct.code}
-            title={baseProduct.name}
+            key={baseProduct?.code}
+            value={baseProduct?.code ?? ""}
+            title={baseProduct?.name}
             imageSource={mainImage}
             onClick={() => {
               pushEvent({

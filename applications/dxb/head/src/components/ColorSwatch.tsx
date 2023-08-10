@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/ColorSwatch.module.scss";
+import { ColorSwatchComponent } from "./styles/ColorSwatchStyles";
 
 export const COLOR_CODES = {
   ANTHRACITE: "#393E42",
@@ -61,8 +61,7 @@ const ColorSwatch = ({
   colorCode: keyof typeof COLOR_CODES;
 }) => {
   return (
-    <span
-      className={styles["ColorSwatch"]}
+    <ColorSwatchComponent
       style={{
         // eslint-disable-next-line security/detect-object-injection
         backgroundColor: COLOR_CODES[colorCode]

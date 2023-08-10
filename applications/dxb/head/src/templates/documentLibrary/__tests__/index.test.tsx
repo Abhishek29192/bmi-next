@@ -1,30 +1,30 @@
 /* eslint-disable prefer-spread */
 import { ThemeProvider } from "@bmi-digital/components";
 import {
-  fireEvent,
-  RenderResult,
-  screen,
-  waitFor
-} from "@testing-library/react";
-import React from "react";
-import {
   createContentfulDocument,
   createPimProductDocument
 } from "@bmi/elasticsearch-types";
 import { BLOCKS } from "@contentful/rich-text-types";
+import {
+  RenderResult,
+  fireEvent,
+  screen,
+  waitFor
+} from "@testing-library/react";
+import React from "react";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
-import { ConfigProvider, Config } from "../../../contexts/ConfigProvider";
+import { Config, ConfigProvider } from "../../../contexts/ConfigProvider";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import * as elasticSearch from "../../../utils/elasticSearch";
 import { FILTER_KEY } from "../../../utils/filters";
-import { DocumentLibraryPageContext, DocumentLibraryProps } from "../types";
 import {
   createCollapseData,
   createData,
   createESDocumentHitResponseMock,
   filtersMock
 } from "../__mocks__/index.mock";
+import { DocumentLibraryPageContext, DocumentLibraryProps } from "../types";
 
 const count = PAGE_SIZE;
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
@@ -88,8 +88,6 @@ const renderWithProviders = ({
     { route }
   );
 };
-
-jest.setTimeout(30000);
 
 describe("Document Library page", () => {
   beforeEach(() => {
@@ -211,7 +209,7 @@ describe("Document Library page", () => {
     });
 
     await waitFor(() => expect(mockQueryES).toBeCalled());
-    const technicalTable = await screen.findByTestId("tech-results-table");
+    const technicalTable = await screen.findByTestId("tech-results-accordion");
     expect(technicalTable).toMatchSnapshot();
   });
 
@@ -293,7 +291,9 @@ describe("Document Library page", () => {
     expect(
       screen.queryByTestId("document-simple-table-results")
     ).not.toBeInTheDocument();
-    expect(screen.queryByTestId("tech-results-table")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("tech-results-accordion")
+    ).not.toBeInTheDocument();
     expect(
       screen.queryByTestId("document-cards-results-grid")
     ).not.toBeInTheDocument();
@@ -513,13 +513,13 @@ describe("Document Library page", () => {
       });
       renderWithProviders({});
 
-      fireEvent.click(screen.queryByText("BMI Components"));
+      fireEvent.click(screen.queryByText("BMI Components")!);
       expect(mockQueryES).toBeCalledTimes(2);
 
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(
           null,
-          null,
+          "",
           `/?filters=${encodeURIComponent(mockSearchParams)}`
         );
       });
@@ -541,22 +541,22 @@ describe("Document Library page", () => {
         }
       });
       renderWithProviders({});
-      fireEvent.click(screen.queryByText("BMI Components"));
+      fireEvent.click(screen.queryByText("BMI Components")!);
       expect(mockQueryES).toBeCalled();
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(
           null,
-          null,
+          "",
           `/?${FILTER_KEY}=${encodeURIComponent(mockSearchParams)}`
         );
       });
 
-      fireEvent.click(screen.queryByText("BMI Components"));
+      fireEvent.click(screen.queryByText("BMI Components")!);
       expect(mockQueryES).toBeCalled();
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(
           null,
-          null,
+          "",
           `/?${FILTER_KEY}=%5B%5D`
         );
       });
@@ -586,9 +586,26 @@ describe("Document Library page", () => {
       expect(window.history.replaceState).toHaveBeenCalledTimes(1);
       expect(mockQueryES).toBeCalled();
       await waitFor(() => {
-        expect(window.history.replaceState).toBeCalledWith(null, null, mockUrl);
+        expect(window.history.replaceState).toBeCalledWith(null, "", mockUrl);
       });
     });
+  });
+
+  it("should not render the table and documents footer during the initial loading", async () => {
+    renderWithProviders({});
+    expect(
+      screen.queryByTestId("document-simple-table-results")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("document-results-footer")
+    ).not.toBeInTheDocument();
+
+    expect(
+      await screen.findByTestId("document-results-footer")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("document-simple-table-results")
+    ).toBeInTheDocument();
   });
 
   it("should show the correct documents after clicking the pagination", async () => {

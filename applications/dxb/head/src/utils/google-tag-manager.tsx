@@ -6,7 +6,7 @@ export type GTM = {
   id: string;
   event?: string;
   label?: string;
-  action?: string;
+  action?: string | null;
 };
 
 type Props = {

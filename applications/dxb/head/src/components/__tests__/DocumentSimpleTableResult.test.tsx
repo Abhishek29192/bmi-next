@@ -1,18 +1,20 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import { DownloadListContext, ThemeProvider } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
+import { DocumentListProvider } from "../../contexts/DocumentContext";
 import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
 import { ProductDocument as PIMDocument } from "../../types/pim";
 import DocumentSimpleTableResults, {
   Props,
   isPIMDocument
 } from "../DocumentSimpleTableResults";
+import { renderWithProviders } from "../../__tests__/renderWithProviders";
 
 jest.mock("@mui/material", () => ({
   ...(jest.requireActual("@mui/material") as any),
@@ -42,7 +44,9 @@ const renderDocumentResults = (props?: Partial<Props>) => {
   };
   return render(
     <ThemeProvider>
-      <DocumentSimpleTableResults {...defaultProps} {...props} />
+      <DocumentListProvider>
+        <DocumentSimpleTableResults {...defaultProps} {...props} />
+      </DocumentListProvider>
     </ThemeProvider>
   );
 };
@@ -196,11 +200,85 @@ describe("DocumentSimpleTableResult", () => {
       ).toEqual(0);
     });
   });
+
+  describe("test selectAll functionality", () => {
+    it("select all functionality", async () => {
+      const documents = [createPimDocument()];
+      const updateList = jest.fn();
+
+      const MockDownloadListProvider = ({ children }) => (
+        <DownloadListContext.Provider
+          value={{
+            size: 0,
+            list: {},
+            updateList,
+            resetList: jest.fn(),
+            count: 0,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          {children}
+        </DownloadListContext.Provider>
+      );
+
+      render(
+        <ThemeProvider>
+          <MockDownloadListProvider>
+            <DocumentListProvider>
+              <DocumentSimpleTableResults documents={documents} />
+            </DocumentListProvider>
+          </MockDownloadListProvider>
+        </ThemeProvider>
+      );
+      const selectAllCheckbox = screen.getByTestId("document-table-select-all");
+      fireEvent.click(selectAllCheckbox);
+      expect(selectAllCheckbox).toHaveClass("Mui-checked");
+      expect(updateList).toHaveBeenCalledTimes(1);
+
+      fireEvent.click(selectAllCheckbox);
+      expect(selectAllCheckbox).not.toHaveClass("Mui-checked");
+    });
+
+    it("should not select the same document twice", async () => {
+      const selectedDocument = createPimDocument({
+        id: "1",
+        productBaseCode: "selected-document",
+        productName: "selected document",
+        title: "selected document"
+      });
+      const documents = [createPimDocument(), selectedDocument];
+      const updateListMock = jest.fn();
+      renderWithProviders(
+        <DownloadListContext.Provider
+          value={{
+            size: selectedDocument.fileSize!,
+            list: { "1-selected_document": selectedDocument },
+            updateList: updateListMock,
+            resetList: jest.fn(),
+            count: 0,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentListProvider>
+            <DocumentSimpleTableResults documents={documents} />
+          </DocumentListProvider>
+        </DownloadListContext.Provider>
+      );
+
+      const selectAllCheckbox = screen.getByTestId("document-table-select-all");
+      fireEvent.click(selectAllCheckbox);
+      expect(updateListMock).toHaveBeenCalledTimes(1);
+    });
+  });
 });
 
 describe("in mobile view", () => {
   beforeEach(() => {
-    mockUseMediaQuery.mockReturnValueOnce(true);
+    mockUseMediaQuery.mockReturnValue(true);
   });
 
   it("should render mobile results view", () => {

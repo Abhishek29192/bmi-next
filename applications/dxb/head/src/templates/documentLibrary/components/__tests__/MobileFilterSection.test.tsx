@@ -12,8 +12,8 @@ describe("MobileFilters", () => {
     handleDrawerToggle: mockHandleDrawerToggle,
     clearFilters: mockClearFilters,
     filtersComponent: <div>Filters component</div>,
-    documentsCount: 10,
-    isTechnicalTable: false
+    resultsNumber: 10,
+    showDocumentCount: true
   };
 
   afterEach(() => {
@@ -34,13 +34,13 @@ describe("MobileFilters", () => {
       "filters-show-all-results-btn"
     );
     expect(showAllResultsBtn).toBeInTheDocument();
-    expect(showAllResultsBtn).toHaveTextContent(`${props.documentsCount}`);
+    expect(showAllResultsBtn).toHaveTextContent(`${props.resultsNumber}`);
   });
 
   it("should render with correct props  when it is technical table", () => {
     render(
       <ThemeProvider>
-        <MobileFilters {...props} isTechnicalTable={true} />
+        <MobileFilters {...props} showDocumentCount={false} />
       </ThemeProvider>
     );
     expect(

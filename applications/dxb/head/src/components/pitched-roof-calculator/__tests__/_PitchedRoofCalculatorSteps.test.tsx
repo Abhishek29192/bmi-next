@@ -439,14 +439,17 @@ describe("PitchedRoofCalculatorSteps component", () => {
 
     expect(renderedStep).toBe(CalculatorSteps.SelectRoof);
 
-    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick(createFormEvent(), {
-      roof: roofs[0].id
-    });
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        roof: roofs[0].id
+      }
+    );
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.EnterDimensions);
 
     act(() =>
-      stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick(
+      stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
         createFormEvent(),
         dimensions
       )
@@ -454,13 +457,16 @@ describe("PitchedRoofCalculatorSteps component", () => {
     rerender(getComponent(selected));
     await waitFor(() => expect(renderedStep).toBe(CalculatorSteps.SelectTile));
 
-    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick(createFormEvent(), {
-      tile: tile.baseProduct.code
-    });
+    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        tile: tile.baseProduct!.code
+      }
+    );
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.SelectVariant);
 
-    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick!(
       createFormEvent(),
       { variant: variant.externalProductCode }
     );
@@ -469,7 +475,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
     expect(renderedStep).toBe(CalculatorSteps.TileOptions);
 
     act(() =>
-      stepProps[CalculatorSteps.TileOptions].nextButtonOnClick(
+      stepProps[CalculatorSteps.TileOptions].nextButtonOnClick!(
         createFormEvent(),
         {
           verge: leftVergeTile.externalProductCode,
@@ -482,7 +488,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
     expect(renderedStep).toBe(CalculatorSteps.SelectUnderlay);
 
     act(() =>
-      stepProps[CalculatorSteps.SelectUnderlay].nextButtonOnClick(
+      stepProps[CalculatorSteps.SelectUnderlay].nextButtonOnClick!(
         createFormEvent(),
         {
           underlay: underlay.externalProductCode
@@ -492,21 +498,21 @@ describe("PitchedRoofCalculatorSteps component", () => {
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.Guttering);
 
-    act(() => stepProps[CalculatorSteps.Guttering].linkOnClick());
+    act(() => stepProps[CalculatorSteps.Guttering].linkOnClick!());
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.YourSolutionContains);
 
     act(() =>
-      stepProps[CalculatorSteps.YourSolutionContains].backButtonOnClick()
+      stepProps[CalculatorSteps.YourSolutionContains].backButtonOnClick!()
     );
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.Guttering);
 
     act(() =>
-      stepProps[CalculatorSteps.Guttering].nextButtonOnClick(
+      stepProps[CalculatorSteps.Guttering].nextButtonOnClick!(
         createFormEvent(),
         {
-          guttering: gutter.baseProduct.code,
+          guttering: gutter.baseProduct!.code,
           gutteringVariant: gutter.externalProductCode,
           gutteringHook: gutterHook.externalProductCode,
           downPipes: 10,
@@ -530,7 +536,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
       [CalculatorSteps.EnterDimensions, CalculatorSteps.SelectRoof]
     ].forEach(([current, previous]) => {
       // eslint-disable-next-line security/detect-object-injection
-      act(() => stepProps[current].backButtonOnClick());
+      act(() => stepProps[current].backButtonOnClick!());
       rerender(getComponent(selected));
       expect(renderedStep).toBe(previous);
     });
@@ -558,7 +564,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
     );
 
     const { rerender } = render(getComponent(selected));
-    stepProps[CalculatorSteps.YourSolutionContains].linkOnClick();
+    stepProps[CalculatorSteps.YourSolutionContains].linkOnClick!();
 
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.SelectRoof);
@@ -580,31 +586,37 @@ describe("PitchedRoofCalculatorSteps component", () => {
     );
     const { rerender } = render(getComponent(selected));
 
-    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick(createFormEvent(), {
-      roof: roofs[0].id
-    });
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        roof: roofs[0].id
+      }
+    );
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick(
+    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
       createFormEvent(),
       dimensions
     );
     rerender(getComponent(selected));
 
     expect(selected).toBe(CalculatorSteps.SelectTile);
-    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick(createFormEvent(), {
-      tile: undefined
-    });
+    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        tile: undefined
+      }
+    );
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick!(
       createFormEvent(),
       { variant: undefined }
     );
     rerender(getComponent(selected));
     expect(selected).toBe(CalculatorSteps.TileOptions);
 
-    stepProps[CalculatorSteps.TileOptions].nextButtonOnClick(
+    stepProps[CalculatorSteps.TileOptions].nextButtonOnClick!(
       createFormEvent(),
       { verge: undefined, ridge: undefined, ventilation: [] }
     );
@@ -629,24 +641,30 @@ describe("PitchedRoofCalculatorSteps component", () => {
     );
     const { rerender } = render(getComponent(selected));
 
-    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick(createFormEvent(), {
-      roof: roofs[0].id
-    });
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        roof: roofs[0].id
+      }
+    );
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick(
+    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
       createFormEvent(),
       dimensions
     );
     await waitFor(() => expect(selected).toBe(CalculatorSteps.SelectTile));
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick(createFormEvent(), {
-      tile: tile.baseProduct.code
-    });
+    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        tile: tile.baseProduct!.code
+      }
+    );
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick!(
       createFormEvent(),
       { variant: variant.externalProductCode }
     );
@@ -655,10 +673,10 @@ describe("PitchedRoofCalculatorSteps component", () => {
     await waitFor(() => expect(selected).toBe(CalculatorSteps.TileOptions));
 
     rerender(getComponent(selected));
-    stepProps[CalculatorSteps.TileOptions].backButtonOnClick();
+    stepProps[CalculatorSteps.TileOptions].backButtonOnClick!();
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick!(
       createFormEvent(),
       { variant: variant.externalProductCode }
     );
@@ -683,11 +701,14 @@ describe("PitchedRoofCalculatorSteps component", () => {
     );
     const { rerender } = render(getComponent(selected));
 
-    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick(createFormEvent(), {
-      roof: roofs[0].id
-    });
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        roof: roofs[0].id
+      }
+    );
     rerender(getComponent(selected));
-    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick(
+    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
       createFormEvent(),
       dimensions
     );
@@ -695,19 +716,22 @@ describe("PitchedRoofCalculatorSteps component", () => {
     rerender(getComponent(selected));
     await waitFor(() => expect(renderedStep).toBe(CalculatorSteps.SelectTile));
 
-    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick(createFormEvent(), {
-      tile: tile.baseProduct.code
-    });
+    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        tile: tile.baseProduct!.code
+      }
+    );
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick!(
       createFormEvent(),
       { variant: variant.externalProductCode }
     );
     await waitFor(() => expect(selected).toBe(CalculatorSteps.TileOptions));
 
     rerender(getComponent(selected));
-    stepProps[CalculatorSteps.TileOptions].nextButtonOnClick(
+    stepProps[CalculatorSteps.TileOptions].nextButtonOnClick!(
       createFormEvent(),
       {
         verge: leftVergeTile.externalProductCode,
@@ -719,13 +743,13 @@ describe("PitchedRoofCalculatorSteps component", () => {
     rerender(getComponent(selected));
 
     const gutterSelection = {
-      guttering: gutter.baseProduct.code,
+      guttering: gutter.baseProduct!.code,
       gutteringVariant: gutter.externalProductCode,
       gutterHook: gutterHook.externalProductCode,
       downPipes: 3,
       downPipeConnectors: 3
     };
-    stepProps[CalculatorSteps.Guttering].nextButtonOnClick(
+    stepProps[CalculatorSteps.Guttering].nextButtonOnClick!(
       createFormEvent(),
       gutterSelection
     );
@@ -735,10 +759,10 @@ describe("PitchedRoofCalculatorSteps component", () => {
       expect(selected).toBe(CalculatorSteps.YourSolutionContains)
     );
     rerender(getComponent(selected));
-    stepProps[CalculatorSteps.YourSolutionContains].backButtonOnClick();
+    stepProps[CalculatorSteps.YourSolutionContains].backButtonOnClick!();
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.Guttering].nextButtonOnClick(
+    stepProps[CalculatorSteps.Guttering].nextButtonOnClick!(
       createFormEvent(),
       gutterSelection
     );

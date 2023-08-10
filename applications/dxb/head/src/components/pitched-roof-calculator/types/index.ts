@@ -225,7 +225,7 @@ export enum ProductCategory {
 
 export type ResultsRow = {
   category: ProductCategory;
-  image: string | null;
+  image?: string;
   description: string;
   externalProductCode: string;
   packSize: string;

@@ -64,6 +64,14 @@ jest.mock("../contentful", () => {
   };
 });
 
+const gcpAuthToken = "gcp-secret";
+let generateGoogleSignedIdToken = jest.fn().mockResolvedValue(gcpAuthToken);
+jest.mock("../gcpAuth", () => {
+  return {
+    generateGoogleSignedIdToken
+  };
+});
+
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
@@ -89,6 +97,8 @@ beforeEach(() => {
   jest.resetAllMocks();
   jest.resetModules();
   fetchMock.reset();
+
+  generateGoogleSignedIdToken = jest.fn().mockResolvedValue(gcpAuthToken);
 });
 
 afterAll(() => {
@@ -1452,7 +1462,6 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1481,11 +1490,6 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
-      },
-      {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -1530,7 +1534,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -1541,7 +1546,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -1552,7 +1558,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -1560,20 +1567,11 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
-    expect(fetchMock).toHaveFetched(
-      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-      {
-        method: "GET",
-        headers: {
-          "Metadata-Flavor": "Google"
-        }
-      }
-    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });
@@ -1586,7 +1584,6 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1615,11 +1612,6 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
-      },
-      {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -1665,7 +1657,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -1676,7 +1669,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -1687,7 +1681,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -1695,20 +1690,11 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
-    expect(fetchMock).toHaveFetched(
-      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-      {
-        method: "GET",
-        headers: {
-          "Metadata-Flavor": "Google"
-        }
-      }
-    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });
@@ -1721,7 +1707,6 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1750,11 +1735,6 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
-      },
-      {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -1800,7 +1780,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -1811,7 +1792,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -1822,7 +1804,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -1830,20 +1813,11 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
-    expect(fetchMock).toHaveFetched(
-      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-      {
-        method: "GET",
-        headers: {
-          "Metadata-Flavor": "Google"
-        }
-      }
-    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });
@@ -1856,7 +1830,6 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 12 }));
     getNumberOfDocuments.mockResolvedValueOnce(1357);
 
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -1914,11 +1887,6 @@ describe("handleRequest", () => {
         }
       },
       {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
-      },
-      {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
         method: "POST"
       }
@@ -1961,7 +1929,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -1972,7 +1941,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -1983,7 +1953,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -1994,7 +1965,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -2005,7 +1977,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -2013,20 +1986,11 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
-    expect(fetchMock).toHaveFetched(
-      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-      {
-        method: "GET",
-        headers: {
-          "Metadata-Flavor": "Google"
-        }
-      }
-    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });
@@ -2043,7 +2007,6 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2063,11 +2026,6 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
-      },
-      {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -2112,7 +2070,8 @@ describe("handleRequest", () => {
     expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -2123,7 +2082,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -2134,7 +2094,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -2142,20 +2103,11 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
-    expect(fetchMock).toHaveFetched(
-      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-      {
-        method: "GET",
-        headers: {
-          "Metadata-Flavor": "Google"
-        }
-      }
-    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });
@@ -2168,7 +2120,6 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2188,11 +2139,6 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
-      },
-      {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -2237,7 +2183,8 @@ describe("handleRequest", () => {
     expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -2248,7 +2195,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -2259,7 +2207,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -2267,20 +2216,11 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
-    expect(fetchMock).toHaveFetched(
-      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-      {
-        method: "GET",
-        headers: {
-          "Metadata-Flavor": "Google"
-        }
-      }
-    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });
@@ -2296,7 +2236,6 @@ describe("handleRequest", () => {
         )
       );
     getNumberOfDocuments.mockResolvedValueOnce(1000);
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2316,11 +2255,6 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
-      },
-      {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -2365,7 +2299,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -2376,7 +2311,8 @@ describe("handleRequest", () => {
     expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -2387,7 +2323,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -2399,7 +2336,7 @@ describe("handleRequest", () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });
@@ -2412,7 +2349,6 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 0 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2432,11 +2368,6 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
-      },
-      {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -2481,7 +2412,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -2492,7 +2424,8 @@ describe("handleRequest", () => {
     expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -2503,7 +2436,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -2511,20 +2445,11 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
-    expect(fetchMock).toHaveFetched(
-      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-      {
-        method: "GET",
-        headers: {
-          "Metadata-Flavor": "Google"
-        }
-      }
-    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });
@@ -2537,7 +2462,6 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(0);
 
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2559,11 +2483,6 @@ describe("handleRequest", () => {
         }
       },
       {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
-      },
-      {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
         method: "POST"
       }
@@ -2606,7 +2525,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -2617,7 +2537,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -2628,7 +2549,8 @@ describe("handleRequest", () => {
     expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -2636,20 +2558,11 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
-    expect(fetchMock).toHaveFetched(
-      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-      {
-        method: "GET",
-        headers: {
-          "Metadata-Flavor": "Google"
-        }
-      }
-    );
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });
@@ -2664,7 +2577,6 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
 
-    const token = "authentication-token";
     mockResponses(
       fetchMock,
       {
@@ -2693,11 +2605,6 @@ describe("handleRequest", () => {
           startPage: 0,
           numberOfPages: 1
         }
-      },
-      {
-        method: "GET",
-        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-        body: token
       },
       {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
@@ -2742,7 +2649,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "products",
@@ -2753,7 +2661,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "systems",
@@ -2764,7 +2673,8 @@ describe("handleRequest", () => {
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: {
         type: "documents",
@@ -2772,22 +2682,11 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
-
-    expect(fetchMock).toHaveFetched(
-      `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
-      {
-        method: "GET",
-        headers: {
-          "Metadata-Flavor": "Google"
-        }
-      }
-    );
-
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${token}`
+        Authorization: `bearer ${gcpAuthToken}`
       },
       body: { isFullFetch: true }
     });

@@ -12,10 +12,8 @@ export const getDataFromLocale = <T extends Record<string, unknown>>(
   if (!fields) {
     return;
   }
-  // TODO: Ideally the return type should also be using the generic.
-  // "However, it's a complicated structure. Thanks Content🤬.", (Alax Canessa)
   return Object.entries(fields).map(([field, value]) => {
-    const newValue = {};
+    const newValue: { [key: string]: unknown } = {};
     // eslint-disable-next-line security/detect-object-injection
     newValue[field] = value[localeCode];
     return newValue;

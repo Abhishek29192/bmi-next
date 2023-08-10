@@ -1,3 +1,4 @@
+import ContentfulDocumentDownloadSection from "./ContentfulDocumentDownloadSection";
 import ContentfulDocumentLibraryPage from "./ContentfulDocumentLibraryPage";
 import ContentfulFormSection from "./ContentfulFormSection";
 import ContentfulHomePage from "./ContentfulHomePage";
@@ -18,7 +19,8 @@ const {
   ContentfulContactUsPage,
   ContentfulDocumentLibraryPage: ContentfulDocumentLibraryPageCommon,
   ContentfulProductListerPage,
-  ContentfulSimplePage: ContentfulSimplePageCommon
+  ContentfulSimplePage: ContentfulSimplePageCommon,
+  ContentfulCookiePolicyPage
 } = ContentfulPage;
 
 /**
@@ -29,6 +31,7 @@ const {
 export default {
   ContentfulBrandLandingPage,
   ContentfulContactUsPage,
+  ContentfulDocumentDownloadSection,
   ContentfulDocumentLibraryPage: {
     ...ContentfulDocumentLibraryPage,
     ...ContentfulDocumentLibraryPageCommon
@@ -59,5 +62,6 @@ export default {
   SystemLayer: {
     relatedProducts: System.relatedProducts,
     relatedOptionalProducts: System.relatedOptionalProducts
-  }
+  },
+  ContentfulCookiePolicyPage
 };

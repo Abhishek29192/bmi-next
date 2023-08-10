@@ -7,33 +7,30 @@ import Icon from "../Icon";
 const PREFIX = "document-simple-table-results";
 
 export const classes = {
-  actionIcon: `${PREFIX}-actionIcon`
+  actionIconSmall: `${PREFIX}-actionIconSmall`,
+  disableRipple: `${PREFIX}-disableRipple`
 };
 
-export const ActionIcon = styled(Icon)(({ theme }) => ({
-  "&, & path": {
-    fill: theme.colours.inter
-  },
-  display: "block",
-  width: "24px",
-  height: "24px",
-  "&:hover": {
-    cursor: "pointer"
-  }
-}));
-
-export const ExternalLinkIcon = styled(Icon)(({ theme }) => ({
-  fill: theme.colours.inter,
-  width: "25px",
-  height: "25px"
-}));
-
-export const StyledDocumentIcon = styled(Icon)({
+export const StyledIcon = styled(Icon)({
   width: "32px",
   height: "32px",
   minHeight: "32px",
   minWidth: "32px"
 });
+
+export const ActionIcon = styled(StyledIcon)(({ theme }) => ({
+  "&, & path": {
+    fill: theme.colours.inter
+  },
+  "&:hover": {
+    cursor: "pointer"
+  }
+}));
+
+export const ExternalLinkIcon = styled(StyledIcon)(({ theme }) => ({
+  fill: theme.colours.inter,
+  boxSizing: "content-box"
+}));
 
 export const StyledButton = styled(Button)<IconButtonProps>(({ size }) => ({
   alignItems: "center",
@@ -41,9 +38,11 @@ export const StyledButton = styled(Button)<IconButtonProps>(({ size }) => ({
   justifyContent: "center",
   width: size === "large" ? "60px" : "unset !important",
   height: size === "large" ? "60px" : "unset !important",
-  [`.${classes["actionIcon"]}`]: {
-    height: "32px",
-    width: "32px"
+  [`.${classes["actionIconSmall"]}`]: {
+    width: "24px",
+    height: "24px",
+    minHeight: "24px",
+    minWidth: "24px"
   }
 }));
 
@@ -56,15 +55,28 @@ export const Title = styled("p")(({ theme }) => ({
   overflow: "hidden"
 }));
 
+export const TooltipPopper = styled("div")(({ theme }) => ({
+  color: theme.colours.white,
+  marginRight: "8px",
+  backgroundColor: theme.colours.slate,
+  borderRadius: "4px",
+  padding: "5px 10px",
+  maxWidth: "300px",
+  fontSize: "12px",
+  lineHeight: "17px",
+  fontWeight: 500
+}));
+
 export const TitleButton = styled(Button)(({ theme }) => ({
   width: "100%",
   justifyContent: "start",
   [`&:hover p`]: {
     color: theme.colours.inter
   },
-  [theme.breakpoints.down("lg")]: {
-    padding: 0,
+  [`&.${classes.disableRipple}`]: {
     transition: "none",
+    padding: 0,
+    width: "max-content",
     [`.${buttonClasses.startIcon}`]: {
       marginLeft: 0
     },

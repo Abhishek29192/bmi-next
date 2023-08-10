@@ -7,6 +7,7 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import Brands, { Data as BrandData } from "../components/Brands";
 import OverlapCards, {
   Data as OverlapCardData
@@ -15,7 +16,6 @@ import Page, { Data as PageData } from "../components/Page";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
-import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
@@ -27,7 +27,7 @@ export type HomepageData = {
   __typename: "ContentfulHomePage";
   title: string;
   slides: readonly (SlideData | PageInfoData)[];
-  overlapCards: OverlapCardData;
+  overlapCards: OverlapCardData | null;
   brands: BrandData[];
   spaBrands: BrandData[];
   sections: SectionsData | null;
@@ -77,6 +77,7 @@ const HomePage = ({ data, pageContext }: Props) => {
       ogImageUrl={
         !isSpaEnabled ? slides?.[0]?.featuredMedia?.image?.file.url : ""
       }
+      pageType="homePage"
     >
       {({ siteContext }) => {
         const { countryCode, getMicroCopy } = siteContext;

@@ -95,8 +95,42 @@ const getScoringWeight = (classifications?: readonly PimClassification[]) =>
       )?.featureValues[0].value || "0"
   );
 
+const getSystemAttributes = (
+  classifications?: readonly PimClassification[]
+) => {
+  if (classifications === undefined || classifications.length === 0) {
+    return undefined;
+  }
+
+  const sytemAttributes = classifications.find(
+    (classification) => classification.code === "systemAttributes"
+  );
+
+  if (sytemAttributes === undefined) {
+    return undefined;
+  }
+
+  const { features } = sytemAttributes;
+
+  return features === undefined
+    ? []
+    : features.map(({ code, featureValues, name }) => ({
+        code,
+        name,
+        values: featureValues.map(({ value }) => value)
+      }));
+};
+
 export const transformSystem = (system: PimSystem): EsSystem | undefined => {
-  const { approvalStatus, type, code, name, shortDescription } = system;
+  const {
+    approvalStatus,
+    type,
+    code,
+    name,
+    shortDescription,
+    classifications,
+    goodBetterBest
+  } = system;
   if (!name || approvalStatus !== "approved") {
     return undefined;
   }
@@ -104,21 +138,37 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
   const hashedCode = generateHashFromString(code);
   const groupedImages = groupImages(system.images || []);
   const path = `/s/${generateUrl([name, hashedCode])}`;
-  const scoringWeight = getScoringWeight(system.classifications);
+  const scoringWeight = getScoringWeight(classifications);
+  const systemAttributes = getSystemAttributes(classifications);
   logger.info({
     message: `System brand: ${brand}`
   });
-  return {
+
+  logger.info({
+    message: `System attributes: ${systemAttributes} and System Classifications:${classifications}`
+  });
+
+  const transformedSystem = {
     approvalStatus,
     brand,
     code,
+    goodBetterBest,
     hashedCode,
     masterImage: mapImages(groupedImages, "MASTER_IMAGE")?.[0],
     galleryImages: mapImages(groupedImages, "GALLERY"),
     name,
     path,
     scoringWeight,
+    ...(systemAttributes && {
+      systemAttributes
+    }),
     shortDescription,
     type
   };
+
+  logger.info({
+    message: `Transformed System: ${transformedSystem}`
+  });
+
+  return transformedSystem;
 };

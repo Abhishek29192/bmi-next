@@ -6,7 +6,8 @@ const pages = [
   "ContentfulContactUsPage",
   "ContentfulProductListerPage",
   "ContentfulDocumentLibraryPage",
-  "ContentfulBrandLandingPage"
+  "ContentfulBrandLandingPage",
+  "ContentfulCookiePolicyPage"
 ] as const;
 
 type ResolveArgsArray = [Node, ResolveArgs, Context];
@@ -44,7 +45,7 @@ export default pages.reduce(
             type: "contentfulSimplePageSubtitleTextNode"
           });
 
-          return longText.subtitle;
+          return longText?.subtitle;
         }
       }
     }

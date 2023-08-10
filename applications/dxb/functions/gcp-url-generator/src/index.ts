@@ -1,14 +1,17 @@
 import logger from "@bmi-digital/functions-logger";
 import { Message } from "@bmi/pub-sub-types";
 import { PubSub, Topic } from "@google-cloud/pubsub";
-import { transformProduct } from "./productTransformer";
-import { transformSystem } from "./systemTransformer";
-import { PubSubMessage } from "./types";
-import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { transformProduct, transformSystem } from "@bmi/pim-transformation";
+import {
+  Product as FirestoreProduct,
+  System as FirestoreSystem
+} from "@bmi/firestore-types";
+import { PubSubMessage } from "./types.js";
+import type { EventFunction } from "@google-cloud/functions-framework";
 
 const { PIM_PROJECT_ID, ENV_PREFIX, NON_PROD_ENV_NAME } = process.env;
 export const TOPIC_NAME = `bmi-${ENV_PREFIX}-dxb-pim-${
-  NON_PROD_ENV_NAME && `${NON_PROD_ENV_NAME}-`
+  NON_PROD_ENV_NAME ? `${NON_PROD_ENV_NAME}-` : ""
 }URLGeneration-topic`;
 
 export const pubSubClient = new PubSub({
@@ -23,23 +26,12 @@ const getTopicPublisher = () => {
 };
 
 export const publishMessage = async (message: PubSubMessage) => {
-  try {
-    const messageId = await getTopicPublisher().publishMessage({
-      json: message
-    });
-    logger.info({
-      message: `PUB SUB MESSAGE PUBLISHED: ${message}, with message id: ${messageId}`
-    });
-  } catch (error) {
-    logger.error({ message: (error as Error).message });
-  }
-};
-
-// TODO: I think these should start with "/", but was easier for them not to
-export const COLLECTIONS = {
-  CATEGORIES: "root/categories",
-  PRODUCTS: "root/products",
-  SYSTEMS: "root/systems"
+  const messageId = await getTopicPublisher().publishMessage({
+    json: message
+  });
+  logger.info({
+    message: `PUB SUB MESSAGE PUBLISHED: ${message}, with message id: ${messageId}`
+  });
 };
 
 export const handleMessage: EventFunction = async ({ data }: any) => {
@@ -53,24 +45,34 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     }]: ${JSON.stringify(message.item)}`
   });
 
-  const { itemType, item } = message;
-
-  const collectionPath =
-    itemType in COLLECTIONS &&
-    COLLECTIONS[itemType as keyof typeof COLLECTIONS];
-
-  if (!collectionPath) {
-    throw new Error(`Unrecognised itemType [${itemType}]`);
+  if (message.itemType !== "PRODUCTS" && message.itemType !== "SYSTEMS") {
+    throw new Error(`Unrecognised itemType [${message.itemType}]`);
   }
 
-  let transformedItems;
-  if (itemType === "PRODUCTS") {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    transformedItems = transformProduct(item);
+  if (message.type === "DELETED") {
+    logger.info({
+      message: `Ignoring delete message for ${message.itemType} - ${message.item.code}`
+    });
+    return;
+  }
+
+  let items: FirestoreProduct[] | FirestoreSystem[];
+  if (message.itemType === "PRODUCTS") {
+    items = transformProduct(message.item);
   } else {
-    transformedItems = transformSystem(item);
+    items = transformSystem(message.item);
   }
+
+  if (items.length === 0) {
+    logger.info({ message: "No items were returned after transformation" });
+    return;
+  }
+
+  const transformedItems = items.map((item) => ({
+    variantCode: item.code,
+    catalog: process.env.PIM_CATALOG_NAME,
+    url: `${process.env.GATSBY_SITE_URL}/${process.env.COUNTRY_CODE}${item.path}`
+  }));
 
   logger.info({
     message: `Final transformedItems: ${JSON.stringify(transformedItems)}`

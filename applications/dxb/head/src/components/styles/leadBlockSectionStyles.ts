@@ -2,7 +2,7 @@ import { TableOfContent, LeadBlock } from "@bmi-digital/components";
 import { styled } from "@mui/material/styles";
 
 export const LinksContainer = styled(TableOfContent.Menu)({
-  "&>div:first-child": {
+  "&>div:first-of-type": {
     marginTop: "0"
   },
   "&>div:last-child": {

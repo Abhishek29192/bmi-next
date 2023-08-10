@@ -560,7 +560,7 @@ describe("transformDocument", () => {
           "type": "Decorative",
         },
         "id": "entry-id",
-        "noIndex": true,
+        "noIndex": false,
         "realFileName": "asset-filename.pdf",
         "title": "contentful document title",
         "titleAndSize": "contentful document title 1",
@@ -601,6 +601,65 @@ describe("transformDocument", () => {
     const transformedDocument = await transformDocument(contentfulDocument);
 
     expect(transformedDocument.noIndex).toEqual(false);
+    expect(getContentfulClient).toHaveBeenCalled();
+    expect(getAsset).toHaveBeenCalledWith(
+      contentfulDocument.fields.asset[process.env.MARKET_LOCALE!]!.sys.id,
+      {
+        locale: process.env.MARKET_LOCALE
+      }
+    );
+    expect(getEntry).toHaveBeenCalledWith(
+      contentfulDocument.fields.assetType[process.env.MARKET_LOCALE!]!.sys.id,
+      {
+        locale: process.env.MARKET_LOCALE
+      }
+    );
+  });
+
+  it("should return ES Contentful document with no index to false if false", async () => {
+    const contentfulDocument = createFullyPopulatedDocumentLocalisedUnlinked({
+      fields: {
+        noIndex: {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          [process.env.MARKET_LOCALE!]: false
+        }
+      }
+    });
+    getAsset.mockResolvedValueOnce(createAsset());
+    getEntry.mockResolvedValueOnce(createAssetType());
+
+    const transformedDocument = await transformDocument(contentfulDocument);
+
+    expect(transformedDocument.noIndex).toEqual(false);
+    expect(getContentfulClient).toHaveBeenCalled();
+    expect(getAsset).toHaveBeenCalledWith(
+      contentfulDocument.fields.asset[process.env.MARKET_LOCALE!]!.sys.id,
+      {
+        locale: process.env.MARKET_LOCALE
+      }
+    );
+    expect(getEntry).toHaveBeenCalledWith(
+      contentfulDocument.fields.assetType[process.env.MARKET_LOCALE!]!.sys.id,
+      {
+        locale: process.env.MARKET_LOCALE
+      }
+    );
+  });
+
+  it("should return ES Contentful document with no index to true if true", async () => {
+    const contentfulDocument = createFullyPopulatedDocumentLocalisedUnlinked({
+      fields: {
+        noIndex: {
+          [process.env.MARKET_LOCALE!]: true
+        }
+      }
+    });
+    getAsset.mockResolvedValueOnce(createAsset());
+    getEntry.mockResolvedValueOnce(createAssetType());
+
+    const transformedDocument = await transformDocument(contentfulDocument);
+
+    expect(transformedDocument.noIndex).toEqual(true);
     expect(getContentfulClient).toHaveBeenCalled();
     expect(getAsset).toHaveBeenCalledWith(
       contentfulDocument.fields.asset[process.env.MARKET_LOCALE!]!.sys.id,

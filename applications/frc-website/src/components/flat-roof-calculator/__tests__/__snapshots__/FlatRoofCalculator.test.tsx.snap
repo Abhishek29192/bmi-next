@@ -3,7 +3,7 @@
 exports[`FlatRoofCalculator component renders correctly 1`] = `
 <div>
   <div
-    class="FlatRoofCalculator"
+    class="css-153e614"
     id="flat-roof-calculator"
   >
     <div

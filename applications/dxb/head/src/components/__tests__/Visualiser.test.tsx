@@ -207,7 +207,7 @@ describe("VisualiserProvider", () => {
         >
           <VisualiserContext.Consumer>
             {(ctx) => (
-              <Button onClick={() => ctx.open()}>Open Visualiser</Button>
+              <Button onClick={() => ctx.open!()}>Open Visualiser</Button>
             )}
           </VisualiserContext.Consumer>
         </Visualiser>,

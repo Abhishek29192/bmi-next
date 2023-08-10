@@ -108,7 +108,7 @@ describe("Mobile view", () => {
           filters={filters}
           handleFiltersChange={handleFiltersChange}
           clearFilters={clearFilters}
-          documentsCount={documentsCount}
+          resultsNumber={documentsCount}
           isTechnicalTable={false}
         />
       </ThemeProvider>

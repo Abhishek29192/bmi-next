@@ -3,13 +3,14 @@ import { graphql, navigate } from "gatsby";
 import React from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import "../../src/styles/fonts.module.scss";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useConfig } from "../contexts/ConfigProvider";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import { Product } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
+import { globalStyles } from "../../src/styles/globalStyles";
+import { getGoodBetterBestIcons } from "../utils/getGoodBetterBestIcons";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";
@@ -31,7 +32,7 @@ export type Data = {
   breadcrumbs: BreadcrumbsData | null;
   signupBlock: SignupBlockData | null;
   seo: SEOContentData | null;
-  path: string;
+  path: string | null;
 };
 
 type Context = {
@@ -41,7 +42,7 @@ type Context = {
 type Children = React.ReactNode | ((context: Context) => React.ReactNode);
 
 type Props = {
-  brand?: string;
+  brand?: string | null;
   children: Children;
   title: string;
   pageData: Data;
@@ -50,6 +51,7 @@ type Props = {
   variantCodeToPathMap?: Record<string, string>;
   ogImageUrl?: string;
   variantProduct?: Product;
+  pageType?: string;
 };
 
 const Content = ({ children }: { children: Children }) => {
@@ -69,7 +71,8 @@ const Page = ({
   disableSearch,
   variantCodeToPathMap,
   ogImageUrl,
-  variantProduct
+  variantProduct,
+  pageType
 }: Props) => {
   const {
     node_locale,
@@ -102,7 +105,8 @@ const Page = ({
     homePage: siteData.homePage,
     getMicroCopy,
     gatsbyReCaptchaKey,
-    reCaptchaNet
+    reCaptchaNet,
+    goodBetterBestIconsConfig: getGoodBetterBestIcons(resources)
   };
 
   const microCopyContext = resources?.microCopy?.reduce(
@@ -117,9 +121,9 @@ const Page = ({
     variantProduct && variantProduct.seoTitle
       ? variantProduct.seoTitle
       : title || "";
-
   return (
     <>
+      {globalStyles}
       <Head
         htmlAttributes={{ lang: node_locale }}
         title={seoTitle}
@@ -132,6 +136,8 @@ const Page = ({
         seo={seo}
         variantProduct={variantProduct}
         countryCode={countryCode}
+        pageType={pageType}
+        brandLogo={brand}
       />
       <SiteContextProvider value={siteContext}>
         <BasketContextProvider>

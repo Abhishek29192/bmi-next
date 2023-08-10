@@ -4,7 +4,7 @@ exports[`SignupBlock component renders correctly 1`] = `
 <body>
   <div>
     <div
-      class="SignupBlock"
+      class="css-1orozkz"
     >
       <div
         class="ColorPair-blue800 css-1pt14k0"

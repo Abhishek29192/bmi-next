@@ -62,7 +62,7 @@ describe("PitchedRoofCalculator Guttering component", () => {
 
     expect(screen.queryByText(gutterVariant.name)).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByLabelText(gutterVariant.baseProduct.name));
+    fireEvent.click(screen.getByLabelText(gutterVariant.baseProduct!.name!));
     expect(screen.getByText(gutterVariant.name)).toBeInTheDocument();
 
     expect(screen.queryByText(gutterHook.name)).not.toBeInTheDocument();
@@ -97,7 +97,7 @@ describe("PitchedRoofCalculator Guttering component", () => {
             <Guttering
               gutters={gutters}
               selections={{
-                guttering: gutterVariant.baseProduct.code,
+                guttering: gutterVariant.baseProduct!.code,
                 gutteringVariant: gutterVariant
               }}
               gutterHooks={[]}
@@ -139,7 +139,7 @@ describe("PitchedRoofCalculator Guttering component", () => {
                 ]
               }}
               selections={{
-                guttering: gutterVariant.baseProduct.code,
+                guttering: gutterVariant.baseProduct!.code,
                 gutteringVariant: gutterVariant
               }}
               gutterHooks={[]}

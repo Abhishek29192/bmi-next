@@ -15,15 +15,22 @@ import { styled } from "@mui/material/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useCallback
+} from "react";
+import { microCopy } from "@bmi/microcopies";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";
 import FiltersSidebar from "../../../components/FiltersSidebar";
 import {
-  Data as LinkData,
-  getClickableActionFromUrl
+  getClickableActionFromUrl,
+  Data as LinkData
 } from "../../../components/Link";
 import Page, { Data as PageData } from "../../../components/Page";
 import { Data as PageInfoData } from "../../../components/PageInfo";
@@ -32,7 +39,6 @@ import ResultsPagination from "../../../components/ResultsPagination";
 import RichText, { RichTextData } from "../../../components/RichText";
 import Scrim from "../../../components/Scrim";
 import { Data as SiteData } from "../../../components/Site";
-import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { ProductFilter } from "../../../types/pim";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
@@ -57,7 +63,11 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
-import { FeaturesLink, ProductListWrapperGrid } from "../styles";
+import {
+  FeaturesLink,
+  ProductListWrapperGrid,
+  ProductListGrid
+} from "../styles";
 import {
   renderProducts,
   resolveFilters
@@ -156,7 +166,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
-
   const resultsElement = useRef<HTMLDivElement>(null);
 
   const location = useLocation();
@@ -185,7 +194,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     Math.ceil(products.length / PAGE_SIZE)
   );
 
-  const handlePageChange = async (_, page) => {
+  const handlePageChange = async (
+    _: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
     await fetchProducts(
       filters,
       pageContext.categoryCodes,
@@ -223,7 +235,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     setFilters(newFilters);
   };
 
-  const handleFiltersChange = (filterName, filterValue, checked) => {
+  const handleFiltersChange = (
+    filterName: string,
+    filterValue: string,
+    checked: boolean
+  ) => {
     const newFilters: ProductFilter[] = updateFilterValue(
       filters,
       filterName,
@@ -234,7 +250,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     history.replaceState(
       null,
-      null,
+      "",
       `${location.pathname}?${queryString.stringify({
         filters: JSON.stringify(URLFilters)
       })}`
@@ -245,74 +261,80 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   // Resets all selected filter values to nothing
   const handleClearFilters = () => {
-    history.replaceState(null, null, location.pathname);
+    history.replaceState(null, "", location.pathname);
     const newFilters = clearFilterValues(filters);
     onFiltersChange(newFilters);
   };
 
-  const fetchProducts = async (filters, categoryCodes, page, pageSize) => {
-    if (isLoading) {
-      devLog("Already loading...");
-      return;
-    }
+  const fetchProducts = useCallback(
+    async (filters, categoryCodes, page, pageSize) => {
+      if (isLoading) {
+        devLog("Already loading...");
+        return;
+      }
 
-    if (isPreviewMode) {
-      alert("You cannot search on the preview environment.");
-      return;
-    }
+      if (isPreviewMode) {
+        alert("You cannot search on the preview environment.");
+        return;
+      }
 
-    setIsLoading(true);
+      setIsLoading(true);
 
-    const query = compileElasticSearchQuery({
-      allowFilterBy: data.plpFilters.allowFilterBy,
-      categoryCodes,
-      filters, //these are updated filters with user's selection from UI!
-      groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
-      page,
-      pageSize
-    });
+      const query = compileElasticSearchQuery({
+        allowFilterBy: data.plpFilters.allowFilterBy,
+        categoryCodes,
+        filters, //these are updated filters with user's selection from UI!
+        groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
+        page,
+        pageSize
+      });
 
-    // TODO: If no query returned, empty query, show default results?
-    // TODO: Handle if no response
-    const results = await queryElasticSearch(query, ES_INDEX_NAME);
+      // TODO: If no query returned, empty query, show default results?
+      // TODO: Handle if no response
+      const results = await queryElasticSearch(query, ES_INDEX_NAME);
 
-    if (results && results.hits) {
-      const { hits } = results;
-      const uniqueBaseProductsCount =
-        results.aggregations?.unique_base_products_count?.value || 0;
-      const newPageCount = Math.ceil(uniqueBaseProductsCount / PAGE_SIZE);
-      const variants = (() => {
-        if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
-          return hits.hits.slice(0, uniqueBaseProductsCount - page * PAGE_SIZE);
-        }
-        return hits.hits;
-      })();
+      if (results && results.hits) {
+        const { hits } = results;
+        const uniqueBaseProductsCount =
+          results.aggregations?.unique_base_products_count?.value || 0;
+        const newPageCount = Math.ceil(uniqueBaseProductsCount / PAGE_SIZE);
+        const variants = (() => {
+          if ((page + 1) * PAGE_SIZE > uniqueBaseProductsCount) {
+            return hits.hits.slice(
+              0,
+              uniqueBaseProductsCount - page * PAGE_SIZE
+            );
+          }
+          return hits.hits;
+        })();
 
-      setPageCount(newPageCount);
-      setPage(newPageCount < page ? 0 : page);
-      setProducts(
-        variants.map((hit) => ({
-          ...hit._source,
-          all_variants: hit.inner_hits.all_variants.hits.hits || []
-        }))
-      );
-    }
+        setPageCount(newPageCount);
+        setPage(newPageCount < page ? 0 : page);
+        setProducts(
+          variants.map((hit) => ({
+            ...hit._source,
+            all_variants: hit.inner_hits.all_variants.hits.hits || []
+          }))
+        );
+      }
 
-    if (results && results.aggregations) {
-      // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
-      // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-      const newFilters = disableFiltersFromAggregations(
-        filters,
-        results.aggregations
-      );
+      if (results && results.aggregations) {
+        // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
+        // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
+        const newFilters = disableFiltersFromAggregations(
+          filters,
+          results.aggregations
+        );
 
-      setFilters(newFilters);
-    }
+        setFilters(newFilters);
+      }
 
-    setIsLoading(false);
+      setIsLoading(false);
 
-    return results;
-  };
+      return results;
+    },
+    [data.plpFilters.allowFilterBy, isLoading, isPreviewMode]
+  );
 
   useEffect(() => {
     if (queryParams?.filters?.length) {
@@ -343,7 +365,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         devLog("could not resolve 'data.plpFilters'");
       }
     }
-  }, [location.search]);
+  }, [
+    location.search,
+    pageContext.categoryCodes,
+    queryParams.filters,
+    resolvedFilters
+  ]);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect,
   // maybe pointless for this value to rely on it as more will break.
@@ -411,7 +438,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                     <LeadBlock.Card.Content>
                       {isFeaturesArrayExist && (
                         <IconList>
-                          {features.map((feature, index) => (
+                          {features?.map((feature, index) => (
                             <IconList.Item
                               key={index}
                               icon={BlueCheckIcon()}
@@ -464,11 +491,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   />
                 </Grid>
               ) : null}
-              <Grid
+              <ProductListGrid
                 xs={12}
                 md={12}
                 lg={filters.length ? 9 : 12}
-                style={{ paddingTop: 60 }}
                 ref={resultsElement}
               >
                 <ProductListWrapperGrid container spacing={3}>
@@ -490,7 +516,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   onPageChange={handlePageChange}
                   count={pageCount}
                 />
-              </Grid>
+              </ProductListGrid>
             </Grid>
           </Section>
           <Section

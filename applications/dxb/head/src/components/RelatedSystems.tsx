@@ -7,21 +7,31 @@ import {
   Section,
   SectionBackgroundColor
 } from "@bmi-digital/components";
+import { CheckMark as CheckMarkIcon } from "@bmi-digital/components/icon";
+import uniqueId from "lodash-es/uniqueId";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { Add as AddIcon } from "@mui/icons-material";
 import { graphql, Link } from "gatsby";
 import React, { useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { RelatedSystem } from "../types/pim";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { renderMedia } from "../utils/renderMedia";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
-import styles from "./styles/RelatedSystems.module.scss";
+import {
+  StyledLoadMoreWrapper,
+  StyledReadMoreButton,
+  StyledTitle,
+  StyledSystemPropertyContainer,
+  StyledSystemPropertyItem
+} from "./styles/RelatedSystems.styles";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 export type SystemCardProps = {
   system: RelatedSystem | EsSystem;
+  systemPropertiesToDisplay?: string[];
   countryCode: string;
   path: string;
   gtm: GTM;
@@ -29,11 +39,72 @@ export type SystemCardProps = {
   "data-testid"?: string;
 };
 
-const getSystemUrl = (countryCode, path) =>
+const getSystemUrl = (countryCode: string, path: string) =>
   getPathWithCountryCode(countryCode, path);
+
+const isEsSystem = (system: RelatedSystem | EsSystem): system is EsSystem =>
+  Object.keys(system).includes("systemAttributes");
+
+const getFilteredSystemPropertyValuesList = (
+  system: RelatedSystem | EsSystem,
+  systemPropertiesToDisplay: string[]
+) => {
+  if (!isEsSystem(system)) {
+    return null;
+  }
+
+  if (systemPropertiesToDisplay.length === 0) {
+    return null;
+  }
+
+  let filteredSystemAttributes = system.systemAttributes || [];
+
+  if (systemPropertiesToDisplay && systemPropertiesToDisplay.length !== 0) {
+    filteredSystemAttributes = filteredSystemAttributes.filter((attr) =>
+      systemPropertiesToDisplay.some(
+        (syspProp) =>
+          attr.code.includes(syspProp) || attr.name.includes(syspProp)
+      )
+    );
+  }
+
+  const topThreePropertiesToDisplay = systemPropertiesToDisplay
+    .reduce((accSystemAttributes, currentAttribute) => {
+      return [
+        ...accSystemAttributes,
+        ...filteredSystemAttributes.filter(
+          (systemAttributeObj) =>
+            systemAttributeObj.code.includes(currentAttribute) ||
+            systemAttributeObj.name.includes(currentAttribute)
+        )
+      ];
+    }, [])
+    .reduce((acc, curSystemAttrObj) => {
+      return [...acc, ...curSystemAttrObj.values];
+    }, [])
+    .slice(0, 3);
+
+  if (topThreePropertiesToDisplay.length === 0) {
+    return null;
+  }
+  return (
+    <StyledSystemPropertyContainer data-testid="systemProperties">
+      {topThreePropertiesToDisplay.map((attrVal) => (
+        <StyledSystemPropertyItem
+          key={uniqueId()}
+          data-testid="systemPropItemPanel"
+        >
+          <CheckMarkIcon />
+          {attrVal}
+        </StyledSystemPropertyItem>
+      ))}
+    </StyledSystemPropertyContainer>
+  );
+};
 
 export const SystemCard = ({
   system,
+  systemPropertiesToDisplay = [],
   countryCode,
   path,
   gtm,
@@ -61,6 +132,7 @@ export const SystemCard = ({
         titleVariant="h5"
         imageSize="contain"
         media={renderMedia(mainImage, system.name)}
+        tag={<GoodBetterBestIndicator indicatorType={system.goodBetterBest} />}
         brandImageSource={
           <BrandLogo
             brandName={
@@ -77,17 +149,22 @@ export const SystemCard = ({
         }}
         gtm={gtm}
         footer={
-          <Button
-            className={styles["footer-read-more-button"]}
-            variant="outlined"
-          >
+          <StyledReadMoreButton variant="outlined">
             {getMicroCopy(microCopy.SDP_SYSTEM_READ_MORE)}
-          </Button>
+          </StyledReadMoreButton>
         }
         isHighlighted={isHighlighted}
         {...rest}
       >
-        {system.shortDescription}
+        <div>
+          {system.shortDescription}
+
+          {systemPropertiesToDisplay &&
+            getFilteredSystemPropertyValuesList(
+              system,
+              systemPropertiesToDisplay
+            )}
+        </div>
       </GTMOverviewCard>
     </Grid>
   );
@@ -134,11 +211,11 @@ const SystemListing = ({
         })}
       </Grid>
       {numberShown < systems.length ? (
-        <div className={styles["load-more-wrapper"]}>
+        <StyledLoadMoreWrapper>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
             {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_SHOW_MORE)}
           </Button>
-        </div>
+        </StyledLoadMoreWrapper>
       ) : null}
     </>
   );
@@ -166,11 +243,11 @@ const RelatedSystems = ({
       backgroundColor={sectionBackgroundColor || "alabaster"}
       data-testid={`related-systems-section`}
     >
-      <div className={styles["RelatedSystems"]}>
-        <Section.Title className={styles["title"]}>
+      <div>
+        <StyledTitle>
           {sectionTitle ||
             getMicroCopy(microCopy.SDP_RECOMMENDED_SYSTEMS_TITLE)}
-        </Section.Title>
+        </StyledTitle>
         <SystemListing systems={systems} countryCode={countryCode} />
       </div>
     </Section>
@@ -188,6 +265,7 @@ export const query = graphql`
     galleryImages {
       ...PIMImageFragment
     }
+    goodBetterBest
     masterImage {
       ...PIMImageFragment
     }

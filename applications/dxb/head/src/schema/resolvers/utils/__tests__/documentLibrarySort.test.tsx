@@ -167,7 +167,7 @@ describe("documentLibraryHelpers", () => {
           id: "2",
           url: "2",
           title: "documentTitle2",
-          brand: null
+          brand: undefined
         })
       ];
 

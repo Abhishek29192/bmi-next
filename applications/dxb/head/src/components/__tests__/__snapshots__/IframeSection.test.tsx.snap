@@ -3,7 +3,7 @@
 exports[`IframeSection component renders correctly 1`] = `
 <div>
   <div
-    class="IframeSection Section-root Section-pearl css-10chrh8"
+    class="Section-root Section-pearl css-10chrh8"
     data-testid="iframe-section-iFrame-Section"
   >
     <div
@@ -13,27 +13,23 @@ exports[`IframeSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
           data-testid="typography"
         >
           iFrame Section
         </h2>
         <div
-          class="summary"
+          class="RichText-root RichText-no-bottom-margin css-1u73y0t"
         >
-          <div
-            class="RichText-root RichText-no-bottom-margin css-1u73y0t"
+          <p
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
+            data-testid="typography"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
-              data-testid="typography"
-            >
-              Summary
-            </p>
-          </div>
+            Summary
+          </p>
         </div>
         <iframe
-          class="iFrame"
+          class=" css-5by5h9"
           data-testid="iframe-section-iFrame-Section-iframe"
           height="450px"
           id="iframe-section-iFrame-Section-iframe"

@@ -131,59 +131,67 @@ export const createFullyPopulatedSystem = (system?: Partial<System>): System =>
     ...system
   });
 
-const createSystem = (system?: Partial<System>): System => ({
-  type: "systemWsDTO",
-  approvalStatus: "approved",
-  code: "code",
-  description: "<p>Some description</p>",
-  assets: [createAsset()],
-  categories: [
-    createCategory({
-      parentCategoryCode: "BMI_Brands",
-      categoryType: "Brand",
-      code: "BMI-brand-code"
-    }),
-    createCategory({ parentCategoryCode: "", code: "parent-category-code" }),
-    createCategory(),
-    createCategory({ categoryType: "ProductFamily" }),
-    createCategory({ categoryType: "ProductLine" })
-  ],
-  classifications: [
-    createScoringWeightAttributesClassification(),
-    createAppearanceAttributesClassification(),
-    createGeneralInformationClassification(),
-    createMeasurementsClassification()
-  ],
-  images: [
-    createImage(),
-    createImage({
-      assetType: "MASTER_IMAGE",
-      format: "Product-Hero-Small-Desktop-Tablet"
-    }),
-    createImage({
-      assetType: "MASTER_IMAGE",
-      format: "Product-Color-Selector-Mobile"
-    }),
-    createImage({ assetType: "MASTER_IMAGE", format: undefined }),
-    createImage({
-      assetType: "GALLERY",
-      format: "Product-Hero-Small-Desktop-Tablet"
-    }),
-    createImage({
-      assetType: "GALLERY",
-      format: "Product-Color-Selector-Mobile"
-    }),
-    createImage({ assetType: "GALLERY", format: undefined }),
-    createImage({ format: "Web" }),
-    createImage({ assetType: "TECHNICAL_DRAWINGS" })
-  ],
-  longDescription: "<p>Some very long description</p>",
-  name: "name",
-  shortDescription: "Short description",
-  systemBenefits: [],
-  systemLayers: [createSystemLayer()],
-  systemReferences: [createSystemReference()],
-  ...system
-});
+const createSystem = (system?: Partial<System>): System => {
+  const scoringWeightAttributes = createScoringWeightAttributesClassification();
+  const appearanceAttributes = createAppearanceAttributesClassification();
+  const generalInformationClassification =
+    createGeneralInformationClassification();
+  const measurementClassification = createMeasurementsClassification();
+
+  return {
+    type: "systemWsDTO",
+    approvalStatus: "approved",
+    code: "code",
+    description: "<p>Some description</p>",
+    assets: [createAsset()],
+    categories: [
+      createCategory({
+        parentCategoryCode: "BMI_Brands",
+        categoryType: "Brand",
+        code: "BMI-brand-code"
+      }),
+      createCategory({ parentCategoryCode: "", code: "parent-category-code" }),
+      createCategory(),
+      createCategory({ categoryType: "ProductFamily" }),
+      createCategory({ categoryType: "ProductLine" })
+    ],
+    classifications: [
+      scoringWeightAttributes,
+      appearanceAttributes,
+      generalInformationClassification,
+      measurementClassification
+    ],
+    images: [
+      createImage(),
+      createImage({
+        assetType: "MASTER_IMAGE",
+        format: "Product-Hero-Small-Desktop-Tablet"
+      }),
+      createImage({
+        assetType: "MASTER_IMAGE",
+        format: "Product-Color-Selector-Mobile"
+      }),
+      createImage({ assetType: "MASTER_IMAGE", format: undefined }),
+      createImage({
+        assetType: "GALLERY",
+        format: "Product-Hero-Small-Desktop-Tablet"
+      }),
+      createImage({
+        assetType: "GALLERY",
+        format: "Product-Color-Selector-Mobile"
+      }),
+      createImage({ assetType: "GALLERY", format: undefined }),
+      createImage({ format: "Web" }),
+      createImage({ assetType: "TECHNICAL_DRAWINGS" })
+    ],
+    longDescription: "<p>Some very long description</p>",
+    name: "name",
+    shortDescription: "Short description",
+    systemBenefits: [],
+    systemLayers: [createSystemLayer()],
+    systemReferences: [createSystemReference()],
+    ...system
+  };
+};
 
 export default createSystem;

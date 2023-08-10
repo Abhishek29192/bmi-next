@@ -1,7 +1,7 @@
 import { Filter, Grid } from "@bmi-digital/components";
 import React, { useEffect, useRef, useState } from "react";
+import { microCopy } from "@bmi/microcopies";
 import FiltersSidebar from "../components/FiltersSidebar";
-import { microCopy } from "../constants/microCopies";
 import { devLog } from "../utils/devLog";
 import {
   Aggregations,
@@ -22,6 +22,7 @@ import {
 import PageSummaryCard from "./PageSummaryCard";
 import ResultsPagination from "./ResultsPagination";
 import { useSiteContext } from "./Site";
+import type { GetMicroCopy } from "./MicroCopy";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PAGES;
@@ -31,7 +32,7 @@ const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PAGES;
 // one field, "title", which is both the key and the label
 const getPagesFilters = (
   aggregations: Aggregations,
-  getMicroCopy
+  getMicroCopy: GetMicroCopy
 ): Filter[] => {
   // TODO: At the moment the tags seem to only be "group" tags
   return [
@@ -188,7 +189,10 @@ const SearchTabPanelPages = (props: Props) => {
   // PAGINATION
   // =======================================
 
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (
+    _: React.ChangeEvent<HTMLElement>,
+    page: number
+  ) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;
@@ -215,6 +219,7 @@ const SearchTabPanelPages = (props: Props) => {
             filters={filters}
             onFiltersChange={handleFiltersChange}
             onClearFilters={clearFilters}
+            numberOfResults={results.length}
           />
         </Grid>
       ) : null}

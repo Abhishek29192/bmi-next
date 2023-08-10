@@ -9,19 +9,7 @@
       "path": "applications/dxb/contentful-migrate"
     },
     {
-      "path": "applications/dxb/csp-creator"
-    },
-    {
       "path": "applications/dxb/head"
-    },
-    {
-      "path": "applications/dxb/redirects-checker"
-    },
-    {
-      "path": "applications/dxb/redirects-editor"
-    },
-    {
-      "path": "applications/dxb/webtools-contentful-migrate"
     },
     {
       "path": "applications/dxb/functions/contentful-default-values"
@@ -75,9 +63,6 @@
       "path": "applications/dxb/functions/gcp-system-configurator"
     },
     {
-      "path": "applications/dxb/functions/gcp-update-webtools-bucket"
-    },
-    {
       "path": "applications/dxb/functions/gcp-upload-file"
     },
     {
@@ -129,13 +114,16 @@
       "path": "applications/dxb/libraries/gatsby-plugin-leadoo"
     },
     {
-      "path": "applications/dxb/libraries/gatsby-plugin-meta-redirect"
-    },
-    {
       "path": "applications/dxb/libraries/gatsby-source-firestore"
     },
     {
+      "path": "applications/dxb/libraries/microcopies"
+    },
+    {
       "path": "applications/dxb/libraries/pim-api"
+    },
+    {
+      "path": "applications/dxb/libraries/pim-transformation"
     },
     {
       "path": "applications/dxb/libraries/pim-types"

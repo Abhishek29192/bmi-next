@@ -1,5 +1,7 @@
 import ContentfulSystemConfiguratorSection from "../ContentfulSystemConfiguratorSection";
-import { Context, Node } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
+
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
 
 const context: Context = {
   nodeModel: {
@@ -45,7 +47,7 @@ describe("ContentfulSystemConfiguratorSection resolver", () => {
   it("should resolve ContentfulTitleWithContent", async () => {
     const source: Node = {
       id: "source",
-      children: null,
+      children: [],
       parent: null,
       internal: {
         type: "ContentfulTitleWithContent",
@@ -57,7 +59,7 @@ describe("ContentfulSystemConfiguratorSection resolver", () => {
     const result =
       await ContentfulSystemConfiguratorSection.noResultItems.resolve(
         source,
-        null,
+        args,
         context
       );
     expect(result).toEqual([source]);
@@ -65,7 +67,7 @@ describe("ContentfulSystemConfiguratorSection resolver", () => {
   it("should resolve ContentfulSystemConfiguratorSection", async () => {
     const source: Node = {
       id: "source",
-      children: null,
+      children: [],
       parent: null,
       __typename: "ContentfulSystemConfiguratorSection",
       internal: {
@@ -78,7 +80,7 @@ describe("ContentfulSystemConfiguratorSection resolver", () => {
     const result =
       await ContentfulSystemConfiguratorSection.noResultItems.resolve(
         source,
-        null,
+        args,
         context
       );
     expect(result).toEqual([]);
@@ -86,7 +88,7 @@ describe("ContentfulSystemConfiguratorSection resolver", () => {
   it("should resolve ContentfulSystemConfiguratorQuestion", async () => {
     const source: Node = {
       id: "source",
-      children: null,
+      children: [],
       parent: null,
       __typename: "ContentfulSystemConfiguratorQuestion",
       internal: {
@@ -99,7 +101,7 @@ describe("ContentfulSystemConfiguratorSection resolver", () => {
     const result =
       await ContentfulSystemConfiguratorSection.noResultItems.resolve(
         source,
-        null,
+        args,
         context
       );
     expect(result).toEqual([]);
@@ -107,7 +109,7 @@ describe("ContentfulSystemConfiguratorSection resolver", () => {
   it("should resolve ContentfulSystemConfiguratorAnswer", async () => {
     const source: Node = {
       id: "question",
-      children: null,
+      children: [],
       parent: null,
       __typename: "ContentfulSystemConfiguratorAnswer",
       internal: {
@@ -120,7 +122,7 @@ describe("ContentfulSystemConfiguratorSection resolver", () => {
     const result =
       await ContentfulSystemConfiguratorSection.noResultItems.resolve(
         source,
-        null,
+        args,
         context
       );
     expect(result).toEqual([

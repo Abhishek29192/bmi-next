@@ -1,7 +1,6 @@
 import { Typography } from "@bmi-digital/components";
 import classnames from "classnames";
 import React from "react";
-import styles from "./FlatRoofCalculator.module.scss";
 import Section, { SectionProps } from "./_Section";
 
 type Props = SectionProps & {
@@ -15,15 +14,12 @@ const FormSection = ({ header, description, children, ...rest }: Props) => (
     <Typography
       variant="h3"
       hasUnderline
-      className={classnames(
-        styles["header3"],
-        !description && styles["header3--extra-margin"]
-      )}
+      className={classnames("header3", !description && "header3--extra-margin")}
     >
       {header}
     </Typography>
     {description ? (
-      <Typography className={styles["description"]}>{description}</Typography>
+      <Typography className="description">{description}</Typography>
     ) : null}
     {children}
   </Section>

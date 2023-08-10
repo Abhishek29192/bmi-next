@@ -1,5 +1,5 @@
 import ContentfulHomePage from "../ContentfulHomePage";
-import { Context } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
@@ -11,6 +11,15 @@ const context: Context = {
     getNodesByIds: jest.fn()
   }
 };
+
+const source: Node = {
+  id: "source",
+  children: [],
+  parent: null,
+  internal: { type: "", contentDigest: "", owner: "" }
+};
+
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
 
 describe("ContentfulHomePage resolver", () => {
   it("should contain specific type", () => {
@@ -26,7 +35,7 @@ describe("ContentfulHomePage resolver", () => {
   });
   it("should resolve brands", async () => {
     expect(
-      await ContentfulHomePage.brands.resolve(null, null, context)
+      await ContentfulHomePage.brands.resolve(source, args, context)
     ).toEqual([{ type: "ContentfulBrandLandingPage" }]);
   });
 });

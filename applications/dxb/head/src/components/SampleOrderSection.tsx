@@ -1,7 +1,7 @@
 import { Button, ButtonProps, Section } from "@bmi-digital/components";
 import { Add, Remove, ShoppingCart } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import {
   ACTION_TYPES,
   createSample,
@@ -13,7 +13,10 @@ import withGTM from "../utils/google-tag-manager";
 import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SampleOrderSection.module.scss";
+import {
+  StyledSampleOrderContainer,
+  classes
+} from "./styles/SampleOrderSection.styles";
 
 const SampleOrderSection = ({
   isSampleOrderAllowed,
@@ -68,7 +71,9 @@ const SampleOrderSection = ({
         ).length > 0
       );
     }
-    setIsBasketFull(basketState?.products?.length >= maximumSamples);
+    setIsBasketFull(
+      maximumSamples ? basketState?.products?.length >= maximumSamples : false
+    );
     setBasketHasProducts(basketState?.products?.length > 0);
   }, [basketState, maximumSamples, product]);
   const cta =
@@ -87,8 +92,8 @@ const SampleOrderSection = ({
 
   return (
     (isSampleOrderAllowed || basketHasProducts) && (
-      <div className={styles["SampleOrderSection"]}>
-        <div className={styles["container"]}>
+      <div>
+        <StyledSampleOrderContainer>
           <Section
             backgroundColor="white"
             spacing="none"
@@ -96,14 +101,13 @@ const SampleOrderSection = ({
             id={`sample-order`}
           >
             {basketHasProducts && (
-              <div className={styles["sample-message"]}>{sampleMessage()}</div>
+              <div className={classes["sample-message"]}>{sampleMessage()}</div>
             )}
 
-            <div className={styles["buttons-container"]}>
+            <div className={classes["buttons-container"]}>
               {isSampleOrderAllowed ? (
                 hasSampleInTheBasket ? (
                   <Button
-                    className={styles["remove-from-basket"]}
                     endIcon={<Remove />}
                     onClick={() => removeFromBasket(product)}
                     variant="text"
@@ -113,7 +117,6 @@ const SampleOrderSection = ({
                   </Button>
                 ) : !isBasketFull ? (
                   <GTMButton
-                    className={styles["add-to-basket"]}
                     endIcon={<Add />}
                     onClick={() => addToBasket(product)}
                     gtm={{
@@ -129,17 +132,18 @@ const SampleOrderSection = ({
               ) : undefined}
               {basketHasProducts && cta && cta.action && (
                 <Button
-                  className={styles["complete-order"]}
+                  className={classes["complete-order"]}
                   endIcon={<ShoppingCart />}
                   variant="outlined"
                   action={cta.action}
+                  data-testid={"complete-order-basket-button"}
                 >
                   {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
                 </Button>
               )}
             </div>
           </Section>
-        </div>
+        </StyledSampleOrderContainer>
       </div>
     )
   );

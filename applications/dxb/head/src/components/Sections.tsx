@@ -167,15 +167,17 @@ const Sections = ({
         if (!Component) {
           return;
         }
+        const sectionId = `section-${index}`;
         const sectionComponent = (
           <Component
+            id={sectionId}
             data={section}
             position={startIndex + index}
             theme={
               // eslint-disable-next-line security/detect-object-injection
               (pageTypename && pageTypenameToThemeMap[pageTypename]) || {}
             }
-            key={`section-${index}`}
+            key={sectionId}
             data-testid={`section-${title ? replaceSpaces(title) : index}`}
           />
         );

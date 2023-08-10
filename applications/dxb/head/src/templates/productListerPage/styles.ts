@@ -15,3 +15,10 @@ export const FeaturesLink = styled(AnchorLink)(({ theme }) => ({
 export const FooterAnchorLink = styled(AnchorLink)({
   marginTop: "12px"
 });
+
+export const ProductListGrid = styled(Grid)(({ theme }) => ({
+  paddingTop: "60px",
+  [theme.breakpoints.down("lg")]: {
+    paddingTop: 0
+  }
+}));

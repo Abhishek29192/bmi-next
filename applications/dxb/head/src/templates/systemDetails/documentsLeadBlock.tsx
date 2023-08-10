@@ -1,17 +1,22 @@
 import { DownloadList, LeadBlock } from "@bmi-digital/components";
 import React, { useRef, useState } from "react";
+import { DocumentListProvider } from "../../contexts/DocumentContext";
 import DocumentResultsFooter from "../../components/DocumentResultsFooter";
 import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";
 import { SystemDocument } from "../../types/pim";
-import styles from "./styles/documentsLeadBlock.module.scss";
+import {
+  StyledDocumentLeadBlock,
+  classes
+} from "./styles/documentsLeadBlock.styles";
 
 type Props = {
   documents: readonly SystemDocument[];
 };
 
 const DOCUMENTS_PER_PAGE = 24;
-const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
-  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
+const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT = +(
+  process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100
+);
 
 const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -25,7 +30,10 @@ const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
   );
   const [documents, setDocuments] = useState(filteredDocuments.slice(0, 24));
   const count = Math.ceil(filteredDocuments.length / DOCUMENTS_PER_PAGE);
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (
+    _: React.ChangeEvent<HTMLElement>,
+    page: number
+  ) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;
@@ -35,25 +43,27 @@ const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
   };
 
   return (
-    <LeadBlock.Card.Section className={styles["DocumentLeadBlock"]}>
+    <StyledDocumentLeadBlock>
       <LeadBlock.Card.Content>
         <div ref={resultsElement}>
-          <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
-            <div className={styles["tableContainer"]}>
-              <DocumentSimpleTableResults
-                documents={documents}
-                headers={["add", "type", "title", "size", "actions"]}
+          <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1000000}>
+            <DocumentListProvider>
+              <div className={classes.tableContainer}>
+                <DocumentSimpleTableResults
+                  documents={documents}
+                  headers={["add", "type", "title", "size", "actions"]}
+                />
+              </div>
+              <DocumentResultsFooter
+                page={page}
+                count={count}
+                onPageChange={handlePageChange}
               />
-            </div>
-            <DocumentResultsFooter
-              page={page}
-              count={count}
-              onPageChange={handlePageChange}
-            />
+            </DocumentListProvider>
           </DownloadList>
         </div>
       </LeadBlock.Card.Content>
-    </LeadBlock.Card.Section>
+    </StyledDocumentLeadBlock>
   );
 };
 

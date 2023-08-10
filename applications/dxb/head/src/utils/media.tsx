@@ -3,7 +3,7 @@ import React from "react";
 import Image, { Data as ImageData } from "../components/Image";
 import Video, { Data as VideoData } from "../components/Video";
 
-export const getJpgImage = (ogImageUrl: string | null) => {
+export const getJpgImage = (ogImageUrl?: string) => {
   if (
     ogImageUrl?.includes("//images.ctfassets.net/") &&
     !ogImageUrl.includes("fm=")
@@ -24,7 +24,7 @@ export type GallerySectionImage = Omit<ImageData, "image"> & {
 export type GallerySectionVideo = Omit<VideoData, "previewMedia"> & {
   __typename: "ContentfulVideo";
   previewMedia: VideoData["previewMedia"] & {
-    image: VideoData["previewMedia"]["image"];
+    image: ImageData["image"];
   };
 };
 
@@ -47,7 +47,7 @@ export const transformMediaSrc = (
       case "ContentfulImage":
         return {
           media: <Image {...item} />,
-          thumbnail: item.image.thumbnail?.images.fallback.src,
+          thumbnail: item.image.thumbnail?.images.fallback?.src,
           caption: item.caption?.caption || undefined,
           altText: item.altText || undefined,
           isVideo: false
@@ -56,7 +56,7 @@ export const transformMediaSrc = (
         return {
           media: <Video {...item} />,
           thumbnail:
-            item.previewMedia?.image?.thumbnail?.images.fallback.src ||
+            item.previewMedia?.image?.thumbnail?.images.fallback?.src ||
             item.defaultYouTubePreviewImage,
           caption: item.subtitle || undefined,
           altText: item.label,
@@ -66,7 +66,7 @@ export const transformMediaSrc = (
         return {
           media: <Video {...item} />,
           thumbnail: item.defaultYouTubePreviewImage,
-          caption: item.title,
+          caption: item.title || undefined,
           isVideo: true
         };
     }

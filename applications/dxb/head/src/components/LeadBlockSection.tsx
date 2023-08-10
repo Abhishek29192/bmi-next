@@ -9,16 +9,16 @@ import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";
-import RichText, { parseReachDataRawFields, RichTextData } from "./RichText";
+import RichText, { RichTextData, parseReachDataRawFields } from "./RichText";
 import { useSiteContext } from "./Site";
 import {
   LeadBlockWrapper,
-  LinksContainer,
   LinkWrapper,
+  LinksContainer,
   Text
 } from "./styles/leadBlockSectionStyles";
 
@@ -44,7 +44,7 @@ const LeadBlockSection = ({
     <Section
       backgroundColor="white"
       spacing="none"
-      data-testid={`lead-block-section}`}
+      data-testid={`lead-block-section`}
     >
       <LeadBlockWrapper>
         <LeadBlock.Content>

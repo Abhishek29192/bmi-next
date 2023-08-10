@@ -163,15 +163,48 @@ export const compileElasticSearchQuery = ({
 // Returns a query that allows us to query for total count
 // Size: 0 means no actual results will be returned
 // only interested in the query - pagination, aggregates, and sorting don't affect total count
-export const getCountQuery = (fullQuery) => ({
+export const getCountQuery = (fullQuery: {
+  size?: number;
+  from?: number;
+  sort?:
+    | { "assetType.name.keyword": string; "title.keyword": string }[]
+    | (
+        | string
+        | {
+            productScoringWeightInt: string;
+            variantScoringWeightInt?: undefined;
+            "name.keyword"?: undefined;
+          }
+        | {
+            variantScoringWeightInt: string;
+            productScoringWeightInt?: undefined;
+            "name.keyword"?: undefined;
+          }
+        | {
+            "name.keyword": string;
+            productScoringWeightInt?: undefined;
+            variantScoringWeightInt?: undefined;
+          }
+      )[]
+    | { "assetType.name.keyword": string; "title.keyword": string }[]
+    | { "assetType.name.keyword": string; "title.keyword": string }[];
+  aggs?: any;
+  query: any;
+  collapse?:
+    | { field: string }
+    | { field: string; inner_hits: { name: string } }
+    | { field: string }
+    | { field: string };
+  _source?: { excludes: string[] };
+}) => ({
   size: 0,
   query: fullQuery.query,
   aggs: fullQuery.aggs
 });
 
 export const getDocumentQueryObject = (
-  queryString,
-  pageSize,
+  queryString: string,
+  pageSize: number,
   page = 0,
   filters = []
 ) => {
@@ -274,19 +307,19 @@ export const getPageQueryObject = (
   // Filters in the query
   // TODO: this acts like it handles many filters but actually handles one. refactor
   const filtersQuery = filters
-    .filter(({ value }) => value.length)
+    .filter(({ value }) => value?.length)
     .map((filter) => {
-      const termQuery = (value) => ({
+      const termQuery = (value: string) => ({
         term: {
           ["tags.title.keyword"]: value
         }
       });
       const query =
-        filter.value.length === 1
+        filter.value?.length === 1
           ? termQuery(filter.value[0])
           : {
               bool: {
-                should: filter.value.map(termQuery)
+                should: filter.value?.map(termQuery)
               }
             };
 
@@ -330,37 +363,33 @@ export const getPageQueryObject = (
 };
 
 export const queryElasticSearch = async (query = {}, indexName: string) => {
+  if (process.env.GATSBY_DISABLE_SEARCH === "true") return;
+
   const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
 
-  if (process.env.GATSBY_DISABLE_SEARCH === "true") {
-    return;
-  }
-  if (window.fetch) {
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          authorization: `ApiKey ${btoa(
-            `${process.env.GATSBY_ES_API_KEY_ID}:${process.env.GATSBY_ES_API_KEY}`
-          )}`,
-          "content-type": "application/json"
-        },
-        body: JSON.stringify(query)
-      });
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        authorization: `ApiKey ${btoa(
+          `${process.env.GATSBY_ES_API_KEY_ID}:${process.env.GATSBY_ES_API_KEY}`
+        )}`,
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(query)
+    });
 
-      const content = await response.json();
+    const content = await response.json();
 
-      if (!response.ok) {
-        devLog(`ERROR: ${response.status}, ${response.statusText}`);
-      }
-      return content;
-    } catch (error) {
-      devLog("Error fetching ES", error);
+    if (!response.ok) {
+      devLog(`ERROR: ${response.status}, ${response.statusText}`);
     }
-  } else {
-    devLog("NO fetch");
+    return content;
+  } catch (error) {
+    devLog("Error fetching ES", error);
   }
 };
+
 const sanitiseQueryString = (queryString: string) =>
   queryString.replace(/[^.,\s\p{L}\p{Nd}-]/gu, " ");

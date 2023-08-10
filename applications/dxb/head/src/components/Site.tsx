@@ -1,5 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
+import { GoodBetterBest } from "@bmi/pim-types";
+import { GoodBetterBestIconsConfig } from "../types/GoodBetterBest";
 import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
 import type { Region } from "./Header";
 import type { NavigationData } from "./Link";
@@ -16,6 +18,7 @@ export type Context = {
   getMicroCopy: GetMicroCopy;
   reCaptchaKey?: string;
   reCaptchaNet?: boolean;
+  goodBetterBestIconsConfig: GoodBetterBestIconsConfig;
 };
 
 const SiteContext = React.createContext<Context>({
@@ -24,7 +27,12 @@ const SiteContext = React.createContext<Context>({
   homePage: {
     title: ""
   },
-  getMicroCopy: fallbackGetMicroCopy
+  getMicroCopy: fallbackGetMicroCopy,
+  goodBetterBestIconsConfig: {
+    [GoodBetterBest.good]: "Thumb Up",
+    [GoodBetterBest.better]: "Heart",
+    [GoodBetterBest.best]: "Star"
+  }
 });
 
 export const SiteContextProvider = SiteContext.Provider;
@@ -34,18 +42,18 @@ export const useSiteContext = () => React.useContext(SiteContext);
 export type Data = {
   node_locale: string;
   homePage: {
-    title: string;
-  };
+    title: string | null;
+  } | null;
   countryCode: string;
   footerMainNavigation: NavigationData | null;
   footerSecondaryNavigation: NavigationData | null;
-  menuNavigation: NavigationData;
+  menuNavigation: NavigationData | null;
   menuUtilities: NavigationData | null;
   resources: ResourcesData | null;
   headScripts: {
     headScripts: string;
   } | null;
-  regions: Region[];
+  regions: Region[] | null;
   pitchedRoofCalculatorConfig: CalculatorConfig | null;
   visualiserHouseTypes: HouseType[] | null;
 };

@@ -25,8 +25,8 @@ describe("Path resolver util", () => {
     const source: Node = {
       id: "source",
       parent: null,
-      children: null,
-      internal: null,
+      children: [],
+      internal: { type: "", contentDigest: "", owner: "" },
       title: "source-title",
       slug: "source-slug",
       parentPage___NODE: "parentPage___NODE",
@@ -44,8 +44,8 @@ describe("Path resolver util", () => {
     it("should return path from source if no site___NODE found", async () => {
       expect(
         await resolvePath(
-          { ...source, parentPage___NODE: null, site___NODE: null },
-          null,
+          { ...source, parentPage___NODE: undefined, site___NODE: undefined },
+          undefined,
           context
         )
       ).toEqual([{ id: "source", label: "source-title", slug: "source-slug" }]);
@@ -57,7 +57,11 @@ describe("Path resolver util", () => {
         .mockResolvedValueOnce({ menuNavigation___NODE: null });
 
       expect(
-        await resolvePath({ ...source, parentPage___NODE: null }, null, context)
+        await resolvePath(
+          { ...source, parentPage___NODE: undefined },
+          undefined,
+          context
+        )
       ).toEqual([{ id: "source", label: "source-title", slug: "source-slug" }]);
     });
 
@@ -72,7 +76,11 @@ describe("Path resolver util", () => {
         });
 
       expect(
-        await resolvePath({ ...source, parentPage___NODE: null }, null, context)
+        await resolvePath(
+          { ...source, parentPage___NODE: undefined },
+          undefined,
+          context
+        )
       ).toEqual([{ id: "source", label: "source-title", slug: "source-slug" }]);
     });
 
@@ -143,7 +151,11 @@ describe("Path resolver util", () => {
         });
 
       expect(
-        await resolvePath({ ...source, parentPage___NODE: null }, null, context)
+        await resolvePath(
+          { ...source, parentPage___NODE: undefined },
+          undefined,
+          context
+        )
       ).toEqual([
         { id: "source", label: undefined, slug: "slug", queryParams: "" }
       ]);
@@ -192,7 +204,11 @@ describe("Path resolver util", () => {
         });
 
       expect(
-        await resolvePath({ ...source, parentPage___NODE: null }, null, context)
+        await resolvePath(
+          { ...source, parentPage___NODE: undefined },
+          undefined,
+          context
+        )
       ).toEqual([
         {
           id: "source",
@@ -244,7 +260,11 @@ describe("Path resolver util", () => {
         });
 
       expect(
-        await resolvePath({ ...source, parentPage___NODE: null }, null, context)
+        await resolvePath(
+          { ...source, parentPage___NODE: undefined },
+          undefined,
+          context
+        )
       ).toEqual([
         {
           id: "link-1",
@@ -301,7 +321,7 @@ describe("Path resolver util", () => {
         }
       });
 
-      expect(await resolvePath(source, null, context)).toEqual([
+      expect(await resolvePath(source, undefined, context)).toEqual([
         {
           id: "link-1",
           label: "link-1-label"

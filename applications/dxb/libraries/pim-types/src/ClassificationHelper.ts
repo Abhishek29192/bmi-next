@@ -59,6 +59,31 @@ export const createAppearanceAttributesClassification = (
     code: "appearanceAttributes"
   });
 
+export const createSystemAttributesClassification = (
+  classification?: Partial<Classification>
+): Classification =>
+  createClassification({
+    features: [
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/systemAttributes.roofBuildUp`,
+        featureValues: [
+          createFeatureValue({
+            value:
+              "Combines self-adhesive/heat activated and torch applied installation techniques"
+          })
+        ]
+      }),
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/systemAttributes.KeyFeatures`,
+        featureValues: [
+          createFeatureValue({ value: "Robust and waterproof steel" })
+        ]
+      })
+    ],
+    ...classification,
+    code: "systemAttributes"
+  });
+
 export const createGeneralInformationClassification = (
   classification?: Partial<Classification>
 ): Classification =>

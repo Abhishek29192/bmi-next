@@ -12,7 +12,7 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "^1.6.0",
+    "@bmi-digital/functions-logger": "^1.7.5",
     "@bmi/functions-contentful-client": "workspace:*",
     "@bmi/functions-es-client": "workspace:*",
     "@bmi/utils": "workspace:*",

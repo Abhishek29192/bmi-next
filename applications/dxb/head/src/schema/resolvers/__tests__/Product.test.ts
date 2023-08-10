@@ -5,7 +5,7 @@ import {
   Product as FirestoreProduct
 } from "@bmi/firestore-types";
 import Product from "../Product";
-import { Context, Node } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
 jest.mock("../utils/path", () => ({
   ...(jest.requireActual("../utils/path") as any),
@@ -21,6 +21,7 @@ jest.mock("../utils/getDefaultYoutubePreviewImage", () => ({
     "https://i.ytimg.com/vi/3901c0ds7oo/maxresdefault.jpg"
 }));
 
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
 const findAll = jest.fn();
 const findOne = jest.fn();
 const context: Context = {
@@ -44,14 +45,14 @@ describe("resolve productDocuments", () => {
       const relatedDocuments = [];
       const source: FirestoreProduct = createProduct({
         categories: [productFamily],
-        documents: null
+        documents: undefined
       });
 
       findOne.mockReturnValue({ keyAssetTypes: ["ASSEMBLY_INSTRUCTIONS"] });
 
       const returnedProductDocuments = await Product.productDocuments.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -94,7 +95,7 @@ describe("resolve productDocuments", () => {
           });
 
           const returnedProductDocuments =
-            await Product.productDocuments.resolve(source, null, context);
+            await Product.productDocuments.resolve(source, args, context);
 
           expect(returnedProductDocuments).toEqual([]);
 
@@ -152,7 +153,7 @@ describe("resolve productDocuments", () => {
           });
 
           const returnedProductDocuments =
-            await Product.productDocuments.resolve(source, null, context);
+            await Product.productDocuments.resolve(source, args, context);
 
           expect(returnedProductDocuments).toEqual([
             {
@@ -238,7 +239,7 @@ describe("resolve productDocuments", () => {
           });
 
           const returnedProductDocuments =
-            await Product.productDocuments.resolve(source, null, context);
+            await Product.productDocuments.resolve(source, args, context);
 
           expect(returnedProductDocuments).toEqual([]);
 
@@ -304,7 +305,7 @@ describe("resolve productDocuments", () => {
             });
 
             const returnedProductDocuments =
-              await Product.productDocuments.resolve(source, null, context);
+              await Product.productDocuments.resolve(source, args, context);
 
             expect(returnedProductDocuments).toEqual([
               {
@@ -443,14 +444,14 @@ describe("resolve key asset documents", () => {
       const relatedDocuments = [];
       const source: FirestoreProduct = createProduct({
         categories: [productFamily],
-        documents: null
+        documents: undefined
       });
 
       findOne.mockReturnValue({ keyAssetTypes: ["ASSEMBLY_INSTRUCTIONS"] });
 
       const returnedKeyAssetDocuments = await Product.keyAssetDocuments.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -472,7 +473,7 @@ describe("resolve key asset documents", () => {
 
       const returnedKeyAssetDocuments = await Product.keyAssetDocuments.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -501,7 +502,7 @@ describe("resolve key asset documents", () => {
 
       const returnedKeyAssetDocuments = await Product.keyAssetDocuments.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -591,7 +592,7 @@ describe("resolve key asset documents", () => {
 
       const returnedKeyAssetDocuments = await Product.keyAssetDocuments.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -689,7 +690,7 @@ describe("resolve key asset documents", () => {
 
       const returnedKeyAssetDocuments = await Product.keyAssetDocuments.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -718,7 +719,7 @@ describe("resolve related products", () => {
 
     const returnedRelatedProducts = await Product.relatedProducts.resolve(
       source,
-      null,
+      args,
       context
     );
 
@@ -736,7 +737,7 @@ describe("resolve related products", () => {
 
     const returnedRelatedProducts = await Product.relatedProducts.resolve(
       source,
-      null,
+      args,
       context
     );
 
@@ -754,7 +755,7 @@ describe("resolve related products", () => {
 
     const returnedRelatedProducts = await Product.relatedProducts.resolve(
       source,
-      null,
+      args,
       context
     );
 
@@ -787,7 +788,7 @@ describe("resolve related products", () => {
 
     const returnedRelatedProducts = await Product.relatedProducts.resolve(
       source,
-      null,
+      args,
       context
     );
 
@@ -829,7 +830,7 @@ describe("resolve related products", () => {
 
     const returnedRelatedProducts = await Product.relatedProducts.resolve(
       source,
-      null,
+      args,
       context
     );
 
@@ -875,7 +876,7 @@ describe("resolve related products", () => {
 
     const returnedRelatedProducts = await Product.relatedProducts.resolve(
       source,
-      null,
+      args,
       context
     );
 
@@ -897,8 +898,8 @@ describe("resolve related products", () => {
 
 const sourceNode: Node = {
   id: "source",
-  internal: null,
-  children: null,
+  internal: { type: "", contentDigest: "", owner: "" },
+  children: [],
   parent: null,
   hashedCode: "00000001",
   name: "test product",
@@ -915,7 +916,7 @@ describe("breadcrumbs resolver", () => {
 
     const breadcrumbs = await Product.breadcrumbs.resolve(
       sourceNode,
-      null,
+      args,
       context
     );
 
@@ -947,7 +948,7 @@ describe("path resolver", () => {
   it("should return simple path if feature flag provided", async () => {
     process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE = "true";
 
-    const path = await Product.path.resolve(sourceNode, null, context);
+    const path = await Product.path.resolve(sourceNode, args, context);
 
     expect(path).toBe("simple-path");
     process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE = "";
@@ -955,7 +956,7 @@ describe("path resolver", () => {
   it("should return path based on product family", async () => {
     findAll.mockReturnValueOnce({ entries: ["some-parent-family"] });
 
-    const path = await Product.path.resolve(sourceNode, null, context);
+    const path = await Product.path.resolve(sourceNode, args, context);
 
     expect(path).toBe(
       "p/product-family-slug/test-product/colour/texturefamily/00000001/"
@@ -967,7 +968,7 @@ describe("oldPath resolver", () => {
   it("should return oldPath based on product family", async () => {
     findAll.mockReturnValueOnce({ entries: ["some-parent-family"] });
 
-    const path = await Product.oldPath.resolve(sourceNode, null, context);
+    const path = await Product.oldPath.resolve(sourceNode, args, context);
 
     expect(path).toBe(
       "p/product-family-slug/test-product/colour/texturefamily/00000001/"
@@ -979,7 +980,7 @@ describe("video resolver", () => {
   it("should return video data from product", async () => {
     const source: FirestoreProduct = createProduct();
 
-    const result = await Product.videos.resolve(source, null, context);
+    const result = await Product.videos.resolve(source, args, context);
 
     expect(result).toEqual([
       {

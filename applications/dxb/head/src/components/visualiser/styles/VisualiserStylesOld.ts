@@ -23,6 +23,18 @@ export const classes = {
   activeSelectionOption: `${PREFIX}-activeSelectionOption`
 };
 
+export const Canvas = styled("div")({
+  height: "100%",
+  minHeight: "100%",
+  width: "100%"
+});
+
+export const Root = styled("div")({
+  height: "100%",
+  minHeight: "100%",
+  width: "100%"
+});
+
 export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
   height: "100vh",
   width: "100vw",

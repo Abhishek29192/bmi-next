@@ -1,5 +1,4 @@
 import {
-  AnchorLink,
   Button,
   Grid,
   OverviewCard,
@@ -11,7 +10,7 @@ import { Add as AddIcon } from "@mui/icons-material";
 import Tab, { TabProps } from "@mui/material/Tab";
 import { Link, graphql } from "gatsby";
 import React, { useMemo, useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import DefaultImage from "../images/DefaultImage.svg";
 import { RelatedProduct } from "../types/pim";
 import withGTM from "../utils/google-tag-manager";
@@ -20,7 +19,11 @@ import { mapClassificationValues } from "../utils/product-details-transforms";
 import { renderMedia } from "../utils/renderMedia";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
-import styles from "./styles/RelatedProducts.module.scss";
+import {
+  StyledLoadMoreWrapper,
+  StyledReadMoreAnchor
+} from "./styles/RelatedProducts.styles";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 /**
  * Groups resolved product category paths by the 2nd last category in the path
@@ -93,6 +96,11 @@ const ProductListing = ({
                     <DefaultImage />
                   )
                 }
+                tag={
+                  <GoodBetterBestIndicator
+                    indicatorType={product.goodBetterBest}
+                  />
+                }
                 brandImageSource={brandLogo}
                 action={{
                   model: "routerLink",
@@ -105,13 +113,9 @@ const ProductListing = ({
                   action: productUrl
                 }}
                 footer={
-                  <AnchorLink
-                    className={styles["footer-anchor-link"]}
-                    component="span"
-                    iconEnd
-                  >
+                  <StyledReadMoreAnchor component="span" iconEnd>
                     {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS)}
-                  </AnchorLink>
+                  </StyledReadMoreAnchor>
                 }
               >
                 {product.externalProductCode !== null &&
@@ -129,11 +133,11 @@ const ProductListing = ({
         })}
       </Grid>
       {numberShown < products.length ? (
-        <div className={styles["load-more-wrapper"]}>
+        <StyledLoadMoreWrapper>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
             {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_SHOW_MORE)}
           </Button>
-        </div>
+        </StyledLoadMoreWrapper>
       ) : null}
     </>
   );
@@ -169,7 +173,7 @@ const RelatedProducts = ({ countryCode, products }: Props) => {
       <Section.Title>
         {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_TITLE)}
       </Section.Title>
-      <div className={styles["RelatedProducts"]}>
+      <div>
         <Tabs
           color="secondary"
           initialValue={Object.keys(productGroups)[0]}
@@ -209,6 +213,7 @@ export const query = graphql`
     colour
     colourFamily
     externalProductCode
+    goodBetterBest
     masterImage {
       ...PIMImageFragment
     }

@@ -5,10 +5,11 @@ import {
   Grid
 } from "@bmi-digital/components";
 import React, { useEffect, useRef, useState } from "react";
+import { microCopy } from "@bmi/microcopies";
 import FiltersSidebar from "../components/FiltersSidebar";
-import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { DocumentTableHeader } from "../types/Document";
+import { DocumentListProvider } from "../contexts/DocumentContext";
 import { devLog } from "../utils/devLog";
 import {
   Aggregations,
@@ -26,6 +27,7 @@ import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
 import { StyledGridContainer } from "./styles/SearchTabDocumentsStyles";
+import type { GetMicroCopy } from "./MicroCopy";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
@@ -45,9 +47,9 @@ const documentTableHeaders: DocumentTableHeader[] = [
 const getPagesFilters = (
   aggregations: Aggregations,
   allContentfulAssetType: ReadonlyArray<{ name: string; pimCode: string }>,
-  getMicroCopy
+  getMicroCopy: GetMicroCopy
 ): Filter[] => {
-  const findLabel = (key) =>
+  const findLabel = (key: string) =>
     (allContentfulAssetType || []).find(({ pimCode }) => pimCode === key)?.name;
 
   return [
@@ -89,6 +91,7 @@ type Props = {
   extraData?: {
     allContentfulAssetType: ReadonlyArray<{ name: string; pimCode: string }>;
   };
+  count?: number;
 };
 
 export const getCount = async (queryString: string) => {
@@ -113,6 +116,7 @@ const SearchTabPanelDocuments = (props: Props) => {
   const isInitialLoad = useRef(true);
   const resultsElement = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [initialLoading, setInitialLoading] = useState<boolean>(true);
   const [results, setResults] = useState([]);
   const [filters, setFilters] = useState([]);
   const [page, setPage] = useState(0);
@@ -124,7 +128,7 @@ const SearchTabPanelDocuments = (props: Props) => {
   // Loading status
   // =======================================
 
-  const updateLoadingStatus = (isLoading) => {
+  const updateLoadingStatus = (isLoading: boolean) => {
     setIsLoading(isLoading);
     onLoadingChange && onLoadingChange(isLoading);
   };
@@ -135,9 +139,9 @@ const SearchTabPanelDocuments = (props: Props) => {
 
   const queryES = async (
     filters,
-    categoryCode,
-    page,
-    pageSize,
+    categoryCode: null,
+    page: number,
+    pageSize: number,
     searchQuery?: string
   ) => {
     if (isLoading) {
@@ -170,6 +174,9 @@ const SearchTabPanelDocuments = (props: Props) => {
     }
 
     updateLoadingStatus(false);
+    if (initialLoading) {
+      setInitialLoading(false);
+    }
 
     return results;
   };
@@ -203,7 +210,8 @@ const SearchTabPanelDocuments = (props: Props) => {
   };
 
   const handleFiltersChange =
-    (resetDownloadList) => (filterName, filterValue, checked) => {
+    (resetDownloadList) =>
+    (filterName: string, filterValue: string, checked: boolean) => {
       const newFilters = updateFilterValue(
         filters,
         filterName,
@@ -225,7 +233,10 @@ const SearchTabPanelDocuments = (props: Props) => {
   // PAGINATION
   // =======================================
 
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (
+    _: React.ChangeEvent<HTMLElement>,
+    page: number
+  ) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;
@@ -249,35 +260,39 @@ const SearchTabPanelDocuments = (props: Props) => {
     }));
   }, []);
 
-  const maxSize = documentDownloadMaxLimit * 1048576;
+  const maxSize = (documentDownloadMaxLimit || 0) * 1000000;
   return (
     <DownloadList maxSize={maxSize}>
-      <StyledGridContainer container spacing={3} ref={resultsElement}>
-        <Grid xs={12} md={12} lg={3}>
-          <DownloadListContext.Consumer>
-            {({ resetList }) => (
-              <FiltersSidebar
-                filters={filters}
-                onFiltersChange={handleFiltersChange(resetList)}
-                onClearFilters={clearFilters}
-              />
-            )}
-          </DownloadListContext.Consumer>
-        </Grid>
-        <Grid xs={12} md={12} lg={9} sx={{ pt: { lg: 0 } }}>
-          <DocumentSimpleTableResults
-            documents={results}
-            headers={documentTableHeaders}
-          />
-          <div>
-            <DocumentResultsFooter
-              page={page + 1}
-              count={pageCount}
-              onPageChange={handlePageChange}
+      <DocumentListProvider>
+        <StyledGridContainer container spacing={3} ref={resultsElement}>
+          <Grid xs={12} md={12} lg={3}>
+            <DownloadListContext.Consumer>
+              {({ resetList }) => (
+                <FiltersSidebar
+                  filters={filters}
+                  onFiltersChange={handleFiltersChange(resetList)}
+                  onClearFilters={clearFilters}
+                  numberOfResults={props.count}
+                />
+              )}
+            </DownloadListContext.Consumer>
+          </Grid>
+          <Grid xs={12} md={12} lg={9} sx={{ pt: { lg: 0 } }}>
+            <DocumentSimpleTableResults
+              documents={results}
+              headers={documentTableHeaders}
             />
-          </div>
-        </Grid>
-      </StyledGridContainer>
+          </Grid>
+        </StyledGridContainer>
+        {!initialLoading && (
+          <DocumentResultsFooter
+            sticky
+            page={page + 1}
+            count={pageCount}
+            onPageChange={handlePageChange}
+          />
+        )}
+      </DocumentListProvider>
     </DownloadList>
   );
 };

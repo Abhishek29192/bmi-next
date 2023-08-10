@@ -6,7 +6,7 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
 

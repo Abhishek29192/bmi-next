@@ -20,10 +20,12 @@ Copy the `.env.example` file to `.env` and enter the appropriate values.
 As our scripts are written in TypeScript, they need to be built before they can be run.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate build
+yarn workspace @bmi/contentful-migrate build
 ```
 
 ## Initialise environment
+
+<!-- TODO: Update this with the correct information -->
 
 The `init` command creates the content type `Migration` in your Contentful space. This will be used to keep track of the
 current state of each managed content type.
@@ -31,13 +33,13 @@ current state of each managed content type.
 _N.B. This is only needed for empty spaces, not for spaces that have already been initialized._
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate run ctf-migrate init
+yarn workspace @bmi/contentful-migrate migrate-init
 ```
 
-## Create migration script template
+## Create migration script
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate migrateCreate <migration-file-name-without-timestamp>
+yarn workspace @bmi/contentful-migrate migrate-create <migration-file-name-without-timestamp-or-extension>
 ```
 
 ## Run migration scripts
@@ -49,7 +51,7 @@ deleted and all major version named environments that are greater than the previ
 alias pointing to it.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate prod
+yarn workspace @bmi/contentful-migrate start
 ```
 
 ## Run migration scripts in debug mode
@@ -57,7 +59,7 @@ yarn workspace @bmi/dxb-contentful-migrate prod
 This is the same as `prod` but with the `--inspect` flag set.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate debug
+yarn workspace @bmi/contentful-migrate debug
 ```
 
 ## Migrate up
@@ -65,7 +67,7 @@ yarn workspace @bmi/dxb-contentful-migrate debug
 This simply runs the up functions for the migration scripts.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate up
+yarn workspace @bmi/contentful-migrate migrate-up
 ```
 
 ## Migrate down
@@ -73,7 +75,7 @@ yarn workspace @bmi/dxb-contentful-migrate up
 This simply runs the down functions for the migration scripts.
 
 ```bash
-yarn workspace @bmi/dxb-contentful-migrate down <filename-to-run-down-to>
+yarn workspace @bmi/contentful-migrate migrate-down <filename-to-run-down-to>
 ```
 
 ## Create roles
@@ -92,3 +94,11 @@ path: `{PROJECT_RELATIVE_PATH}/roles.json`.
 
 [This documentation](https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles)
 shows some of the accepted key value pairs for roles & permissions.
+
+## Debug errors
+
+Until [the error handling bug](https://github.com/contentful/contentful-migration/issues/1233) is fixed by Contentful, if there are errors on GitLab CI, it's best to clone the environment and then run the migration scripts against the cloned environment locally, this way the bug can be "fixed" in the `node_modules` folder.
+
+1. Navigate to [steps-errors.js](/node_modules/contentful-migration/built/bin/lib/steps-errors.js)
+2. Alter `const fileContents = fs.readFileSync(file, 'utf-8');` to be `const fileContents = fs.readFileSync(file.replace("file:\/\/", ""), 'utf-8');`
+3. Run migration scripts

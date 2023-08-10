@@ -74,7 +74,7 @@ describe("SystemDetailsPage template component", () => {
     jest.clearAllMocks();
   });
 
-  it("should render", () => {
+  it("should render the component", () => {
     const { container } = withProviders({
       customConfig: { spaceMarketCode: "no" },
       renderComponent: (
@@ -287,7 +287,7 @@ describe("SystemDetailsPage template component", () => {
           })
         ]
       });
-      const { container } = withProviders({
+      withProviders({
         customConfig: { spaceMarketCode: "no" },
         renderComponent: (
           <SystemDetailsPage
@@ -309,7 +309,6 @@ describe("SystemDetailsPage template component", () => {
         await waitFor(() => screen.findAllByText("duplicate-product-1"))
       ).toHaveLength(1);
 
-      expect(container).toMatchSnapshot();
       expect(
         screen.getByText("1. layer-type-1: system-layer-1")
       ).toBeInTheDocument();

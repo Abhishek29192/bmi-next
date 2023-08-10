@@ -58,8 +58,8 @@ export const convertAttrToNumber = (attr?: { code: string; name: string }) => {
 export const getVisualiserAssetUrlByType = (product: ESProduct) => {
   return function (type: string): string {
     return (
-      product.visualiserAssets.find((asset) => asset.assetType === type)?.url ||
-      ""
+      product.visualiserAssets?.find((asset) => asset.assetType === type)
+        ?.url || ""
     );
   };
 };

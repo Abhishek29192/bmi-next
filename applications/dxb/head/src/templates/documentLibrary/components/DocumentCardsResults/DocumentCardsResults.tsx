@@ -1,6 +1,7 @@
 import { Grid, OverviewCard, OverviewCardProps } from "@bmi-digital/components";
 import { ContentfulDocument } from "@bmi/elasticsearch-types";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import BrandLogo from "../../../../components/BrandLogo";
 import {
   CopyToClipboard,
@@ -8,7 +9,6 @@ import {
 } from "../../../../components/DocumentSimpleTableResultCommon";
 import Image from "../../../../components/Image";
 import { useSiteContext } from "../../../../components/Site";
-import { microCopy } from "../../../../constants/microCopies";
 import withGTM from "../../../../utils/google-tag-manager";
 import { Actions, Divider } from "./styles";
 

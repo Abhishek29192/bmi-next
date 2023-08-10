@@ -1,5 +1,5 @@
 import Query from "../Query";
-import { Context, ResolveArgs } from "../types/Gatsby";
+import { Context, ResolveArgs, Node } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
@@ -8,6 +8,13 @@ const context: Context = {
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn()
   }
+};
+
+const source: Node = {
+  id: "source",
+  children: [],
+  parent: null,
+  internal: { type: "", contentDigest: "", owner: "" }
 };
 
 jest.mock("@bmi/utils", () => {
@@ -62,7 +69,7 @@ describe("plpFilters", () => {
       .mockResolvedValueOnce({ entries: [] })
       .mockResolvedValueOnce({ entries: [] });
 
-    expect(await Query.plpFilters.resolve(null, args, context)).toEqual({
+    expect(await Query.plpFilters.resolve(source, args, context)).toEqual({
       allowFilterBy: [],
       filters: []
     });
@@ -90,7 +97,7 @@ describe("plpFilters", () => {
       ]
     });
 
-    expect(await Query.plpFilters.resolve(null, args, context)).toEqual({
+    expect(await Query.plpFilters.resolve(source, args, context)).toEqual({
       allowFilterBy: [],
       filters: []
     });
@@ -126,7 +133,7 @@ describe("plpFilters", () => {
       ]
     });
 
-    expect(await Query.plpFilters.resolve(null, args, context)).toEqual({
+    expect(await Query.plpFilters.resolve(source, args, context)).toEqual({
       allowFilterBy: [],
       filters: []
     });
@@ -157,7 +164,7 @@ describe("plpFilters", () => {
     });
     context.nodeModel.findOne = jest.fn().mockResolvedValueOnce(null);
 
-    expect(await Query.plpFilters.resolve(null, args, context)).toEqual({
+    expect(await Query.plpFilters.resolve(source, args, context)).toEqual({
       allowFilterBy: [],
       filters: []
     });
@@ -201,7 +208,7 @@ describe("plpFilters", () => {
     });
     context.nodeModel.getNodeById = jest.fn().mockResolvedValueOnce(undefined);
 
-    expect(await Query.plpFilters.resolve(null, args, context)).toEqual({
+    expect(await Query.plpFilters.resolve(source, args, context)).toEqual({
       allowFilterBy: [],
       filters: []
     });
@@ -263,14 +270,24 @@ describe("plpFilters", () => {
 
     expect(
       await Query.plpFilters.resolve(
-        null,
-        { ...args, categoryCodes: null, allowFilterBy: null },
+        source,
+        { ...args, categoryCodes: [], allowFilterBy: [] },
         context
       )
     ).toEqual(filters);
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith({
-      query: {},
+      query: {
+        filter: {
+          categories: {
+            elemMatch: {
+              code: {
+                in: []
+              }
+            }
+          }
+        }
+      },
       type: "Product"
     });
     expect(context.nodeModel.findOne).toHaveBeenCalledWith(
@@ -314,9 +331,9 @@ describe("plpFilters", () => {
       { key: "key3", value: "value3" }
     ]);
 
-    expect(await Query.plpFilters.resolve(null, { ...args }, context)).toEqual(
-      filters
-    );
+    expect(
+      await Query.plpFilters.resolve(source, { ...args }, context)
+    ).toEqual(filters);
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith({
       query: {
@@ -377,7 +394,7 @@ describe("plpFilters", () => {
       { key: "key3", value: "value3" }
     ]);
 
-    expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
+    expect(await Query.plpFilters.resolve(source, args, context)).toEqual(
       filters
     );
     expect(context.nodeModel.findOne).toHaveBeenCalledWith(
@@ -444,7 +461,7 @@ describe("plpFilters", () => {
         { key: "key3", value: "value3" }
       ]);
 
-      expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
+      expect(await Query.plpFilters.resolve(source, args, context)).toEqual(
         filters
       );
 
@@ -533,7 +550,7 @@ describe("plpFilters", () => {
         { key: "key3", value: "value3" }
       ]);
 
-      expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
+      expect(await Query.plpFilters.resolve(source, args, context)).toEqual(
         filters
       );
 
@@ -628,7 +645,7 @@ describe("plpFilters", () => {
         { key: "key3", value: "value3" }
       ]);
 
-      expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
+      expect(await Query.plpFilters.resolve(source, args, context)).toEqual(
         filters
       );
 
@@ -705,7 +722,7 @@ describe("searchFilters", () => {
           ]
         });
 
-        await Query.searchFilters.resolve(null, args, context);
+        await Query.searchFilters.resolve(source, args, context);
         // eslint-disable-next-line no-console
         expect(console.warn).toBeCalledWith(
           "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
@@ -738,7 +755,7 @@ describe("searchFilters", () => {
           ]
         });
 
-        await Query.searchFilters.resolve(null, args, context);
+        await Query.searchFilters.resolve(source, args, context);
         // eslint-disable-next-line no-console
         expect(console.warn).toBeCalledWith(
           "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
@@ -771,7 +788,7 @@ describe("searchFilters", () => {
           ]
         });
 
-        await Query.searchFilters.resolve(null, args, context);
+        await Query.searchFilters.resolve(source, args, context);
         // eslint-disable-next-line no-console
         expect(console.warn).toBeCalledWith(
           "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
@@ -830,7 +847,7 @@ describe("searchFilters", () => {
       { key: "key3", value: "value3" }
     ]);
 
-    expect(await Query.searchFilters.resolve(null, args, context)).toEqual(
+    expect(await Query.searchFilters.resolve(source, args, context)).toEqual(
       filters
     );
 
@@ -909,14 +926,24 @@ describe("searchFilters", () => {
 
     expect(
       await Query.searchFilters.resolve(
-        null,
-        { ...args, categoryCodes: null },
+        source,
+        { ...args, categoryCodes: [] },
         context
       )
     ).toEqual(filters);
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith({
-      query: {},
+      query: {
+        filter: {
+          categories: {
+            elemMatch: {
+              code: {
+                in: []
+              }
+            }
+          }
+        }
+      },
       type: "Product"
     });
   });
@@ -947,7 +974,7 @@ describe("searchFilters", () => {
       ]
     });
 
-    expect(await Query.searchFilters.resolve(null, args, context)).toEqual(
+    expect(await Query.searchFilters.resolve(source, args, context)).toEqual(
       filters
     );
 
@@ -995,7 +1022,7 @@ describe("searchFilters", () => {
       ]
     });
 
-    expect(await Query.searchFilters.resolve(null, args, context)).toEqual(
+    expect(await Query.searchFilters.resolve(source, args, context)).toEqual(
       filters
     );
 
@@ -1038,7 +1065,7 @@ describe("searchFilters", () => {
     });
     context.nodeModel.findOne = jest.fn().mockResolvedValueOnce(null);
 
-    expect(await Query.searchFilters.resolve(null, args, context)).toEqual(
+    expect(await Query.searchFilters.resolve(source, args, context)).toEqual(
       filters
     );
 
@@ -1094,7 +1121,7 @@ describe("searchFilters", () => {
     });
     context.nodeModel.getNodeById = jest.fn().mockResolvedValueOnce(undefined);
 
-    expect(await Query.searchFilters.resolve(null, args, context)).toEqual(
+    expect(await Query.searchFilters.resolve(source, args, context)).toEqual(
       filters
     );
 
@@ -1144,7 +1171,7 @@ describe("fourOFour", () => {
           categoryCodes: [],
           allowFilterBy: []
         };
-        expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+        expect(await Query.fourOFour.resolve(source, args, context)).toEqual({
           errorPageData: undefined,
           siteData: undefined
         });
@@ -1168,7 +1195,7 @@ describe("fourOFour", () => {
           categoryCodes: [],
           allowFilterBy: []
         };
-        expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+        expect(await Query.fourOFour.resolve(source, args, context)).toEqual({
           errorPageData: undefined,
           siteData: undefined
         });
@@ -1193,7 +1220,7 @@ describe("fourOFour", () => {
           categoryCodes: [],
           allowFilterBy: []
         };
-        expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+        expect(await Query.fourOFour.resolve(source, args, context)).toEqual({
           errorPageData: undefined,
           siteData: undefined
         });
@@ -1214,7 +1241,7 @@ describe("fourOFour", () => {
           categoryCodes: [],
           allowFilterBy: []
         };
-        expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+        expect(await Query.fourOFour.resolve(source, args, context)).toEqual({
           errorPageData: undefined,
           siteData: undefined
         });
@@ -1233,7 +1260,7 @@ describe("fourOFour", () => {
             allowFilterBy: []
           };
           context.nodeModel.findOne = jest.fn().mockResolvedValueOnce(null);
-          expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+          expect(await Query.fourOFour.resolve(source, args, context)).toEqual({
             errorPageData: undefined,
             siteData: undefined
           });
@@ -1261,7 +1288,7 @@ describe("fourOFour", () => {
                 .fn()
                 .mockResolvedValueOnce(null);
               expect(
-                await Query.fourOFour.resolve(null, args, context)
+                await Query.fourOFour.resolve(source, args, context)
               ).toEqual({
                 errorPageData: undefined,
                 siteData: mockSiteData
@@ -1294,7 +1321,7 @@ describe("fourOFour", () => {
                   .mockResolvedValueOnce(mockSiteResource)
                   .mockResolvedValueOnce(null);
                 expect(
-                  await Query.fourOFour.resolve(null, args, context)
+                  await Query.fourOFour.resolve(source, args, context)
                 ).toEqual({
                   errorPageData: undefined,
                   siteData: mockSiteData
@@ -1334,7 +1361,7 @@ describe("fourOFour", () => {
                   .mockResolvedValueOnce(mockErrorFourOFourResource);
 
                 expect(
-                  await Query.fourOFour.resolve(null, args, context)
+                  await Query.fourOFour.resolve(source, args, context)
                 ).toEqual({
                   errorPageData: mockErrorFourOFourResource,
                   siteData: mockSiteData

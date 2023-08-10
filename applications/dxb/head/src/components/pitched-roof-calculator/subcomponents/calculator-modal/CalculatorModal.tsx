@@ -11,7 +11,7 @@ import Fade from "@mui/material/Fade";
 import Modal, { ModalProps } from "@mui/material/Modal";
 import classnames from "classnames";
 import React, { useContext } from "react";
-import styles from "./CalculatorModal.module.scss";
+import { Root, classes } from "./CalculatorModal.styles";
 
 type Props = {
   open?: boolean;
@@ -54,32 +54,26 @@ const CalculatorModal = ({
       disablePortal={disablePortal}
     >
       <Fade in={open}>
-        <div
-          className={classnames(
-            className,
-            styles["CalculatorModal"],
-            styles[pearl ? "pearl" : "white"]
-          )}
+        <Root
+          className={classnames(className, [
+            pearl ? classes.pearl : classes.white
+          ])}
         >
           <div
-            className={classnames(
-              styles["header"],
-              styles[pearl ? "white" : "pearl"]
-            )}
+            className={classnames(classes.header, [
+              pearl ? classes.white : classes.pearl
+            ])}
           >
-            <Container className={styles["headerContainer"]} fullWidth>
+            <Container className={classes.headerCentre} fullWidth>
               <Logo
                 source={logo}
-                className={classnames(styles["headerSide"], styles["logo"])}
+                className={classnames(classes.headerSide, classes.logo)}
               />
-              <div className={styles["headerCentre"]}>{headerCentre}</div>
+              <div className={classes.headerCentre}>{headerCentre}</div>
               <Button
                 isIconButton
                 variant="text"
-                className={classnames(
-                  styles["headerSide"],
-                  styles["iconButton"]
-                )}
+                className={classnames(classes.headerSide, classes.iconButton)}
                 onClick={onCloseClick}
                 accessibilityLabel={"Close"}
               >
@@ -87,10 +81,10 @@ const CalculatorModal = ({
               </Button>
             </Container>
           </div>
-          <div className={classnames(styles["content"], className)}>
+          <div className={classnames(classes.content, className)}>
             <Container>{children}</Container>
           </div>
-        </div>
+        </Root>
       </Fade>
     </Modal>
   );

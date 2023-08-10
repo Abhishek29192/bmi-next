@@ -18,7 +18,10 @@ module.exports = {
     "!**/dist/**"
   ],
   preset: "ts-jest",
-  projects: ["./applications/**/jest.config.js"],
+  projects: [
+    "./applications/**/jest.config.js",
+    "./applications/**/jest.config.cjs"
+  ],
   testMatch: ["**/__tests__/**/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
@@ -46,6 +49,8 @@ module.exports = {
       "lodash-es",
       "escape-string-regexp",
       "@bmi-digital/components",
+      "@bmi-digital/fetch-mocks",
+      "@bmi-digital/react-pdf-maker",
       "ora",
       // Dependencies of ora start
       "chalk",
@@ -63,8 +68,10 @@ module.exports = {
       // Dependencies of file-type start
       "strtok3",
       "peek-readable",
-      "token-types"
+      "token-types",
       // Dependencies of file-type end
+      "@bmi-digital/functions-logger",
+      "@bmi-digital/use-dimensions"
     ].join("|")})/)`
   ],
   setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],

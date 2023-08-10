@@ -142,7 +142,10 @@ describe("BrandLogo component", () => {
         <BrandLogo brandName="Monarplan" brandWhiteBox={true} />
       </ThemeProvider>
     );
-    expect(screen.getByTestId("brand-logo")).toHaveClass("BrandLogo-whiteBox");
+    const element = screen.getByTestId("brand-logo");
+    const style = window.getComputedStyle(element);
+    expect(screen.getByTestId("brand-logo")).toBeInTheDocument();
+    expect(style.backgroundColor).toBe("rgb(255, 255, 255)");
   });
 
   it("should not render with white background by default", () => {
@@ -151,8 +154,9 @@ describe("BrandLogo component", () => {
         <BrandLogo brandName="Monarplan" />
       </ThemeProvider>
     );
-    expect(screen.getByTestId("brand-logo")).not.toHaveClass(
-      "BrandLogo-whiteBox"
-    );
+    const element = screen.getByTestId("brand-logo");
+    const style = window.getComputedStyle(element);
+    expect(screen.getByTestId("brand-logo")).toBeInTheDocument();
+    expect(style.backgroundColor).toBe("");
   });
 });

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import { useIsClient } from "@bmi-digital/components";
+import { Measurements } from "@bmi/firestore-types";
 import { useSiteContext } from "../components/Site";
 import { Product } from "../types/pim";
 import { local } from "../utils/storage";
@@ -18,7 +19,8 @@ export interface Sample {
   path: Product["path"];
   colour: Product["colour"];
   textureFamily: Product["textureFamily"];
-  measurements: Product["measurements"]["label"] | null;
+  goodBetterBest?: Product["goodBetterBest"];
+  measurements?: Measurements["label"];
   image?: string;
 }
 
@@ -37,7 +39,8 @@ export const createSample = (product: Product): Sample => ({
   colour: product.colour,
   textureFamily: product.textureFamily,
   measurements: product.measurements?.label,
-  image: product.masterImage?.mainSource
+  image: product.masterImage?.mainSource,
+  goodBetterBest: product.goodBetterBest
 });
 
 export type BasketAction =

@@ -1,17 +1,20 @@
 import { Button, CarouselHeroItem } from "@bmi-digital/components";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import Image from "../../components/Image";
 import Link from "../../components/Link";
+import { Context as SiteContext } from "../../components/Site";
 import Video from "../../components/Video";
-import { microCopy } from "../../constants/microCopies";
 import type { HomepageData } from "../home-page";
 
 export const getHeroItemsWithContext = (
-  { getMicroCopy },
+  { getMicroCopy }: SiteContext,
   slides: HomepageData["slides"]
 ): readonly CarouselHeroItem[] => {
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
+      const hasPath = "path" in rest && !!rest.path;
+
       const callToAction =
         rest.__typename === "ContentfulPromo" && rest.cta ? (
           <Link component={Button} data={rest.cta}>
@@ -20,7 +23,9 @@ export const getHeroItemsWithContext = (
         ) : (
           <Link
             component={Button}
-            data={{ linkedPage: { path: rest["path"] } }}
+            data={{
+              linkedPage: { path: hasPath ? rest.path : undefined }
+            }}
           >
             {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
           </Link>
@@ -35,7 +40,7 @@ export const getHeroItemsWithContext = (
         ) : featuredMedia ? (
           <Image {...featuredMedia} size="cover" data-testid={"hero-image"} />
         ) : undefined,
-        cta: rest["cta"] || rest["path"] ? callToAction : null
+        cta: rest["cta"] || hasPath ? callToAction : null
       };
     }
   );

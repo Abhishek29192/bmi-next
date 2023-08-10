@@ -4,6 +4,8 @@
 
 Monorepo for BMI websites that does not include component library within. Please check other project with common component library.
 
+To see the architecture diagram of the DXB project, it can be found on [confluence](https://bmigroup.atlassian.net/wiki/spaces/DXB/pages/2712371201/Architecture+Diagram).
+
 ## Getting started
 
 [Local setup](doc/local-setup.md)

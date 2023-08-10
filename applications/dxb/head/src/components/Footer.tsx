@@ -8,7 +8,7 @@ import {
 import { BMI as BmiIcon } from "@bmi-digital/components/logo";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import Icon from "./Icon";

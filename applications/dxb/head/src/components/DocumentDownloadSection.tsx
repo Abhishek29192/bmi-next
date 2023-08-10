@@ -6,6 +6,7 @@ import {
   ContentfulDocument as DocumentData,
   DocumentTableHeader
 } from "../types/Document";
+import { DocumentListProvider } from "../contexts/DocumentContext";
 import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import RichText, { RichTextData } from "./RichText";
@@ -36,9 +37,9 @@ const DocumentDownloadSection = ({
   const { documentDownloadMaxLimit } = useConfig();
   const documentsTable = useRef<HTMLDivElement>(null);
   const count = Math.ceil(allDocuments.length / DOCUMENTS_PER_PAGE);
-  const maxSize = documentDownloadMaxLimit * 1048576;
+  const maxSize = (documentDownloadMaxLimit || 0) * 1000000;
 
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, page: number) => {
     const scrollY = documentsTable.current
       ? documentsTable.current.offsetTop - 200
       : 0;
@@ -69,15 +70,17 @@ const DocumentDownloadSection = ({
           data-testid={"document-download-section-table"}
         >
           <DownloadList maxSize={maxSize}>
-            <DocumentSimpleTableResults
-              documents={documents}
-              headers={TABLE_HEADERS}
-            />
-            <DocumentResultsFooter
-              page={page}
-              count={count}
-              onPageChange={handlePageChange}
-            />
+            <DocumentListProvider>
+              <DocumentSimpleTableResults
+                documents={documents}
+                headers={TABLE_HEADERS}
+              />
+              <DocumentResultsFooter
+                page={page}
+                count={count}
+                onPageChange={handlePageChange}
+              />
+            </DocumentListProvider>
           </DownloadList>
         </div>
       )}

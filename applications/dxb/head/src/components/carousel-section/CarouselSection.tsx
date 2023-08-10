@@ -1,7 +1,5 @@
 import {
-  Button,
   replaceSpaces,
-  Section,
   transformHyphens,
   TwoPaneCarousel,
   TwoPaneCarouselSlide,
@@ -12,7 +10,7 @@ import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
 import Image from "../Image";
@@ -21,9 +19,9 @@ import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalcualtor";
 import { Data as PromoData } from "../Promo";
 import { useSiteContext } from "../Site";
-import styles from "../styles/CarouselSection.module.scss";
-import Video from "../Video";
+import { LinkElement, SectionElement } from "../styles/CarouselSectionStyles";
 import { VisualiserContext } from "../Visualiser";
+import Video from "../Video";
 
 type Slide = PromoData | PageInfoData;
 
@@ -64,7 +62,7 @@ const parseSlides = (
           media: featuredVideo ? (
             <Video
               {...featuredVideo}
-              className={styles["video-preview-image"]}
+              className="video-preview-image"
               data-testid={`carousel-section-slide-video-${index}`}
             />
           ) : featuredMedia ? (
@@ -90,9 +88,8 @@ const CarouselSection = ({
   const { open: openCalculator } = useContext(CalculatorContext);
 
   return (
-    <Section
+    <SectionElement
       backgroundColor={variant === "vertical" ? "pearl" : "white"}
-      className={styles["CarouselSection"]}
       data-testid={`carousel-section-${replaceSpaces(title)}`}
     >
       {variant === "vertical" ? (
@@ -126,7 +123,7 @@ const CarouselSection = ({
         />
       )}
       {link && (
-        <Button
+        <LinkElement
           action={getClickableActionFromUrl(
             link?.linkedPage,
             link?.url,
@@ -142,7 +139,6 @@ const CarouselSection = ({
               }
             }
           )}
-          className={styles["link"]}
           endIcon={
             <ArrowForwardIcon
               data-testid={"carousel-section-arrow-forward-icon"}
@@ -151,9 +147,9 @@ const CarouselSection = ({
           data-testid={"carousel-section-link"}
         >
           {transformHyphens(link.label)}
-        </Button>
+        </LinkElement>
       )}
-    </Section>
+    </SectionElement>
   );
 };
 

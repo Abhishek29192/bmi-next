@@ -29,6 +29,8 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
     </ThemeProvider>
   );
 };
+
+const formId = "form-1";
 const submitText = "Submit";
 const data: Data = {
   __typename: "ContentfulFormSection",
@@ -169,6 +171,11 @@ jest.mock("node-fetch", () => {
   };
 });
 
+jest.mock("lodash-es/uniqueId", () => ({
+  __esModule: true,
+  default: (value: string) => value
+}));
+
 beforeEach(() => {
   mockExecutRecaptcha.mockReturnValue("RECAPTCHA");
 });
@@ -182,7 +189,7 @@ describe("FormSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <ThemeProvider>
-        <FormSection data={data} backgroundColor="white" />
+        <FormSection id={formId} data={data} backgroundColor="white" />
       </ThemeProvider>
     );
 
@@ -193,6 +200,7 @@ describe("FormSection component", () => {
     render(
       <ThemeProvider>
         <FormSection
+          id={formId}
           data={data}
           backgroundColor="white"
           gtmOverride={{
@@ -225,7 +233,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
 
@@ -253,7 +261,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
 
@@ -281,10 +289,10 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
-    const upload = screen.getByTestId("upload");
+    const upload = screen.getByTestId(`${formId}-upload`);
     fireEvent.change(upload, {
       target: {
         files: [{ name: "fileName", size: 10485761, type: "pdf" }]
@@ -308,10 +316,10 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
-    const upload = screen.getByTestId("upload");
+    const upload = screen.getByTestId(`${formId}-upload`);
     fireEvent.change(upload, {
       target: {
         files: [{ name: "fileName", size: 200, type: "pdf" }]
@@ -335,7 +343,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
@@ -347,6 +355,7 @@ describe("FormSection component", () => {
       <ThemeProvider>
         <ConfigProvider configOverride={{ isPreviewMode: true }}>
           <FormSection
+            id={formId}
             data={data}
             backgroundColor="white"
             data-testid={"test-form"}
@@ -381,6 +390,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
+            id={formId}
             data={specificData}
             backgroundColor="white"
             onSuccess={onSuccess}
@@ -452,6 +462,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
+            id={formId}
             data={specificData}
             backgroundColor="white"
             onSuccess={onSuccess}
@@ -516,6 +527,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
+            id={formId}
             data={specificData}
             backgroundColor="white"
             onSuccess={jest.fn()}
@@ -587,6 +599,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
+            id={formId}
             data={specificData}
             backgroundColor="white"
             onSuccess={jest.fn()}
@@ -642,6 +655,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <MockSiteContext>
         <FormSection
+          id={formId}
           data={specificData}
           backgroundColor="white"
           data-testid={"test-form"}
@@ -676,7 +690,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
@@ -702,7 +716,7 @@ describe("FormSection component", () => {
     };
     const { container } = render(
       <ThemeProvider>
-        <FormSection data={specificData} backgroundColor="white" />
+        <FormSection id={formId} data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
     const externalLink = screen.getByTestId(
@@ -759,6 +773,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
+            id={formId}
             data={{ ...data, inputs: specificData }}
             backgroundColor="white"
             onSuccess={jest.fn()}
@@ -823,6 +838,7 @@ describe("FormSection component", () => {
       >
         <MockSiteContext>
           <FormSection
+            id={formId}
             data={{ ...data, inputs: specificData }}
             backgroundColor="white"
             onSuccess={jest.fn()}
@@ -864,11 +880,27 @@ describe("FormSection component", () => {
     it("renders correctly", () => {
       const { container } = render(
         <ThemeProvider>
-          <FormSection data={dataHubSpot} backgroundColor="white" />
+          <FormSection id={formId} data={dataHubSpot} backgroundColor="white" />
         </ThemeProvider>
       );
 
+      expect(screen.getByTestId("hubspot-form-Test-form")).toHaveAttribute(
+        "id",
+        "bmi-hubspot-form-form-1"
+      );
       expect(container).toMatchSnapshot();
+    });
+
+    it("generates hubspot form id using the title when empty id passed", () => {
+      render(
+        <ThemeProvider>
+          <FormSection id="" data={dataHubSpot} backgroundColor="white" />
+        </ThemeProvider>
+      );
+      expect(screen.getByTestId("hubspot-form-Test-form")).toHaveAttribute(
+        "id",
+        "bmi-hubspot-form-Test-form"
+      );
     });
 
     it("renders correctly with sampleIds", () => {
@@ -885,6 +917,7 @@ describe("FormSection component", () => {
       const { container } = render(
         <ThemeProvider>
           <FormSection
+            id={formId}
             data={dataHubSpot}
             sampleIds={sampleIds}
             backgroundColor="white"
@@ -901,7 +934,7 @@ describe("FormSection component", () => {
       jest.spyOn(window, "alert").mockImplementation();
       const { container } = render(
         <ThemeProvider>
-          <FormSection data={dataHubSpot} backgroundColor="white" />
+          <FormSection id={formId} data={dataHubSpot} backgroundColor="white" />
         </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
@@ -912,6 +945,7 @@ describe("FormSection component", () => {
     render(
       <ThemeProvider>
         <FormSection
+          id={formId}
           data={dataHubSpot}
           backgroundColor="white"
           onSuccess={onSuccess}
@@ -940,6 +974,7 @@ describe("FormSection component", () => {
     render(
       <ThemeProvider>
         <FormSection
+          id={formId}
           data={dataHubSpot}
           backgroundColor="white"
           onFormReady={onFormReady}
@@ -962,6 +997,7 @@ describe("FormSection component", () => {
     render(
       <ThemeProvider>
         <FormSection
+          id={formId}
           data={dataHubSpot}
           backgroundColor="white"
           onFormLoadError={onFormLoadError}
@@ -975,7 +1011,12 @@ describe("FormSection component", () => {
   it("renders correctly for dialog", () => {
     const { container } = render(
       <ThemeProvider>
-        <FormSection data={dataHubSpot} backgroundColor="white" isDialog />
+        <FormSection
+          id="section-1"
+          data={dataHubSpot}
+          backgroundColor="white"
+          isDialog
+        />
       </ThemeProvider>
     );
     expect(
@@ -984,5 +1025,23 @@ describe("FormSection component", () => {
       )
     ).not.toBeInTheDocument();
     expect(container).toMatchSnapshot();
+  });
+
+  it("renders HubSpot form with the correct Id if it exists", () => {
+    render(
+      <ThemeProvider>
+        <FormSection
+          data={dataHubSpot}
+          id="fake-form-id"
+          backgroundColor="white"
+          isDialog
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId("hubspot-form-Test-form")).toHaveAttribute(
+      "id",
+      "bmi-hubspot-form-fake-form-id"
+    );
   });
 });

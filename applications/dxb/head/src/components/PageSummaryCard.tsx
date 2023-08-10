@@ -1,7 +1,10 @@
 import { AnchorLink, Typography } from "@bmi-digital/components";
 import React from "react";
 import { getClickableActionFromUrl } from "./Link";
-import styles from "./styles/PageSummaryCard.module.scss";
+import {
+  StyledPageSummaryCard,
+  StyledSubtitle
+} from "./styles/PageSummaryCard.styles";
 
 type Props = {
   title: string;
@@ -11,7 +14,7 @@ type Props = {
 };
 
 const PageSummaryCard = ({ title, subtitle, countryCode, path }: Props) => (
-  <div className={styles["PageSummaryCard"]}>
+  <StyledPageSummaryCard>
     <AnchorLink
       action={getClickableActionFromUrl(
         { path },
@@ -25,10 +28,8 @@ const PageSummaryCard = ({ title, subtitle, countryCode, path }: Props) => (
         {title}
       </Typography>
     </AnchorLink>
-    <Typography variant="lead" className={styles["description"]}>
-      {subtitle}
-    </Typography>
-  </div>
+    <StyledSubtitle variant="lead">{subtitle}</StyledSubtitle>
+  </StyledPageSummaryCard>
 );
 
 export default PageSummaryCard;

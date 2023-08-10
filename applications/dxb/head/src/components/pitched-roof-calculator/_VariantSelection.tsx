@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../Site";
 import { AnalyticsContext } from "./helpers/analytics";
 import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";

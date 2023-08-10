@@ -26,7 +26,10 @@ import roofSegmentGenerator from "./RoofSegmentGenerator";
 import textureCache from "./TextureCache";
 import tileSlice from "./TileSlice";
 import { Colour, PIMTile, Siding } from "./Types";
-import Viewer, { Props as ViewerProps, State as ViewerState } from "./Viewer";
+import Viewer, {
+  Props as ViewerProps,
+  State as ViewerState
+} from "./Viewer/Viewer";
 
 export interface Props extends ViewerProps {
   siding: Siding;

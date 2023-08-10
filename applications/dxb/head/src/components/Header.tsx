@@ -10,8 +10,8 @@ import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import Tab from "@mui/material/Tab";
 import { Link, graphql, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
+import { microCopy } from "@bmi/microcopies";
 import Image from "../components/Image";
-import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
@@ -28,6 +28,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
 import { useSiteContext } from "./Site";
+import type { GetMicroCopy } from "./MicroCopy";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
   const cta = getCTA(
@@ -52,7 +53,7 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
 const parseNavigation = (
   navigationItems: (NavigationData | NavigationItem | LinkData)[],
   countryCode: string,
-  getMicroCopy
+  getMicroCopy: GetMicroCopy
 ) => {
   if (!navigationItems || navigationItems.length === 0) {
     return [];
@@ -176,7 +177,7 @@ const Header = ({
   lastNavigationLabel,
   disableSearch
 }: {
-  navigationData: NavigationData;
+  navigationData: NavigationData | null;
   utilitiesData: NavigationData | null;
   countryCode: string;
   activeLabel?: string;

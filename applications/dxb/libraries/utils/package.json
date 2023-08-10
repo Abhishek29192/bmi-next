@@ -13,7 +13,7 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "contentful-management": "^10.35.3",
+    "contentful-management": "^10.39.2",
     "crypto-js": "^4.1.1",
     "imurmurhash": "^0.1.4"
   },

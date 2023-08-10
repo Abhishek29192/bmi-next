@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import { MicroCopyValues } from "../constants/microCopies";
+import { MicroCopyValues } from "@bmi/microcopies";
 
 export type Data = {
   key: string;

@@ -1,14 +1,14 @@
 import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
 import { screen } from "@testing-library/react";
 import React from "react";
+import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as PromoData } from "../../components/Promo";
 import { Data as SiteData } from "../../components/Site";
+import { SourceType } from "../../components/types/FormSectionTypes";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import ContactUsPage, { Data } from "../contact-us-page";
-import { SourceType } from "../../components/types/FormSectionTypes";
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: SiteData } = {
@@ -310,7 +310,7 @@ describe("Contact us page", () => {
     expect(
       screen.getByTestId(
         `iframe-section-${replaceSpaces(
-          data.contentfulContactUsPage.iframe.title
+          data.contentfulContactUsPage.iframe!.title
         )}`
       )
     ).toBeInTheDocument();
@@ -343,7 +343,7 @@ describe("Contact us page", () => {
       )
     ).toBeInTheDocument();
     expect(screen.getByText("Locations")).toBeTruthy();
-    data.contentfulContactUsPage.locations.forEach((item, index) => {
+    data.contentfulContactUsPage.locations!.forEach((item, index) => {
       expect(screen.getByTestId(`locations-card-${index}`)).toBeInTheDocument();
     });
   });

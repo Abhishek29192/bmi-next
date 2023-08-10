@@ -5,9 +5,13 @@ import {
   CardRadioGroupProps,
   WithFormControlProps
 } from "@bmi-digital/components";
-import classnames from "classnames";
 import React from "react";
-import styles from "./CardGroup.module.scss";
+import classnames from "classnames";
+import {
+  classes,
+  StyledCardCheckboxGroup,
+  StyledCardRadioGroup
+} from "./CardGroup.styles";
 
 type RadioGroupProps = CardRadioGroupProps & WithFormControlProps<string>;
 type CheckboxGroupProps = CardCheckboxGroupProps &
@@ -15,22 +19,28 @@ type CheckboxGroupProps = CardCheckboxGroupProps &
 
 const CardRadioGroup = (props: RadioGroupProps) => {
   return (
-    <RadioGroup
+    <StyledCardRadioGroup
       {...props}
-      className={styles["CardGroup"]}
-      gridContainerClassName={styles["gridContainer"]}
+      gridContainerClassName={classes.gridContainer}
     />
   );
 };
 
 CardRadioGroup.Item = RadioGroup.Item;
 
-const CardCheckboxGroup = ({ className, ...rest }: CheckboxGroupProps) => {
+const CardCheckboxGroup = ({
+  className,
+  gridContainerClassName,
+  ...rest
+}: CheckboxGroupProps) => {
   return (
-    <CheckBoxGroup
+    <StyledCardCheckboxGroup
       {...rest}
-      className={classnames(styles["CardGroup"], className)}
-      gridContainerClassName={styles["gridContainer"]}
+      className={className}
+      gridContainerClassName={classnames(
+        classes.gridContainer,
+        gridContainerClassName
+      )}
     />
   );
 };

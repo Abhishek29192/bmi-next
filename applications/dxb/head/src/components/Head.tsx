@@ -10,12 +10,13 @@ import { Product } from "../types/pim";
 import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
+import { createSchemaOrgForHomeAndBrandPage } from "../utils/schemaOrgHomeAndBrandPage";
 import { Data as SEOContentData } from "./SEOContent";
 import { Data as SiteData } from "./Site";
 
 interface HeadProps {
   htmlAttributes: HelmetProps["htmlAttributes"];
-  title: string;
+  title?: string | null;
   defer?: boolean;
   ogImageUrl?: string;
   scripts?: Pick<SiteData, "headScripts">;
@@ -23,6 +24,8 @@ interface HeadProps {
   path: string | null;
   variantProduct?: Product;
   countryCode?: string;
+  pageType?: string;
+  brandLogo?: string | null;
 }
 
 export const Head = ({
@@ -34,7 +37,9 @@ export const Head = ({
   seo,
   path,
   variantProduct,
-  countryCode
+  countryCode,
+  pageType,
+  brandLogo
 }: HeadProps) => {
   const { headScripts } = scripts;
   const { isPreviewMode, hubSpotId, isSchemaORGActivated, oneTrustId } =
@@ -51,6 +56,10 @@ export const Head = ({
     (variantProduct &&
       (variantProduct.seoDescription || variantProduct.description)) ||
     (seo && seo.metaDescription);
+
+  const correctGatsbySiteUrl: string = process.env.GATSBY_SITE_URL.endsWith("/")
+    ? process.env.GATSBY_SITE_URL.slice(0, -1)
+    : process.env.GATSBY_SITE_URL;
   return (
     <Helmet
       htmlAttributes={htmlAttributes}
@@ -80,7 +89,7 @@ export const Head = ({
       {htmlAttributes?.lang && (
         <link
           rel="alternate"
-          href={`${process.env.GATSBY_SITE_URL}${getPathWithCountryCode(
+          href={`${correctGatsbySiteUrl}${getPathWithCountryCode(
             countryCode,
             path
           )}`}
@@ -89,7 +98,7 @@ export const Head = ({
       )}
       <link
         rel="alternate"
-        href={`${process.env.GATSBY_SITE_URL}${getPathWithCountryCode(
+        href={`${correctGatsbySiteUrl}${getPathWithCountryCode(
           countryCode,
           path
         )}`}
@@ -185,7 +194,27 @@ export const Head = ({
       {schemaOrgActivated && (
         <script type="application/ld+json">
           {JSON.stringify(
-            createSchemaOrgDataForPdpPage(variantProduct, countryCode)
+            createSchemaOrgDataForPdpPage(
+              correctGatsbySiteUrl,
+              variantProduct,
+              countryCode
+            )
+          )}
+        </script>
+      )}
+      {!!pageType && (
+        <script type="application/ld+json">
+          {JSON.stringify(
+            createSchemaOrgForHomeAndBrandPage(
+              correctGatsbySiteUrl,
+              pageType,
+              countryCode,
+              path,
+              (seo && seo.metaDescription) || null,
+              brandLogo || null,
+              title || null,
+              (seo && seo.sameAs) || null
+            )
           )}
         </script>
       )}

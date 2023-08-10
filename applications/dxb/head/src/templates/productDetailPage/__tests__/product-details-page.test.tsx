@@ -20,7 +20,7 @@ const mockSiteData = createMockSiteData({
   resources: {
     ...mockResources.resources,
     pdpShareWidget: {
-      ...mockResources.resources.pdpShareWidget,
+      ...mockResources.resources!.pdpShareWidget,
       email: true,
       facebook: true,
       copy: true
@@ -81,7 +81,7 @@ describe("Product Details Page", () => {
     expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
       screen.getByTestId(
-        `${mockProduct.keyAssetDocuments[0].assetType}Download`
+        `${mockProduct.keyAssetDocuments![0].assetType}Download`
       )
     ).toBeInTheDocument();
   });
@@ -114,7 +114,7 @@ describe("Product Details Page", () => {
     expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
       screen.queryByTestId(
-        `${mockProduct.keyAssetDocuments[0].assetType}Download`
+        `${mockProduct.keyAssetDocuments![0].assetType}Download`
       )
     ).not.toBeInTheDocument();
   });
@@ -150,7 +150,7 @@ describe("Product Details Page", () => {
     expect(screen.queryByLabelText("MC: share.email")).not.toBeInTheDocument();
     expect(
       screen.getByTestId(
-        `${mockProduct.keyAssetDocuments[0].assetType}Download`
+        `${mockProduct.keyAssetDocuments![0].assetType}Download`
       )
     ).toBeInTheDocument();
   });
@@ -184,7 +184,7 @@ describe("Product Details Page", () => {
     expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
       screen.getByTestId(
-        `${mockProduct.keyAssetDocuments[0].assetType}Download`
+        `${mockProduct.keyAssetDocuments![0].assetType}Download`
       )
     ).toBeInTheDocument();
   });
@@ -217,7 +217,7 @@ describe("Product Details Page", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByTestId(
-        `${mockProduct.keyAssetDocuments[0].assetType}Download`
+        `${mockProduct.keyAssetDocuments![0].assetType}Download`
       )
     ).toBeInTheDocument();
   });
@@ -249,7 +249,7 @@ describe("Product Details Page", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByTestId(
-        `${mockProduct.keyAssetDocuments[0].assetType}Download`
+        `${mockProduct.keyAssetDocuments![0].assetType}Download`
       )
     ).toBeInTheDocument();
   });
@@ -282,7 +282,7 @@ describe("Product Details Page", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByTestId(
-        `${mockProduct.keyAssetDocuments[0].assetType}Download`
+        `${mockProduct.keyAssetDocuments![0].assetType}Download`
       )
     ).toBeInTheDocument();
   });

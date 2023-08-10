@@ -1,22 +1,25 @@
 import {
+  Checkbox,
   DownloadList,
   DownloadListContext,
-  Table
+  Table,
+  useUpdateEffect
 } from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import { filesize } from "filesize";
-import React, { useContext } from "react";
-import { microCopy } from "../constants/microCopies";
+import React, { useContext, useEffect } from "react";
+import { microCopy } from "@bmi/microcopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
+import { DocumentContext } from "../contexts/DocumentContext";
 import {
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
   getIsLinkDocument,
   getProductStatus,
   getUniqueId,
-  getValidityDate
+  getValidityDate,
+  useShowMobileTable,
+  getCurrentlySelectedDocumentsCount
 } from "../utils/documentUtils";
 import {
   CopyToClipboard,
@@ -38,6 +41,10 @@ import {
 export type Props = {
   documents: readonly Document[];
   headers?: DocumentTableHeader[];
+};
+
+export type Mutable<Type> = {
+  -readonly [Key in keyof Type]: Type[Key];
 };
 
 const PIM_TYPES = ["PIMDocument", "PIMSystemDocument"];
@@ -136,7 +143,7 @@ const DocumentCells = ({
                   {document.__typename !== "PIMDocumentWithPseudoZip" && (
                     <CopyToClipboard
                       id={document.id}
-                      url={getFileUrlByDocumentType(document)}
+                      url={getFileUrlByDocumentType(document) || ""}
                       title={document.title}
                     />
                   )}
@@ -163,9 +170,6 @@ const DocumentCells = ({
               >
                 <DownloadList.Checkbox
                   name={getUniqueId(document)}
-                  maxLimitReachedLabel={getMicroCopy(
-                    microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
-                  )}
                   ariaLabel={`${getMicroCopy(
                     microCopy.DOCUMENT_LIBRARY_DOWNLOAD
                   )} ${
@@ -208,19 +212,87 @@ const DocumentSimpleTableResults = ({
   headers = ["add", "typeCode", "title", "size", "actions"]
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-  const { list } = useContext(DownloadListContext);
+
+  const { list, updateList, count, resetList } =
+    useContext(DownloadListContext);
+  const nonLinkedDocuments = documents.filter(
+    (document) => !getIsLinkDocument(document)
+  );
+
+  const { showMobileTable, handleTableSizeChange, ref } = useShowMobileTable();
   const titleField =
     headers.includes("type") && !headers.includes("title") ? "type" : "title";
 
-  if (isMobile) {
+  const {
+    selectedAllState: { isSelectedAll, docsCount },
+    setSelectAllState
+  } = useContext(DocumentContext);
+
+  useEffect(() => {
+    setSelectAllState((prevState) => ({
+      ...prevState,
+      doesHaveLinkedDocuments:
+        documents.length !== 0 && nonLinkedDocuments.length === 0
+    }));
+  }, []);
+
+  useUpdateEffect(() => {
+    handleSelectAll(isSelectedAll);
+  }, [isSelectedAll]);
+
+  useUpdateEffect(() => {
+    const currentSelectedDocsCount = getCurrentlySelectedDocumentsCount(
+      nonLinkedDocuments,
+      list
+    );
+
+    setSelectAllState((prevState) => ({
+      ...prevState,
+      isSelectedAll: currentSelectedDocsCount === nonLinkedDocuments.length,
+      docsCount: currentSelectedDocsCount
+    }));
+  }, [list, documents]);
+
+  useEffect(() => {
+    return () => {
+      setSelectAllState((prevState) => ({
+        ...prevState,
+        isSelectedAll: false
+      }));
+      resetList();
+    };
+  }, []);
+
+  const handleSelectAll = (selectedAll: boolean): void => {
+    if (selectedAll) {
+      if (docsCount === nonLinkedDocuments.length) {
+        return;
+      }
+      nonLinkedDocuments.forEach((d) => {
+        const documentId = getUniqueId(d);
+        // eslint-disable-next-line security/detect-object-injection
+        if (!list[documentId]) {
+          updateList(documentId, d, getFileSizeByDocumentType(d));
+        }
+      });
+    } else {
+      if (count === 0 || docsCount !== nonLinkedDocuments.length) {
+        return;
+      }
+      documents.forEach((d) =>
+        updateList(getUniqueId(d), false, getFileSizeByDocumentType(d))
+      );
+    }
+  };
+
+  if (showMobileTable) {
     return (
       <DocumentSimpleTableResultsMobile
         documents={documents}
         headers={headers}
         selectedDocuments={list}
         titleField={titleField}
+        ref={ref}
       />
     );
   }
@@ -229,18 +301,39 @@ const DocumentSimpleTableResults = ({
     <StyledSimpleTableResults
       className={classnames("DocumentSimpleTableResults")}
       data-testid="document-simple-table-results"
+      ref={ref}
     >
-      <Table rowBgColorPattern="none">
+      <Table rowBgColorPattern="none" onTableSizeChange={handleTableSizeChange}>
         <Table.Head>
           <Table.Row>
             {headers.map((header) => (
               <Table.Cell
                 key={`header-${header}`}
                 className={classnames(
-                  ["actions", "add"].includes(header) && classes.tableHeader
+                  ["actions", "add"].includes(header) && classes.tableHeader,
+                  ["add"].includes(header) && classes.tableHeaderCentered
                 )}
               >
-                {getMicroCopy(`documentLibrary.headers.${header}`)}
+                {header === "add" ? (
+                  <Checkbox
+                    data-testid={`document-table-select-all`}
+                    name="add"
+                    aria-label={`${getMicroCopy(
+                      `documentLibrary.headers.add`
+                    )}`}
+                    value={isSelectedAll}
+                    checked={isSelectedAll}
+                    onChange={() =>
+                      setSelectAllState((prevState) => ({
+                        ...prevState,
+                        isSelectedAll: !isSelectedAll
+                      }))
+                    }
+                    disabled={!nonLinkedDocuments.length}
+                  />
+                ) : (
+                  getMicroCopy(`documentLibrary.headers.${header}`)
+                )}
               </Table.Cell>
             ))}
           </Table.Row>
