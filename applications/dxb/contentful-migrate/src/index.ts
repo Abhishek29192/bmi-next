@@ -19,7 +19,7 @@ const {
   TIMEOUT_CHECKS
 } = process.env;
 
-let timeout = 20 * 60 * 1000; // 20 minutes
+let timeout = 60 * 60 * 1000; // 60 minutes
 let timeoutChecks = 10 * 1000; // 10 seconds
 
 const isItCooked = async (
@@ -118,6 +118,7 @@ const buildContentful = async (
     await isItCooked(newEnvironmentName, space);
   } catch (error) {
     timer.fail((error as Error).message);
+    await newEnv.delete();
     throw error;
   }
 
