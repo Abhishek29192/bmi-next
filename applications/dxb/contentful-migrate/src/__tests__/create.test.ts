@@ -41,14 +41,7 @@ describe("main", () => {
 
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
-      path.join(
-        path.dirname(fileURLToPath(import.meta.url)),
-        "..",
-        "..",
-        "..",
-        "..",
-        "src"
-      )
+      path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "src")
     );
   });
 
@@ -57,14 +50,7 @@ describe("main", () => {
 
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
-      path.join(
-        path.dirname(fileURLToPath(import.meta.url)),
-        "..",
-        "..",
-        "..",
-        "..",
-        "src"
-      )
+      path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "src")
     );
   });
 
@@ -75,14 +61,7 @@ describe("main", () => {
 
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
-      path.join(
-        path.dirname(fileURLToPath(import.meta.url)),
-        "..",
-        "..",
-        "..",
-        "..",
-        "src"
-      )
+      path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "src")
     );
   });
 
@@ -93,14 +72,7 @@ describe("main", () => {
 
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
-      path.join(
-        path.dirname(fileURLToPath(import.meta.url)),
-        "..",
-        "..",
-        "..",
-        "..",
-        "src"
-      )
+      path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "src")
     );
   });
 
@@ -111,14 +83,7 @@ describe("main", () => {
 
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
-      path.join(
-        path.dirname(fileURLToPath(import.meta.url)),
-        "..",
-        "..",
-        "..",
-        "..",
-        "src"
-      )
+      path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "src")
     );
   });
 });
