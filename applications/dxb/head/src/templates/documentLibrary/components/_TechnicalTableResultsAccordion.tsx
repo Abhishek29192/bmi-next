@@ -9,7 +9,7 @@ import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { filesize } from "filesize";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { microCopy } from "@bmi/microcopies";
 import {
   CopyToClipboard,
@@ -51,7 +51,33 @@ const MobileDocumentTechnicalTableResults = ({
   assetTypes
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
-  const { list: selectedDocuments } = useContext(DownloadListContext);
+  const {
+    list: selectedDocuments,
+    resetList,
+    updateAllListItems,
+    setSelectedAllCheckboxDisabled
+  } = useContext(DownloadListContext);
+
+  useEffect(() => {
+    let linkDocumentsExist = false;
+
+    documentsByProduct.forEach(([_, assets]) => {
+      updateAllListItems(
+        assets[0].productBaseCode,
+        getSelectableDocuments(assets),
+        getDocumentsSize(assets)
+      );
+
+      linkDocumentsExist = linkDocumentsExist || getIsSelectionDisabled(assets);
+    });
+
+    setSelectedAllCheckboxDisabled(linkDocumentsExist);
+
+    return () => {
+      resetList();
+    };
+  }, []);
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const showDivider = useMediaQuery(theme.breakpoints.up("sm"));

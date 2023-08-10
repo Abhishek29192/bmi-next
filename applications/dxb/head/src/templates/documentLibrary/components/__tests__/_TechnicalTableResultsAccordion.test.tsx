@@ -258,7 +258,14 @@ describe("MobileDocumentTechnicalTableResults component", () => {
             count: 0,
             remainingSize: 0,
             isLoading: false,
-            setIsLoading: jest.fn()
+            setIsLoading: jest.fn(),
+            totalSize: 0,
+            allListItems: {},
+            updateAllListItems: jest.fn(),
+            setSelectedAllCheckboxDisabled: jest.fn(),
+            selectedAllCheckboxChecked: false,
+            selectedAllCheckboxDisabled: false,
+            setSelectedAllCheckboxChecked: jest.fn()
           }}
         >
           <TechnicalTableResultsAccordion
@@ -308,7 +315,14 @@ describe("MobileDocumentTechnicalTableResults component", () => {
             count: 0,
             remainingSize: 0,
             isLoading: false,
-            setIsLoading: jest.fn()
+            setIsLoading: jest.fn(),
+            totalSize: 0,
+            allListItems: {},
+            updateAllListItems: jest.fn(),
+            setSelectedAllCheckboxDisabled: jest.fn(),
+            selectedAllCheckboxChecked: false,
+            selectedAllCheckboxDisabled: false,
+            setSelectedAllCheckboxChecked: jest.fn()
           }}
         >
           <TechnicalTableResultsAccordion

@@ -96,35 +96,55 @@ export const ContentWrapper = styled("div")(({ theme }) => ({
   }
 }));
 
-export const ButtonsWrapper = styled("div")(({ theme }) => ({
-  display: "flex",
+export const ButtonsWrapper = styled("div")<{ format: string }>(
+  ({ theme, format }) => ({
+    display: "flex",
+    ...(format === "technicalTable" && {
+      flexBasis: "28%"
+    }),
 
-  [`.${buttonClasses.root}`]: {
-    height: "max-content",
+    [`.${buttonClasses.root}`]: {
+      height: "max-content",
+
+      [theme.breakpoints.down("lg")]: {
+        width: "calc(100% - 6px)"
+      }
+    },
 
     [theme.breakpoints.down("lg")]: {
-      width: "calc(100% - 6px)"
+      width: "100%",
+      justifyContent: "space-between",
+      paddingBottom: "10px"
     }
-  },
+  })
+);
 
-  [theme.breakpoints.down("lg")]: {
-    width: "100%",
-    justifyContent: "space-between",
-    paddingBottom: "10px"
-  }
-}));
-
-export const FooterBottomWrapper = styled("div")(({ theme }) => ({
+export const ButtonsSelectAllPanel = styled("div")(({ theme }) => ({
   display: "flex",
-  borderTop: `1px solid ${theme.colours.storm}`,
-  justifyContent: "space-between",
-  paddingTop: "10px"
+  flexBasis: "80%"
 }));
 
-export const SelectAllCheckboxWrapper = styled("div")(() => ({
-  display: "flex",
-  alignItems: "center"
-}));
+export const FooterBottomWrapper = styled("div")<{ format: string }>(
+  ({ theme, format }) => ({
+    display: "flex",
+    ...(format !== "technicalTable" && {
+      borderTop: `1px solid ${theme.colours.storm}`,
+      paddingTop: "10px"
+    }),
+    justifyContent: "space-between"
+  })
+);
+
+export const SelectAllCheckboxWrapper = styled("div")<{ format: string }>(
+  ({ format, theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    ...(format === "technicalTable" && {
+      borderLeft: `1px solid ${theme.colours.storm}`,
+      paddingLeft: "5px"
+    })
+  })
+);
 
 export const SelectAllCheckboxLabel = styled(Button)(() => ({
   marginRight: "5px"
