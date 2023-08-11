@@ -55,6 +55,7 @@ test_mr_coverage_head:
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
+    GIT_DEPTH: 10
   needs:
     - compile_head
 
