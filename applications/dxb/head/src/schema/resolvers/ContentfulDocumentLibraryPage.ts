@@ -10,7 +10,7 @@ import type {
   ContentfulDocumentLibraryPage
 } from "./types/Contentful";
 import type { DocumentsFilters } from "./types/DocumentsFilters";
-import type { Context, Node, ResolveArgs } from "./types/Gatsby";
+import type { Context, ResolveArgs } from "./types/Gatsby";
 
 const getProductDocumentsFilters = async (
   source: ContentfulDocumentLibraryPage,
@@ -188,14 +188,14 @@ export default {
       args: ResolveArgs,
       context: Context
     ): Promise<DocumentsFilters> {
-      let assetTypes = [];
+      let assetTypes: ContentfulAssetType[] = [];
       if (source.assetTypes___NODE && source.assetTypes___NODE.length) {
         assetTypes = await Promise.all(
-          source.assetTypes___NODE.map((id) => {
-            return context.nodeModel.getNodeById({
+          source.assetTypes___NODE.map(async (id) => {
+            return (await context.nodeModel.getNodeById<ContentfulAssetType>({
               id,
               type: "ContentfulAssetType"
-            });
+            }))!;
           })
         );
       } else {
@@ -212,10 +212,11 @@ export default {
               }
             }
           : {};
-        const { entries } = await context.nodeModel.findAll<Node>(
-          { query: { filter: marketFilters }, type: "ContentfulAssetType" },
-          { connectionType: "ContentfulAssetType" }
-        );
+        const { entries } =
+          await context.nodeModel.findAll<ContentfulAssetType>(
+            { query: { filter: marketFilters }, type: "ContentfulAssetType" },
+            { connectionType: "ContentfulAssetType" }
+          );
         assetTypes = entries ? [...entries] : [];
       }
 

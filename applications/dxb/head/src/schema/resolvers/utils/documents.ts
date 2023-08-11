@@ -3,6 +3,7 @@ import { isDefined } from "@bmi/utils";
 import { microCopy } from "@bmi/microcopies";
 import type { Product } from "@bmi/firestore-types";
 import { getPlpFilters } from "./filters";
+import type { Node as GatsbyNode } from "gatsby";
 import type { ProductFilter } from "../../../types/pim";
 import type {
   ContentfulAssetType,
@@ -35,7 +36,7 @@ export const resolveDocumentsFiltersFromProducts = async (
       }
     : {};
 
-  const { entries } = await context.nodeModel.findAll<Product>({
+  const { entries } = await context.nodeModel.findAll<Product & GatsbyNode>({
     query: {
       filter
     },
@@ -76,7 +77,7 @@ export const resolveDocumentsFiltersFromProducts = async (
     );
     return [];
   }
-  const resource = await context.nodeModel.getNodeById({
+  const resource = await context.nodeModel.getNodeById<Node>({
     id: currSite.resources___NODE as string,
     type: "ContentfulResources"
   });
@@ -90,7 +91,7 @@ export const resolveDocumentsFiltersFromProducts = async (
 
   // MC access in consistently happens only via resource content type
   // that means a market is only aware of MCs which are associated with the resource
-  const microCopies = await context.nodeModel.getNodesByIds({
+  const microCopies = await context.nodeModel.getNodesByIds<Node>({
     ids: resource.microCopy___NODE,
     type: "ContentfulMicroCopy"
   });
@@ -215,14 +216,9 @@ const generateBrandFilterFromDocuments = async (
   if (!marketCode || !localeCode) {
     // eslint-disable-next-line no-console
     console.warn(
-      `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+      `Please check environment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
     );
-    return {
-      filterCode: "",
-      label: "",
-      name: null,
-      options: []
-    };
+    return undefined;
   }
   const currSite = await context.nodeModel.findOne<ContentfulSite>(
     {
@@ -241,14 +237,9 @@ const generateBrandFilterFromDocuments = async (
     console.warn(
       `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
     );
-    return {
-      filterCode: "",
-      label: "",
-      name: null,
-      options: []
-    };
+    return undefined;
   }
-  const resource = await context.nodeModel.getNodeById({
+  const resource = await context.nodeModel.getNodeById<Node>({
     id: currSite.resources___NODE as string,
     type: "ContentfulResources"
   });
@@ -257,17 +248,12 @@ const generateBrandFilterFromDocuments = async (
     console.warn(
       `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
     );
-    return {
-      filterCode: "",
-      label: "",
-      name: null,
-      options: []
-    };
+    return undefined;
   }
 
   // MC access in consistently happens only via resource content type
   // that means a market is only aware of MCs which are associated with the resource
-  const microCopies = await context.nodeModel.getNodesByIds({
+  const microCopies = await context.nodeModel.getNodesByIds<Node>({
     ids: resource.microCopy___NODE,
     type: "ContentfulMicroCopy"
   });
@@ -282,12 +268,7 @@ const generateBrandFilterFromDocuments = async (
   ];
 
   if (allValues.length === 0) {
-    return {
-      filterCode: "",
-      label: "",
-      name: null,
-      options: []
-    };
+    return undefined;
   }
   const filterLabel = (filterMicroCopies.find(
     (item) => item.key === microCopyKey
@@ -309,21 +290,16 @@ const generateAssetTypeFilterFromDocuments = async (
   assetTypes: ContentfulAssetType[],
   documents: ContentfulDocument[],
   context: Context
-): Promise<ProductFilter> => {
+): Promise<ProductFilter | undefined> => {
   const microCopyKey = microCopy.FILTER_LABELS_ASSET_TYPE;
   const marketCode = process.env.SPACE_MARKET_CODE;
   const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
   if (!marketCode || !localeCode) {
     // eslint-disable-next-line no-console
     console.warn(
-      `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+      `Please check environment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
     );
-    return {
-      filterCode: "",
-      label: "",
-      name: null,
-      options: []
-    };
+    return undefined;
   }
   const currSite = await context.nodeModel.findOne<ContentfulSite>(
     {
@@ -342,14 +318,9 @@ const generateAssetTypeFilterFromDocuments = async (
     console.warn(
       `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
     );
-    return {
-      filterCode: "",
-      label: "",
-      name: null,
-      options: []
-    };
+    return undefined;
   }
-  const resource = await context.nodeModel.getNodeById({
+  const resource = await context.nodeModel.getNodeById<Node>({
     id: currSite.resources___NODE as string,
     type: "ContentfulResources"
   });
@@ -358,17 +329,12 @@ const generateAssetTypeFilterFromDocuments = async (
     console.warn(
       `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
     );
-    return {
-      filterCode: "",
-      label: "",
-      name: null,
-      options: []
-    };
+    return undefined;
   }
 
   // MC access in consistently happens only via resource content type
   // that means a market is only aware of MCs which are associated with the resource
-  const microCopies = await context.nodeModel.getNodesByIds({
+  const microCopies = await context.nodeModel.getNodesByIds<Node>({
     ids: resource.microCopy___NODE,
     type: "ContentfulMicroCopy"
   });
@@ -377,12 +343,12 @@ const generateAssetTypeFilterFromDocuments = async (
     (microCopy) => microCopy.key === microCopyKey
   );
 
-  const allsAssetTypeIds: string[] = [
+  const allAssetTypeIds: string[] = [
     ...new Set(documents.map((document) => document["assetType___NODE"]))
   ];
 
   const documentReferencedAssetTypes = assetTypes.filter((assetType) =>
-    allsAssetTypeIds.includes(assetType.id)
+    allAssetTypeIds.includes(assetType.id)
   );
   // Find Unique assetTypes, they're the same as far as TS is concerned
   const allValues = documentReferencedAssetTypes
@@ -390,12 +356,7 @@ const generateAssetTypeFilterFromDocuments = async (
     .reduce(uniqueByCode, []);
 
   if (allValues.length === 0) {
-    return {
-      filterCode: "",
-      label: "",
-      name: null,
-      options: []
-    };
+    return undefined;
   }
 
   const filterLabel = (filterMicroCopies.find(
@@ -426,7 +387,10 @@ const sortAlphabeticallyBy = (propName) => (a, b) => {
   return 0;
 };
 
-const uniqueByCode = (uniqueObjects, object) => {
+const uniqueByCode = (
+  uniqueObjects: ContentfulAssetType[],
+  object: ContentfulAssetType
+) => {
   uniqueObjects.find((unique) => unique.code === object.code) ||
     uniqueObjects.push(object);
   return uniqueObjects;
