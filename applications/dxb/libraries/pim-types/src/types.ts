@@ -211,7 +211,7 @@ export type Feature = {
   code: FeatureCode;
   featureValues: readonly FeatureValue[];
   featureUnit?: FeatureUnit;
-  name: string;
+  name?: string;
 };
 
 export type FeatureCode =
@@ -238,6 +238,14 @@ export type FeatureCode =
   | "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceStartAngle"
   | "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceEndAngle"
   | "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpace"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.verticalOverlap"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOverlap"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOffset"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.snowFenceActive"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.largeTile"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.thicknessReduction"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.invert"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.invertY"
   | "bmiClassificationCatalog/1.0/underlayAttributes.overlap"
   | "bmiClassificationCatalog/1.0/underlayAttributes.minSupportedPitch"
   | "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight"
@@ -435,25 +443,6 @@ export type FeatureCode =
   | "bmiClassificationCatalog/1.0/squareMeterUomAttributes.width"
   | "bmiClassificationCatalog/1.0/systemAttributes.keyFeatures"
   | "bmiClassificationCatalog/1.0/bimAttributes.productPageURL"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.brokenBond"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.eaveGauge"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeStartAngle"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeEndAngle"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeStartAngle"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeEndAngle"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpace"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceStartAngle"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceEndAngle"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.verticalOverlap"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOverlap"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOffset"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.snowFenceActive"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.largeTile"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.thicknessReduction"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.invert"
-  | "bmiClassificationCatalog/1.0/tilesAttributes.invertY"
-  | "bmiClassificationCatalog/1.0/underlayAttributes.minSupportedPitch"
-  | "bmiClassificationCatalog/1.0/underlayAttributes.overlap"
   | "bmiClassificationCatalog/1.0/fabDisProductInformation.MANUFACTURER"
   | "bmiClassificationCatalog/1.0/fabDisProductInformation.IDENTIFIER30"
   | "bmiClassificationCatalog/1.0/fabDisProductInformation.IDENTIFIER240"

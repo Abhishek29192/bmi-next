@@ -11,7 +11,7 @@ export default {
         return null;
       }
 
-      const image = await context.nodeModel.getNodeById({
+      const image = await context.nodeModel.getNodeById<Node>({
         id: source.image___NODE,
         type: "ContentfulAsset"
       });
@@ -20,7 +20,7 @@ export default {
         return null;
       }
 
-      const focalPoint = await context.nodeModel.getNodeById({
+      const focalPoint = await context.nodeModel.getNodeById<Node>({
         id: source.focalPoint___NODE,
         type: "contentfulImageFocalPointJsonNode"
       });

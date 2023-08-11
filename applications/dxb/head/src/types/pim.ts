@@ -307,9 +307,9 @@ export type ProductFilterOption = {
 };
 
 export type ProductFilter = {
-  filterCode: string | undefined;
+  filterCode: string;
   label: string;
-  name: string | null;
+  name: string;
   options: ProductFilterOption[];
   value?: string[];
 };

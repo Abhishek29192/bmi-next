@@ -140,12 +140,12 @@ type Query = {
   https://www.gatsbyjs.com/docs/reference/graphql-data-layer/node-model
 */
 export interface NodeModel {
-  getNodeById: (
+  getNodeById: <T extends GatsbyNode>(
     args: { id: string; type?: string | GraphQLOutputType },
     pageDependencies?: PageDependencies
-  ) => Promise<Node | null>;
+  ) => Promise<T | null>;
 
-  findAll: <T>(
+  findAll: <T extends GatsbyNode>(
     args: {
       query: Query;
       type: string | GraphQLOutputType;
@@ -156,7 +156,7 @@ export interface NodeModel {
     totalCount: () => Promise<number>;
   }>;
 
-  findOne: <T>(
+  findOne: <T extends GatsbyNode>(
     args: {
       query: Query;
       type: string | GraphQLOutputType;
@@ -164,13 +164,13 @@ export interface NodeModel {
     pageDependencies?: PageDependencies
   ) => Promise<T>;
 
-  getNodesByIds: (
+  getNodesByIds: <T extends GatsbyNode>(
     args: {
       ids?: string[];
       type?: string | GraphQLOutputType;
     },
     pageDependencies?: PageDependencies
-  ) => Promise<Node[]>;
+  ) => Promise<T[]>;
 }
 
 export interface Context {

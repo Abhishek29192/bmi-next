@@ -48,7 +48,7 @@ export default {
         return null;
       }
 
-      const parameters = await context.nodeModel.getNodeById({
+      const parameters = await context.nodeModel.getNodeById<Node>({
         id: source.parameters___NODE
       });
 

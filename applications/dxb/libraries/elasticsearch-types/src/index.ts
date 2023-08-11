@@ -26,7 +26,8 @@ import type {
   PimSystemDocument,
   Product,
   ProductReference,
-  System
+  System,
+  SystemAttribute
 } from "./types";
 
 export {
@@ -55,5 +56,6 @@ export type {
   PimSystemDocument,
   Product,
   ProductReference,
-  System
+  System,
+  SystemAttribute
 };

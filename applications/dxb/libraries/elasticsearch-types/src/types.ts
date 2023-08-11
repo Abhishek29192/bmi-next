@@ -57,8 +57,8 @@ export type Image = {
   altText?: string;
 };
 
-type systemAttribute = {
-  name: string;
+export type SystemAttribute = {
+  name?: string;
   code: string;
   values: string[];
 };
@@ -73,7 +73,7 @@ export type System = {
   name: string;
   path: string;
   scoringWeight: number;
-  systemAttributes?: systemAttribute[];
+  systemAttributes?: SystemAttribute[];
   shortDescription?: string;
   type?: string;
   goodBetterBest?: GoodBetterBest;

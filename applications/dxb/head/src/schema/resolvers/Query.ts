@@ -6,7 +6,8 @@ import type {
   ContentfulSite,
   FourOFourResponse
 } from "./types/Contentful";
-import type { Context, Node, ResolveArgs } from "./types/Gatsby";
+import type { Context, MicroCopy, Node, ResolveArgs } from "./types/Gatsby";
+import type { Node as GatsbyNode } from "gatsby";
 
 export default {
   plpFilters: {
@@ -23,18 +24,20 @@ export default {
       const { categoryCodes, allowFilterBy } = args;
       const transformedAllowFilterBy = transformFilterKeys(allowFilterBy || []);
 
-      const { entries } = await context.nodeModel.findAll<Product>({
-        query: categoryCodes
-          ? {
-              filter: {
-                categories: {
-                  elemMatch: { code: { in: categoryCodes } }
+      const { entries } = await context.nodeModel.findAll<Product & GatsbyNode>(
+        {
+          query: categoryCodes
+            ? {
+                filter: {
+                  categories: {
+                    elemMatch: { code: { in: categoryCodes } }
+                  }
                 }
               }
-            }
-          : {},
-        type: "Product"
-      });
+            : {},
+          type: "Product"
+        }
+      );
 
       const resolvedProducts = [...entries];
 
@@ -159,7 +162,7 @@ export default {
         );
         return { filters: [], allowFilterBy: allowFilterBy };
       }
-      const resource = await context.nodeModel.getNodeById({
+      const resource = await context.nodeModel.getNodeById<Node>({
         id: currSite.resources___NODE as string,
         type: "ContentfulResources"
       });
@@ -173,7 +176,7 @@ export default {
 
       // MC access in consistently happens only via resource content type
       // that means a market is only aware of MCs which are associated with the resource
-      const microCopies = await context.nodeModel.getNodesByIds({
+      const microCopies = await context.nodeModel.getNodesByIds<MicroCopy>({
         ids: resource.microCopy___NODE,
         type: "ContentfulMicroCopy"
       });
@@ -213,16 +216,18 @@ export default {
     ): Promise<PLPFilterResponse> {
       const { categoryCodes } = args;
 
-      const { entries } = await context.nodeModel.findAll<Product>({
-        query: categoryCodes
-          ? {
-              filter: {
-                categories: { elemMatch: { code: { in: categoryCodes } } }
+      const { entries } = await context.nodeModel.findAll<Product & GatsbyNode>(
+        {
+          query: categoryCodes
+            ? {
+                filter: {
+                  categories: { elemMatch: { code: { in: categoryCodes } } }
+                }
               }
-            }
-          : {},
-        type: "Product"
-      });
+            : {},
+          type: "Product"
+        }
+      );
 
       const resolvedProducts = [...entries];
 
@@ -268,7 +273,7 @@ export default {
         );
         return { filters: [], allowFilterBy: allowFilterBy };
       }
-      const resource = await context.nodeModel.getNodeById({
+      const resource = await context.nodeModel.getNodeById<Node>({
         id: currSite.resources___NODE as string,
         type: "ContentfulResources"
       });
@@ -282,7 +287,7 @@ export default {
 
       // MC access in consistently happens only via resource content type
       // that means a market is only aware of MCs which are associated with the resource
-      const microCopies = await context.nodeModel.getNodesByIds({
+      const microCopies = await context.nodeModel.getNodesByIds<MicroCopy>({
         ids: resource.microCopy___NODE,
         type: "ContentfulMicroCopy"
       });

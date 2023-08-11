@@ -2,6 +2,7 @@ import type { Product, System } from "@bmi/firestore-types";
 import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
 import type { AssetType, SystemDocumentWithAssetType } from "../../types/pim";
 import type { Context, Node, ResolveArgs } from "./types/Gatsby";
+import type { Node as GatsbyNode } from "gatsby";
 
 const createResolver = (field: keyof Node) => ({
   type: ["Product"],
@@ -15,7 +16,7 @@ const createResolver = (field: keyof Node) => ({
 
     const variantCodes = sourceField.map((code) => code);
 
-    const { entries } = await context.nodeModel.findAll<Product>({
+    const { entries } = await context.nodeModel.findAll<Product & GatsbyNode>({
       query: {
         filter: {
           code: { in: variantCodes }
@@ -64,7 +65,9 @@ export default {
             }
           }
         : {};
-      const { entries } = await context.nodeModel.findAll<AssetType>(
+      const { entries } = await context.nodeModel.findAll<
+        AssetType & GatsbyNode
+      >(
         {
           query: { filter: marketFilters },
           type: "ContentfulAssetType"
@@ -105,7 +108,7 @@ export default {
       if (!source.systemReferences || !source.systemReferences.length) {
         return [];
       }
-      const { entries } = await context.nodeModel.findAll<System>({
+      const { entries } = await context.nodeModel.findAll<System & GatsbyNode>({
         query: {
           filter: {
             code: { in: source.systemReferences }
