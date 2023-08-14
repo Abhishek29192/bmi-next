@@ -106,7 +106,7 @@ export default {
           throw new Error("No Hubspot API key provided");
         }
 
-        const hubSpotForm = await context.nodeModel.getNodeById({
+        const hubSpotForm = await context.nodeModel.getNodeById<Node>({
           id: source.hubSpotFormGuid,
           type: "HubspotForm"
         });

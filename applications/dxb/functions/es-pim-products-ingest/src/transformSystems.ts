@@ -2,7 +2,8 @@ import logger from "@bmi-digital/functions-logger";
 import { generateHashFromString, generateUrl } from "@bmi/utils";
 import type {
   Image as EsImage,
-  System as EsSystem
+  System as EsSystem,
+  SystemAttribute as EsSystemAttribute
 } from "@bmi/elasticsearch-types";
 import type {
   Category as PimCategory,
@@ -97,20 +98,20 @@ const getScoringWeight = (classifications?: readonly PimClassification[]) =>
 
 const getSystemAttributes = (
   classifications?: readonly PimClassification[]
-) => {
+): EsSystemAttribute[] | undefined => {
   if (classifications === undefined || classifications.length === 0) {
     return undefined;
   }
 
-  const sytemAttributes = classifications.find(
+  const systemAttributes = classifications.find(
     (classification) => classification.code === "systemAttributes"
   );
 
-  if (sytemAttributes === undefined) {
+  if (systemAttributes === undefined) {
     return undefined;
   }
 
-  const { features } = sytemAttributes;
+  const { features } = systemAttributes;
 
   return features === undefined
     ? []
@@ -148,7 +149,7 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
     message: `System attributes: ${systemAttributes} and System Classifications:${classifications}`
   });
 
-  const transformedSystem = {
+  const transformedSystem: EsSystem = {
     approvalStatus,
     brand,
     code,

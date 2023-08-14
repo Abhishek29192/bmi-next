@@ -51,5 +51,5 @@ export type AssetType = {
   name: string;
   code: string;
   description: RichTextData;
-  pimCode: string;
+  pimCode: string | null;
 };

@@ -142,7 +142,7 @@ export type Classification = {
 };
 
 export type Feature = {
-  name: string;
+  name?: string;
   value: string;
 };
 

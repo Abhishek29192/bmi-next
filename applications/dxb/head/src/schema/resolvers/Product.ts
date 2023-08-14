@@ -7,6 +7,7 @@ import type { Data } from "../../components/Resources";
 import type { AssetType, ProductDocumentWithAssetType } from "../../types/pim";
 import type { Resource } from "./types/Contentful";
 import type { Context, Node, ResolveArgs } from "./types/Gatsby";
+import type { Node as GatsbyNode } from "gatsby";
 
 const getSlugAttributes = (source: Product) =>
   [source.colour, source.textureFamily].filter(isDefined);
@@ -91,7 +92,9 @@ export default {
             }
           }
         : {};
-      const { entries } = await context.nodeModel.findAll<AssetType>(
+      const { entries } = await context.nodeModel.findAll<
+        AssetType & GatsbyNode
+      >(
         {
           query: { filter: marketFilters },
           type: "ContentfulAssetType"
@@ -109,7 +112,9 @@ export default {
       const validPimCodes = marketAssetTypes.map(
         (assetType) => assetType.pimCode
       );
-      const { documentDisplayFormat } = await context.nodeModel.findOne<Data>(
+      const { documentDisplayFormat } = await context.nodeModel.findOne<
+        Data & GatsbyNode
+      >(
         {
           query: { filter: marketFilters },
           type: `ContentfulResources`
@@ -214,7 +219,9 @@ export default {
           }
         : {};
 
-      const { entries } = await context.nodeModel.findAll<AssetType>(
+      const { entries } = await context.nodeModel.findAll<
+        AssetType & GatsbyNode
+      >(
         {
           query: { filter: marketFilters },
           type: "ContentfulAssetType"
@@ -335,14 +342,16 @@ export default {
         return [];
       }
 
-      const { entries } = await context.nodeModel.findAll<Product>({
-        query: {
-          filter: {
-            categories: { elemMatch: { code: { eq: productFamilyCode } } }
-          }
-        },
-        type: "Product"
-      });
+      const { entries } = await context.nodeModel.findAll<Product & GatsbyNode>(
+        {
+          query: {
+            filter: {
+              categories: { elemMatch: { code: { eq: productFamilyCode } } }
+            }
+          },
+          type: "Product"
+        }
+      );
 
       return [...entries]
         .reduce<Product[]>((products, product) => {

@@ -34,7 +34,7 @@ const getPath = async (
     return [];
   }
 
-  const site = await context.nodeModel.getNodeById({
+  const site = await context.nodeModel.getNodeById<Node>({
     // TODO: Handle the case when a page belongs to multiple sites.
     id: page.site___NODE[0],
     type: "ContentfulSite"
@@ -44,7 +44,7 @@ const getPath = async (
     return [];
   }
 
-  const menuNavigation = await context.nodeModel.getNodeById({
+  const menuNavigation = await context.nodeModel.getNodeById<Node>({
     id: site.menuNavigation___NODE,
     type: "ContentfulNavigation"
   });
@@ -85,7 +85,7 @@ const getPath = async (
 
     const links = await Promise.all(
       items.map((linkId) =>
-        context.nodeModel.getNodeById({
+        context.nodeModel.getNodeById<Node>({
           // TODO: Handle the case when a page belongs to multiple sites.
           id: linkId
         })
@@ -109,7 +109,7 @@ const getPath = async (
 
       if (type === "ContentfulNavigation") {
         const { links___NODE: linkIds, link___NODE: linkId } = item;
-        const link = await context.nodeModel.getNodeById({
+        const link = await context.nodeModel.getNodeById<Node>({
           id: linkId,
           type: "ContentfulLink"
         });
@@ -144,7 +144,7 @@ export const resolvePath = async (
   const { id, title: label, slug, parentPage___NODE } = source;
 
   if (parentPage___NODE) {
-    const parentPage = await context?.nodeModel.getNodeById({
+    const parentPage = await context?.nodeModel.getNodeById<Node>({
       id: parentPage___NODE
     });
     const path = await resolvePath(parentPage, undefined, context);
