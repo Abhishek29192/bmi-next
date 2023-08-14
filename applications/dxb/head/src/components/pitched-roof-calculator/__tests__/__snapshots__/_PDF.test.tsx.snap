@@ -143,8 +143,8 @@ Document {
   },
   "fonts": {
     "Effra": {
-      "bold": "http://localhost/undefined",
-      "normal": "http://localhost/undefined",
+      "bold": "http://localhost/Effra_Rg.ttf",
+      "normal": "http://localhost/Effra_Rg.ttf",
     },
   },
   "tableLayouts": null,
@@ -1713,8 +1713,8 @@ Document {
   },
   "fonts": {
     "Effra": {
-      "bold": "http://localhost/undefined",
-      "normal": "http://localhost/undefined",
+      "bold": "http://localhost/Effra_Rg.ttf",
+      "normal": "http://localhost/Effra_Rg.ttf",
     },
   },
   "tableLayouts": null,
