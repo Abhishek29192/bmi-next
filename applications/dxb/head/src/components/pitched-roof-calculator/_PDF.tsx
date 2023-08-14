@@ -475,8 +475,12 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
 export const getPDF = (props: PdfDocumentProps) =>
   pdf(<PdfDocument {...props} />, undefined, {
     Effra: {
-      normal: window.location.origin + "/" + EffraNormal,
-      bold: window.location.origin + "/" + EffraBold
+      normal: EffraNormal.startsWith("https://")
+        ? EffraNormal
+        : window.location.origin + "/" + EffraNormal,
+      bold: EffraBold.startsWith("https://")
+        ? EffraBold
+        : window.location.origin + "/" + EffraBold
     }
   });
 
