@@ -122,7 +122,7 @@ const Page = ({
       ? variantProduct.seoTitle
       : title || "";
   return (
-    <>
+    <div style={{ overflowX: "hidden" }}>
       {globalStyles}
       <Head
         htmlAttributes={{ lang: node_locale }}
@@ -208,7 +208,7 @@ const Page = ({
           </MicroCopy.Provider>
         </BasketContextProvider>
       </SiteContextProvider>
-    </>
+    </div>
   );
 };
 
