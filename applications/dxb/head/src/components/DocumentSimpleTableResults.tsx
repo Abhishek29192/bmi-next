@@ -268,19 +268,26 @@ const DocumentSimpleTableResults = ({
       if (docsCount === nonLinkedDocuments.length) {
         return;
       }
-      nonLinkedDocuments.forEach((d) => {
-        const documentId = getUniqueId(d);
+      nonLinkedDocuments.forEach((document) => {
+        const isZipDocument =
+          document.__typename === "PIMDocumentWithPseudoZip";
+        const documentId = getUniqueId(document);
         // eslint-disable-next-line security/detect-object-injection
         if (!list[documentId]) {
-          updateList(documentId, d, getFileSizeByDocumentType(d));
+          const docs = isZipDocument ? document.documentList : document;
+          updateList(documentId, docs, getFileSizeByDocumentType(document));
         }
       });
     } else {
       if (count === 0 || docsCount !== nonLinkedDocuments.length) {
         return;
       }
-      documents.forEach((d) =>
-        updateList(getUniqueId(d), false, getFileSizeByDocumentType(d))
+      documents.forEach((document) =>
+        updateList(
+          getUniqueId(document),
+          undefined,
+          getFileSizeByDocumentType(document)
+        )
       );
     }
   };
