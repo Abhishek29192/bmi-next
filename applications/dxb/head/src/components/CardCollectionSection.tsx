@@ -33,7 +33,8 @@ import {
   StyledGroupChips,
   StyledShowMoreGrid,
   StyledTitle,
-  StyledButtonBaseTitle
+  StyledButtonBase,
+  CardDate
 } from "./styles/CardCollectionSectionStyles";
 import { TagData } from "./Tag";
 import Video from "./Video";
@@ -83,14 +84,16 @@ const CardCollectionItem = ({
   transformedCardLabel = transformHyphens(transformedCardLabel);
   const GTMButton = withGTM<ButtonProps>(Button);
   const GTMButtonBase = withGTM<ButtonBaseProps>(
-    withClickable(StyledButtonBaseTitle)
+    withClickable(StyledButtonBase)
   );
 
   const date = "date" in card && card.date ? card.date : undefined;
 
   const CardButton = (props) => (
     <Link
-      component={(props: ButtonBaseProps) => <GTMButtonBase {...props} />}
+      component={(props: ButtonBaseProps) => (
+        <GTMButtonBase {...props} classes={{ root: classes.cardButton }} />
+      )}
       data={link}
       gtm={{
         id: "cta-click1",
@@ -129,11 +132,11 @@ const CardCollectionItem = ({
       buttonComponent={link ? CardButton : "div"}
       footer={
         <>
-          {date ? <Typography variant="h6">{date}</Typography> : null}
+          {date ? <CardDate variant="h6">{date}</CardDate> : null}
           {link && transformedCardLabel ? (
             isFlat ? (
               <CardButton
-                className="footer-button"
+                className={classes.footerButton}
                 data-testid={"card-link"}
                 component={GTMButton}
                 variant="outlined"
@@ -143,7 +146,7 @@ const CardCollectionItem = ({
               </CardButton>
             ) : (
               <Button
-                className={classes["footer-button"]}
+                className={classes.footerButton}
                 data-testid={"card-link"}
                 component="span"
                 variant="outlined"
