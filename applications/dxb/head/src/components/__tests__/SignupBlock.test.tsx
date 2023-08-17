@@ -2,7 +2,7 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import SignupBlock, { Data } from "../SignupBlock";
 import { SourceType } from "../types/FormSectionTypes";
 
@@ -43,16 +43,16 @@ jest.mock("../FormSection", () => {
 
   const HubSpotFormMock = (props: {
     onSuccess: () => void;
-    onFormReady?: (_, form: HTMLElement) => void;
+    onFormReady?: (_: unknown, form: HTMLElement) => void;
   }) => {
     const ref = useRef<HTMLFormElement>(null);
 
     useEffect(() => {
       // inserts content into iframe document
-      ref.current.innerHTML = renderToString(<HSForm />);
-      props.onFormReady?.({}, ref.current);
+      ref.current!.innerHTML = renderToString(<HSForm />);
+      props.onFormReady?.({}, ref.current!);
       // tracks submit event of iframe form
-      ref.current.onsubmit = props.onSuccess;
+      ref.current!.onsubmit = props.onSuccess;
     }, []);
 
     const HSForm = () => (

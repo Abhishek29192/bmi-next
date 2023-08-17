@@ -6,8 +6,8 @@ import {
   Typography
 } from "@bmi-digital/components";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../../components/Site";
-import { microCopy } from "../../constants/microCopies";
 import { Product, SystemLayer } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../utils/path";

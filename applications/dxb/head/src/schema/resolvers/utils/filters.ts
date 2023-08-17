@@ -43,7 +43,7 @@ export const getPlpFilters = ({
       .map((uniqueFilter) =>
         allFilters.find(
           // TODO: Remove upper caseing as part of DXB-3449
-          ({ name }) => name.toUpperCase() === uniqueFilter.toUpperCase()
+          ({ name }) => name?.toUpperCase() === uniqueFilter.toUpperCase()
         )
       )
       .filter(isDefined);

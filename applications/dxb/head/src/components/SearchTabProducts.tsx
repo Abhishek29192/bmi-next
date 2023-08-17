@@ -19,7 +19,10 @@ import {
 } from "../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import ResultsPagination from "./ResultsPagination";
-import { ProductListWrapperGrid } from "./styles/SearchTabProductsStyles";
+import {
+  ProductListWrapperGrid,
+  ProductListGrid
+} from "./styles/SearchTabProductsStyles";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -219,7 +222,10 @@ const SearchTabPanelProducts = (props: Props) => {
   // PAGINATION
   // =======================================
 
-  const handlePageChange = (_, page) => {
+  const handlePageChange = (
+    _: React.ChangeEvent<HTMLElement>,
+    page: number
+  ) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;
@@ -243,9 +249,10 @@ const SearchTabPanelProducts = (props: Props) => {
           filters={filters}
           onFiltersChange={handleFiltersChange}
           onClearFilters={clearFilters}
+          numberOfResults={products.length}
         />
       </Grid>
-      <Grid xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
+      <ProductListGrid xs={12} md={12} lg={9}>
         <ProductListWrapperGrid container spacing={3}>
           <ProductsGridView
             isLoading={isLoading}
@@ -260,7 +267,7 @@ const SearchTabPanelProducts = (props: Props) => {
             count={pageCount}
           />
         </div>
-      </Grid>
+      </ProductListGrid>
     </Grid>
   );
 };

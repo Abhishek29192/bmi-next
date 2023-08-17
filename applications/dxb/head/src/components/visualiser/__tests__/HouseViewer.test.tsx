@@ -1,4 +1,4 @@
-import { render, waitFor } from "@testing-library/react";
+import { waitFor } from "@testing-library/react";
 import React from "react";
 import {
   AxesHelper,
@@ -13,6 +13,7 @@ import {
   Texture,
   Vector3
 } from "three";
+import { renderWithProviders } from "../../../__tests__/renderWithProviders";
 import HouseViewer, { Props as HouseViewerProps } from "../HouseViewer";
 import loadTexture from "../TextureCache";
 import cacheModel from "../ModelCache";
@@ -120,7 +121,7 @@ describe("Visualiser HouseViewer", () => {
     it("creates new scene if scene does not exist", () => {
       const houseViewer = new HouseViewer(defaultProps);
       houseViewer.container = document.createElement("div");
-      houseViewer.scene = null;
+      houseViewer.scene = undefined;
       houseViewer.load();
       expect(houseViewer.scene).toBeTruthy();
     });
@@ -130,7 +131,7 @@ describe("Visualiser HouseViewer", () => {
       process.env.NODE_ENV = "development";
 
       const houseViewer = new HouseViewer(defaultProps);
-      houseViewer.scene = null;
+      houseViewer.scene = undefined;
       houseViewer.container = document.createElement("div");
       houseViewer.load();
       expect(AxesHelper).toHaveBeenCalled();
@@ -140,7 +141,7 @@ describe("Visualiser HouseViewer", () => {
     it("creates new PerspectiveCamera if camera does not exist", () => {
       const houseViewer = new HouseViewer(defaultProps);
       houseViewer.container = document.createElement("div");
-      houseViewer.camera = null;
+      houseViewer.camera = undefined;
       houseViewer.load();
       expect(houseViewer.camera).toBeTruthy();
     });
@@ -148,7 +149,7 @@ describe("Visualiser HouseViewer", () => {
     it("creates new renderer if renderer does not exist", () => {
       const houseViewer = new HouseViewer(defaultProps);
       houseViewer.container = document.createElement("div");
-      houseViewer.renderer = null;
+      houseViewer.renderer = undefined;
       houseViewer.load();
       expect(houseViewer.renderer).toBeTruthy();
     });
@@ -156,7 +157,7 @@ describe("Visualiser HouseViewer", () => {
     it("create new OrbitControls if controls does not exist", () => {
       const houseViewer = new HouseViewer(defaultProps);
       houseViewer.container = document.createElement("div");
-      houseViewer.controls = null;
+      houseViewer.controls = undefined;
       houseViewer.load();
       expect(houseViewer.controls).toBeTruthy();
     });
@@ -174,7 +175,7 @@ describe("Visualiser HouseViewer", () => {
       const setLoadingSpy = jest.spyOn(HouseViewer.prototype, "setIsLoading");
       (cacheModel as jest.Mock).mockRejectedValue("Error");
 
-      render(<HouseViewer {...defaultProps} />);
+      renderWithProviders(<HouseViewer {...defaultProps} />);
       await waitFor(() => expect(setLoadingSpy).toHaveBeenCalledWith(false));
       setLoadingSpy.mockReset();
     });
@@ -245,7 +246,7 @@ describe("Visualiser HouseViewer", () => {
     it("updates walls material", async () => {
       const houseViewer = new HouseViewer(defaultProps);
       houseViewer.walls = new Mesh();
-      houseViewer.walls.material = undefined;
+      houseViewer.walls.material = [];
       await houseViewer.loadSiding({
         ...sidingMock,
         diffuseMapRef: "https://diffues_map_url",
@@ -403,7 +404,7 @@ describe("Visualiser HouseViewer", () => {
       );
 
       // eslint-disable-next-line testing-library/no-node-access
-      expect(houseViewer.roof.children.length).toBe(0);
+      expect(houseViewer.roof!.children.length).toBe(0);
     });
 
     it("removes roof from the scene if roof already exists", () => {
@@ -437,7 +438,7 @@ describe("Visualiser HouseViewer", () => {
       );
 
       // eslint-disable-next-line testing-library/no-node-access
-      expect(houseViewer.roof.children.length).toBe(1);
+      expect(houseViewer.roof!.children.length).toBe(1);
     });
 
     it("should not add ridge tile to the roof if ridgeMesh doesn't have boundingBox property", () => {
@@ -474,7 +475,7 @@ describe("Visualiser HouseViewer", () => {
       );
 
       // eslint-disable-next-line testing-library/no-node-access
-      expect(houseViewer.roof.children.length).toBe(2);
+      expect(houseViewer.roof!.children.length).toBe(2);
     });
 
     it("adds ridgeEnd", () => {
@@ -491,7 +492,7 @@ describe("Visualiser HouseViewer", () => {
       );
 
       // eslint-disable-next-line testing-library/no-node-access
-      const ridgeEnd = houseViewer.roof.children[0].children.find(
+      const ridgeEnd = houseViewer.roof!.children[0].children.find(
         (i) => ((i as InstancedMesh).geometry.uuid = ridgeEndMesh.geometry.uuid)
       );
       expect(ridgeEnd).toBeTruthy();
@@ -512,7 +513,7 @@ describe("Visualiser HouseViewer", () => {
       );
 
       // eslint-disable-next-line testing-library/no-node-access
-      const ridgeEnd = houseViewer.roof.children[0].children.find(
+      const ridgeEnd = houseViewer.roof!.children[0].children.find(
         (i) => ((i as InstancedMesh).geometry.uuid = ridgeEndMesh.geometry.uuid)
       );
       expect(ridgeEnd).toBeTruthy();
@@ -533,7 +534,7 @@ describe("Visualiser HouseViewer", () => {
       );
 
       // eslint-disable-next-line testing-library/no-node-access
-      expect(houseViewer.roof.children.length).toBe(1);
+      expect(houseViewer.roof!.children.length).toBe(1);
     });
   });
 });

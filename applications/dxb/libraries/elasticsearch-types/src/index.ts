@@ -16,16 +16,18 @@ import createProduct from "./ProductHelper";
 import createSystem from "./SystemHelper";
 import type {
   Category,
+  ClassificationField,
   ContentfulAssetType,
   ContentfulDocument,
   ContentfulImage,
   Image,
+  PimDocumentBase,
   PimProductDocument,
   PimSystemDocument,
   Product,
   ProductReference,
   System,
-  PimDocumentBase
+  SystemAttribute
 } from "./types";
 
 export {
@@ -44,6 +46,7 @@ export {
 };
 export type {
   Category,
+  ClassificationField,
   ContentfulAssetType,
   ContentfulDocument,
   ContentfulImage,
@@ -53,5 +56,6 @@ export type {
   PimSystemDocument,
   Product,
   ProductReference,
-  System
+  System,
+  SystemAttribute
 };

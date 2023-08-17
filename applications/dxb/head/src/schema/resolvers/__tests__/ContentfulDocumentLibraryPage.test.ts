@@ -1,6 +1,8 @@
 import ContentfulDocumentLibraryPage from "../ContentfulDocumentLibraryPage";
 import { ContentfulDocumentLibraryPage as ContentfulDocumentLibraryPageType } from "../types/Contentful";
-import { Context } from "../types/Gatsby";
+import { Context, ResolveArgs } from "../types/Gatsby";
+
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
 
 const mockFindAll = jest.fn();
 const mockGetNodeById = jest.fn();
@@ -58,17 +60,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Simple",
       source: "PIM",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
+      internal: { type: "", contentDigest: "", owner: "" },
       assetTypes___NODE: ["asset-type-1"],
-      allowFilterBy: null
+      allowFilterBy: []
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -121,17 +123,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Simple",
       source: "PIM",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -185,17 +187,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Technical",
       source: "PIM",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
-      allowFilterBy: null
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
+      allowFilterBy: []
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -242,17 +244,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Technical",
       source: "PIM",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -300,17 +302,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Card Collection",
       source: "PIM",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
-      allowFilterBy: null
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
+      allowFilterBy: []
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -357,17 +359,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Card Collection",
       source: "PIM",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -414,17 +416,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Simple",
       source: "CMS",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
+      internal: { type: "", contentDigest: "", owner: "" },
       assetTypes___NODE: ["asset-type-1"],
-      allowFilterBy: null
+      allowFilterBy: []
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -471,17 +473,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Simple",
       source: "CMS",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -528,17 +530,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Technical",
       source: "CMS",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
-      allowFilterBy: null
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
+      allowFilterBy: []
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -586,17 +588,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Technical",
       source: "CMS",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -643,17 +645,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Card Collection",
       source: "CMS",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
-      allowFilterBy: null
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
+      allowFilterBy: []
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -700,17 +702,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Card Collection",
       source: "CMS",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -764,17 +766,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Simple",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
+      internal: { type: "", contentDigest: "", owner: "" },
       assetTypes___NODE: ["asset-type-1"],
-      allowFilterBy: null
+      allowFilterBy: []
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -846,17 +848,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Simple",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -944,17 +946,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Simple",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -1031,17 +1033,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Technical",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
-      allowFilterBy: null
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
+      allowFilterBy: []
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -1108,17 +1110,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Technical",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -1200,17 +1202,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Technical",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -1281,17 +1283,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Card Collection",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
-      allowFilterBy: null
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
+      allowFilterBy: []
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -1358,17 +1360,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Card Collection",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -1450,17 +1452,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Card Collection",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 
@@ -1549,17 +1551,17 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       id: "source",
       resultsType: "Card Collection",
       source: "ALL",
-      children: null,
+      children: [],
       parent: null,
-      internal: null,
-      assetTypes___NODE: null,
+      internal: { type: "", contentDigest: "", owner: "" },
+      assetTypes___NODE: [],
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
     const documentsFilters =
       await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
-        null,
+        args,
         context
       );
 

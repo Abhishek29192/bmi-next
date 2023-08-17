@@ -67,11 +67,14 @@ exports[`PdpCardsSection should render CTACard with video 1`] = `
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=testId-mockLabel","action":"Play"}"
                     data-testid="youtube-dialog-wrapper"
                   >
-                    <button
+                    <div
                       aria-label="mockLabel"
-                      class="YoutubeVideo-thumbnail"
+                      class="YoutubeVideo-thumbnail css-14jkchm"
+                      classes="[object Object]"
+                      component="button"
                       data-testid="thumbnail"
                       type="button"
+                      variant="contained"
                     >
                       <img
                         alt="mockLabel"
@@ -107,7 +110,7 @@ exports[`PdpCardsSection should render CTACard with video 1`] = `
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
                       </div>
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>

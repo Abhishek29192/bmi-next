@@ -18,7 +18,7 @@ export type Data = {
   subtitle: string | null;
   brandLogo: Logo | null;
   slug: string;
-  path: string;
+  path: string | null;
   date: string | null;
   rawDate: string | null;
   tags: TagData[] | null;

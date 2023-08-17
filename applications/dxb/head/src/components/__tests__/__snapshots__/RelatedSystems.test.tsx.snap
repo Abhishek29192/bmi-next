@@ -12,11 +12,9 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -30,7 +28,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -60,16 +58,21 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -89,7 +92,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -119,16 +122,21 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -163,11 +171,9 @@ exports[`RelatedSystems component renders correctly with no systems 1`] = `
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -195,11 +201,9 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -213,7 +217,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -243,16 +247,21 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -272,7 +281,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -302,16 +311,21 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -346,11 +360,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -364,7 +376,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -394,16 +406,21 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -423,7 +440,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-2 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -453,16 +470,21 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -497,11 +519,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -515,7 +535,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -545,16 +565,21 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -574,7 +599,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -604,16 +629,21 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -648,11 +678,9 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -666,7 +694,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -696,16 +724,21 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -740,11 +773,9 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -758,7 +789,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -788,16 +819,21 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -832,11 +868,9 @@ exports[`RelatedSystems component renders systems correctly without classificati
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
-        <div
-          class="RelatedSystems"
-        >
+        <div>
           <h2
-            class="MuiTypography-root MuiTypography-h2 title Typography-underline css-1gn4sxn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1lgfm2o-MuiTypography-root"
             data-testid="typography"
           >
             MC: sdp.recommendedSystemsTitle
@@ -850,7 +884,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                 href="/en/s/path/"
                 tabindex="0"
@@ -880,16 +914,21 @@ exports[`RelatedSystems component renders systems correctly without classificati
                       class="OverviewCard-text css-kl66ak"
                       data-testid="overview-card-body-description"
                     >
-                      system-desc
+                      <div>
+                        system-desc
+                      </div>
                     </div>
                   </div>
+                  <div
+                    class="css-iicyj8"
+                  />
                 </div>
                 <div
                   class="OverviewCard-clickable css-1cyx9t4"
                   data-testid="overview-card-body-footer"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -919,7 +958,7 @@ exports[`SystemCard renders correctly with related system 1`] = `
     data-testid="system-card-related-system-1"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
       data-gtm="{"id":"gtm-id"}"
       href="/en/related-system-path/"
       tabindex="0"
@@ -949,80 +988,21 @@ exports[`SystemCard renders correctly with related system 1`] = `
             class="OverviewCard-text css-kl66ak"
             data-testid="overview-card-body-description"
           >
-            related-short-desc
+            <div>
+              related-short-desc
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="OverviewCard-clickable css-1cyx9t4"
-        data-testid="overview-card-body-footer"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
-        >
-          MC: sdp.system.readMore
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </a>
-  </div>
-</div>
-`;
-
-exports[`SystemCard renders correctly with system from elasticsearch 1`] = `
-<div>
-  <div
-    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
-    data-testid="system-card-code"
-  >
-    <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
-      data-gtm="{"id":"gtm-id"}"
-      href="/en/s/code-name-hashed-code/"
-      tabindex="0"
-    >
-      <div
-        class="OverviewCard-main"
-        data-testid="overview-card-main"
-      >
-        <img
-          alt="name"
-          class="OverviewCard-headerPicture css-10hd0hb-Media"
-          src="http://localhost:8000/mainSource"
-        />
         <div
-          class="OverviewCard-body"
-        >
-          <div
-            class="OverviewCard-brandLogo OverviewCard-negative"
-          />
-          <h5
-            class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-            data-testid="overview-card-body-title"
-          >
-            name
-          </h5>
-          <div
-            class="OverviewCard-text css-kl66ak"
-            data-testid="overview-card-body-description"
-          >
-            Short description
-          </div>
-        </div>
+          class="css-iicyj8"
+        />
       </div>
       <div
         class="OverviewCard-clickable css-1cyx9t4"
         data-testid="overview-card-body-footer"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium footer-read-more-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >

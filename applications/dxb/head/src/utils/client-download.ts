@@ -5,12 +5,15 @@ export type Asset = {
   name: string;
 };
 
-export const getDownloadLink = (url: string): string => {
+export const getDownloadLink = (url?: string): string | undefined => {
+  if (!url) {
+    return;
+  }
   const urlWithProtocol: string = url.startsWith("http")
     ? url
     : `https://${url}`;
 
-  return new URL(urlWithProtocol)?.href;
+  return new URL(urlWithProtocol).href;
 };
 
 export const downloadAs = saveAs;

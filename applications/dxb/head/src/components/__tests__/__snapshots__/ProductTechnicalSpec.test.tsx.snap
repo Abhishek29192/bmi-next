@@ -4,68 +4,64 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
 <body>
   <div>
     <div
-      class="ProductTechnicalSpec"
+      class="css-1oyez8m"
     >
-      <div
-        class="css-ya57aw"
+      <table
+        class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
-        <table
-          class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
-          data-testid="table"
+        <thead
+          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          data-testid="table-head"
         >
-          <thead
-            class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
-            data-testid="table-head"
+          <tr
+            class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
           >
-            <tr
-              class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+              scope="col"
             >
-              <th
-                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                scope="col"
-              >
-                appearanceAttributes
-              </th>
-              <th
-                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                scope="col"
-              />
-            </tr>
-          </thead>
-          <tbody
-            class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+              appearanceAttributes
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+              scope="col"
+            />
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
-            <tr
-              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
-              >
-                measurement
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
-              >
-                200mm
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+              measurement
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
-              >
-                measurement
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
-              >
-                100mm
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              200mm
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+            >
+              measurement
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
+            >
+              100mm
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>
@@ -75,68 +71,64 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
 <body>
   <div>
     <div
-      class="ProductTechnicalSpec"
+      class="css-1oyez8m"
     >
-      <div
-        class="css-ya57aw"
+      <table
+        class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
-        <table
-          class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
-          data-testid="table"
+        <thead
+          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          data-testid="table-head"
         >
-          <thead
-            class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
-            data-testid="table-head"
+          <tr
+            class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
           >
-            <tr
-              class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+              scope="col"
             >
-              <th
-                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                scope="col"
-              >
-                appearanceAttributes
-              </th>
-              <th
-                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                scope="col"
-              />
-            </tr>
-          </thead>
-          <tbody
-            class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+              appearanceAttributes
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+              scope="col"
+            />
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
-            <tr
-              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
-              >
-                feature1
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
-              >
-                200mm
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+              feature1
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
-              >
-                feature1
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
-              >
-                100mm
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              200mm
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+            >
+              feature1
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
+            >
+              100mm
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>
@@ -146,54 +138,50 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
 <body>
   <div>
     <div
-      class="ProductTechnicalSpec"
+      class="css-1oyez8m"
     >
-      <div
-        class="css-ya57aw"
+      <table
+        class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
-        <table
-          class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
-          data-testid="table"
+        <thead
+          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          data-testid="table-head"
         >
-          <thead
-            class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
-            data-testid="table-head"
+          <tr
+            class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
           >
-            <tr
-              class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+              scope="col"
             >
-              <th
-                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                scope="col"
-              >
-                appearanceAttributes
-              </th>
-              <th
-                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                scope="col"
-              />
-            </tr>
-          </thead>
-          <tbody
-            class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+              appearanceAttributes
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+              scope="col"
+            />
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
-            <tr
-              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
-              >
-                feature1
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
-              >
-                200mm
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              feature1
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
+            >
+              200mm
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>
@@ -203,54 +191,50 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
 <body>
   <div>
     <div
-      class="ProductTechnicalSpec"
+      class="css-1oyez8m"
     >
-      <div
-        class="css-ya57aw"
+      <table
+        class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
-        <table
-          class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
-          data-testid="table"
+        <thead
+          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          data-testid="table-head"
         >
-          <thead
-            class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
-            data-testid="table-head"
+          <tr
+            class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
           >
-            <tr
-              class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+              scope="col"
             >
-              <th
-                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                scope="col"
-              >
-                appearanceAttributes
-              </th>
-              <th
-                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
-                scope="col"
-              />
-            </tr>
-          </thead>
-          <tbody
-            class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+              appearanceAttributes
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
+              scope="col"
+            />
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
-            <tr
-              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
-              >
-                feature1
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
-              >
-                200
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              feature1
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
+            >
+              200
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>
@@ -259,9 +243,7 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
 exports[`ProductTechnicalSpec component Renders correctly when no classifications provided 1`] = `
 <body>
   <div>
-    <div
-      class="ProductTechnicalSpec"
-    >
+    <div>
       MC: pdp.noTechSpecMessage
     </div>
   </div>
@@ -271,9 +253,7 @@ exports[`ProductTechnicalSpec component Renders correctly when no classification
 exports[`ProductTechnicalSpec component Renders correctly with microcopy text when no classifications and microcopy text is provided 1`] = `
 <body>
   <div>
-    <div
-      class="ProductTechnicalSpec"
-    >
+    <div>
       No technical specifications found for this product.
     </div>
   </div>

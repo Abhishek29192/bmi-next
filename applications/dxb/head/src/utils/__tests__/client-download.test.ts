@@ -25,8 +25,8 @@ describe("client download functions", () => {
         "https://localhost:8000/someFile.pdf"
       );
     });
-    it("should fire an Error if url is wrong format", () => {
-      expect(() => getDownloadLink("")).toThrow();
+    it("should return undefined if the url is undefined", () => {
+      expect(getDownloadLink(undefined)).toBeUndefined();
     });
   });
 

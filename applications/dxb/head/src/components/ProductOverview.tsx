@@ -8,20 +8,24 @@ import {
   ThumbnailProps
 } from "@bmi-digital/components";
 import React, { useContext } from "react";
-import { microCopy } from "../constants/microCopies";
+import { GoodBetterBest } from "@bmi/pim-types";
+import { microCopy } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import DefaultImage from "../images/DefaultImage.svg";
 import withGTM from "../utils/google-tag-manager";
 import BrandLogo from "./BrandLogo";
-import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
-import styles from "./styles/ProductOverview.module.scss";
 import tilesSetData from "./visualiser/data/tiles.json";
+import {
+  StyledProductOverview,
+  StyledRecaptchaPrivacyLinks
+} from "./styles/ProductOverview.styles";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 export type Data = {
   name: string;
-  brandCode: string;
+  brandCode?: string;
   nobb: string | null;
   images: readonly MediaData[];
   attributes: ProductOverviewPaneProps["attributes"] | null;
@@ -29,6 +33,7 @@ export type Data = {
   isRecaptchaShown?: boolean;
   videos?: MediaData[];
   isNavigationToVisualiserAvailable: boolean;
+  goodBetterBest?: GoodBetterBest;
 };
 
 type Props = {
@@ -56,7 +61,8 @@ const ProductOverview = ({
     isRecaptchaShown,
     videos = [],
     variantCode,
-    isNavigationToVisualiserAvailable
+    isNavigationToVisualiserAvailable,
+    goodBetterBest
   },
   children
 }: Props) => {
@@ -118,7 +124,7 @@ const ProductOverview = ({
   }
 
   return (
-    <div className={styles["ProductOverview"]} data-testid={"product-overview"}>
+    <StyledProductOverview data-testid={"product-overview"}>
       <Grid container spacing={3}>
         <Grid xs={12} md={12} lg={8}>
           <MediaGallery
@@ -130,6 +136,7 @@ const ProductOverview = ({
             videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
             visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
             visualiserText={getMicroCopy(microCopy.MEDIA_VISUALIZER_TEXT)}
+            tag={<GoodBetterBestIndicator indicatorType={goodBetterBest} />}
           />
         </Grid>
         <Grid xs={12} md={12} lg={4}>
@@ -141,18 +148,14 @@ const ProductOverview = ({
               <GTMThumbnail gtm={{ id: "thumbnail1" }} {...props} />
             )}
             nobbLabel={getMicroCopy(microCopy.PDP_NOBB_LABEL)}
-            attributes={attributes}
+            attributes={attributes || []}
           >
             {children}
           </ProductOverviewPane>
-          {isRecaptchaShown && (
-            <RecaptchaPrivacyLinks
-              className={styles["keyAssetTypesDownload"]}
-            />
-          )}
+          {isRecaptchaShown && <StyledRecaptchaPrivacyLinks />}
         </Grid>
       </Grid>
-    </div>
+    </StyledProductOverview>
   );
 };
 

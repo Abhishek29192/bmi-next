@@ -1,19 +1,167 @@
 import { MediaGallery, ThemeProvider } from "@bmi-digital/components";
 import { render, screen } from "@testing-library/react";
-import { Link } from "gatsby";
+
 import React from "react";
 import createMeasurements from "../../__tests__/helpers/MeasurementsHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
 import {
+  getAllValues,
   getProductAttributes,
   mapClassificationValues,
   transformImages
 } from "../product-details-transforms";
+import { Product, RelatedVariant } from "../../types/pim";
+
+describe("getAllValues tests", () => {
+  const createSampleProduct = (
+    product1?: Partial<RelatedVariant>,
+    product2?: Partial<RelatedVariant>
+  ): Product => {
+    return createProduct({
+      relatedVariants: [
+        createRelatedVariant(product1),
+        createRelatedVariant(product2)
+      ]
+    });
+  };
+
+  it("should return an empty array if the property is missing", () => {
+    const product = createSampleProduct({ colour: "Blue" });
+    const result = getAllValues(
+      product,
+      "missingProperty" as keyof RelatedVariant
+    );
+    expect(result).toEqual([]);
+  });
+
+  it("should return an array with unique values of the given property", () => {
+    const product = createSampleProduct({ colour: "Blue" });
+    const result = getAllValues(product, "colour");
+    expect(result).toEqual(["Blue", "colour"]);
+  });
+
+  it("should return an empty array if propName is undefined", () => {
+    const product = createSampleProduct({ colour: "Blue" }, { colour: "Red" });
+    const result = getAllValues(product, undefined);
+    expect(result).toEqual([]);
+  });
+
+  it("should return an array of values from the provided product property", () => {
+    const product = createSampleProduct({ colour: "Red" });
+    const result = getAllValues(product, "colour");
+
+    expect(result).toEqual(expect.arrayContaining(["Red", "colour"]));
+  });
+
+  it("should handle cases where product.relatedVariants is undefined", () => {
+    const product = createSampleProduct({ colour: "Red" });
+    const productWithoutRelatedVariants: Product = {
+      ...product,
+      relatedVariants: undefined
+    };
+    const result = getAllValues(productWithoutRelatedVariants, "measurements");
+    const measurement = createMeasurements();
+
+    expect(result).toEqual([measurement]);
+  });
+
+  it("should handle cases where product.relatedVariants is an empty array", () => {
+    const product = createSampleProduct({ colour: "Red" });
+    const productWithEmptyRelatedVariants: Product = {
+      ...product,
+      relatedVariants: []
+    };
+    const result = getAllValues(
+      productWithEmptyRelatedVariants,
+      "measurements"
+    );
+    const measurement = createMeasurements();
+
+    expect(result).toEqual(expect.arrayContaining([measurement]));
+  });
+
+  it("should return an array containing only unique values from the provided product property", () => {
+    const product = createSampleProduct({ colour: "Red" });
+    const result = getAllValues(product, "colour");
+
+    expect(new Set(result).size).toBe(result.length);
+  });
+
+  it("should filter out values from measurements if the label length is 0", () => {
+    const measurement = createMeasurements({
+      label: "measurement1",
+      length: { value: "10", unit: "mm" }
+    });
+
+    const variantOne = createRelatedVariant({
+      measurements: createMeasurements({
+        label: "measurement1",
+        height: {
+          value: "10",
+          unit: "mm"
+        }
+      })
+    });
+
+    const variantTwo = createRelatedVariant({
+      measurements: createMeasurements({
+        label: "",
+        height: {
+          value: "20",
+          unit: "mm"
+        }
+      })
+    });
+    const product = createProduct({
+      measurements: measurement,
+      relatedVariants: [{ ...variantOne }, { ...variantTwo }]
+    });
+    const result = getAllValues(product, "measurements");
+
+    expect(result).toEqual(expect.arrayContaining([product.measurements]));
+  });
+
+  it('should sort the result in ascending order when propName is "measurements"', () => {
+    const variantOne = createRelatedVariant({
+      measurements: createMeasurements({
+        label: "measurement2",
+        length: {
+          value: "20",
+          unit: "mm"
+        }
+      })
+    });
+    const variantTwo = createRelatedVariant({
+      measurements: createMeasurements({
+        label: "measurement3",
+        length: {
+          value: "5",
+          unit: "mm"
+        }
+      })
+    });
+    const product = createProduct({
+      measurements: createMeasurements({
+        label: "measurement1",
+        length: { value: "10", unit: "mm" }
+      }),
+      relatedVariants: [{ ...variantOne }, { ...variantTwo }]
+    });
+
+    const result = getAllValues(product, "measurements");
+
+    result.forEach((result: any) => {
+      const currentLength = +result?.height?.value || 0;
+      const nextLength = +result?.height?.value || 0;
+      expect(currentLength).toBeLessThanOrEqual(nextLength);
+    });
+  });
+});
 
 describe("product-details-transforms tests", () => {
   describe("getProductAttributes tests", () => {
-    const getProductAttributesWithCommonParams = (product) =>
+    const getProductAttributesWithCommonParams = (product: Product) =>
       getProductAttributes(product, "no", {
         size: "Size",
         variantAttribute: "variantattribute"
@@ -37,48 +185,63 @@ describe("product-details-transforms tests", () => {
         ]
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: [
-            {
-              label: "colour-1",
-              isSelected: true,
-              thumbnail: "http://localhost:8000/image-thumbnail.jpg",
-              media: null
-            },
-            {
-              action: {
-                linkComponent: Link,
-                model: "routerLink",
-                to: "/no/p/name-hashed-related-code/"
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "colour-1",
+                "media": null,
+                "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
               },
-              isSelected: false,
-              label: "colour-2",
-              media: null,
-              thumbnail: "http://localhost:8000/image-thumbnail.jpg"
-            }
-          ]
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: [{ label: "texture-family", isSelected: true }]
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: [{ label: "6x7x8symbol", isSelected: true }]
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: [{ label: "variant-attribute", isSelected: true }]
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
+              {
+                "action": {
+                  "linkComponent": [MockFunction],
+                  "model": "routerLink",
+                  "to": "/no/p/name-hashed-related-code/",
+                },
+                "isSelected": false,
+                "label": "colour-2",
+                "media": null,
+                "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
+              },
+            ],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "texture-family",
+              },
+            ],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "6x7x8symbol",
+              },
+            ],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "variant-attribute",
+              },
+            ],
+          },
+        ]
+      `);
     });
 
     it("returns correct data if textureFamily is a primary attribute", () => {
@@ -100,41 +263,54 @@ describe("product-details-transforms tests", () => {
         ]
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: []
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: [
-            { label: "texture-family-1", isSelected: true },
-            {
-              label: "texture-family-2",
-              isSelected: false,
-              action: {
-                linkComponent: Link,
-                model: "routerLink",
-                to: "/no/p/name-hashed-related-code/"
-              }
-            }
-          ]
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: [{ label: "6x7x8symbol", isSelected: true }]
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: [{ label: "variant-attribute", isSelected: true }]
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "texture-family-1",
+              },
+              {
+                "action": {
+                  "linkComponent": [MockFunction],
+                  "model": "routerLink",
+                  "to": "/no/p/name-hashed-related-code/",
+                },
+                "isSelected": false,
+                "label": "texture-family-2",
+              },
+            ],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "6x7x8symbol",
+              },
+            ],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "variant-attribute",
+              },
+            ],
+          },
+        ]
+      `);
     });
 
     it("returns correct data if measurements is a primary attribute", () => {
@@ -162,41 +338,49 @@ describe("product-details-transforms tests", () => {
         ]
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: []
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: []
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: [
-            { label: "10x10x10mm", isSelected: true },
-            {
-              label: "70x40x10mm",
-              isSelected: false,
-              action: {
-                linkComponent: Link,
-                model: "routerLink",
-                to: "/no/p/name-hashed-related-code/"
-              }
-            }
-          ]
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: [{ label: "variant-attribute", isSelected: true }]
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "10x10x10mm",
+              },
+              {
+                "action": {
+                  "linkComponent": [MockFunction],
+                  "model": "routerLink",
+                  "to": "/no/p/name-hashed-related-code/",
+                },
+                "isSelected": false,
+                "label": "70x40x10mm",
+              },
+            ],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "variant-attribute",
+              },
+            ],
+          },
+        ]
+      `);
     });
 
     it("returns correct data if variantAttribute is a primary attribute", () => {
@@ -212,41 +396,44 @@ describe("product-details-transforms tests", () => {
         ]
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: []
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: []
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: []
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: [
-            {
-              label: "20x30x40",
-              isSelected: false,
-              action: {
-                linkComponent: Link,
-                model: "routerLink",
-                to: "/no/p/name-hashed-related-code/"
-              }
-            },
-            { label: "30x40x50", isSelected: true }
-          ]
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [
+              {
+                "action": {
+                  "linkComponent": [MockFunction],
+                  "model": "routerLink",
+                  "to": "/no/p/name-hashed-related-code/",
+                },
+                "isSelected": false,
+                "label": "20x30x40",
+              },
+              {
+                "isSelected": true,
+                "label": "30x40x50",
+              },
+            ],
+          },
+        ]
+      `);
     });
 
     it("returns the same measurements label only ones", () => {
@@ -272,30 +459,35 @@ describe("product-details-transforms tests", () => {
         ]
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: []
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: []
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: [{ label: "10x10x10mm", isSelected: true }]
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: []
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "10x10x10mm",
+              },
+            ],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [],
+          },
+        ]
+      `);
     });
 
     it("returns correct data if there is no label in measurements", () => {
@@ -318,37 +510,52 @@ describe("product-details-transforms tests", () => {
         ]
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: [
-            {
-              isSelected: true,
-              label: "colour",
-              media: null,
-              thumbnail: "http://localhost:8000/image-thumbnail.jpg"
-            }
-          ]
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: [{ isSelected: true, label: "texture-family" }]
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: [{ isSelected: true, label: "10x10x10" }]
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: [{ isSelected: true, label: "variant-attribute" }]
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "colour",
+                "media": null,
+                "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
+              },
+            ],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "texture-family",
+              },
+            ],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "10x10x10",
+              },
+            ],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "variant-attribute",
+              },
+            ],
+          },
+        ]
+      `);
     });
 
     it("returns the chip only ones if there are two related variants with the same data", () => {
@@ -364,48 +571,64 @@ describe("product-details-transforms tests", () => {
         ]
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: [
-            {
-              isSelected: true,
-              label: "colour",
-              media: null,
-              thumbnail: "http://localhost:8000/image-thumbnail.jpg"
-            },
-            {
-              isSelected: false,
-              label: "colour-1",
-              media: null,
-              thumbnail: "http://localhost:8000/image-thumbnail.jpg",
-              action: {
-                linkComponent: Link,
-                model: "routerLink",
-                to: "/no/p/name-hashed-related-code/"
-              }
-            }
-          ]
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: [{ isSelected: true, label: "texture-family" }]
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: [{ isSelected: true, label: "6x7x8symbol" }]
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: [{ isSelected: true, label: "variant-attribute" }]
-        }
-      ];
 
-      expect(result).toEqual(expectedResult);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "colour",
+                "media": null,
+                "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
+              },
+              {
+                "action": {
+                  "linkComponent": [MockFunction],
+                  "model": "routerLink",
+                  "to": "/no/p/name-hashed-related-code/",
+                },
+                "isSelected": false,
+                "label": "colour-1",
+                "media": null,
+                "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
+              },
+            ],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "texture-family",
+              },
+            ],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "6x7x8symbol",
+              },
+            ],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "variant-attribute",
+              },
+            ],
+          },
+        ]
+      `);
     });
 
     it("returns correct data if length is undefined", () => {
@@ -418,37 +641,52 @@ describe("product-details-transforms tests", () => {
         })
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: [
-            {
-              isSelected: true,
-              label: "colour",
-              media: null,
-              thumbnail: "http://localhost:8000/image-thumbnail.jpg"
-            }
-          ]
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: [{ isSelected: true, label: "texture-family" }]
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: [{ isSelected: true, label: "20x30" }]
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: [{ isSelected: true, label: "variant-attribute" }]
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "colour",
+                "media": null,
+                "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
+              },
+            ],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "texture-family",
+              },
+            ],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "20x30",
+              },
+            ],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "variant-attribute",
+              },
+            ],
+          },
+        ]
+      `);
     });
 
     it("returns correct data if width is undefined", () => {
@@ -461,37 +699,52 @@ describe("product-details-transforms tests", () => {
         })
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: [
-            {
-              isSelected: true,
-              label: "colour",
-              media: null,
-              thumbnail: "http://localhost:8000/image-thumbnail.jpg"
-            }
-          ]
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: [{ isSelected: true, label: "texture-family" }]
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: [{ isSelected: true, label: "10x20" }]
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: [{ isSelected: true, label: "variant-attribute" }]
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "colour",
+                "media": null,
+                "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
+              },
+            ],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "texture-family",
+              },
+            ],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "10x20",
+              },
+            ],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "variant-attribute",
+              },
+            ],
+          },
+        ]
+      `);
     });
 
     it("returns correct data if height is undefined", () => {
@@ -504,37 +757,52 @@ describe("product-details-transforms tests", () => {
         })
       });
       const result = getProductAttributesWithCommonParams(product);
-      const expectedResult = [
-        {
-          name: "Colour",
-          type: "thumbnails",
-          variants: [
-            {
-              isSelected: true,
-              label: "colour",
-              media: null,
-              thumbnail: "http://localhost:8000/image-thumbnail.jpg"
-            }
-          ]
-        },
-        {
-          name: "Texture Family",
-          type: "chips",
-          variants: [{ isSelected: true, label: "texture-family" }]
-        },
-        {
-          name: "Size",
-          type: "chips",
-          variants: [{ isSelected: true, label: "25x15" }]
-        },
-        {
-          name: "variantattribute",
-          type: "chips",
-          variants: [{ isSelected: true, label: "variant-attribute" }]
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
+      expect(result).toMatchInlineSnapshot(`
+        [
+          {
+            "name": "Colour",
+            "type": "thumbnails",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "colour",
+                "media": null,
+                "thumbnail": "http://localhost:8000/image-thumbnail.jpg",
+              },
+            ],
+          },
+          {
+            "name": "Texture Family",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "texture-family",
+              },
+            ],
+          },
+          {
+            "name": "Size",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "25x15",
+              },
+            ],
+          },
+          {
+            "name": "variantattribute",
+            "type": "chips",
+            "variants": [
+              {
+                "isSelected": true,
+                "label": "variant-attribute",
+              },
+            ],
+          },
+        ]
+      `);
     });
   });
 

@@ -1,5 +1,5 @@
 import ContentfulLink from "../ContentfulLink";
-import { Context, Node } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
@@ -17,11 +17,13 @@ const context: Context = {
 
 const source: Node = {
   id: "source",
-  children: null,
+  children: [],
   parent: null,
-  internal: null,
+  internal: { type: "", contentDigest: "", owner: "" },
   parameters___NODE: "parameters-1"
 };
+
+const args: ResolveArgs = { categoryCodes: [], allowFilterBy: [] };
 
 describe("ContentfulLink resolver", () => {
   it("should contain specific type", () => {
@@ -32,8 +34,8 @@ describe("ContentfulLink resolver", () => {
   it("should return null for source without parameters___NODE", async () => {
     expect(
       await ContentfulLink.parameters.resolve(
-        { ...source, parameters___NODE: null },
-        null,
+        { ...source, parameters___NODE: undefined },
+        args,
         context
       )
     ).toBeNull();
@@ -43,7 +45,7 @@ describe("ContentfulLink resolver", () => {
     expect(
       await ContentfulLink.parameters.resolve(
         { ...source, type: "Invalid" },
-        null,
+        args,
         context
       )
     ).toBeNull();
@@ -53,7 +55,7 @@ describe("ContentfulLink resolver", () => {
     expect(
       await ContentfulLink.parameters.resolve(
         { ...source, type: "Visualiser" },
-        null,
+        args,
         context
       )
     ).toEqual({
@@ -80,7 +82,7 @@ describe("ContentfulLink resolver", () => {
     expect(
       await ContentfulLink.parameters.resolve(
         { ...source, type: "Visualiser" },
-        null,
+        args,
         context
       )
     ).toEqual({
@@ -109,7 +111,7 @@ describe("ContentfulLink resolver", () => {
     expect(
       await ContentfulLink.parameters.resolve(
         { ...source, type: "Visualiser" },
-        null,
+        args,
         context
       )
     ).toEqual({

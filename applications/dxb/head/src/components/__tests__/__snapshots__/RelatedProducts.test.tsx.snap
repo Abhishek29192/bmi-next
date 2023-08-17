@@ -20,9 +20,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
         >
           MC: pdp.relatedProducts.title
         </h2>
-        <div
-          class="RelatedProducts"
-        >
+        <div>
           <div
             class="Tabs-secondary css-nxi0jm"
             data-testid="tabs"
@@ -37,7 +35,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+                    class="MuiTabs-root css-6wm242-MuiTabs-root"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -131,7 +129,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
@@ -175,13 +173,16 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                           </b>
                         </div>
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -237,9 +238,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
         >
           MC: pdp.relatedProducts.title
         </h2>
-        <div
-          class="RelatedProducts"
-        >
+        <div>
           <div
             class="Tabs-secondary css-nxi0jm"
             data-testid="tabs"
@@ -254,7 +253,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+                    class="MuiTabs-root css-6wm242-MuiTabs-root"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -348,7 +347,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
@@ -392,13 +391,16 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           </b>
                         </div>
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -429,7 +431,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
@@ -466,13 +468,16 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           data-testid="overview-card-body-description"
                         />
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -503,7 +508,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
@@ -540,13 +545,16 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           data-testid="overview-card-body-description"
                         />
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >
@@ -600,9 +608,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
         >
           MC: pdp.relatedProducts.title
         </h2>
-        <div
-          class="RelatedProducts"
-        >
+        <div>
           <div
             class="Tabs-secondary css-nxi0jm"
             data-testid="tabs"
@@ -617,7 +623,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
+                    class="MuiTabs-root css-6wm242-MuiTabs-root"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -711,7 +717,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                   data-testid="grid-item"
                 >
                   <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1kt3nqz-MuiButtonBase-root"
+                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
                     data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                     href="/en/path/"
                     tabindex="0"
@@ -755,13 +761,16 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                           </b>
                         </div>
                       </div>
+                      <div
+                        class="css-iicyj8"
+                      />
                     </div>
                     <div
                       class="OverviewCard-clickable css-1cyx9t4"
                       data-testid="overview-card-body-footer"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways footer-anchor-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
                         data-testid="anchor-link"
                         type="button"
                       >

@@ -3,40 +3,73 @@
 exports[`DocumentResultsFooter component renders correctly 1`] = `
 <div>
   <div
-    class="DocumentResultsFooter"
+    class="css-x2mpkr"
     data-testid="document-results-footer"
   >
     <div
       class="MuiBox-root css-h5fkc8"
     >
-      <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-        data-testid="anchor-link"
-        type="button"
+      <div
+        class="css-10h4yv9"
       >
-        <span>
-          MC: downloadList.clear
-        </span>
-      </a>
-      <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (4)","action":"[\\"http://doesnot-exist.com/fileName\\",\\"http://pimDocument\\",\\"http://pimDocument\\"]"}"
-        data-testid="document-table-download-button"
-        tabindex="0"
-        type="button"
-      >
-        MC: downloadList.download (4)
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
+        <div
+          class="css-179cxs2"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+            data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (4)","action":"[\\"http://doesnot-exist.com/fileName\\",\\"http://pimDocument\\",\\"http://pimDocument\\"]"}"
+            data-testid="document-table-download-button"
+            tabindex="0"
+            type="button"
+          >
+            MC: downloadList.download (4)
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+            data-testid="document-results-footer-reset-button"
+            tabindex="0"
+            type="button"
+          >
+            MC: downloadList.clear
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="css-vqe3zw"
+        >
+          <div
+            class="css-12wvte8"
+          >
+            <span>
+              MC: downloadList.totalSize.label
+            </span>
+            <span
+              class="documentResultsFooter-totalSizeValue"
+              data-testid="document-results-footer-total-size-value"
+            >
+              30 B
+            </span>
+          </div>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-1jsvypt-MuiTypography-root"
+            data-testid="document-results-footer-max-size-value"
+          >
+            MC: downloadList.maxSize
+          </p>
+        </div>
+      </div>
       <p
-        class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
-        data-testid="typography"
+        class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
+        data-testid="document-results-footer-recaptcha"
       >
         This site is protected by reCAPTCHA and the Google 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
           rel="noreferrer noopener"
@@ -48,7 +81,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
         </a>
          and 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
           rel="noreferrer noopener"
@@ -68,40 +101,73 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
 exports[`DocumentResultsFooter component renders correctly if download item is array 1`] = `
 <div>
   <div
-    class="DocumentResultsFooter"
+    class="css-x2mpkr"
     data-testid="document-results-footer"
   >
     <div
       class="MuiBox-root css-h5fkc8"
     >
-      <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-        data-testid="anchor-link"
-        type="button"
+      <div
+        class="css-10h4yv9"
       >
-        <span>
-          MC: downloadList.clear
-        </span>
-      </a>
-      <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (2)","action":"[\\"http://pimDocument\\",\\"http://pimDocument\\"]"}"
-        data-testid="document-table-download-button"
-        tabindex="0"
-        type="button"
-      >
-        MC: downloadList.download (2)
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
+        <div
+          class="css-179cxs2"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+            data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (2)","action":"[\\"http://pimDocument\\",\\"http://pimDocument\\"]"}"
+            data-testid="document-table-download-button"
+            tabindex="0"
+            type="button"
+          >
+            MC: downloadList.download (2)
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
+            data-testid="document-results-footer-reset-button"
+            tabindex="0"
+            type="button"
+          >
+            MC: downloadList.clear
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="css-vqe3zw"
+        >
+          <div
+            class="css-12wvte8"
+          >
+            <span>
+              MC: downloadList.totalSize.label
+            </span>
+            <span
+              class="documentResultsFooter-totalSizeValue"
+              data-testid="document-results-footer-total-size-value"
+            >
+              20 B
+            </span>
+          </div>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-1jsvypt-MuiTypography-root"
+            data-testid="document-results-footer-max-size-value"
+          >
+            MC: downloadList.maxSize
+          </p>
+        </div>
+      </div>
       <p
-        class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-1o02bdp-MuiTypography-root"
-        data-testid="typography"
+        class="MuiTypography-root MuiTypography-body1 documentResultsFooter-recaptcha css-aoter2-MuiTypography-root"
+        data-testid="document-results-footer-recaptcha"
       >
         This site is protected by reCAPTCHA and the Google 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
           rel="noreferrer noopener"
@@ -113,7 +179,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
         </a>
          and 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
           rel="noreferrer noopener"
@@ -133,7 +199,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
 exports[`DocumentResultsFooter component renders correctly if onDownloadClick not passed 1`] = `
 <div>
   <div
-    class="DocumentResultsFooter"
+    class="css-x2mpkr"
     data-testid="document-results-footer"
   />
 </div>

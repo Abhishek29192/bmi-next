@@ -13,14 +13,13 @@ const {
   CONTENTFUL_ALIAS,
   DELETE_OLD_ENVIRONMENTS,
   MANAGEMENT_ACCESS_TOKEN,
-  MIGRATION_DRY_RUN,
   NEW_ENVIRONMENT_NAME,
   SPACE_ID,
   TIMEOUT,
   TIMEOUT_CHECKS
 } = process.env;
 
-let timeout = 20 * 60 * 1000; // 20 minutes
+let timeout = 60 * 60 * 1000; // 60 minutes
 let timeoutChecks = 10 * 1000; // 10 seconds
 
 const isItCooked = async (
@@ -49,7 +48,6 @@ const buildContentful = async (
   contentfulEnvironment: string,
   managementAccessToken: string,
   deleteOldEnvironments: boolean,
-  isDryRun: boolean,
   newEnvironmentName?: string,
   contentfulAlias?: string
 ) => {
@@ -57,8 +55,7 @@ const buildContentful = async (
     await runMigrationScripts(
       spaceId,
       contentfulEnvironment,
-      managementAccessToken,
-      isDryRun
+      managementAccessToken
     );
     return;
   }
@@ -117,7 +114,13 @@ const buildContentful = async (
     'Waiting for the new environment status to become "Ready"'
   ).start();
 
-  await isItCooked(newEnvironmentName, space);
+  try {
+    await isItCooked(newEnvironmentName, space);
+  } catch (error) {
+    timer.fail((error as Error).message);
+    await newEnv.delete();
+    throw error;
+  }
 
   timer.succeed("Contentful environment created.");
 
@@ -125,20 +128,13 @@ const buildContentful = async (
     await runMigrationScripts(
       spaceId,
       newEnvironmentName,
-      managementAccessToken,
-      isDryRun
+      managementAccessToken
     );
   } catch (error) {
     await newEnv.delete();
     throw new Error(
       `Migration failed on contentful environment ${newEnvironmentName}, please check the error log above.`
     );
-  }
-
-  if (isDryRun) {
-    console.log(`Dry run completed, clearing up newly created environment`);
-    await newEnv.delete();
-    return;
   }
 
   console.log(
@@ -179,7 +175,6 @@ export const main = async () => {
     CONTENTFUL_ENVIRONMENT,
     MANAGEMENT_ACCESS_TOKEN,
     DELETE_OLD_ENVIRONMENTS === "true",
-    MIGRATION_DRY_RUN === "true",
     NEW_ENVIRONMENT_NAME,
     CONTENTFUL_ALIAS
   );

@@ -1,0 +1,32 @@
+{
+  "name": "@bmi/redirects-website-no-ventex",
+  "private": true,
+  "description": "BMI Redirects Website NO Ventex",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "debug": "node --nolazy --inspect node_modules/.bin/gatsby develop",
+    "dev": "gatsby clean && gatsby develop",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "start": "gatsby build && gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^5.9.1",
+    "gatsby-plugin-gatsby-cloud": "^5.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "toml": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "webpack": "^5.82.1"
+  }
+}

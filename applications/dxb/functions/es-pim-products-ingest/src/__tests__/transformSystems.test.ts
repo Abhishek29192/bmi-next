@@ -1,9 +1,14 @@
+/* eslint-disable jest/no-focused-tests */
 import {
   Category,
+  Classification,
   createClassification,
   createImage,
   createSystem,
-  System
+  createFeature,
+  createFeatureValue,
+  System,
+  GoodBetterBest
 } from "@bmi/pim-types";
 import { transformSystem } from "../transformSystems";
 
@@ -19,6 +24,8 @@ beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
 });
+
+const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
 describe("transformSystem", () => {
   it("should return undefined if system doesn't have a name", () => {
@@ -66,6 +73,7 @@ describe("transformSystem", () => {
       brand,
       code,
       hashedCode: "hashed-system-code",
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -99,6 +107,7 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -133,6 +142,7 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -174,6 +184,7 @@ describe("transformSystem", () => {
       brand: brandCategory,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -215,6 +226,7 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -249,6 +261,7 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -285,6 +298,7 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       galleryImages: [
         {
           altText: "name",
@@ -319,6 +333,7 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       masterImage: {
         altText: "name",
         mainSource: "http://localhost:8000",
@@ -355,6 +370,7 @@ describe("transformSystem", () => {
       approvalStatus,
       type,
       galleryImages: [],
+      goodBetterBest: undefined,
       masterImage: undefined,
       code,
       name,
@@ -386,6 +402,7 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
+      goodBetterBest: undefined,
       masterImage: {
         altText: undefined,
         mainSource: undefined,
@@ -416,6 +433,7 @@ describe("transformSystem", () => {
       approvalStatus,
       type,
       galleryImages: [],
+      goodBetterBest: undefined,
       masterImage: undefined,
       code,
       name,
@@ -426,6 +444,76 @@ describe("transformSystem", () => {
     });
     expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
     expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+  });
+
+  describe("systemattributes", () => {
+    it("should transform system to object without systemattributes", () => {
+      const system = createSystem({ classifications: [] });
+
+      const { code, name } = system;
+      generateHashFromString.mockReturnValueOnce("hashed-system-code");
+      generateUrl.mockReturnValueOnce("generated-url");
+
+      const transformedSystem = transformSystem(system);
+
+      expect(transformedSystem).toEqual(
+        expect.not.objectContaining({
+          systemAttributes: getSystemAttributesDefaultValues()
+        })
+      );
+      expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+      expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+    });
+  });
+
+  it("should transform system to object with systemattributes", () => {
+    const system = createSystem({
+      classifications: [createSystemAttributesClassification()]
+    });
+    const { code, name } = system;
+    generateHashFromString.mockReturnValueOnce("hashed-system-code");
+    generateUrl.mockReturnValueOnce("generated-url");
+
+    const transformedSystem = transformSystem(system);
+
+    expect(transformedSystem).toEqual(
+      expect.objectContaining({
+        systemAttributes: getSystemAttributesDefaultValues()
+      })
+    );
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+  });
+
+  it("should transform system to object without classification features systemattributes", () => {
+    const system = createSystem({
+      classifications: [
+        createSystemAttributesClassification({ features: undefined })
+      ]
+    });
+    const { code, name } = system;
+    generateHashFromString.mockReturnValueOnce("hashed-system-code");
+    generateUrl.mockReturnValueOnce("generated-url");
+
+    const transformedSystem = transformSystem(system);
+
+    expect(transformedSystem).toEqual(
+      expect.objectContaining({
+        systemAttributes: []
+      })
+    );
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+  });
+
+  it("should transform system to object with goodBetterBest field", () => {
+    const system = createSystem({ goodBetterBest: GoodBetterBest.best });
+    const transformedSystem = transformSystem(system);
+    expect(transformedSystem).toEqual(
+      expect.objectContaining({
+        goodBetterBest: GoodBetterBest.best
+      })
+    );
   });
 });
 
@@ -448,3 +536,35 @@ const getScoringWeight = (system: System) =>
           "scoringWeightAttributes.scoringweight"
       )!.featureValues[0].value
   );
+
+export const createSystemAttributesClassification = (
+  classification?: Partial<Classification>
+): Classification =>
+  createClassification({
+    features: [
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/systemAttributes.roofBuildUp`,
+        name: "Roof build-up",
+        featureValues: [
+          createFeatureValue({
+            value:
+              "Combines self-adhesive/heat activated and torch applied installation techniques"
+          })
+        ]
+      })
+    ],
+    ...classification,
+    code: "systemAttributes"
+  });
+
+const getSystemAttributesDefaultValues = () => {
+  return [
+    {
+      code: "bmiClassificationCatalog/1.0/systemAttributes.roofBuildUp",
+      name: "Roof build-up",
+      values: [
+        "Combines self-adhesive/heat activated and torch applied installation techniques"
+      ]
+    }
+  ];
+};

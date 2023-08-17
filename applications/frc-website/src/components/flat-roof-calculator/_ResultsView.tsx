@@ -9,7 +9,6 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import SaveAltIcon from "@mui/icons-material/SaveAlt";
 import Divider from "@mui/material/Divider";
-import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
@@ -18,13 +17,13 @@ import TableRow from "@mui/material/TableRow";
 import classnames from "classnames";
 import React, { useState } from "react";
 import { fieldLabels } from "./FlatRoofCalculator";
-import styles from "./FlatRoofCalculator.module.scss";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import { FormValues } from "./types/FormValues";
 import { ResultProduct } from "./types/ResultProduct";
 import { ResultsContent } from "./types/ResultsContent";
 import InputTable from "./_InputTable";
 import Section from "./_Section";
+import { StyledTable } from "./styles/FlatRoofCalculatorStyles";
 
 type Props = {
   resultsContent: ResultsContent;
@@ -61,10 +60,10 @@ const ResultsView = ({
   return (
     <>
       <Section data-testid="flat-roof-calculator-results-view-section">
-        <Typography variant="h1" hasUnderline className={styles["header"]}>
+        <Typography variant="h1" hasUnderline className="header">
           {resultsContent.header}
         </Typography>
-        <Typography variant="h4" className={styles["systemName"]}>
+        <Typography variant="h4" className="systemName">
           {systemName}
         </Typography>
         <Grid container>
@@ -85,7 +84,7 @@ const ResultsView = ({
               )} ${encodeURIComponent(
                 ((submittedValues || {}).color || "").replace(/\//g, "-")
               )}.jpg`}
-              className={styles.img}
+              className="img"
             />
           </Grid>
         </Grid>
@@ -94,41 +93,29 @@ const ResultsView = ({
         lessMargin
         data-testid="flat-roof-calculator-results-view-content-section"
       >
-        <Typography hasUnderline variant="h4" className={styles["systemName"]}>
+        <Typography hasUnderline variant="h4" className="systemName">
           {resultsContent.systemContentHeader}
         </Typography>
         <TableContainer component={"div"}>
-          <Table className={styles.Table}>
-            <TableHead className={styles.head}>
-              <TableRow className={styles.row}>
-                <TableCell
-                  className={classnames(styles.cell, styles["cell--bold"])}
-                >
+          <StyledTable>
+            <TableHead className="head">
+              <TableRow className="row">
+                <TableCell className={classnames("cell", "cell--bold")}>
                   {resultsContent.systemContentColumns.buildUp}
                 </TableCell>
-                <TableCell
-                  className={classnames(styles.cell, styles["cell--bold"])}
-                >
+                <TableCell className={classnames("cell", "cell--bold")}>
                   {resultsContent.systemContentColumns.category}
                 </TableCell>
-                <TableCell
-                  className={classnames(styles.cell, styles["cell--bold"])}
-                >
+                <TableCell className={classnames("cell", "cell--bold")}>
                   {resultsContent.systemContentColumns.product}
                 </TableCell>
-                <TableCell
-                  className={classnames(styles.cell, styles["cell--bold"])}
-                >
+                <TableCell className={classnames("cell", "cell--bold")}>
                   {resultsContent.systemContentColumns.code}
                 </TableCell>
-                <TableCell
-                  className={classnames(styles.cell, styles["cell--bold"])}
-                >
+                <TableCell className={classnames("cell", "cell--bold")}>
                   {resultsContent.systemContentColumns.quantity}
                 </TableCell>
-                <TableCell
-                  className={classnames(styles.cell, styles["cell--bold"])}
-                >
+                <TableCell className={classnames("cell", "cell--bold")}>
                   {resultsContent.systemContentColumns.unit}
                 </TableCell>
               </TableRow>
@@ -136,41 +123,32 @@ const ResultsView = ({
             <TableBody>
               {resultProducts.map((product) => (
                 <TableRow key={product.code}>
-                  <TableCell className={styles.cell}>
-                    {product.buildUp}
-                  </TableCell>
-                  <TableCell className={styles.cell}>
-                    {product.category}
-                  </TableCell>
-                  <TableCell className={styles.cell}>
+                  <TableCell className={"cell"}>{product.buildUp}</TableCell>
+                  <TableCell className={"cell"}>{product.category}</TableCell>
+                  <TableCell className={"cell"}>
                     {product.description}
                   </TableCell>
-                  <TableCell className={styles.cell}>{product.code}</TableCell>
-                  <TableCell className={styles.cell}>
-                    {product.quantity}
-                  </TableCell>
-                  <TableCell className={styles.cell}>{product.size}</TableCell>
+                  <TableCell className={"cell"}>{product.code}</TableCell>
+                  <TableCell className={"cell"}>{product.quantity}</TableCell>
+                  <TableCell className={"cell"}>{product.size}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
-          </Table>
+          </StyledTable>
         </TableContainer>
       </Section>
       <Section
         xLessMargin
         data-testid="flat-roof-calculator-results-view-extra-items-section"
       >
-        <Typography variant="h5" className={styles["helpHeader"]}>
+        <Typography variant="h5" className="helpHeader">
           {resultsContent.extraItemsHeader}
         </Typography>
         <Grid container>
           <Grid lg={9}>
             <Typography
               variant="body1"
-              className={classnames(
-                styles["description"],
-                styles["description--less-margin"]
-              )}
+              className={classnames("description", "description--less-margin")}
             >
               {resultsContent.extraItemsDescription}
             </Typography>
@@ -186,12 +164,12 @@ const ResultsView = ({
         xLessMargin
         data-testid="flat-roof-calculator-results-view-inputs-section"
       >
-        <Typography variant="h5" className={styles["helpHeader"]}>
+        <Typography variant="h5" className="helpHeader">
           {resultsContent.inputHeader}
         </Typography>
         <Grid container>
           <Grid lg={9}>
-            <Typography variant="body1" className={styles["description"]}>
+            <Typography variant="body1" className={"description"}>
               {resultsContent.inputDescription}
             </Typography>
           </Grid>
@@ -209,7 +187,7 @@ const ResultsView = ({
         lessMargin
         data-testid="flat-roof-calculator-results-view-disclaimer-section"
       >
-        <Typography variant="h5" className={styles["helpHeader"]}>
+        <Typography variant="h5" className="helpHeader">
           {resultsContent.disclaimerHeader}
         </Typography>
         <Grid container>
@@ -224,46 +202,36 @@ const ResultsView = ({
           xLessMargin
           data-testid="flat-roof-calculator-results-view-project-information-section"
         >
-          <Typography variant="h5" className={styles["helpHeader"]}>
+          <Typography variant="h5" className="helpHeader">
             {resultsContent.projectInformationHeader}
           </Typography>
           <Grid container>
             <Grid xs={12} sm={6} lg={4}>
               <TableContainer component={"div"}>
-                <Table className={styles.Table}>
+                <StyledTable>
                   <TableBody>
                     {submittedValues.companyName ? (
-                      <TableRow className={styles.row}>
-                        <TableCell
-                          className={classnames(
-                            styles.cell,
-                            styles["cell--bold"]
-                          )}
-                        >
+                      <TableRow className="row">
+                        <TableCell className={classnames("cell", "cell--bold")}>
                           {fieldLabels.companyName}:
                         </TableCell>
-                        <TableCell className={styles.cell}>
+                        <TableCell className={"cell"}>
                           {submittedValues.companyName}
                         </TableCell>
                       </TableRow>
                     ) : null}
                     {submittedValues.projectName ? (
-                      <TableRow className={styles.row}>
-                        <TableCell
-                          className={classnames(
-                            styles.cell,
-                            styles["cell--bold"]
-                          )}
-                        >
+                      <TableRow className="row">
+                        <TableCell className={classnames("cell", "cell--bold")}>
                           {fieldLabels.projectName}:
                         </TableCell>
-                        <TableCell className={styles.cell}>
+                        <TableCell className={"cell"}>
                           {submittedValues.projectName}
                         </TableCell>
                       </TableRow>
                     ) : null}
                   </TableBody>
-                </Table>
+                </StyledTable>
               </TableContainer>
             </Grid>
           </Grid>
@@ -273,39 +241,33 @@ const ResultsView = ({
         <Typography
           variant="h4"
           hasUnderline
-          className={classnames(
-            styles["helpHeader"],
-            styles["helpHeader--extra-margin"]
-          )}
+          className={classnames("helpHeader", "helpHeader--extra-margin")}
         >
           {resultsContent.shareLinkHeader}
         </Typography>
         <Typography
           variant="body2"
-          className={classnames(
-            styles["description"],
-            styles["description--less-margin"]
-          )}
+          className={classnames("description", "description--less-margin")}
         >
           {resultsContent.shareLinkDescription}
         </Typography>
-        <div className={styles["linkContainer"]}>
+        <div className="linkContainer">
           <AnchorLink
             action={{ model: "htmlLink", href: link }}
-            className={styles["link"]}
+            className="link"
           >
             {link}
           </AnchorLink>
         </div>
       </Section>
-      <Divider className={styles["divider"]} />
-      <div className={styles["spaceBetween"]}>
+      <Divider className="divider" />
+      <div className="spaceBetweens">
         <div>
           <Button
             startIcon={<ArrowBackIcon />}
             variant="outlined"
             onClick={() => navigate("/" + window.location.search)}
-            className={styles["item"]}
+            className="item"
           >
             {calculateNewRoofButtonLabel}
           </Button>
@@ -316,13 +278,13 @@ const ResultsView = ({
               edit();
               window.scrollTo(0, 0);
             }}
-            className={styles["item"]}
+            className="item"
           >
             {editButtonLabel}
           </Button>
         </div>
         <Button
-          className={styles["item"]}
+          className="item"
           endIcon={<SaveAltIcon />}
           disabled={pdfLoading}
           onClick={async () => {

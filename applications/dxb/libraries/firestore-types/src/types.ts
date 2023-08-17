@@ -4,7 +4,8 @@ import type {
   Category as PimCategory,
   CategoryImage as PimCategoryImage,
   CategoryType,
-  Mime as PimMime
+  Mime as PimMime,
+  GoodBetterBest
 } from "@bmi/pim-types";
 
 export type System = {
@@ -18,6 +19,7 @@ export type System = {
   description?: string;
   documents: readonly SystemDocument[];
   galleryImages: readonly Image[];
+  goodBetterBest?: GoodBetterBest;
   guaranteesAndWarrantiesImages: readonly Asset[];
   guaranteesAndWarrantiesLinks: readonly Asset[];
   hashedCode: string;
@@ -95,6 +97,7 @@ export type Product = {
   filters: readonly Filter[];
   fixingToolIframeUrl?: string;
   galleryImages: readonly Image[];
+  goodBetterBest?: GoodBetterBest;
   groups: readonly CategoryGroup[];
   guaranteesAndWarrantiesImages: readonly Asset[];
   guaranteesAndWarrantiesLinks: readonly Asset[];
@@ -139,7 +142,7 @@ export type Classification = {
 };
 
 export type Feature = {
-  name: string;
+  name?: string;
   value: string;
 };
 

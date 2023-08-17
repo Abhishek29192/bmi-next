@@ -20,7 +20,7 @@ exports[`SitemapSection component renders correctly 1`] = `
           Main
         </h2>
         <div
-          class="SitemapBlock"
+          class=" css-hz1pws"
         >
           <div
             class="MasonryGrid-root css-1a7a0ef"
@@ -31,21 +31,21 @@ exports[`SitemapSection component renders correctly 1`] = `
             >
               <div>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 item css-1x9euu8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-1qs0h5e-MuiTypography-root"
                   data-testid="typography"
                 >
                   Get in touch
                 </h4>
                 <div
-                  class="SitemapBlock SitemapBlock--child"
+                  class="SitemapBlock-child css-hz1pws"
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 css-dwaw41-MuiTypography-root"
                       data-testid="typography"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                         data-testid="sitemap-link"
                         type="button"
                       >
@@ -64,21 +64,21 @@ exports[`SitemapSection component renders correctly 1`] = `
             >
               <div>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 item css-1x9euu8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-1qs0h5e-MuiTypography-root"
                   data-testid="typography"
                 >
                   About BMI
                 </h4>
                 <div
-                  class="SitemapBlock SitemapBlock--child"
+                  class="SitemapBlock-child css-hz1pws"
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 css-dwaw41-MuiTypography-root"
                       data-testid="typography"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                         data-testid="sitemap-link"
                         type="button"
                       >
@@ -119,7 +119,7 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
           Main
         </h2>
         <div
-          class="SitemapBlock"
+          class=" css-hz1pws"
         >
           <div
             class="MasonryGrid-root css-1a7a0ef"
@@ -130,21 +130,21 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
             >
               <div>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 item css-1x9euu8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-1qs0h5e-MuiTypography-root"
                   data-testid="typography"
                 >
                   Get in touch
                 </h4>
                 <div
-                  class="SitemapBlock SitemapBlock--child"
+                  class="SitemapBlock-child css-hz1pws"
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 css-dwaw41-MuiTypography-root"
                       data-testid="typography"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                         data-testid="sitemap-link"
                         type="button"
                       >
@@ -155,21 +155,21 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                     </h6>
                     <div>
                       <h5
-                        class="MuiTypography-root MuiTypography-h5 item css-1lhxn1g-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5 css-pzq1qb-MuiTypography-root"
                         data-testid="typography"
                       >
                         About BMI 2
                       </h5>
                       <div
-                        class="SitemapBlock SitemapBlock--child"
+                        class="SitemapBlock-child css-hz1pws"
                       >
                         <div>
                           <h6
-                            class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-h6 css-dwaw41-MuiTypography-root"
                             data-testid="typography"
                           >
                             <a
-                              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                               data-testid="sitemap-link"
                               type="button"
                             >
@@ -180,21 +180,21 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                           </h6>
                           <div>
                             <h6
-                              class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
+                              class="MuiTypography-root MuiTypography-h6 css-dwaw41-MuiTypography-root"
                               data-testid="typography"
                             >
                               About BMI 2
                             </h6>
                             <div
-                              class="SitemapBlock SitemapBlock--child"
+                              class="SitemapBlock-child css-hz1pws"
                             >
                               <div>
                                 <h6
-                                  class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h6 css-dwaw41-MuiTypography-root"
                                   data-testid="typography"
                                 >
                                   <a
-                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                                     data-testid="sitemap-link"
                                     type="button"
                                   >
@@ -219,21 +219,21 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
             >
               <div>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 item css-1x9euu8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-1qs0h5e-MuiTypography-root"
                   data-testid="typography"
                 >
                   About BMI
                 </h4>
                 <div
-                  class="SitemapBlock SitemapBlock--child"
+                  class="SitemapBlock-child css-hz1pws"
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root MuiTypography-h6 item css-1nuwz6u-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-h6 css-dwaw41-MuiTypography-root"
                       data-testid="typography"
                     >
                       <a
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                         data-testid="sitemap-link"
                         type="button"
                       >
@@ -272,7 +272,7 @@ exports[`SitemapSection component renders correctly if incomplete 1`] = `
           data-testid="typography"
         />
         <div
-          class="SitemapBlock"
+          class=" css-hz1pws"
         >
           <div
             class="MasonryGrid-root css-1a7a0ef"

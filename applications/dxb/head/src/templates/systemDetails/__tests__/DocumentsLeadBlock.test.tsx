@@ -15,7 +15,9 @@ describe("DocumentsLeadBlock tests", () => {
     );
 
     // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access
-    const tableRows = container.querySelectorAll(".tableContainer tbody tr");
+    const tableRows = container.querySelectorAll(
+      ".SystemDetailsLeadDocumentsBlockSectionStyles-tableContainer tbody tr"
+    );
 
     expect(container).toMatchSnapshot();
     expect(screen.getByText(documents[0].assetType.name)).toBeTruthy();

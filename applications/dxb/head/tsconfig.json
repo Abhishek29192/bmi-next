@@ -17,10 +17,10 @@
       "path": "../libraries/gatsby-plugin-leadoo"
     },
     {
-      "path": "../libraries/gatsby-plugin-meta-redirect"
+      "path": "../libraries/gatsby-source-firestore"
     },
     {
-      "path": "../libraries/gatsby-source-firestore"
+      "path": "../libraries/microcopies"
     },
     {
       "path": "../libraries/utils"

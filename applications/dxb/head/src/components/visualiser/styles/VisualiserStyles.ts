@@ -87,7 +87,7 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
     flexDirection: "column",
 
     "& button": {
-      "&:first-child": {
+      "&:first-of-type": {
         flex: 1
       }
     }

@@ -1,28 +1,25 @@
 import { Button } from "@bmi-digital/components";
-import { iconButtonClasses } from "@mui/material";
+import { filledInputClasses, iconButtonClasses } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const StyledComponentWithButtons = styled("div")(({ theme }) => ({
   display: "inline-flex",
+
+  [`&& .${filledInputClasses.root}`]: {
+    height: "100%",
+    borderRadius: 0,
+    borderRight: 0,
+    borderLeft: 0,
+
+    [`.${filledInputClasses.input}`]: {
+      padding: "0 12px"
+    }
+  },
+
   "& .input": {
     margin: 0,
     display: "flex",
-    flex: 1,
-    "&.in-middle": {
-      "[class*=MuiOutlinedInput-notchedOutline], [class*=MuiFilledInput-root], [class*=MuiFilledInput-input]":
-        {
-          borderTopRightRadius: "0px",
-          borderBottomRightRadius: "0px",
-          borderRight: "none",
-          height: "48px",
-          paddingBottom: "13px",
-          textAlign: "center",
-
-          borderTopLeftRadius: "0px",
-          borderBottomLeftRadius: "0px",
-          borderLeft: "none"
-        }
-    }
+    flex: 1
   }
 }));
 

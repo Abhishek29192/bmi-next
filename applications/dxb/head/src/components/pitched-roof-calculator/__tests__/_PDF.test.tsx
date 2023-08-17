@@ -1,9 +1,21 @@
 import { pdf } from "@bmi-digital/react-pdf-maker";
 import React from "react";
+import { Typography, getPDF, shouldAddPageBreak } from "../_PDF";
+import EffraBold from "../fonts/Effra_Bd.ttf";
+import EffraNormal from "../fonts/Effra_Rg.ttf";
 import { getMicroCopy } from "../helpers/microCopy";
 import { ProductCategory, ResultsObject } from "../types";
-import { getPDF, shouldAddPageBreak, Typography } from "../_PDF";
 import en from "./samples/copy/en.json";
+
+jest.mock("../fonts/Effra_Bd.ttf", () => ({
+  __esModule: true,
+  default: "Effra_Bd.ttf"
+}));
+
+jest.mock("../fonts/Effra_Rg.ttf", () => ({
+  __esModule: true,
+  default: "Effra_Rg.ttf"
+}));
 
 const resultsSample: ResultsObject = {
   tiles: [
@@ -282,5 +294,95 @@ describe("PitchedRoofCalculator shouldAddPageBreak function", () => {
         [node]
       )
     ).toBeFalsy();
+  });
+});
+
+describe("PitchedRoofCalculator PDF report fonts", () => {
+  it("works correctly if Effra_Bd font starts with 'https://'", () => {
+    (EffraBold as string) = "https://effra-bold-mock.ttf";
+    const result = getPDF({
+      results: {
+        tiles: [],
+        fixings: [],
+        sealing: [],
+        ventilation: [],
+        accessories: [],
+        extras: []
+      },
+      area: "150",
+      getMicroCopy: (...params) => getMicroCopy(en, ...params)
+    });
+    expect(result.fonts).toEqual(
+      expect.objectContaining({
+        Effra: expect.objectContaining({ bold: EffraBold })
+      })
+    );
+  });
+
+  it("works correctly if Effra_Bd font does not start with 'https://'", () => {
+    (EffraBold as string) = "effra-bold-mock.ttf";
+    const result = getPDF({
+      results: {
+        tiles: [],
+        fixings: [],
+        sealing: [],
+        ventilation: [],
+        accessories: [],
+        extras: []
+      },
+      area: "150",
+      getMicroCopy: (...params) => getMicroCopy(en, ...params)
+    });
+    expect(result.fonts).toEqual(
+      expect.objectContaining({
+        Effra: expect.objectContaining({
+          bold: "http://localhost/effra-bold-mock.ttf"
+        })
+      })
+    );
+  });
+
+  it("works correctly if Effra_Rg font starts with 'https://'", () => {
+    (EffraNormal as string) = "https://effra-normal-mock.ttf";
+    const result = getPDF({
+      results: {
+        tiles: [],
+        fixings: [],
+        sealing: [],
+        ventilation: [],
+        accessories: [],
+        extras: []
+      },
+      area: "150",
+      getMicroCopy: (...params) => getMicroCopy(en, ...params)
+    });
+    expect(result.fonts).toEqual(
+      expect.objectContaining({
+        Effra: expect.objectContaining({ normal: EffraNormal })
+      })
+    );
+  });
+
+  it("works correctly if Effra_Rg font does not start with 'https://'", () => {
+    (EffraNormal as string) = "effra-normal-mock.ttf";
+    const result = getPDF({
+      results: {
+        tiles: [],
+        fixings: [],
+        sealing: [],
+        ventilation: [],
+        accessories: [],
+        extras: []
+      },
+      area: "150",
+      getMicroCopy: (...params) => getMicroCopy(en, ...params)
+    });
+    expect(result.fonts).toEqual(
+      expect.objectContaining({
+        Effra: expect.objectContaining({
+          bold: "http://localhost/effra-normal-mock.ttf"
+        })
+      })
+    );
   });
 });

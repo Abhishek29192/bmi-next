@@ -169,7 +169,7 @@ describe("disable 'Add to basket' if basket is full", () => {
     fireEvent.click(addSampleCtaAgain);
     // check maximum sample has reached
     expect(
-      JSON.parse(localStorage.getItem("no-basketItems")).length
+      JSON.parse(localStorage.getItem("no-basketItems")!).length
     ).toBeLessThan(maximumSamples);
     // get the message
     const canAddMoreMessage = screen.queryAllByText(
@@ -234,7 +234,7 @@ describe("disable 'Add to basket' if basket is full", () => {
     //maximum sample has reached
     fireEvent.click(addSampleCtaAgain);
     //check maximum sample has reached
-    expect(JSON.parse(localStorage.getItem("no-basketItems")).length).toBe(
+    expect(JSON.parse(localStorage.getItem("no-basketItems")!).length).toBe(
       maximumSamples
     );
     const sampleLimitReachedMessage = screen.getByText(
@@ -315,7 +315,7 @@ describe("disable 'Add to basket' if basket is full", () => {
     );
     //check the localStorage is not full for basketItems
     expect(
-      JSON.parse(localStorage.getItem("no-basketItems")).length
+      JSON.parse(localStorage.getItem("no-basketItems")!).length
     ).toBeLessThan(maximumSamples);
     //get the message
     const canAddOtherMessage = screen.queryByText(
@@ -352,7 +352,7 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
       name: `MC: pdp.overview.addSample`
     });
     fireEvent.click(addSampleCta);
-    expect(JSON.parse(localStorage.getItem("basketItems"))).toEqual(product);
+    expect(JSON.parse(localStorage.getItem("basketItems")!)).toEqual(product);
   });
   it("add redirect url to 'Complete order' CTA", async () => {
     render(
@@ -398,7 +398,7 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
           <SampleOrderSection
             isSampleOrderAllowed={true}
             product={product}
-            sampleBasketLinkInfo={null}
+            sampleBasketLinkInfo={undefined}
           ></SampleOrderSection>
         </SiteContextProvider>
       </ThemeProvider>,

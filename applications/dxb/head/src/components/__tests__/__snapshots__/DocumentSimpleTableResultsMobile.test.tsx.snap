@@ -4,14 +4,14 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
 <div>
   <div>
     <div
-      class=" css-mvd7k"
+      class=" css-13gzfet"
       data-testid="document-table-row-contentful-document-id"
     >
       <div
         class="css-1wnvnkz"
       >
         <a
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-5o2yva-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium document-simple-table-results-disableRipple css-186oh1r-MuiButtonBase-root-MuiButton-root"
           data-gtm="{"id":"download1","label":"Download","action":"http://doesnot-exist.com/fileName"}"
           data-testid="document-table-download-application/pdf-button"
           href="http://doesnot-exist.com/fileName"
@@ -24,36 +24,30 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
           >
             <svg
               class="download-icon css-z6lod7"
-              viewBox="0 0 32 32"
+              fill="none"
+              viewBox="0 0 48 48"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M0 0h32v32H0z"
-                fill="none"
+                d="M30.776 5H12.54v37.997H42v-27.14L30.775 5z"
+                fill="#AEB1B1"
               />
               <path
-                d="M21 2H8v28h21V10Z"
-                fill="#aeb1b1"
-              />
-              <path
-                d="M9 29V3h12v7h7v19Z"
+                d="M13.945 41.64V6.357H30.78v9.5h9.82V41.64H13.944z"
                 fill="#fff"
               />
               <rect
-                fill="#d43533"
-                height="10"
+                fill="#D43533"
+                height="14"
                 rx="1"
-                width="21"
-                x="3"
-                y="15"
+                width="30"
+                x="6"
+                y="23"
               />
-              <g
+              <path
+                d="M11 26h2.916c.496 0 .92.072 1.272.216.352.144.64.336.864.576.232.232.4.504.504.816.112.312.168.636.168.972 0 .432-.076.812-.228 1.14-.144.32-.344.588-.6.804-.248.216-.536.38-.864.492-.328.112-.672.168-1.032.168h-1.236v2.82H11V26zm2.82 3.72c.336 0 .6-.1.792-.3.2-.208.3-.476.3-.804 0-.336-.1-.608-.3-.816-.2-.216-.468-.324-.804-.324h-1.044v2.244h1.056zM17.637 26h3.024c.617 0 1.186.08 1.706.24.527.16.98.404 1.355.732.386.328.68.748.89 1.26.216.512.323 1.116.323 1.812 0 .664-.107 1.244-.323 1.74-.216.488-.517.9-.9 1.236-.377.328-.83.576-1.357.744-.52.16-1.088.24-1.704.24h-3.012V26zm2.916 6.396c.8 0 1.416-.208 1.848-.624.434-.424.65-1.004.65-1.74 0-.368-.053-.7-.157-.996-.096-.304-.248-.56-.456-.768-.2-.216-.456-.38-.768-.492-.313-.12-.685-.18-1.117-.18H19.45v4.8h1.104zM25.88 26h5.377v1.596H27.69v1.812h2.712v1.548h-2.712v3.048h-1.81V26z"
                 fill="#fff"
-              >
-                <path
-                  d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
-                />
-              </g>
+              />
             </svg>
           </span>
           <p
@@ -97,7 +91,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
           >
             <a
               aria-label="Download contentful-document-title"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://doesnot-exist.com/fileName"}"
               data-testid="document-table-actions-download-contentful-document-id"
               href="http://doesnot-exist.com/fileName"
@@ -106,7 +100,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
               target="_blank"
             >
               <svg
-                class="false css-546mkb"
+                class="document-simple-table-results-actionIconSmall css-afm3c7"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -132,13 +126,13 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
           >
             <button
               aria-label="Copy contentful-document-title"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-vt6g50-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
               data-testid="document-table-actions-copy-url-contentful-document-id"
               tabindex="0"
               type="button"
             >
               <svg
-                class="false css-546mkb"
+                class="document-simple-table-results-actionIconSmall css-afm3c7"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -155,45 +149,39 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
         <div
           class="css-10lan02"
         />
-        <span
-          aria-label="Max download limit reached"
-          class=""
-          data-mui-internal-clone-element="true"
+        <div
+          class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
         >
-          <div
-            class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+          <label
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+            <span
+              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
             >
-              <span
-                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+              <input
+                aria-label="MC: documentLibrary.download contentful-document-title"
+                class="PrivateSwitchBase-input css-1m9pwf3"
+                data-indeterminate="false"
+                name="contentful-document-id-contentful-document-title"
+                type="checkbox"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CheckBoxOutlineBlankIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <input
-                  aria-label="MC: documentLibrary.download contentful-document-title"
-                  class="PrivateSwitchBase-input css-1m9pwf3"
-                  data-indeterminate="false"
-                  name="contentful-document-id-contentful-document-title"
-                  type="checkbox"
+                <path
+                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                 />
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="CheckBoxOutlineBlankIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </span>
-            </label>
-          </div>
-        </span>
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </span>
+          </label>
+        </div>
       </div>
     </div>
   </div>

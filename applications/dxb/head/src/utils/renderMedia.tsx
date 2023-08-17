@@ -1,5 +1,8 @@
 import React from "react";
 
-export const renderMedia = (mainImage: string, altText: string | undefined) => {
-  return mainImage && <img src={mainImage} alt={altText} />;
+export const renderMedia = (mainImage?: string, altText?: string) => {
+  if (!mainImage) {
+    return undefined;
+  }
+  return <img src={mainImage} alt={altText} />;
 };

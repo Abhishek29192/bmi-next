@@ -3,16 +3,15 @@
 exports[`AboutLeadBlock tests should not render if no awardsAndCertificate images and document assets are provided 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -20,10 +19,9 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
         >
           system-desc
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -37,10 +35,9 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
           data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -77,7 +74,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -90,7 +87,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
           class="css-1qwqwtx"
         >
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -107,7 +104,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
             </div>
           </div>
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -133,16 +130,15 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
 exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties assets 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -150,10 +146,9 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
         >
           system-desc
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -167,10 +162,9 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
           data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -207,7 +201,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -220,7 +214,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
           class="css-1qwqwtx"
         >
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -237,7 +231,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
             </div>
           </div>
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -263,16 +257,15 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
 exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -280,10 +273,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         >
           system-desc
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -297,10 +289,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
           data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -318,10 +309,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
           class="AboutLeadBlock-image"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -358,7 +348,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -371,7 +361,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
           class="css-1qwqwtx"
         >
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -388,7 +378,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
             </div>
           </div>
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -414,16 +404,15 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
 exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -431,10 +420,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         >
           system-desc
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -448,10 +436,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
           data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -469,10 +456,9 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
           class="AboutLeadBlock-image"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -509,7 +495,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -522,7 +508,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
           class="css-1qwqwtx"
         >
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -548,16 +534,15 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
 exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -565,10 +550,9 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
         >
           system-desc
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -582,10 +566,9 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
           data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -603,10 +586,9 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
           class="AboutLeadBlock-image"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -643,7 +625,7 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
-      </p>
+      </div>
     </div>
   </div>
 </div>
@@ -652,16 +634,15 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
 exports[`AboutLeadBlock tests should not render if no specification asset 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -669,10 +650,9 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
         >
           system-desc
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -686,10 +666,9 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
           data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -707,7 +686,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
           class="AboutLeadBlock-image"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -720,7 +699,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
           class="css-1qwqwtx"
         >
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -737,7 +716,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
             </div>
           </div>
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -763,16 +742,15 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
 exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -780,10 +758,9 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         >
           system-desc
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -797,10 +774,9 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
           data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -818,10 +794,9 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
           class="AboutLeadBlock-image"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -858,7 +833,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -871,7 +846,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
           class="css-1qwqwtx"
         >
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -897,16 +872,15 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
 exports[`AboutLeadBlock tests should render 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -914,10 +888,9 @@ exports[`AboutLeadBlock tests should render 1`] = `
         >
           system-desc
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -931,10 +904,9 @@ exports[`AboutLeadBlock tests should render 1`] = `
           data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -952,10 +924,9 @@ exports[`AboutLeadBlock tests should render 1`] = `
           class="AboutLeadBlock-image"
           src="http://localhost:8000/asset-real-file-name.pdf"
         />
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -992,7 +963,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -1005,7 +976,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
           class="css-1qwqwtx"
         >
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -1022,7 +993,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
             </div>
           </div>
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -1048,16 +1019,15 @@ exports[`AboutLeadBlock tests should render 1`] = `
 exports[`AboutLeadBlock tests specification section move up if no guaranteesAndWarranties assets and awardsAndCertificates assets 1`] = `
 <div>
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-d6me72-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-oqlz5y-MuiGrid2-root"
     data-testid="grid-container"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-wuqcfn-MuiGrid2-root"
       data-testid="grid-item"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      <div
+        class="css-1yjvs5a"
       >
         <div
           class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-description css-1o02bdp-MuiTypography-root"
@@ -1065,10 +1035,9 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
         >
           system-desc
         </div>
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1218bho-MuiTypography-root"
-        data-testid="typography"
+      </div>
+      <div
+        class="css-1yjvs5a"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 css-j6gfrn-MuiTypography-root"
@@ -1105,7 +1074,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
-      </p>
+      </div>
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-1fx28h6-MuiGrid2-root"
@@ -1118,7 +1087,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
           class="css-1qwqwtx"
         >
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"
@@ -1135,7 +1104,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
             </div>
           </div>
           <div
-            class="css-asoc7f"
+            class="css-c1wgmr"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 Typography-underline css-16mi5sh-MuiTypography-root"

@@ -2,36 +2,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /*
   This script compares Micro Copies @bmi/head <---> Contentful. In case
-  new Micro Copies are found - creates new for every locale and every market (tag) 
+  new Micro Copies are found - creates new for every locale and every market (tag)
   that is used in a specific environment. By default, creates draft Micro Copies with
   an empty value
 
-  If there is a contentful microcopy entry with multiple tags attached to it, 
+  If there is a contentful microcopy entry with multiple tags attached to it,
   the script will stop and allow user's remove multiple tags
 
-  It also processes existing entries from contentful and creates new entry 
+  It also processes existing entries from contentful and creates new entry
   for every market / public Tag.
 
-  When processing existing micro copy entry, it checks, 
-  
+  When processing existing micro copy entry, it checks,
+
   a) If an exitsing entry has NO tag, it will create a new entry for each global tag (market)
-  E.g. If the environment on which this process is executed has 2 Global public Tags (market__uk + market__finland) then, 
+  E.g. If the environment on which this process is executed has 2 Global public Tags (market__uk + market__finland) then,
   end result will be : 3 identical entries i.e. 1 original + 2 new entries (one per tag)
-  
-  b) If an existing entry has `single` tag applied,then it will create 
-  a new micro copy entry for the remaining tags and sync every micro copy entry 
+
+  b) If an existing entry has `single` tag applied,then it will create
+  a new micro copy entry for the remaining tags and sync every micro copy entry
   for each public tag.
-  
-  E.g. If the environment on which this process is executed has 2 Global public Tags (market__uk + market__finland) 
-  And existing entry is tagged with `UK` market, then, 
+
+  E.g. If the environment on which this process is executed has 2 Global public Tags (market__uk + market__finland)
+  And existing entry is tagged with `UK` market, then,
   end result will be : 2 identical entries i.e. 1 original + 1 new entry for Finland tag
-  
-  When this utility is called without `--publish` option, 
-  i)  It will process ALL entries with ANY status 
+
+  When this utility is called without `--publish` option,
+  i)  It will process ALL entries with ANY status
   ii) It will NOT publish newly created entries
   iii) `value` of each entry will be left empty
-  
-  When this utility is called with `--publish` option, 
+
+  When this utility is called with `--publish` option,
   i) It will only process exsiting `published`.
   ii) It will publish newly created entries
   iii) `value` of each entry will same as its `key`
@@ -39,7 +39,8 @@
 import { argv } from "node:process";
 import { pathToFileURL } from "node:url";
 import { getEnvironment, waitFor } from "@bmi/utils";
-import { microCopy } from "../../../head/src/constants/microCopies.js";
+import { microCopy } from "@bmi/microcopies";
+import "dotenv/config";
 import {
   BULK_SIZE,
   CHUNK_SIZE,

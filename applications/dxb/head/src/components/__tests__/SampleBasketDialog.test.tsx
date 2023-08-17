@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import {
   BasketContextProvider,
   Sample
@@ -10,15 +10,7 @@ import { local } from "../../utils/storage";
 import { getClickableActionFromUrl } from "../Link";
 import SampleBasketDialog from "../SampleBasketDialog";
 import { SiteContextProvider } from "../Site";
-
-const getSiteContext = () => ({
-  countryCode: "en",
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: "en-GB",
-  homePage: {
-    title: "Home page title"
-  }
-});
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const samples: Sample[] = [
   {
@@ -132,7 +124,7 @@ describe("SampleBasketDialog component", () => {
 
     render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext()}>
           <BasketContextProvider>
             <SampleBasketDialog
               title="Basket title"

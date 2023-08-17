@@ -1,5 +1,4 @@
 import { Filter } from "@bmi-digital/components";
-import { ProductFilter } from "../../types/pim";
 import { xferFilterValue } from "../elasticSearchPLP";
 
 describe("syncFilterValue function", () => {
@@ -50,7 +49,7 @@ describe("syncFilterValue function", () => {
 
   describe("When matching filter is found NOT in target", () => {
     it("should transfer the filter value from source to target filters", () => {
-      const srcFilters: ProductFilter[] = [
+      const srcFilters: Filter[] = [
         {
           filterCode: "colour",
           name: "height",

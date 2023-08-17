@@ -3,7 +3,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import Footer from "./Footer";
 import Header from "./Header";
-import styles from "./Page.module.scss";
+import { StyledPage } from "./styles/PageStyles";
 
 type Props = {
   title: string;
@@ -14,7 +14,7 @@ const Page = ({ title, children }: Props) => {
   return (
     <ThemeProvider>
       <Helmet title={title} />
-      <div className={styles.Page}>
+      <StyledPage>
         <Header />
         {children}
         <Footer
@@ -42,7 +42,7 @@ const Page = ({ title, children }: Props) => {
             }
           ]}
         />
-      </div>
+      </StyledPage>
     </ThemeProvider>
   );
 };

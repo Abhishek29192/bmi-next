@@ -3,7 +3,6 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Divider from "@mui/material/Divider";
 import React from "react";
-import styles from "./FlatRoofCalculator.module.scss";
 import { Tree as CalculatorDataTree } from "./types/CalculatorData";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import { FormValues } from "./types/FormValues";
@@ -80,7 +79,7 @@ const InputView = ({
 }: Props) => (
   <>
     <Section data-testid="flat-roof-calculator-input-view-section">
-      <Typography variant="h1" hasUnderline className={styles["header"]}>
+      <Typography variant="h1" hasUnderline className="header">
         {inputContent.header}
       </Typography>
       <Typography>{productDescription}</Typography>
@@ -99,25 +98,22 @@ const InputView = ({
         {...{ ...projectInformationProps, defaultValues }}
       />
       <Section data-testid="flat-roof-calculator-help-descriptio-section">
-        <Typography variant="h5" className={styles["helpHeader"]}>
+        <Typography variant="h5" className="helpHeader">
           {inputContent.helpHeader}
         </Typography>
         <Typography variant="body1">{inputContent.helpDescription}</Typography>
       </Section>
-      <Divider className={styles["divider"]} />
-      <div className={styles["spaceBetween"]}>
+      <Divider className="divider" />
+      <div className="spaceBetween">
         <Button
           startIcon={<ArrowBackIcon />}
           variant="outlined"
           onClick={() => navigate("/" + window.location.search)}
-          className={styles["item"]}
+          className="item"
         >
           {backButtonLabel}
         </Button>
-        <Form.SubmitButton
-          endIcon={<ArrowForwardIcon />}
-          className={styles["item"]}
-        >
+        <Form.SubmitButton endIcon={<ArrowForwardIcon />} className="item">
           {calculateButtonLabel}
         </Form.SubmitButton>
       </div>

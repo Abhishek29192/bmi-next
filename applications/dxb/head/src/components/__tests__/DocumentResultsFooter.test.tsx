@@ -1,4 +1,8 @@
-import { DownloadListContext, ThemeProvider } from "@bmi-digital/components";
+import {
+  DownloadListContext,
+  ThemeProvider,
+  DownloadListContextType
+} from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
@@ -10,6 +14,11 @@ import { devLog } from "../../utils/devLog";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
+import * as utils from "../../utils/documentUtils";
+import {
+  DocumentListProvider,
+  DocumentContext
+} from "../../contexts/DocumentContext";
 
 jest.mock("../../utils/devLog");
 
@@ -66,30 +75,139 @@ describe("DocumentResultsFooter component", () => {
     process.env = ENV;
   });
 
-  it("renders correctly", () => {
-    const handlePageChange = jest.fn();
-    const { container } = render(
+  const getWrappeedFooterComponent = (
+    props: DownloadListContextType,
+    children: React.ReactNode
+  ) => {
+    return (
       <ThemeProvider>
         <DownloadListContext.Provider
           value={{
             list,
             updateList: jest.fn(),
             resetList: jest.fn(),
-            count: 4,
+            count: 0,
+            size: 0,
             remainingSize: Infinity,
             isLoading: false,
-            setIsLoading: jest.fn()
+            setIsLoading: jest.fn(),
+            ...props
           }}
         >
-          <DocumentResultsFooter
-            page={1}
-            count={1}
-            onPageChange={handlePageChange}
-          />
+          <DocumentListProvider>{children}</DocumentListProvider>
         </DownloadListContext.Provider>
       </ThemeProvider>
     );
+  };
+
+  it("renders correctly", () => {
+    const handlePageChange = jest.fn();
+    const { container } = render(
+      getWrappeedFooterComponent(
+        {
+          list,
+          updateList: jest.fn(),
+          resetList: jest.fn(),
+          count: 4,
+          size: 30,
+          remainingSize: Infinity,
+          isLoading: false,
+          setIsLoading: jest.fn()
+        },
+        <DocumentResultsFooter
+          page={1}
+          count={1}
+          onPageChange={handlePageChange}
+        />
+      )
+    );
     expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if there are no selected documents", () => {
+    const handlePageChange = jest.fn();
+    render(
+      getWrappeedFooterComponent(
+        {
+          list: {},
+          updateList: jest.fn(),
+          resetList: jest.fn(),
+          count: 0,
+          size: 0,
+          remainingSize: Infinity,
+          isLoading: false,
+          setIsLoading: jest.fn()
+        },
+        <DocumentResultsFooter
+          page={1}
+          count={1}
+          onPageChange={handlePageChange}
+        />
+      )
+    );
+
+    expect(screen.getByTestId("document-results-footer")).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("document-results-footer-total-size-value")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("document-results-footer-max-size-value")
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders correctly if there are selected documents", () => {
+    const handlePageChange = jest.fn();
+    render(
+      getWrappeedFooterComponent(
+        {
+          list: { "test-document": createPimDocument() },
+          updateList: jest.fn(),
+          resetList: jest.fn(),
+          count: 1,
+          size: 10,
+          remainingSize: Infinity,
+          isLoading: false,
+          setIsLoading: jest.fn()
+        },
+        <DocumentResultsFooter
+          page={1}
+          count={1}
+          onPageChange={handlePageChange}
+        />
+      )
+    );
+    expect(
+      screen.getByTestId("document-results-footer-total-size-value")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("document-results-footer-max-size-value")
+    ).toBeInTheDocument();
+  });
+
+  it("renders correctly if the maximum allowed size is exceeded", () => {
+    const handlePageChange = jest.fn();
+    render(
+      getWrappeedFooterComponent(
+        {
+          list: { "test-document": createPimDocument() },
+          updateList: jest.fn(),
+          resetList: jest.fn(),
+          count: 1,
+          size: 200,
+          remainingSize: -0.1,
+          isLoading: false,
+          setIsLoading: jest.fn()
+        },
+        <DocumentResultsFooter
+          page={1}
+          count={1}
+          onPageChange={handlePageChange}
+        />
+      )
+    );
+    expect(
+      screen.getByTestId("document-results-footer-size-exceeded-error")
+    ).toBeInTheDocument();
   });
 
   it("renders correctly if download item is array", () => {
@@ -99,25 +217,23 @@ describe("DocumentResultsFooter component", () => {
       name2: [createPimDocument({ id: "pim-document-id" })]
     };
     const { container } = render(
-      <ThemeProvider>
-        <DownloadListContext.Provider
-          value={{
-            list: customList,
-            updateList: jest.fn(),
-            resetList: jest.fn(),
-            count: 2,
-            remainingSize: Infinity,
-            isLoading: false,
-            setIsLoading: jest.fn()
-          }}
-        >
-          <DocumentResultsFooter
-            page={1}
-            count={1}
-            onPageChange={handlePageChange}
-          />
-        </DownloadListContext.Provider>
-      </ThemeProvider>
+      getWrappeedFooterComponent(
+        {
+          size: 20,
+          list: customList,
+          updateList: jest.fn(),
+          resetList: jest.fn(),
+          count: 2,
+          remainingSize: Infinity,
+          isLoading: false,
+          setIsLoading: jest.fn()
+        },
+        <DocumentResultsFooter
+          page={1}
+          count={1}
+          onPageChange={handlePageChange}
+        />
+      )
     );
     expect(container).toMatchSnapshot();
   });
@@ -125,26 +241,24 @@ describe("DocumentResultsFooter component", () => {
   it("renders correctly if onDownloadClick not passed", () => {
     const handlePageChange = jest.fn();
     const { container } = render(
-      <ThemeProvider>
-        <DownloadListContext.Provider
-          value={{
-            list,
-            updateList: jest.fn(),
-            resetList: jest.fn(),
-            count: 4,
-            remainingSize: Infinity,
-            isLoading: false,
-            setIsLoading: jest.fn()
-          }}
-        >
-          <DocumentResultsFooter
-            page={1}
-            count={1}
-            onPageChange={handlePageChange}
-            isDownloadButton={false}
-          />
-        </DownloadListContext.Provider>
-      </ThemeProvider>
+      getWrappeedFooterComponent(
+        {
+          list,
+          updateList: jest.fn(),
+          resetList: jest.fn(),
+          count: 4,
+          size: 0,
+          remainingSize: Infinity,
+          isLoading: false,
+          setIsLoading: jest.fn()
+        },
+        <DocumentResultsFooter
+          page={1}
+          count={1}
+          onPageChange={handlePageChange}
+          isDownloadButton={false}
+        />
+      )
     );
     expect(container).toMatchSnapshot();
   });
@@ -152,25 +266,23 @@ describe("DocumentResultsFooter component", () => {
   it("should execute onDownloadClick correctly", async () => {
     const handlePageChange = jest.fn();
     render(
-      <ThemeProvider>
-        <DownloadListContext.Provider
-          value={{
-            list,
-            updateList: jest.fn(),
-            resetList: jest.fn(),
-            count: 3,
-            remainingSize: Infinity,
-            isLoading: false,
-            setIsLoading: jest.fn()
-          }}
-        >
-          <DocumentResultsFooter
-            page={1}
-            count={1}
-            onPageChange={handlePageChange}
-          />
-        </DownloadListContext.Provider>
-      </ThemeProvider>
+      getWrappeedFooterComponent(
+        {
+          list,
+          updateList: jest.fn(),
+          resetList: jest.fn(),
+          count: 3,
+          size: 10,
+          remainingSize: Infinity,
+          isLoading: false,
+          setIsLoading: jest.fn()
+        },
+        <DocumentResultsFooter
+          page={1}
+          count={1}
+          onPageChange={handlePageChange}
+        />
+      )
     );
 
     executeRecaptcha.mockReturnValue("token");
@@ -188,25 +300,23 @@ describe("DocumentResultsFooter component", () => {
     );
 
     render(
-      <ThemeProvider>
-        <DownloadListContext.Provider
-          value={{
-            list,
-            updateList: jest.fn(),
-            resetList: jest.fn(),
-            count: 3,
-            remainingSize: Infinity,
-            isLoading: false,
-            setIsLoading: jest.fn()
-          }}
-        >
-          <DocumentResultsFooter
-            page={1}
-            count={1}
-            onPageChange={handlePageChange}
-          />
-        </DownloadListContext.Provider>
-      </ThemeProvider>
+      getWrappeedFooterComponent(
+        {
+          list,
+          updateList: jest.fn(),
+          resetList: jest.fn(),
+          count: 3,
+          size: 10,
+          remainingSize: Infinity,
+          isLoading: false,
+          setIsLoading: jest.fn()
+        },
+        <DocumentResultsFooter
+          page={1}
+          count={1}
+          onPageChange={handlePageChange}
+        />
+      )
     );
 
     const downloadButton = await screen.findByText(
@@ -214,6 +324,33 @@ describe("DocumentResultsFooter component", () => {
     );
     fireEvent.click(downloadButton);
     expect(executeRecaptcha).not.toHaveBeenCalled();
+  });
+
+  it("renders sticky footer", () => {
+    render(
+      getWrappeedFooterComponent(
+        {
+          list,
+          updateList: jest.fn(),
+          resetList: jest.fn(),
+          count: 3,
+          size: 0,
+          remainingSize: Infinity,
+          isLoading: false,
+          setIsLoading: jest.fn()
+        },
+        <DocumentResultsFooter
+          page={1}
+          count={1}
+          onPageChange={jest.fn()}
+          sticky
+        />
+      )
+    );
+
+    expect(screen.getByTestId("document-results-footer")).toHaveStyle({
+      position: "sticky"
+    });
   });
 
   describe("handleDownloadClick", () => {
@@ -225,8 +362,8 @@ describe("DocumentResultsFooter component", () => {
       await handleDownloadClick(
         list,
         { isPreviewMode: false, documentDownloadEndpoint: undefined } as Config,
-        token,
-        resetList
+        resetList,
+        token
       );
 
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
@@ -246,8 +383,8 @@ describe("DocumentResultsFooter component", () => {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         } as Config,
-        token,
-        resetList
+        resetList,
+        token
       );
 
       await waitFor(() =>
@@ -299,8 +436,8 @@ describe("DocumentResultsFooter component", () => {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         } as Config,
-        undefined,
         resetList,
+        undefined,
         qaAuthToken
       );
 
@@ -351,8 +488,8 @@ describe("DocumentResultsFooter component", () => {
           isPreviewMode: false,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         } as Config,
-        token,
-        resetList
+        resetList,
+        token
       );
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
     });
@@ -366,13 +503,13 @@ describe("DocumentResultsFooter component", () => {
           isPreviewMode: true,
           documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
         } as Config,
-        token,
-        resetList
+        resetList,
+        token
       );
 
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
       expect(window.alert).toHaveBeenCalledWith(
-        "You cannot download documents on the preview enviornment."
+        "You cannot download documents on the preview environment."
       );
       expect(resetList).toHaveBeenCalledTimes(1);
     });
@@ -382,25 +519,23 @@ describe("DocumentResultsFooter component", () => {
     it("should hide pagination when page size is 25 or less(PageCount=1)", () => {
       const handlePageChange = jest.fn();
       render(
-        <ThemeProvider>
-          <DownloadListContext.Provider
-            value={{
-              list,
-              updateList: jest.fn(),
-              resetList: jest.fn(),
-              count: 3,
-              remainingSize: Infinity,
-              isLoading: false,
-              setIsLoading: jest.fn()
-            }}
-          >
-            <DocumentResultsFooter
-              page={1}
-              count={1}
-              onPageChange={handlePageChange}
-            />
-          </DownloadListContext.Provider>
-        </ThemeProvider>
+        getWrappeedFooterComponent(
+          {
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 3,
+            size: 0,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          },
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        )
       );
       expect(screen.queryByTestId("pagination-root")).not.toBeInTheDocument();
     });
@@ -409,27 +544,229 @@ describe("DocumentResultsFooter component", () => {
       const handlePageChange = jest.fn();
 
       render(
+        getWrappeedFooterComponent(
+          {
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 26,
+            size: 0,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          },
+          <DocumentResultsFooter
+            page={1}
+            count={2}
+            onPageChange={handlePageChange}
+          />
+        )
+      );
+      expect(screen.getByTestId("pagination-root")).toBeInTheDocument();
+    });
+
+    it("should show pagination when page size is more than 25(PageCount>1) and the footer is sticky", () => {
+      const handlePageChange = jest.fn();
+
+      render(
+        getWrappeedFooterComponent(
+          {
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 26,
+            size: 0,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          },
+          <DocumentResultsFooter
+            page={1}
+            count={2}
+            onPageChange={handlePageChange}
+            sticky
+          />
+        )
+      );
+      expect(screen.getByTestId("document-results-footer")).toHaveStyle({
+        position: "sticky"
+      });
+      expect(screen.getByTestId("pagination-root")).toBeInTheDocument();
+    });
+  });
+
+  describe("Select all checkbox", () => {
+    const downloadListProps = {
+      list,
+      updateList: jest.fn(),
+      resetList: jest.fn(),
+      count: 26,
+      size: 0,
+      remainingSize: Infinity,
+      isLoading: false,
+      setIsLoading: jest.fn()
+    };
+
+    const footerProps = {
+      page: 1,
+      count: 2,
+      onPageChange: jest.fn(),
+      sticky: true
+    };
+
+    const useShowMobileSpy = jest.spyOn(utils, "useShowMobileTable");
+
+    it("should render select all when mobile view", () => {
+      useShowMobileSpy.mockReturnValueOnce({
+        showMobileTable: true,
+        handleTableSizeChange: jest.fn(),
+        ref: null
+      });
+
+      render(
+        getWrappeedFooterComponent(
+          {
+            ...downloadListProps
+          },
+          <DocumentResultsFooter {...footerProps} />
+        )
+      );
+
+      expect(
+        screen.getByTestId("document-table-select-all-footer-checkbox")
+      ).toBeInTheDocument();
+    });
+
+    it("should hide select all when desktop", () => {
+      useShowMobileSpy.mockReturnValueOnce({
+        showMobileTable: false,
+        handleTableSizeChange: jest.fn(),
+        ref: null
+      });
+
+      render(
+        getWrappeedFooterComponent(
+          {
+            ...downloadListProps
+          },
+          <DocumentResultsFooter {...footerProps} />
+        )
+      );
+      expect(
+        screen.queryByTestId("document-table-select-all-footer-checkbox")
+      ).not.toBeInTheDocument();
+    });
+
+    it("should select all table checkbox", () => {
+      useShowMobileSpy.mockReturnValueOnce({
+        showMobileTable: true,
+        handleTableSizeChange: jest.fn(),
+        ref: null
+      });
+
+      const selectedAllState = {
+        isSelectedAll: false,
+        docsCount: 0,
+        doesHaveLinkedDocuments: false
+      };
+
+      const setSelectAllState = jest.fn();
+
+      render(
         <ThemeProvider>
           <DownloadListContext.Provider
             value={{
-              list,
-              updateList: jest.fn(),
-              resetList: jest.fn(),
-              count: 26,
-              remainingSize: Infinity,
-              isLoading: false,
-              setIsLoading: jest.fn()
+              ...downloadListProps
             }}
           >
-            <DocumentResultsFooter
-              page={1}
-              count={2}
-              onPageChange={handlePageChange}
-            />
+            <DocumentContext.Provider
+              value={{ selectedAllState, setSelectAllState }}
+            >
+              <DocumentResultsFooter {...footerProps} />
+            </DocumentContext.Provider>
           </DownloadListContext.Provider>
         </ThemeProvider>
       );
-      expect(screen.getByTestId("pagination-root")).toBeInTheDocument();
+
+      const checkbox = screen.queryByTestId(
+        "document-table-select-all-footer-checkbox"
+      );
+
+      fireEvent.click(checkbox);
+
+      expect(setSelectAllState).toHaveBeenCalled();
+    });
+
+    it("select all disabled when no linkedDocs", () => {
+      useShowMobileSpy.mockReturnValueOnce({
+        showMobileTable: true,
+        handleTableSizeChange: jest.fn(),
+        ref: null
+      });
+
+      const selectedAllState = {
+        isSelectedAll: false,
+        docsCount: 0,
+        doesHaveLinkedDocuments: true
+      };
+
+      render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              ...downloadListProps
+            }}
+          >
+            <DocumentContext.Provider
+              value={{ selectedAllState, setSelectAllState: jest.fn() }}
+            >
+              <DocumentResultsFooter {...footerProps} />
+            </DocumentContext.Provider>
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+
+      const checkbox = screen.getByRole("checkbox");
+
+      const selectAllButton = screen.getByTestId(
+        "document-table-select-all-footer-button"
+      );
+
+      expect(checkbox).toBeDisabled();
+      expect(selectAllButton).toBeDisabled();
+    });
+    it("should call clean up", () => {
+      const resetList = jest.fn();
+
+      const selectedAllState = {
+        isSelectedAll: false,
+        docsCount: 0,
+        doesHaveLinkedDocuments: false
+      };
+
+      const setSelectAllState = jest.fn();
+
+      const { unmount } = render(
+        <ThemeProvider>
+          <DownloadListContext.Provider
+            value={{
+              ...downloadListProps,
+              resetList
+            }}
+          >
+            <DocumentContext.Provider
+              value={{ selectedAllState, setSelectAllState }}
+            >
+              <DocumentResultsFooter {...footerProps} />
+            </DocumentContext.Provider>
+          </DownloadListContext.Provider>
+        </ThemeProvider>
+      );
+
+      unmount();
+
+      expect(setSelectAllState).toHaveBeenCalled();
+      expect(resetList).toHaveBeenCalled();
     });
   });
 });

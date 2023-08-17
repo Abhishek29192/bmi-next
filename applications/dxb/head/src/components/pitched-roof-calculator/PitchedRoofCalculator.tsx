@@ -1,12 +1,17 @@
-import { ContainerDialog, Logo, useIsClient } from "@bmi-digital/components";
+import { ContainerDialog, useIsClient } from "@bmi-digital/components";
 import { BMI as brandLogo } from "@bmi-digital/components/logo";
-import { LinearProgress } from "@mui/material";
 import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import ProgressIndicator from "../ProgressIndicator";
 import { AnalyticsContext, OnAnalyticsEvent } from "./helpers/analytics";
-import styles from "./PitchedRoofCalculator.module.scss";
 import { CalculatorConfig, CalculatorSteps } from "./types";
+import {
+  StyledSpinner,
+  StyledContainerDialog,
+  classes,
+  StyledLogo,
+  StyledLinearProgress
+} from "./PitchedRoofCalculator.styles";
 
 const PitchedRoofCalculatorSteps = React.lazy(
   () => import("./_PitchedRoofCalculatorSteps")
@@ -62,14 +67,14 @@ const PitchedRoofCalculator = ({
   const progress = stepProgress[selected];
 
   const loading = (
-    <div className={styles["spinnerContainer"]}>
-      <ProgressIndicator size={40} className={styles["spinner"]} />
-    </div>
+    <StyledSpinner>
+      <ProgressIndicator size={40} />
+    </StyledSpinner>
   );
 
   return (
     <AnalyticsContext.Provider value={pushEvent}>
-      <ContainerDialog
+      <StyledContainerDialog
         color={
           selected === CalculatorSteps.YourSolutionContains ? "white" : "pearl"
         }
@@ -84,22 +89,17 @@ const PitchedRoofCalculator = ({
           onClose();
         }}
         maxWidth="xl"
-        className={styles["PitchedRoofCalculator"]}
-        containerClassName={styles["dialogContent"]}
+        containerClassName={classes.dialogContent}
         allowOverflow={false}
         onBackdropClick={() => {
           // Disabling close on backdrop click
         }}
       >
-        <ContainerDialog.Header className={styles["ModalHeader"]}>
-          <Logo source={brandLogo} className={styles["logo"]} />
-          <LinearProgress
-            value={progress}
-            variant="determinate"
-            className={styles["progressBar"]}
-          />
+        <ContainerDialog.Header className={classes.modalHeader}>
+          <StyledLogo source={brandLogo} />
+          <StyledLinearProgress value={progress} variant="determinate" />
         </ContainerDialog.Header>
-        <div className={styles["dialogBody"]}>
+        <div className={classes.dialogBody}>
           {isClient ? (
             <Suspense fallback={loading}>
               <PitchedRoofCalculatorSteps
@@ -111,7 +111,7 @@ const PitchedRoofCalculator = ({
             </Suspense>
           ) : null}
         </div>
-      </ContainerDialog>
+      </StyledContainerDialog>
     </AnalyticsContext.Provider>
   );
 };

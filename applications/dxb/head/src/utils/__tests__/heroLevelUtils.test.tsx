@@ -1,6 +1,6 @@
 import React from "react";
 import { Data as ContentfulImageData } from "../../components/Image";
-import { Data as LinkData, DataTypeEnum } from "../../components/Link";
+import { DataTypeEnum, Data as LinkData } from "../../components/Link";
 import Video, { ContentfulVideoData } from "../../components/Video";
 import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
 
@@ -47,6 +47,9 @@ const featureVideo: ContentfulVideoData = {
 };
 
 describe("generateHeroLevel test", () => {
+  it("returns undefined if heroType is null", () => {
+    expect(generateHeroLevel(null, mockBreadCrumbs)).toBeUndefined();
+  });
   it("test hero utils with levels types", () => {
     expect(generateHeroLevel("Level 1", mockBreadCrumbs)).toBe(1);
     expect(generateHeroLevel("Level 2", mockBreadCrumbs)).toBe(2);
@@ -91,7 +94,7 @@ describe("generateHeroProps test", () => {
       })
     );
 
-    expect(result.media.props).toEqual({ ...featuredMedia, size: "cover" });
+    expect(result.media!.props).toEqual({ ...featuredMedia, size: "cover" });
 
     expect((result.cta as React.ReactElement).props).toEqual(
       expect.objectContaining({

@@ -4,6 +4,7 @@ export type Data = {
   metaTitle: string | null;
   metaDescription: string | null;
   noIndex: boolean | null;
+  sameAs?: string | null;
 };
 
 export const query = graphql`
@@ -11,5 +12,6 @@ export const query = graphql`
     metaTitle
     metaDescription
     noIndex
+    sameAs
   }
 `;

@@ -21,7 +21,7 @@
     "postinstall": "if-env GATSBY_CLOUD=true && run compile || echo 'do nothing'"
   },
   "dependencies": {
-    "@bmi-digital/components": "^1.33.8",
+    "@bmi-digital/components": "^1.49.0",
     "@bmi-digital/react-pdf-maker": "^1.6.0",
     "@bmi-digital/styles": "^1.6.0",
     "@bmi/gatsby-plugin-material-ui": "workspace:*",
@@ -34,7 +34,6 @@
     "gatsby": "^5.9.1",
     "gatsby-plugin-react-helmet": "^6.9.0",
     "gatsby-plugin-react-svg": "^3.3.0",
-    "gatsby-plugin-sass": "^6.9.0",
     "gatsby-plugin-typescript": "^5.9.0",
     "graphql": "^16.6.0",
     "react": "^18.2.0",

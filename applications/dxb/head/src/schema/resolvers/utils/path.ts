@@ -11,7 +11,7 @@ export type Path = {
 export const getUrlFromPath = (path: Path) => {
   const queryParams = path
     .filter(({ queryParams }) => queryParams)
-    .map(({ queryParams }) => queryParams.replace("?", ""))
+    .map(({ queryParams }) => queryParams?.replace("?", ""))
     .join("&");
 
   const finalUrl = path
@@ -34,22 +34,22 @@ const getPath = async (
     return [];
   }
 
-  const site = await context.nodeModel.getNodeById({
+  const site = await context.nodeModel.getNodeById<Node>({
     // TODO: Handle the case when a page belongs to multiple sites.
     id: page.site___NODE[0],
     type: "ContentfulSite"
   });
 
-  if (!site.menuNavigation___NODE || !site.menuNavigation___NODE.length) {
+  if (!site?.menuNavigation___NODE || !site.menuNavigation___NODE.length) {
     return [];
   }
 
-  const menuNavigation = await context.nodeModel.getNodeById({
+  const menuNavigation = await context.nodeModel.getNodeById<Node>({
     id: site.menuNavigation___NODE,
     type: "ContentfulNavigation"
   });
 
-  if (!menuNavigation.links___NODE || !menuNavigation.links___NODE.length) {
+  if (!menuNavigation?.links___NODE || !menuNavigation.links___NODE.length) {
     return [];
   }
 
@@ -85,7 +85,7 @@ const getPath = async (
 
     const links = await Promise.all(
       items.map((linkId) =>
-        context.nodeModel.getNodeById({
+        context.nodeModel.getNodeById<Node>({
           // TODO: Handle the case when a page belongs to multiple sites.
           id: linkId
         })
@@ -109,7 +109,7 @@ const getPath = async (
 
       if (type === "ContentfulNavigation") {
         const { links___NODE: linkIds, link___NODE: linkId } = item;
-        const link = await context.nodeModel.getNodeById({
+        const link = await context.nodeModel.getNodeById<Node>({
           id: linkId,
           type: "ContentfulLink"
         });
@@ -117,7 +117,7 @@ const getPath = async (
 
         if (pathItem && pathItem.id === page.id) {
           pageIdToPathMap[page.id] = path.concat(
-            pathItem || { id: item.id, label: item.label }
+            pathItem || { id: item?.id, label: item?.label }
           );
 
           return pageIdToPathMap[page.id];
@@ -125,7 +125,7 @@ const getPath = async (
 
         await __helper(
           linkIds,
-          path.concat(pathItem || { id: item.id, label: item.label })
+          path.concat(pathItem || { id: item?.id, label: item?.label })
         );
       }
     }
@@ -144,7 +144,7 @@ export const resolvePath = async (
   const { id, title: label, slug, parentPage___NODE } = source;
 
   if (parentPage___NODE) {
-    const parentPage = await context.nodeModel.getNodeById({
+    const parentPage = await context?.nodeModel.getNodeById<Node>({
       id: parentPage___NODE
     });
     const path = await resolvePath(parentPage, undefined, context);
@@ -153,9 +153,9 @@ export const resolvePath = async (
     if (!path || !path.length) {
       return [
         {
-          id: parentPage.id,
-          label: parentPage.title,
-          slug: parentPage.slug
+          id: parentPage?.id,
+          label: parentPage?.title,
+          slug: parentPage?.slug
         },
         pageItem
       ];

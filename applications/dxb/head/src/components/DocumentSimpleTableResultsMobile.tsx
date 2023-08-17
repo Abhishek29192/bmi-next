@@ -1,8 +1,8 @@
 import { DownloadList, DownloadListContextType } from "@bmi-digital/components";
 import classnames from "classnames";
 import { filesize } from "filesize";
-import React from "react";
-import { microCopy } from "../constants/microCopies";
+import React, { forwardRef } from "react";
+import { microCopy } from "@bmi/microcopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
 import {
   getFileSizeByDocumentType,
@@ -133,7 +133,7 @@ const ListItem = ({
           <ActionBtnWrapper>
             <CopyToClipboard
               id={document.id}
-              url={getFileUrlByDocumentType(document)}
+              url={getFileUrlByDocumentType(document) || ""}
               title={document.title}
             />
           </ActionBtnWrapper>
@@ -153,26 +153,32 @@ const ListItem = ({
   );
 };
 
-export const DocumentSimpleTableResultsMobile = ({
-  documents,
-  headers,
-  selectedDocuments,
-  titleField
-}: ListProps): React.ReactElement => {
-  return (
-    <div>
-      {documents.map((document) => {
-        const isSelected = Boolean(selectedDocuments[getUniqueId(document)]);
-        return (
-          <ListItem
-            headers={headers}
-            document={document}
-            key={document.id}
-            isSelected={isSelected}
-            titleField={titleField}
-          />
-        );
-      })}
-    </div>
-  );
-};
+export const DocumentSimpleTableResultsMobile = forwardRef<
+  HTMLDivElement,
+  ListProps
+>(
+  (
+    { documents, headers, selectedDocuments, titleField },
+    ref
+  ): React.ReactElement => {
+    return (
+      <div ref={ref}>
+        {documents.map((document) => {
+          const isSelected = Boolean(selectedDocuments[getUniqueId(document)]);
+          return (
+            <ListItem
+              headers={headers}
+              document={document}
+              key={document.id}
+              isSelected={isSelected}
+              titleField={titleField}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+);
+
+DocumentSimpleTableResultsMobile.displayName =
+  "DocumentSimpleTableResultsMobile";

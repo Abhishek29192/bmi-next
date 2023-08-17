@@ -7,17 +7,21 @@ import { useSiteContext } from "./Site";
 
 type Props = {
   className?: string;
+  testId?: string;
 };
 
 const RecaptchaPrivacyLinks = (props: Props) => {
   const { countryCode } = useSiteContext();
-  const { className } = props;
-
+  const { className, testId } = props;
+  const availableTestId = testId ? { "data-testid": testId } : {};
   return useMemo(() => {
     const recaptchaContent: RecaptchaPolicyContentType =
       getRecaptchaPrivacyContent(countryCode);
     return (
-      <Typography className={className ? className : "RecaptchaPrivacyLinks"}>
+      <Typography
+        className={className ? className : "RecaptchaPrivacyLinks"}
+        {...availableTestId}
+      >
         {recaptchaContent.startText}
         <AnchorLink
           action={{

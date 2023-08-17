@@ -1,9 +1,10 @@
-import { Product } from "../../types/pim";
 import createProduct from "../../__tests__/helpers/ProductHelper";
+import { Product } from "../../types/pim";
 import { createSchemaOrgDataForPdpPage } from "../schemaOrgPDPpage";
 
 describe("createSchemaOrgDataForPdpPage", () => {
   it("should return minimal information for SchemaOrg", () => {
+    const siteUrl = "http://bmigroup.com";
     const product: Product = {
       approvalStatus: "approved",
       awardsAndCertificateDocuments: [],
@@ -16,7 +17,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
       classifications: [],
       code: "code",
       colour: null,
-      colourMicrocopy: null,
+      colourMicrocopy: undefined,
       colourFamily: null,
       description: "description",
       documents: [],
@@ -27,7 +28,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
       groups: [],
       guaranteesAndWarrantiesImages: [],
       guaranteesAndWarrantiesLinks: [],
-      masterImage: undefined,
+      masterImage: null,
       hashedCode: "id",
       isSampleOrderAllowed: false,
       materials: null,
@@ -38,7 +39,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
       specificationIframeUrl: null,
       techDrawings: [],
       textureFamily: null,
-      textureFamilyMicrocopy: null,
+      textureFamilyMicrocopy: undefined,
       variantAttribute: null,
       videos: [],
       weight: null,
@@ -49,10 +50,10 @@ describe("createSchemaOrgDataForPdpPage", () => {
       path: "/p/some-product-path",
       relatedProducts: [],
       productDocuments: [],
-      isVisualiserAvailable: null
+      isVisualiserAvailable: false
     };
 
-    const result = createSchemaOrgDataForPdpPage(product, "no");
+    const result = createSchemaOrgDataForPdpPage(siteUrl, product, "no");
 
     expect(result).toEqual({
       "@type": "Product",
@@ -70,16 +71,17 @@ describe("createSchemaOrgDataForPdpPage", () => {
       potentialAction: undefined,
       productID: "code",
       size: undefined,
-      url: "/no/p/some-product-path/",
+      url: "http://bmigroup.com/no/p/some-product-path/",
       weight: undefined,
       width: undefined
     });
   });
 
   it("should return all information for schemaOrg if all data exists", () => {
+    const siteUrl = "http://bmigroup.com";
     const product: Product = createProduct();
 
-    const result = createSchemaOrgDataForPdpPage(product, "no");
+    const result = createSchemaOrgDataForPdpPage(siteUrl, product, "no");
 
     expect(result).toEqual({
       "@type": "Product",
@@ -103,7 +105,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
       pattern: "texture-family",
       productID: "code",
       size: "10symbol",
-      url: "/no/p/path/",
+      url: "http://bmigroup.com/no/p/path/",
       weight: {
         "@type": "QuantitativeValue",
         value: "9",

@@ -217,6 +217,7 @@ export type RelatedProduct = Pick<
   | "textureFamily"
   | "name"
   | "path"
+  | "goodBetterBest"
 > & {
   groups: readonly FirestoreCategoryGroup[];
 };
@@ -290,6 +291,7 @@ export type RelatedSystem = Pick<
   | "path"
   | "scoringWeight"
   | "shortDescription"
+  | "goodBetterBest"
 > & {
   brand: Pick<Brand, "code"> | null;
 };
@@ -305,9 +307,9 @@ export type ProductFilterOption = {
 };
 
 export type ProductFilter = {
-  filterCode: string | undefined;
+  filterCode: string;
   label: string;
-  name: string | null;
+  name: string;
   options: ProductFilterOption[];
   value?: string[];
 };

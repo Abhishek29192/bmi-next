@@ -1,15 +1,12 @@
-import { Container } from "@bmi-digital/components";
 import React from "react";
-import styles from "./Container.module.scss";
+import { StyledContainer } from "./styles/ContainerStyles";
 
 type Props = {
   children?: React.ReactNode;
 };
 
 const BMIContainer = ({ children }: Props) => {
-  return (
-    <Container className={styles.Container}>{!!children && children}</Container>
-  );
+  return <StyledContainer>{!!children && children}</StyledContainer>;
 };
 
 export default BMIContainer;

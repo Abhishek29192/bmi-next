@@ -14,7 +14,8 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
       >
         <div
           class=" css-n5y371"
-          id="bmi-hubspot-form-no-id"
+          data-testid="hubspot-form-Test-form"
+          id="bmi-hubspot-form-form-1"
         />
       </div>
     </div>
@@ -36,7 +37,8 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
       >
         <div
           class=" css-n5y371"
-          id="bmi-hubspot-form-no-id"
+          data-testid="hubspot-form-Test-form"
+          id="bmi-hubspot-form-form-1"
         />
       </div>
     </div>
@@ -58,7 +60,8 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
       >
         <div
           class=" css-n5y371"
-          id="bmi-hubspot-form-no-id"
+          data-testid="hubspot-form-Test-form"
+          id="bmi-hubspot-form-form-1"
         />
       </div>
     </div>
@@ -161,7 +164,7 @@ exports[`FormSection component renders correctly 1`] = `
                     aria-hidden="true"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
                     readonly=""
-                    style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding: 0px; width: 100%;"
+                    style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding-top: 0px; padding-bottom: 0px; width: 100%;"
                     tabindex="-1"
                   />
                   <fieldset
@@ -243,7 +246,7 @@ exports[`FormSection component renders correctly 1`] = `
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   >
                     <input
                       class="PrivateSwitchBase-input css-1m9pwf3"
@@ -282,7 +285,7 @@ exports[`FormSection component renders correctly 1`] = `
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-7ca4x2-MuiTypography-root"
                   data-testid="typography"
                 >
                   CheckboxGroup
@@ -294,7 +297,7 @@ exports[`FormSection component renders correctly 1`] = `
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -331,7 +334,7 @@ exports[`FormSection component renders correctly 1`] = `
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -368,7 +371,7 @@ exports[`FormSection component renders correctly 1`] = `
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -566,7 +569,7 @@ exports[`FormSection component renders correctly 1`] = `
               >
                 <div>
                   <label
-                    for="upload"
+                    for="form-1-upload"
                   >
                     <span
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
@@ -594,8 +597,8 @@ exports[`FormSection component renders correctly 1`] = `
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
                     class="Upload-input"
-                    data-testid="upload"
-                    id="upload"
+                    data-testid="form-1-upload"
+                    id="form-1-upload"
                     multiple=""
                     type="file"
                   />
@@ -606,7 +609,9 @@ exports[`FormSection component renders correctly 1`] = `
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 5.2MB
                   </p>
                 </div>
-                <div />
+                <div
+                  data-testid="upload-files-list"
+                />
               </div>
             </div>
             <div
@@ -660,7 +665,7 @@ exports[`FormSection component renders correctly 1`] = `
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   >
                     <input
                       class="PrivateSwitchBase-input css-1m9pwf3"
@@ -704,7 +709,7 @@ exports[`FormSection component renders correctly 1`] = `
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   >
                     <input
                       class="PrivateSwitchBase-input css-1m9pwf3"
@@ -776,7 +781,7 @@ exports[`FormSection component renders correctly 1`] = `
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -788,7 +793,7 @@ exports[`FormSection component renders correctly 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -820,7 +825,8 @@ exports[`FormSection component renders correctly for dialog 1`] = `
       >
         <div
           class="FormSection-dialog css-n5y371"
-          id="bmi-hubspot-form-no-id"
+          data-testid="hubspot-form-Test-form"
+          id="bmi-hubspot-form-section-1"
         />
       </div>
     </div>
@@ -859,7 +865,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   >
                     <input
                       class="PrivateSwitchBase-input css-1m9pwf3"
@@ -885,18 +891,20 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   <span
                     class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                   >
-                    I agree with BMI's 
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                      data-testid="label-Data-Protection-Policy-anchor-link"
-                      href="https://google.co.uk"
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      <span>
-                        Data Protection Policy
-                      </span>
-                    </a>
+                    <div>
+                      I agree with BMI's 
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                        data-testid="label-Data-Protection-Policy-anchor-link"
+                        href="https://google.co.uk"
+                        rel="noopener"
+                        target="_blank"
+                      >
+                        <span>
+                          Data Protection Policy
+                        </span>
+                      </a>
+                    </div>
                   </span>
                 </label>
               </div>
@@ -912,7 +920,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   >
                     <input
                       class="PrivateSwitchBase-input css-1m9pwf3"
@@ -938,17 +946,19 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   <span
                     class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                   >
-                    I agree with BMI's 
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
-                      data-testid="label-Another-Data-Protection-Policy-anchor-link"
-                      href="https://www.bmigroup.com"
-                      target="_blank"
-                    >
-                      <span>
-                        Another Data Protection Policy
-                      </span>
-                    </a>
+                    <div>
+                      I agree with BMI's 
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                        data-testid="label-Another-Data-Protection-Policy-anchor-link"
+                        href="https://www.bmigroup.com"
+                        target="_blank"
+                      >
+                        <span>
+                          Another Data Protection Policy
+                        </span>
+                      </a>
+                    </div>
                   </span>
                 </label>
               </div>
@@ -994,7 +1004,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -1006,7 +1016,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -1055,7 +1065,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                 >
                   <span
-                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                    class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                   >
                     <input
                       class="PrivateSwitchBase-input css-1m9pwf3"
@@ -1122,7 +1132,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -1134,7 +1144,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -1266,7 +1276,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -1278,7 +1288,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -1431,7 +1441,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -1443,7 +1453,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -1489,7 +1499,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-7ca4x2-MuiTypography-root"
                   data-testid="typography"
                 >
                   Pizza
@@ -1501,7 +1511,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -1538,7 +1548,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -1575,7 +1585,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -1648,7 +1658,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
         >
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
@@ -1660,7 +1670,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
           </a>
            og 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
@@ -1706,7 +1716,7 @@ exports[`FormSection component test multiply options in a checkbox group without
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 CheckboxGroup-heading css-1o02bdp-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-7ca4x2-MuiTypography-root"
                   data-testid="typography"
                 >
                   Pizza
@@ -1718,7 +1728,7 @@ exports[`FormSection component test multiply options in a checkbox group without
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -1755,7 +1765,7 @@ exports[`FormSection component test multiply options in a checkbox group without
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -1792,7 +1802,7 @@ exports[`FormSection component test multiply options in a checkbox group without
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -1865,7 +1875,7 @@ exports[`FormSection component test multiply options in a checkbox group without
         >
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
@@ -1877,7 +1887,7 @@ exports[`FormSection component test multiply options in a checkbox group without
           </a>
            og 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
@@ -1924,7 +1934,7 @@ exports[`FormSection component test upload input with large file 1`] = `
               >
                 <div>
                   <label
-                    for="upload"
+                    for="form-1-upload"
                   >
                     <span
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
@@ -1952,8 +1962,8 @@ exports[`FormSection component test upload input with large file 1`] = `
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
                     class="Upload-input"
-                    data-testid="upload"
-                    id="upload"
+                    data-testid="form-1-upload"
+                    id="form-1-upload"
                     multiple=""
                     type="file"
                   />
@@ -1964,7 +1974,9 @@ exports[`FormSection component test upload input with large file 1`] = `
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
                   </p>
                 </div>
-                <div>
+                <div
+                  data-testid="upload-files-list"
+                >
                   <div
                     class="css-1yhtgkl"
                     data-testid="test-file"
@@ -1989,21 +2001,12 @@ exports[`FormSection component test upload input with large file 1`] = `
                       >
                         fileName
                       </p>
-                      <div
-                        class="css-13fv5in"
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-u3ssbz-MuiTypography-root"
+                        data-testid="typography"
                       >
-                        <span
-                          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-vgehtg-MuiLinearProgress-root"
-                          role="progressbar"
-                        >
-                          <span
-                            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate css-1j02hlg-MuiLinearProgress-bar1"
-                          />
-                          <span
-                            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate css-j86yej-MuiLinearProgress-bar2"
-                          />
-                        </span>
-                      </div>
+                        MC: errors.maxSize
+                      </p>
                     </div>
                     <button
                       aria-label="Remove file"
@@ -2072,7 +2075,7 @@ exports[`FormSection component test upload input with large file 1`] = `
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -2084,7 +2087,7 @@ exports[`FormSection component test upload input with large file 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -2131,7 +2134,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
               >
                 <div>
                   <label
-                    for="upload"
+                    for="form-1-upload"
                   >
                     <span
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
@@ -2159,8 +2162,8 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
                     class="Upload-input"
-                    data-testid="upload"
-                    id="upload"
+                    data-testid="form-1-upload"
+                    id="form-1-upload"
                     multiple=""
                     type="file"
                   />
@@ -2171,7 +2174,9 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
                   </p>
                 </div>
-                <div />
+                <div
+                  data-testid="upload-files-list"
+                />
               </div>
             </div>
           </div>
@@ -2215,7 +2220,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -2227,7 +2232,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
@@ -2274,7 +2279,7 @@ exports[`FormSection component test upload input with small file 1`] = `
               >
                 <div>
                   <label
-                    for="upload"
+                    for="form-1-upload"
                   >
                     <span
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
@@ -2302,8 +2307,8 @@ exports[`FormSection component test upload input with small file 1`] = `
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
                     class="Upload-input"
-                    data-testid="upload"
-                    id="upload"
+                    data-testid="form-1-upload"
+                    id="form-1-upload"
                     multiple=""
                     type="file"
                   />
@@ -2314,7 +2319,9 @@ exports[`FormSection component test upload input with small file 1`] = `
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
                   </p>
                 </div>
-                <div>
+                <div
+                  data-testid="upload-files-list"
+                >
                   <div
                     class="css-1yhtgkl"
                     data-testid="test-file"
@@ -2422,7 +2429,7 @@ exports[`FormSection component test upload input with small file 1`] = `
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
@@ -2434,7 +2441,7 @@ exports[`FormSection component test upload input with small file 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"

@@ -38,7 +38,7 @@ describe("IframeSection component", () => {
     expect(container).toMatchSnapshot();
     expect(
       screen.getByTestId(`iframe-section-${replaceSpaces(data.title)}-iframe`)
-    ).toHaveAttribute("class", "iFrame");
+    ).toBeInTheDocument();
   });
   describe("when allowCookieClasses are populated", () => {
     describe("and single cookie class is provided", () => {

@@ -17,7 +17,7 @@ describe("getSocialMediaGtm", () => {
       ? `- ${certification.toLowerCase()} `
       : "";
 
-    const serviceType = serviceTypes.map(({ name }) => name).join(", ");
+    const serviceType = serviceTypes!.map(({ name }) => name).join(", ");
     const label = `${name} - ${address} ${roofProLevel}- ${serviceType} - ${channel}`;
 
     it("should return analytics information", () => {

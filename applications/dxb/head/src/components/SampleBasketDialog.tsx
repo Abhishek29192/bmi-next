@@ -8,7 +8,7 @@ import {
 import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import { Close, Delete as DeleteIcon } from "@mui/icons-material";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import {
   ACTION_TYPES,
   Sample,
@@ -38,7 +38,7 @@ const SampleBasketDialog = ({
   maximumSamples,
   toggleCart
 }: {
-  title: string;
+  title?: string | null;
   basketAction?: ClickableAction;
   maximumSamples: number | null;
   toggleCart?: () => void;

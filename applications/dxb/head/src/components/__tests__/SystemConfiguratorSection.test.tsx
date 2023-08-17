@@ -18,6 +18,7 @@ import SystemConfiguratorSection, {
   Data,
   QuestionData
 } from "../SystemConfiguratorSection";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 let executeRecaptchaMock = jest.fn();
 jest.mock("react-google-recaptcha-v3", () => {
@@ -107,7 +108,8 @@ const createAnswer = (answer?: Partial<AnswerData>): AnswerData => ({
       id: "result1",
       title: "Result1",
       description: null,
-      recommendedSystems: ["System_1", "System_2"]
+      recommendedSystems: ["System_1", "System_2"],
+      systemProperties: ["Key Features"]
     }
   },
   ...answer
@@ -129,7 +131,8 @@ const initialData: Data = {
   label: "System Configurator Section Label",
   description: null,
   locale: "en-US",
-  question: initialQuestion
+  question: initialQuestion,
+  systemProperties: ["Key Features"]
 };
 
 const question: QuestionData = {
@@ -139,14 +142,6 @@ const question: QuestionData = {
   description: null,
   answers: [answer1, answer2]
 };
-const getSiteContext = (countryCode = "no", nodeLocale = "en-GB") => ({
-  countryCode: countryCode,
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: nodeLocale,
-  homePage: {
-    title: "Home page title"
-  }
-});
 
 const pimSystem = {
   _source: {
@@ -269,9 +264,9 @@ describe("SystemConfiguratorSection component", () => {
       })
     );
 
-    const { container } = render(
+    render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext("no")}>
           <LocationProvider>
             <SystemConfiguratorSection data={initialData} />
           </LocationProvider>
@@ -287,7 +282,6 @@ describe("SystemConfiguratorSection component", () => {
     await screen.findByText(pimSystem._source.name);
     await screen.findByText(pimSystem._source.shortDescription);
 
-    expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
   });
 
@@ -634,7 +628,7 @@ describe("SystemConfiguratorSection component", () => {
       window.history.replaceState = jest.fn();
       const { container } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext("no")}>
             <LocationProvider history={history}>
               <SystemConfiguratorSection data={initialData} />
             </LocationProvider>
@@ -651,7 +645,7 @@ describe("SystemConfiguratorSection component", () => {
 
       expect(window.history.replaceState).toHaveBeenLastCalledWith(
         null,
-        null,
+        "",
         "/jest-test-page"
       );
       expect(container).toMatchSnapshot();
@@ -673,7 +667,7 @@ describe("SystemConfiguratorSection component", () => {
       window.history.replaceState = jest.fn();
       const { container } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext("no")}>
             <LocationProvider history={history}>
               <SystemConfiguratorSection data={initialData} />
             </LocationProvider>
@@ -724,7 +718,7 @@ describe("SystemConfiguratorSection component", () => {
 
     const { container } = render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext("no")}>
           <LocationProvider>
             <SystemConfiguratorSection data={initialData} />
           </LocationProvider>
@@ -793,7 +787,7 @@ describe("SystemConfiguratorSection component", () => {
 
     const { container } = render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext("no")}>
           <LocationProvider>
             <SystemConfiguratorSection data={initialData} />
           </LocationProvider>
@@ -837,7 +831,7 @@ describe("SystemConfiguratorSection component", () => {
     });
     const { container } = render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext("no")}>
           <LocationProvider>
             <SystemConfiguratorSection data={initialData} />
           </LocationProvider>

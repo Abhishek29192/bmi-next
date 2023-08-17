@@ -1,7 +1,7 @@
 import { RegionCode } from "@bmi-digital/components";
+import createImageData from "../__tests__/helpers/ImageDataHelper";
 import { DataTypeEnum } from "../components/Link";
 import { Data as SiteData } from "../components/Site";
-import createImageData from "../__tests__/helpers/ImageDataHelper";
 
 export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
   node_locale: "en-GB",

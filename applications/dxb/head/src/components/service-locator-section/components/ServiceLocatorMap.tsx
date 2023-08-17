@@ -1,24 +1,28 @@
 import {
-  Button,
-  Card,
-  CardContent,
   CardHeader,
   CompanyDetailProps,
   CompanyDetails,
   LatLngLiteral as GoogleLatLngLiteral,
   GoogleMap,
-  MarkerOptionsWithData,
-  Typography
+  MarkerOptionsWithData
 } from "@bmi-digital/components";
 import { Close as CloseIcon } from "@mui/icons-material";
 import classnames from "classnames";
-import React from "react";
-import { microCopy } from "../../../constants/microCopies";
-import Image from "../../Image";
+import React, { useState } from "react";
+import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../../Site";
 import { calculateCentre } from "../helpers";
 import { Service } from "../index";
-import styles from "../styles/ServiceLocatorSection.module.scss";
+import {
+  CloseBtn,
+  companyLogoClasses,
+  ProductDetailsCard,
+  ProductDetailsCardBody,
+  productDetailsCardClasses,
+  ProductDetailsCardSummary,
+  StyledServiceLocatorMap,
+  CompanyLogo
+} from "../styles/styles";
 
 export interface MapProps {
   initialMapCentre: { lat: number; lon: number };
@@ -45,61 +49,59 @@ export const ServiceLocatorMap = ({
   getCompanyDetails
 }: MapProps): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
+  const [newCentre, setNewCentre] = useState<GoogleLatLngLiteral>();
 
   return (
-    <div className={styles["map"]}>
+    <StyledServiceLocatorMap>
       <GoogleMap
-        center={calculateCentre(centre, initialMapCentre)}
+        center={calculateCentre(newCentre ?? centre, initialMapCentre)}
         markers={markers}
         onMarkerClick={handleMarkerClick}
         zoom={zoom}
+        selectedMarkerName={selectedRoofer && selectedRoofer.name}
+        passNewCenter={(c: google.maps.LatLng) => setNewCentre(c.toJSON())}
+        handleCloseCard={clearRooferAndResetMap}
       >
         {selectedRoofer && (
-          <Card
+          <ProductDetailsCard
             className={classnames(
-              styles["product-details-card"],
-              // eslint-disable-next-line security/detect-object-injection
-              selectedRoofer.companyLogo &&
-                styles["product-details-card--with_logo"]
+              selectedRoofer.companyLogo && productDetailsCardClasses.withLogo
             )}
             data-testid={`service-locator-service-details-card-${selectedRoofer.id}`}
           >
             <CardHeader
               avatar={
                 selectedRoofer.companyLogo && (
-                  <Image
-                    className={styles["company-logo--card"]}
+                  <CompanyLogo
+                    className={companyLogoClasses.card}
                     {...selectedRoofer.companyLogo}
                   />
                 )
               }
               title={selectedRoofer.name}
               action={
-                <Button
+                <CloseBtn
                   isIconButton
                   variant="text"
                   accessibilityLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
                   onClick={clearRooferAndResetMap}
-                  className={styles["product-details-card__close-button"]}
                 >
                   <CloseIcon />
-                </Button>
+                </CloseBtn>
               }
             />
-            <CardContent className={styles["product-details-card-body"]}>
+            <ProductDetailsCardBody>
               <CompanyDetails details={getCompanyDetails(selectedRoofer)}>
                 {selectedRoofer.summary && (
-                  <Typography
-                    className={styles["product-details-card-summary"]}
-                  >
+                  <ProductDetailsCardSummary>
                     {selectedRoofer.summary}
-                  </Typography>
+                  </ProductDetailsCardSummary>
                 )}
               </CompanyDetails>
-            </CardContent>
-          </Card>
+            </ProductDetailsCardBody>
+          </ProductDetailsCard>
         )}
       </GoogleMap>
-    </div>
+    </StyledServiceLocatorMap>
   );
 };

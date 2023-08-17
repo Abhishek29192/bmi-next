@@ -7,9 +7,8 @@ import React from "react";
 import Container from "../components/Container";
 import DescriptionCard from "../components/DescriptionCard";
 import OptionCard from "../components/OptionCard";
-import Page from "../components/Page";
-import pageStyles from "../components/Page.module.scss";
 import landing from "../images/landing.jpg";
+import { StyledPage } from "../components/styles/PageStyles";
 
 const VALUES_PARAM = "v";
 
@@ -27,12 +26,12 @@ const getLink = (page: string, values: Record<string, unknown>): string => {
 };
 
 const Home = () => (
-  <Page title="Bituman Flat Roof Estimator">
+  <StyledPage title="Bituman Flat Roof Estimator">
     <Hero
       title="Bitumen Flat Roof Estimator"
       level={1}
       media={<img src={landing} alt="Bitumen Flat Roof Estimator" />}
-      className={pageStyles.Hero}
+      className="hero"
     >
       Use this estimating tool to identify the best flat roof system for your
       project and calculate the product quantities that you&apos;ll need to
@@ -49,18 +48,12 @@ const Home = () => (
         }
       >
         <Grid>
-          <Link
-            to={getLink("sbs", { guarantee: "20" })}
-            className={pageStyles.link}
-          >
+          <Link to={getLink("sbs", { guarantee: "20" })} className="link">
             <Button>20 Year System</Button>
           </Link>
         </Grid>
         <Grid>
-          <Link
-            to={getLink("sbs", { guarantee: "15" })}
-            className={pageStyles.link}
-          >
+          <Link to={getLink("sbs", { guarantee: "15" })} className="link">
             <Button>15 Year System</Button>
           </Link>
         </Grid>
@@ -71,10 +64,7 @@ const Home = () => (
           "BMI Icopal APP Bitumen systems come in two colour finishes and offer a 15 year guarantee."
         }
       >
-        <Link
-          to={getLink("app", { guarantee: "15" })}
-          className={pageStyles.link}
-        >
+        <Link to={getLink("app", { guarantee: "15" })} className="link">
           <Button>15 Year System</Button>
         </Link>
       </OptionCard>
@@ -115,7 +105,7 @@ const Home = () => (
         </DescriptionCard>
       </div>
     </Container>
-  </Page>
+  </StyledPage>
 );
 
 export default Home;

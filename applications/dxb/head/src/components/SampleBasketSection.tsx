@@ -2,7 +2,7 @@ import { Button, Section } from "@bmi-digital/components";
 import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import { ShoppingCart } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import {
   ACTION_TYPES,
   SampleOrderElement,
@@ -16,7 +16,7 @@ import RichText from "./RichText";
 import { Data } from "./SampleBasketBase";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SampleBasketSection.module.scss";
+import { StyledCompleteButtonContainer } from "./styles/SampleBasketSection.styles";
 
 const formatSamples = (samples: SampleOrderElement[]) =>
   samples
@@ -82,11 +82,7 @@ const SampleBasketSection = ({
   );
   return (
     <>
-      <Section
-        backgroundColor="white"
-        className={styles["SampleBasketSection"]}
-        data-testid="sample-basket-section"
-      >
+      <Section backgroundColor="white" data-testid="sample-basket-section">
         <RichText document={description} />
         <SampleBasketSectionProducts />
         {!hasSamplesInTheBasket && <RichText document={emptyBasketMessage} />}
@@ -96,21 +92,27 @@ const SampleBasketSection = ({
             endIcon={<ArrowForwardIcon />}
             variant="outlined"
             action={basketCta.action}
+            data-testid="sample-basket-section-browse-product"
           >
             {browseProductsCTALabel}
           </Button>
         )}
         {!isCompleteFormShow && hasSamplesInTheBasket && (
-          <div className={styles["complete-button"]}>
-            <Button endIcon={<ShoppingCart />} onClick={handleCompleteClick}>
+          <StyledCompleteButtonContainer>
+            <Button
+              endIcon={<ShoppingCart />}
+              onClick={handleCompleteClick}
+              data-testid="sample-basket-section-complete-order"
+            >
               {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
             </Button>
-          </div>
+          </StyledCompleteButtonContainer>
         )}
       </Section>
       {isCompleteFormShow && hasSamplesInTheBasket && (
         <Section data-testid="sample-basket-section-with-samples">
           <FormSection
+            id="sample-basket-form"
             data={checkoutFormSection}
             backgroundColor="pearl"
             additionalValues={{

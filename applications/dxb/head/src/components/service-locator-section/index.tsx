@@ -4,16 +4,14 @@ import {
   GoogleApi,
   GeocoderResult as GoogleGeocoderResult,
   LatLngLiteral as GoogleLatLngLiteral,
-  Grid,
   Section,
-  Tabs,
   loadGoogleApi,
   replaceSpaces
 } from "@bmi-digital/components";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
-import { microCopy } from "../../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
 import { Data as ContentfulImageData } from "../Image";
 import RichText, { RichTextData } from "../RichText";
@@ -46,8 +44,15 @@ import {
   getTypesFromServices,
   sortServices
 } from "./helpers";
-import styles from "./styles/ServiceLocatorSection.module.scss";
-import { MapTabPanel, ResultListTabPanel } from "./styles/styles";
+
+import {
+  classes,
+  Body,
+  Controls,
+  MapTabPanel,
+  ResultListTabPanel,
+  StyledTabs
+} from "./styles/styles";
 
 export type Service = Omit<ServiceData, "companyLogo"> & {
   distance?: number;
@@ -176,12 +181,16 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     [selectedRoofer, pagedFilteredRoofers, showResultList]
   );
 
-  const handlePageChange = (_, pageNumber: number) => {
+  const handlePageChange = (
+    _: React.ChangeEvent<HTMLElement>,
+    pageNumber: number
+  ) => {
     setPagedFilteredRoofers(() => {
       const start = (pageNumber - 1) * PAGE_SIZE;
       const end = start + PAGE_SIZE;
       return filteredRoofers.slice(start, end);
     });
+    setSelectedRoofer(null);
     setPage(pageNumber);
   };
 
@@ -246,6 +255,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const microCopyPrefix = getMicroCopyPrefix(sectionType);
 
   const handleAutocompleteOnChange = (_, inputValue) => {
+    setSelectedRoofer(null);
     setShowResultList(true);
     setActiveSearchString(inputValue || "");
     if (inputValue) {
@@ -262,6 +272,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setUserAction(true);
     setShowResultList(true);
     updateActiveFilters({ serviceType: serviceType });
+    setSelectedRoofer(null);
   };
 
   const initialise = async () => {
@@ -347,7 +358,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   return (
     <Section
       backgroundColor="white"
-      className={styles["ServiceLocationSection"]}
       data-testid={`service-locator-section-${replaceSpaces(label)}`}
     >
       <GoogleApi.Provider value={googleApi}>
@@ -355,16 +365,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           <Section.Title>{label}</Section.Title>
         )}
         {body && (
-          <div className={styles["body"]}>
+          <Body>
             <RichText document={body} />
-          </div>
+          </Body>
         )}
-        <Grid
-          container
-          spacing={3}
-          alignItems="flex-end"
-          className={styles["controls"]}
-        >
+        <Controls container spacing={3} alignItems="flex-end">
           {shouldEnableSearch && (
             <SearchLocationBlock
               autocompleteLabel={nameSearchLabelKey}
@@ -383,17 +388,16 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               microCopyPrefix={microCopyPrefix}
             />
           )}
-        </Grid>
-        <Tabs
+        </Controls>
+        <StyledTabs
           initialValue="list"
-          className={styles["tabs"]}
           color="secondary"
           visibleUntil="lg"
           variant="fullWidth"
         >
           {showResultList && (
             <ResultListTabPanel
-              className={styles["tab-panel"]}
+              className={classes.tabPanel}
               heading={getMicroCopy(microCopy.FIND_A_ROOFER_LIST_LABEL)}
               index="list"
             >
@@ -411,7 +415,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             </ResultListTabPanel>
           )}
           <MapTabPanel
-            className={styles["tab-panel"]}
+            className={classes.tabPanel}
             heading={getMicroCopy(microCopy.FIND_A_ROOFER_MAP_LABEL)}
             index="map"
           >
@@ -426,7 +430,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               getCompanyDetails={getCompanyDetails}
             />
           </MapTabPanel>
-        </Tabs>
+        </StyledTabs>
       </GoogleApi.Provider>
     </Section>
   );

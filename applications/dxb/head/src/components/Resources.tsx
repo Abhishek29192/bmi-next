@@ -1,4 +1,5 @@
 import { graphql } from "gatsby";
+import { GoodBetterBestIcons } from "../types/GoodBetterBest";
 import type { Data as LinkData } from "../components/Link";
 import type { Data as SDPSpecificationNotesData } from "./ContentfulSpecificationNotes";
 import type { Data as ExploreBarData } from "./ExploreBar";
@@ -49,6 +50,9 @@ export type Data = {
   pdpSpecificationDescription: RichTextData | null;
   sdpSpecificationNotesCta: SDPSpecificationNotesData | null;
   documentDisplayFormat: DocumentDisplayFormatType | null;
+  gbbGoodIndicator?: GoodBetterBestIcons;
+  gbbBetterIndicator?: GoodBetterBestIcons;
+  gbbBestIndicator?: GoodBetterBestIcons;
 };
 
 export const query = graphql`

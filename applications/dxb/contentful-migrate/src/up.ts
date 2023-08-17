@@ -2,12 +2,8 @@ import { pathToFileURL } from "node:url";
 import "dotenv/config";
 import { runMigrationScripts } from "./migrationScripts.js";
 
-const {
-  CONTENTFUL_ENVIRONMENT,
-  MANAGEMENT_ACCESS_TOKEN,
-  MIGRATION_DRY_RUN,
-  SPACE_ID
-} = process.env;
+const { CONTENTFUL_ENVIRONMENT, MANAGEMENT_ACCESS_TOKEN, SPACE_ID } =
+  process.env;
 
 export const main = async () => {
   if (!SPACE_ID || !CONTENTFUL_ENVIRONMENT || !MANAGEMENT_ACCESS_TOKEN) {
@@ -19,8 +15,7 @@ export const main = async () => {
   await runMigrationScripts(
     SPACE_ID,
     CONTENTFUL_ENVIRONMENT,
-    MANAGEMENT_ACCESS_TOKEN,
-    MIGRATION_DRY_RUN === "true"
+    MANAGEMENT_ACCESS_TOKEN
   );
 };
 

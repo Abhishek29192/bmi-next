@@ -15,6 +15,7 @@ describe("createSample", () => {
       name: product.name,
       code: product.code,
       path: product.path,
+      goodBetterBest: undefined,
       image: "http://localhost:8000/image-main-source.jpg",
       colour: "colour",
       measurements: "6x7x8symbol",

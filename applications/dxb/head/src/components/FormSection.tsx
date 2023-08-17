@@ -15,18 +15,26 @@ import {
   SelectMenuItem,
   TextField,
   Typography,
-  Upload
+  Upload,
+  useIsClient
 } from "@bmi-digital/components";
 import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
 import logger from "@bmi-digital/functions-logger";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
+import uniqueId from "lodash-es/uniqueId";
 import fetch from "node-fetch";
-import React, { FormEvent, useCallback, useEffect, useState } from "react";
+import React, {
+  FormEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
+import { microCopy } from "@bmi/microcopies";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
-import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { isValidEmail } from "../utils/emailUtils";
 import getCookie from "../utils/getCookie";
@@ -35,7 +43,7 @@ import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
-import { Data as LinkData, isExternalUrl } from "./Link";
+import { isExternalUrl, Data as LinkData } from "./Link";
 import ProgressIndicator from "./ProgressIndicator";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
@@ -79,6 +87,7 @@ type InputTypes =
 export type InputWidthType = "full" | "half";
 
 export type InputType = {
+  formId?: string;
   label: string;
   name: string;
   options?: string;
@@ -103,11 +112,11 @@ export const convertMarkdownLinksToAnchorLinks = (
     return source;
   }
 
-  return matches.filter(Boolean).map((el) => {
+  return matches.filter(Boolean).map((el, index) => {
     const [match, label, link] = el;
     const { index: offset, input } = el;
     return (
-      <>
+      <div key={`hubspot-markdown-link${index}`}>
         {input.substring(0, offset)}
         <AnchorLink
           action={{ model: "htmlLink", href: link }}
@@ -118,12 +127,13 @@ export const convertMarkdownLinksToAnchorLinks = (
           {label}
         </AnchorLink>
         {input.substring(offset + match.length)}
-      </>
+      </div>
     );
   });
 };
 
 const Input = ({
+  formId,
   label,
   name,
   options,
@@ -132,6 +142,7 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
+  const { isClient } = useIsClient();
   const { gcpFormUploadEndpoint } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -176,7 +187,8 @@ const Input = ({
     case "upload":
       return (
         <Upload
-          id={name}
+          id={`${formId}-${name}`}
+          formId={formId}
           name={name}
           buttonLabel={label}
           isRequired={required}
@@ -226,7 +238,7 @@ const Input = ({
         <div>
           <Typography style={{ paddingBottom: "15px" }}>{label}</Typography>
           <RadioGroup name={name}>
-            {options.split(/, |,/).map((option, $i) => (
+            {options?.split(/, |,/).map((option, $i) => (
               <RadioGroup.Item key={$i} value={option}>
                 {option}
               </RadioGroup.Item>
@@ -248,7 +260,7 @@ const Input = ({
           <SelectMenuItem value={microCopy.FORM_NONE_SELECTION}>
             {getMicroCopy(microCopy.FORM_NONE_SELECTION)}
           </SelectMenuItem>
-          {options.split(/, |,/).map((option, $i) => {
+          {options?.split(/, |,/).map((option, $i) => {
             const [select, value] = option.split(/= |=/);
             return (
               <SelectMenuItem key={$i} value={value ? option : select}>
@@ -275,7 +287,7 @@ const Input = ({
           name={name}
           options={options}
           groupName={convertMarkdownLinksToAnchorLinks(label)}
-          isRequired={required}
+          isRequired={Boolean(required)}
           fieldIsRequiredError={getMicroCopy(
             microCopy.UPLOAD_FIELD_IS_REQUIRED
           )}
@@ -285,7 +297,9 @@ const Input = ({
       return (
         <>
           <Typography>
-            <span dangerouslySetInnerHTML={{ __html: label }}></span>
+            {isClient && (
+              <span dangerouslySetInnerHTML={{ __html: label }}></span>
+            )}
           </Typography>
           <HiddenInput name={name} value={label} />
         </>
@@ -294,7 +308,13 @@ const Input = ({
       return (
         <Checkbox
           name={name}
-          label={<span dangerouslySetInnerHTML={{ __html: label }}></span>}
+          label={
+            isClient ? (
+              <span dangerouslySetInnerHTML={{ __html: label }}></span>
+            ) : (
+              <span></span>
+            )
+          }
           isRequired={required}
         />
       );
@@ -326,20 +346,24 @@ const Input = ({
 };
 
 type FormInputs = {
+  formId?: string;
   inputs: InputType[];
 };
 
-export const FormInputs = ({ inputs }: FormInputs) => {
-  return (
-    <>
-      {inputs.map(({ width, name, ...props }, $i) => (
-        <Grid key={$i} xs={12} md={width === "full" ? 12 : 6}>
-          <Input name={name} data-testid={`form-input-${name}`} {...props} />
-        </Grid>
-      ))}
-    </>
-  );
-};
+export const FormInputs = ({ formId, inputs }: FormInputs) => (
+  <>
+    {inputs.map(({ width, name, ...props }) => (
+      <Grid key={`${formId}-${name}`} xs={12} md={width === "full" ? 12 : 6}>
+        <Input
+          formId={formId}
+          name={name}
+          data-testid={`form-input-${name}`}
+          {...props}
+        />
+      </Grid>
+    ))}
+  </>
+);
 
 const HubspotForm = ({
   id,
@@ -359,7 +383,7 @@ const HubspotForm = ({
   id: string;
   hubSpotFormGuid: string;
   backgroundColor: "pearl" | "white";
-  showTitle: boolean;
+  showTitle: boolean | null;
   title?: string;
   description?: RichTextData | React.ReactNode;
   onSuccess: FormSectionProps["onSuccess"];
@@ -370,8 +394,14 @@ const HubspotForm = ({
   isDialog?: boolean;
   hasNoPadding?: boolean;
 }) => {
-  const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
   const { hubSpotId } = useConfig();
+  const hubSpotFormID = useMemo(() => {
+    if (id.length > 0) {
+      return `bmi-hubspot-form-${id}`;
+    }
+
+    return `bmi-hubspot-form-${uniqueId(replaceSpaces(title))}`;
+  }, [id, title]);
 
   // Uses the HS script to bring in the form. This will create an iframe regardless
   // of styling options, but will only _use_ the iframe if it's _not_ raw HTML (empty
@@ -404,7 +434,7 @@ const HubspotForm = ({
             sampleIdsInput.value = additionalValues["samples"];
           } else {
             const hiddenInput =
-              iframeElement.contentWindow?.document.querySelector<HTMLInputElement>(
+              iframeElement?.contentWindow?.document.querySelector<HTMLInputElement>(
                 'input[name="sample_ids"]'
               );
             hiddenInput && (hiddenInput.value = additionalValues["samples"]);
@@ -433,7 +463,14 @@ const HubspotForm = ({
     return () => {
       window.removeEventListener("message", handleMessage);
     };
-  }, [additionalValues, onSuccess]);
+  }, [
+    additionalValues,
+    hubSpotFormID,
+    isDialog,
+    onFormLoadError,
+    onFormReady,
+    onSuccess
+  ]);
 
   return (
     <Section
@@ -454,6 +491,7 @@ const HubspotForm = ({
         </>
       )}
       <HubspotFormWrapper
+        data-testid={`hubspot-form-${replaceSpaces(title)}`}
         id={hubSpotFormID}
         className={classNames(isDialog && classes.dialog)}
       />
@@ -462,7 +500,7 @@ const HubspotForm = ({
 };
 
 type FormSectionProps = {
-  id?: string;
+  id: string;
   data: Data;
   backgroundColor: "pearl" | "white";
   additionalValues?: Record<string, string>;
@@ -472,7 +510,7 @@ type FormSectionProps = {
   onSuccess?: () => void;
   onFormReady?: (
     event: MessageEvent,
-    hsForm: HTMLIFrameElement | HTMLFormElement
+    hsForm?: HTMLIFrameElement | HTMLFormElement
   ) => void;
   onFormLoadError?: () => void;
   className?: string;
@@ -585,13 +623,16 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            getPathWithCountryCode(countryCode, successRedirect.linkedPage.path)
+            getPathWithCountryCode(
+              countryCode,
+              successRedirect.linkedPage?.path
+            )
         );
       } else {
         navigate("/");
       }
     } catch (error) {
-      logger.error({ message: error.message });
+      logger.error({ message: (error as Error).message });
     }
 
     setIsSubmitting(false);
@@ -633,7 +674,7 @@ const FormSection = ({
       }
     };
 
-    const getLegalOptions = (hsLegalFields) => {
+    const getLegalOptions = (hsLegalFields: { [key: string]: InputValue }) => {
       if (hsLegalFields["hs-legal-isLegitimateInterest"]) {
         return {
           legitimateInterest: {
@@ -689,13 +730,16 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            getPathWithCountryCode(countryCode, successRedirect.linkedPage.path)
+            getPathWithCountryCode(
+              countryCode,
+              successRedirect.linkedPage?.path
+            )
         );
       } else {
         navigate("/");
       }
     } catch (error) {
-      logger.error({ message: error.message });
+      logger.error({ message: (error as Error).message });
     }
 
     setIsSubmitting(false);
@@ -750,7 +794,7 @@ const FormSection = ({
           data-testid={dataTestId}
         >
           <Grid container spacing={3}>
-            <FormInputs inputs={inputs} />
+            <FormInputs formId={id} inputs={inputs} />
           </Grid>
           <Form.ButtonWrapper>
             <Form.SubmitButton
@@ -803,7 +847,6 @@ const FormSection = ({
     </Section>
   );
 };
-FormSection.Inputs = FormInputs;
 export default FormSection;
 
 export const query = graphql`

@@ -1,12 +1,15 @@
 import { Dialog } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import useStickyState from "../utils/sticky-state";
-import BrandLogo, { Logo } from "./BrandLogo";
+import { Logo } from "./BrandLogo";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
-import styles from "./styles/WelcomeDialog.module.scss";
+import {
+  StyledBrandLogo,
+  StyledContentArea
+} from "./styles/WelcomeDialog.styles";
 
 export type Data = {
   welcomeDialogTitle: string | null;
@@ -35,19 +38,17 @@ const WelcomeDialog = ({ data }: { data: Data }) => {
     <Dialog
       open={!dialogClose}
       onCloseClick={closeDialog}
-      className={styles["WelcomeDialog"]}
       data-testid="welcome-dialog"
     >
       <Dialog.Title hasUnderline>{welcomeDialogTitle}</Dialog.Title>
       <Dialog.Content>
-        <div className={styles["contentArea"]}>
+        <StyledContentArea>
           {welcomeDialogBrands && (
             <div data-testid="brandsContainer">
               {welcomeDialogBrands.map((brandName, index) => (
-                <BrandLogo
+                <StyledBrandLogo
                   key={`welcome-brand-${brandName}-${index}`}
                   brandName={brandName}
-                  className={styles["brand"]}
                   data-testid={`welcome-brand-${brandName}`}
                 />
               ))}
@@ -56,7 +57,7 @@ const WelcomeDialog = ({ data }: { data: Data }) => {
           <div>
             <RichText document={welcomeDialogBody} hasNoBottomMargin />
           </div>
-        </div>
+        </StyledContentArea>
       </Dialog.Content>
       <Dialog.Actions
         confirmLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}

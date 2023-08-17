@@ -88,9 +88,6 @@ describe("extract allowed filters tests", () => {
     });
   });
   describe("extract allowed features filters tests", () => {
-    it("should return empty object when null allow filters provided", () => {
-      expect(extractAllowedFeatures(null)).toEqual(new Map());
-    });
     it("should return empty object when empty allow filter by is provided", () => {
       expect(extractAllowedFeatures([])).toEqual(new Map());
     });

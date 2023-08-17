@@ -7,12 +7,15 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import { isValidEmail } from "../utils/emailUtils";
 import withGTM from "../utils/google-tag-manager";
 import FormSection, { Data as FormData } from "./FormSection";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SignupBlock.module.scss";
+import {
+  StyledIntegratedSignupBlock,
+  classes
+} from "./styles/SignupBlock.styles";
 
 export type Data = {
   __typename: "ContentfulSignupBlock";
@@ -49,6 +52,7 @@ const IntegratedSignupBlock = ({
   const onSuccess = () => {
     setFormSubmitted(true);
   };
+
   const onFormReady = (_, hsForm: HTMLFormElement) => {
     setEmail(hsForm.querySelector<HTMLInputElement>("input[type=email]").value);
     hsForm.querySelector<HTMLInputElement>("input[type=email]").oninput = (
@@ -80,7 +84,7 @@ const IntegratedSignupBlock = ({
   };
 
   return (
-    <div className={styles["SignupBlock"]}>
+    <StyledIntegratedSignupBlock>
       <SignupBlock
         title={title}
         description={description?.description}
@@ -107,12 +111,13 @@ const IntegratedSignupBlock = ({
           onCloseClick={handleDialogClose}
           data-testid={"signup-block-dialog"}
         >
-          <Dialog.Title hasUnderline className={styles["dialogTitle"]}>
+          <Dialog.Title hasUnderline className={classes.dialogTitle}>
             {" "}
             {title}{" "}
           </Dialog.Title>
           <Dialog.Content>
             <FormSection
+              id="sign-form"
               data={signupDialogContent}
               backgroundColor="white"
               isDialog
@@ -140,7 +145,7 @@ const IntegratedSignupBlock = ({
           />
         </Dialog>
       )}
-    </div>
+    </StyledIntegratedSignupBlock>
   );
 };
 

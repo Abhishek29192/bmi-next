@@ -7,7 +7,7 @@ import {
 import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Link } from "gatsby";
 import React from "react";
-import { microCopy } from "../constants/microCopies";
+import { microCopy } from "@bmi/microcopies";
 import DefaultImage from "../images/DefaultImage.svg";
 import { useSearchParams } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
@@ -15,6 +15,7 @@ import { getPathWithCountryCode } from "../utils/path";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import { FooterAnchorLink } from "./styles/ProductGridViewStyles";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 export type Props = {
   products: ReadonlyArray<ESProduct>;
@@ -62,19 +63,24 @@ const ProductsGridView = ({
         const uniqueClassifications = variant.subTitle || "";
         const moreOptionsAvailable =
           variant.all_variants?.length > 1 &&
-          getMicroCopy("plp.product.moreOptionsAvailable");
+          getMicroCopy(microCopy.PLP_PRODUCT_MORE_OPTIONS_AVAILABLE);
         return (
-          <Grid key={`${product.code}-${variant.code}`} xs={12} md={6} lg={4}>
+          <Grid key={`${product?.code}-${variant.code}`} xs={12} md={6} lg={4}>
             <GTMOverviewCard
-              title={product.name}
+              title={product?.name}
               titleVariant="h5"
               subtitle={uniqueClassifications}
               subtitleVariant="h6"
+              tag={
+                <GoodBetterBestIndicator
+                  indicatorType={variant.goodBetterBest}
+                />
+              }
               media={
                 mainImage ? (
                   <img
                     src={mainImage}
-                    alt={`${uniqueClassifications} ${product.name}`}
+                    alt={`${uniqueClassifications} ${product?.name}`}
                   />
                 ) : (
                   <DefaultImage />

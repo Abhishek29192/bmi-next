@@ -244,6 +244,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -393,6 +394,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -535,6 +537,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -663,6 +666,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -813,6 +817,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -963,6 +968,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -1113,6 +1119,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -1263,6 +1270,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -1413,6 +1421,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -1563,6 +1572,7 @@ describe("compileElasticSearchQuery function", () => {
           "field": "code.keyword",
           "inner_hits": {
             "name": "all_variants",
+            "size": 100,
           },
         },
         "from": 0,
@@ -1655,6 +1665,7 @@ describe("compileElasticSearchQuery function", () => {
         "field": "baseProduct.code.keyword",
         "inner_hits": {
           "name": "all_variants",
+          "size": 100,
         },
       }
     `);
@@ -1683,6 +1694,7 @@ describe("compileElasticSearchQuery function", () => {
         "field": "code.keyword",
         "inner_hits": {
           "name": "all_variants",
+          "size": 100,
         },
       }
     `);

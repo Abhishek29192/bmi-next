@@ -3,7 +3,7 @@
 exports[`OverlapCards component IntegratedOverlapCards component renders correctly 1`] = `
 <div>
   <div
-    class="OverlapCards"
+    class="css-19sh6o8"
     data-testid="overlap-cards-wrapper"
   >
     <div
@@ -238,11 +238,14 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                   data-testid="overlap-cards-video"
                 >
-                  <button
+                  <div
                     aria-label="video label"
-                    class="YoutubeVideo-thumbnail"
+                    class="YoutubeVideo-thumbnail css-14jkchm"
+                    classes="[object Object]"
+                    component="button"
                     data-testid="thumbnail"
                     type="button"
+                    variant="contained"
                   >
                     <div
                       class="gatsby-image-wrapper gatsby-image-wrapper-constrained YoutubeVideo-previewImage"
@@ -319,7 +322,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -334,7 +337,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
 exports[`OverlapCards component renders correctly 1`] = `
 <div>
   <div
-    class="OverlapCards"
+    class="css-19sh6o8"
     data-testid="overlap-cards-wrapper"
   >
     <div
@@ -569,11 +572,14 @@ exports[`OverlapCards component renders correctly 1`] = `
                   data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                   data-testid="overlap-cards-video"
                 >
-                  <button
+                  <div
                     aria-label="video label"
-                    class="YoutubeVideo-thumbnail"
+                    class="YoutubeVideo-thumbnail css-14jkchm"
+                    classes="[object Object]"
+                    component="button"
                     data-testid="thumbnail"
                     type="button"
+                    variant="contained"
                   >
                     <div
                       class="gatsby-image-wrapper gatsby-image-wrapper-constrained YoutubeVideo-previewImage"
@@ -650,7 +656,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>

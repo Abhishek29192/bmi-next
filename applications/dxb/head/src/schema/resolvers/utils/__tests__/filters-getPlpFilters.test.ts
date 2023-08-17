@@ -5,7 +5,7 @@ describe("filters tests", () => {
   describe("getPlpFilters function", () => {
     it("should return empty filters, when product categories are null", () => {
       const baseProduct = createProduct();
-      baseProduct.categories = null;
+      baseProduct.categories = [];
       expect(
         getPlpFilters({
           products: [baseProduct],

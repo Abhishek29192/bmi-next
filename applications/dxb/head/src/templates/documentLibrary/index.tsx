@@ -12,11 +12,13 @@ import queryString from "query-string";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import DocumentResultsFooter from "../../components/DocumentResultsFooter";
 import Page, { Data as PageData } from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import RichText from "../../components/RichText";
 import Scrim from "../../components/Scrim";
 import { useConfig } from "../../contexts/ConfigProvider";
+import { DocumentListProvider } from "../../contexts/DocumentContext";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import { devLog } from "../../utils/devLog";
 import {
@@ -30,6 +32,7 @@ import {
   replaceDotFiltersParameter,
   updateFilterValue
 } from "../../utils/filters";
+import { ResultsSection, classes } from "./DocumentLibraryStyles";
 import { Format } from "./components/DocumentResults";
 import { DownloadListAlertBanner } from "./components/DownloadListAlertBanner";
 import FilterSection from "./components/FilterSection";
@@ -69,7 +72,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     documentsFilters
   } = data.contentfulDocumentLibraryPage;
   const { documentDownloadMaxLimit, isPreviewMode } = useConfig();
-  const maxSize = documentDownloadMaxLimit * 1048576;
+  const maxSize = (documentDownloadMaxLimit || 0) * 1000000;
   // eslint-disable-next-line security/detect-object-injection
   const format: Format = resultTypeFormatMap[source][resultsType];
 
@@ -158,14 +161,21 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     setFilters(newFilters);
   };
 
-  const handlePageChange = async (_, page) => {
+  const handlePageChange = async (
+    _: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
     const scrollY = (resultsElement.current?.offsetTop || 200) - 200;
     window.scrollTo(0, scrollY);
     // TODO: DXB-4320 Don't query ES if we already have the documents for that page
     await fetchDocuments(filters, page - 1);
   };
 
-  const handleFiltersChange = (filterName, filterValue, checked) => {
+  const handleFiltersChange = (
+    filterName: string,
+    filterValue: string,
+    checked: boolean
+  ) => {
     const newFilters: Filter[] = updateFilterValue(
       filters,
       filterName,
@@ -177,7 +187,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
 
     history.replaceState(
       null,
-      null,
+      "",
       `${location.pathname}?${queryString.stringify({
         filters: JSON.stringify(URLFilters)
       })}`
@@ -187,7 +197,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   };
 
   const handleClearFilters = () => {
-    history.replaceState(null, null, location.pathname);
+    history.replaceState(null, "", location.pathname);
     const newFilters = clearFilterValues(filters);
     onFiltersChange(newFilters);
   };
@@ -217,7 +227,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
       return;
     }
 
-    if (documentsFilters.filters) {
+    if (documentsFilters?.filters) {
       const { filters: initialFilters } = documentsFilters;
       if (queryParams?.filters?.length) {
         const updatedFilters = getURLFilters(initialFilters, queryParams);
@@ -264,42 +274,54 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
         </Section>
       )}
       <DownloadList maxSize={maxSize}>
-        <DownloadListContext.Consumer>
-          {({ count }) => {
-            if (count === 0) {
-              return null;
-            }
+        <DocumentListProvider>
+          <DownloadListContext.Consumer>
+            {({ count }) => {
+              if (count === 0) {
+                return null;
+              }
 
-            return <DownloadListAlertBanner />;
-          }}
-        </DownloadListContext.Consumer>
-        {!(resultsType === "Simple Archive" && source === "CMS") && (
-          <Section backgroundColor="white" id={`document-library-filters`}>
-            <Grid container spacing={3} ref={resultsElement}>
-              <Grid xs={12} md={12} lg={3}>
-                <FilterSection
-                  filters={filters}
-                  handleFiltersChange={handleFiltersChange}
-                  clearFilters={handleClearFilters}
-                  documentsCount={mobileShowAllDocuments}
-                  isTechnicalTable={resultsType === "Technical"}
-                />
-              </Grid>
-              <Grid xs={12} md={12} lg={9}>
-                {!initialLoading ? (
-                  <ResultSection
-                    results={documents}
-                    assetTypes={contentfulAssetTypes}
-                    format={format}
-                    page={page}
-                    pageCount={pageCount}
-                    handlePageChange={handlePageChange}
+              return <DownloadListAlertBanner />;
+            }}
+          </DownloadListContext.Consumer>
+          {!(resultsType === "Simple Archive" && source === "CMS") && (
+            <ResultsSection
+              backgroundColor="white"
+              className={classes["resultsSection"]}
+              id={`document-library-filters`}
+            >
+              <Grid container spacing={3} ref={resultsElement}>
+                <Grid xs={12} md={12} lg={3}>
+                  <FilterSection
+                    filters={filters}
+                    handleFiltersChange={handleFiltersChange}
+                    clearFilters={handleClearFilters}
+                    resultsNumber={mobileShowAllDocuments}
+                    isTechnicalTable={resultsType === "Technical"}
                   />
-                ) : null}
+                </Grid>
+                <Grid xs={12} md={12} lg={9}>
+                  {!initialLoading ? (
+                    <ResultSection
+                      results={documents}
+                      assetTypes={contentfulAssetTypes}
+                      format={format}
+                    />
+                  ) : null}
+                </Grid>
               </Grid>
-            </Grid>
-          </Section>
-        )}
+              {!initialLoading && (
+                <DocumentResultsFooter
+                  sticky={format !== "cards"}
+                  onPageChange={handlePageChange}
+                  page={page + 1}
+                  count={pageCount}
+                  isDownloadButton={format !== "cards"}
+                />
+              )}
+            </ResultsSection>
+          )}
+        </DocumentListProvider>
       </DownloadList>
       <Section
         backgroundColor="alabaster"

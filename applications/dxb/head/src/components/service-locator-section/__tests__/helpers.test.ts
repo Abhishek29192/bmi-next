@@ -119,7 +119,7 @@ describe("helpers functions", () => {
         mockServiceB
       );
       expect(sortResult).toStrictEqual(
-        mockServiceA.distance - mockServiceB.distance
+        mockServiceA.distance! - mockServiceB.distance!
       );
     });
     describe("centre = null", () => {
@@ -339,16 +339,16 @@ describe("helpers functions", () => {
     });
   });
   describe("getFilterOptions", () => {
-    it("should return false if input value length < 2", () => {
+    it("should return empty array if input value length < 2", () => {
       const options = ["test", "1test", "2test"];
       const inputValue = "t";
-      const res = getFilterOptions()(options, { inputValue });
-      expect(res).toBeFalsy();
+      const res = getFilterOptions(options, { inputValue });
+      expect(res).toEqual([]);
     });
-    it("should return false if input value length > 2", () => {
+    it("should return correct results array if length > 2", () => {
       const options = ["test", "1 test", "2 test"];
       const inputValue = "1 te";
-      const res = getFilterOptions()(options, { inputValue });
+      const res = getFilterOptions(options, { inputValue });
       expect(res).toStrictEqual(["1 test"]);
     });
   });

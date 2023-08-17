@@ -27,7 +27,7 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
       tabindex="-1"
     >
       <div
-        class="Dialog-bg-white Dialog-width-md WelcomeDialog css-ysdrvb"
+        class="Dialog-bg-white Dialog-width-md css-ysdrvb"
       >
         <div
           class="css-1wp1i2i"
@@ -66,7 +66,7 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
           class="css-96lqid"
         >
           <div
-            class="contentArea"
+            class="css-ggsui4"
           >
             <div
               data-testid="brandsContainer"
@@ -137,7 +137,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
       tabindex="-1"
     >
       <div
-        class="Dialog-bg-white Dialog-width-md WelcomeDialog css-ysdrvb"
+        class="Dialog-bg-white Dialog-width-md css-ysdrvb"
       >
         <div
           class="css-1wp1i2i"
@@ -176,13 +176,13 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
           class="css-96lqid"
         >
           <div
-            class="contentArea"
+            class="css-ggsui4"
           >
             <div
               data-testid="brandsContainer"
             >
               <svg
-                class="BrandLogo brand css-gn1fhj"
+                class="css-1ymdear"
                 data-testid="welcome-brand-Icopal"
                 viewBox="0 0 154 100"
                 xml:space="preserve"
@@ -194,7 +194,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
                 />
               </svg>
               <svg
-                class="BrandLogo brand css-gn1fhj"
+                class="css-1ymdear"
                 data-testid="welcome-brand-Monier"
                 viewBox="0 0 236 101"
                 xml:space="preserve"
@@ -206,7 +206,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
                 />
               </svg>
               <svg
-                class="BrandLogo brand css-gn1fhj"
+                class="css-1ymdear"
                 data-testid="welcome-brand-Monarplan"
                 viewBox="0 0 278 100"
                 xml:space="preserve"

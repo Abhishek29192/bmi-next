@@ -11,25 +11,30 @@ export default {
         return null;
       }
 
-      const image = await context.nodeModel.getNodeById({
+      const image = await context.nodeModel.getNodeById<Node>({
         id: source.image___NODE,
         type: "ContentfulAsset"
       });
 
-      const { focalPoint } = await context.nodeModel.getNodeById({
+      if (!image?.file?.details?.image) {
+        return null;
+      }
+
+      const focalPoint = await context.nodeModel.getNodeById<Node>({
         id: source.focalPoint___NODE,
         type: "contentfulImageFocalPointJsonNode"
       });
 
-      const { width, height } = image.file.details.image;
-
-      if (!focalPoint) {
+      if (!focalPoint?.focalPoint?.x || !focalPoint?.focalPoint?.y) {
         return null;
       }
 
+      const { width, height } = image.file.details.image;
+      const { x: focalPointX, y: focalPointY } = focalPoint.focalPoint;
+
       return {
-        x: getFocalPoint(width, focalPoint.x),
-        y: getFocalPoint(height, focalPoint.y)
+        x: getFocalPoint(width, focalPointX),
+        y: getFocalPoint(height, focalPointY)
       };
     }
   }

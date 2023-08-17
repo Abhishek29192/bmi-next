@@ -2,13 +2,14 @@ import type {
   ApprovalStatus,
   Asset,
   BaseProduct,
-  Category as PimCategory,
   Classification,
-  Image as PimImage,
   Mime,
+  Category as PimCategory,
+  Image as PimImage,
+  System as PimSystem,
   ProductReferenceType,
   ReferenceTarget,
-  System as PimSystem
+  GoodBetterBest
 } from "@bmi/pim-types";
 
 export type Category = {
@@ -45,6 +46,7 @@ export type Product = {
   productReferences?: ProductReference[];
   visualiserAssets?: readonly Asset[];
   keywords?: string[];
+  goodBetterBest?: GoodBetterBest;
 } & {
   [extractedFilter: string]: any;
 };
@@ -53,6 +55,12 @@ export type Image = {
   mainSource?: string;
   thumbnail?: string;
   altText?: string;
+};
+
+export type SystemAttribute = {
+  name?: string;
+  code: string;
+  values: string[];
 };
 
 export type System = {
@@ -65,8 +73,10 @@ export type System = {
   name: string;
   path: string;
   scoringWeight: number;
+  systemAttributes?: SystemAttribute[];
   shortDescription?: string;
   type?: string;
+  goodBetterBest?: GoodBetterBest;
 };
 
 export type ContentfulAssetType = {
@@ -145,3 +155,9 @@ export type PimProductDocument = PimDocumentBase & {
   productBaseCode: string;
   productName: string;
 };
+
+export type ClassificationField = {
+  code: string;
+  value: string;
+  name: string;
+}[];

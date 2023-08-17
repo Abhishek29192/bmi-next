@@ -15,15 +15,20 @@ type Props = {
 
 const GeneralError = ({ data, pageContext }: Props) => {
   const siteData = data.contentfulSite;
-  const { errorGeneral } = siteData.resources;
+  const { resources } = siteData;
+  const title = resources?.errorGeneral?.title || "";
+
   return (
     <Page
-      title={errorGeneral?.title}
-      pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
+      title={title}
+      pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: "" }}
       siteData={siteData}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
     >
-      <ErrorFallback countryCode={siteData.countryCode} promo={errorGeneral} />
+      <ErrorFallback
+        countryCode={siteData.countryCode}
+        promo={resources?.errorGeneral}
+      />
     </Page>
   );
 };

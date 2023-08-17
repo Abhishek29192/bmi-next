@@ -5,10 +5,11 @@ import {
   Tooltip
 } from "@bmi-digital/components";
 import { Box } from "@mui/material";
+import classnames from "classnames";
 import React, { useMemo, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { microCopy } from "@bmi/microcopies";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
-import { microCopy } from "../constants/microCopies";
 import { Document, TitleField } from "../types/Document";
 import { PseudoZipPIMDocument } from "../types/pim";
 import { getDownloadLink } from "../utils/client-download";
@@ -25,9 +26,10 @@ import {
   ActionIcon,
   ExternalLinkIcon,
   StyledButton,
-  StyledDocumentIcon,
+  StyledIcon,
   Title,
   TitleButton,
+  TooltipPopper,
   classes
 } from "./styles/DocumentSimpleTableResultsCommonStyles";
 
@@ -60,11 +62,13 @@ const GTMDocumentTitleButton = withGTM<
 export const MultipleAssetToFileDownload = ({
   document,
   disableRipple,
-  title
+  title,
+  className
 }: {
   document: PseudoZipPIMDocument;
   disableRipple?: boolean;
   title: string;
+  className?: string;
 }): React.ReactElement => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
@@ -72,6 +76,7 @@ export const MultipleAssetToFileDownload = ({
   return (
     <GTMDocumentTitleButton
       disableRipple={disableRipple}
+      className={classnames(className, disableRipple && classes.disableRipple)}
       gtm={{
         id: "download1",
         label: "Download",
@@ -89,7 +94,7 @@ export const MultipleAssetToFileDownload = ({
       accessibilityLabel="Download"
       startIcon={
         document.format && (
-          <StyledDocumentIcon name={"FileZIP"} className={"download-icon"} />
+          <StyledIcon name={"FileZIP"} className={"download-icon"} />
         )
       }
       data-testid={`document-table-download-zip-button`}
@@ -103,6 +108,7 @@ export const DocumentTitle = (props: {
   document: Document;
   disableRipple?: boolean;
   titleField?: TitleField;
+  className?: string;
 }) => {
   const { getMicroCopy } = useSiteContext();
   const mappedDocument = mapAssetToFileDownload(props.document, getMicroCopy);
@@ -116,6 +122,10 @@ export const DocumentTitle = (props: {
       <TitleButton
         variant="text"
         disableRipple={props.disableRipple}
+        className={classnames(
+          props.className,
+          props.disableRipple && classes.disableRipple
+        )}
         action={{
           model: "htmlLink",
           href: mappedDocument.url,
@@ -136,6 +146,7 @@ export const DocumentTitle = (props: {
         document={props.document}
         disableRipple={props.disableRipple}
         title={title}
+        className={props.className}
       />
     );
   }
@@ -143,14 +154,18 @@ export const DocumentTitle = (props: {
   return (
     <GTMDocumentTitleButton
       disableRipple={props.disableRipple}
+      className={classnames(
+        props.className,
+        props.disableRipple && classes.disableRipple
+      )}
       gtm={{ id: "download1", label: "Download", action: mappedDocument.url }}
       action={{
         model: "download",
-        href: getDownloadLink(mappedDocument.url)
+        href: getDownloadLink(mappedDocument.url) || ""
       }}
       variant="text"
       startIcon={
-        <StyledDocumentIcon
+        <StyledIcon
           // eslint-disable-next-line security/detect-object-injection
           name={fileIconsMap[mappedDocument.format] || "FileUniversal"}
           className="download-icon"
@@ -175,7 +190,7 @@ export const CopyToClipboard = ({
 
   const saveToClipboard = async (): Promise<void> => {
     const downloadLink = getDownloadLink(url);
-    await navigator.clipboard.writeText(downloadLink);
+    await navigator.clipboard.writeText(downloadLink ?? "");
     setIsLinkCopied(true);
     setIsOpen(true);
   };
@@ -199,6 +214,9 @@ export const CopyToClipboard = ({
           : microCopy.DOCUMENT_LIBRARY_COPY_LINK_TOOLTIP_TITLE
       )}
       onClose={handleTooltipClose}
+      components={{
+        Tooltip: TooltipPopper
+      }}
     >
       <Box ml={{ lg: "auto" }}>
         <StyledButton
@@ -210,7 +228,9 @@ export const CopyToClipboard = ({
           size={size}
         >
           <ActionIcon
-            className={size === "large" && classes["actionIcon"]}
+            className={
+              size === "small" ? classes["actionIconSmall"] : undefined
+            }
             name="CopyContent"
           />
         </StyledButton>
@@ -267,6 +287,9 @@ export const DownloadDocumentButton = ({
       placement="left"
       disableTouchListener
       title={getMicroCopy(microCopy.DOCUMENT_LIBRARY_DOWNLOAD_TOOLTIP_TITLE)}
+      components={{
+        Tooltip: TooltipPopper
+      }}
     >
       <div>
         <GTMButton
@@ -278,7 +301,9 @@ export const DownloadDocumentButton = ({
           size={size}
         >
           <ActionIcon
-            className={size === "large" && classes["actionIcon"]}
+            className={
+              size === "small" ? classes["actionIconSmall"] : undefined
+            }
             name="Download"
           />
         </GTMButton>

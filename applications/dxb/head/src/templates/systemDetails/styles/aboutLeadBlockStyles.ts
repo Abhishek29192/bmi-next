@@ -23,7 +23,7 @@ export const StyledLeadBlock = styled(LeadBlock)(({ theme }) => ({
     transition: "color ease-out 0.25s"
   },
   [`& .${classes.description}`]: {
-    "&>*:first-child": {
+    "&>*:first-of-type": {
       marginTop: 0
     }
   }

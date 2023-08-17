@@ -2,7 +2,6 @@ import { Button, Dialog, Grid, Typography } from "@bmi-digital/components";
 import HelpIcon from "@mui/icons-material/Help";
 import classnames from "classnames";
 import React, { useState } from "react";
-import styles from "./FlatRoofCalculator.module.scss";
 
 type FieldProps = {
   label: React.ReactNode;
@@ -25,13 +24,8 @@ const Field = ({
   const closeDialog = () => setIsDialogOpen(false);
 
   return (
-    <div
-      className={classnames(
-        styles["field"],
-        extraMargin && styles["field--extra-margin"]
-      )}
-    >
-      <div className={styles["fieldHeader"]}>
+    <div className={classnames("field", extraMargin && "field--extra-margin")}>
+      <div className="fieldHeader">
         <Typography variant="h5">{label}</Typography>
         {helpContent ? (
           <>
@@ -39,7 +33,7 @@ const Field = ({
               isIconButton
               size="extra-small"
               variant="text"
-              className={styles["iconButton"]}
+              className="iconButton"
               onClick={openDialog}
               tabIndex="-1"
             >
@@ -65,7 +59,7 @@ const Field = ({
       {description ? (
         <Grid container>
           <Grid lg={9}>
-            <Typography variant="body1" className={styles["fieldDescription"]}>
+            <Typography variant="body1" className="fieldDescription">
               {description}
             </Typography>
           </Grid>

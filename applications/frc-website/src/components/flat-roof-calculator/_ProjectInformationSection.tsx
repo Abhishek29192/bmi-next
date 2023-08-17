@@ -1,6 +1,5 @@
 import { Form, Grid, TextField } from "@bmi-digital/components";
 import React from "react";
-import styles from "./FlatRoofCalculator.module.scss";
 import { maxLengthValidator } from "./utils/maxLengthValidator";
 import FormSection from "./_FormSection";
 
@@ -16,7 +15,7 @@ export const ProjectInformationSection = ({ header, defaultValues }: any) => (
             label="Company Name"
             fullWidth
             getValidationError={maxLengthValidator(50)}
-            inputProps={{ className: styles.input }}
+            inputProps={{ className: "input" }}
           />
         </Form.Row>
       </Grid>
@@ -31,7 +30,7 @@ export const ProjectInformationSection = ({ header, defaultValues }: any) => (
             label="Project Name"
             fullWidth
             getValidationError={maxLengthValidator(50)}
-            inputProps={{ className: styles.input }}
+            inputProps={{ className: "input" }}
           />
         </Form.Row>
       </Grid>

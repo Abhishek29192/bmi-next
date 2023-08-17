@@ -1,11 +1,14 @@
-import {
-  Button,
-  Container,
-  Icopal as IcopalLogoSVG
-} from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 import classnames from "classnames";
 import React from "react";
-import styles from "./Footer.module.scss";
+import {
+  StyledContainer,
+  StyledFooter,
+  StyledLogo,
+  StyledLink,
+  StyledListItem,
+  StyledList
+} from "./styles/FooterStyles";
 
 type MenuItem = {
   label: string;
@@ -19,15 +22,9 @@ const NavigationItem = ({ label, icon, isLabelHidden, action }: any) => {
   const IconComponent = icon;
 
   return (
-    <li
-      className={classnames(
-        styles["list-item"],
-        isLabelHidden && styles["list-item--icon"]
-      )}
-    >
+    <StyledListItem className={classnames(isLabelHidden)}>
       {isLabelHidden ? (
         <Button
-          className={styles["icon-link"]}
           isIconButton
           accessibilityLabel={label}
           variant="text"
@@ -37,36 +34,35 @@ const NavigationItem = ({ label, icon, isLabelHidden, action }: any) => {
           <IconComponent />
         </Button>
       ) : (
-        <Button
+        <StyledLink
           startIcon={icon ? <IconComponent /> : undefined}
-          className={styles["link"]}
           hasDarkBackground
           variant="text"
           action={action}
         >
           {label}
-        </Button>
+        </StyledLink>
       )}
-    </li>
+    </StyledListItem>
   );
 };
 
 const BmiFooter = ({ menu }: { menu: MenuItem[] }) => {
   return (
-    <div className={styles.Footer}>
-      <Container className={styles.container}>
+    <StyledFooter>
+      <StyledContainer>
         <a href="http://www.icopal.co.uk/">
-          <IcopalLogoSVG className={styles.logo} />
+          <StyledLogo />
         </a>
         {menu && menu.length && (
-          <ul className={classnames(styles["list"], styles["list--inline"])}>
+          <StyledList>
             {menu.map((menuItem, index) => (
               <NavigationItem key={index} {...menuItem} />
             ))}
-          </ul>
+          </StyledList>
         )}
-      </Container>
-    </div>
+      </StyledContainer>
+    </StyledFooter>
   );
 };
 

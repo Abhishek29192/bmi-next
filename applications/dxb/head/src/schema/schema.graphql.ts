@@ -99,6 +99,28 @@ type BreadcrumbItem @dontInfer {
   slug: String
 }
 
+type ContentfulCookiePolicyPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
+  id: ID!
+  contentful_id: String!
+  metadata: ContentfulMetadata!
+  title: String
+  slug: String!
+  path: String!
+  heroType: String
+  subtitle: String
+  leadBlock: ContentfulLeadBlockSection @link(from: "leadBlock___NODE")
+  sections: [ContentfulSection] @link(from: "sections___NODE")
+  breadcrumbs: [BreadcrumbItem]
+  breadcrumbTitle: String
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
+  
+  brandLogo: String
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
+}
+
 type ContentfulSimplePage implements ContentfulObject & ContentfulPage & Node @dontInfer {
   id: ID!
   contentful_id: String!
@@ -526,6 +548,9 @@ type ContentfulResources implements ContentfulObject & Node @dontInfer {
   pdpSpecificationDescription: ContentfulRichText
   sdpSpecificationNotesCta: ContentfulSpecificationNotesWithCta @link(from: "sdpSpecificationNotesCta___NODE")
   documentDisplayFormat: String
+  gbbGoodIndicator: String
+  gbbBetterIndicator: String
+  gbbBestIndicator: String
 }
 
 union ContentfulContactDetailsOrTitleWithContent =
@@ -592,6 +617,7 @@ union LinkedPage =
   | ContentfulDocumentLibraryPage
   | ContentfulHomePage
   | ContentfulBrandLandingPage
+  | ContentfulCookiePolicyPage
 
 type ContentfulLink implements ContentfulObject & Node @dontInfer {
   id: ID!
@@ -700,6 +726,7 @@ type System implements Node @dontInfer {
   code: String!
   description: String
   documents: [PIMSystemDocument]!
+  goodBetterBest: String
   guaranteesAndWarrantiesImages: [PIMAsset]!
   guaranteesAndWarrantiesLinks: [PIMAsset]!
   keyFeatures: KeyFeatures
@@ -834,6 +861,7 @@ type Product implements Node @dontInfer {
   filters: [Filter]!
   fixingToolIframeUrl: String
   galleryImages: [PIMImage]!
+  goodBetterBest: String
   groups: [CategoryGroup]!
   guaranteesAndWarrantiesImages: [PIMAsset]!
   guaranteesAndWarrantiesLinks: [PIMAsset]!
@@ -1089,6 +1117,7 @@ type ContentfulSeoContent implements ContentfulObject & Node @dontInfer {
   metaTitle: String
   metaDescription: String
   noIndex: Boolean
+  sameAs: String
 }
 
 type VideoRatio @dontInfer {
@@ -1198,6 +1227,7 @@ type ContentfulSystemConfiguratorSection implements ContentfulObject & Node @don
   label: String
   title: String
   description: ContentfulRichText
+  systemProperties: [String]
   question: ContentfulSystemConfiguratorQuestion! @link(from: "question___NODE")
 }
 `;

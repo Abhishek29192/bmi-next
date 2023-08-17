@@ -5,7 +5,7 @@ import createEnvironment, {
   createEnvironmentWithStatus
 } from "./helpers/EnvironmentHelper.js";
 import createSpace from "./helpers/SpaceHelper.js";
-import type { ClientAPI, Space } from "contentful-management";
+import type { ClientAPI, Environment, Space } from "contentful-management";
 import type { cleanupOldEnvironments } from "../cleanup.js";
 import type { runMigrationScripts } from "../migrationScripts.js";
 
@@ -30,15 +30,8 @@ jest.unstable_mockModule("../migrationScripts.js", () => ({
   runMigrationScripts: (
     spaceId: string,
     contentfulAlias: string,
-    managementAccessToken: string,
-    isDryRun: boolean
-  ) =>
-    mockRunMigrationScripts(
-      spaceId,
-      contentfulAlias,
-      managementAccessToken,
-      isDryRun
-    )
+    managementAccessToken: string
+  ) => mockRunMigrationScripts(spaceId, contentfulAlias, managementAccessToken)
 }));
 
 const main = async () => (await import("../index.js")).main();
@@ -51,7 +44,6 @@ beforeEach(() => {
   process.env.CONTENTFUL_ALIAS = "contentfulAlias";
   process.env.MANAGEMENT_ACCESS_TOKEN = "managementAccessToken";
   process.env.DELETE_OLD_ENVIRONMENTS = "false";
-  process.env.MIGRATION_DRY_RUN = "false";
   process.env.NEW_ENVIRONMENT_NAME = "newEnvironmentName";
   process.env.TIMEOUT = "1000";
   process.env.TIMEOUT_CHECKS = "100";
@@ -111,14 +103,13 @@ describe("main", () => {
     expect(mockRunMigrationScripts).toHaveBeenCalledWith(
       process.env.SPACE_ID,
       process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
     expect(mockCreateClient).not.toHaveBeenCalled();
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
   });
 
-  it("should not create new environment, run migration scripts or point alias to it if environment already exists", async () => {
+  it("should not create new environment, run migration scripts nor point alias to it if environment already exists", async () => {
     const mockSpace = createSpace({
       getEnvironment: jest
         .fn<Space["getEnvironment"]>()
@@ -144,7 +135,7 @@ describe("main", () => {
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
   });
 
-  it("should not create new environment, run migration scripts or point alias to it if an error is thrown getting the environment", async () => {
+  it("should not create new environment, run migration scripts nor point alias to it if an error is thrown getting the environment", async () => {
     const mockSpace = createSpace({
       getEnvironment: jest
         .fn<Space["getEnvironment"]>()
@@ -175,7 +166,7 @@ describe("main", () => {
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
   });
 
-  it("should not create new environment, run migration scripts or point alias to it if the alias cannot be found", async () => {
+  it("should not create new environment, run migration scripts nor point alias to it if the alias cannot be found", async () => {
     const mockSpace = createSpace({
       getEnvironment: jest
         .fn<Space["getEnvironment"]>()
@@ -214,7 +205,7 @@ describe("main", () => {
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
   });
 
-  it("should not create new environment, run migration scripts or point alias to it if the alias cannot be found using the environment name when alias is not provided", async () => {
+  it("should not create new environment, run migration scripts nor point alias to it if the alias cannot be found using the environment name when alias is not provided", async () => {
     delete process.env.CONTENTFUL_ALIAS;
 
     const mockSpace = createSpace({
@@ -255,7 +246,7 @@ describe("main", () => {
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
   });
 
-  it("should not create new environment, run migration scripts or point alias to it if an error is thrown getting the alias", async () => {
+  it("should not create new environment, run migration scripts nor point alias to it if an error is thrown getting the alias", async () => {
     const mockSpace = createSpace({
       getEnvironment: jest
         .fn<Space["getEnvironment"]>()
@@ -373,8 +364,7 @@ describe("main", () => {
     expect(mockRunMigrationScripts).toHaveBeenCalledWith(
       process.env.SPACE_ID,
       process.env.NEW_ENVIRONMENT_NAME,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
     expect(mockAlias.update).toHaveBeenCalled();
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
@@ -427,8 +417,7 @@ describe("main", () => {
     expect(mockRunMigrationScripts).toHaveBeenCalledWith(
       process.env.SPACE_ID,
       process.env.NEW_ENVIRONMENT_NAME,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
     expect(mockAlias.update).toHaveBeenCalled();
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
@@ -481,70 +470,13 @@ describe("main", () => {
     expect(mockRunMigrationScripts).toHaveBeenCalledWith(
       process.env.SPACE_ID,
       process.env.NEW_ENVIRONMENT_NAME,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
     expect(mockAlias.update).toHaveBeenCalled();
     expect(mockCleanupOldEnvironments).toHaveBeenCalledWith(
       process.env.NEW_ENVIRONMENT_NAME,
       mockSpace
     );
-  });
-
-  it("should delete the new environment without changing the alias if a dry run", async () => {
-    process.env.MIGRATION_DRY_RUN = "true";
-
-    const mockAlias = createEnvironmentAliasWithEnvironmentId(
-      process.env.NEW_ENVIRONMENT_NAME!
-    );
-    const mockNewEnvironment = createEnvironmentWithId(
-      mockAlias.environment.sys.id
-    );
-    const mockSpace = createSpace({
-      getEnvironment: jest
-        .fn<Space["getEnvironment"]>()
-        .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
-        .mockResolvedValueOnce(createEnvironmentWithStatus("ready")),
-      getEnvironmentAlias: jest
-        .fn<Space["getEnvironmentAlias"]>()
-        .mockResolvedValueOnce(mockAlias),
-      createEnvironmentWithId: jest
-        .fn<Space["createEnvironmentWithId"]>()
-        .mockResolvedValueOnce(mockNewEnvironment)
-    });
-    const mockClient = {
-      getSpace: jest
-        .fn<ClientAPI["getSpace"]>()
-        .mockResolvedValueOnce(mockSpace)
-    };
-    mockCreateClient.mockReturnValueOnce(mockClient);
-
-    await main();
-
-    expect(mockCreateClient).toHaveBeenCalledWith({
-      accessToken: process.env.MANAGEMENT_ACCESS_TOKEN
-    });
-    expect(mockClient.getSpace).toHaveBeenCalledWith(process.env.SPACE_ID);
-    expect(mockSpace.getEnvironment).toHaveBeenCalledWith(
-      process.env.NEW_ENVIRONMENT_NAME
-    );
-    expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_ALIAS
-    );
-    expect(mockSpace.createEnvironmentWithId).toHaveBeenCalledWith(
-      process.env.NEW_ENVIRONMENT_NAME,
-      { name: process.env.NEW_ENVIRONMENT_NAME },
-      process.env.CONTENTFUL_ENVIRONMENT
-    );
-    expect(mockRunMigrationScripts).toHaveBeenCalledWith(
-      process.env.SPACE_ID,
-      process.env.NEW_ENVIRONMENT_NAME,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      true
-    );
-    expect(mockNewEnvironment.delete).toHaveBeenCalled();
-    expect(mockAlias.update).not.toHaveBeenCalled();
-    expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
   });
 
   it("should delete the new environment without changing the alias and throw an error if the migration scripts fail", async () => {
@@ -601,15 +533,71 @@ describe("main", () => {
     expect(mockRunMigrationScripts).toHaveBeenCalledWith(
       process.env.SPACE_ID,
       process.env.NEW_ENVIRONMENT_NAME,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
     expect(mockNewEnvironment.delete).toHaveBeenCalled();
     expect(mockAlias.update).not.toHaveBeenCalled();
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
   });
 
-  it("should throw an error after hitting the maximum number of retries", async () => {
+  it("should throw an error after hitting the maximum number of retries and unable to delete environment", async () => {
+    const mockAlias = createEnvironmentAliasWithEnvironmentId(
+      process.env.NEW_ENVIRONMENT_NAME!
+    );
+    const mockNewEnvironment = createEnvironmentWithId(
+      mockAlias.environment.sys.id
+    );
+    const mockSpace = createSpace({
+      getEnvironment: jest
+        .fn<Space["getEnvironment"]>()
+        .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
+        .mockResolvedValue(createEnvironmentWithStatus("waiting")),
+      getEnvironmentAlias: jest
+        .fn<Space["getEnvironmentAlias"]>()
+        .mockResolvedValueOnce(mockAlias),
+      createEnvironmentWithId: jest
+        .fn<Space["createEnvironmentWithId"]>()
+        .mockResolvedValueOnce(mockNewEnvironment)
+    });
+    const mockClient = {
+      getSpace: jest
+        .fn<ClientAPI["getSpace"]>()
+        .mockResolvedValueOnce(mockSpace)
+    };
+    mockCreateClient.mockReturnValueOnce(mockClient);
+    (
+      mockNewEnvironment.delete as jest.Mock<Environment["delete"]>
+    ).mockRejectedValueOnce(new Error("Expected Error"));
+
+    try {
+      await main();
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected Error");
+    }
+
+    expect(mockCreateClient).toHaveBeenCalledWith({
+      accessToken: process.env.MANAGEMENT_ACCESS_TOKEN
+    });
+    expect(mockClient.getSpace).toHaveBeenCalledWith(process.env.SPACE_ID);
+    expect(mockSpace.getEnvironment).toHaveBeenCalledWith(
+      process.env.NEW_ENVIRONMENT_NAME
+    );
+    expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_ALIAS
+    );
+    expect(mockSpace.createEnvironmentWithId).toHaveBeenCalledWith(
+      process.env.NEW_ENVIRONMENT_NAME,
+      { name: process.env.NEW_ENVIRONMENT_NAME },
+      process.env.CONTENTFUL_ENVIRONMENT
+    );
+    expect(mockNewEnvironment.delete).toHaveBeenCalled();
+    expect(mockRunMigrationScripts).not.toHaveBeenCalled();
+    expect(mockAlias.update).not.toHaveBeenCalled();
+    expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
+  });
+
+  it("should throw an error after hitting the maximum number of retries and delete the new environment", async () => {
     const mockAlias = createEnvironmentAliasWithEnvironmentId(
       process.env.NEW_ENVIRONMENT_NAME!
     );
@@ -659,8 +647,8 @@ describe("main", () => {
       { name: process.env.NEW_ENVIRONMENT_NAME },
       process.env.CONTENTFUL_ENVIRONMENT
     );
+    expect(mockNewEnvironment.delete).toHaveBeenCalled();
     expect(mockRunMigrationScripts).not.toHaveBeenCalled();
-    expect(mockNewEnvironment.delete).not.toHaveBeenCalled();
     expect(mockAlias.update).not.toHaveBeenCalled();
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
   });
@@ -712,8 +700,7 @@ describe("main", () => {
     expect(mockRunMigrationScripts).toHaveBeenCalledWith(
       process.env.SPACE_ID,
       process.env.NEW_ENVIRONMENT_NAME,
-      process.env.MANAGEMENT_ACCESS_TOKEN,
-      false
+      process.env.MANAGEMENT_ACCESS_TOKEN
     );
     expect(mockNewEnvironment.delete).not.toHaveBeenCalled();
     expect(mockAlias.update).toHaveBeenCalled();

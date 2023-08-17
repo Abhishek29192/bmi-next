@@ -6,20 +6,12 @@ import React from "react";
 import { PATHNAME_KEY, SEARCHTAB_KEY } from "../../utils/filters";
 import BackToResults from "../BackToResults";
 import { SiteContextProvider } from "../Site";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const getLocation = (search: unknown): Location =>
   ({
     search: `?${QueryString.stringify(search)}`
   } as Location);
-
-const getSiteContext = (countryCode = "en", nodeLocale = "en-GB") => ({
-  countryCode: countryCode,
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: nodeLocale,
-  homePage: {
-    title: "Home page title"
-  }
-});
 
 jest.mock("@mui/material", () => ({
   ...jest.requireActual("@mui/material"),
@@ -46,7 +38,7 @@ const renderBackToResults = (locationProps) => {
 
   render(
     <ThemeProvider>
-      <SiteContextProvider value={getSiteContext()}>
+      <SiteContextProvider value={getMockSiteContext()}>
         <BackToResults>
           <h1>Rest of Breadcrumbs</h1>
         </BackToResults>
@@ -106,9 +98,6 @@ describe("BackToResults component", () => {
 
     expect(screen.getByTestId("back-to-results-button")).toBeInTheDocument();
     expect(screen.getByTestId("back-to-results-separator")).toBeInTheDocument();
-    expect(screen.getByTestId("back-to-results-separator")).toHaveClass(
-      "BackToResults--separator"
-    );
   });
 
   it("renders correctly when user's screen width is mobile", () => {
@@ -118,10 +107,6 @@ describe("BackToResults component", () => {
     });
 
     expect(screen.getByTestId("back-to-results-section")).toBeInTheDocument();
-    expect(screen.getByTestId("back-to-results-section")).toHaveClass(
-      "BackToResults"
-    );
-
     expect(screen.getByTestId("back-to-results-button")).toBeInTheDocument();
     expect(
       screen.queryByTestId("back-to-results-separator")

@@ -9,6 +9,7 @@ import { Data as PromoData } from "../Promo";
 import { SiteContextProvider } from "../Site";
 import { TagData } from "../Tag";
 import { VisualiserContext } from "../Visualiser";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 type Card = PageInfoData | PromoData;
 
@@ -74,15 +75,6 @@ const card4: PromoData = {
   featuredVideo: null
 };
 
-const getSiteContext = () => ({
-  countryCode: "no",
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: "en-GB",
-  homePage: {
-    title: "Home page title"
-  }
-});
-
 describe("CardCollectionSection component", () => {
   describe("Renders correctly", () => {
     it("When Title rich text and cards are present", () => {
@@ -107,7 +99,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection
               data={data}
               theme={{ cardCollectionRowType: "single-row" }}
@@ -146,7 +138,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -182,7 +174,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -218,7 +210,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -254,7 +246,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -290,7 +282,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -326,7 +318,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -362,7 +354,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -422,7 +414,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -462,7 +454,7 @@ describe("CardCollectionSection component", () => {
 
       const { rerender } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -476,7 +468,7 @@ describe("CardCollectionSection component", () => {
       //get the rerendered output, which should remove any items without the tag
       rerender(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -518,7 +510,7 @@ describe("CardCollectionSection component", () => {
 
       const { rerender } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -532,7 +524,7 @@ describe("CardCollectionSection component", () => {
       //get the rerendered output, which should remove any items without the tag
       rerender(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -567,7 +559,7 @@ describe("CardCollectionSection component", () => {
 
       const { rerender } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -586,7 +578,7 @@ describe("CardCollectionSection component", () => {
       //get the rerendered output, which should remove any items without the tag
       rerender(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -637,7 +629,7 @@ describe("CardCollectionSection component", () => {
 
     render(
       <ThemeProvider>
-        <SiteContextProvider value={getSiteContext()}>
+        <SiteContextProvider value={getMockSiteContext()}>
           <CardCollectionSection data={data} />
         </SiteContextProvider>
       </ThemeProvider>
@@ -646,43 +638,63 @@ describe("CardCollectionSection component", () => {
     const renderedCards = screen.getAllByText("test card title");
     expect(renderedCards).toHaveLength(10);
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[0].id}`)
-    ).not.toHaveClass("hidden");
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[0].id}`
+      )
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[1].id}`)
-    ).not.toHaveClass("hidden");
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[1].id}`
+      )
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[2].id}`)
-    ).not.toHaveClass("hidden");
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[2].id}`
+      )
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[3].id}`)
-    ).not.toHaveClass("hidden");
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[3].id}`
+      )
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[4].id}`)
-    ).not.toHaveClass("hidden");
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[4].id}`
+      )
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[5].id}`)
-    ).not.toHaveClass("hidden");
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[5].id}`
+      )
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[6].id}`)
-    ).not.toHaveClass("hidden");
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[6].id}`
+      )
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[7].id}`)
-    ).not.toHaveClass("hidden");
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[7].id}`
+      )
+    ).not.toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[8].id}`)
-    ).toHaveClass("hidden");
+      screen.getByTestId(`card-collection-grid-item-hidden-${data.cards[8].id}`)
+    ).toHaveClass("CardCollectionSectionStyles-hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[9].id}`)
-    ).toHaveClass("hidden");
+      screen.getByTestId(`card-collection-grid-item-hidden-${data.cards[9].id}`)
+    ).toHaveClass("CardCollectionSectionStyles-hidden");
 
     fireEvent.click(screen.getByText("MC: global.showMore"));
 
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[8].id}`)
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[8].id}`
+      )
     ).not.toHaveClass("hidden");
     expect(
-      screen.getByTestId(`card-collection-grid-item-${data.cards[9].id}`)
+      screen.getByTestId(
+        `card-collection-grid-item-visible-${data.cards[9].id}`
+      )
     ).not.toHaveClass("hidden");
   });
 
@@ -721,7 +733,7 @@ describe("CardCollectionSection component", () => {
 
       render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -785,7 +797,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -827,7 +839,7 @@ describe("CardCollectionSection component", () => {
 
       render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -897,7 +909,7 @@ describe("CardCollectionSection component", () => {
 
       render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -956,7 +968,7 @@ describe("CardCollectionSection component", () => {
 
       render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -1027,7 +1039,7 @@ describe("CardCollectionSection component", () => {
 
       const { container } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -1075,7 +1087,7 @@ describe("CardCollectionSection component", () => {
           <VisualiserContext.Provider
             value={{ isOpen: false, open: undefined }}
           >
-            <SiteContextProvider value={getSiteContext()}>
+            <SiteContextProvider value={getMockSiteContext()}>
               <CardCollectionSection data={data} />
             </SiteContextProvider>
           </VisualiserContext.Provider>
@@ -1124,7 +1136,7 @@ describe("CardCollectionSection component", () => {
           <VisualiserContext.Provider
             value={{ isOpen: false, open: visualiserOpen }}
           >
-            <SiteContextProvider value={getSiteContext()}>
+            <SiteContextProvider value={getMockSiteContext()}>
               <CardCollectionSection data={data} />
             </SiteContextProvider>
           </VisualiserContext.Provider>
@@ -1175,7 +1187,7 @@ describe("CardCollectionSection component", () => {
           <VisualiserContext.Provider
             value={{ isOpen: false, open: visualiserOpen }}
           >
-            <SiteContextProvider value={getSiteContext()}>
+            <SiteContextProvider value={getMockSiteContext()}>
               <CardCollectionSection data={data} />
             </SiteContextProvider>
           </VisualiserContext.Provider>
@@ -1226,7 +1238,7 @@ describe("CardCollectionSection component", () => {
           <CalculatorContext.Provider
             value={{ isOpen: false, open: undefined }}
           >
-            <SiteContextProvider value={getSiteContext()}>
+            <SiteContextProvider value={getMockSiteContext()}>
               <CardCollectionSection data={data} />
             </SiteContextProvider>
           </CalculatorContext.Provider>
@@ -1276,7 +1288,7 @@ describe("CardCollectionSection component", () => {
           <CalculatorContext.Provider
             value={{ isOpen: false, open: calculatorOpen }}
           >
-            <SiteContextProvider value={getSiteContext()}>
+            <SiteContextProvider value={getMockSiteContext()}>
               <CardCollectionSection data={data} />
             </SiteContextProvider>
           </CalculatorContext.Provider>
@@ -1327,7 +1339,7 @@ describe("CardCollectionSection component", () => {
           <CalculatorContext.Provider
             value={{ isOpen: false, open: calculatorOpen }}
           >
-            <SiteContextProvider value={getSiteContext()}>
+            <SiteContextProvider value={getMockSiteContext()}>
               <CardCollectionSection data={data} />
             </SiteContextProvider>
           </CalculatorContext.Provider>
@@ -1360,7 +1372,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -1387,7 +1399,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -1414,7 +1426,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -1443,7 +1455,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -1473,7 +1485,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>
@@ -1502,7 +1514,7 @@ describe("CardCollectionSection component", () => {
 
       const { baseElement } = render(
         <ThemeProvider>
-          <SiteContextProvider value={getSiteContext()}>
+          <SiteContextProvider value={getMockSiteContext()}>
             <CardCollectionSection data={data} />
           </SiteContextProvider>
         </ThemeProvider>

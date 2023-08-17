@@ -3,7 +3,7 @@ import {
   createSystem as createEsSystem,
   System as EsSystem
 } from "@bmi/elasticsearch-types";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import React from "react";
 import createPimImage from "../../__tests__/helpers/PimImageHelper";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
@@ -115,17 +115,92 @@ describe("SystemCard", () => {
     const system: EsSystem = createEsSystem();
     const gtm = { id: "gtm-id" };
 
-    const { container } = render(
+    render(
       <ThemeProvider>
         <SystemCard
           system={system}
+          systemPropertiesToDisplay={["Key Features"]}
           countryCode="en"
           path={system.path}
           gtm={gtm}
         />
       </ThemeProvider>
     );
-    expect(container).toMatchSnapshot();
+    const systemPropertyContainer = screen.getByTestId("systemProperties");
+
+    const propertyValues = system.systemAttributes[0].values.slice(0, 3);
+
+    propertyValues.forEach((val) =>
+      expect(within(systemPropertyContainer).getByText(val)).toBeInTheDocument()
+    );
+  });
+
+  it("shouldn't render system configuration panel when empty system property", () => {
+    const system: EsSystem = createEsSystem();
+    const gtm = { id: "gtm-id" };
+
+    const { rerender } = render(
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          systemPropertiesToDisplay={[]}
+          countryCode="en"
+          path={system.path}
+          gtm={gtm}
+        />
+      </ThemeProvider>
+    );
+    expect(screen.queryByTestId("systemProperties")).not.toBeInTheDocument();
+
+    rerender(
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          systemPropertiesToDisplay={null}
+          countryCode="en"
+          path={system.path}
+          gtm={gtm}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.queryByTestId("systemProperties")).not.toBeInTheDocument();
+  });
+
+  describe("Render system data as per contentful", () => {
+    it("should render system data as per contentful", () => {
+      const system: EsSystem = createEsSystem();
+      const gtm = { id: "gtm-id" };
+
+      render(
+        <ThemeProvider>
+          <SystemCard
+            system={system}
+            systemPropertiesToDisplay={[
+              "Roof build-up",
+              "Unique Selling Propositions"
+            ]}
+            countryCode="en"
+            path={system.path}
+            gtm={gtm}
+          />
+        </ThemeProvider>
+      );
+
+      const systemPropItems = screen.getAllByTestId("systemPropItemPanel");
+
+      expect(systemPropItems[0]).toHaveTextContent(
+        system.systemAttributes.find((attr) =>
+          attr.code.includes("roofBuildUp")
+        )?.values[0]
+      );
+
+      expect(systemPropItems[2]).not.toHaveTextContent(
+        system.systemAttributes.find((attr) =>
+          attr.code.includes("UniqueSellingPropositions")
+        )?.values[2]
+      );
+    });
   });
 
   it("renders correctly with related system", () => {

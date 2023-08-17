@@ -8,6 +8,7 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
+import { microCopy } from "@bmi/microcopies";
 import BackToResults from "../components/BackToResults";
 import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
@@ -20,23 +21,23 @@ import OverlapCards, {
 } from "../components/OverlapCards";
 import Page, { Data as PageData } from "../components/Page";
 import Sections, { Data as SectionsData } from "../components/Sections";
+import { Context as SiteContext } from "../components/Site";
 import Video from "../components/Video";
-import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import type { Data as LinkData } from "../components/Link";
 import type { Data as SiteData } from "../components/Site";
 import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
+import type { Data as LinkData } from "../components/Link";
 
 type BrandLandingPageData = Omit<PageInfoData, "sections" | "featuredVideo"> &
   Omit<PageData, "breadcrumbs"> & {
     description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
     overlapCards: OverlapCardData | null;
-    sections: SectionsData;
+    sections: SectionsData | null;
     breadcrumbs: BreadcrumbsData;
     breadcrumbTitle: string;
   };
@@ -52,10 +53,10 @@ export type Props = {
 };
 
 const getHeroItemsWithContext = (
-  { getMicroCopy },
+  { getMicroCopy }: SiteContext,
   slides: BrandLandingPageData["slides"]
 ): CarouselHeroItem[] => {
-  const GetCTAButton = (cta: LinkData | null): JSX.Element => {
+  const GetCTAButton = (cta: LinkData | null) => {
     return cta?.label ? (
       <Link component={Button} data={cta}>
         {cta?.label}
@@ -63,31 +64,31 @@ const getHeroItemsWithContext = (
     ) : null;
   };
 
-  const GetCTALinkFromPath = (getMicroCopy, path: string): JSX.Element => {
-    return path ? (
-      <Link component={Button} data={{ linkedPage: { path: path } }}>
+  const GetCTALinkFromPath = (data: SlideData | PageInfoData) => {
+    return "path" in data && data.path ? (
+      <Link component={Button} data={{ linkedPage: { path: data.path } }}>
         {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
       </Link>
     ) : null;
   };
 
-  return slides.map(
-    ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
-      return {
-        title,
-        children: subtitle,
-        media: featuredVideo ? (
-          <Video {...featuredVideo} />
-        ) : featuredMedia ? (
-          <Image {...featuredMedia} size="cover" />
-        ) : undefined,
-        cta:
-          rest.__typename === "ContentfulPromo"
-            ? GetCTAButton(rest.cta)
-            : GetCTALinkFromPath(getMicroCopy, rest.path)
-      };
-    }
-  );
+  return slides.map((slide) => {
+    const { title, subtitle, featuredMedia, featuredVideo } = slide;
+
+    return {
+      title,
+      children: subtitle,
+      media: featuredVideo ? (
+        <Video {...featuredVideo} />
+      ) : featuredMedia ? (
+        <Image {...featuredMedia} size="cover" />
+      ) : undefined,
+      cta:
+        slide.__typename === "ContentfulPromo"
+          ? GetCTAButton(slide.cta)
+          : GetCTALinkFromPath(slide)
+    };
+  });
 };
 
 const BrandLandingPage = ({ data, pageContext }: Props) => {
@@ -134,7 +135,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       <Link component={Button} data={cta} data-testid="first-slide-cta">
         {cta.label}
       </Link>
-    ) : null
+    ) : undefined
   };
 
   return (
@@ -145,6 +146,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
+      pageType="brandPage"
     >
       {({ siteContext }) => {
         const heroItems = getHeroItemsWithContext(siteContext, slides);
@@ -166,7 +168,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
                 </BackToResults>
               }
               heroes={[firstSlide, ...heroItems]}
-              hasSpaceBottom
+              hasSpaceBottomLarge
               isHeroKeyLine={Boolean(isBrandProviderEnabled && brandLogo)}
             >
               <Search

@@ -1,7 +1,6 @@
 import { Typography } from "@bmi-digital/components";
-import classnames from "classnames";
 import React from "react";
-import styles from "./_FieldContainer.module.scss";
+import { Root, StyledHead, StyledHelp } from "./_FieldContainer.styles";
 
 type FieldContainerProps = {
   title?: string;
@@ -17,19 +16,15 @@ const FieldContainer = ({
   className
 }: FieldContainerProps) => {
   return (
-    <div className={classnames(styles["FieldContainer"], className)}>
+    <Root className={className}>
       {title || help ? (
-        <div className={styles["head"]}>
+        <StyledHead>
           {title ? <Typography variant="h6">{title}</Typography> : null}
-          {help ? (
-            <Typography variant="body2" className={styles["help"]}>
-              {help}
-            </Typography>
-          ) : null}
-        </div>
+          {help ? <StyledHelp variant="body2">{help}</StyledHelp> : null}
+        </StyledHead>
       ) : null}
       {children}
-    </div>
+    </Root>
   );
 };
 

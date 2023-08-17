@@ -43,7 +43,7 @@ type NoBrandProps = {
 
 type BrandProviderProps = {
   children: React.ReactNode;
-  brand?: string;
+  brand?: string | null;
 };
 
 const NoBrandComponent = ({ children }: NoBrandProps) => {

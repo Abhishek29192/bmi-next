@@ -1,4 +1,5 @@
 import path from "path";
+import fetch from "node-fetch";
 import dotenv from "dotenv";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
@@ -11,6 +12,10 @@ import type { CreateBabelConfigArgs, GatsbyNode } from "gatsby";
 dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
 });
+
+if (process.env.NODE_ENV === "production") {
+  process.env.GATSBY_NODE_GLOBALS = JSON.stringify(global.__GATSBY ?? {});
+}
 
 const createProductPages = async (
   siteId,
@@ -115,6 +120,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
         ),
         ContentfulBrandLandingPage: path.resolve(
           "./src/templates/brand-landing-page.tsx"
+        ),
+        ContentfulCookiePolicyPage: path.resolve(
+          "./src/templates/cookiePolicy/components/cookie-policy-page.tsx"
         )
       };
 
@@ -410,4 +418,28 @@ export const onCreateBabelConfig = ({ actions }: CreateBabelConfigArgs) => {
       }
     }
   });
+};
+
+export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async () => {
+  const buildId = process.env.GATSBY_NODE_GLOBALS
+    ? JSON.parse(process.env.GATSBY_NODE_GLOBALS)["buildId"]
+    : "";
+
+  const buildStatusLoggerWebhook =
+    process.env.GATSBY_GCP_BUILD_STATUS_LOGGER_ENDPOINT;
+
+  if (buildStatusLoggerWebhook) {
+    await fetch(buildStatusLoggerWebhook, {
+      method: "POST",
+      body: JSON.stringify({
+        body: buildId ? `Build for ${buildId} started` : "Empty BuildId",
+        buildId,
+        event: "BUILD_STARTED"
+      }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+  }
 };
