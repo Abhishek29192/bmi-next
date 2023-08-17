@@ -26,6 +26,37 @@ const delayedRequests = (
 };
 
 export const up: MigrationFunction = async (migration, context) => {
+  const page = migration.editContentType("page");
+  page.editField("sections").items({
+    type: "Link",
+    validations: [
+      {
+        linkContentType: [
+          "cardCollectionSection",
+          "carouselSection",
+          "documentDownloadSection",
+          "form",
+          "iframe",
+          "imageGallerySection",
+          "navigation",
+          "promo",
+          "sampleBasket",
+          "serviceLocatorSection",
+          "shareWidgetSection",
+          "teamSection",
+          "villainSection",
+          "tabsOrAccordionSection",
+          "titleWithContent",
+          "twoColumnSection",
+          "videoSection",
+          "signupBlock",
+          "systemConfiguratorSection"
+        ]
+      }
+    ],
+    linkType: "Entry"
+  });
+
   const resp: CollectionProp<EntryProps> = await context!.makeRequest({
     method: "GET",
     url: `/entries?content_type=systemConfiguratorBlock&limit=1000`
@@ -67,4 +98,36 @@ export const up: MigrationFunction = async (migration, context) => {
 
 export const down: MigrationFunction = (migration, context) => {
   systemConfiguratorBlockMigrationUp(migration, context!);
+
+  const page = migration.editContentType("page");
+  page.editField("sections").items({
+    type: "Link",
+    validations: [
+      {
+        linkContentType: [
+          "cardCollectionSection",
+          "carouselSection",
+          "documentDownloadSection",
+          "form",
+          "iframe",
+          "imageGallerySection",
+          "navigation",
+          "promo",
+          "sampleBasket",
+          "serviceLocatorSection",
+          "shareWidgetSection",
+          "teamSection",
+          "villainSection",
+          "tabsOrAccordionSection",
+          "titleWithContent",
+          "twoColumnSection",
+          "videoSection",
+          "signupBlock",
+          "systemConfiguratorBlock",
+          "systemConfiguratorSection"
+        ]
+      }
+    ],
+    linkType: "Entry"
+  });
 };
