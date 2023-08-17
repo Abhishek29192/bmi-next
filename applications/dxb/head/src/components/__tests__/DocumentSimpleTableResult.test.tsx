@@ -1,4 +1,8 @@
-import { DownloadListContext, ThemeProvider } from "@bmi-digital/components";
+import {
+  DownloadListContext,
+  ThemeProvider,
+  DownloadList
+} from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
@@ -15,6 +19,7 @@ import DocumentSimpleTableResults, {
   isPIMDocument
 } from "../DocumentSimpleTableResults";
 import { renderWithProviders } from "../../__tests__/renderWithProviders";
+import { getUniqueId } from "../../utils/documentUtils";
 
 jest.mock("@mui/material", () => ({
   ...(jest.requireActual("@mui/material") as any),
@@ -272,6 +277,62 @@ describe("DocumentSimpleTableResult", () => {
       const selectAllCheckbox = screen.getByTestId("document-table-select-all");
       fireEvent.click(selectAllCheckbox);
       expect(updateListMock).toHaveBeenCalledTimes(1);
+    });
+
+    it("should select all documents correctly if there is PIMDocumentWithPseudoZip document", () => {
+      const onChangeMock = jest.fn();
+      const zipDocument = createPseudoZipDocument({
+        id: "id",
+        title: "pseudo zip document title",
+        documentList: [
+          createPimDocument({
+            id: "pim-document-1",
+            title: "pim document 1"
+          }),
+          createPimDocument({
+            id: "pim-document-2",
+            title: "pim document 2"
+          })
+        ],
+        fileSize: 300
+      });
+      const documentId = getUniqueId(zipDocument);
+
+      renderWithProviders(
+        <DownloadList onChange={onChangeMock}>
+          <DocumentListProvider>
+            <DocumentSimpleTableResults documents={[zipDocument]} />
+          </DocumentListProvider>
+        </DownloadList>
+      );
+
+      const selectAllCheckbox = screen.getByRole("checkbox", {
+        name: "MC: documentLibrary.headers.add"
+      });
+      fireEvent.click(selectAllCheckbox);
+      expect(onChangeMock).toHaveBeenCalledWith({
+        [documentId]: zipDocument.documentList
+      });
+    });
+
+    it("should deselect previously selected documents", () => {
+      const documentId = getUniqueId(pimDocument);
+      const onChangeMock = jest.fn();
+      renderWithProviders(
+        <DownloadList onChange={onChangeMock}>
+          <DocumentListProvider>
+            <DocumentSimpleTableResults documents={[pimDocument]} />
+          </DocumentListProvider>
+        </DownloadList>
+      );
+      const selectAllCheckbox = screen.getByRole("checkbox", {
+        name: "MC: documentLibrary.headers.add"
+      });
+      fireEvent.click(selectAllCheckbox);
+      expect(onChangeMock).toHaveBeenCalledWith({ [documentId]: pimDocument });
+
+      fireEvent.click(selectAllCheckbox);
+      expect(onChangeMock).toHaveBeenCalledWith({});
     });
   });
 });
