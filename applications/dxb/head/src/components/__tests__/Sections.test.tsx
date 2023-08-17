@@ -92,6 +92,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulSyndicateSection",
         title: "Title",
+        description: { description: "string" },
         villains: [
           {
             __typename: "ContentfulPromo",

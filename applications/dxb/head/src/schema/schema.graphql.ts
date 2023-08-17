@@ -371,6 +371,7 @@ type ContentfulLeadBlockSection implements ContentfulObject & Node @dontInfer {
 type ContentfulSyndicateSection implements ContentfulObject & Node @dontInfer {
   id: ID!
   metadata: ContentfulMetadata!
+  description: ContentfulRichText
   title: String
   villains: [ContentfulPromoOrPage] @link(from: "villains___NODE")
   isReversed: Boolean
