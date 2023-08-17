@@ -122,7 +122,7 @@ const Page = ({
       ? variantProduct.seoTitle
       : title || "";
   return (
-    <div style={{ overflowX: "hidden" }}>
+    <div style={{ overflowX: "hidden", display: "contents" }}>
       {globalStyles}
       <Head
         htmlAttributes={{ lang: node_locale }}
