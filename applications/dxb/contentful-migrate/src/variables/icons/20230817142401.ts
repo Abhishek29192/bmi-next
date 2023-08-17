@@ -47,7 +47,6 @@ export const brands = [
   "Zanda"
 ];
 
-// Not actually used, but added to make it easier for future scripts
 export const doumentBrands = [
   "AeroDek",
   "Awak",
