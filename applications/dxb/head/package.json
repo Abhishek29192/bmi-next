@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",
+    "@auth0/auth0-react": "^2.2.0",
     "@bmi-digital/components": "^1.53.3",
     "@bmi-digital/react-pdf-maker": "^1.7.5",
     "@bmi-digital/styles": "^1.7.5",
@@ -103,6 +104,7 @@
     "gatsby-remark-images-contentful": "^6.12.0",
     "gatsby-source-contentful": "^8.12.0",
     "gatsby-source-filesystem": "^5.12.0",
+    "gatsby-theme-auth0": "^1.1.1",
     "gatsby-transformer-json": "^5.12.0",
     "gatsby-transformer-sharp": "^5.12.0",
     "googleapis": "^118.0.0",
