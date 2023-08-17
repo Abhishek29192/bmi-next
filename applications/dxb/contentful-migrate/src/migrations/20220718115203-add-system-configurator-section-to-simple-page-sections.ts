@@ -28,6 +28,7 @@ export const up: MigrationFunction = (migration) => {
           "twoColumnSection",
           "videoSection",
           "signupBlock",
+          "systemConfiguratorBlock",
           "systemConfiguratorSection"
         ]
       }
