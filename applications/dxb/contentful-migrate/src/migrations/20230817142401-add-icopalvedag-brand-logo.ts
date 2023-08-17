@@ -3,7 +3,7 @@ import {
   doumentBrands as prevDocumentBrands,
   linkIcons as prevLinkIcons,
   brands as prevBrandIcons
-} from "../variables/icons/20221208120944.js";
+} from "../variables/icons/20230815103002.js";
 
 import {
   brands,
