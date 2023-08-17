@@ -130,6 +130,9 @@
     },
     {
       "path": "applications/dxb/scripts/contentful-roles"
+    },
+    {
+      "path": "applications/dxb/webtools-contentful-migrate/node_modules/axios"
     }
   ]
 }

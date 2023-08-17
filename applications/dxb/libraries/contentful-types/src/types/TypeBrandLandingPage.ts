@@ -42,6 +42,7 @@ export interface TypeBrandLandingPageFields {
     | "Everlite"
     | "Icopal"
     | "IcopalKatto"
+    | "IcopalVedag"
     | "Klober"
     | "Monarflex"
     | "Monarplan"

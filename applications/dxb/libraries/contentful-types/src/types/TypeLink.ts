@@ -49,6 +49,7 @@ export interface TypeLinkFields {
     | "Facebook"
     | "Icopal"
     | "IcopalKatto"
+    | "IcopalVedag"
     | "Instagram"
     | "Klober"
     | "LinkedIn"

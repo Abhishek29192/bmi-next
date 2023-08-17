@@ -40,6 +40,7 @@ export interface TypeProductListerPageFields {
     | "Everlite"
     | "Icopal"
     | "IcopalKatto"
+    | "IcopalVedag"
     | "Klober"
     | "Monarflex"
     | "Monarplan"
