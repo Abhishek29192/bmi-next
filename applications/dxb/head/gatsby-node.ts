@@ -7,6 +7,7 @@ import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
 import { getRedirects, Redirect } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
+import { convertStrToBool } from "./src/utils/convertStrToBool";
 import type { CreateBabelConfigArgs, GatsbyNode } from "gatsby";
 
 dotenv.config({
@@ -421,10 +422,13 @@ export const onCreateBabelConfig = ({ actions }: CreateBabelConfigArgs) => {
 };
 
 export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async () => {
-  const buildId = process.env.GATSBY_NODE_GLOBALS
-    ? JSON.parse(process.env.GATSBY_NODE_GLOBALS)["buildId"]
-    : "";
+  const isMergeRequestPreviewBuild = getIsMergeRequestPreviewBuild();
 
+  if (isMergeRequestPreviewBuild) {
+    return;
+  }
+
+  const isCMSPreviewBuild = convertStrToBool(process.env.GATSBY_IS_PREVIEW);
   const buildStatusLoggerWebhook =
     process.env.GATSBY_GCP_BUILD_STATUS_LOGGER_ENDPOINT;
 
@@ -432,9 +436,8 @@ export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async () => {
     await fetch(buildStatusLoggerWebhook, {
       method: "POST",
       body: JSON.stringify({
-        body: buildId ? `Build for ${buildId} started` : "Empty BuildId",
-        buildId,
-        event: "BUILD_STARTED"
+        body: "A new build has been triggered",
+        event: isCMSPreviewBuild ? "PREVIEW_BUILD_STARTED" : "BUILD_STARTED"
       }),
       headers: {
         Accept: "application/json",
@@ -442,4 +445,13 @@ export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async () => {
       }
     });
   }
+};
+
+const getIsMergeRequestPreviewBuild = () => {
+  const branch = process.env.BRANCH;
+  return (
+    branch !== "master" &&
+    branch !== "pre-production" &&
+    branch !== "production"
+  );
 };

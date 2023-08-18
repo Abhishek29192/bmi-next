@@ -20,7 +20,7 @@
     "@bmi/functions-firestore": "workspace:*",
     "@bmi/pim-transformation": "workspace:*",
     "@bmi/utils": "workspace:*",
-    "@google-cloud/functions-framework": "^3.2.0",
+    "@google-cloud/functions-framework": "^3.3.0",
     "dotenv": "^16.0.3",
     "node-fetch": "^2.6.11"
   },

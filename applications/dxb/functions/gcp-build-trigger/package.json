@@ -16,7 +16,7 @@
     "@bmi/functions-contentful-client": "workspace:*",
     "@bmi/functions-es-client": "workspace:*",
     "@bmi/utils": "workspace:*",
-    "@google-cloud/functions-framework": "^3.2.0",
+    "@google-cloud/functions-framework": "^3.3.0",
     "@google-cloud/monitoring": "^3.0.4",
     "node-fetch": "^2.6.11"
   },

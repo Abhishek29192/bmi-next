@@ -429,6 +429,15 @@ updates:
     schedule:
       interval: "weekly"
   ###################################
+  # gcp-get-gatsby-build-events
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-get-gatsby-build-events"
+    schedule:
+      interval: "weekly"
+  ###################################
   # gcp-form-submit
   ###################################
   - package-ecosystem: "npm"

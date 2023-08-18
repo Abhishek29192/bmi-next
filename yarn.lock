@@ -2100,7 +2100,6 @@ __metadata:
     "@bmi/pub-sub-types": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@elastic/elasticsearch": ^7.17.0
-    "@google-cloud/functions-framework": ^3.2.0
     "@types/prettier": ^2.7.2
     "@types/uuid": ^9.0.1
     "@typescript-eslint/eslint-plugin": ^5.59.5
@@ -2326,7 +2325,7 @@ __metadata:
   resolution: "@bmi/gatsby-cloud-build-proxy@workspace:applications/dxb/functions/gatsby-cloud-build-proxy"
   dependencies:
     "@bmi-digital/functions-logger": ^1.7.5
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/archiver": ^5.3.2
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
@@ -2462,7 +2461,7 @@ __metadata:
     "@bmi-digital/fetch-mocks": ^1.6.0
     "@bmi-digital/functions-logger": ^1.7.5
     "@bmi/functions-recaptcha": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
@@ -2499,7 +2498,7 @@ __metadata:
     "@bmi-digital/functions-logger": ^1.7.5
     "@bmi/firestore-types": "workspace:*"
     "@bmi/functions-firestore": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
@@ -2523,7 +2522,6 @@ __metadata:
     node-fetch: ^2.6.11
     prettier: ^2.8.8
     process-top: ^1.2.0
-    simple-http-status: ^1.1.0
     typescript: ^5.0.4
     webpack: ^5.82.1
     webpack-bundle-analyzer: ^4.8.0
@@ -2539,7 +2537,7 @@ __metadata:
     "@bmi/functions-contentful-client": "workspace:*"
     "@bmi/functions-es-client": "workspace:*"
     "@bmi/utils": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@google-cloud/monitoring": ^3.0.4
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
@@ -2582,7 +2580,7 @@ __metadata:
     "@bmi/elasticsearch-types": "workspace:*"
     "@bmi/functions-contentful-client": "workspace:*"
     "@bmi/functions-es-client": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
@@ -2618,7 +2616,7 @@ __metadata:
   dependencies:
     "@bmi-digital/functions-logger": ^1.7.5
     "@bmi/functions-recaptcha": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@google-cloud/storage": ^6.10.1
     "@types/archiver": ^5.3.2
     "@types/prettier": ^2.7.2
@@ -2655,7 +2653,7 @@ __metadata:
   resolution: "@bmi/gcp-es-proxy@workspace:applications/dxb/functions/gcp-es-proxy"
   dependencies:
     "@bmi-digital/functions-logger": ^1.7.5
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/node": ^18.16.8
     "@types/prettier": ^2.7.2
     "@types/uuid": ^9.0.1
@@ -2698,7 +2696,7 @@ __metadata:
     "@bmi/pim-types": "workspace:*"
     "@bmi/pub-sub-types": "workspace:*"
     "@bmi/utils": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
@@ -2735,7 +2733,7 @@ __metadata:
   dependencies:
     "@bmi-digital/functions-logger": ^1.7.5
     "@bmi/functions-recaptcha": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@sendgrid/mail": ^7.7.0
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
@@ -2772,7 +2770,7 @@ __metadata:
   resolution: "@bmi/gcp-functions-deployer@workspace:applications/dxb/functions/gcp-functions-deployer"
   dependencies:
     "@bmi-digital/functions-logger": ^1.7.5
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@google-cloud/storage": ^6.10.1
     "@types/jest-when": ^3.5.2
     "@types/prettier": ^2.7.2
@@ -2804,6 +2802,41 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/gcp-get-gatsby-build-events@workspace:applications/dxb/functions/gcp-get-gatsby-build-events":
+  version: 0.0.0-use.local
+  resolution: "@bmi/gcp-get-gatsby-build-events@workspace:applications/dxb/functions/gcp-get-gatsby-build-events"
+  dependencies:
+    "@bmi-digital/functions-logger": ^1.7.5
+    "@bmi/firestore-types": "workspace:*"
+    "@bmi/functions-firestore": "workspace:*"
+    "@google-cloud/functions-framework": ^3.3.0
+    "@types/prettier": ^2.7.2
+    "@typescript-eslint/eslint-plugin": ^5.59.5
+    "@typescript-eslint/parser": ^5.59.5
+    env-cmd: ^10.1.0
+    eslint: ^8.40.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-prettier: ^8.8.0
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-jest: ^27.2.1
+    eslint-plugin-jsx-a11y: ^6.7.1
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-react: ^7.32.2
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-security: ^1.7.1
+    eslint-plugin-you-dont-need-lodash-underscore: ^6.12.0
+    inspectpack: ^4.7.1
+    jest: ^29.5.0
+    js-yaml: ^4.1.0
+    prettier: ^2.8.8
+    process-top: ^1.2.0
+    typescript: ^5.0.4
+    webpack: ^5.82.1
+    webpack-bundle-analyzer: ^4.8.0
+    webpack-cli: ^5.1.1
+  languageName: unknown
+  linkType: soft
+
 "@bmi/gcp-pim-full-fetch-coordinator@workspace:applications/dxb/functions/gcp-pim-full-fetch-coordinator":
   version: 0.0.0-use.local
   resolution: "@bmi/gcp-pim-full-fetch-coordinator@workspace:applications/dxb/functions/gcp-pim-full-fetch-coordinator"
@@ -2815,7 +2848,7 @@ __metadata:
     "@bmi/functions-firestore": "workspace:*"
     "@bmi/pim-api": "workspace:*"
     "@bmi/pim-types": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
@@ -2857,7 +2890,7 @@ __metadata:
     "@bmi/pim-api": "workspace:*"
     "@bmi/pim-types": "workspace:*"
     "@bmi/pub-sub-types": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@google-cloud/pubsub": ^3.5.2
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
@@ -2897,7 +2930,7 @@ __metadata:
     "@bmi/pim-api": "workspace:*"
     "@bmi/pim-types": "workspace:*"
     "@bmi/pub-sub-types": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@google-cloud/pubsub": ^3.5.2
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
@@ -2933,7 +2966,7 @@ __metadata:
   dependencies:
     "@bmi-digital/functions-logger": ^1.7.5
     "@bmi/functions-recaptcha": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
@@ -2970,7 +3003,7 @@ __metadata:
   dependencies:
     "@bmi-digital/functions-logger": ^1.7.5
     "@bmi/functions-recaptcha": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
@@ -3011,7 +3044,7 @@ __metadata:
     "@bmi/pim-types": "workspace:*"
     "@bmi/pub-sub-types": "workspace:*"
     "@bmi/utils": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@google-cloud/pubsub": ^3.5.2
     "@types/prettier": ^2.7.2
     "@types/request": ^2
@@ -3051,7 +3084,7 @@ __metadata:
     "@bmi-digital/functions-logger": ^1.7.5
     "@bmi/firestore-types": "workspace:*"
     "@bmi/functions-firestore": "workspace:*"
-    "@google-cloud/functions-framework": ^3.2.0
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/node": ^18.16.8
     "@types/prettier": ^2.7.2
     "@typescript-eslint/eslint-plugin": ^5.59.5
@@ -4452,7 +4485,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/functions-framework@npm:^3.2.0":
+"@google-cloud/functions-framework@npm:^3.3.0":
   version: 3.3.0
   resolution: "@google-cloud/functions-framework@npm:3.3.0"
   dependencies:
