@@ -3,9 +3,23 @@ import {
   AwardAndCertificateAssetType,
   GuaranteesAndWarrantiesAssetType
 } from "@bmi/firestore-types";
-import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
+import {
+  generateHashFromString,
+  generateUrl,
+  isDefined,
+  getIsApprovedOrDiscontinuedProduct
+} from "@bmi/utils";
+import {
+  type Asset,
+  type Category as PimCategory,
+  type Classification as PimClassification,
+  type ClassificationWithFeatures,
+  type Feature,
+  type Product as PimProduct,
+  type VariantOption,
+  ApprovalStatus
+} from "@bmi/pim-types";
 import type {
-  ApprovalStatus,
   CategoryGroup,
   Classification,
   Filter,
@@ -14,15 +28,6 @@ import type {
   RelatedVariant,
   UnitValue
 } from "@bmi/firestore-types";
-import type {
-  Asset,
-  Category as PimCategory,
-  Classification as PimClassification,
-  ClassificationWithFeatures,
-  Feature,
-  Product as PimProduct,
-  VariantOption
-} from "@bmi/pim-types";
 import {
   filterClassifications,
   getAwardAndCertificateAsset,
@@ -43,19 +48,11 @@ import {
 } from "./ignorableFeatureCodes.js";
 
 export const transformProduct = (product: PimProduct): Product[] => {
-  if (
-    !product.name ||
-    (product.approvalStatus !== "approved" &&
-      product.approvalStatus !== "discontinued")
-  ) {
+  if (!product.name || !getIsApprovedOrDiscontinuedProduct(product)) {
     return [];
   }
   return (product.variantOptions || [])
-    .filter(
-      (variant) =>
-        variant.approvalStatus === "approved" ||
-        variant.approvalStatus === "discontinued"
-    )
+    .filter(getIsApprovedOrDiscontinuedProduct)
     .map((variant) => {
       const groupedImages = groupImages([
         ...(variant.images || []),
@@ -243,14 +240,14 @@ export const transformProduct = (product: PimProduct): Product[] => {
       });
 
       if (
-        product.approvalStatus === "discontinued" &&
-        variant.approvalStatus === "approved"
+        product.approvalStatus === ApprovalStatus.Discontinued &&
+        variant.approvalStatus === ApprovalStatus.Approved
       ) {
-        variant.approvalStatus = "discontinued";
+        variant.approvalStatus = ApprovalStatus.Discontinued;
       }
 
       const transformedProduct: Product = {
-        approvalStatus: variant.approvalStatus as ApprovalStatus,
+        approvalStatus: variant.approvalStatus,
         awardsAndCertificateDocuments: getAwardAndCertificateAsset(
           AwardAndCertificateAssetType.Documents,
           product.assets
@@ -541,7 +538,8 @@ const mapRelatedVariants = (
   product
     .variantOptions!.filter(
       (variant) =>
-        variant.approvalStatus === "approved" && variant.code !== variantCode
+        variant.approvalStatus === ApprovalStatus.Approved &&
+        variant.code !== variantCode
     )
     .map((variant) => {
       const classifications = mergeClassifications(

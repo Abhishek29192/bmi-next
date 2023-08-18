@@ -1,3 +1,4 @@
+import { ApprovalStatus } from "@bmi/pim-types";
 import { createSystemPages } from "../systemDetailsPages";
 import { getPathWithCountryCode } from "../../utils/path";
 
@@ -8,7 +9,7 @@ const graphql = jest.fn();
 const system1 = {
   id: "bar",
   path: "s/test",
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   systemReferences: [
     { referenceType: "CROSSELLING", target: { code: "code2" } },
     { referenceType: "CROSSELLING", target: { code: "code3" } }
@@ -17,7 +18,7 @@ const system1 = {
 const system2 = {
   id: "bar2",
   path: "s/test2",
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   systemReferences: [
     { referenceType: "CROSSELLING", target: { code: "code1" } },
     { referenceType: "CROSSELLING", target: { code: "code3" } }
@@ -26,7 +27,7 @@ const system2 = {
 const system3 = {
   id: "bar3",
   path: "s/test3",
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   systemReferences: [
     { referenceType: "CROSSELLING", target: { code: "code1" } },
     { referenceType: "NON-CROSSELLING", target: { code: "code2" } }
@@ -36,7 +37,7 @@ const system3 = {
 const systemUnApproved = {
   id: "bar4",
   path: "s/test4",
-  approvalStatus: "unApproved",
+  approvalStatus: ApprovalStatus.Unapproved,
   systemReferences: [
     { referenceType: "CROSSELLING", target: { code: "code1" } },
     { referenceType: "NON-CROSSELLING", target: { code: "code2" } }
@@ -46,7 +47,7 @@ const systemUnApproved = {
 const systemCheck = {
   id: "bar5",
   path: "s/test5",
-  approvalStatus: "check",
+  approvalStatus: ApprovalStatus.Check,
   systemReferences: [
     { referenceType: "CROSSELLING", target: { code: "code1" } },
     { referenceType: "NON-CROSSELLING", target: { code: "code2" } }

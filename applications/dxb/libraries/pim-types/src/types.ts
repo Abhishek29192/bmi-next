@@ -51,11 +51,13 @@ export type System = {
   goodBetterBest?: GoodBetterBest;
 };
 
-export type ApprovalStatus =
-  | "approved"
-  | "check"
-  | "unapproved"
-  | "discontinued";
+export enum ApprovalStatus {
+  Approved = "approved",
+  Check = "check",
+  Unapproved = "unapproved",
+  Discontinued = "discontinued",
+  Preview = "preview"
+}
 
 type HTML = string;
 

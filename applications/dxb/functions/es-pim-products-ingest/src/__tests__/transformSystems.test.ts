@@ -8,7 +8,8 @@ import {
   createFeature,
   createFeatureValue,
   System,
-  GoodBetterBest
+  GoodBetterBest,
+  ApprovalStatus
 } from "@bmi/pim-types";
 import { transformSystem } from "../transformSystems";
 
@@ -37,7 +38,9 @@ describe("transformSystem", () => {
   });
 
   it("should return undefined if system has a discontinued approval status", () => {
-    const system = createSystem({ approvalStatus: "discontinued" });
+    const system = createSystem({
+      approvalStatus: ApprovalStatus.Discontinued
+    });
 
     expect(transformSystem(system)).toBeUndefined();
     expect(generateHashFromString).not.toHaveBeenCalled();
@@ -45,7 +48,7 @@ describe("transformSystem", () => {
   });
 
   it("should return undefined if system has an unapproved approval status", () => {
-    const system = createSystem({ approvalStatus: "unapproved" });
+    const system = createSystem({ approvalStatus: ApprovalStatus.Unapproved });
 
     expect(transformSystem(system)).toBeUndefined();
     expect(generateHashFromString).not.toHaveBeenCalled();
@@ -53,7 +56,15 @@ describe("transformSystem", () => {
   });
 
   it("should return undefined if system has a check approval status", () => {
-    const system = createSystem({ approvalStatus: "check" });
+    const system = createSystem({ approvalStatus: ApprovalStatus.Check });
+
+    expect(transformSystem(system)).toBeUndefined();
+    expect(generateHashFromString).not.toHaveBeenCalled();
+    expect(generateUrl).not.toHaveBeenCalled();
+  });
+
+  it("should return undefined if system has a preview approval status", () => {
+    const system = createSystem({ approvalStatus: ApprovalStatus.Preview });
 
     expect(transformSystem(system)).toBeUndefined();
     expect(generateHashFromString).not.toHaveBeenCalled();
@@ -61,7 +72,7 @@ describe("transformSystem", () => {
   });
 
   it("should transform system to object when approval status is approved", () => {
-    const system = createSystem({ approvalStatus: "approved" });
+    const system = createSystem({ approvalStatus: ApprovalStatus.Approved });
     const { approvalStatus, type, code, name, shortDescription } = system;
     const brand = getBrand(system);
     const scoringWeight = getScoringWeight(system);

@@ -1,3 +1,4 @@
+import { ApprovalStatus } from "@bmi/pim-types";
 import { PimSystemDocument } from "./types";
 
 export const createFullyPopulatedPimSystemDocument = (
@@ -28,7 +29,7 @@ const createPimSystemDocument = (
   extension: "pdf",
   realFileName: "document.pdf",
   titleAndSize: "pim document title_1",
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   ...pimSystemDocument
 });
 

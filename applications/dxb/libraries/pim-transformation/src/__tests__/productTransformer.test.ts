@@ -1,4 +1,5 @@
 import {
+  ApprovalStatus,
   createAsset,
   createCategory,
   createClassification,
@@ -39,19 +40,29 @@ describe("transformProduct", () => {
   });
 
   it("ignores products with status of check", async () => {
-    const product = createProduct({ approvalStatus: "check" });
+    const product = createProduct({ approvalStatus: ApprovalStatus.Check });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toEqual([]);
   });
 
   it("ignores products with status of unapproved", async () => {
-    const product = createProduct({ approvalStatus: "unapproved" });
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Unapproved
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toEqual([]);
+  });
+
+  it("ignores products with status of preview", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview
+    });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toEqual([]);
   });
 
   it("transforms a single variant option with minimal data when status is approved", async () => {
-    const product = createProduct({ approvalStatus: "approved" });
+    const product = createProduct({ approvalStatus: ApprovalStatus.Approved });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
       [
@@ -358,7 +369,9 @@ describe("transformProduct", () => {
   });
 
   it("transforms a single variant option with minimal data when status is discontinued", async () => {
-    const product = createProduct({ approvalStatus: "discontinued" });
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Discontinued
+    });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
       [
@@ -1494,7 +1507,7 @@ describe("transformProduct", () => {
 
   it("transforms a fully populated product with discontinued status", async () => {
     const product = createFullyPopulatedProduct({
-      approvalStatus: "discontinued"
+      approvalStatus: ApprovalStatus.Discontinued
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
@@ -2324,9 +2337,11 @@ describe("transformProduct", () => {
 
   it("transforms a fully populated product with base discontinued status and variant approved", async () => {
     const product = createFullyPopulatedProduct({
-      approvalStatus: "discontinued",
+      approvalStatus: ApprovalStatus.Discontinued,
       variantOptions: [
-        createFullyPopulatedVariantOption({ approvalStatus: "approved" })
+        createFullyPopulatedVariantOption({
+          approvalStatus: ApprovalStatus.Approved
+        })
       ]
     });
     const transformedProducts = await transformProduct(product);
@@ -3157,9 +3172,11 @@ describe("transformProduct", () => {
 
   it("transforms a fully populated product with base approved status and variant discontinued", async () => {
     const product = createFullyPopulatedProduct({
-      approvalStatus: "approved",
+      approvalStatus: ApprovalStatus.Approved,
       variantOptions: [
-        createFullyPopulatedVariantOption({ approvalStatus: "discontinued" })
+        createFullyPopulatedVariantOption({
+          approvalStatus: ApprovalStatus.Discontinued
+        })
       ]
     });
     const transformedProducts = await transformProduct(product);
@@ -6809,7 +6826,7 @@ describe("transformProduct", () => {
 
   it("ignores check approval status base products", async () => {
     const product = createProduct({
-      approvalStatus: "check",
+      approvalStatus: ApprovalStatus.Check,
       variantOptions: [createVariantOption()]
     });
     const transformedProducts = await transformProduct(product);
@@ -6818,7 +6835,7 @@ describe("transformProduct", () => {
 
   it("ignores unapproved approval status base products", async () => {
     const product = createProduct({
-      approvalStatus: "unapproved",
+      approvalStatus: ApprovalStatus.Unapproved,
       variantOptions: [createVariantOption()]
     });
     const transformedProducts = await transformProduct(product);
@@ -6828,14 +6845,21 @@ describe("transformProduct", () => {
   it("ignores non-approved variant options", async () => {
     const product = createFullyPopulatedProduct({
       variantOptions: [
-        createFullyPopulatedVariantOption({ code: "variant1" }),
+        createFullyPopulatedVariantOption({
+          code: "variant1",
+          approvalStatus: ApprovalStatus.Approved
+        }),
         createFullyPopulatedVariantOption({
           code: "variant2",
-          approvalStatus: "check"
+          approvalStatus: ApprovalStatus.Check
         }),
         createFullyPopulatedVariantOption({
           code: "variant3",
-          approvalStatus: "unapproved"
+          approvalStatus: ApprovalStatus.Unapproved
+        }),
+        createFullyPopulatedVariantOption({
+          code: "variant3",
+          approvalStatus: ApprovalStatus.Preview
         })
       ]
     });

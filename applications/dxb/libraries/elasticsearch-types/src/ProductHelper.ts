@@ -1,4 +1,5 @@
 import {
+  ApprovalStatus,
   createClassification,
   createImage,
   createProduct as createPimProduct
@@ -21,7 +22,7 @@ const createProduct = (product?: Partial<Product>): Product => ({
   images: [createImage()],
   allCategories: [createCategory()],
   classifications: [createClassification()],
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   productScoringWeightInt: 0,
   variantScoringWeightInt: 0,
   totalVariantCount: 1,

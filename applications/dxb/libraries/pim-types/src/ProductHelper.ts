@@ -9,7 +9,7 @@ import createClassification, {
   createScoringWeightAttributesClassification
 } from "./ClassificationHelper";
 import createImage from "./ImageHelper";
-import { Product } from "./types";
+import { Product, ApprovalStatus } from "./types";
 import createVariantOption, {
   createFullyPopulatedVariantOption
 } from "./VariantOptionHelper";
@@ -216,7 +216,7 @@ export const createFullyPopulatedProduct = (product?: Partial<Product>) =>
   });
 
 const createProduct = (product?: Partial<Product>): Product => ({
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   code: "base-code",
   externalProductCode: "external-product-code",
   description: "<p>Some description</p>",

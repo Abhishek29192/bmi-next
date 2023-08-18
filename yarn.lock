@@ -3725,6 +3725,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bmi/utils@workspace:applications/dxb/libraries/utils"
   dependencies:
+    "@bmi/pim-types": "workspace:*"
     "@types/crypto-js": ^4.1.1
     "@types/imurmurhash": ^0.1.1
     "@types/prettier": ^2.7.2
