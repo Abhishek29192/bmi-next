@@ -28,6 +28,7 @@ export interface TypePromoFields {
     | "Everlite"
     | "Icopal"
     | "IcopalKatto"
+    | "IcopalVedag"
     | "Klober"
     | "Monarflex"
     | "Monarplan"

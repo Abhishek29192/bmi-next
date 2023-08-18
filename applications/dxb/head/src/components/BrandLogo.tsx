@@ -17,6 +17,7 @@ import Logo, {
   GuaranteeSystem,
   Icopal,
   IcopalKatto,
+  IcopalVedag,
   Klober,
   Monarflex,
   Monarplan,
@@ -65,6 +66,7 @@ export type Logo =
   | "GuaranteeSystem"
   | "Icopal"
   | "IcopalKatto"
+  | "IcopalVedag"
   | "Klober"
   | "Monarflex"
   | "Monarplan"
@@ -128,6 +130,8 @@ export const getLogo = (logo?: Logo | null) => {
       return Icopal;
     case "IcopalKatto":
       return IcopalKatto;
+    case "IcopalVedag":
+      return IcopalVedag;
     case "Klober":
       return Klober;
     case "Monarflex":
