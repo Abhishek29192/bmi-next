@@ -9896,6 +9896,11 @@
  to="https://www.bmigroup.com/fr/professionnels/configurez-votre-systeme-d-etancheite/"
  force=true
 
+ [[redirects]]
+ from="/documents/geoflow-notice-produit"
+ to="https://www.bmigroup.com/fr/p/geoflow-44-1-f-2405421255/"
+ force=true
+
 # if no redirects are found, fall back to relevant brand page
 
 [[redirects]]
