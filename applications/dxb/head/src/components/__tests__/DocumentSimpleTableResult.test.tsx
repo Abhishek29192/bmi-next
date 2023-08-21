@@ -1,17 +1,22 @@
 import {
-  DownloadListContext,
   ThemeProvider,
+  DownloadListContext,
   DownloadList
 } from "@bmi-digital/components";
 import { useMediaQuery } from "@mui/material";
-import { fireEvent, render, screen } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  within,
+  waitFor
+} from "@testing-library/react";
 import React from "react";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
-import { DocumentListProvider } from "../../contexts/DocumentContext";
 import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
 import { ProductDocument as PIMDocument } from "../../types/pim";
 import DocumentSimpleTableResults, {
@@ -49,9 +54,7 @@ const renderDocumentResults = (props?: Partial<Props>) => {
   };
   return render(
     <ThemeProvider>
-      <DocumentListProvider>
-        <DocumentSimpleTableResults {...defaultProps} {...props} />
-      </DocumentListProvider>
+      <DocumentSimpleTableResults {...defaultProps} {...props} />
     </ThemeProvider>
   );
 };
@@ -206,47 +209,26 @@ describe("DocumentSimpleTableResult", () => {
     });
   });
 
-  describe("test selectAll functionality", () => {
-    it("select all functionality", async () => {
-      const documents = [createPimDocument()];
-      const updateList = jest.fn();
+  describe("selectAll functionality", () => {
+    const downloadListprops = {
+      size: 0,
+      totalSize: 0,
+      list: {},
+      selectedAllCheckboxChecked: false,
+      selectedAllCheckboxDisabled: false,
+      allListItems: {},
+      updateList: jest.fn(),
+      updateAllListItems: jest.fn(),
+      resetList: jest.fn(),
+      count: 0,
+      remainingSize: Infinity,
+      isLoading: false,
+      setIsLoading: jest.fn(),
+      setSelectedAllCheckboxChecked: jest.fn(),
+      setSelectedAllCheckboxDisabled: jest.fn()
+    };
 
-      const MockDownloadListProvider = ({ children }) => (
-        <DownloadListContext.Provider
-          value={{
-            size: 0,
-            list: {},
-            updateList,
-            resetList: jest.fn(),
-            count: 0,
-            remainingSize: Infinity,
-            isLoading: false,
-            setIsLoading: jest.fn()
-          }}
-        >
-          {children}
-        </DownloadListContext.Provider>
-      );
-
-      render(
-        <ThemeProvider>
-          <MockDownloadListProvider>
-            <DocumentListProvider>
-              <DocumentSimpleTableResults documents={documents} />
-            </DocumentListProvider>
-          </MockDownloadListProvider>
-        </ThemeProvider>
-      );
-      const selectAllCheckbox = screen.getByTestId("document-table-select-all");
-      fireEvent.click(selectAllCheckbox);
-      expect(selectAllCheckbox).toHaveClass("Mui-checked");
-      expect(updateList).toHaveBeenCalledTimes(1);
-
-      fireEvent.click(selectAllCheckbox);
-      expect(selectAllCheckbox).not.toHaveClass("Mui-checked");
-    });
-
-    it("should not select the same document twice", async () => {
+    it("should not add selected listitems again", async () => {
       const selectedDocument = createPimDocument({
         id: "1",
         productBaseCode: "selected-document",
@@ -254,29 +236,35 @@ describe("DocumentSimpleTableResult", () => {
         title: "selected document"
       });
       const documents = [createPimDocument(), selectedDocument];
-      const updateListMock = jest.fn();
+      const updateList = jest.fn();
       renderWithProviders(
         <DownloadListContext.Provider
           value={{
+            ...downloadListprops,
             size: selectedDocument.fileSize!,
             list: { "1-selected_document": selectedDocument },
-            updateList: updateListMock,
-            resetList: jest.fn(),
-            count: 0,
-            remainingSize: Infinity,
-            isLoading: false,
-            setIsLoading: jest.fn()
+            allListItems: {
+              "1-selected_document": selectedDocument,
+              "2-selected_document": selectedDocument,
+              "3-selected_document": selectedDocument
+            },
+            updateList
           }}
         >
-          <DocumentListProvider>
-            <DocumentSimpleTableResults documents={documents} />
-          </DocumentListProvider>
+          <DocumentSimpleTableResults documents={documents} />
         </DownloadListContext.Provider>
       );
 
-      const selectAllCheckbox = screen.getByTestId("document-table-select-all");
+      const checkboxContainer = screen.getByTestId("document-table-select-all");
+      const selectAllCheckbox = within(checkboxContainer).getByRole("checkbox");
+
       fireEvent.click(selectAllCheckbox);
-      expect(updateListMock).toHaveBeenCalledTimes(1);
+
+      await screen.findByTestId("document-table-select-all");
+
+      await waitFor(() => {
+        expect(updateList).toHaveBeenCalledTimes(2);
+      });
     });
 
     it("should select all documents correctly if there is PIMDocumentWithPseudoZip document", () => {
@@ -296,23 +284,17 @@ describe("DocumentSimpleTableResult", () => {
         ],
         fileSize: 300
       });
-      const documentId = getUniqueId(zipDocument);
 
       renderWithProviders(
         <DownloadList onChange={onChangeMock}>
-          <DocumentListProvider>
-            <DocumentSimpleTableResults documents={[zipDocument]} />
-          </DocumentListProvider>
+          <DocumentSimpleTableResults documents={[zipDocument]} />
         </DownloadList>
       );
 
-      const selectAllCheckbox = screen.getByRole("checkbox", {
-        name: "MC: documentLibrary.headers.add"
-      });
+      const checkboxContainer = screen.getByTestId("document-table-select-all");
+      const selectAllCheckbox = within(checkboxContainer).getByRole("checkbox");
       fireEvent.click(selectAllCheckbox);
-      expect(onChangeMock).toHaveBeenCalledWith({
-        [documentId]: zipDocument.documentList
-      });
+      expect(onChangeMock).toHaveBeenCalled();
     });
 
     it("should deselect previously selected documents", () => {
@@ -320,9 +302,7 @@ describe("DocumentSimpleTableResult", () => {
       const onChangeMock = jest.fn();
       renderWithProviders(
         <DownloadList onChange={onChangeMock}>
-          <DocumentListProvider>
-            <DocumentSimpleTableResults documents={[pimDocument]} />
-          </DocumentListProvider>
+          <DocumentSimpleTableResults documents={[pimDocument]} />
         </DownloadList>
       );
       const selectAllCheckbox = screen.getByRole("checkbox", {

@@ -3,7 +3,6 @@ import { createPimProductDocument } from "@bmi/elasticsearch-types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
-import { DocumentListProvider } from "../../../../contexts/DocumentContext";
 import ResultSection, { Props as ResultSectionProps } from "../ResultSection";
 
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
@@ -39,9 +38,7 @@ describe("ResultSection", () => {
   it("render correctly", () => {
     render(
       <ThemeProvider>
-        <DocumentListProvider>
-          <ResultSection {...props} />
-        </DocumentListProvider>
+        <ResultSection {...props} />
       </ThemeProvider>
     );
 
@@ -56,11 +53,7 @@ describe("ResultSection", () => {
   });
 
   it("renders correctly if there are no documents", () => {
-    render(
-      <DocumentListProvider>
-        <ResultSection {...props} results={[]} />
-      </DocumentListProvider>
-    );
+    render(<ResultSection {...props} results={[]} />);
 
     expect(
       screen.getByText("MC: documentLibrary.noResults")

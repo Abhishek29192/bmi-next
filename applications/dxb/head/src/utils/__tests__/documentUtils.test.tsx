@@ -20,13 +20,11 @@ import {
   downloadMultipleFiles,
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
-  getUniqueId,
   getIsLinkDocument,
   getProductStatus,
   getValidityDate,
   mapAssetToFileDownload,
-  useShowMobileTable,
-  getCurrentlySelectedDocumentsCount
+  useShowMobileTable
 } from "../documentUtils";
 import { renderHookWithProviders } from "../../__tests__/renderHookWithProviders";
 
@@ -330,112 +328,5 @@ describe("useShowMobileTable", () => {
     const event = new Event("resize");
     window.dispatchEvent(event);
     await waitFor(() => expect(result.current.showMobileTable).toBeFalsy());
-  });
-});
-
-describe("getCurrentlySelectedDocumentsCount", () => {
-  const docs = [
-    {
-      id: "76219d79-0e44-4a19-80fb-55ef2052f615",
-      title: "45° vinkel innvendig Product Brochure",
-      approvalStatus: "approved",
-      url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h61/h57/8993676656670/BMI-Brosjyre-Staltakrennerpdf",
-      assetType: {
-        name: "Product Brochure",
-        code: "BRC",
-        pimCode: "PRODUCT_BROCHURE"
-      },
-      isLinkDocument: false,
-      noIndex: false,
-      fileSize: 17130578,
-      format: "application/pdf",
-      extension: "pdf",
-      realFileName: "BMI_Brosjyre_Ståltakrenner.pdf",
-      titleAndSize: "Bro BMI Norge Ståltakrenne 125mm_17130578",
-      __typename: "PIMDocument",
-      productName: "45° vinkel innvendig",
-      productBaseCode: "Gutter_steel_Vinkel_innvendig_45dgr_125mm",
-      BRAND: [
-        {
-          code: "BMI_Components",
-          name: "BMI Components"
-        }
-      ],
-      PRODUCTFAMILY: [
-        {
-          code: "Takrenne_Stål_125mm",
-          name: "Takrenne stål 125mm"
-        }
-      ],
-      CATEGORY: [
-        {
-          code: "STEEL_GUTTERS_NO",
-          name: "Takrenner stål"
-        },
-        {
-          code: "PRODUCTS_NO",
-          name: "Produkter"
-        },
-        {
-          code: "ROOF_NO",
-          name: "Takprodukter"
-        },
-        {
-          code: "GUTTERS_NO",
-          name: "Takrenner"
-        },
-        {
-          code: "PITCHEDROOF_NO",
-          name: "Skråtak"
-        }
-      ],
-      BMI_BRANDS: [
-        {
-          code: "BMI_Components",
-          name: "BMI Components"
-        }
-      ],
-      PRODUCT_FAMILY: [
-        {
-          code: "Takrenne_Stål_125mm",
-          name: "Takrenne stål 125mm"
-        }
-      ],
-      GUTTERS_NO: [
-        {
-          code: "STEEL_GUTTERS_NO",
-          name: "Takrenner stål"
-        }
-      ],
-      PRODUCTS_NO: [
-        {
-          code: "ROOF_NO",
-          name: "Takprodukter"
-        }
-      ],
-      PITCHEDROOF_NO: [
-        {
-          code: "GUTTERS_NO",
-          name: "Takrenner"
-        }
-      ],
-      ROOF_NO: [
-        {
-          code: "PITCHEDROOF_NO",
-          name: "Skråtak"
-        }
-      ]
-    }
-  ] as unknown as PIMDocument[];
-
-  it("should get zero count  with no selected document", () => {
-    expect(getCurrentlySelectedDocumentsCount(docs, {})).toBe(0);
-  });
-  it("should get correct count  with selected document", () => {
-    expect(
-      getCurrentlySelectedDocumentsCount(docs, {
-        [`${getUniqueId(docs[0])}`]: docs[0]
-      })
-    ).toBe(1);
   });
 });

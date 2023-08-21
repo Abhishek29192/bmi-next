@@ -25,7 +25,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               scope="col"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
