@@ -3,7 +3,7 @@
 exports[`Contact us page render NextBestActions correctly 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -2722,7 +2722,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
 exports[`Contact us page render Sections correctly 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -5441,7 +5441,7 @@ exports[`Contact us page render Sections correctly 1`] = `
 exports[`Contact us page render first slide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -8158,7 +8158,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
 exports[`Contact us page render iframe correctly 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -10877,7 +10877,7 @@ exports[`Contact us page render iframe correctly 1`] = `
 exports[`Contact us page render location correctly 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -13596,7 +13596,7 @@ exports[`Contact us page render location correctly 1`] = `
 exports[`Contact us page renders correctly 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"

@@ -95,7 +95,6 @@ export const renderProducts = (
       countryCode,
       pageContext.variantCodeToPathMap?.[variant.code] || variant.path
     )}${getSearchParams()}`;
-    const subTitle = variant.subTitle;
     const moreOptionsAvailable =
       variant.all_variants?.length > 1 &&
       getMicroCopy("plp.product.moreOptionsAvailable");
@@ -138,14 +137,12 @@ export const renderProducts = (
         <GTMOverviewCard
           title={product?.name}
           titleVariant="h5"
-          subtitle={subTitle}
-          subtitleVariant="h6"
           tag={
             <GoodBetterBestIndicator indicatorType={variant.goodBetterBest} />
           }
           media={
             mainImage ? (
-              <img src={mainImage} alt={`${subTitle} ${product?.name}`} />
+              <img src={mainImage} alt={product?.name} />
             ) : (
               <DefaultImage />
             )

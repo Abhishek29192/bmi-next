@@ -3,7 +3,7 @@
 exports[`SystemDetailsPage template component gtm on landing on sdp from sc run pushtogtm data layer if selected_system in query param 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -2570,7 +2570,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
 exports[`SystemDetailsPage template component should render the component 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -5109,7 +5109,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
 exports[`SystemDetailsPage template component should render without Brand logo 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -7653,7 +7653,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
 exports[`SystemDetailsPage template component should render without BrandProvider 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -10192,7 +10192,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
 exports[`SystemDetailsPage template component should render without specifications 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -12692,7 +12692,7 @@ exports[`SystemDetailsPage template component should render without specificatio
 exports[`SystemDetailsPage template component should render without systemLayers 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
@@ -15231,7 +15231,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
 exports[`SystemDetailsPage template component systemLayers tests should render with all systemLayers 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"

@@ -3,7 +3,7 @@
 exports[`Sitemap cover test for pageContext optional chaining 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
@@ -801,7 +801,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
 exports[`Sitemap renders correctly 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
@@ -1599,7 +1599,7 @@ exports[`Sitemap renders correctly 1`] = `
 exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
@@ -2333,7 +2333,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
 exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
@@ -3068,7 +3068,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
 exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <div
       class=""
@@ -3395,7 +3395,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
 exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <div
       class=""
