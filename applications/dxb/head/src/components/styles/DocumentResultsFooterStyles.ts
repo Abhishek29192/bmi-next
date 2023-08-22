@@ -135,16 +135,18 @@ export const FooterBottomWrapper = styled("div")<{ format: string }>(
   })
 );
 
-export const SelectAllCheckboxWrapper = styled("div")<{ format: string }>(
-  ({ format, theme }) => ({
-    display: "flex",
-    alignItems: "center",
-    ...(format === "technicalTable" && {
+export const SelectAllCheckboxWrapper = styled("div")<{
+  format: string;
+  isMobile: boolean;
+}>(({ format, theme, isMobile }) => ({
+  display: "flex",
+  alignItems: "center",
+  ...(format === "technicalTable" &&
+    !isMobile && {
       borderLeft: `1px solid ${theme.colours.storm}`,
       paddingLeft: "5px"
     })
-  })
-);
+}));
 
 export const SelectAllCheckboxLabel = styled(Button)(() => ({
   marginRight: "5px"
