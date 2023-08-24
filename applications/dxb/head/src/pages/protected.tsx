@@ -30,7 +30,12 @@ const ProtectedPage: React.FunctionComponent<Props> = (props) => {
       This is protected page. Logging you in. Please wait..
     </div>
   ) : (
-    profile && <p>Hello {profile.name}</p>
+    profile && (
+      <>
+        <p>Hello {profile.name}</p>
+        <a href="localhost:3000/protected">Go to Intouch site</a>
+      </>
+    )
   );
 };
 
