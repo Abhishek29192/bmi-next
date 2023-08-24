@@ -6,7 +6,7 @@ function LoginButton() {
   const { isLoggedIn, profile } = useAuth();
   return (
     <div style={{ margin: "32px" }}>
-      {profile && <p>Hello {profile.name}</p>}
+      {isLoggedIn && profile && <p>Hello {profile.name}</p>}
       {isLoggedIn ? (
         <Button onClick={AuthService.logout}>Logout</Button>
       ) : (
