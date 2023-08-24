@@ -62,7 +62,7 @@ const list = {
   name2: createPimDocument(),
   name3: createPimDocument()
 };
-const allListItems = {
+const allListItemsWithPages = {
   name1: createContentfulDocument(),
   name2: createPimDocument(),
   name3: createPimDocument()
@@ -84,20 +84,22 @@ describe("DocumentResultsFooter component", () => {
 
   const downloadListDefaultProps = {
     list,
-    allListItems,
+    allListItemsWithPages,
     updateList: jest.fn(),
     updateAllListItems: jest.fn(),
     resetList: jest.fn(),
-    setSelectedAllCheckboxDisabled: jest.fn(),
-    selectedAllCheckboxChecked: false,
+    selectedAllCheckboxDisabledByPages: { 0: false },
+    selectedAllCheckboxCheckedByPages: { 0: false },
     count: 0,
     size: 0,
     totalSize: 0,
     remainingSize: Infinity,
     isLoading: false,
     setIsLoading: jest.fn(),
-    selectedAllCheckboxDisabled: false,
-    setSelectedAllCheckboxChecked: jest.fn()
+    currentPage: 0,
+    setCurrentPage: jest.fn(),
+    setSelectAllCheckboxDisabledByPage: jest.fn(),
+    setSelectAllCheckboxCheckedByPage: jest.fn()
   };
 
   const getWrappeedFooterComponent = (
@@ -599,7 +601,7 @@ describe("DocumentResultsFooter component", () => {
       list,
       count: 26,
       size: 0,
-      allListItems
+      allListItemsWithPages
     };
 
     const footerProps = {
@@ -664,7 +666,7 @@ describe("DocumentResultsFooter component", () => {
           <DownloadListContext.Provider
             value={{
               ...downloadListDefaultProps,
-              selectedAllCheckboxDisabled: true
+              selectedAllCheckboxDisabledByPages: { 0: true }
             }}
           >
             <DocumentResultsFooter {...footerProps} />
@@ -679,26 +681,6 @@ describe("DocumentResultsFooter component", () => {
       fireEvent.click(selectAllCheckbox);
 
       expect(selectAllCheckbox).toBeDisabled();
-    });
-    it("should call clean up", () => {
-      const resetList = jest.fn();
-
-      const { unmount } = render(
-        <ThemeProvider>
-          <DownloadListContext.Provider
-            value={{
-              ...downloadListDefaultProps,
-              resetList
-            }}
-          >
-            <DocumentResultsFooter {...footerProps} />
-          </DownloadListContext.Provider>
-        </ThemeProvider>
-      );
-
-      unmount();
-
-      expect(resetList).toHaveBeenCalled();
     });
   });
 });

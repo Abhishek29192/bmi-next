@@ -10,7 +10,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
         class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-q3x8p3-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15cmdva-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
@@ -393,7 +393,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
         class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-q3x8p3-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15cmdva-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
@@ -776,7 +776,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
         class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-q3x8p3-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15cmdva-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div

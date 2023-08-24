@@ -44,6 +44,7 @@ describe("DocumentResults component", () => {
               data={[contentfulDocument, pimDocument]}
               format="simpleTable"
               assetTypes={assetTypes}
+              pageNumber={0}
             />
           </ThemeProvider>
         );

@@ -6,7 +6,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -192,7 +192,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -216,7 +216,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -240,7 +240,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -264,7 +264,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -2573,7 +2573,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -2759,7 +2759,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -2783,7 +2783,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -2807,7 +2807,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -2831,7 +2831,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -5112,7 +5112,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -5298,7 +5298,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -5322,7 +5322,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -5346,7 +5346,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -5370,7 +5370,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -7656,7 +7656,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -7842,7 +7842,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -7866,7 +7866,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -7890,7 +7890,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -7914,7 +7914,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -10195,7 +10195,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -10381,7 +10381,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -10405,7 +10405,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -10429,7 +10429,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -10453,7 +10453,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -12695,7 +12695,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -12881,7 +12881,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -12905,7 +12905,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -12929,7 +12929,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -12953,7 +12953,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -15234,7 +15234,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -15420,7 +15420,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -15444,7 +15444,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -15468,7 +15468,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -15492,7 +15492,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -16298,7 +16298,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 class=" css-1u48ai"
               >
                 <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
                 >
                   <div
                     aria-expanded="false"

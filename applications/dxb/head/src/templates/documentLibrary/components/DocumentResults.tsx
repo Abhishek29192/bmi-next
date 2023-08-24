@@ -22,6 +22,7 @@ type Props = {
   data: DocumentResultData[];
   assetTypes: AssetType[];
   format: Format;
+  pageNumber?: number;
 };
 
 const tableHeadersConfig: Record<
@@ -42,7 +43,8 @@ const tableHeadersConfig: Record<
 const DocumentResults = ({
   data,
   assetTypes: contentfulAssetTypes,
-  format
+  format,
+  pageNumber
 }: Props) => {
   if (format === "simpleTable" || format === "simpleArchiveTable") {
     const documentsByAssetTypeCode = groupBy(
@@ -59,7 +61,11 @@ const DocumentResults = ({
       (header) => !(commonAssetTypes.length < 2 && header.includes("type"))
     );
     return (
-      <DocumentSimpleTableResults documents={data} headers={tableHeaders} />
+      <DocumentSimpleTableResults
+        documents={data}
+        headers={tableHeaders}
+        pageNumber={pageNumber}
+      />
     );
   }
 
@@ -69,6 +75,7 @@ const DocumentResults = ({
       <DocumentTechnicalTableResults
         documents={data as PimProductDocument[]}
         assetTypes={contentfulAssetTypes}
+        pageNumber={pageNumber}
       />
     );
   }

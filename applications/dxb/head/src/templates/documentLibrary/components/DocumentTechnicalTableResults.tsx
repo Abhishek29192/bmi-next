@@ -8,6 +8,7 @@ import TechnicalTableResultsAccordion from "./_TechnicalTableResultsAccordion";
 type Props = {
   documents: PimProductDocument[];
   assetTypes: AssetType[];
+  pageNumber?: number;
 };
 
 export const groupDocuments = (
@@ -18,7 +19,11 @@ export const groupDocuments = (
   );
 };
 
-const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
+const DocumentTechnicalTableResults = ({
+  documents,
+  assetTypes,
+  pageNumber
+}: Props) => {
   const allDocumentsGrouped = useMemo(
     () =>
       groupDocuments(documents).filter(
@@ -36,6 +41,7 @@ const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
       <TechnicalTableResultsAccordion
         documentsByProduct={allDocumentsGrouped}
         assetTypes={assetTypes}
+        pageNumber={pageNumber}
       />
     </Root>
   );

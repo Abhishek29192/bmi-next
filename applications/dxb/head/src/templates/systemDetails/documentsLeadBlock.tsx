@@ -50,6 +50,7 @@ const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
               <DocumentSimpleTableResults
                 documents={documents}
                 headers={["add", "type", "title", "size", "actions"]}
+                pageNumber={page}
               />
             </div>
             <DocumentResultsFooter
