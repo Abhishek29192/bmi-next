@@ -1,46 +1,10 @@
-/* eslint-disable security/detect-object-injection */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/*
-  This script compares Micro Copies @bmi/head <---> Contentful. In case
-  new Micro Copies are found - creates new for every locale and every market (tag)
-  that is used in a specific environment. By default, creates draft Micro Copies with
-  an empty value
-
-  If there is a contentful microcopy entry with multiple tags attached to it,
-  the script will stop and allow user's remove multiple tags
-
-  It also processes existing entries from contentful and creates new entry
-  for every market / public Tag.
-
-  When processing existing micro copy entry, it checks,
-
-  a) If an exitsing entry has NO tag, it will create a new entry for each global tag (market)
-  E.g. If the environment on which this process is executed has 2 Global public Tags (market__uk + market__finland) then,
-  end result will be : 3 identical entries i.e. 1 original + 2 new entries (one per tag)
-
-  b) If an existing entry has `single` tag applied,then it will create
-  a new micro copy entry for the remaining tags and sync every micro copy entry
-  for each public tag.
-
-  E.g. If the environment on which this process is executed has 2 Global public Tags (market__uk + market__finland)
-  And existing entry is tagged with `UK` market, then,
-  end result will be : 2 identical entries i.e. 1 original + 1 new entry for Finland tag
-
-  When this utility is called without `--publish` option,
-  i)  It will process ALL entries with ANY status
-  ii) It will NOT publish newly created entries
-  iii) `value` of each entry will be left empty
-
-  When this utility is called with `--publish` option,
-  i) It will only process exsiting `published`.
-  ii) It will publish newly created entries
-  iii) `value` of each entry will same as its `key`
-*/
 import { argv } from "node:process";
 import { pathToFileURL } from "node:url";
-import { getEnvironment, waitFor } from "@bmi/utils";
+import { getContentfulClient } from "@bmi/functions-contentful-management-client";
+import { isDefined, waitFor } from "@bmi/utils";
 import { microCopy } from "@bmi/microcopies";
 import "dotenv/config";
+import { VersionedLink } from "contentful-management/dist/typings/common-types.js";
 import {
   BULK_SIZE,
   CHUNK_SIZE,
@@ -49,82 +13,67 @@ import {
 } from "./constants.js";
 import type {
   Entry,
+  EntryProps,
   Environment,
-  Link,
-  Locale,
+  SysLink,
   Tag
 } from "contentful-management";
 
-let TO_BE_PUBLISHED = process.argv.includes("--publish");
-let IS_CONSOLIDATED = process.argv.includes("--isConsolidated=true");
+const ALL_MICROCOPY_KEYS = Object.values(microCopy);
 
-type PublishEntryPayload = {
-  sys: {
-    linkType: string;
-    type: string;
-    id: any;
-    version: any;
-  };
+let environment: Environment | undefined;
+const getEnvironment = async (): Promise<Environment> => {
+  if (!environment) {
+    if (!process.env.SPACE_ID) {
+      throw new Error("SPACE_ID was not provided");
+    }
+
+    if (!process.env.CONTENTFUL_ENVIRONMENT) {
+      throw new Error("CONTENTFUL_ENVIRONMENT was not provided");
+    }
+
+    const clientApi = getContentfulClient();
+    const space = await clientApi.getSpace(process.env.SPACE_ID);
+    environment = await space.getEnvironment(
+      process.env.CONTENTFUL_ENVIRONMENT
+    );
+  }
+  return environment;
 };
 
-type ResourceEntryPayload = {
-  metadata?: {
-    tags: Link<"Tag">[];
-  };
-  fields:
-    | {
-        key: {
-          [k: string]: any;
-        };
-        value: {
-          [k: string]: any;
-        };
-      }
-    | {
-        key: {
-          [k: string]: any;
-        };
-        value?: undefined;
-      };
-};
-
-const getValidMarketTags = async (environment: Environment): Promise<Tag[]> => {
-  return (await environment.getTags(undefined)).items.filter(
+const getValidMarketTags = async (): Promise<Tag[]> => {
+  const environment = await getEnvironment();
+  const marketTags = (await environment.getTags(undefined)).items.filter(
     (item: Tag) =>
       item.sys.visibility === "public" && item.sys.id.startsWith("market__")
   );
+
+  if (marketTags.length === 0) {
+    throw Error(
+      `The environment '${environment.name}' is expected to be Consolidated space, however NO public tags prefix with 'market__' are present.`
+    );
+  }
+
+  return marketTags;
 };
 
-const groupBy = <T extends Entry>(
-  array: readonly T[],
-  field: (t: T) => string,
-  extractValue: (t: T) => string
-) =>
-  array.reduce<{ [key: string]: string[] }>((grouped, value) => {
-    if (typeof field === "function") {
-      (grouped[field(value)] || (grouped[field(value)] = [])).push(
-        extractValue(value)
-      );
-    }
-    return grouped;
-  }, {});
-
 const createEntriesInBatch = async (
-  chunkPayloads: ResourceEntryPayload[]
+  chunkPayloads: Omit<EntryProps, "sys">[]
 ): Promise<PromiseSettledResult<Entry>[]> => {
   const entriesToCreate = chunkPayloads.slice(0, CHUNK_SIZE);
   if (entriesToCreate.length === 0) {
     return [];
   }
   const environment = await getEnvironment();
-  const promisesOfItems = await entriesToCreate.map(async (payloadItem) => {
-    return environment.createEntry("resource", {
-      fields: payloadItem.fields,
-      metadata: payloadItem.metadata
-    });
-  });
+  const results = await Promise.allSettled(
+    entriesToCreate.map(async (payloadItem) =>
+      environment.createEntry("resource", {
+        fields: payloadItem.fields,
+        metadata: payloadItem.metadata
+      })
+    )
+  );
   await waitFor(TIMEOUT);
-  const results = await Promise.allSettled(promisesOfItems);
 
   return [
     ...results,
@@ -133,27 +82,37 @@ const createEntriesInBatch = async (
 };
 
 const createEntriesAndReturnFulfilledResponse = async (
-  allEntryPayloads: ResourceEntryPayload[]
-): Promise<PublishEntryPayload[]> => {
-  const results: PromiseSettledResult<Entry>[] = await createEntriesInBatch(
-    allEntryPayloads
-  );
+  allEntryPayloads: Omit<EntryProps, "sys">[]
+): Promise<VersionedLink<"Entry">[]> => {
+  const results = await createEntriesInBatch(allEntryPayloads);
 
   console.log(
     `Entry creation finished. Created ${results.length} of ${allEntryPayloads.length} entries.`
   );
 
-  const fulfilled = results.filter(({ status }) => status === "fulfilled");
-
-  results
-    .filter(({ status }) => status === "rejected")
-    .map((entries: any) => {
+  const rejected = results
+    .filter(
+      (result): result is PromiseRejectedResult => result.status === "rejected"
+    )
+    .map((entries) => {
       console.log(`Failed to upload: ${JSON.stringify(entries.reason)}`);
+      return entries.reason;
     });
+
+  const fulfilled = results.filter(
+    (result): result is PromiseFulfilledResult<Entry> =>
+      result.status === "fulfilled"
+  );
 
   console.log(`${fulfilled.length} entries created in contentful.`);
 
-  const response: PublishEntryPayload[] = fulfilled.map(({ value }: any) => ({
+  if (rejected.length > 0) {
+    throw new Error(
+      `${rejected.length} entries failed to be created in contentful.`
+    );
+  }
+
+  return fulfilled.map(({ value }) => ({
     sys: {
       linkType: "Entry",
       type: "Link",
@@ -161,143 +120,67 @@ const createEntriesAndReturnFulfilledResponse = async (
       version: value.sys.version
     }
   }));
-
-  return response;
 };
 
 const getContentfulMicroCopies = async (
-  fetched: Entry[],
-  total: number
+  marketTag?: Tag,
+  fetched: Entry[] = [],
+  total = -1
 ): Promise<Entry[]> => {
   if (fetched.length === total) {
     return fetched;
   }
   const environment = await getEnvironment();
   const resources = await environment.getEntries({
-    content_type: "resource",
+    content_type: "resource", // For some reason, microcopies have the ID resource in Contentful
     skip: fetched.length,
-    limit: KEYS_REQUEST_PAGE_SIZE
+    limit: KEYS_REQUEST_PAGE_SIZE,
+    ...(marketTag && {
+      "metadata.tags.sys.id[in]": marketTag.sys.id
+    })
   });
 
-  const keys = resources.items.map((resource) => {
-    return resource;
-  });
-
-  const result = [...fetched, ...keys];
-
-  return getContentfulMicroCopies(result, resources.total);
+  return getContentfulMicroCopies(
+    marketTag,
+    [...fetched, ...resources.items],
+    resources.total
+  );
 };
 
-const updateExistingMicrocopies = async (
-  entriesToBeProcessed: Entry[],
-  locales: Locale[],
-  allTags: Tag[]
-) => {
-  const allLocaleCodes = locales.map((locale) => locale.code);
-  const defaultLocale = locales.filter((locale) => locale.default)[0];
-
-  const allEntryPayloads: ResourceEntryPayload[] = entriesToBeProcessed.flatMap(
-    (entry) => {
-      const keyForLocales = Object.fromEntries(
-        allLocaleCodes.map((locale: string) => [
-          locale,
-          entry.fields.key[defaultLocale.code]
-        ])
-      );
-
-      const fields = TO_BE_PUBLISHED
-        ? {
-            key: keyForLocales,
-            value: keyForLocales
-          }
-        : {
-            key: keyForLocales
-          };
-
-      const tagsToBeApplied = !entry.metadata
-        ? allTags
-        : allTags.filter(
-            ({ sys: { id: tagId } }) =>
-              !entry.metadata?.tags.some(({ sys: { id } }) => id === tagId)
-          );
-
-      if (IS_CONSOLIDATED) {
-        return tagsToBeApplied.map((tagItem) => {
-          return {
-            metadata: {
-              tags: [
-                {
-                  sys: {
-                    type: "Link",
-                    linkType: "Tag",
-                    id: tagItem.sys.id
-                  }
-                }
-              ]
-            },
-            fields: fields
-          };
-        });
-      } else {
-        /*istanbul ignore next:cant test*/
-        return [];
-      }
-    }
-  );
-
-  console.log(
-    `${
-      allEntryPayloads.length
-    } new Micro Copies will be created. Creating them in ${Math.round(
-      allEntryPayloads.length / CHUNK_SIZE
-    )} chunks...`
-  );
-
-  return await createEntriesAndReturnFulfilledResponse(allEntryPayloads);
-};
-
-const processNewMicrocopies = async (
-  microcopyKeys: string[]
-): Promise<PublishEntryPayload[]> => {
+const createNewMicrocopies = async (
+  microcopyKeys: string[],
+  marketTag?: Tag
+): Promise<VersionedLink<"Entry">[]> => {
   const environment = await getEnvironment();
-  const allTags = await getValidMarketTags(environment);
   const allLocales = await environment.getLocales();
   const allLocaleCodes = allLocales.items.map((locale) => locale.code);
 
-  const allTagCodes = allTags.map((tag) => tag.sys.id);
-
-  const allEntryPayloads: ResourceEntryPayload[] = microcopyKeys.flatMap(
+  const allEntryPayloads: Omit<EntryProps, "sys">[] = microcopyKeys.map(
     (entry) => {
       const keyForLocales = Object.fromEntries(
         allLocaleCodes.map((locale: string) => [locale, entry])
       );
 
-      const fields = TO_BE_PUBLISHED
-        ? {
-            key: keyForLocales,
-            value: keyForLocales
-          }
-        : {
-            key: keyForLocales
-          };
+      const fields = {
+        key: keyForLocales,
+        value: keyForLocales
+      };
 
-      if (IS_CONSOLIDATED) {
-        return allTagCodes.map((tagItem) => {
-          return {
-            metadata: {
-              tags: [
-                {
-                  sys: {
-                    type: "Link",
-                    linkType: "Tag",
-                    id: tagItem
-                  }
+      if (marketTag) {
+        return {
+          metadata: {
+            tags: [
+              {
+                sys: {
+                  type: "Link",
+                  linkType: "Tag",
+                  id: marketTag.sys.id
                 }
-              ]
-            },
-            fields: fields
-          };
-        });
+              }
+            ]
+          },
+          fields: fields
+        };
       } else {
         return {
           fields: fields
@@ -317,79 +200,7 @@ const processNewMicrocopies = async (
   return await createEntriesAndReturnFulfilledResponse(allEntryPayloads);
 };
 
-const tagExistingContentfulMicrocopies = async (
-  contentfulMicrocopies: Entry[]
-): Promise<PublishEntryPayload[]> => {
-  const environment = await getEnvironment();
-  const allTags = await getValidMarketTags(environment);
-  console.log(
-    `Starting to tag existing microcopies in the environment : ${environment.name}`
-  );
-
-  const allLocales = await environment.getLocales();
-  const defaultLocale = allLocales.items.filter((locale) => locale.default)[0];
-
-  const allTagCodes = allTags.map((tag: Tag) => tag.sys.id);
-
-  const microCopiesWithoutKeys = contentfulMicrocopies.filter(
-    (item) => !item.fields.key || !item.fields.key[defaultLocale.code]
-  );
-  if (microCopiesWithoutKeys.length > 0) {
-    console.log(
-      `\nSkipping following micro copies. They do not have Key for default locale : '${defaultLocale.code}'`
-    );
-    microCopiesWithoutKeys.forEach((item) => {
-      console.log(
-        `\nMicrocopy Id: '${item.sys.id}' does not have 'Key' populated.`
-      );
-    });
-  }
-
-  let mcToProcess = contentfulMicrocopies.filter(
-    (item) => item.fields.key && item.fields.key[defaultLocale.code]
-  );
-  if (TO_BE_PUBLISHED) {
-    mcToProcess = mcToProcess.filter((item) => item.isPublished() === true);
-  }
-  const groupedMCs = groupBy(
-    mcToProcess,
-    (item) =>
-      item.fields.key?.[defaultLocale.code]
-        ? item.fields.key[defaultLocale.code]
-        : "no_key_mc",
-    (item) =>
-      !item.metadata || item.metadata.tags.length === 0
-        ? "not_tagged"
-        : item.metadata.tags[0].sys.id
-  );
-
-  const entriesToBeProcessed = mcToProcess.filter(
-    (item) =>
-      item.fields.key &&
-      !allTagCodes.every((code: string) =>
-        groupedMCs[item.fields.key[defaultLocale.code]].includes(code)
-      )
-  );
-
-  if (entriesToBeProcessed.length === 0) {
-    console.log(
-      `All exsting entries are tagged with ${JSON.stringify(
-        allTagCodes
-      )}. No further processing required.`
-    );
-    return [];
-  }
-
-  const nodesForExistingMicrocopies = await updateExistingMicrocopies(
-    entriesToBeProcessed,
-    allLocales.items,
-    allTags
-  );
-
-  return nodesForExistingMicrocopies;
-};
-
-const publishMicroCopies = async (nodes: any) => {
+const publishMicroCopies = async (nodes: VersionedLink<"Entry">[]) => {
   if (nodes.length === 0) {
     console.log("Publish action is complete");
     return;
@@ -413,109 +224,115 @@ const publishMicroCopies = async (nodes: any) => {
   await publishMicroCopies(nodes.slice(BULK_SIZE));
 };
 
+const linkMicrocopiesToResources = async (
+  nodes: VersionedLink<"Entry">[],
+  marketTag?: Tag
+) => {
+  const environment = await getEnvironment();
+  const resourcesEntries = await environment.getEntries({
+    content_type: "resources",
+    limit: 1,
+    ...(marketTag && {
+      "metadata.tags.sys.id[in]": marketTag.sys.id
+    })
+  });
+
+  if (resourcesEntries.total !== 1) {
+    throw new Error(
+      `Unable to find any resources with tag ${marketTag?.name || ""}.`
+    );
+  }
+
+  const resources = resourcesEntries.items[0];
+  resources.fields.microCopy = Object.entries(
+    resources.fields.microCopy as {
+      [locale: string]: SysLink[];
+    }
+  ).map<{
+    [locale: string]: SysLink[];
+  }>(([key, value]) => ({
+    [key]: [
+      ...value,
+      ...nodes.map((entry) => ({
+        sys: { type: "Link", linkType: "Entry", id: entry.sys.id }
+      }))
+    ]
+  }));
+  await resources.update();
+};
+
 export const main = async (
   isToBePublished: boolean,
   isConsolidated: boolean
 ) => {
-  IS_CONSOLIDATED = isConsolidated;
-  TO_BE_PUBLISHED = isToBePublished;
-
-  const projectKeys = Object.values(microCopy);
-
-  let allContentfulMicrocopies = await getContentfulMicroCopies([], -1);
-
-  if (TO_BE_PUBLISHED) {
-    allContentfulMicrocopies = allContentfulMicrocopies.filter((mc) =>
-      mc.isPublished()
-    );
-  }
-
-  const microCopiesWithMultipleTags = allContentfulMicrocopies.filter(
-    (mc) => mc.metadata && mc.metadata.tags.length > 1
-  );
-
-  //If there is a microcopy with multiple tags, then stop the process!
-  if (microCopiesWithMultipleTags.length > 0) {
-    console.error("Following micro copies with multiple tags identified.");
-    microCopiesWithMultipleTags.forEach((mc) => {
-      console.error(
-        `\nContenful id: '${mc.sys.id}' and key: ${JSON.stringify(
-          mc.fields.key
-        )} has more than one tag: ${JSON.stringify(mc.metadata?.tags)}`
+  const marketTags = isConsolidated ? await getValidMarketTags() : [undefined];
+  await Promise.all(
+    marketTags.map(async (marketTag) => {
+      const allContentfulMicrocopies = await getContentfulMicroCopies(
+        marketTag
       );
-    });
-    console.error(`\n`);
-    throw Error(
-      `Please fix multi tagged entries and start this process again.`
-    );
-  }
 
-  const contentfulKeys = allContentfulMicrocopies.map((resource) => {
-    if (resource.fields.key) {
-      return Object.values(resource.fields.key)[0];
-    }
-  });
+      const microCopiesWithMultipleTags = allContentfulMicrocopies.filter(
+        (mc) => mc.metadata && mc.metadata.tags.length > 1
+      );
 
-  const microCopiesNotInContentful = projectKeys.filter(
-    (key) => !contentfulKeys.includes(key)
+      if (microCopiesWithMultipleTags.length > 0) {
+        console.error("Following micro copies with multiple tags identified.");
+        microCopiesWithMultipleTags.forEach((mc) => {
+          console.error(
+            `\nContentful ID: '${mc.sys.id}' and key: ${JSON.stringify(
+              mc.fields.key
+            )} has more than one tag: ${JSON.stringify(mc.metadata?.tags)}`
+          );
+        });
+        console.error(`\n`);
+        throw Error(
+          `Please fix multi tagged entries and start this process again.`
+        );
+      }
+
+      const contentfulKeys = allContentfulMicrocopies
+        .map((resource) => {
+          if (resource.fields.key) {
+            return Object.values(resource.fields.key)[0];
+          }
+        })
+        .filter(isDefined);
+
+      const microCopiesNotInContentful = ALL_MICROCOPY_KEYS.filter(
+        (key) => !contentfulKeys.includes(key)
+      );
+
+      if (microCopiesNotInContentful.length === 0) {
+        console.log(
+          `All the micrcocopies from project are present in the environment. No brand new microcopies will be created.`
+        );
+        return;
+      }
+
+      const newNodes = await createNewMicrocopies(
+        microCopiesNotInContentful,
+        marketTag
+      );
+
+      await linkMicrocopiesToResources(newNodes, marketTag);
+
+      if (isToBePublished) {
+        console.log(`Publishing ${newNodes.length} entries`);
+        await publishMicroCopies(newNodes);
+      }
+    })
   );
-
-  const microCopyKeysPresentInContentful = projectKeys.filter((key) =>
-    contentfulKeys.includes(key)
-  );
-
-  if (microCopiesNotInContentful.length === 0) {
-    console.log(
-      `All the micrcocopies from project are present in the environment. No brand new microcopies will be created.`
-    );
-  }
-
-  const environment = await getEnvironment();
-  const allTags = await getValidMarketTags(environment);
-  // This utility is configured for consolidated but no tags are present
-  // hence throw error
-  if (IS_CONSOLIDATED && allTags.length === 0) {
-    console.log(
-      `The environment '${environment.name}' is expected to be Consolidated space, however NO public tags prefix with 'market__' are present.`
-    );
-    throw Error(
-      `Check configuration in CI/CD pipeline for environment: '${environment.name}'`
-    );
-  }
-
-  let newNodes: any[] = [];
-  let nodesForExistingMicrocopies: any[] = [];
-
-  if (microCopiesNotInContentful.length > 0) {
-    newNodes = await processNewMicrocopies(microCopiesNotInContentful);
-  }
-
-  if (microCopyKeysPresentInContentful.length > 0 && IS_CONSOLIDATED) {
-    nodesForExistingMicrocopies = await tagExistingContentfulMicrocopies(
-      allContentfulMicrocopies
-    );
-  }
-
-  if (TO_BE_PUBLISHED) {
-    const totalEntriesToPublish = [...newNodes, ...nodesForExistingMicrocopies];
-    if (totalEntriesToPublish.length > 0) {
-      console.log(`Publishing ${totalEntriesToPublish.length} entries`);
-      await publishMicroCopies(totalEntriesToPublish);
-    } else {
-      console.log(`Nothing to publish`);
-    }
-  }
-
-  console.log("Done");
 };
 
-// istanbul ignore if - can't override require.main
+// istanbul ignore if -- can't override require.main
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  main(
-    argv.includes("--publish"),
-    argv.includes("--isConsolidated=true")
-  ).catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+  main(argv.includes("--publish"), argv.includes("--isConsolidated=true"))
+    .then(() => {
+      console.log("Done");
+    })
+    .catch((error) => {
+      console.error(error);
+      process.exit(1);
+    });
 }

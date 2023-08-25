@@ -1,10 +1,10 @@
 import { jest } from "@jest/globals";
+import { createSpace } from "@bmi/functions-contentful-management-client";
 import { createEnvironmentAliasWithEnvironmentId } from "./helpers/EnvironmentAliasHelper.js";
 import createEnvironment, {
   createEnvironmentWithId,
   createEnvironmentWithStatus
 } from "./helpers/EnvironmentHelper.js";
-import createSpace from "./helpers/SpaceHelper.js";
 import type { ClientAPI, Environment, Space } from "contentful-management";
 import type { cleanupOldEnvironments } from "../cleanup.js";
 import type { runMigrationScripts } from "../migrationScripts.js";

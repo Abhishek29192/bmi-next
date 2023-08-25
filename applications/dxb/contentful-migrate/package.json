@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@bmi-digital/contentful-migration": "^1.4.0",
+    "@bmi/functions-contentful-management-client": "workspace:*",
     "@bmi/microcopies": "workspace:*",
     "@bmi/utils": "workspace:*",
     "contentful-management": "^10.39.2",

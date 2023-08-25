@@ -3,6 +3,9 @@ import type { Environment } from "contentful-management";
 
 let environmentCache: Environment;
 
+/**
+ * @deprecated will be removed in the near future
+ */
 export const getEnvironment = async () => {
   if (environmentCache) {
     return environmentCache;

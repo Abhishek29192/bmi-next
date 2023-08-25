@@ -17,12 +17,6 @@ build_contentful_migrate:
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/contentful-migrate"
-  artifacts:
-    untracked: false
-    paths:
-      - applications/dxb/contentful-migrate/dist
-      - applications/dxb/libraries/microcopies/dist
-      - applications/dxb/libraries/utils/dist
 
 test_contentful_migrate:
   extends: .test_yarn_workspace
