@@ -1,6 +1,6 @@
 import * as React from "react";
 import { WindowLocation } from "@reach/router";
-import { AuthService, useAuth } from "gatsby-theme-auth0";
+import { AuthService, useAuth } from "@bmi/gatsby-theme-auth0";
 
 interface Props {
   location: WindowLocation;
@@ -33,7 +33,7 @@ const ProtectedPage: React.FunctionComponent<Props> = (props) => {
     profile && (
       <>
         <p>Hello {profile.name}</p>
-        <a href="localhost:3000/protected">Go to Intouch site</a>
+        <a href="http://localhost:3000/protected">Go to Intouch site</a>
       </>
     )
   );

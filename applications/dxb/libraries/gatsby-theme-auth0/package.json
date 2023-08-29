@@ -1,0 +1,47 @@
+{
+  "name": "@bmi/gatsby-theme-auth0",
+  "version": "0.0.0",
+  "description": "A Gatsby theme for Auth0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "peerDependencies": {
+    "gatsby": "^5.9.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/auth0-js": "^9.21.0",
+    "@types/node": "^18.16.8",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "gatsby": "^5.9.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8",
+    "pretty-quick": "^2.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^3.0.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "auth0-js": "^9.12.2",
+    "gatsby-plugin-typescript": "^5.9.0"
+  },
+  "author": "Emmanuel Pilande",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epilande/gatsby-theme-auth0.git",
+    "directory": "gatsby-theme-auth0"
+  },
+  "bugs": {
+    "url": "https://github.com/epilande/gatsby-theme-auth0/issues"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "auth0",
+    "react"
+  ]
+}

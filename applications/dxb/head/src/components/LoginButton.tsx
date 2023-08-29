@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthService, useAuth } from "gatsby-theme-auth0";
+import { AuthService, useAuth } from "@bmi/gatsby-theme-auth0";
 import { Button } from "@bmi-digital/components";
 
 function LoginButton() {

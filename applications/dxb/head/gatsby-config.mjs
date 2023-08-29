@@ -159,11 +159,13 @@ const config = {
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
     {
-      resolve: "gatsby-theme-auth0",
+      resolve: "@bmi/gatsby-theme-auth0",
       options: {
         domain: process.env.AUTH0_DOMAIN,
         clientID: process.env.AUTH0_CLIENTID,
-        redirectUri: process.env.AUTH0_CALLBACK_URL
+        redirectUri: process.env.AUTH0_CALLBACK_URL,
+        logoutUri: process.env.AUTH0_LOGOUT_URL
+
         // audience: process.env.AUTH0_AUDIENCE, // Optional
         // responseType: process.env.AUTH0_RESPONSE_TYPE, // Optional
         // scope: process.env.AUTH0_SCOPE // Optional
