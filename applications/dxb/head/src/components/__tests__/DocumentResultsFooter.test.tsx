@@ -88,6 +88,7 @@ describe("DocumentResultsFooter component", () => {
     updateList: jest.fn(),
     updateAllListItems: jest.fn(),
     resetList: jest.fn(),
+    resetAllListItems: jest.fn(),
     selectedAllCheckboxDisabledByPages: { 0: false },
     selectedAllCheckboxCheckedByPages: { 0: false },
     count: 0,
