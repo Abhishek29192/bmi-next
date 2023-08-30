@@ -6,7 +6,7 @@ exports[`General Error render correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -124,7 +124,7 @@ exports[`General Error render correctly 1`] = `
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -148,7 +148,7 @@ exports[`General Error render correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -172,7 +172,7 @@ exports[`General Error render correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Norge","action":"/no/"}"
                       data-testid="language-menu-item"
                       href="/no"
@@ -637,7 +637,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -755,7 +755,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -779,7 +779,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -803,7 +803,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Norge","action":"/no/"}"
                       data-testid="language-menu-item"
                       href="/no"

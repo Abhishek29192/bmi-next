@@ -36,6 +36,7 @@ import {
 
 export type Props = {
   documents: readonly Document[];
+  pageNumber?: number;
   headers?: DocumentTableHeader[];
 };
 
@@ -205,15 +206,16 @@ const DocumentCells = ({
 
 const DocumentSimpleTableResults = ({
   documents,
+  pageNumber,
   headers = ["add", "typeCode", "title", "size", "actions"]
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
 
   const {
     list,
-    resetList,
     updateAllListItems,
-    setSelectedAllCheckboxDisabled
+    setSelectAllCheckboxDisabledByPage,
+    setCurrentPage
   } = useContext(DownloadListContext);
 
   const nonLinkedDocuments = documents.filter(
@@ -227,19 +229,18 @@ const DocumentSimpleTableResults = ({
   useEffect(() => {
     documents.forEach((document) =>
       updateAllListItems(
+        pageNumber,
         getUniqueId(document),
         document,
         getFileSizeByDocumentType(document)
       )
     );
 
-    setSelectedAllCheckboxDisabled(
+    setCurrentPage(pageNumber);
+    setSelectAllCheckboxDisabledByPage(pageNumber)(
       documents.length !== 0 && nonLinkedDocuments.length === 0
     );
-    return () => {
-      resetList();
-    };
-  }, []);
+  }, [pageNumber]);
 
   if (showMobileTable) {
     return (

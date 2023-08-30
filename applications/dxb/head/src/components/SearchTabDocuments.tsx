@@ -279,6 +279,7 @@ const SearchTabPanelDocuments = (props: Props) => {
           <DocumentSimpleTableResults
             documents={results}
             headers={documentTableHeaders}
+            pageNumber={page}
           />
         </Grid>
       </StyledGridContainer>

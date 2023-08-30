@@ -40,6 +40,7 @@ import {
 interface Props {
   documentsByProduct: [string, PimProductDocument[]][];
   assetTypes: AssetType[];
+  pageNumber?: number;
 }
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(
@@ -48,21 +49,25 @@ const GTMAccordionSummary = withGTM<AccordionSummaryProps>(
 
 const MobileDocumentTechnicalTableResults = ({
   documentsByProduct,
-  assetTypes
+  assetTypes,
+  pageNumber = 0
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const {
     list: selectedDocuments,
-    resetList,
     updateAllListItems,
-    setSelectedAllCheckboxDisabled
+    setSelectAllCheckboxDisabledByPage,
+    setCurrentPage
   } = useContext(DownloadListContext);
 
   useEffect(() => {
     let linkDocumentsExist = false;
 
+    setCurrentPage(pageNumber);
+
     documentsByProduct.forEach(([_, assets]) => {
       updateAllListItems(
+        pageNumber,
         assets[0].productBaseCode,
         getSelectableDocuments(assets),
         getDocumentsSize(assets)
@@ -71,12 +76,8 @@ const MobileDocumentTechnicalTableResults = ({
       linkDocumentsExist = linkDocumentsExist || getIsSelectionDisabled(assets);
     });
 
-    setSelectedAllCheckboxDisabled(linkDocumentsExist);
-
-    return () => {
-      resetList();
-    };
-  }, []);
+    setSelectAllCheckboxDisabledByPage(pageNumber)(linkDocumentsExist);
+  }, [pageNumber]);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));

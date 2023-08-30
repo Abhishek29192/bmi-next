@@ -237,7 +237,7 @@ exports[`Sections component renders correctly 1`] = `
               class=" css-1u48ai"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
               >
                 <div
                   aria-expanded="false"
@@ -3592,7 +3592,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
               class=" css-1u48ai"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
               >
                 <div
                   aria-expanded="false"
@@ -3873,7 +3873,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
               class=" css-1u48ai"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
               >
                 <div
                   aria-expanded="false"

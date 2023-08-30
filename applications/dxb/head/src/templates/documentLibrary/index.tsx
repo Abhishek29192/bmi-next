@@ -304,6 +304,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
                     results={documents}
                     assetTypes={contentfulAssetTypes}
                     format={format}
+                    pageNumber={page}
                   />
                 ) : null}
               </Grid>

@@ -72,6 +72,7 @@ const DocumentDownloadSection = ({
             <DocumentSimpleTableResults
               documents={documents}
               headers={TABLE_HEADERS}
+              pageNumber={page}
             />
             <DocumentResultsFooter
               page={page}

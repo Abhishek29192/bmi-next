@@ -50,7 +50,8 @@ const mockUseMediaQuery = useMediaQuery as jest.Mock<
 
 const renderDocumentResults = (props?: Partial<Props>) => {
   const defaultProps: Props = {
-    documents: []
+    documents: [],
+    pageNumber: 0
   };
   return render(
     <ThemeProvider>
@@ -214,9 +215,9 @@ describe("DocumentSimpleTableResult", () => {
       size: 0,
       totalSize: 0,
       list: {},
-      selectedAllCheckboxChecked: false,
-      selectedAllCheckboxDisabled: false,
-      allListItems: {},
+      selectedAllCheckboxDisabledByPages: { 0: false },
+      selectedAllCheckboxCheckedByPages: { 0: false },
+      allListItemsWithPages: {},
       updateList: jest.fn(),
       updateAllListItems: jest.fn(),
       resetList: jest.fn(),
@@ -224,8 +225,10 @@ describe("DocumentSimpleTableResult", () => {
       remainingSize: Infinity,
       isLoading: false,
       setIsLoading: jest.fn(),
-      setSelectedAllCheckboxChecked: jest.fn(),
-      setSelectedAllCheckboxDisabled: jest.fn()
+      setSelectAllCheckboxDisabledByPage: () => jest.fn(),
+      setSelectAllCheckboxCheckedByPage: () => jest.fn(),
+      currentPage: 0,
+      setCurrentPage: jest.fn()
     };
 
     it("should not add selected listitems again", async () => {
@@ -243,15 +246,17 @@ describe("DocumentSimpleTableResult", () => {
             ...downloadListprops,
             size: selectedDocument.fileSize!,
             list: { "1-selected_document": selectedDocument },
-            allListItems: {
-              "1-selected_document": selectedDocument,
-              "2-selected_document": selectedDocument,
-              "3-selected_document": selectedDocument
+            allListItemsWithPages: {
+              0: {
+                "1-selected_document": { value: selectedDocument, fileSize: 0 },
+                "2-selected_document": { value: selectedDocument, fileSize: 0 },
+                "3-selected_document": { value: selectedDocument, fileSize: 0 }
+              }
             },
             updateList
           }}
         >
-          <DocumentSimpleTableResults documents={documents} />
+          <DocumentSimpleTableResults documents={documents} pageNumber={0} />
         </DownloadListContext.Provider>
       );
 
@@ -287,7 +292,10 @@ describe("DocumentSimpleTableResult", () => {
 
       renderWithProviders(
         <DownloadList onChange={onChangeMock}>
-          <DocumentSimpleTableResults documents={[zipDocument]} />
+          <DocumentSimpleTableResults
+            documents={[zipDocument]}
+            pageNumber={0}
+          />
         </DownloadList>
       );
 
@@ -302,7 +310,10 @@ describe("DocumentSimpleTableResult", () => {
       const onChangeMock = jest.fn();
       renderWithProviders(
         <DownloadList onChange={onChangeMock}>
-          <DocumentSimpleTableResults documents={[pimDocument]} />
+          <DocumentSimpleTableResults
+            documents={[pimDocument]}
+            pageNumber={0}
+          />
         </DownloadList>
       );
       const selectAllCheckbox = screen.getByRole("checkbox", {

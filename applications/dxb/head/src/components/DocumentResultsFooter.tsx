@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import fetch, { Response } from "node-fetch";
-import React, { useContext, useMemo, useEffect } from "react";
+import React, { useContext, useMemo } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { microCopy } from "@bmi/microcopies";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
@@ -231,7 +231,7 @@ const DocumentResultsFooter = ({
         count={count}
         onPageChange={onPageChange}
       >
-        <DocumentsFooterContent format={format} />
+        <DocumentsFooterContent format={format} page={page} />
       </StickyFooter>
     );
   }
@@ -243,7 +243,7 @@ const DocumentResultsFooter = ({
       )}
       {isDownloadButton && (
         <Box mt={4}>
-          <DocumentsFooterContent format={format} />
+          <DocumentsFooterContent format={format} page={page} />
           <StyledRecaptcha
             className={classes["recaptcha"]}
             testId="document-results-footer-recaptcha"
@@ -304,28 +304,24 @@ const StickyFooter = (props: StickyFooterProps) => {
   );
 };
 
-const DocumentsFooterContent: React.FC<{ format: Format }> = ({ format }) => {
+const DocumentsFooterContent: React.FC<{ format: Format; page: number }> = ({
+  format,
+  page
+}) => {
   const { getMicroCopy } = useSiteContext();
   const config = useConfig();
-  const { remainingSize, size, selectedAllCheckboxDisabled } =
+  const { remainingSize, size, selectedAllCheckboxDisabledByPages } =
     useContext(DownloadListContext);
 
   const { showMobileTable } = useShowMobileTable();
   const maxSizeExceeded = remainingSize < 0;
-  const { resetList } = useContext(DownloadListContext);
-
-  useEffect(() => {
-    return () => {
-      resetList();
-    };
-  }, []);
 
   const getSelectAllCheckBoxWithWrapper = () => {
     return (
       <SelectAllCheckboxWrapper format={format}>
         <SelectAllCheckboxLabel
           variant="text"
-          disabled={selectedAllCheckboxDisabled}
+          disabled={selectedAllCheckboxDisabledByPages[`${page}`]}
           data-testid={`document-table-select-all-footer-button`}
         >
           {getMicroCopy(microCopy.DOWNLOAD_LIST_SELECTALL)}
@@ -335,7 +331,7 @@ const DocumentsFooterContent: React.FC<{ format: Format }> = ({ format }) => {
           ariaLabel={`${getMicroCopy(
             microCopy.DOWNLOAD_LIST_SELECTALL_CHECKBOX
           )}`}
-          disabled={selectedAllCheckboxDisabled}
+          disabled={selectedAllCheckboxDisabledByPages[`${page}`]}
           dataTestid={`document-table-select-all-footer-checkbox`}
         />
       </SelectAllCheckboxWrapper>
