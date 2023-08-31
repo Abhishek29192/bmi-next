@@ -314,6 +314,7 @@ const ProductLeadBlock = ({
                 <DocumentSimpleTableResults
                   documents={documents}
                   headers={["add", displayBy, "size", "actions"]}
+                  pageNumber={page}
                 />
                 <DocumentResultsFooter
                   page={page}

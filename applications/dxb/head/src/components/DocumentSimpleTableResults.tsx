@@ -17,6 +17,7 @@ import {
   getValidityDate,
   useShowMobileTable
 } from "../utils/documentUtils";
+import { PseudoZipPIMDocument } from "../types/pim";
 import {
   CopyToClipboard,
   DocumentTitle,
@@ -49,6 +50,11 @@ const PIM_TYPES = ["PIMDocument", "PIMSystemDocument"];
 export const isPIMDocument = (document: Document): boolean =>
   PIM_TYPES.includes(document.__typename);
 
+export const ifZipDocument = (
+  document: Document
+): document is PseudoZipPIMDocument =>
+  document.__typename === "PIMDocumentWithPseudoZip";
+
 const DocumentCells = ({
   document,
   headers,
@@ -61,7 +67,7 @@ const DocumentCells = ({
   const { getMicroCopy } = useSiteContext();
   const { __typename } = document;
   const isLinkDocument = getIsLinkDocument(document);
-  const isZipDocument = __typename === "PIMDocumentWithPseudoZip";
+  const isZipDocument = ifZipDocument(document);
   const fileSize = getFileSizeByDocumentType(document);
 
   return (
@@ -215,7 +221,8 @@ const DocumentSimpleTableResults = ({
     list,
     updateAllListItems,
     setSelectAllCheckboxDisabledByPage,
-    setCurrentPage
+    setCurrentPage,
+    resetAllListItems
   } = useContext(DownloadListContext);
 
   const nonLinkedDocuments = documents.filter(
@@ -227,11 +234,12 @@ const DocumentSimpleTableResults = ({
     headers.includes("type") && !headers.includes("title") ? "type" : "title";
 
   useEffect(() => {
-    documents.forEach((document) =>
+    resetAllListItems();
+    nonLinkedDocuments.forEach((document) =>
       updateAllListItems(
         pageNumber,
         getUniqueId(document),
-        document,
+        ifZipDocument(document) ? document.documentList : document,
         getFileSizeByDocumentType(document)
       )
     );
@@ -240,7 +248,7 @@ const DocumentSimpleTableResults = ({
     setSelectAllCheckboxDisabledByPage(pageNumber)(
       documents.length !== 0 && nonLinkedDocuments.length === 0
     );
-  }, [pageNumber]);
+  }, [pageNumber, documents]);
 
   if (showMobileTable) {
     return (

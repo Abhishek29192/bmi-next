@@ -221,6 +221,7 @@ describe("DocumentSimpleTableResult", () => {
       updateList: jest.fn(),
       updateAllListItems: jest.fn(),
       resetList: jest.fn(),
+      resetAllListItems: jest.fn(),
       count: 0,
       remainingSize: Infinity,
       isLoading: false,

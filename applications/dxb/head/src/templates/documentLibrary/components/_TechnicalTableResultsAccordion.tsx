@@ -57,27 +57,33 @@ const MobileDocumentTechnicalTableResults = ({
     list: selectedDocuments,
     updateAllListItems,
     setSelectAllCheckboxDisabledByPage,
-    setCurrentPage
+    setCurrentPage,
+    resetAllListItems
   } = useContext(DownloadListContext);
 
   useEffect(() => {
     let linkDocumentsExist = false;
 
     setCurrentPage(pageNumber);
+    resetAllListItems();
 
     documentsByProduct.forEach(([_, assets]) => {
-      updateAllListItems(
-        pageNumber,
-        assets[0].productBaseCode,
-        getSelectableDocuments(assets),
-        getDocumentsSize(assets)
-      );
+      const selectableDocuments = getSelectableDocuments(assets);
+
+      if (selectableDocuments && selectableDocuments.length !== 0) {
+        updateAllListItems(
+          pageNumber,
+          assets[0].productBaseCode,
+          selectableDocuments,
+          getDocumentsSize(assets)
+        );
+      }
 
       linkDocumentsExist = linkDocumentsExist || getIsSelectionDisabled(assets);
     });
 
     setSelectAllCheckboxDisabledByPage(pageNumber)(linkDocumentsExist);
-  }, [pageNumber]);
+  }, [pageNumber, documentsByProduct]);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
