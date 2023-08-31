@@ -75,20 +75,7 @@ code_quality:
     - if: !reference [.run_for_changes_on_mr, rules, if]
     - if: !reference [.run_for_changes_on_main, rules, if]
 
-eslint-sast:
-  rules:
-    - when: never
-
-nodejs-scan-sast:
-  rules:
-    - when: never
-
 semgrep-sast:
-  rules:
-    - when: never
-
-# To be removed when lint_yarn is made configurable everywhere
-lint_yarn:
   rules:
     - when: never
 
