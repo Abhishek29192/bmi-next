@@ -3559,7 +3559,7 @@ __metadata:
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-security: ^1.7.1
-    eslint-plugin-testing-library: ^5.11.1
+    eslint-plugin-testing-library: ^6.0.0
     eslint-plugin-you-dont-need-lodash-underscore: ^6.13.0
     fetch-mock-jest: ^1.5.1
     file-loader: ^6.2.0
@@ -15341,14 +15341,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-testing-library@npm:^5.11.1":
-  version: 5.11.1
-  resolution: "eslint-plugin-testing-library@npm:5.11.1"
+"eslint-plugin-testing-library@npm:^6.0.0":
+  version: 6.0.1
+  resolution: "eslint-plugin-testing-library@npm:6.0.1"
   dependencies:
     "@typescript-eslint/utils": ^5.58.0
   peerDependencies:
     eslint: ^7.5.0 || ^8.0.0
-  checksum: 55c7792345710a2b951acb0552ebe4e491d988f7d37fd308749e75fdbc36142b9a151ecec03b39992f672afea1a99dd3c3d2fb9f737ef18f56d7168e294fd9eb
+  checksum: cfa84f4fcc4efe8d46ea5a85d10d30c98adf33e0cfc7e6cec927ef3cc4a3887ddeb652b541df0677bbce26b03c169fbe6f2c0dcc6d3ee2e4e20d1dac37a8221c
   languageName: node
   linkType: hard
 

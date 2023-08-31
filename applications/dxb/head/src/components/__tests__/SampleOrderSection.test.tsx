@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
 import { Product } from "../../types/pim";
@@ -10,7 +10,6 @@ import { SiteContextProvider } from "../Site";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 afterEach(() => {
-  cleanup();
   localStorage.clear();
 });
 
