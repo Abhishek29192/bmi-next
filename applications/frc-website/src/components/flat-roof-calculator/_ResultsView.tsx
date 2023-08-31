@@ -85,6 +85,7 @@ const ResultsView = ({
                 ((submittedValues || {}).color || "").replace(/\//g, "-")
               )}.jpg`}
               className="img"
+              alt={systemName}
             />
           </Grid>
         </Grid>
@@ -288,7 +289,9 @@ const ResultsView = ({
           endIcon={<SaveAltIcon />}
           disabled={pdfLoading}
           onClick={async () => {
-            if (pdfLoading) return;
+            if (pdfLoading) {
+              return;
+            }
             try {
               setPdfLoading(true);
               if (typeof window !== "undefined" && "gtag" in window) {

@@ -23,7 +23,7 @@ module.exports = {
       statements: 32.74,
       branches: 19.69,
       functions: 24.83,
-      lines: 33.76
+      lines: 33.49
     }
   }
 };

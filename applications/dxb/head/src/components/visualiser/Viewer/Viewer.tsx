@@ -168,7 +168,9 @@ export default abstract class Viewer<
   }
 
   saveCameraState() {
-    if (!this.camera || this.state.cameraPosition) return;
+    if (!this.camera || this.state.cameraPosition) {
+      return;
+    }
 
     const cameraPosition = this.camera.position.clone();
 
@@ -178,7 +180,9 @@ export default abstract class Viewer<
   }
 
   isCameraPositionPristine() {
-    if (!this.state.cameraPosition || !this.camera) return false;
+    if (!this.state.cameraPosition || !this.camera) {
+      return false;
+    }
     const currentPosition = this.camera.position
       .multiplyScalar(100)
       .round()

@@ -131,7 +131,9 @@ const PitchedRoofCalculatorSteps = ({
     e.preventDefault();
     const newRoof = roofs.find((roof) => roof.id === newRoofId);
     setSelected(CalculatorSteps.EnterDimensions);
-    if (newRoof === roof) return;
+    if (newRoof === roof) {
+      return;
+    }
     setRoof(newRoof);
     setDimensions({});
     pushEvent({
@@ -166,7 +168,9 @@ const PitchedRoofCalculatorSteps = ({
 
   const selectTile = (_, { tile: newTileCode }: { tile: string }) => {
     setSelected(CalculatorSteps.SelectVariant);
-    if (newTileCode === mainTileCode) return;
+    if (newTileCode === mainTileCode) {
+      return;
+    }
     setMainTileCode(newTileCode);
     setVariant(undefined);
     pushEvent({
@@ -254,7 +258,9 @@ const PitchedRoofCalculatorSteps = ({
   };
 
   const measurements: Measurements | null = useMemo(() => {
-    if (!roof || !dimensions) return null;
+    if (!roof || !dimensions) {
+      return null;
+    }
     const { faces, lines } = roof.getMeasurements(dimensions);
 
     if (Array.isArray(dimensions.protrusions)) {

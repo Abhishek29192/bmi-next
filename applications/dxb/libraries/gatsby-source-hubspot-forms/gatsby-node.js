@@ -5,7 +5,9 @@ const axios = require("axios");
 
 exports.sourceNodes = async ({ actions }, configOptions) => {
   const API_KEY = configOptions.apiKey;
-  if (!API_KEY) throw new Error("No Hubspot API key provided");
+  if (!API_KEY) {
+    throw new Error("No Hubspot API key provided");
+  }
   try {
     const { createNode } = actions;
     const fetchAllFormNodes = await axios.get(

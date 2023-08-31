@@ -510,7 +510,9 @@ const Visualiser = ({
   );
 
   const activeTile = useMemo(() => {
-    if (!tiles.length) return;
+    if (!tiles.length) {
+      return;
+    }
     return (
       tiles.find(({ code }) => code === state.tileId) ||
       tiles.find(({ code }) => code === tileId) ||
