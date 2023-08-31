@@ -39,33 +39,42 @@ export const resolveFilters = (filters: readonly Filter[]) => {
 };
 
 const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
+
 export const createSizeLabel = (product: EsProduct): string => {
   const width: ClassificationField = product["MEASUREMENTS$WIDTH"];
   const length: ClassificationField = product["MEASUREMENTS$LENGTH"];
   const height: ClassificationField = product["MEASUREMENTS$HEIGHT"];
   const thickness: ClassificationField = product["MEASUREMENTS$THICKNESS"];
-  const measurementValues = [length, width, height, thickness].filter(Boolean);
-  if (measurementValues.length === 0) {
+  const dimensions = [length, width, height, thickness].filter(Boolean);
+
+  if (dimensions.length === 0) {
     return "";
   }
 
-  const splitValue = (str: string): string[] => str.split(" ");
-  const sameUnit = measurementValues.every((value, i, arr) => {
-    return splitValue(value[0].name)[1] === splitValue(arr[0][0].name)[1];
-  });
-  const unit = sameUnit ? splitValue(measurementValues[0][0].name)[1] : "";
+  const getUnit = (str: string) => str.slice(-2).trim();
+  const getDimension = (str: string) => str.slice(0, -2).trim();
 
-  return (
-    measurementValues
-      .map(
-        (unitValue) =>
-          splitValue(unitValue[0].name)[0] +
-          (!sameUnit ? splitValue(unitValue[0].name)[1] : "")
-      )
-      // Add extra space if units don't match
-      .join(sameUnit ? "x" : " x ") + unit
+  const defaultUnit = getUnit(dimensions[0][0].name);
+
+  const dimensionsHaveSameUnit = dimensions.every(
+    (value) => getUnit(value[0].name) === defaultUnit
   );
+
+  const sizeLabel = dimensions
+    .map((value) => {
+      const { name } = value[0];
+      const dimension = getDimension(name);
+      const unit = getUnit(name);
+
+      return dimensionsHaveSameUnit ? dimension : `${dimension}${unit}`;
+    })
+    .join(dimensionsHaveSameUnit ? "x" : " x ");
+
+  const suffix = dimensionsHaveSameUnit ? defaultUnit : "";
+
+  return `${sizeLabel}${suffix}`;
 };
+
 export const findSurface = (
   product: EsProduct
 ): { value: string; mc?: string } => {
