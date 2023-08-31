@@ -3,7 +3,13 @@ import {
   ThemeProvider,
   DownloadListContextType
 } from "@bmi-digital/components";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within
+} from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
@@ -15,10 +21,6 @@ import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
 import * as utils from "../../utils/documentUtils";
-import {
-  DocumentListProvider,
-  DocumentContext
-} from "../../contexts/DocumentContext";
 
 jest.mock("../../utils/devLog");
 
@@ -60,6 +62,11 @@ const list = {
   name2: createPimDocument(),
   name3: createPimDocument()
 };
+const allListItemsWithPages = {
+  name1: createContentfulDocument(),
+  name2: createPimDocument(),
+  name3: createPimDocument()
+};
 const token = "token";
 const ENV = process.env;
 const mockedWindowDocumentCookie = jest.spyOn(window.document, "cookie", "get");
@@ -75,26 +82,40 @@ describe("DocumentResultsFooter component", () => {
     process.env = ENV;
   });
 
+  const downloadListDefaultProps = {
+    list,
+    allListItemsWithPages,
+    updateList: jest.fn(),
+    updateAllListItems: jest.fn(),
+    resetList: jest.fn(),
+    resetAllListItems: jest.fn(),
+    selectedAllCheckboxDisabledByPages: { 0: false },
+    selectedAllCheckboxCheckedByPages: { 0: false },
+    count: 0,
+    size: 0,
+    totalSize: 0,
+    remainingSize: Infinity,
+    isLoading: false,
+    setIsLoading: jest.fn(),
+    currentPage: 0,
+    setCurrentPage: jest.fn(),
+    setSelectAllCheckboxDisabledByPage: jest.fn(),
+    setSelectAllCheckboxCheckedByPage: jest.fn()
+  };
+
   const getWrappeedFooterComponent = (
-    props: DownloadListContextType,
+    props: Partial<DownloadListContextType>,
     children: React.ReactNode
   ) => {
     return (
       <ThemeProvider>
         <DownloadListContext.Provider
           value={{
-            list,
-            updateList: jest.fn(),
-            resetList: jest.fn(),
-            count: 0,
-            size: 0,
-            remainingSize: Infinity,
-            isLoading: false,
-            setIsLoading: jest.fn(),
+            ...downloadListDefaultProps,
             ...props
           }}
         >
-          <DocumentListProvider>{children}</DocumentListProvider>
+          {children}
         </DownloadListContext.Provider>
       </ThemeProvider>
     );
@@ -102,17 +123,13 @@ describe("DocumentResultsFooter component", () => {
 
   it("renders correctly", () => {
     const handlePageChange = jest.fn();
+
     const { container } = render(
       getWrappeedFooterComponent(
         {
           list,
-          updateList: jest.fn(),
-          resetList: jest.fn(),
           count: 4,
-          size: 30,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
+          size: 30
         },
         <DocumentResultsFooter
           page={1}
@@ -130,13 +147,8 @@ describe("DocumentResultsFooter component", () => {
       getWrappeedFooterComponent(
         {
           list: {},
-          updateList: jest.fn(),
-          resetList: jest.fn(),
           count: 0,
-          size: 0,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
+          size: 0
         },
         <DocumentResultsFooter
           page={1}
@@ -161,13 +173,8 @@ describe("DocumentResultsFooter component", () => {
       getWrappeedFooterComponent(
         {
           list: { "test-document": createPimDocument() },
-          updateList: jest.fn(),
-          resetList: jest.fn(),
           count: 1,
-          size: 10,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
+          size: 10
         },
         <DocumentResultsFooter
           page={1}
@@ -572,13 +579,8 @@ describe("DocumentResultsFooter component", () => {
         getWrappeedFooterComponent(
           {
             list,
-            updateList: jest.fn(),
-            resetList: jest.fn(),
             count: 26,
-            size: 0,
-            remainingSize: Infinity,
-            isLoading: false,
-            setIsLoading: jest.fn()
+            size: 0
           },
           <DocumentResultsFooter
             page={1}
@@ -598,13 +600,9 @@ describe("DocumentResultsFooter component", () => {
   describe("Select all checkbox", () => {
     const downloadListProps = {
       list,
-      updateList: jest.fn(),
-      resetList: jest.fn(),
       count: 26,
       size: 0,
-      remainingSize: Infinity,
-      isLoading: false,
-      setIsLoading: jest.fn()
+      allListItemsWithPages
     };
 
     const footerProps = {
@@ -657,116 +655,33 @@ describe("DocumentResultsFooter component", () => {
       ).not.toBeInTheDocument();
     });
 
-    it("should select all table checkbox", () => {
+    it("select all disabled when linkedDocs", async () => {
       useShowMobileSpy.mockReturnValueOnce({
         showMobileTable: true,
         handleTableSizeChange: jest.fn(),
         ref: null
       });
 
-      const selectedAllState = {
-        isSelectedAll: false,
-        docsCount: 0,
-        doesHaveLinkedDocuments: false
-      };
-
-      const setSelectAllState = jest.fn();
-
       render(
         <ThemeProvider>
           <DownloadListContext.Provider
             value={{
-              ...downloadListProps
+              ...downloadListDefaultProps,
+              selectedAllCheckboxDisabledByPages: { 0: true }
             }}
           >
-            <DocumentContext.Provider
-              value={{ selectedAllState, setSelectAllState }}
-            >
-              <DocumentResultsFooter {...footerProps} />
-            </DocumentContext.Provider>
+            <DocumentResultsFooter {...footerProps} />
           </DownloadListContext.Provider>
         </ThemeProvider>
       );
 
-      const checkbox = screen.queryByTestId(
-        "document-table-select-all-footer-checkbox"
-      );
+      const selectAllCheckbox = within(
+        screen.getByTestId("document-table-select-all-footer-checkbox")
+      ).getByRole("checkbox");
 
-      fireEvent.click(checkbox);
+      fireEvent.click(selectAllCheckbox);
 
-      expect(setSelectAllState).toHaveBeenCalled();
-    });
-
-    it("select all disabled when no linkedDocs", () => {
-      useShowMobileSpy.mockReturnValueOnce({
-        showMobileTable: true,
-        handleTableSizeChange: jest.fn(),
-        ref: null
-      });
-
-      const selectedAllState = {
-        isSelectedAll: false,
-        docsCount: 0,
-        doesHaveLinkedDocuments: true
-      };
-
-      render(
-        <ThemeProvider>
-          <DownloadListContext.Provider
-            value={{
-              ...downloadListProps
-            }}
-          >
-            <DocumentContext.Provider
-              value={{ selectedAllState, setSelectAllState: jest.fn() }}
-            >
-              <DocumentResultsFooter {...footerProps} />
-            </DocumentContext.Provider>
-          </DownloadListContext.Provider>
-        </ThemeProvider>
-      );
-
-      const checkbox = screen.getByRole("checkbox");
-
-      const selectAllButton = screen.getByTestId(
-        "document-table-select-all-footer-button"
-      );
-
-      expect(checkbox).toBeDisabled();
-      expect(selectAllButton).toBeDisabled();
-    });
-    it("should call clean up", () => {
-      const resetList = jest.fn();
-
-      const selectedAllState = {
-        isSelectedAll: false,
-        docsCount: 0,
-        doesHaveLinkedDocuments: false
-      };
-
-      const setSelectAllState = jest.fn();
-
-      const { unmount } = render(
-        <ThemeProvider>
-          <DownloadListContext.Provider
-            value={{
-              ...downloadListProps,
-              resetList
-            }}
-          >
-            <DocumentContext.Provider
-              value={{ selectedAllState, setSelectAllState }}
-            >
-              <DocumentResultsFooter {...footerProps} />
-            </DocumentContext.Provider>
-          </DownloadListContext.Provider>
-        </ThemeProvider>
-      );
-
-      unmount();
-
-      expect(setSelectAllState).toHaveBeenCalled();
-      expect(resetList).toHaveBeenCalled();
+      expect(selectAllCheckbox).toBeDisabled();
     });
   });
 });

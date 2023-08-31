@@ -1,6 +1,5 @@
 import { DownloadList, LeadBlock } from "@bmi-digital/components";
 import React, { useRef, useState } from "react";
-import { DocumentListProvider } from "../../contexts/DocumentContext";
 import DocumentResultsFooter from "../../components/DocumentResultsFooter";
 import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";
 import { SystemDocument } from "../../types/pim";
@@ -47,19 +46,18 @@ const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
       <LeadBlock.Card.Content>
         <div ref={resultsElement}>
           <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1000000}>
-            <DocumentListProvider>
-              <div className={classes.tableContainer}>
-                <DocumentSimpleTableResults
-                  documents={documents}
-                  headers={["add", "type", "title", "size", "actions"]}
-                />
-              </div>
-              <DocumentResultsFooter
-                page={page}
-                count={count}
-                onPageChange={handlePageChange}
+            <div className={classes.tableContainer}>
+              <DocumentSimpleTableResults
+                documents={documents}
+                headers={["add", "type", "title", "size", "actions"]}
+                pageNumber={page}
               />
-            </DocumentListProvider>
+            </div>
+            <DocumentResultsFooter
+              page={page}
+              count={count}
+              onPageChange={handlePageChange}
+            />
           </DownloadList>
         </div>
       </LeadBlock.Card.Content>

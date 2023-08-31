@@ -18,7 +18,6 @@ import ProgressIndicator from "../../components/ProgressIndicator";
 import RichText from "../../components/RichText";
 import Scrim from "../../components/Scrim";
 import { useConfig } from "../../contexts/ConfigProvider";
-import { DocumentListProvider } from "../../contexts/DocumentContext";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import { devLog } from "../../utils/devLog";
 import {
@@ -274,54 +273,54 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
         </Section>
       )}
       <DownloadList maxSize={maxSize}>
-        <DocumentListProvider>
-          <DownloadListContext.Consumer>
-            {({ count }) => {
-              if (count === 0) {
-                return null;
-              }
+        <DownloadListContext.Consumer>
+          {({ count }) => {
+            if (count === 0) {
+              return null;
+            }
 
-              return <DownloadListAlertBanner />;
-            }}
-          </DownloadListContext.Consumer>
-          {!(resultsType === "Simple Archive" && source === "CMS") && (
-            <ResultsSection
-              backgroundColor="white"
-              className={classes["resultsSection"]}
-              id={`document-library-filters`}
-            >
-              <Grid container spacing={3} ref={resultsElement}>
-                <Grid xs={12} md={12} lg={3}>
-                  <FilterSection
-                    filters={filters}
-                    handleFiltersChange={handleFiltersChange}
-                    clearFilters={handleClearFilters}
-                    resultsNumber={mobileShowAllDocuments}
-                    isTechnicalTable={resultsType === "Technical"}
-                  />
-                </Grid>
-                <Grid xs={12} md={12} lg={9}>
-                  {!initialLoading ? (
-                    <ResultSection
-                      results={documents}
-                      assetTypes={contentfulAssetTypes}
-                      format={format}
-                    />
-                  ) : null}
-                </Grid>
-              </Grid>
-              {!initialLoading && (
-                <DocumentResultsFooter
-                  sticky={format !== "cards"}
-                  onPageChange={handlePageChange}
-                  page={page + 1}
-                  count={pageCount}
-                  isDownloadButton={format !== "cards"}
+            return <DownloadListAlertBanner />;
+          }}
+        </DownloadListContext.Consumer>
+        {!(resultsType === "Simple Archive" && source === "CMS") && (
+          <ResultsSection
+            backgroundColor="white"
+            className={classes["resultsSection"]}
+            id={`document-library-filters`}
+          >
+            <Grid container spacing={3} ref={resultsElement}>
+              <Grid xs={12} md={12} lg={3}>
+                <FilterSection
+                  filters={filters}
+                  handleFiltersChange={handleFiltersChange}
+                  clearFilters={handleClearFilters}
+                  resultsNumber={mobileShowAllDocuments}
+                  isTechnicalTable={resultsType === "Technical"}
                 />
-              )}
-            </ResultsSection>
-          )}
-        </DocumentListProvider>
+              </Grid>
+              <Grid xs={12} md={12} lg={9}>
+                {!initialLoading ? (
+                  <ResultSection
+                    results={documents}
+                    assetTypes={contentfulAssetTypes}
+                    format={format}
+                    pageNumber={page}
+                  />
+                ) : null}
+              </Grid>
+            </Grid>
+            {!initialLoading && (
+              <DocumentResultsFooter
+                sticky={format !== "cards"}
+                onPageChange={handlePageChange}
+                page={page + 1}
+                count={pageCount}
+                format={format}
+                isDownloadButton={format !== "cards"}
+              />
+            )}
+          </ResultsSection>
+        )}
       </DownloadList>
       <Section
         backgroundColor="alabaster"

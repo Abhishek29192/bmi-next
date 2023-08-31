@@ -11,13 +11,7 @@ export const main = async (script?: string) => {
 
   return await migrateCreate(
     script,
-    path.join(
-      path.dirname(fileURLToPath(import.meta.url)),
-      "..",
-      "..",
-      "..",
-      "src"
-    )
+    path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "src")
   );
 };
 

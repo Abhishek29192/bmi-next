@@ -95,6 +95,10 @@ path: `{PROJECT_RELATIVE_PATH}/roles.json`.
 [This documentation](https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles)
 shows some of the accepted key value pairs for roles & permissions.
 
+## Create new varaibles file
+
+So it is easy to understand when the variable values were changed, take the timestamp of the script that the variable file is for and use that as the name of the file. For example, for `20230815103002-rename-academy-icons.ts`, the variable file is called `20230815103002.ts`
+
 ## Debug errors
 
 Until [the error handling bug](https://github.com/contentful/contentful-migration/issues/1233) is fixed by Contentful, if there are errors on GitLab CI, it's best to clone the environment and then run the migration scripts against the cloned environment locally, this way the bug can be "fixed" in the `node_modules` folder.

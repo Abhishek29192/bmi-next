@@ -8,9 +8,10 @@ export type Props = {
   results: DocumentResultData[];
   assetTypes: AssetType[];
   format: Format;
+  pageNumber?: number;
 };
 
-const ResultSection = ({ results, assetTypes, format }: Props) => {
+const ResultSection = ({ results, assetTypes, format, pageNumber }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
   return (
@@ -18,6 +19,7 @@ const ResultSection = ({ results, assetTypes, format }: Props) => {
       {results.length ? (
         <DocumentResults
           data={results}
+          pageNumber={pageNumber}
           assetTypes={assetTypes}
           format={format}
         />

@@ -35,7 +35,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       scope="col"
                     >
                       <div
-                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                        class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
                       >
                         <label
                           class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"

@@ -70,7 +70,6 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       />
     </Section>
   );
-
   const media = [
     ...transformImages(
       [system.masterImage, ...system.galleryImages].filter(Boolean)

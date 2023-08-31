@@ -28,8 +28,8 @@ export interface TypeProductListerPageFields {
   brandLogo?: EntryFieldTypes.Symbol<
     | "AeroDek"
     | "Awak"
-    | "BMI_Academy_DE"
-    | "BMI_Academy_EN"
+    | "BMIAcademyDE"
+    | "BMIAcademyEN"
     | "Braas"
     | "Bramac"
     | "Canopia"
@@ -40,6 +40,7 @@ export interface TypeProductListerPageFields {
     | "Everlite"
     | "Icopal"
     | "IcopalKatto"
+    | "IcopalVedag"
     | "Klober"
     | "Monarflex"
     | "Monarplan"
