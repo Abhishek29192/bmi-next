@@ -1,0 +1,14 @@
+{
+  "extends": "../../../../tsconfig.common.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "references": [
+    {
+      "path": "../../libraries/functions-firestore"
+    },
+    {
+      "path": "../../libraries/firestore-types"
+    }
+  ]
+}

@@ -34,6 +34,24 @@ Content-Type: application/json
   "event": "BUILD_FAILED"
 }
 
+### started build payload
+
+POST {{host}}
+Content-Type: application/json
+
+{
+  "body": "# [Gatsby Cloud](https://www.gatsbyjs.com) Build Report\n\n:triangular_flag_on_post: Your build failed. [See the build logs here](https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/74634df6-ee46-4ac5-b444-e87cb58a8050/builds/380881f6-f162-40aa-92f7-7215290be18e/details)\n\n**Errors**\n<pre>\"gatsby-node.js\" threw an error while running the createPages lifecycle:\n\nCannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 |               id\n16 |               path\n   |               ^\n17 |               title,Cannot read property 'map' of undefined\n\nGraphQL request:16:15\n15 </pre>",
+  "buildId": "8329h1n3-bgfds-f4453-fdfs-34edfds545",
+  "workspaceName": "Stacey.card.bmigroup.com",
+  "siteName": "DXB-Sandpit",
+  "deployPreviewUrl": "https://bmidxbsandpit.gtsb.io",
+  "logsUrl": "https://gatsbyjs.com/dashboard/95883ff6-e265-4416-917c-77929cc9970b/sites/74634df6-ee46-4ac5-b444-e87cb58a8050/builds/380881f6-f162-40aa-92f7-7215290be18e/details",
+  "duration": "34",
+  "resourceId": "74634df6-ee46-4ac5-b444-e87cb58a8050",
+  "resourceType": "SITE",
+  "event": "BUILD_STARTED"
+}
+
 ### successful preview payload
 
 POST {{host}}

@@ -29,7 +29,7 @@
     "@bmi/firestore-types": "workspace:*",
     "@bmi/pim-types": "workspace:*",
     "@bmi/pub-sub-types": "workspace:*",
-    "@google-cloud/functions-framework": "^3.2.0",
+    "@google-cloud/functions-framework": "^3.3.0",
     "@types/prettier": "^2.7.2",
     "@types/request": "^2",
     "@typescript-eslint/eslint-plugin": "^5.59.5",

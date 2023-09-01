@@ -437,3 +437,9 @@
     :why: I think this is our root project which license_finder is borked on
     :versions: []
     :when: 2023-01-11 10:24:03.038760000 Z
+- - :approve
+  - "@bmi/gcp-get-gatsby-build-events"
+  - :who: Taras Dyda
+    :why: Our own project
+    :versions: []
+    :when: 2023-08-02 10:41:35.269927000 Z

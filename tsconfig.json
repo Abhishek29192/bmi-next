@@ -45,6 +45,9 @@
       "path": "applications/dxb/functions/gcp-functions-deployer"
     },
     {
+      "path": "applications/dxb/functions/gcp-get-gatsby-build-events"
+    },
+    {
       "path": "applications/dxb/functions/gcp-pim-full-fetch"
     },
     {

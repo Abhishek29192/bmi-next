@@ -20,7 +20,7 @@
     "@bmi/functions-es-client": "workspace:*",
     "@bmi/functions-firestore": "workspace:*",
     "@bmi/pim-api": "workspace:*",
-    "@google-cloud/functions-framework": "^3.2.0",
+    "@google-cloud/functions-framework": "^3.3.0",
     "node-fetch": "^2.6.11"
   },
   "devDependencies": {

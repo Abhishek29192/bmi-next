@@ -1,26 +1,26 @@
 {
-  "name": "@bmi/gcp-pim-message-handler",
+  "name": "@bmi/gcp-get-gatsby-build-events",
+  "private": true,
   "version": "0.0.0",
-  "license": "UNLICENSED",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "run compile && webpack --mode=production",
-    "compile": "tsc --build",
     "test": "jest --coverage --reporters=default --reporters=jest-junit",
-    "dev": "yarn build && env-cmd functions-framework --source=dist/dist/function --target=handleRequest --port=9056",
-    "dev:top": "yarn build && env-cmd process-top $(yarn bin functions-framework) --source=dist/dist/function --target=handleRequest --port=9056",
+    "compile": "tsc --build",
+    "dev": "yarn build && env-cmd functions-framework --source=dist --target=getGatsbyBuildEvents --port=9062",
+    "dev:top": "yarn build && env-cmd process-top $(yarn bin functions-framework) --source=dist --target=getGatsbyBuildEvents --port=9062",
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "^1.7.5",
-    "@bmi/pim-api": "workspace:*",
-    "@google-cloud/functions-framework": "^3.3.0",
-    "@google-cloud/pubsub": "^3.5.2",
-    "node-fetch": "^2.6.11"
+    "@bmi/functions-firestore": "workspace:*",
+    "@google-cloud/functions-framework": "^3.3.0"
   },
   "devDependencies": {
-    "@bmi/pim-types": "workspace:*",
-    "@bmi/pub-sub-types": "workspace:*",
+    "@bmi/firestore-types": "workspace:*",
     "@types/prettier": "^2.7.2",
     "@typescript-eslint/eslint-plugin": "^5.59.5",
     "@typescript-eslint/parser": "^5.59.5",
