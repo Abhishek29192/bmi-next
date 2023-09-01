@@ -1,4 +1,5 @@
 import {
+  ApprovalStatus,
   createAsset,
   createCategory,
   createClassification,
@@ -21,7 +22,7 @@ describe("transformSystem", () => {
   it("transforms a system with minimal data", () => {
     const system: System = {
       type: undefined,
-      approvalStatus: "approved",
+      approvalStatus: ApprovalStatus.Approved,
       assets: undefined,
       categories: undefined,
       classifications: undefined,
@@ -589,13 +590,21 @@ describe("transformSystem", () => {
   });
 
   it("ignores systems that have approval status check", () => {
-    const system = createSystem({ approvalStatus: "check" });
+    const system = createSystem({ approvalStatus: ApprovalStatus.Check });
     const transformedSystems = transformSystem(system);
     expect(transformedSystems).toStrictEqual([]);
   });
 
   it("ignores systems that have approval status unapproved", () => {
-    const system = createSystem({ approvalStatus: "unapproved" });
+    const system = createSystem({ approvalStatus: ApprovalStatus.Unapproved });
+    const transformedSystems = transformSystem(system);
+    expect(transformedSystems).toStrictEqual([]);
+  });
+
+  it("ignores systems that have approval status preview", () => {
+    const system = createSystem({
+      approvalStatus: ApprovalStatus.Preview
+    });
     const transformedSystems = transformSystem(system);
     expect(transformedSystems).toStrictEqual([]);
   });
@@ -606,22 +615,22 @@ describe("transformSystem", () => {
         createSystemLayer({
           code: "layer 1",
           name: "layer 1",
-          approvalStatus: "check"
+          approvalStatus: ApprovalStatus.Check
         }),
         createSystemLayer({
           code: "layer 2",
           name: "layer 2",
-          approvalStatus: "unapproved"
+          approvalStatus: ApprovalStatus.Unapproved
         }),
         createSystemLayer({
           code: "layer 3",
           name: "layer 3",
-          approvalStatus: "approved"
+          approvalStatus: ApprovalStatus.Approved
         }),
         createSystemLayer({
           code: "layer 4",
           name: "layer 4",
-          approvalStatus: "approved",
+          approvalStatus: ApprovalStatus.Approved,
           shortDescription: "short-description"
         })
       ]

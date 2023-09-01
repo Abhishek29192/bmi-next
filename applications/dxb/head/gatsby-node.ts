@@ -2,6 +2,7 @@ import path from "path";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import { ApprovalStatus } from "@bmi/pim-types";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
@@ -27,7 +28,7 @@ const createProductPages = async (
 
   const result = await graphql(`
     {
-      allProduct(filter: { approvalStatus: { eq: "approved" } }) {
+      allProduct(filter: { approvalStatus: { eq: "${ApprovalStatus.Approved}" } }) {
         nodes {
           __typename
           code

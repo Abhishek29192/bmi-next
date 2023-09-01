@@ -1,4 +1,4 @@
-import { createCategory } from "@bmi/pim-types";
+import { ApprovalStatus, createCategory } from "@bmi/pim-types";
 import { Image, System } from "./types";
 
 const createSystemImage = (): Image => ({
@@ -8,7 +8,7 @@ const createSystemImage = (): Image => ({
 });
 
 const createSystem = (esSystem?: Partial<System>): System => ({
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   brand: createCategory({}),
   code: "code",
   hashedCode: "hashed-code",

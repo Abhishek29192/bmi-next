@@ -1,6 +1,7 @@
 /* eslint-disable security/detect-object-injection */
 import logger from "@bmi-digital/functions-logger";
 import {
+  ApprovalStatus,
   BaseProduct,
   Classification,
   Feature,
@@ -8,7 +9,12 @@ import {
   ProductReference as PIMProductReference,
   VariantOption as PIMVariant
 } from "@bmi/pim-types";
-import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
+import {
+  generateHashFromString,
+  generateUrl,
+  getIsApprovedOrDiscontinuedProduct,
+  isDefined
+} from "@bmi/utils";
 import type {
   Product as ESProduct,
   ProductReference as ESProductReference
@@ -130,11 +136,7 @@ const combineVariantClassifications = (
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
-  if (
-    !product.name ||
-    (product.approvalStatus !== "approved" &&
-      product.approvalStatus !== "discontinued")
-  ) {
+  if (!product.name || !getIsApprovedOrDiscontinuedProduct(product)) {
     return [];
   }
 
@@ -150,11 +152,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     message: `allCategoriesAsProps: ${JSON.stringify(allCategoriesAsProps)}`
   });
   return (product.variantOptions || [])
-    .filter(
-      (variant) =>
-        variant.approvalStatus === "approved" ||
-        variant.approvalStatus === "discontinued"
-    )
+    .filter(getIsApprovedOrDiscontinuedProduct)
     .map((variant) => {
       const combinedClassifications = combineVariantClassifications(
         product,
@@ -184,10 +182,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         )?.features?.[0]?.featureValues?.[0]?.value || "0";
 
       if (
-        product.approvalStatus === "discontinued" &&
-        variant.approvalStatus === "approved"
+        product.approvalStatus === ApprovalStatus.Discontinued &&
+        variant.approvalStatus === ApprovalStatus.Approved
       ) {
-        variant.approvalStatus = "discontinued";
+        variant.approvalStatus = ApprovalStatus.Discontinued;
       }
 
       const baseAttributes = pick(

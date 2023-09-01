@@ -1,4 +1,5 @@
 import { Filter } from "@bmi-digital/components";
+import { ApprovalStatus } from "@bmi/pim-types";
 import {
   Aggregations,
   compileElasticSearchQuery,
@@ -1868,7 +1869,7 @@ describe("getDocumentQueryObject function", () => {
                 should: [
                   {
                     term: {
-                      "approvalStatus.keyword": "approved"
+                      "approvalStatus.keyword": ApprovalStatus.Approved
                     }
                   },
                   {

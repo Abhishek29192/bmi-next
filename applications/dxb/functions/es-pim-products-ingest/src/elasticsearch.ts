@@ -14,6 +14,7 @@ import {
   IndexOperation,
   performBulkOperations
 } from "@bmi/functions-es-client";
+import { ApprovalStatus } from "@bmi/pim-types";
 
 export type Operation = "index" | "delete";
 
@@ -37,7 +38,7 @@ const getBulkOperations = <T extends Product | System>(
   documents.reduce<(DeleteOperation | (IndexOperation | T))[]>(
     (allOps, item) => [
       ...allOps,
-      ...(item.approvalStatus === "approved"
+      ...(item.approvalStatus === ApprovalStatus.Approved
         ? getIndexOperation(indexName, item, item.code)
         : getDeleteOperation(indexName, item.code))
     ],

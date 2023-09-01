@@ -1,18 +1,19 @@
 import path from "path";
 import logger from "@bmi-digital/functions-logger";
-import { isDefined } from "@bmi/utils";
+import { getIsApprovedOrDiscontinuedProduct, isDefined } from "@bmi/utils";
 import { v4 as uuid } from "uuid";
+import {
+  ApprovalStatus,
+  type Asset,
+  type Product as PIMProduct,
+  type System,
+  type VariantOption
+} from "@bmi/pim-types";
 import type {
   PimDocumentBase,
   PimProductDocument,
   PimSystemDocument
 } from "@bmi/elasticsearch-types";
-import type {
-  Asset,
-  Product as PIMProduct,
-  System,
-  VariantOption
-} from "@bmi/pim-types";
 import { getAssetTypes, getProductDocumentNameMap } from "./contentfulApi";
 import {
   getCategoryFilters,
@@ -53,8 +54,8 @@ export const transformDocuments = async (
   }
 
   if (
-    item.approvalStatus !== "approved" &&
-    item.approvalStatus !== "discontinued"
+    item.approvalStatus !== ApprovalStatus.Approved &&
+    item.approvalStatus !== ApprovalStatus.Discontinued
   ) {
     return [];
   }
@@ -94,37 +95,39 @@ export const transformDocuments = async (
     return systemDocuments;
   }
 
-  const variantDocuments = (item.variantOptions || []).flatMap((variant) => {
-    const classificationFilters = getClassificationsFilters(
-      item.classifications,
-      variant.classifications
-    );
-    return (variant.assets || item.assets || [])
-      .map((asset) => {
-        const doc = getDocument(
-          asset,
-          item,
-          assetTypes,
-          productDocumentNameMap
-        );
+  const variantDocuments = (item.variantOptions || [])
+    .filter(getIsApprovedOrDiscontinuedProduct)
+    .flatMap((variant) => {
+      const classificationFilters = getClassificationsFilters(
+        item.classifications,
+        variant.classifications
+      );
+      return (variant.assets || item.assets || [])
+        .map((asset) => {
+          const doc = getDocument(
+            asset,
+            item,
+            assetTypes,
+            productDocumentNameMap
+          );
 
-        if (!doc) {
-          return;
-        }
+          if (!doc) {
+            return;
+          }
 
-        const productDocument: PimProductDocument = {
-          ...doc,
-          __typename: "PIMDocument",
-          productName: (variant.name || item.name)!,
-          productBaseCode: item.code,
-          ...categoryFilters,
-          ...classificationFilters
-        };
+          const productDocument: PimProductDocument = {
+            ...doc,
+            __typename: "PIMDocument",
+            productName: (variant.name || item.name)!,
+            productBaseCode: item.code,
+            ...categoryFilters,
+            ...classificationFilters
+          };
 
-        return productDocument;
-      })
-      .filter(isDefined);
-  });
+          return productDocument;
+        })
+        .filter(isDefined);
+    });
 
   const assetsCounter = (item.variantOptions || []).reduce((acc, variant) => {
     if (variant.assets) {

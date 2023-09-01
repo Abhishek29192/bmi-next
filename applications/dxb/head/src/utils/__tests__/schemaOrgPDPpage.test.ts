@@ -1,3 +1,4 @@
+import { ApprovalStatus } from "@bmi/pim-types";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import { Product } from "../../types/pim";
 import { createSchemaOrgDataForPdpPage } from "../schemaOrgPDPpage";
@@ -6,7 +7,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
   it("should return minimal information for SchemaOrg", () => {
     const siteUrl = "http://bmigroup.com";
     const product: Product = {
-      approvalStatus: "approved",
+      approvalStatus: ApprovalStatus.Approved,
       awardsAndCertificateDocuments: [],
       awardsAndCertificateImages: [],
       baseCode: "base-code",
