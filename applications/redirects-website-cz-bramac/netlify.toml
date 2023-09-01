@@ -1,6 +1,13 @@
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
 
+# General Czech Bramac redirect
+
+ [[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/cz/bmi-bramac/"
+ status = 301
+
 [[redirects]]
  from="/uploads/assets/w01-2pl-bramacpro-plus-resistant-140-1.pdf"
  to="https://assets.ctfassets.net/zpnb1ulje7lm/0IV2MtVfhI5bYzAzkFti4/ae8c6aaf89f19f92425a262a2db34ed5/w01-2pl-bramacpro-plus-resistant-140-1.pdf"
@@ -14426,11 +14433,6 @@
 [[redirects]]
  from="/Zdvojena-bobrovka.4492.0.html"
  to="https://www.bmigroup.com/cz/p/opál-základní-taška-01-režná-režná-vypalovaný-jíl-s-příměsí-1527626330/"
- status = 301
-
- [[redirects]]
- from="/"
- to="https://www.bmigroup.com/cz/bmi-bramac/"
  status = 301
 
 [[redirects]]
