@@ -1,7 +1,6 @@
 import {
   Button,
   ButtonProps,
-  Checkbox,
   Container,
   DownloadList,
   DownloadListContext,
@@ -12,7 +11,7 @@ import { Box } from "@mui/material";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import fetch, { Response } from "node-fetch";
-import React, { useContext, useMemo, useEffect } from "react";
+import React, { useContext, useMemo } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { microCopy } from "@bmi/microcopies";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
@@ -23,11 +22,11 @@ import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
 import useHasScrollbar from "../utils/useHasScrollbar";
-import { DocumentContext } from "../contexts/DocumentContext";
 import {
   getFileUrlByDocumentType,
   useShowMobileTable
 } from "../utils/documentUtils";
+import { Format } from "../templates/documentLibrary/components/DocumentResults";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFileNamebyTitle
@@ -37,6 +36,7 @@ import {
   ContentWrapper,
   ButtonsWrapper,
   FooterBottomWrapper,
+  ButtonsSelectAllPanel,
   SelectAllCheckboxWrapper,
   SelectAllCheckboxLabel,
   DocumentResultsFooterContainer,
@@ -58,6 +58,7 @@ type Props = {
   onPageChange?: (event: React.ChangeEvent<HTMLElement>, page: number) => void;
   isDownloadButton?: boolean;
   sticky?: boolean;
+  format?: Format;
 };
 const GTMButton = withGTM<ButtonProps>(Button);
 export const handleDownloadClick = async (
@@ -217,6 +218,7 @@ const DocumentResultsFooter = ({
   count,
   onPageChange,
   sticky,
+  format,
   isDownloadButton = true
 }: Props) => {
   const displayPagination = Boolean(count > 1 && onPageChange);
@@ -228,7 +230,9 @@ const DocumentResultsFooter = ({
         page={page}
         count={count}
         onPageChange={onPageChange}
-      />
+      >
+        <DocumentsFooterContent format={format} page={page} />
+      </StickyFooter>
     );
   }
 
@@ -239,7 +243,7 @@ const DocumentResultsFooter = ({
       )}
       {isDownloadButton && (
         <Box mt={4}>
-          <DocumentsFooterContent />
+          <DocumentsFooterContent format={format} page={page} />
           <StyledRecaptcha
             className={classes["recaptcha"]}
             testId="document-results-footer-recaptcha"
@@ -254,6 +258,7 @@ type StickyFooterProps = {
   showPagination: boolean;
   page: number;
   count: number;
+  children: React.ReactNode;
   onPageChange?: (event: React.ChangeEvent<HTMLElement>, page: number) => void;
 };
 
@@ -282,7 +287,7 @@ const StickyFooter = (props: StickyFooterProps) => {
         <Container disableGutters>
           <Grid container direction="row-reverse">
             <Grid xs={12} md={12} lg={9}>
-              <DocumentsFooterContent />
+              {props.children}
             </Grid>
           </Grid>
         </Container>
@@ -299,72 +304,43 @@ const StickyFooter = (props: StickyFooterProps) => {
   );
 };
 
-const DocumentsFooterContent = () => {
+const DocumentsFooterContent: React.FC<{ format: Format; page: number }> = ({
+  format,
+  page
+}) => {
   const { getMicroCopy } = useSiteContext();
   const config = useConfig();
-  const { remainingSize, size } = useContext(DownloadListContext);
+  const { remainingSize, size, selectedAllCheckboxDisabledByPages } =
+    useContext(DownloadListContext);
+
   const { showMobileTable } = useShowMobileTable();
   const maxSizeExceeded = remainingSize < 0;
 
-  const {
-    selectedAllState: { doesHaveLinkedDocuments, isSelectedAll },
-    setSelectAllState
-  } = useContext(DocumentContext);
-  const { resetList } = useContext(DownloadListContext);
-
-  useEffect(() => {
-    return () => {
-      setSelectAllState((prevState) => ({
-        ...prevState,
-        isSelectedAll: false
-      }));
-      resetList();
-    };
-  }, []);
-
-  const handleSelectAllToggle = () => {
-    setSelectAllState((prevState) => ({
-      ...prevState,
-      isSelectedAll: !prevState.isSelectedAll
-    }));
-  };
-
-  const getMobileViewJSX = (children: React.ReactNode) => {
-    if (!showMobileTable) {
-      return <>{children}</>;
-    }
-
+  const getSelectAllCheckBoxWithWrapper = () => {
     return (
-      <FooterBottomWrapper>
-        <SelectAllCheckboxWrapper>
-          <SelectAllCheckboxLabel
-            variant="text"
-            onClick={handleSelectAllToggle}
-            disabled={doesHaveLinkedDocuments}
-            data-testid={`document-table-select-all-footer-button`}
-          >
-            {getMicroCopy(microCopy.DOWNLOAD_LIST_SELECTALL)}
-          </SelectAllCheckboxLabel>
-          <Checkbox
-            data-testid={`document-table-select-all-footer-checkbox`}
-            name="selectAll"
-            aria-label={getMicroCopy(
-              microCopy.DOWNLOAD_LIST_SELECTALL_CHECKBOX
-            )}
-            value={isSelectedAll}
-            checked={isSelectedAll}
-            onChange={handleSelectAllToggle}
-            disabled={doesHaveLinkedDocuments}
-          />
-        </SelectAllCheckboxWrapper>
-        {children}
-      </FooterBottomWrapper>
+      <SelectAllCheckboxWrapper format={format}>
+        <SelectAllCheckboxLabel
+          variant="text"
+          disabled={selectedAllCheckboxDisabledByPages[`${page}`]}
+          data-testid={`document-table-select-all-footer-button`}
+        >
+          {getMicroCopy(microCopy.DOWNLOAD_LIST_SELECTALL)}
+        </SelectAllCheckboxLabel>
+        <DownloadList.SelectAllCheckBox
+          name="selectAll"
+          ariaLabel={`${getMicroCopy(
+            microCopy.DOWNLOAD_LIST_SELECTALL_CHECKBOX
+          )}`}
+          disabled={selectedAllCheckboxDisabledByPages[`${page}`]}
+          dataTestid={`document-table-select-all-footer-checkbox`}
+        />
+      </SelectAllCheckboxWrapper>
     );
   };
 
-  return (
-    <ContentWrapper>
-      <ButtonsWrapper>
+  const getButtonsWrapper = () => {
+    return (
+      <ButtonsWrapper format={format}>
         <DownloadDocumentsButton />
         <ResetSelectionBtn
           disabled={!size}
@@ -372,6 +348,32 @@ const DocumentsFooterContent = () => {
           data-testid="document-results-footer-reset-button"
         />
       </ButtonsWrapper>
+    );
+  };
+
+  const getMobileViewJSX = (children: React.ReactNode) => {
+    if (format !== "technicalTable" && showMobileTable) {
+      return (
+        <FooterBottomWrapper format={format}>
+          {getSelectAllCheckBoxWithWrapper()}
+          {children}
+        </FooterBottomWrapper>
+      );
+    }
+
+    return <>{children}</>;
+  };
+
+  return (
+    <ContentWrapper>
+      {format !== "technicalTable" && getButtonsWrapper()}
+      {format && format === "technicalTable" && (
+        <ButtonsSelectAllPanel>
+          {getButtonsWrapper()}
+          {getSelectAllCheckBoxWithWrapper()}
+        </ButtonsSelectAllPanel>
+      )}
+
       {getMobileViewJSX(
         <>
           {size ? (

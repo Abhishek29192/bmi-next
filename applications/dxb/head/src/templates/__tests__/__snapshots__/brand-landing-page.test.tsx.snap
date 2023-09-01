@@ -3,10 +3,10 @@
 exports[`Brand Landing Page Template not render cta link text when cta object is null 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -192,7 +192,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -216,7 +216,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -240,7 +240,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -264,7 +264,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -1866,10 +1866,10 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
 exports[`Brand Landing Page Template render correctly 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -2055,7 +2055,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -2079,7 +2079,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -2103,7 +2103,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -2127,7 +2127,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -3490,10 +3490,10 @@ exports[`Brand Landing Page Template render correctly 1`] = `
 exports[`Brand Landing Page Template render linkLabel microcopy when slide is has other typename than ContentfulPromo 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -3679,7 +3679,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -3703,7 +3703,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -3727,7 +3727,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -3751,7 +3751,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -5314,10 +5314,10 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
 exports[`Brand Landing Page Template render no content for first slide when no description 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -5503,7 +5503,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -5527,7 +5527,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -5551,7 +5551,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -5575,7 +5575,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -7168,10 +7168,10 @@ exports[`Brand Landing Page Template render no content for first slide when no d
 exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -7357,7 +7357,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -7381,7 +7381,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -7405,7 +7405,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -7429,7 +7429,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -8994,10 +8994,10 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 exports[`Brand Landing Page Template render sections correctly 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -9183,7 +9183,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -9207,7 +9207,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -9231,7 +9231,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -9255,7 +9255,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -10850,10 +10850,10 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
 exports[`Brand Landing Page Template render slide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -11039,7 +11039,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -11063,7 +11063,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -11087,7 +11087,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -11111,7 +11111,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -12706,10 +12706,10 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
 exports[`Brand Landing Page Template render with Search form on hero section 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -12895,7 +12895,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -12919,7 +12919,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -12943,7 +12943,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -12967,7 +12967,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -14574,10 +14574,10 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
 exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -14763,7 +14763,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -14787,7 +14787,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -14811,7 +14811,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -14835,7 +14835,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -16440,10 +16440,10 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
 exports[`Brand Landing Page Template when description is NOT more than 400 characters renders description without elipsis 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -16629,7 +16629,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -16653,7 +16653,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -16677,7 +16677,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -16701,7 +16701,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -18308,10 +18308,10 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
 exports[`Brand Landing Page Template when description is more than 400 characters renders description with elipsis 1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -18497,7 +18497,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -18521,7 +18521,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -18545,7 +18545,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -18569,7 +18569,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"

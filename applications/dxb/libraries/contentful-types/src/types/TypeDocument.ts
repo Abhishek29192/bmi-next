@@ -26,6 +26,7 @@ export interface TypeDocumentFields {
     | "Everlite"
     | "Icopal"
     | "IcopalKatto"
+    | "IcopalVedag"
     | "Klober"
     | "Monarflex"
     | "Monarplan"

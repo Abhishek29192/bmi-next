@@ -1,16 +1,13 @@
 import {
-  Checkbox,
   DownloadList,
   DownloadListContext,
-  Table,
-  useUpdateEffect
+  Table
 } from "@bmi-digital/components";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import React, { useContext, useEffect } from "react";
 import { microCopy } from "@bmi/microcopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
-import { DocumentContext } from "../contexts/DocumentContext";
 import {
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
@@ -18,9 +15,9 @@ import {
   getProductStatus,
   getUniqueId,
   getValidityDate,
-  useShowMobileTable,
-  getCurrentlySelectedDocumentsCount
+  useShowMobileTable
 } from "../utils/documentUtils";
+import { PseudoZipPIMDocument } from "../types/pim";
 import {
   CopyToClipboard,
   DocumentTitle,
@@ -40,6 +37,7 @@ import {
 
 export type Props = {
   documents: readonly Document[];
+  pageNumber?: number;
   headers?: DocumentTableHeader[];
 };
 
@@ -51,6 +49,11 @@ const PIM_TYPES = ["PIMDocument", "PIMSystemDocument"];
 
 export const isPIMDocument = (document: Document): boolean =>
   PIM_TYPES.includes(document.__typename);
+
+export const ifZipDocument = (
+  document: Document
+): document is PseudoZipPIMDocument =>
+  document.__typename === "PIMDocumentWithPseudoZip";
 
 const DocumentCells = ({
   document,
@@ -64,7 +67,7 @@ const DocumentCells = ({
   const { getMicroCopy } = useSiteContext();
   const { __typename } = document;
   const isLinkDocument = getIsLinkDocument(document);
-  const isZipDocument = __typename === "PIMDocumentWithPseudoZip";
+  const isZipDocument = ifZipDocument(document);
   const fileSize = getFileSizeByDocumentType(document);
 
   return (
@@ -209,12 +212,19 @@ const DocumentCells = ({
 
 const DocumentSimpleTableResults = ({
   documents,
+  pageNumber,
   headers = ["add", "typeCode", "title", "size", "actions"]
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
 
-  const { list, updateList, count, resetList } =
-    useContext(DownloadListContext);
+  const {
+    list,
+    updateAllListItems,
+    setSelectAllCheckboxDisabledByPage,
+    setCurrentPage,
+    resetAllListItems
+  } = useContext(DownloadListContext);
+
   const nonLinkedDocuments = documents.filter(
     (document) => !getIsLinkDocument(document)
   );
@@ -223,74 +233,22 @@ const DocumentSimpleTableResults = ({
   const titleField =
     headers.includes("type") && !headers.includes("title") ? "type" : "title";
 
-  const {
-    selectedAllState: { isSelectedAll, docsCount },
-    setSelectAllState
-  } = useContext(DocumentContext);
-
   useEffect(() => {
-    setSelectAllState((prevState) => ({
-      ...prevState,
-      doesHaveLinkedDocuments:
-        documents.length !== 0 && nonLinkedDocuments.length === 0
-    }));
-  }, []);
-
-  useUpdateEffect(() => {
-    handleSelectAll(isSelectedAll);
-  }, [isSelectedAll]);
-
-  useUpdateEffect(() => {
-    const currentSelectedDocsCount = getCurrentlySelectedDocumentsCount(
-      nonLinkedDocuments,
-      list
+    resetAllListItems();
+    nonLinkedDocuments.forEach((document) =>
+      updateAllListItems(
+        pageNumber,
+        getUniqueId(document),
+        ifZipDocument(document) ? document.documentList : document,
+        getFileSizeByDocumentType(document)
+      )
     );
 
-    setSelectAllState((prevState) => ({
-      ...prevState,
-      isSelectedAll: currentSelectedDocsCount === nonLinkedDocuments.length,
-      docsCount: currentSelectedDocsCount
-    }));
-  }, [list, documents]);
-
-  useEffect(() => {
-    return () => {
-      setSelectAllState((prevState) => ({
-        ...prevState,
-        isSelectedAll: false
-      }));
-      resetList();
-    };
-  }, []);
-
-  const handleSelectAll = (selectedAll: boolean): void => {
-    if (selectedAll) {
-      if (docsCount === nonLinkedDocuments.length) {
-        return;
-      }
-      nonLinkedDocuments.forEach((document) => {
-        const isZipDocument =
-          document.__typename === "PIMDocumentWithPseudoZip";
-        const documentId = getUniqueId(document);
-        // eslint-disable-next-line security/detect-object-injection
-        if (!list[documentId]) {
-          const docs = isZipDocument ? document.documentList : document;
-          updateList(documentId, docs, getFileSizeByDocumentType(document));
-        }
-      });
-    } else {
-      if (count === 0 || docsCount !== nonLinkedDocuments.length) {
-        return;
-      }
-      documents.forEach((document) =>
-        updateList(
-          getUniqueId(document),
-          undefined,
-          getFileSizeByDocumentType(document)
-        )
-      );
-    }
-  };
+    setCurrentPage(pageNumber);
+    setSelectAllCheckboxDisabledByPage(pageNumber)(
+      documents.length !== 0 && nonLinkedDocuments.length === 0
+    );
+  }, [pageNumber, documents]);
 
   if (showMobileTable) {
     return (
@@ -322,21 +280,13 @@ const DocumentSimpleTableResults = ({
                 )}
               >
                 {header === "add" ? (
-                  <Checkbox
-                    data-testid={`document-table-select-all`}
+                  <DownloadList.SelectAllCheckBox
                     name="add"
-                    aria-label={`${getMicroCopy(
-                      `documentLibrary.headers.add`
+                    ariaLabel={`${getMicroCopy(
+                      microCopy.DOCUMENT_LIBRARY_HEADERS_ADD
                     )}`}
-                    value={isSelectedAll}
-                    checked={isSelectedAll}
-                    onChange={() =>
-                      setSelectAllState((prevState) => ({
-                        ...prevState,
-                        isSelectedAll: !isSelectedAll
-                      }))
-                    }
                     disabled={!nonLinkedDocuments.length}
+                    dataTestid={`document-table-select-all`}
                   />
                 ) : (
                   getMicroCopy(`documentLibrary.headers.${header}`)

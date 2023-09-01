@@ -255,10 +255,19 @@ describe("MobileDocumentTechnicalTableResults component", () => {
             size: 0,
             list: {},
             resetList: jest.fn(),
+            resetAllListItems: jest.fn(),
             count: 0,
             remainingSize: 0,
             isLoading: false,
-            setIsLoading: jest.fn()
+            setIsLoading: jest.fn(),
+            allListItemsWithPages: {},
+            updateAllListItems: jest.fn(),
+            selectedAllCheckboxDisabledByPages: { 0: false },
+            selectedAllCheckboxCheckedByPages: { 0: false },
+            setSelectAllCheckboxDisabledByPage: () => jest.fn(),
+            setSelectAllCheckboxCheckedByPage: () => jest.fn(),
+            currentPage: 0,
+            setCurrentPage: jest.fn()
           }}
         >
           <TechnicalTableResultsAccordion
@@ -305,10 +314,19 @@ describe("MobileDocumentTechnicalTableResults component", () => {
             size: 10,
             list: { "base-product-code": [selectedDocument] },
             resetList: jest.fn(),
+            resetAllListItems: jest.fn(),
             count: 0,
             remainingSize: 0,
             isLoading: false,
-            setIsLoading: jest.fn()
+            setIsLoading: jest.fn(),
+            allListItemsWithPages: {},
+            updateAllListItems: jest.fn(),
+            selectedAllCheckboxDisabledByPages: { 0: false },
+            selectedAllCheckboxCheckedByPages: { 0: false },
+            setSelectAllCheckboxDisabledByPage: () => jest.fn(),
+            setSelectAllCheckboxCheckedByPage: () => jest.fn(),
+            currentPage: 0,
+            setCurrentPage: jest.fn()
           }}
         >
           <TechnicalTableResultsAccordion
@@ -356,6 +374,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         <TechnicalTableResultsAccordion
           documentsByProduct={documentsByProduct}
           assetTypes={assetTypes}
+          pageNumber={0}
         />
       );
       expect(
@@ -393,6 +412,7 @@ describe("MobileDocumentTechnicalTableResults component", () => {
         <TechnicalTableResultsAccordion
           documentsByProduct={documentsByProduct}
           assetTypes={assetTypes}
+          pageNumber={0}
         />
       );
       expect(

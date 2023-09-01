@@ -6,7 +6,6 @@ import {
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
-import { DocumentListProvider } from "../../../../contexts/DocumentContext";
 import DocumentResults, {
   DocumentResultData,
   Format
@@ -41,13 +40,12 @@ describe("DocumentResults component", () => {
         ];
         const { container } = render(
           <ThemeProvider>
-            <DocumentListProvider>
-              <DocumentResults
-                data={[contentfulDocument, pimDocument]}
-                format="simpleTable"
-                assetTypes={assetTypes}
-              />
-            </DocumentListProvider>
+            <DocumentResults
+              data={[contentfulDocument, pimDocument]}
+              format="simpleTable"
+              assetTypes={assetTypes}
+              pageNumber={0}
+            />
           </ThemeProvider>
         );
         expect(
@@ -74,13 +72,11 @@ describe("DocumentResults component", () => {
         const assetTypes = [commonAssetType];
         render(
           <ThemeProvider>
-            <DocumentListProvider>
-              <DocumentResults
-                data={[contentfulDocument, pimDocument]}
-                format="simpleTable"
-                assetTypes={assetTypes}
-              />
-            </DocumentListProvider>
+            <DocumentResults
+              data={[contentfulDocument, pimDocument]}
+              format="simpleTable"
+              assetTypes={assetTypes}
+            />
           </ThemeProvider>
         );
         expect(
@@ -105,13 +101,11 @@ describe("DocumentResults component", () => {
         const assetTypes = [commonAssetType, assetType2, assetType3];
         render(
           <ThemeProvider>
-            <DocumentListProvider>
-              <DocumentResults
-                data={[contentfulDocument, pimDocument]}
-                format="simpleTable"
-                assetTypes={assetTypes}
-              />
-            </DocumentListProvider>
+            <DocumentResults
+              data={[contentfulDocument, pimDocument]}
+              format="simpleTable"
+              assetTypes={assetTypes}
+            />
           </ThemeProvider>
         );
         expect(
@@ -135,13 +129,11 @@ describe("DocumentResults component", () => {
     expect(() => {
       render(
         <ThemeProvider>
-          <DocumentListProvider>
-            <DocumentResults
-              data={inputDataItems}
-              format={format}
-              assetTypes={assetTypes}
-            />
-          </DocumentListProvider>
+          <DocumentResults
+            data={inputDataItems}
+            format={format}
+            assetTypes={assetTypes}
+          />
         </ThemeProvider>
       );
     }).toThrowError();
@@ -152,13 +144,11 @@ describe("DocumentResults component", () => {
     const assetTypes = [createAssetType({ code: pimDocument.assetType.code })];
     const { container } = render(
       <ThemeProvider>
-        <DocumentListProvider>
-          <DocumentResults
-            data={[pimDocument]}
-            format="technicalTable"
-            assetTypes={assetTypes}
-          />
-        </DocumentListProvider>
+        <DocumentResults
+          data={[pimDocument]}
+          format="technicalTable"
+          assetTypes={assetTypes}
+        />
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
@@ -171,13 +161,11 @@ describe("DocumentResults component", () => {
     ];
     render(
       <ThemeProvider>
-        <DocumentListProvider>
-          <DocumentResults
-            data={[contentfulDocument]}
-            format="cards"
-            assetTypes={assetTypes}
-          />
-        </DocumentListProvider>
+        <DocumentResults
+          data={[contentfulDocument]}
+          format="cards"
+          assetTypes={assetTypes}
+        />
       </ThemeProvider>
     );
     expect(screen.getByText(contentfulDocument.title)).toBeInTheDocument();
@@ -189,13 +177,11 @@ describe("DocumentResults component", () => {
 
     render(
       <ThemeProvider>
-        <DocumentListProvider>
-          <DocumentResults
-            data={[pimDocument]}
-            format="simpleArchiveTable"
-            assetTypes={assetTypes}
-          />
-        </DocumentListProvider>
+        <DocumentResults
+          data={[pimDocument]}
+          format="simpleArchiveTable"
+          assetTypes={assetTypes}
+        />
       </ThemeProvider>
     );
 

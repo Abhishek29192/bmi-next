@@ -9,7 +9,7 @@ import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { filesize } from "filesize";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { microCopy } from "@bmi/microcopies";
 import {
   CopyToClipboard,
@@ -40,6 +40,7 @@ import {
 interface Props {
   documentsByProduct: [string, PimProductDocument[]][];
   assetTypes: AssetType[];
+  pageNumber?: number;
 }
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(
@@ -48,10 +49,42 @@ const GTMAccordionSummary = withGTM<AccordionSummaryProps>(
 
 const MobileDocumentTechnicalTableResults = ({
   documentsByProduct,
-  assetTypes
+  assetTypes,
+  pageNumber = 0
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
-  const { list: selectedDocuments } = useContext(DownloadListContext);
+  const {
+    list: selectedDocuments,
+    updateAllListItems,
+    setSelectAllCheckboxDisabledByPage,
+    setCurrentPage,
+    resetAllListItems
+  } = useContext(DownloadListContext);
+
+  useEffect(() => {
+    let linkDocumentsExist = false;
+
+    setCurrentPage(pageNumber);
+    resetAllListItems();
+
+    documentsByProduct.forEach(([_, assets]) => {
+      const selectableDocuments = getSelectableDocuments(assets);
+
+      if (selectableDocuments && selectableDocuments.length !== 0) {
+        updateAllListItems(
+          pageNumber,
+          assets[0].productBaseCode,
+          selectableDocuments,
+          getDocumentsSize(assets)
+        );
+      }
+
+      linkDocumentsExist = linkDocumentsExist || getIsSelectionDisabled(assets);
+    });
+
+    setSelectAllCheckboxDisabledByPage(pageNumber)(linkDocumentsExist);
+  }, [pageNumber, documentsByProduct]);
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const showDivider = useMediaQuery(theme.breakpoints.up("sm"));

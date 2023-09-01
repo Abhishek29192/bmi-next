@@ -3,10 +3,10 @@
 exports[`Document Library page renders correctly  1`] = `
 <div>
   <div
-    style="overflow-x: hidden;"
+    style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1n3l0bu-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -192,7 +192,7 @@ exports[`Document Library page renders correctly  1`] = `
                   >
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Albania","action":"/al/"}"
                       data-testid="language-menu-item"
                       href="/al"
@@ -216,7 +216,7 @@ exports[`Document Library page renders correctly  1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"Österreich","action":"/at/"}"
                       data-testid="language-menu-item"
                       href="/at"
@@ -240,7 +240,7 @@ exports[`Document Library page renders correctly  1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"United Kingdom","action":"/uk/"}"
                       data-testid="language-menu-item"
                       href="/uk"
@@ -264,7 +264,7 @@ exports[`Document Library page renders correctly  1`] = `
                     </a>
                     <a
                       aria-pressed="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-ocdu2a-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-vp91lc-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-country-selector","label":"English","action":"/en/"}"
                       data-testid="language-menu-item"
                       href="/en"
@@ -892,7 +892,7 @@ exports[`Document Library page renders correctly  1`] = `
                       class="Accordion-noInnerPadding css-1u48ai"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-19edt34-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
                       >
                         <div
                           aria-expanded="false"
@@ -1751,7 +1751,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2009,7 +2009,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2267,7 +2267,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2525,7 +2525,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2783,7 +2783,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3041,7 +3041,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3299,7 +3299,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3557,7 +3557,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3843,7 +3843,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4117,7 +4117,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
       class=" css-1u48ai"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-q3x8p3-MuiPaper-root-MuiAccordion-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15cmdva-MuiPaper-root-MuiAccordion-root"
         data-testid="tech-table-accordion-item-product-base-code"
       >
         <div

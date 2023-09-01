@@ -12,12 +12,6 @@
       "path": "applications/dxb/head"
     },
     {
-      "path": "applications/dxb/functions/contentful-default-values"
-    },
-    {
-      "path": "applications/dxb/functions/contentful-tagger"
-    },
-    {
       "path": "applications/dxb/functions/es-pim-products-ingest"
     },
     {

@@ -533,6 +533,12 @@ When set to `true` (will group/collapse by variant code i.e. `code.keyword`)
 
 ## Run Gatsby
 
+To compile Gatsby project references
+
+```
+$ yarn workspace @bmi/head compile
+```
+
 To run develop
 
 ```shell
