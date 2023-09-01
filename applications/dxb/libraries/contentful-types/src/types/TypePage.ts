@@ -69,6 +69,7 @@ export interface TypePageFields {
     | "RoofPro"
     | "RoofProServiceTeam"
     | "Sealoflex"
+    | "SereniCoperture"
     | "Siplast"
     | "Sunscape"
     | "Vedag"

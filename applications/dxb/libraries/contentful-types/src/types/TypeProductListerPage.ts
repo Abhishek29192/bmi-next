@@ -51,6 +51,7 @@ export interface TypeProductListerPageFields {
     | "RoofPro"
     | "RoofProServiceTeam"
     | "Sealoflex"
+    | "SereniCoperture"
     | "Siplast"
     | "Sunscape"
     | "Vedag"
