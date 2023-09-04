@@ -43,7 +43,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              200mm
+              100mm
             </td>
           </tr>
           <tr
@@ -57,7 +57,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              100mm
+              200mm
             </td>
           </tr>
         </tbody>
@@ -110,7 +110,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              200mm
+              100mm
             </td>
           </tr>
           <tr
@@ -124,7 +124,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              100mm
+              200mm
             </td>
           </tr>
         </tbody>

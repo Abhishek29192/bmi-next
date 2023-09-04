@@ -34,6 +34,7 @@ export interface Config {
   oneTrustId?: string;
   isSampleOrderingEnabled: boolean;
   renderTeamCategoriesAsRows: boolean;
+  enableProductClassificationAttributeOrdering: boolean;
 }
 
 const envConfig = (): Config => ({
@@ -88,6 +89,9 @@ const envConfig = (): Config => ({
   ),
   renderTeamCategoriesAsRows: convertStrToBool(
     process.env.GATSBY_TEAM_CATEGORIES_AS_ROWS
+  ),
+  enableProductClassificationAttributeOrdering: convertStrToBool(
+    process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING
   )
 });
 
