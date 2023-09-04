@@ -13,6 +13,21 @@ const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.P
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
+const fetchDataByCode = async (
+  type: PimTypes,
+  locale: string,
+  code: string,
+  version: "Staged" | "Online",
+  allowPreviewProducts?: boolean
+) =>
+  (await import("../index")).fetchDataByCode(
+    type,
+    locale,
+    code,
+    version,
+    allowPreviewProducts
+  );
+
 const fetchData = async (
   type: PimTypes,
   locale: string,
@@ -512,6 +527,221 @@ describe("fetchData", () => {
       }
     );
     expect(response).toEqual(apiResponse);
+  });
+});
+
+describe("fetchDataByCode", () => {
+  it("should error if authorization request returns a non-ok response", async () => {
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      status: 401
+    });
+
+    await expect(
+      fetchDataByCode(
+        PimTypes.Products,
+        process.env.LOCALE!,
+        "product_code",
+        "Staged"
+      )
+    ).rejects.toThrowError(
+      new Error("[PIM] Error getting auth token: 401 Unauthorized")
+    );
+  });
+
+  it("constructs url correctly if itemType === 'systems'", async () => {
+    const apiResponse = createSystemsApiResponse();
+    const expectedUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems/system_code?status=approved&version=Staged&lang=${process.env.LOCALE}`;
+    mockResponses(
+      fetchMock,
+      {
+        url: pimAuthTokenUrl,
+        method: "POST",
+        body: {
+          access_token: "access_token"
+        }
+      },
+      {
+        url: expectedUrl,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer access_token`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(apiResponse)
+      }
+    );
+
+    await fetchDataByCode(
+      PimTypes.Systems,
+      process.env.LOCALE!,
+      "system_code",
+      "Staged"
+    );
+
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    });
+    expect(fetchMock).toHaveFetched(expectedUrl);
+  });
+
+  it("constructs url correctly if itemType === 'product'", async () => {
+    const apiResponse = createProductsApiResponse();
+    const expectedUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products/product_code?status=approved,discontinued&version=Staged&lang=${process.env.LOCALE}`;
+    mockResponses(
+      fetchMock,
+      {
+        url: pimAuthTokenUrl,
+        method: "POST",
+        body: {
+          access_token: "access_token"
+        }
+      },
+      {
+        url: expectedUrl,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer access_token`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(apiResponse)
+      }
+    );
+
+    await fetchDataByCode(
+      PimTypes.Products,
+      process.env.LOCALE!,
+      "product_code",
+      "Staged"
+    );
+
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    });
+    expect(fetchMock).toHaveFetched(expectedUrl);
+  });
+
+  it("constructs url correctly if itemType === 'product' and allowPreviewProducts === true", async () => {
+    const apiResponse = createProductsApiResponse();
+    const expectedUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products/preview_product_code?status=approved,discontinued,preview&version=Staged&lang=${process.env.LOCALE}`;
+    mockResponses(
+      fetchMock,
+      {
+        url: pimAuthTokenUrl,
+        method: "POST",
+        body: {
+          access_token: "access_token"
+        }
+      },
+      {
+        url: expectedUrl,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer access_token`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(apiResponse)
+      }
+    );
+
+    await fetchDataByCode(
+      PimTypes.Products,
+      process.env.LOCALE!,
+      "preview_product_code",
+      "Staged",
+      true
+    );
+
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    });
+    expect(fetchMock).toHaveFetched(expectedUrl);
+  });
+
+  it("should error if getting data throws 500 error", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: pimAuthTokenUrl,
+        method: "POST",
+        body: {
+          access_token: "access_token"
+        }
+      },
+      {
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems/system_code?status=approved&version=Staged&lang=${process.env.LOCALE}`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer access_token`,
+          "Content-Type": "application/json"
+        },
+        status: 500,
+        body: {
+          errors: [
+            { type: "error1", message: "Expected error 1" },
+            { type: "error2", message: "Expected error 2" }
+          ]
+        }
+      }
+    );
+
+    await expect(
+      fetchDataByCode(
+        PimTypes.Systems,
+        process.env.LOCALE!,
+        "system_code",
+        "Staged"
+      )
+    ).rejects.toThrowError(
+      new Error("[PIM] Error getting data: 500 Internal Server Error")
+    );
+  });
+
+  it("should return all errors if getting data throws a bad request response", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        method: "POST",
+        url: pimAuthTokenUrl,
+        body: {
+          access_token: "access_token"
+        }
+      },
+      {
+        method: "GET",
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems/system_code?status=approved&version=Online&lang=${process.env.LOCALE}`,
+        status: 400,
+        body: {
+          errors: [
+            { type: "error1", message: "Expected error 1" },
+            { type: "error2", message: "Expected error 2" }
+          ]
+        }
+      }
+    );
+
+    await expect(
+      fetchDataByCode(
+        PimTypes.Systems,
+        process.env.LOCALE!,
+        "system_code",
+        "Online"
+      )
+    ).rejects.toThrowError(
+      new Error(
+        "[PIM] Error getting catalogue:\n\nerror1: Expected error 1\n\nerror2: Expected error 2"
+      )
+    );
   });
 });
 

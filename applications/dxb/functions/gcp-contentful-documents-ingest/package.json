@@ -22,7 +22,7 @@
     "contentful": "^10.2.0"
   },
   "devDependencies": {
-    "@bmi-digital/fetch-mocks": "^1.6.0",
+    "@bmi-digital/fetch-mocks": "^1.7.5",
     "@bmi/contentful-types": "workspace:*",
     "@bmi/elasticsearch-types": "workspace:*",
     "@types/prettier": "^2.7.2",

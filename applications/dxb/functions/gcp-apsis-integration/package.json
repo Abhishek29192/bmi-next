@@ -21,7 +21,7 @@
     "querystring": "^0.2.1"
   },
   "devDependencies": {
-    "@bmi-digital/fetch-mocks": "^1.6.0",
+    "@bmi-digital/fetch-mocks": "^1.7.5",
     "@google-cloud/functions-framework": "^3.3.0",
     "@types/prettier": "^2.7.2",
     "@typescript-eslint/eslint-plugin": "^5.59.5",

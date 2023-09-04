@@ -77,7 +77,10 @@ export enum AwardAndCertificateAssetType {
 }
 
 export type Product = {
-  approvalStatus: ApprovalStatus.Approved | ApprovalStatus.Discontinued;
+  approvalStatus:
+    | ApprovalStatus.Approved
+    | ApprovalStatus.Discontinued
+    | ApprovalStatus.Preview;
   awardsAndCertificateDocuments: readonly Asset[];
   awardsAndCertificateImages: readonly Asset[];
   baseCode: string;

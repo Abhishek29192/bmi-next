@@ -17,6 +17,7 @@ include:
   - local: "/applications/dxb/functions/gcp-upload-file/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-url-generator/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-youtube-cache/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-pim-preview-firestore-writer/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-get-gatsby-build-events/.gitlab-ci.yml"
 
 .lint_function:

@@ -1,12 +1,16 @@
 import { URLSearchParams } from "url";
 import {
   AuthResponse,
+  CatalogVersion,
   ErrorResponse,
   PimTypes,
   ProductsApiResponse,
-  SystemsApiResponse
+  SystemsApiResponse,
+  Product,
+  System
 } from "@bmi/pim-types";
-import fetch, { RequestRedirect } from "node-fetch";
+import fetch, { RequestRedirect, Response } from "node-fetch";
+import logger from "@bmi-digital/functions-logger";
 
 const { PIM_CLIENT_ID, PIM_OAUTH_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
   process.env;
@@ -45,16 +49,71 @@ const getAuthToken = async (): Promise<AuthResponse> => {
   );
 
   if (!response.ok) {
-    // eslint-disable-next-line no-console
-    console.error(
-      `[PIM] Error getting auth token: ${response.status} ${response.statusText}`
-    );
+    logger.error({
+      message: `[PIM] Error getting auth token: ${response.status} ${response.statusText}`
+    });
     throw new Error(
       `[PIM] Error getting auth token: ${response.status} ${response.statusText}`
     );
   }
 
   return (await response.json()) as AuthResponse;
+};
+
+const handlePimResponse = async <T>(response: Response): Promise<T> => {
+  if (!response.ok) {
+    if (response.status === 400) {
+      const body = (await response.json()) as ErrorResponse;
+      const errorMessage = [
+        "[PIM] Error getting catalogue:",
+        ...body.errors.map(({ type, message }) => `${type}: ${message}`)
+      ].join("\n\n");
+      logger.error({ message: errorMessage });
+      throw new Error(errorMessage);
+    }
+    logger.error({
+      message: `[PIM] Error getting data: ${response.status} ${response.statusText}`
+    });
+    throw new Error(
+      `[PIM] Error getting data: ${response.status} ${response.statusText}`
+    );
+  }
+
+  return await response.json();
+};
+
+export const fetchDataByCode = async (
+  type: PimTypes,
+  locale: string,
+  code: string,
+  version: CatalogVersion,
+  allowPreviewProducts?: boolean
+): Promise<Product | System> => {
+  const { access_token } = await getAuthToken();
+
+  const redirect: RequestRedirect = "follow";
+
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+      "Content-Type": "application/json"
+    },
+    redirect
+  };
+
+  const itemStatus =
+    type === PimTypes.Systems
+      ? "?status=approved"
+      : `?status=approved,discontinued${
+          allowPreviewProducts ? ",preview" : ""
+        }`;
+
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}/${code}${itemStatus}&version=${version}&lang=${locale}`;
+  logger.info({ message: `FETCH: ${fullPath}` });
+
+  const response = await fetch(fullPath, options);
+  return handlePimResponse<Product | System>(response);
 };
 
 export const fetchData = async (
@@ -81,31 +140,9 @@ export const fetchData = async (
       : `&status=approved,discontinued`;
   const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}${statusOfPimType}&lang=${locale}`;
 
-  // eslint-disable-next-line no-console
-  console.log(`FETCH: ${fullPath}`);
+  logger.info({ message: `FETCH: ${fullPath}` });
   const response = await fetch(fullPath, options);
-
-  if (!response.ok) {
-    if (response.status === 400) {
-      const body = (await response.json()) as ErrorResponse;
-      const errorMessage = [
-        "[PIM] Error getting catalogue:",
-        ...body.errors.map(({ type, message }) => `${type}: ${message}`)
-      ].join("\n\n");
-      // eslint-disable-next-line no-console
-      console.error(errorMessage);
-      throw new Error(errorMessage);
-    }
-    // eslint-disable-next-line no-console
-    console.error(
-      `[PIM] Error getting data: ${response.status} ${response.statusText}`
-    );
-    throw new Error(
-      `[PIM] Error getting data: ${response.status} ${response.statusText}`
-    );
-  }
-
-  return (await response.json()) as ProductsApiResponse | SystemsApiResponse;
+  return handlePimResponse<ProductsApiResponse | SystemsApiResponse>(response);
 };
 
 const fetchDataByMessageId = async (
@@ -130,31 +167,9 @@ const fetchDataByMessageId = async (
 
   const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${locale}`;
 
-  // eslint-disable-next-line no-console
-  console.log(`FETCH: ${fullPath}`);
+  logger.info({ message: `FETCH: ${fullPath}` });
   const response = await fetch(fullPath, options);
-
-  if (!response.ok) {
-    if (response.status === 400) {
-      const body = (await response.json()) as ErrorResponse;
-      const errorMessage = [
-        "[PIM] Error getting catalogue:",
-        ...body.errors.map(({ type, message }) => `${type}: ${message}`)
-      ].join("\n\n");
-      // eslint-disable-next-line no-console
-      console.error(errorMessage);
-      throw new Error(errorMessage);
-    }
-    // eslint-disable-next-line no-console
-    console.error(
-      `[PIM] Error getting data: ${response.status} ${response.statusText}`
-    );
-    throw new Error(
-      `[PIM] Error getting data: ${response.status} ${response.statusText}`
-    );
-  }
-
-  return (await response.json()) as ProductsApiResponse | SystemsApiResponse;
+  return handlePimResponse<ProductsApiResponse | SystemsApiResponse>(response);
 };
 
 export const getProductsByMessageId = async (

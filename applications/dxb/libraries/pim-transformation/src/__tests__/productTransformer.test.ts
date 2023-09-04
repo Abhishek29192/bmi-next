@@ -19,8 +19,14 @@ import { jest } from "@jest/globals";
 
 jest.mock("@bmi-digital/functions-logger");
 
-const transformProduct = async (product: Product) =>
-  (await import("../productTransformer.js")).transformProduct(product);
+const transformProduct = async (
+  product: Product,
+  allowPreviewStatus?: boolean
+) =>
+  (await import("../productTransformer.js")).transformProduct(
+    product,
+    allowPreviewStatus
+  );
 
 beforeEach(() => {
   process.env.ENABLE_SAMPLE_ORDERING = "true";
@@ -12613,5 +12619,190 @@ describe("transformProduct", () => {
         })
       ])
     );
+  });
+
+  it("returns an empty array if allowPreviewStatus === false but product.previewStatus === 'preview'", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      variantOptions: [createProduct(), createProduct()]
+    });
+    const transformedProducts = await transformProduct(product, false);
+    expect(transformedProducts).toEqual([]);
+  });
+
+  it("sets 'preview' status to all variants if allowPreviewStatus === true but produc.previewStatus === 'preview'", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      variantOptions: [
+        createProduct({ approvalStatus: ApprovalStatus.Approved }),
+        createProduct({ approvalStatus: ApprovalStatus.Discontinued })
+      ]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ approvalStatus: ApprovalStatus.Preview }),
+        expect.objectContaining({ approvalStatus: ApprovalStatus.Preview })
+      ])
+    );
+  });
+
+  it("handles 'preview' status correctly if there are no variants", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      variantOptions: undefined
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([]);
+  });
+
+  it("ignores variant products with status of 'check' if the base product status is 'preview' and allowApprovalStatus === true", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      variantOptions: [
+        createVariantOption({ approvalStatus: ApprovalStatus.Check })
+      ]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([]);
+  });
+
+  it("ignores variant products with status of 'unapproved' if the base product status is 'preview' and allowApprovalStatus === true", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      variantOptions: [
+        createVariantOption({ approvalStatus: ApprovalStatus.Unapproved })
+      ]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([]);
+  });
+
+  it("returns name field as an empty string if not provided and approvalStatus === 'preview'", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      name: undefined,
+      variantOptions: [createVariantOption({ name: undefined })]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([
+      expect.objectContaining({ name: "" })
+    ]);
+  });
+
+  it("returns code field as an empty string if not provided and approvalStatus === 'preview'", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      variantOptions: [createVariantOption({ code: undefined })]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([
+      expect.objectContaining({ code: "" })
+    ]);
+  });
+
+  it("returns description field as an empty string if not provided and approvalStatus === 'preview'", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      description: undefined,
+      variantOptions: [createVariantOption({ longDescription: undefined })]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([
+      expect.objectContaining({ description: "" })
+    ]);
+  });
+
+  it("returns documents correctly if name field does not exist and approvalStatus === 'preview'", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      name: undefined,
+      variantOptions: [
+        createVariantOption({ assets: [createAsset({ assetType: "AWARDS" })] })
+      ]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([
+      expect.objectContaining({
+        documents: [expect.objectContaining({ productName: "" })]
+      })
+    ]);
+  });
+
+  it("should not include upapproved and discontinued products in relatedVariants if approvalStatus === 'preview'", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      variantOptions: [
+        createVariantOption({
+          code: "unapproved-variant",
+          approvalStatus: ApprovalStatus.Unapproved
+        }),
+        createVariantOption({
+          code: "check-variant",
+          approvalStatus: ApprovalStatus.Check
+        }),
+        createVariantOption({
+          code: "approved-variant",
+          approvalStatus: ApprovalStatus.Approved
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([
+      expect.objectContaining({
+        relatedVariants: []
+      })
+    ]);
+  });
+
+  it("returns relatedVariants correctly if variant.code and baseProduct.name fields do not exist and approvalStatus === 'preview'", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      name: undefined,
+      variantOptions: [
+        createVariantOption({ code: "variant-with-code-field" }),
+        createVariantOption({
+          code: undefined
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([
+      expect.objectContaining({
+        relatedVariants: [expect.objectContaining({ name: "", code: "" })]
+      }),
+      expect.objectContaining({
+        relatedVariants: [
+          expect.objectContaining({ name: "", code: "variant-with-code-field" })
+        ]
+      })
+    ]);
+  });
+
+  it("returns only varriants of preview status if the base product is in another status", async () => {
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Approved,
+      variantOptions: [
+        createVariantOption({
+          code: "variant-1",
+          approvalStatus: ApprovalStatus.Discontinued
+        }),
+        createVariantOption({
+          code: "variant-2",
+          approvalStatus: ApprovalStatus.Approved
+        }),
+        createVariantOption({
+          code: "variant-3",
+          approvalStatus: ApprovalStatus.Preview
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product, true);
+    expect(transformedProducts).toEqual([
+      expect.objectContaining({
+        code: "variant-3",
+        approvalStatus: ApprovalStatus.Preview
+      })
+    ]);
   });
 });

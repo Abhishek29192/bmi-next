@@ -57,6 +57,9 @@
       "path": "applications/dxb/functions/gcp-pim-message-handler"
     },
     {
+      "path": "applications/dxb/functions/gcp-pim-preview-firestore-writer"
+    },
+    {
       "path": "applications/dxb/functions/gcp-system-configurator"
     },
     {
