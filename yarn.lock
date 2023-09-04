@@ -3502,6 +3502,34 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/redirects-website-cz-bramac@workspace:applications/redirects-website-cz-bramac":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-cz-bramac@workspace:applications/redirects-website-cz-bramac"
+  dependencies:
+    eslint: ^8.40.0
+    gatsby: ^5.9.1
+    gatsby-plugin-gatsby-cloud: ^5.9.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.82.1
+  languageName: unknown
+  linkType: soft
+
+"@bmi/redirects-website-cz-icopal@workspace:applications/redirects-website-cz-icopal":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-cz-icopal@workspace:applications/redirects-website-cz-icopal"
+  dependencies:
+    eslint: ^8.40.0
+    gatsby: ^5.9.1
+    gatsby-plugin-gatsby-cloud: ^5.9.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.82.1
+  languageName: unknown
+  linkType: soft
+
 "@bmi/redirects-website-dk@workspace:applications/redirects-website-dk":
   version: 0.0.0-use.local
   resolution: "@bmi/redirects-website-dk@workspace:applications/redirects-website-dk"

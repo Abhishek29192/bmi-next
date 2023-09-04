@@ -1,0 +1,19 @@
+lint_redirects_website_cz_bramac:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/redirects-website-cz-bramac"
+    WORKSPACE: "@bmi/redirects-website-cz-bramac"
+
+build_redirects_website_cz-bramac:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main, rules]
+  variables:
+    ROOT_DIR: applications/redirects-website-cz-bramac
+    WORKSPACE: "@bmi/redirects-website-cz-bramac"
