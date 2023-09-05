@@ -26,11 +26,5 @@ module.exports = {
         useESM: true
       }
     ]
-  },
-  coverageThreshold: {
-    global: {
-      ...sharedConfig.coverageThreshold.global,
-      branches: "94"
-    }
   }
 };

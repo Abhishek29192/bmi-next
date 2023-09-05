@@ -96,6 +96,9 @@
       "path": "applications/dxb/libraries/functions-contentful-client"
     },
     {
+      "path": "applications/dxb/libraries/functions-contentful-management-client"
+    },
+    {
       "path": "applications/dxb/libraries/functions-es-client"
     },
     {

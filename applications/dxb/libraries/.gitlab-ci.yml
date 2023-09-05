@@ -8,6 +8,7 @@ include:
   - local: "/applications/dxb/libraries/fetch-retry/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/firestore-types/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-contentful-client/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/functions-contentful-management-client/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-es-client/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-firestore/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-recaptcha/.gitlab-ci.yml"
