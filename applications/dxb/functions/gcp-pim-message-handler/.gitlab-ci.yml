@@ -8,12 +8,12 @@ build_gcp-pim-message-handler:
   extends: .build_function
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -28,12 +28,12 @@ test_gcp-pim-message-handler:
   extends: .test_function
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -50,7 +50,7 @@ package_gcp-pim-message-handler:
     - job: build_gcp-pim-message-handler
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -67,7 +67,7 @@ deploy_gcp-pim-message-handler:
     - job: package_gcp-pim-message-handler
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock

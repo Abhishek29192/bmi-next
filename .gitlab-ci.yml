@@ -63,10 +63,10 @@ variables:
 install_yarn:
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - yarn.lock
     - if: '$WHICH_SCHEDULE == "install_yarn"'
@@ -74,8 +74,8 @@ install_yarn:
 code_quality:
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
 
 semgrep-sast:
   rules:
@@ -84,8 +84,8 @@ semgrep-sast:
 secret_detection:
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
 
 update_dependabot_config:
   stage: audit

@@ -2,8 +2,8 @@ lint_functions-recaptcha:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/libraries/functions-recaptcha"
     WORKSPACE: "@bmi/functions-recaptcha"
@@ -12,8 +12,8 @@ build_functions-recaptcha:
   extends: .build_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     WORKSPACE: "@bmi/functions-recaptcha"
     ROOT_DIR: "applications/dxb/libraries/functions-recaptcha"
@@ -22,8 +22,8 @@ test_functions-recaptcha:
   extends: .test_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     WORKSPACE: "@bmi/functions-recaptcha"
     ROOT_DIR: "applications/dxb/libraries/functions-recaptcha"
