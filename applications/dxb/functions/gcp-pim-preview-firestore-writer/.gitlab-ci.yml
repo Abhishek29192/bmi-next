@@ -62,6 +62,9 @@ test_gcp-pim-preview-firestore-writer:
 
 package_gcp-pim-preview-firestore-writer:
   extends: .package_function
+  needs:
+    - job: build_gcp-pim-preview-firestore-writer
+      artifacts: true
   rules:
     - !reference [.ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
@@ -92,6 +95,14 @@ deploy_gcp-pim-preview-firestore-writer:
         - applications/dxb/libraries/firestore-types/**/*
         - applications/dxb/libraries/pim-types/**/*
         - applications/dxb/libraries/pim-api/**/*
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
+    - if: !reference [.run_for_preprod_release, rules, if]
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: !reference [.run_for_prod_release, rules, if]
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   needs:
     - job: package_gcp-pim-preview-firestore-writer
       artifacts: true
