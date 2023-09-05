@@ -47,315 +47,343 @@ import {
   productIgnorableClassfications
 } from "./ignorableFeatureCodes.js";
 
-export const transformProduct = (product: PimProduct): Product[] => {
-  if (!product.name || !getIsApprovedOrDiscontinuedProduct(product)) {
+export const transformProduct = (
+  product: PimProduct,
+  allowPreviewStatus?: boolean
+): Product[] => {
+  const isApprovedOrDiscontinuedProduct =
+    getIsApprovedOrDiscontinuedProduct(product);
+  const isPreviewProduct = product.approvalStatus === ApprovalStatus.Preview;
+
+  const handlePreviewProducts = Boolean(
+    allowPreviewStatus && (isApprovedOrDiscontinuedProduct || isPreviewProduct)
+  );
+
+  const handleNonPreviewProducts = Boolean(
+    product.name && isApprovedOrDiscontinuedProduct
+  );
+
+  if (!handlePreviewProducts && !handleNonPreviewProducts) {
     return [];
   }
-  return (product.variantOptions || [])
-    .filter(getIsApprovedOrDiscontinuedProduct)
-    .map((variant) => {
-      const groupedImages = groupImages([
-        ...(variant.images || []),
-        ...(product.images || [])
-      ]);
+  const filteredVariants = (product.variantOptions || []).filter((variant) => {
+    if (allowPreviewStatus) {
+      //If base product status === "preview", will use all variants except of 'check' or 'unapproved' products
+      //If bse product status !== preview, will use only variants of 'preview' status
+      return isPreviewProduct
+        ? variant.approvalStatus !== ApprovalStatus.Check &&
+            variant.approvalStatus !== ApprovalStatus.Unapproved
+        : variant.approvalStatus === ApprovalStatus.Preview;
+    }
 
-      const { goodBetterBest } = product;
-      const mergedClassifications = mergeClassifications(
-        product.classifications || [],
-        variant.classifications || []
-      );
+    return getIsApprovedOrDiscontinuedProduct(variant);
+  });
 
-      const additionalIgnoreList = [
-        "appearanceAttributes.colour",
-        "appearanceAttributes.texturefamily",
-        "appearanceAttributes.textureFamily",
-        "appearanceAttributes.colourfamily",
-        "appearanceAttributes.variantattribute"
-      ];
-      const filteredClassifications = filterClassifications(
-        mergedClassifications,
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        product.variantOptions!.length === 1
-          ? productIgnorableClassfications.concat(additionalIgnoreList)
-          : productIgnorableClassfications
-      );
-      const classificationsForFilters = filterClassifications(
-        mergedClassifications,
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        product.variantOptions!.length === 1
-          ? productIgnorableAttributes.concat(additionalIgnoreList)
-          : productIgnorableAttributes
-      );
-      logger.info({
-        message: `---- filteredClassifications ----`
-      });
-      logger.info({
-        message: `${JSON.stringify(filteredClassifications)}`
-      });
-      logger.info({
-        message: `---- filteredClassifications ----`
-      });
+  return filteredVariants.map((variant) => {
+    const groupedImages = groupImages([
+      ...(variant.images || []),
+      ...(product.images || [])
+    ]);
 
-      logger.info({
-        message: `---- classificationsForFilters ----`
-      });
-      logger.info({
-        message: `${JSON.stringify(classificationsForFilters)}`
-      });
-      logger.info({
-        message: `---- classificationsForFilters ----`
-      });
-      const classifications = groupClassifications(filteredClassifications);
-      let colour: string | undefined;
-      let colourFamily: string | undefined;
-      let textureFamily: string | undefined;
-      let variantAttribute: string | undefined;
-      let materials: string | undefined;
-      let length: UnitValue | undefined;
-      let width: UnitValue | undefined;
-      let height: UnitValue | undefined;
-      let thickness: UnitValue | undefined;
-      let volume: UnitValue | undefined;
-      let grossWeight: UnitValue | undefined;
-      let netWeight: UnitValue | undefined;
-      let weightPerPallet: UnitValue | undefined;
-      let weightPerPiece: UnitValue | undefined;
-      let weightPerSqm: UnitValue | undefined;
-      mergedClassifications.forEach((classification) => {
-        classification.features?.forEach((feature) => {
-          const featureCode = feature.code.split("/").pop()!;
-          // TODO: Remove upercase checks - DXB-3449
-          if (
-            featureCode.toUpperCase() ===
-            "appearanceAttributes.colour".toUpperCase()
-          ) {
-            colour = feature.featureValues[0].value;
-          } else if (
-            featureCode.toUpperCase() ===
-            "appearanceAttributes.colourfamily".toUpperCase()
-          ) {
-            colourFamily = feature.featureValues[0].value;
-          } else if (
-            featureCode.toUpperCase() ===
-            "appearanceAttributes.texturefamily".toUpperCase()
-          ) {
-            textureFamily = feature.featureValues[0].value;
-          } else if (
-            featureCode.toUpperCase() ===
-            "appearanceAttributes.variantattribute".toUpperCase()
-          ) {
-            variantAttribute = feature.featureValues[0].value;
-          } else if (
-            featureCode.toUpperCase() ===
-            "generalInformation.materials".toUpperCase()
-          ) {
-            materials = feature.featureValues[0].value;
-          } else if (
-            featureCode.toUpperCase() === "measurements.length".toUpperCase()
-          ) {
-            length = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          } else if (
-            featureCode.toUpperCase() === "measurements.width".toUpperCase()
-          ) {
-            width = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          } else if (
-            featureCode.toUpperCase() === "measurements.height".toUpperCase()
-          ) {
-            height = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          } else if (
-            featureCode.toUpperCase() === "measurements.thickness".toUpperCase()
-          ) {
-            thickness = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          } else if (
-            featureCode.toUpperCase() === "measurements.volume".toUpperCase()
-          ) {
-            volume = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          } else if (
-            featureCode.toUpperCase() ===
-            "weightAttributes.grossweight".toUpperCase()
-          ) {
-            grossWeight = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          } else if (
-            featureCode.toUpperCase() ===
-            "weightAttributes.netweight".toUpperCase()
-          ) {
-            netWeight = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          } else if (
-            featureCode.toUpperCase() ===
-            "weightAttributes.weightperpallet".toUpperCase()
-          ) {
-            weightPerPallet = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          } else if (
-            featureCode.toUpperCase() ===
-            "weightAttributes.weightperpiece".toUpperCase()
-          ) {
-            weightPerPiece = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          } else if (
-            featureCode.toUpperCase() ===
-            "weightAttributes.weightpersqm".toUpperCase()
-          ) {
-            weightPerSqm = {
-              value: feature.featureValues[0].value,
-              unit: feature.featureUnit?.symbol || ""
-            };
-          }
-        });
-      });
-      const hashedCode = generateHashFromString(variant.code, false);
-      const name = product.name!;
+    const mergedClassifications = mergeClassifications(
+      product.classifications || [],
+      variant.classifications || []
+    );
 
-      product.categories?.forEach((category) => {
-        if (!category.name) {
-          logger.info({
-            message: `Product's category doesn't have a name. Product: ${product.name}, Category Code: ${category.code}`
-          });
+    const additionalIgnoreList = [
+      "appearanceAttributes.colour",
+      "appearanceAttributes.texturefamily",
+      "appearanceAttributes.textureFamily",
+      "appearanceAttributes.colourfamily",
+      "appearanceAttributes.variantattribute"
+    ];
+    const filteredClassifications = filterClassifications(
+      mergedClassifications,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      product.variantOptions!.length === 1
+        ? productIgnorableClassfications.concat(additionalIgnoreList)
+        : productIgnorableClassfications
+    );
+    const classificationsForFilters = filterClassifications(
+      mergedClassifications,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      product.variantOptions!.length === 1
+        ? productIgnorableAttributes.concat(additionalIgnoreList)
+        : productIgnorableAttributes
+    );
+    logger.info({
+      message: `---- filteredClassifications ----`
+    });
+    logger.info({
+      message: `${JSON.stringify(filteredClassifications)}`
+    });
+    logger.info({
+      message: `---- filteredClassifications ----`
+    });
+
+    logger.info({
+      message: `---- classificationsForFilters ----`
+    });
+    logger.info({
+      message: `${JSON.stringify(classificationsForFilters)}`
+    });
+    logger.info({
+      message: `---- classificationsForFilters ----`
+    });
+    const classifications = groupClassifications(filteredClassifications);
+    let colour: string | undefined;
+    let colourFamily: string | undefined;
+    let textureFamily: string | undefined;
+    let variantAttribute: string | undefined;
+    let materials: string | undefined;
+    let length: UnitValue | undefined;
+    let width: UnitValue | undefined;
+    let height: UnitValue | undefined;
+    let thickness: UnitValue | undefined;
+    let volume: UnitValue | undefined;
+    let grossWeight: UnitValue | undefined;
+    let netWeight: UnitValue | undefined;
+    let weightPerPallet: UnitValue | undefined;
+    let weightPerPiece: UnitValue | undefined;
+    let weightPerSqm: UnitValue | undefined;
+    mergedClassifications.forEach((classification) => {
+      classification.features?.forEach((feature) => {
+        const featureCode = feature.code.split("/").pop()!;
+        // TODO: Remove upercase checks - DXB-3449
+        if (
+          featureCode.toUpperCase() ===
+          "appearanceAttributes.colour".toUpperCase()
+        ) {
+          colour = feature.featureValues[0].value;
+        } else if (
+          featureCode.toUpperCase() ===
+          "appearanceAttributes.colourfamily".toUpperCase()
+        ) {
+          colourFamily = feature.featureValues[0].value;
+        } else if (
+          featureCode.toUpperCase() ===
+          "appearanceAttributes.texturefamily".toUpperCase()
+        ) {
+          textureFamily = feature.featureValues[0].value;
+        } else if (
+          featureCode.toUpperCase() ===
+          "appearanceAttributes.variantattribute".toUpperCase()
+        ) {
+          variantAttribute = feature.featureValues[0].value;
+        } else if (
+          featureCode.toUpperCase() ===
+          "generalInformation.materials".toUpperCase()
+        ) {
+          materials = feature.featureValues[0].value;
+        } else if (
+          featureCode.toUpperCase() === "measurements.length".toUpperCase()
+        ) {
+          length = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
+        } else if (
+          featureCode.toUpperCase() === "measurements.width".toUpperCase()
+        ) {
+          width = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
+        } else if (
+          featureCode.toUpperCase() === "measurements.height".toUpperCase()
+        ) {
+          height = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
+        } else if (
+          featureCode.toUpperCase() === "measurements.thickness".toUpperCase()
+        ) {
+          thickness = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
+        } else if (
+          featureCode.toUpperCase() === "measurements.volume".toUpperCase()
+        ) {
+          volume = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
+        } else if (
+          featureCode.toUpperCase() ===
+          "weightAttributes.grossweight".toUpperCase()
+        ) {
+          grossWeight = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
+        } else if (
+          featureCode.toUpperCase() ===
+          "weightAttributes.netweight".toUpperCase()
+        ) {
+          netWeight = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
+        } else if (
+          featureCode.toUpperCase() ===
+          "weightAttributes.weightperpallet".toUpperCase()
+        ) {
+          weightPerPallet = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
+        } else if (
+          featureCode.toUpperCase() ===
+          "weightAttributes.weightperpiece".toUpperCase()
+        ) {
+          weightPerPiece = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
+        } else if (
+          featureCode.toUpperCase() ===
+          "weightAttributes.weightpersqm".toUpperCase()
+        ) {
+          weightPerSqm = {
+            value: feature.featureValues[0].value,
+            unit: feature.featureUnit?.symbol || ""
+          };
         }
       });
-
-      if (
-        product.approvalStatus === ApprovalStatus.Discontinued &&
-        variant.approvalStatus === ApprovalStatus.Approved
-      ) {
-        variant.approvalStatus = ApprovalStatus.Discontinued;
-      }
-
-      const transformedProduct: Product = {
-        approvalStatus: variant.approvalStatus,
-        awardsAndCertificateDocuments: getAwardAndCertificateAsset(
-          AwardAndCertificateAssetType.Documents,
-          product.assets
-        ),
-        awardsAndCertificateImages: getAwardAndCertificateAsset(
-          AwardAndCertificateAssetType.Images,
-          product.assets
-        ),
-        baseCode: product.code,
-        baseScoringWeight: getScoringWeight(product.classifications),
-        bimIframeUrl: getBim(product.assets)?.url,
-        brand: getBrand(product.categories),
-        categories: getCategories(product.categories || []),
-        classifications,
-        code: variant.code,
-        colour,
-        colourMicrocopy: getMicroCopy(
-          mergedClassifications,
-          "appearanceAttributes.colour"
-        ),
-        colourFamily,
-        description: variant.longDescription || product.description,
-        documents: mapProductDocuments(product, variant),
-        externalProductCode:
-          variant.externalProductCode ?? product.externalProductCode,
-        filters: getFilters(
-          classificationsForFilters,
-          product.categories || []
-        ),
-        fixingToolIframeUrl: product.assets?.find(
-          (asset) => asset.assetType === "FIXING_TOOL"
-        )?.url,
-        galleryImages: mapImages(groupedImages, "GALLERY"),
-        goodBetterBest,
-        groups: getGroups(product.categories || []),
-        guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
-          GuaranteesAndWarrantiesAssetType.Images,
-          product.assets
-        ),
-        guaranteesAndWarrantiesLinks: getGuaranteesAndWarrantiesAsset(
-          GuaranteesAndWarrantiesAssetType.Links,
-          product.assets
-        ),
-        hashedCode,
-        isSampleOrderAllowed:
-          process.env.ENABLE_SAMPLE_ORDERING == "true" &&
-          (variant.isSampleOrderAllowed ??
-            product.isSampleOrderAllowed ??
-            false),
-        isVisualiserAvailable: getIsVisualiserAvailable(
-          product.categories || [],
-          mergedClassifications,
-          variant.visualiserAssets || product.visualiserAssets
-        ),
-        masterImage: mapImages(groupedImages, "MASTER_IMAGE")[0],
-        materials,
-        measurements: {
-          length,
-          width,
-          height,
-          thickness,
-          volume,
-          label: getSizeLabel(length, width, height, thickness)
-        },
-        name,
-        path: `/p/${generateProductUrl(
-          name,
-          hashedCode,
-          colour,
-          materials,
-          textureFamily,
-          variantAttribute
-        )}`,
-        productBenefits: variant.productBenefits ?? product.productBenefits,
-        relatedVariants: mapRelatedVariants(product, variant.code),
-        specificationIframeUrl: product.assets?.find(
-          (asset) => asset.assetType === "SPECIFICATION"
-        )?.url,
-        techDrawings: mapImages(groupedImages, "TECHNICAL_DRAWINGS"),
-        textureFamily,
-        textureFamilyMicrocopy: getMicroCopy(
-          mergedClassifications,
-          "appearanceAttributes.texturefamily"
-        ),
-        variantAttribute,
-        videos: (product.assets || [])
-          .filter((asset) => asset.assetType === "VIDEO")
-          .map((asset) => ({
-            title: "",
-            label: asset.name,
-            subtitle: null,
-            previewMedia: null,
-            videoRatio: null,
-            videoUrl: getVideoUrl(asset.url)
-          })),
-        weight: {
-          grossWeight,
-          netWeight,
-          weightPerPallet,
-          weightPerPiece,
-          weightPerSqm
-        },
-        seoTitle: variant.seoTitle || product.seoTitle,
-        seoTags: variant.seoTags || product.seoTags,
-        seoDescription: variant.seoDescription || product.seoDescription
-      };
-      return transformedProduct;
     });
+    const hashedCode = generateHashFromString(variant.code, false);
+    const name = product.name || "";
+
+    product.categories?.forEach((category) => {
+      if (!category.name) {
+        logger.info({
+          message: `Product's category doesn't have a name. Product: ${product.name}, Category Code: ${category.code}`
+        });
+      }
+    });
+
+    if (
+      product.approvalStatus === ApprovalStatus.Discontinued &&
+      variant.approvalStatus === ApprovalStatus.Approved
+    ) {
+      variant.approvalStatus = ApprovalStatus.Discontinued;
+    }
+
+    const transformedProduct: Product = {
+      approvalStatus: allowPreviewStatus
+        ? ApprovalStatus.Preview
+        : (variant.approvalStatus as
+            | ApprovalStatus.Approved
+            | ApprovalStatus.Discontinued),
+      awardsAndCertificateDocuments: getAwardAndCertificateAsset(
+        AwardAndCertificateAssetType.Documents,
+        product.assets
+      ),
+      awardsAndCertificateImages: getAwardAndCertificateAsset(
+        AwardAndCertificateAssetType.Images,
+        product.assets
+      ),
+      baseCode: product.code,
+      baseScoringWeight: getScoringWeight(product.classifications),
+      bimIframeUrl: getBim(product.assets)?.url,
+      brand: getBrand(product.categories),
+      categories: getCategories(product.categories || []),
+      classifications,
+      code: variant.code || "",
+      colour,
+      colourMicrocopy: getMicroCopy(
+        mergedClassifications,
+        "appearanceAttributes.colour"
+      ),
+      colourFamily,
+      description: variant.longDescription || product.description || "",
+      documents: mapProductDocuments(product, variant),
+      externalProductCode:
+        variant.externalProductCode ?? product.externalProductCode,
+      filters: getFilters(classificationsForFilters, product.categories || []),
+      fixingToolIframeUrl: product.assets?.find(
+        (asset) => asset.assetType === "FIXING_TOOL"
+      )?.url,
+      galleryImages: mapImages(groupedImages, "GALLERY"),
+      goodBetterBest: product.goodBetterBest,
+      groups: getGroups(product.categories || []),
+      guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
+        GuaranteesAndWarrantiesAssetType.Images,
+        product.assets
+      ),
+      guaranteesAndWarrantiesLinks: getGuaranteesAndWarrantiesAsset(
+        GuaranteesAndWarrantiesAssetType.Links,
+        product.assets
+      ),
+      hashedCode,
+      isSampleOrderAllowed:
+        process.env.ENABLE_SAMPLE_ORDERING == "true" &&
+        (variant.isSampleOrderAllowed ?? product.isSampleOrderAllowed ?? false),
+      isVisualiserAvailable: getIsVisualiserAvailable(
+        product.categories || [],
+        mergedClassifications,
+        variant.visualiserAssets || product.visualiserAssets
+      ),
+      masterImage: mapImages(groupedImages, "MASTER_IMAGE")[0],
+      materials,
+      measurements: {
+        length,
+        width,
+        height,
+        thickness,
+        volume,
+        label: getSizeLabel(length, width, height, thickness)
+      },
+      name,
+      path: `/p/${generateProductUrl(
+        name,
+        hashedCode,
+        colour,
+        materials,
+        textureFamily,
+        variantAttribute
+      )}`,
+      productBenefits: variant.productBenefits ?? product.productBenefits,
+      relatedVariants: mapRelatedVariants(
+        product,
+        variant.code,
+        handlePreviewProducts
+      ),
+      specificationIframeUrl: product.assets?.find(
+        (asset) => asset.assetType === "SPECIFICATION"
+      )?.url,
+      techDrawings: mapImages(groupedImages, "TECHNICAL_DRAWINGS"),
+      textureFamily,
+      textureFamilyMicrocopy: getMicroCopy(
+        mergedClassifications,
+        "appearanceAttributes.texturefamily"
+      ),
+      variantAttribute,
+      videos: (product.assets || [])
+        .filter((asset) => asset.assetType === "VIDEO")
+        .map((asset) => ({
+          title: "",
+          label: asset.name,
+          subtitle: null,
+          previewMedia: null,
+          videoRatio: null,
+          videoUrl: getVideoUrl(asset.url)
+        })),
+      weight: {
+        grossWeight,
+        netWeight,
+        weightPerPallet,
+        weightPerPiece,
+        weightPerSqm
+      },
+      seoTitle: variant.seoTitle || product.seoTitle,
+      seoTags: variant.seoTags || product.seoTags,
+      seoDescription: variant.seoDescription || product.seoDescription
+    };
+    return transformedProduct;
+  });
 };
 
 const mergeClassifications = (
@@ -533,14 +561,24 @@ const generateProductUrl = (
 
 const mapRelatedVariants = (
   product: PimProduct,
-  variantCode: string
+  variantCode: string,
+  allowPreviewProducts: boolean
 ): RelatedVariant[] =>
   product
-    .variantOptions!.filter(
-      (variant) =>
-        variant.approvalStatus === ApprovalStatus.Approved &&
-        variant.code !== variantCode
-    )
+    .variantOptions!.filter((variant) => {
+      if (variant.code === variantCode) {
+        return false;
+      }
+
+      if (allowPreviewProducts) {
+        return (
+          variant.approvalStatus !== ApprovalStatus.Check &&
+          variant.approvalStatus !== ApprovalStatus.Unapproved
+        );
+      }
+
+      return variant.approvalStatus === ApprovalStatus.Approved;
+    })
     .map((variant) => {
       const classifications = mergeClassifications(
         product.classifications || [],
@@ -628,9 +666,9 @@ const mapRelatedVariants = (
         ...(product.images || [])
       ]);
       const hashedCode = generateHashFromString(variant.code);
-      const name = product.name!;
+      const name = product.name || "";
       return {
-        code: variant.code,
+        code: variant.code || "",
         name,
         thumbnail: mapImages(groupedImages, "MASTER_IMAGE")[0]?.thumbnail,
         colour,
@@ -686,7 +724,7 @@ const mapProductDocuments = (
   return mapDocuments(variant.assets || baseProduct.assets).map((document) => ({
     ...document,
     productBaseCode: baseProduct.code,
-    productName: baseProduct.name!,
+    productName: baseProduct.name || "",
     productCategories
   }));
 };
