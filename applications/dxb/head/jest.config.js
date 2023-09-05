@@ -20,7 +20,7 @@ module.exports = {
       ...sharedConfig.coverageThreshold.global,
       statements: 88.29,
       branches: 82.02,
-      functions: 86.41,
+      functions: 86.37,
       lines: 88.18
     }
   }

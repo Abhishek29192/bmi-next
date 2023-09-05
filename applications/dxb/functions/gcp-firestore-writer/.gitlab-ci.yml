@@ -8,13 +8,13 @@ build_gcp-firestore-writer:
   extends: .build_function
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -30,13 +30,13 @@ test_gcp-firestore-writer:
   extends: .test_function
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -54,7 +54,7 @@ package_gcp-firestore-writer:
     - job: build_gcp-firestore-writer
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -72,7 +72,7 @@ deploy_gcp-firestore-writer:
     - job: package_gcp-firestore-writer
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock

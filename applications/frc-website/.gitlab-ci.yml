@@ -2,8 +2,8 @@ lint_frc-website:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/frc-website"
     WORKSPACE: "@bmi/frc-website"
@@ -12,11 +12,11 @@ build_frc-website:
   extends: .build_yarn_workspace
   rules:
     - !reference [  .ignore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
       changes:
         - applications/frc-website/**/*
         - yarn.lock
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [ .run_for_changes_on_mr_workspace, rules, if ]
       changes:
         - applications/frc-website/**/*
         - yarn.lock
@@ -32,11 +32,11 @@ test_frc-website:
   extends: .test_yarn_workspace
   rules:
     - !reference [  .ignore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
       changes:
         - applications/frc-website/**/*
         - yarn.lock
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [ .run_for_changes_on_mr_workspace, rules, if ]
       changes:
         - applications/frc-website/**/*
         - yarn.lock

@@ -24,18 +24,18 @@ include:
   extends: .lint_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
 
 .test_function:
   extends: .test_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -44,11 +44,11 @@ include:
   extends: .build_function_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -58,7 +58,7 @@ include:
 .package_function:
   extends: .package_function_yarn_workspace
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -68,7 +68,7 @@ include:
 .deploy_function:
   extends: .deploy_function_yarn_workspace
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock

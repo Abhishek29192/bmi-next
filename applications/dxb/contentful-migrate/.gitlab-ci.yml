@@ -2,8 +2,8 @@ lint_contentful_migrate:
   extends: .lint_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/contentful-migrate"
@@ -11,8 +11,8 @@ lint_contentful_migrate:
 build_contentful_migrate:
   extends: .build_yarn_workspace
   rules:
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
     - if: "$CI_COMMIT_TAG"
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
@@ -22,8 +22,8 @@ test_contentful_migrate:
   extends: .test_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/contentful-migrate"
@@ -42,7 +42,9 @@ test_contentful_migrate:
 .migrate_content:
   stage: pre deploy
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: install_yarn
@@ -84,7 +86,9 @@ test_contentful_migrate:
 .deploy_gatsby_cloud:
   stage: deploy
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
@@ -144,7 +148,9 @@ test_contentful_migrate:
 migrate_content_qa:
   extends: .migrate_content
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
@@ -156,24 +162,23 @@ update_mc_qa:
     - !reference [.update_mc, needs]
     - migrate_content_qa
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
-      variables:
-        CONTENTFUL_ENVIRONMENT: staging
-        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
   variables:
+    CONTENTFUL_ENVIRONMENT: staging
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
     DXB_MARKET_ID: "NO"
 
 deploy_gatsby_cloud_qa:
   extends: .deploy_gatsby_cloud
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
   needs:
-    - job: migrate_content_qa
-      optional: true
-    - job: update_mc_qa
-      optional: true
+    - migrate_content_qa
+    - update_mc_qa
   variables:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
     DXB_MARKET_ID: "NO"
@@ -182,7 +187,9 @@ deploy_gatsby_cloud_qa:
 migrate_content_one_page_qa:
   extends: .migrate_content
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
   variables:
     CONTENTFUL_ENVIRONMENT: one-page-qa
     DXB_MARKET_ID: "NO"
@@ -191,7 +198,9 @@ migrate_content_one_page_qa:
 deploy_gatsby_cloud_one_page_qa:
   extends: .deploy_gatsby_cloud
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
   needs:
     - migrate_content_one_page_qa
   variables:
@@ -899,7 +908,7 @@ deploy_gatsby_cloud_blueprint:
 update_mc_poc:
   extends: .update_mc
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
       variables:

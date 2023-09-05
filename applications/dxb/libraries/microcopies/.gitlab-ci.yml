@@ -2,8 +2,8 @@ lint_microcopies:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/libraries/microcopies"
     WORKSPACE: "@bmi/microcopies"
@@ -12,8 +12,8 @@ build_microcopies:
   extends: .build_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     WORKSPACE: "@bmi/microcopies"
     ROOT_DIR: "applications/dxb/libraries/microcopies"
@@ -22,8 +22,8 @@ test_microcopies:
   extends: .test_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     WORKSPACE: "@bmi/microcopies"
     ROOT_DIR: "applications/dxb/libraries/microcopies"
