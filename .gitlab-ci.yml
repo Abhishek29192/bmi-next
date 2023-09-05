@@ -77,6 +77,10 @@ code_quality:
     - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
 
+nodejs-scan-sast:
+  rules:
+    - when: never
+
 semgrep-sast:
   rules:
     - when: never
