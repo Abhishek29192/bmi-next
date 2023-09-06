@@ -5331,6 +5331,11 @@
  to="https://assets.ctfassets.net/zpnb1ulje7lm/1FvsO8HO0wsMblwXsBpnLG/5312f11b065e756bd2ea3989a3570f6c/TL-ELASTOBIT-GG40_01_22.pdf"
  status = 301
 
+[[redirects]]
+ from="/produkty/standardni-pasy/vrchni-pasy/euroflex-t3/"
+ to="https://www.bmigroup.com/cz/p/euroflex-t3-modrozelen%C3%BD-sbs-modifikovan%C3%BD-asfalt-2019771101/"
+ status = 301
+
 # General Czech Icopal redirect
 	
 [[redirects]]
