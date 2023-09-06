@@ -21,11 +21,9 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
 
   const { enableProductClassificationAttributeOrdering } = useConfig();
 
-  let classifications = product.classifications;
-
-  classifications = enableProductClassificationAttributeOrdering
-    ? [...classifications].sort((a, b) => a.name.localeCompare(b.name))
-    : classifications;
+  const classifications = enableProductClassificationAttributeOrdering
+    ? [...product.classifications].sort((a, b) => a.name.localeCompare(b.name))
+    : product.classifications;
 
   if (classifications.length === 1) {
     const classification = classifications[0];
@@ -48,7 +46,7 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
   if (classifications.length > 1) {
     return (
       <Accordion noInnerPadding>
-        {[...classifications].map((classification) => {
+        {classifications.map((classification) => {
           return (
             <Accordion.Item
               key={`tech-spec-${classification.name}`}
