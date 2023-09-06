@@ -477,6 +477,17 @@ exports[`Sections component renders correctly 1`] = `
             Title
           </h2>
           <div
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 MuiGrid2-spacing-xs-3 css-1dolimf-MuiGrid2-root"
+            data-testid="grid-container"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+              data-testid="typography"
+            >
+              string
+            </p>
+          </div>
+          <div
             class="Villain-contained css-1rznarn"
           >
             <div
