@@ -1,10 +1,11 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import createClassification from "../../__tests__/helpers/ClassificationHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import ProductTechnicalSpec from "../ProductTechnicalSpec";
 import { SiteContextProvider } from "../Site";
+import { ConfigProvider } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -60,7 +61,6 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
-
         const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />
@@ -124,6 +124,76 @@ describe("ProductTechnicalSpec component", () => {
           </ThemeProvider>
         );
         expect(baseElement).toMatchSnapshot();
+      });
+    });
+
+    describe("classification ordering", () => {
+      describe("When the 'enable product attribute ordering' feature flag is set", () => {
+        const productsSort = createProduct({
+          classifications: [
+            createClassification({
+              name: "secondClassProduct",
+              features: [{ name: "feature1", value: "200" }]
+            }),
+            createClassification({
+              name: "firstClassProduct",
+              features: [{ name: "feature1", value: "200" }]
+            })
+          ]
+        });
+        it("should sort classification by name", () => {
+          process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING =
+            "true";
+          render(
+            <ConfigProvider
+              configOverride={{
+                enableProductClassificationAttributeOrdering: true
+              }}
+            >
+              <ThemeProvider>
+                <ProductTechnicalSpec product={productsSort} />
+              </ThemeProvider>
+            </ConfigProvider>
+          );
+          const classificationName = screen.getAllByRole("heading", {
+            level: 6
+          });
+          expect(classificationName[0].textContent).toBe("firstClassProduct");
+        });
+      });
+
+      describe("When the 'enable product attribute ordering' feature flag is NOT set", () => {
+        const productsUnSort = createProduct({
+          classifications: [
+            createClassification({
+              name: "secondClassProduct",
+              features: [{ name: "feature1", value: "200" }]
+            }),
+            createClassification({
+              name: "firstClassProduct",
+              features: [{ name: "feature1", value: "200" }]
+            })
+          ]
+        });
+        it("should NOT sort classification by name", () => {
+          process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING =
+            "false";
+          render(
+            <ConfigProvider
+              configOverride={{
+                enableProductClassificationAttributeOrdering: false
+              }}
+            >
+              <ThemeProvider>
+                <ProductTechnicalSpec product={productsUnSort} />
+              </ThemeProvider>
+            </ConfigProvider>
+          );
+          const classificationName = screen.getAllByRole("heading", {
+            level: 6
+          });
+          expect(classificationName[0].textContent).toBe("secondClassProduct");
+        });
       });
     });
   });

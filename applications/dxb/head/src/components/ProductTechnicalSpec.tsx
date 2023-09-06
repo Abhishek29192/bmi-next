@@ -2,6 +2,7 @@ import { Accordion, Table, Typography } from "@bmi-digital/components";
 import React from "react";
 import { microCopy } from "@bmi/microcopies";
 import { Product } from "../types/pim";
+import { useConfig } from "../contexts/ConfigProvider";
 import ProductFeaturesTable from "./ProductFeaturesTable";
 import { useSiteContext } from "./Site";
 import { ProdTecSpecAccordianDetails } from "./styles/ProductTechnicalSpecStyles";
@@ -17,7 +18,14 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
   const NoTechSpecMessage = () => (
     <div>{getMicroCopy(microCopy.PDP_NO_TECH_SPEC_MESSAGE)}</div>
   );
-  const classifications = product.classifications;
+
+  const { enableProductClassificationAttributeOrdering } = useConfig();
+
+  let classifications = product.classifications;
+
+  classifications = enableProductClassificationAttributeOrdering
+    ? classifications.sort((a, b) => a.name.localeCompare(b.name))
+    : classifications;
 
   if (classifications.length === 1) {
     const classification = classifications[0];
@@ -40,27 +48,25 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
   if (classifications.length > 1) {
     return (
       <Accordion noInnerPadding>
-        {[...classifications]
-          .sort((a, b) => (a.name > b.name ? 1 : -1))
-          .map((classification) => {
-            return (
-              <Accordion.Item
-                key={`tech-spec-${classification.name}`}
-                defaultExpanded={true}
-              >
-                <Accordion.Summary>
-                  <Typography variant="h6">{classification.name}</Typography>
-                </Accordion.Summary>
-                <ProdTecSpecAccordianDetails>
-                  <ProductFeaturesTable
-                    features={classification.features}
-                    rowBgColorPattern="even"
-                    hasNoBorder={true}
-                  />
-                </ProdTecSpecAccordianDetails>
-              </Accordion.Item>
-            );
-          })}
+        {[...classifications].map((classification) => {
+          return (
+            <Accordion.Item
+              key={`tech-spec-${classification.name}`}
+              defaultExpanded={true}
+            >
+              <Accordion.Summary>
+                <Typography variant="h6">{classification.name}</Typography>
+              </Accordion.Summary>
+              <ProdTecSpecAccordianDetails>
+                <ProductFeaturesTable
+                  features={classification.features}
+                  rowBgColorPattern="even"
+                  hasNoBorder={true}
+                />
+              </ProdTecSpecAccordianDetails>
+            </Accordion.Item>
+          );
+        })}
       </Accordion>
     );
   }
