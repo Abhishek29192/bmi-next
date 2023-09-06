@@ -24,7 +24,7 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
   let classifications = product.classifications;
 
   classifications = enableProductClassificationAttributeOrdering
-    ? classifications.sort((a, b) => a.name.localeCompare(b.name))
+    ? [...classifications].sort((a, b) => a.name.localeCompare(b.name))
     : classifications;
 
   if (classifications.length === 1) {
