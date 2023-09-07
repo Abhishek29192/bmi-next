@@ -128,22 +128,24 @@ describe("ProductTechnicalSpec component", () => {
     });
 
     describe("classification ordering", () => {
-      describe("When the 'enable product attribute ordering' feature flag is set", () => {
-        const productsSort = createProduct({
-          classifications: [
-            createClassification({
-              name: "secondClassProduct",
-              features: [{ name: "feature1", value: "200" }]
-            }),
-            createClassification({
-              name: "firstClassProduct",
-              features: [{ name: "feature1", value: "200" }]
-            })
-          ]
-        });
+      const products = createProduct({
+        classifications: [
+          createClassification({
+            name: "secondClassProduct",
+            features: [{ name: "feature1", value: "200" }]
+          }),
+          createClassification({
+            name: "firstClassProduct",
+            features: [{ name: "feature1", value: "200" }]
+          })
+        ]
+      });
+
+      describe("When the 'enable product attribute ordering' feature flag is set as true", () => {
         it("should sort classification by name", () => {
           process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING =
             "true";
+
           render(
             <ConfigProvider
               configOverride={{
@@ -151,7 +153,7 @@ describe("ProductTechnicalSpec component", () => {
               }}
             >
               <ThemeProvider>
-                <ProductTechnicalSpec product={productsSort} />
+                <ProductTechnicalSpec product={products} />
               </ThemeProvider>
             </ConfigProvider>
           );
@@ -162,22 +164,11 @@ describe("ProductTechnicalSpec component", () => {
         });
       });
 
-      describe("When the 'enable product attribute ordering' feature flag is NOT set", () => {
-        const productsUnSort = createProduct({
-          classifications: [
-            createClassification({
-              name: "secondClassProduct",
-              features: [{ name: "feature1", value: "200" }]
-            }),
-            createClassification({
-              name: "firstClassProduct",
-              features: [{ name: "feature1", value: "200" }]
-            })
-          ]
-        });
+      describe("When the 'enable product attribute ordering' feature flag is set as false", () => {
         it("should NOT sort classification by name", () => {
           process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING =
             "false";
+
           render(
             <ConfigProvider
               configOverride={{
@@ -185,7 +176,30 @@ describe("ProductTechnicalSpec component", () => {
               }}
             >
               <ThemeProvider>
-                <ProductTechnicalSpec product={productsUnSort} />
+                <ProductTechnicalSpec product={products} />
+              </ThemeProvider>
+            </ConfigProvider>
+          );
+          const classificationName = screen.getAllByRole("heading", {
+            level: 6
+          });
+          expect(classificationName[0].textContent).toBe("secondClassProduct");
+        });
+      });
+
+      describe("When the 'enable product attribute ordering' feature flag is NOT set", () => {
+        it("should NOT sort classification by name", () => {
+          process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING =
+            "";
+
+          render(
+            <ConfigProvider
+              configOverride={{
+                enableProductClassificationAttributeOrdering: false
+              }}
+            >
+              <ThemeProvider>
+                <ProductTechnicalSpec product={products} />
               </ThemeProvider>
             </ConfigProvider>
           );
