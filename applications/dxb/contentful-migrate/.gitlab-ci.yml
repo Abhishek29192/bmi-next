@@ -147,6 +147,7 @@ migrate_content_qa:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
+    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
@@ -164,6 +165,7 @@ update_mc_qa:
       changes:
         - applications/dxb/contentful-migrate/src/**/*
         - applications/dxb/libraries/microcopies/src/index.ts
+    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
@@ -175,6 +177,7 @@ deploy_gatsby_cloud_qa:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
+    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   needs:
     - migrate_content_qa
     - update_mc_qa
@@ -189,6 +192,7 @@ migrate_content_one_page_qa:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
+    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   variables:
     CONTENTFUL_ENVIRONMENT: one-page-qa
     DXB_MARKET_ID: "NO"
@@ -201,6 +205,7 @@ deploy_gatsby_cloud_one_page_qa:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
+    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   needs:
     - migrate_content_one_page_qa
   variables:
@@ -214,6 +219,7 @@ migrate_content_qa_consolidated:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
+    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
@@ -231,6 +237,7 @@ update_mc_qa_consolidated:
       changes:
         - applications/dxb/contentful-migrate/src/**/*
         - applications/dxb/libraries/microcopies/src/index.ts
+    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA_CONSOLIDATED
@@ -242,6 +249,7 @@ deploy_gatsby_cloud_qa_consolidated:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
+    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   needs:
     - migrate_content_qa_consolidated
     - update_mc_qa_consolidated
