@@ -1864,7 +1864,7 @@ __metadata:
     contentful-management: ^10.39.2
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -1892,7 +1892,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -1936,7 +1936,7 @@ __metadata:
     dotenv: ^16.0.3
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -1968,7 +1968,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -1996,7 +1996,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2024,7 +2024,7 @@ __metadata:
     contentful: ^10.2.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2049,7 +2049,7 @@ __metadata:
     dotenv: ^16.0.3
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2074,7 +2074,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2109,7 +2109,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2139,7 +2139,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2166,7 +2166,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2205,7 +2205,7 @@ __metadata:
     dotenv: ^16.0.3
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2241,7 +2241,7 @@ __metadata:
     contentful: ^10.2.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2266,7 +2266,7 @@ __metadata:
     contentful-management: ^10.39.2
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2291,7 +2291,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2315,7 +2315,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2359,7 +2359,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2392,7 +2392,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2494,7 +2494,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2532,7 +2532,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2572,7 +2572,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2615,7 +2615,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2652,7 +2652,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2688,7 +2688,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2730,7 +2730,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2768,7 +2768,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2805,7 +2805,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2842,7 +2842,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2881,7 +2881,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2925,7 +2925,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -2964,7 +2964,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3004,7 +3004,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3039,7 +3039,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3076,7 +3076,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3119,7 +3119,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3157,7 +3157,7 @@ __metadata:
     env-cmd: ^10.1.0
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3240,7 +3240,7 @@ __metadata:
     dotenv: ^16.0.3
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3347,7 +3347,7 @@ __metadata:
     cross-env: ^7.0.3
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3397,7 +3397,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3433,7 +3433,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3462,7 +3462,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3488,7 +3488,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3512,7 +3512,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.59.5
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -3890,7 +3890,7 @@ __metadata:
     crypto-js: ^4.1.1
     eslint: ^8.40.0
     eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.8.0
+    eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -14594,6 +14594,17 @@ __metadata:
   bin:
     eslint-config-prettier: bin/cli.js
   checksum: 19f8c497d9bdc111a17a61b25ded97217be3755bbc4714477dfe535ed539dddcaf42ef5cf8bb97908b058260cf89a3d7c565cb0be31096cbcd39f4c2fa5fe43c
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "eslint-config-prettier@npm:9.0.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: bc1f661915845c631824178942e5d02f858fe6d0ea796f0050d63e0f681927b92696e81139dd04714c08c3e7de580fd079c66162e40070155ba79eaee78ab5d0
   languageName: node
   linkType: hard
 
