@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { microCopy } from "@bmi/microcopies";
+import { Button, ButtonProps, Typography } from "@bmi-digital/components";
 import { useConfig } from "../../contexts/ConfigProvider";
 import { devLog } from "../../utils/devLog";
 import { queryElasticSearch } from "../../utils/elasticSearch";
 import { shallowEqual } from "../../utils/isObjectEqual";
 import { useSiteContext } from "../Site";
+import withGTM from "../../utils/google-tag-manager";
 import { calculateArea } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import protrusionTypes from "./calculation/protrusions";
@@ -49,10 +51,9 @@ import TileOptions from "./_TileOptions";
 import TileSelection from "./_TileSelection";
 import UnderlaySelection from "./_UnderlaySelection";
 import VariantSelection from "./_VariantSelection";
-import {
-  StyledCalculationReportAnchor,
-  StyledResultsGrid
-} from "./_PitchedRoofCalculatorSteps.styles";
+import { StyledResultsGrid } from "./_PitchedRoofCalculatorSteps.styles";
+
+const GTMButton = withGTM<ButtonProps>(Button);
 
 export type PitchedRoofCalculatorStepsProps = {
   isDebugging?: boolean;
@@ -133,6 +134,12 @@ const PitchedRoofCalculatorSteps = ({
     if (newRoof === roof) return;
     setRoof(newRoof);
     setDimensions({});
+    pushEvent({
+      event: "dxb.button_click",
+      id: "rc-roof-type",
+      label: getMicroCopy(microCopy.ROOF_SELECTION_NEXT_LABEL),
+      action: "selected"
+    });
   };
 
   const saveDimensions = (
@@ -162,12 +169,24 @@ const PitchedRoofCalculatorSteps = ({
     if (newTileCode === mainTileCode) return;
     setMainTileCode(newTileCode);
     setVariant(undefined);
+    pushEvent({
+      event: "dxb.button_click",
+      id: "rc-select-tile",
+      label: getMicroCopy(microCopy.TILE_SELECTION_NEXT_LABEL),
+      action: "selected"
+    });
   };
 
   const selectVariant = async (
     _,
     { variant: newVariantCode }: { variant: string }
   ) => {
+    pushEvent({
+      event: "dxb.button_click",
+      id: "rc-select-tile-colour",
+      label: getMicroCopy(microCopy.VARIANT_SELECTION_NEXT_LABEL),
+      action: "selected"
+    });
     if (newVariantCode === variant?.externalProductCode) {
       setSelected(CalculatorSteps.TileOptions);
       return;
@@ -590,15 +609,22 @@ const PitchedRoofCalculatorSteps = ({
           title={getMicroCopy(microCopy.RESULTS_TITLE)}
           subtitle={
             <StyledResultsGrid container>
-              {getMicroCopy(microCopy.RESULTS_SUBTITLE, {
-                contingency: CONTINGENCY_PERCENTAGE_TEXT
-              })}
+              <Typography mb="30px">
+                {getMicroCopy(microCopy.RESULTS_SUBTITLE, {
+                  contingency: CONTINGENCY_PERCENTAGE_TEXT
+                })}
+              </Typography>
               {!isHubSpotFormAvailable && (
-                <StyledCalculationReportAnchor
+                <GTMButton
+                  gtm={{
+                    id: "rc-solution",
+                    action: "selected",
+                    label: getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL)
+                  }}
                   action={{ href: "#print-calculations-report" }}
                 >
                   {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL)}
-                </StyledCalculationReportAnchor>
+                </GTMButton>
               )}
             </StyledResultsGrid>
           }
