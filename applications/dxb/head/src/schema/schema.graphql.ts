@@ -368,10 +368,16 @@ type ContentfulLeadBlockSection implements ContentfulObject & Node @dontInfer {
   postItCard: ContentfulRichText
 }
 
+type contentfulSyndicateSectionDescriptionTextNode implements Node @dontInfer {
+  id: ID!
+  description: String
+}
+
+
 type ContentfulSyndicateSection implements ContentfulObject & Node @dontInfer {
   id: ID!
   metadata: ContentfulMetadata!
-  description: ContentfulRichText
+  description: contentfulSyndicateSectionDescriptionTextNode @link(from: "description___NODE")
   title: String
   villains: [ContentfulPromoOrPage] @link(from: "villains___NODE")
   isReversed: Boolean
