@@ -11,7 +11,11 @@ lint_contentful_migrate:
 build_contentful_migrate:
   extends: .build_yarn_workspace
   rules:
-    - !reference [.run_for_changes_on_main_workspace, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/microcopies/src/index.ts
     - !reference [.run_for_changes_on_mr_workspace, rules]
     - if: "$CI_COMMIT_TAG"
   variables:
@@ -45,7 +49,19 @@ test_contentful_migrate:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
-    - if: "$CI_COMMIT_TAG"
+    - if: !reference [ .run_for_preprod_release, rules, if ]
+      variables:
+        CONTENTFUL_ENVIRONMENT: master
+        CONTENTFUL_ALIAS: pre-production
+        DELETE_OLD_ENVIRONMENTS: true
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
+        NEW_ENVIRONMENT_NAME: $CI_COMMIT_TAG
+    - if: !reference [ .run_for_prod_release, rules, if ]
+      variables:
+        CONTENTFUL_ENVIRONMENT: master
+        DELETE_OLD_ENVIRONMENTS: true
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
+        NEW_ENVIRONMENT_NAME: $CI_COMMIT_TAG
   needs:
     - job: install_yarn
       optional: true
@@ -59,25 +75,6 @@ test_contentful_migrate:
 
       export DELETE_OLD_ENVIRONMENTS=false
 
-      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
-        DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_QA
-      fi
-
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
-        export CONTENTFUL_ENVIRONMENT=master
-        export CONTENTFUL_ALIAS=pre-production
-        export DELETE_OLD_ENVIRONMENTS=true
-        export DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PREPROD
-        export NEW_ENVIRONMENT_NAME=$CI_COMMIT_TAG
-      fi
-
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
-        export CONTENTFUL_ENVIRONMENT=master
-        export DELETE_OLD_ENVIRONMENTS=true
-        export DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PROD
-        export NEW_ENVIRONMENT_NAME=$CI_COMMIT_TAG
-      fi
-
       export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
       export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
 
@@ -89,7 +86,12 @@ test_contentful_migrate:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
-    - if: "$CI_COMMIT_TAG"
+    - if: !reference [ .run_for_preprod_release, rules, if ]
+      variables:
+        DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PREPROD
+    - if: !reference [ .run_for_prod_release, rules, if ]
+      variables:
+        DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PROD
   variables:
     DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
     ROOT_DIR: "applications/dxb/contentful-migrate"
@@ -98,14 +100,6 @@ test_contentful_migrate:
     - |
       apt-get update
       apt-get install -y jq
-
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
-        DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_PREPROD
-      fi
-
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
-        DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_PROD
-      fi
 
       DXB_MARKET_BUILD_HOOK=$(cat $DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
       curl -X POST -d {} $DXB_MARKET_BUILD_HOOK
@@ -125,6 +119,8 @@ test_contentful_migrate:
   needs:
     - job: install_yarn
       optional: true
+    - job: build_contentful_migrate
+      artifacts: true
   rules:
     - if: !reference [.run_for_preprod_release, rules, if]
       variables:
@@ -154,17 +150,20 @@ migrate_content_qa:
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
 update_mc_qa:
   extends: .update_mc
   needs:
     - !reference [.update_mc, needs]
-    - migrate_content_qa
+    - job: migrate_content_qa # in case only the microcopies have changed
+      optional: true
   rules:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
+        - applications/dxb/libraries/microcopies/src/index.ts
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
@@ -193,6 +192,7 @@ migrate_content_one_page_qa:
   variables:
     CONTENTFUL_ENVIRONMENT: one-page-qa
     DXB_MARKET_ID: "NO"
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_one_page_qa:
@@ -205,6 +205,48 @@ deploy_gatsby_cloud_one_page_qa:
     - migrate_content_one_page_qa
   variables:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_ONE_PAGE_QA
+    DXB_MARKET_ID: "NO"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+migrate_content_qa_consolidated:
+  extends: .migrate_content
+  rules:
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
+  variables:
+    CONTENTFUL_ENVIRONMENT: staging
+    DXB_MARKET_ID: "NO"
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA_CONSOLIDATED
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_qa_consolidated:
+  extends: .update_mc
+  needs:
+    - !reference [.update_mc, needs]
+    - job: migrate_content_qa_consolidated # in case only the microcopies have changed
+      optional: true
+  rules:
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
+        - applications/dxb/libraries/microcopies/src/index.ts
+  variables:
+    CONTENTFUL_ENVIRONMENT: staging
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA_CONSOLIDATED
+    DXB_MARKET_ID: "NO"
+
+deploy_gatsby_cloud_qa_consolidated:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
+  needs:
+    - migrate_content_qa_consolidated
+    - update_mc_qa_consolidated
+  variables:
+    DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA_CONSOLIDATED
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
