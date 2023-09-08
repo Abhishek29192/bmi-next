@@ -136,7 +136,7 @@ test_contentful_migrate:
       apt-get update && apt-get install -y jq
       export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
       export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
-      yarn workspace @bmi/contentful-migrate build && yarn workspace @bmi/contentful-migrate update-mc:publish --isConsolidated=$IS_CONSOLIDATED
+      yarn workspace @bmi/contentful-migrate build && yarn workspace @bmi/contentful-migrate update-mc --publish --isConsolidated=$IS_CONSOLIDATED
 
 ##############################################################
 # Market specific migration, microcopy and deploy jobs start from here
@@ -243,6 +243,7 @@ update_mc_qa_consolidated:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA_CONSOLIDATED
     DXB_MARKET_ID: "NO"
+    IS_CONSOLIDATED: "true"
 
 deploy_gatsby_cloud_qa_consolidated:
   extends: .deploy_gatsby_cloud

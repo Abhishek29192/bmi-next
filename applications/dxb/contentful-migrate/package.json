@@ -11,7 +11,6 @@
     "migrate-create": "node ./dist/create.js",
     "debug": "node --inspect ./dist/index.js",
     "update-mc": "node ./dist/cma/update-mc.js",
-    "update-mc:publish": "node ./dist/cma/update-mc.js --publish",
     "migrate-down": "node ./dist/down.js",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "start": "node ./dist/index.js",
