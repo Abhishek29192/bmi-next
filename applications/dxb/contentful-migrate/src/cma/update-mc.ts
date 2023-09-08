@@ -248,16 +248,20 @@ const linkMicrocopiesToResources = async (
     resources.fields.microCopy as {
       [locale: string]: SysLink[];
     }
-  ).map<{
+  ).reduce<{
     [locale: string]: SysLink[];
-  }>(([key, value]) => ({
-    [key]: [
-      ...value,
-      ...nodes.map((entry) => ({
-        sys: { type: "Link", linkType: "Entry", id: entry.sys.id }
-      }))
-    ]
-  }));
+  }>(
+    (newMicrocopies, [key, value]) => ({
+      ...newMicrocopies,
+      [key]: [
+        ...value,
+        ...nodes.map((entry) => ({
+          sys: { type: "Link", linkType: "Entry", id: entry.sys.id }
+        }))
+      ]
+    }),
+    {}
+  );
   await resources.update();
 };
 
