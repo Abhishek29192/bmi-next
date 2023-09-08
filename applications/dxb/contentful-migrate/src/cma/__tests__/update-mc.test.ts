@@ -11,7 +11,7 @@ import {
   createSpace,
   createTag,
   createTagSysProps
-} from "@bmi/functions-contentful-management-client";
+} from "@bmi/functions-contentful-management-client/helpers";
 import { microCopy } from "@bmi/microcopies";
 import { isDefined } from "@bmi/utils";
 import { QueryOptions } from "contentful-management/dist/typings/common-types.js";
