@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { createSpace } from "@bmi/functions-contentful-management-client";
+import { createSpace } from "@bmi/functions-contentful-management-client/helpers";
 import { createEnvironmentAliasWithEnvironmentId } from "./helpers/EnvironmentAliasHelper.js";
 import createEnvironment, {
   createEnvironmentWithId,

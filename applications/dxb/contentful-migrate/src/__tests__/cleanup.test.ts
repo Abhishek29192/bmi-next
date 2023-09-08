@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { createCollection } from "@bmi/functions-contentful-management-client";
+import { createCollection } from "@bmi/functions-contentful-management-client/helpers";
 import { cleanupOldEnvironments } from "../cleanup.js";
 import { createEnvironmentAliasWithEnvironmentId } from "./helpers/EnvironmentAliasHelper.js";
 import { createEnvironmentWithId } from "./helpers/EnvironmentHelper.js";

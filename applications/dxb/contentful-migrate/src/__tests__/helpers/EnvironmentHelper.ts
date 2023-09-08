@@ -1,4 +1,4 @@
-import { createEnvironment } from "@bmi/functions-contentful-management-client";
+import { createEnvironment } from "@bmi/functions-contentful-management-client/helpers";
 import type { Environment } from "contentful-management";
 
 export const createEnvironmentWithId = (id: string): Environment => {

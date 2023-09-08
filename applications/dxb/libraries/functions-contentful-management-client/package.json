@@ -12,6 +12,25 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
+  "typesVersions": {
+    "*": {
+      "helpers": [
+        "./dist/src/helpers/index.d.ts"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/src/index.js",
+      "import": "./dist/src/index.js",
+      "types": "./dist/src/index.d.ts"
+    },
+    "./helpers": {
+      "require": "./dist/src/helpers/index.js",
+      "import": "./dist/src/helpers/index.js",
+      "types": "./dist/src/helpers/index.d.ts"
+    }
+  },
   "dependencies": {
     "contentful-management": "^10.39.2"
   },
