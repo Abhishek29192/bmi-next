@@ -175,7 +175,9 @@ export const getCTA = (
   }
 
   const { path } = data;
-  if (!path) return null;
+  if (!path) {
+    return null;
+  }
 
   return {
     action: getClickableActionFromUrl(

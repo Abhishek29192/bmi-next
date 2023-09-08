@@ -120,7 +120,7 @@ export const BuildSmallViewRows = ({
           <Table.Cell className={classes.smallCell}>
             <div>
               <div className={classes.cellRow}>
-                <img src={row.image} className={classes.picture} />
+                <img src={row.image} className={classes.picture} alt={""} />
                 <Typography className={classes.smallDescription}>
                   {row.description}
                 </Typography>
@@ -181,7 +181,7 @@ export const BuildMediumViewRows = ({
         >
           <Table.Cell>
             <div className={classes.cellRow}>
-              <img src={row.image} className={classes.picture} />
+              <img src={row.image} className={classes.picture} alt={""} />
               <Typography className={classes.largeDescription}>
                 {row.description}
               </Typography>
@@ -231,7 +231,7 @@ export const BuildLargeViewRows = ({
         >
           <Table.Cell>
             <div className={classes.cellRow}>
-              <img src={row.image} className={classes.picture} />
+              <img src={row.image} className={classes.picture} alt={""} />
               {displayIfDesktop && (
                 <Typography className={classes.largeDescription}>
                   {row.description}

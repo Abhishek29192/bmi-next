@@ -16,7 +16,7 @@ export const measurementsProps = {
   help: {
     fieldArea: (
       <>
-        <img src={fieldArea1} style={smallImgStyle} />
+        <img src={fieldArea1} style={smallImgStyle} alt={"Diagram of area 1"} />
         <Typography>
           <b>
             Area m<sup>2</sup> = side 1 x side 2
@@ -24,7 +24,7 @@ export const measurementsProps = {
           <br />
           Multiply side 1 by side 2 to obtain your area in square meter/foot
         </Typography>
-        <img src={fieldArea2} style={smallImgStyle} />
+        <img src={fieldArea2} style={smallImgStyle} alt={"Diagram of area 2"} />
         <Typography>
           <b>
             Area A m<sup>2</sup>= side 1 x side 2
@@ -48,7 +48,7 @@ export const measurementsProps = {
           <br />
           <br />
         </Typography>
-        <img src={fieldArea3} style={smallImgStyle} />
+        <img src={fieldArea3} style={smallImgStyle} alt={"Diagram of area 3"} />
         <Typography>
           <b>
             Area A m<sup>2</sup>= side 1 x side 2
@@ -73,12 +73,20 @@ export const measurementsProps = {
         </Typography>
       </>
     ),
-    upstand: <img src={upstand} style={imgStyle} />,
-    kerb: <img src={kerb} style={imgStyle} />,
+    upstand: <img src={upstand} style={imgStyle} alt={"Example of upstand"} />,
+    kerb: <img src={kerb} style={imgStyle} alt={"Example of kerb"} />,
     details: (
       <>
-        <img src={details1} style={{ ...imgStyle, marginBottom: 36 }} />
-        <img src={details2} style={imgStyle} />
+        <img
+          src={details1}
+          style={{ ...imgStyle, marginBottom: 36 }}
+          alt={"Diagram of gutter details"}
+        />
+        <img
+          src={details2}
+          style={imgStyle}
+          alt={"Diagram of kerb penetration"}
+        />
       </>
     )
   }

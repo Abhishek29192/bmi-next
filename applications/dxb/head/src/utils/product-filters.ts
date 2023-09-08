@@ -182,7 +182,9 @@ export const generateFilters = (
         groupBy([...(prevValue["options"] || []), ...allOptions], "value")
       ).flatMap((item) => item[0]);
 
-      if (allOptions.length === 0) return undefined;
+      if (allOptions.length === 0) {
+        return undefined;
+      }
 
       // check if individual options are configured for this category!
       // i.e. if the categoryFilterWithOptiosOnly has this categor?

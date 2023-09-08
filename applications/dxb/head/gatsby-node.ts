@@ -344,8 +344,12 @@ const addSplatToUrl = (url: string): string => {
 };
 
 const areValuesEqual = (a, b) => {
-  if (a === b) return true;
-  if (typeof a !== typeof b) return false;
+  if (a === b) {
+    return true;
+  }
+  if (typeof a !== typeof b) {
+    return false;
+  }
   if (typeof a === "function") {
     return a.toString() === b.toString();
   }

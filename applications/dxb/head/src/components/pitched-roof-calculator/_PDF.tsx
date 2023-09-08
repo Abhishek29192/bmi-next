@@ -199,7 +199,9 @@ const ResultsTableTemplate = ({
   ...rest
 }: ResultsTableTemplateProps) => {
   const rows = React.Children.map(children, (node, i) => {
-    if (!isElement(node)) return node;
+    if (!isElement(node)) {
+      return node;
+    }
 
     const rowChildren = React.Children.toArray(node.props.children);
     const cells = React.Children.map(rowChildren, (cellNode, i) =>

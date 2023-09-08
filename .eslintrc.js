@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-  extends: ["@bmi-digital/eslint-config", "plugin:react-hooks/recommended"],
+  extends: ["@bmi-digital/eslint-config/react"],
   ignorePatterns: [
     "**/node_modules/**",
     "**/dist/**",
