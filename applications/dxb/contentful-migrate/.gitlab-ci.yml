@@ -18,6 +18,7 @@ build_contentful_migrate:
         - applications/dxb/libraries/microcopies/src/index.ts
     - !reference [.run_for_changes_on_mr_workspace, rules]
     - if: "$CI_COMMIT_TAG"
+    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/contentful-migrate"
