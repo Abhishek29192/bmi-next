@@ -25380,7 +25380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.11.0, qs@npm:^6.11.1, qs@npm:^6.7.0, qs@npm:^6.9.4":
+"qs@npm:^6.11.1, qs@npm:^6.11.2, qs@npm:^6.7.0, qs@npm:^6.9.4":
   version: 6.11.2
   resolution: "qs@npm:6.11.2"
   dependencies:
@@ -29609,12 +29609,12 @@ __metadata:
   linkType: hard
 
 "url@npm:^0.11.0":
-  version: 0.11.1
-  resolution: "url@npm:0.11.1"
+  version: 0.11.2
+  resolution: "url@npm:0.11.2"
   dependencies:
     punycode: ^1.4.1
-    qs: ^6.11.0
-  checksum: 9e18c57b854d6a8e0288c4ddf21f9e30273a0ef2efb28a7e3e3d6eac392637dbdecce0d8f616586d58ff43154997150ecc2c9873e6c845d1e742e24c940b6e12
+    qs: ^6.11.2
+  checksum: c4a4b783ad30b47e0b4a7a7b9ac908db59898eaaf53e3142af81231c99d065776c2e7f617eb6d8099587a890180cad9726c260a9874d2f6736a67b867fa78e06
   languageName: node
   linkType: hard
 
