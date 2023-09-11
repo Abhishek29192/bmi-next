@@ -73,7 +73,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "jest-junit": "^16.0.0",
     "jest-mock-console": "^2.0.0",
-    "lint-staged": "^13.3.0",
+    "lint-staged": "^14.0.0",
     "mockdate": "^3.0.5",
     "prettier": "^2.8.8",
     "process-top": "^1.2.0",
