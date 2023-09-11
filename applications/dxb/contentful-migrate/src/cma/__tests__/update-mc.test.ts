@@ -548,9 +548,13 @@ describe("main with isPublished false and isConsolidated false", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -603,6 +607,28 @@ describe("main with isPublished false and isConsolidated false", () => {
       },
       metadata: undefined
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).not.toHaveBeenCalled();
   });
@@ -638,9 +664,13 @@ describe("main with isPublished false and isConsolidated false", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -692,6 +722,28 @@ describe("main with isPublished false and isConsolidated false", () => {
       },
       metadata: undefined
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).not.toHaveBeenCalled();
   });
@@ -728,9 +780,13 @@ describe("main with isPublished false and isConsolidated false", () => {
     const newMicrocopyToCreate1 = microcopies.pop()!;
     const newMicrocopyToCreate2 = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -797,6 +853,42 @@ describe("main with isPublished false and isConsolidated false", () => {
         }
       },
       metadata: undefined
+    });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate1.sys.id
+          }
+        },
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate2.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate1.sys.id
+          }
+        },
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate2.sys.id
+          }
+        }
+      ]
     });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).not.toHaveBeenCalled();
@@ -1337,9 +1429,13 @@ describe("main with isPublished true and isConsolidated false", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -1393,6 +1489,28 @@ describe("main with isPublished true and isConsolidated false", () => {
       },
       metadata: undefined
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).not.toHaveBeenCalledWith({
       entities: {
@@ -1442,9 +1560,13 @@ describe("main with isPublished true and isConsolidated false", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -1500,6 +1622,28 @@ describe("main with isPublished true and isConsolidated false", () => {
       },
       metadata: undefined
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
       entities: {
@@ -1549,9 +1693,13 @@ describe("main with isPublished true and isConsolidated false", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -1611,6 +1759,28 @@ describe("main with isPublished true and isConsolidated false", () => {
       },
       metadata: undefined
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
       entities: {
@@ -1661,9 +1831,13 @@ describe("main with isPublished true and isConsolidated false", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -1722,6 +1896,28 @@ describe("main with isPublished true and isConsolidated false", () => {
       },
       metadata: undefined
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
       entities: {
@@ -1773,9 +1969,13 @@ describe("main with isPublished true and isConsolidated false", () => {
     const newMicrocopyToCreate1 = microcopies.pop()!;
     const newMicrocopyToCreate2 = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -1850,6 +2050,42 @@ describe("main with isPublished true and isConsolidated false", () => {
         }
       },
       metadata: undefined
+    });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate1.sys.id
+          }
+        },
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate2.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate1.sys.id
+          }
+        },
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate2.sys.id
+          }
+        }
+      ]
     });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
@@ -2647,9 +2883,13 @@ describe("main with isPublished false and isConsolidated true", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -2715,6 +2955,28 @@ describe("main with isPublished false and isConsolidated true", () => {
         ]
       }
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).not.toHaveBeenCalled();
   });
@@ -2761,9 +3023,13 @@ describe("main with isPublished false and isConsolidated true", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -2828,6 +3094,28 @@ describe("main with isPublished false and isConsolidated true", () => {
         ]
       }
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).not.toHaveBeenCalled();
   });
@@ -2875,9 +3163,13 @@ describe("main with isPublished false and isConsolidated true", () => {
     const newMicrocopyToCreate1 = microcopies.pop()!;
     const newMicrocopyToCreate2 = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -2967,6 +3259,42 @@ describe("main with isPublished false and isConsolidated true", () => {
           }
         ]
       }
+    });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate1.sys.id
+          }
+        },
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate2.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate1.sys.id
+          }
+        },
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate2.sys.id
+          }
+        }
+      ]
     });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).not.toHaveBeenCalled();
@@ -4158,9 +4486,13 @@ describe("main with isPublished true and isConsolidated true", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -4228,6 +4560,28 @@ describe("main with isPublished true and isConsolidated true", () => {
         ]
       }
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).not.toHaveBeenCalledWith({
       entities: {
@@ -4288,9 +4642,13 @@ describe("main with isPublished true and isConsolidated true", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -4360,6 +4718,28 @@ describe("main with isPublished true and isConsolidated true", () => {
         ]
       }
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
       entities: {
@@ -4420,9 +4800,13 @@ describe("main with isPublished true and isConsolidated true", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -4496,6 +4880,28 @@ describe("main with isPublished true and isConsolidated true", () => {
         ]
       }
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
       entities: {
@@ -4557,9 +4963,13 @@ describe("main with isPublished true and isConsolidated true", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -4633,6 +5043,28 @@ describe("main with isPublished true and isConsolidated true", () => {
         ]
       }
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
       entities: {
@@ -4695,9 +5127,13 @@ describe("main with isPublished true and isConsolidated true", () => {
     const newMicrocopyToCreate1 = microcopies.pop()!;
     const newMicrocopyToCreate2 = microcopies.pop()!;
     const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const existingMicrocopy = createLink();
     const resources = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopy],
+          "en-GB": [existingMicrocopy]
+        }
       },
       update: mockEntryUpdate
     });
@@ -4800,6 +5236,42 @@ describe("main with isPublished true and isConsolidated true", () => {
         ]
       }
     });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy1.sys.id
+          }
+        },
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy2.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy1.sys.id
+          }
+        },
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy2.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdate).toHaveBeenCalled();
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
       entities: {
@@ -4872,16 +5344,24 @@ describe("main with isPublished true and isConsolidated true", () => {
     );
     const newMicrocopyToCreate = microcopies.pop()!;
     const mockEntryUpdateForTag1 = jest.fn<Entry["update"]>();
+    const existingMicrocopyForTag1 = createLink();
     const resourcesForTag1 = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopyForTag1],
+          "en-GB": [existingMicrocopyForTag1]
+        }
       },
       update: mockEntryUpdateForTag1
     });
     const mockEntryUpdateForTag2 = jest.fn<Entry["update"]>();
+    const existingMicrocopyForTag2 = createLink();
     const resourcesForTag2 = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopyForTag2],
+          "en-GB": [existingMicrocopyForTag2]
+        }
       },
       update: mockEntryUpdateForTag2
     });
@@ -5014,7 +5494,51 @@ describe("main with isPublished true and isConsolidated true", () => {
         ]
       }
     });
+    expect(resourcesForTag1.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopyForTag1,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy1.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopyForTag1,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy1.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdateForTag1).toHaveBeenCalledTimes(1);
+    expect(resourcesForTag2.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopyForTag2,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy2.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopyForTag2,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy2.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdateForTag2).toHaveBeenCalledTimes(1);
     expect(mockCreatePublishBulkAction).toHaveBeenCalledTimes(2);
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
@@ -5084,7 +5608,13 @@ describe("main with isPublished true and isConsolidated true", () => {
         items: [tag1, tag2]
       })
     );
-    let newMicrocopyToCreateForTag1: Entry;
+    const newMicrocopyToCreateForTag1 = createEntry({
+      fields: {
+        key: {
+          "en-US": microCopy.SHARE_COPY
+        }
+      }
+    });
     const microcopiesForTag1 = Object.values(microCopy)
       .map((microCopyKey) => {
         const entry = createEntry({
@@ -5095,13 +5625,18 @@ describe("main with isPublished true and isConsolidated true", () => {
           }
         });
         if (microCopyKey === microCopy.SHARE_COPY) {
-          newMicrocopyToCreateForTag1 = entry;
           return undefined;
         }
         return entry;
       })
       .filter(isDefined);
-    let newMicrocopyToCreateForTag2: Entry;
+    const newMicrocopyToCreateForTag2 = createEntry({
+      fields: {
+        key: {
+          "en-US": microCopy.BASKET_LABEL
+        }
+      }
+    });
     const microcopiesForTag2 = Object.values(microCopy)
       .map((microCopyKey) => {
         const entry = createEntry({
@@ -5112,23 +5647,30 @@ describe("main with isPublished true and isConsolidated true", () => {
           }
         });
         if (microCopyKey === microCopy.BASKET_LABEL) {
-          newMicrocopyToCreateForTag2 = entry;
           return undefined;
         }
         return entry;
       })
       .filter(isDefined);
     const mockEntryUpdateForTag1 = jest.fn<Entry["update"]>();
+    const existingMicrocopyForTag1 = createLink();
     const resourcesForTag1 = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopyForTag1],
+          "en-GB": [existingMicrocopyForTag1]
+        }
       },
       update: mockEntryUpdateForTag1
     });
     const mockEntryUpdateForTag2 = jest.fn<Entry["update"]>();
+    const existingMicrocopyForTag2 = createLink();
     const resourcesForTag2 = createEntry({
       fields: {
-        microCopy: { "en-US": [createLink()], "en-GB": [createLink()] }
+        microCopy: {
+          "en-US": [existingMicrocopyForTag2],
+          "en-GB": [existingMicrocopyForTag2]
+        }
       },
       update: mockEntryUpdateForTag2
     });
@@ -5272,7 +5814,51 @@ describe("main with isPublished true and isConsolidated true", () => {
         ]
       }
     });
+    expect(resourcesForTag1.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopyForTag1,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy1.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopyForTag1,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy1.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdateForTag1).toHaveBeenCalledTimes(1);
+    expect(resourcesForTag2.fields.microCopy).toEqual({
+      "en-US": [
+        existingMicrocopyForTag2,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy2.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        existingMicrocopyForTag2,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy2.sys.id
+          }
+        }
+      ]
+    });
     expect(mockEntryUpdateForTag2).toHaveBeenCalledTimes(1);
     expect(mockCreatePublishBulkAction).toHaveBeenCalledTimes(2);
     expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
