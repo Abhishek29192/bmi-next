@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import createSystem from "../../../__tests__/helpers/SystemHelper";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
@@ -21,8 +21,6 @@ const sidebarItem: TitleWithContentData = {
 };
 
 describe("AboutLeadBlock tests", () => {
-  afterEach(cleanup);
-
   it("should render", () => {
     const systemDetailsMockData = createSystem();
 
