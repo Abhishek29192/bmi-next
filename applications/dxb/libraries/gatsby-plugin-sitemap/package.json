@@ -10,17 +10,17 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@babel/runtime": "^7.20.13",
+    "@babel/runtime": "^7.22.15",
     "common-tags": "^1.8.2",
     "minimatch": "^3.1.2",
     "sitemap": "^7.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.12",
-    "babel-preset-gatsby-package": "^3.13.0-next.0",
+    "@babel/cli": "^7.22.15",
+    "@babel/core": "^7.22.17",
+    "babel-preset-gatsby-package": "^3.12.0",
     "cross-env": "^7.0.3",
-    "gatsby-plugin-utils": "^4.13.0-next.0"
+    "gatsby-plugin-utils": "^4.12.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sitemap#readme",
   "keywords": [
