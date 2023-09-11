@@ -51,7 +51,11 @@ describe("ConfigProvider", () => {
       key: "isGatsbyDisabledElasticSearch",
       env: "GATSBY_DISABLE_SEARCH"
     },
-    { key: "isSampleOrderingEnabled", env: "GATSBY_ENABLE_SAMPLE_ORDERING" }
+    { key: "isSampleOrderingEnabled", env: "GATSBY_ENABLE_SAMPLE_ORDERING" },
+    {
+      key: "enableProductClassificationAttributeOrdering",
+      env: "GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING"
+    }
   ])("Boolean config - $key", ({ key, env }) => {
     it(`should be set to false if ${env} is undefined`, () => {
       // eslint-disable-next-line security/detect-object-injection
