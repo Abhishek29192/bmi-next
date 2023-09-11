@@ -61,6 +61,7 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
+
         const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />
@@ -99,6 +100,7 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
+
         const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />
@@ -118,6 +120,7 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
+
         const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />
@@ -143,9 +146,6 @@ describe("ProductTechnicalSpec component", () => {
 
       describe("When the 'enable product attribute ordering' feature flag is set as true", () => {
         it("should sort classification by name", () => {
-          process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING =
-            "true";
-
           render(
             <ConfigProvider
               configOverride={{
@@ -166,32 +166,6 @@ describe("ProductTechnicalSpec component", () => {
 
       describe("When the 'enable product attribute ordering' feature flag is set as false", () => {
         it("should NOT sort classification by name", () => {
-          process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING =
-            "false";
-
-          render(
-            <ConfigProvider
-              configOverride={{
-                enableProductClassificationAttributeOrdering: false
-              }}
-            >
-              <ThemeProvider>
-                <ProductTechnicalSpec product={products} />
-              </ThemeProvider>
-            </ConfigProvider>
-          );
-          const classificationName = screen.getAllByRole("heading", {
-            level: 6
-          });
-          expect(classificationName[0].textContent).toBe("secondClassProduct");
-        });
-      });
-
-      describe("When the 'enable product attribute ordering' feature flag is NOT set", () => {
-        it("should NOT sort classification by name", () => {
-          process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING =
-            "";
-
           render(
             <ConfigProvider
               configOverride={{
