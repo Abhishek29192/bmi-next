@@ -46,6 +46,7 @@
     "@bmi/gatsby-plugin-leadoo": "workspace:*",
     "@bmi/gatsby-plugin-material-ui": "workspace:*",
     "@bmi/gatsby-plugin-sitemap": "workspace:*",
+    "@bmi/gatsby-source-docebo": "workspace:*",
     "@bmi/gatsby-source-firestore": "workspace:*",
     "@bmi/gatsby-source-hubspot-forms": "workspace:*",
     "@bmi/microcopies": "workspace:*",
