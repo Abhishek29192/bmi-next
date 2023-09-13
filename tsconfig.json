@@ -117,6 +117,9 @@
       "path": "applications/dxb/libraries/gatsby-plugin-leadoo"
     },
     {
+      "path": "applications/dxb/libraries/gatsby-source-docebo"
+    },
+    {
       "path": "applications/dxb/libraries/gatsby-source-firestore"
     },
     {

@@ -17,6 +17,9 @@
       "path": "../libraries/gatsby-plugin-leadoo"
     },
     {
+      "path": "../libraries/gatsby-source-docebo"
+    },
+    {
       "path": "../libraries/gatsby-source-firestore"
     },
     {
