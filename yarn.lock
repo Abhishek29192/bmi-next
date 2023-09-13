@@ -2783,7 +2783,7 @@ __metadata:
     "@bmi/functions-es-client": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
-    "@google-cloud/monitoring": ^3.0.5
+    "@google-cloud/monitoring": ^4.0.0
     "@types/prettier": ^2.7.3
     "@typescript-eslint/eslint-plugin": ^5.62.0
     "@typescript-eslint/parser": ^5.62.0
@@ -4881,12 +4881,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/monitoring@npm:^3.0.5":
-  version: 3.0.5
-  resolution: "@google-cloud/monitoring@npm:3.0.5"
+"@google-cloud/monitoring@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@google-cloud/monitoring@npm:4.0.0"
   dependencies:
-    google-gax: ^3.5.8
-  checksum: d74f3d10ec0a48eb1e281c257e373f700b5887248b93f8f054d6e949f0aaa0459b00185bfa2f93e9cd8011a12ed4fd61f8b3b503de95d5bc3f1929760a630ea1
+    google-gax: ^4.0.3
+  checksum: 922cb78f46bbf9d4885e6eeb232420a3ae7038cc89d5b464c8c207c3216f2558d59b3520075fce878e20c3ac992abe513568c0f4625bf6432881176fa0233ede
   languageName: node
   linkType: hard
 
@@ -17976,6 +17976,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gaxios@npm:^6.0.0":
+  version: 6.1.1
+  resolution: "gaxios@npm:6.1.1"
+  dependencies:
+    extend: ^3.0.2
+    https-proxy-agent: ^7.0.1
+    is-stream: ^2.0.0
+    node-fetch: ^2.6.9
+  checksum: 3c54094a7b45a20fe4d5e88f3a3284ea7ba9639ffbe33b4eb500578a4269cfaa6ba93b773ea4c292d9fc15f413347cd37db6a1daf7360e13e895c1201c788585
+  languageName: node
+  linkType: hard
+
 "gcp-metadata@npm:^5.3.0":
   version: 5.3.0
   resolution: "gcp-metadata@npm:5.3.0"
@@ -17983,6 +17995,16 @@ __metadata:
     gaxios: ^5.0.0
     json-bigint: ^1.0.0
   checksum: c0570f8ed821429444d6d9d46279831aa1b68092bd5f394928dd816c39904721f8a80ed463fcbeb607a469b1917fe24dad0e66dc4a94388620c9172a54fb5a5f
+  languageName: node
+  linkType: hard
+
+"gcp-metadata@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "gcp-metadata@npm:6.0.0"
+  dependencies:
+    gaxios: ^6.0.0
+    json-bigint: ^1.0.0
+  checksum: 291d3e8a4f95ea2ff822f0b2c0d678d254313073a28f5dbc09223a9ea173567ca375c0bcefe53ec1c525df6277207a174c655c10597873a6d9da7f199dc5dc96
   languageName: node
   linkType: hard
 
@@ -18328,7 +18350,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-gax@npm:^3.5.7, google-gax@npm:^3.5.8, google-gax@npm:^3.6.1":
+"google-auth-library@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "google-auth-library@npm:9.0.0"
+  dependencies:
+    base64-js: ^1.3.0
+    ecdsa-sig-formatter: ^1.0.11
+    gaxios: ^6.0.0
+    gcp-metadata: ^6.0.0
+    gtoken: ^7.0.0
+    jws: ^4.0.0
+    lru-cache: ^6.0.0
+  checksum: 35273a950a6d5d209cf77170a127f2c668b776d2d2cc604bc862319cdbb6ca73326da11d4fec221f91e5f86692d357986e7a9fc626ba2da304c8d03a8b695857
+  languageName: node
+  linkType: hard
+
+"google-gax@npm:^3.5.7, google-gax@npm:^3.6.1":
   version: 3.6.1
   resolution: "google-gax@npm:3.6.1"
   dependencies:
@@ -18351,6 +18388,25 @@ __metadata:
     compileProtos: build/tools/compileProtos.js
     minifyProtoJson: build/tools/minify.js
   checksum: a935b7fac764fbf89b613d0a345ac9e531901fcd0223ec738c3e6ce29e9326603aca473326fe60216e04fc8adb7439dd5715f0f3b6b8200cd5f16c7fb4d7d3e7
+  languageName: node
+  linkType: hard
+
+"google-gax@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "google-gax@npm:4.0.3"
+  dependencies:
+    "@grpc/grpc-js": ~1.8.0
+    "@grpc/proto-loader": ^0.7.0
+    "@types/long": ^4.0.0
+    abort-controller: ^3.0.0
+    duplexify: ^4.0.0
+    google-auth-library: ^9.0.0
+    node-fetch: ^2.6.1
+    object-hash: ^3.0.0
+    proto3-json-serializer: ^1.1.1
+    protobufjs: 7.2.4
+    retry-request: ^6.0.0
+  checksum: 213172502effe26ea887f99270f16eaddfb359a02be4d427345717965ff0e17695a6b0252a9dba82c24b88c524034db909cb8ec774f680965e8a0882c93fd325
   languageName: node
   linkType: hard
 
@@ -18562,6 +18618,16 @@ __metadata:
     google-p12-pem: ^4.0.0
     jws: ^4.0.0
   checksum: d660fbb8ad00a9f5b6eb426090593cb2a07d63dc22a11b0cf155d43779b6078f804e3467e37deb9a1c078ae34e683070279dc5a1577c50e0e3166a6a6748d98e
+  languageName: node
+  linkType: hard
+
+"gtoken@npm:^7.0.0":
+  version: 7.0.1
+  resolution: "gtoken@npm:7.0.1"
+  dependencies:
+    gaxios: ^6.0.0
+    jws: ^4.0.0
+  checksum: 549d46bf34756b3ce526bdc9c147b7226890398afcf81e3a7f21ef373be0ccf6341f73f461b66861d7a921820bd858c812733373aa3979ba56d3130669bc0fd9
   languageName: node
   linkType: hard
 
@@ -19030,6 +19096,16 @@ __metadata:
     agent-base: ^7.0.2
     debug: 4
   checksum: f08f646809c04803843534b5e0ea5b4034beaa065ef2f9505e4afaeb2fa962a15494e563357c819203cff07232d1631739947f031149eb837a16a2f3553fbe32
+  languageName: node
+  linkType: hard
+
+"https-proxy-agent@npm:^7.0.1":
+  version: 7.0.2
+  resolution: "https-proxy-agent@npm:7.0.2"
+  dependencies:
+    agent-base: ^7.0.2
+    debug: 4
+  checksum: 7735eb90073db087e7e79312e3d97c8c04baf7ea7ca7b013382b6a45abbaa61b281041a98f4e13c8c80d88f843785bcc84ba189165b4b4087b1e3496ba656d77
   languageName: node
   linkType: hard
 
@@ -26719,7 +26795,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proto3-json-serializer@npm:^1.0.0":
+"proto3-json-serializer@npm:^1.0.0, proto3-json-serializer@npm:^1.1.1":
   version: 1.1.1
   resolution: "proto3-json-serializer@npm:1.1.1"
   dependencies:
@@ -28133,6 +28209,16 @@ __metadata:
     debug: ^4.1.1
     extend: ^3.0.2
   checksum: 06de24fd2f08a3d7985ad12d5993a5772dd0a4e0a079577ad63c0ce9b4005fcf464c8b0b215b732bede995f326ac0408c0fa04658736c8ffae5adde5b0194ed9
+  languageName: node
+  linkType: hard
+
+"retry-request@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "retry-request@npm:6.0.0"
+  dependencies:
+    debug: ^4.1.1
+    extend: ^3.0.2
+  checksum: c2484bfdd2f89aea9e23e5e69bf041a7053915d4797a1456362f25dbd9a4374165d2a45b278bcc5370c4e41ac4de894e4037cc506b7364c9a2bbf8a599279b1a
   languageName: node
   linkType: hard
 
