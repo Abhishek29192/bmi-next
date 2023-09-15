@@ -15,7 +15,7 @@ const CallbackPage: React.FunctionComponent<Props> = (props) => {
     }
   }, [location.hash]);
 
-  return <div style={{ margin: "10px" }}>Logging you in. Please wait..</div>;
+  //return <div style={{ margin: "10px" }}>Logging you in. Please wait..</div>;
 };
 
 export default CallbackPage;

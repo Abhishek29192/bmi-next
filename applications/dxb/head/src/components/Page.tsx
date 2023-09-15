@@ -27,7 +27,6 @@ import {
   useSiteContext
 } from "./Site";
 import VisualiserProvider from "./Visualiser";
-import LoginButton from "./LoginButton";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -192,10 +191,7 @@ const Page = ({
                     calculatorConfig={pitchedRoofCalculatorConfig}
                   >
                     <BrandProvider brand={brand}>
-                      <Content>
-                        <LoginButton />
-                        {children}
-                      </Content>
+                      <Content>{children}</Content>
                     </BrandProvider>
                   </CalculatorProvider>
                   {signupBlock && !isSpaEnabled ? (

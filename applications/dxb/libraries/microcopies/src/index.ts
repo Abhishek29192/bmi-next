@@ -362,6 +362,9 @@ export const microCopy = {
   GOOD_BETTER_BEST_LABEL_BEST: "goodBetterBest.label.best",
 
   TRAINING_DETAILS_COURSE_ID_LABEL: "trainingDetails.courseIdLabel"
+
+  LOG_IN_LABEL: "login.label",
+  LOG_OUT_LABEL: "logout.label"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

@@ -1,6 +1,7 @@
 import * as auth0 from "auth0-js";
 import { navigate } from "gatsby";
 import { config } from "./config";
+import * as process from "process";
 
 const isBrowser = typeof window !== "undefined";
 
@@ -28,7 +29,8 @@ class Auth {
     if (!isBrowser) return;
     // Save postLoginUrl so we can redirect user back to where they left off after login screen
     localStorage.setItem("postLoginUrl", window.location.pathname);
-    this.auth0 && this.auth0.authorize();
+    // @ts-ignore
+    this.auth0 && this.auth0.authorize({market: process.env.SPACE_MARKET_CODE});
   };
 
   public handleAuthentication = () =>
@@ -43,11 +45,12 @@ class Auth {
             if (postLoginUrl) {
               navigate(postLoginUrl);
             }
+
             return resolve(authResult);
           } else if (err) {
             return reject(err);
           }
-          return resolve();
+          return resolve(null);
         });
     });
 
@@ -72,7 +75,7 @@ class Auth {
   }
 
   public checkSession = () =>
-    new Promise((resolve) => {
+    new Promise<void>((resolve) => {
       this.auth0 &&
         this.auth0.checkSession({}, (err, authResult) => {
           if (authResult && authResult.accessToken && authResult.idToken) {
@@ -107,15 +110,12 @@ class Auth {
   public logout = () => {
     if (!isBrowser) return;
 
-    console.log("------- logout -----");
-    console.log(this.logoutUri);
-    console.log("------- logout -----");
-
     this.localLogout();
     this.auth0 &&
       this.auth0.logout({
-        returnTo: this.logoutUri || window.location.origin
+        returnTo: this.logoutUri
       });
+
   };
 
   public isAuthenticated = () => {

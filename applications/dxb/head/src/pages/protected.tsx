@@ -3,10 +3,11 @@ import { WindowLocation } from "@reach/router";
 import { AuthService, useAuth } from "@bmi/gatsby-theme-auth0";
 
 interface Props {
-  location: WindowLocation;
+  location?: WindowLocation;
+  children?: React.ReactNode;
 }
 
-const ProtectedPage: React.FunctionComponent<Props> = (props) => {
+const ProtectedPage: React.FunctionComponent<Props> = ({ children }) => {
   const { isLoggedIn, profile } = useAuth();
 
   React.useEffect(() => {
@@ -30,12 +31,7 @@ const ProtectedPage: React.FunctionComponent<Props> = (props) => {
       This is protected page. Logging you in. Please wait..
     </div>
   ) : (
-    profile && (
-      <>
-        <p>Hello {profile.name}</p>
-        <a href="http://localhost:3000/protected">Go to Intouch site</a>
-      </>
-    )
+    profile && <>{children}</>
   );
 };
 

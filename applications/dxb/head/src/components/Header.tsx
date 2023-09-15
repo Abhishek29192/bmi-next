@@ -28,6 +28,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
 import { useSiteContext } from "./Site";
+import LoginBlock from "./LoginBlock";
 import type { GetMicroCopy } from "./MicroCopy";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
@@ -336,6 +337,7 @@ const Header = ({
           openLabel={getMicroCopy(microCopy.MENU_OPEN)}
           mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
           mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
+          loginButtonComponent={<LoginBlock />}
         />
       )}
     />
