@@ -1,27 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { CheckCircle } from "@mui/icons-material";
 import { useAuth } from "@bmi/gatsby-theme-auth0";
+import { microCopy } from "@bmi/microcopies";
+import { local } from "../utils/storage";
 import { LoginAlertStyles } from "./styles/LoginAlertStyles";
 import { useSiteContext } from "./Site";
 
 const LoginAlert = () => {
   const { isLoggedIn } = useAuth();
-  const [isClosed, setIsClosed] = useState(false);
+  const isAlreadyShownAlert: string = local.getItem("isAlreadyShownAlert");
+  const [isClosed, setIsClosed] = useState(isAlreadyShownAlert === "true");
   const { getMicroCopy } = useSiteContext();
 
-  useEffect(() => {
-    setTimeout(() => setIsClosed(true), 5000);
+  const handleCloseAlert = useCallback(() => {
+    setIsClosed(true);
+    local.setItem("isAlreadyShownAlert", "true");
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => handleCloseAlert(), 5000);
+  }, [handleCloseAlert]);
+
   return (
     <>
       {!isClosed && (
         <LoginAlertStyles
           icon={<CheckCircle fontSize="inherit" />}
-          onClose={() => setIsClosed(true)}
+          onClose={handleCloseAlert}
         >
-          {isLoggedIn
-            ? getMicroCopy("login.label")
-            : getMicroCopy("logout.label")}
+          {getMicroCopy(
+            isLoggedIn
+              ? microCopy.LOG_IN_LABEL_ALERT
+              : microCopy.LOG_OUT_LABEL_ALERT
+          )}
         </LoginAlertStyles>
       )}
     </>

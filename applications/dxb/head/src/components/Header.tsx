@@ -213,7 +213,8 @@ const Header = ({
   const {
     isSpaEnabled,
     isGatsbyDisabledElasticSearch,
-    isSampleOrderingEnabled
+    isSampleOrderingEnabled,
+    isLoginEnabled
   } = useConfig();
   const {
     basketState: { products: productsInBasket }
@@ -337,7 +338,7 @@ const Header = ({
           openLabel={getMicroCopy(microCopy.MENU_OPEN)}
           mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
           mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
-          loginButtonComponent={<LoginBlock />}
+          loginButtonComponent={isLoginEnabled ? <LoginBlock /> : null}
         />
       )}
     />

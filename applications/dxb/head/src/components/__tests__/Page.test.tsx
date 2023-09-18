@@ -6,6 +6,11 @@ import { DataTypeEnum, NavigationData } from "../Link";
 import Page, { Data } from "../Page";
 import { Data as SiteData } from "../Site";
 
+jest.mock("../../contexts/ConfigProvider", () => ({
+  useConfig: () => ({
+    isLoginEnabled: true
+  })
+}));
 const mockNavigation: NavigationData = {
   __typename: "ContentfulNavigation",
   label: "Main navigation",

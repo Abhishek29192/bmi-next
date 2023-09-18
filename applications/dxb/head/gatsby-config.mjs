@@ -158,20 +158,20 @@ const config = {
   },
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
-    {
-      resolve: "@bmi/gatsby-theme-auth0",
-      options: {
-        domain: process.env.AUTH0_DOMAIN,
-        clientID: process.env.AUTH0_CLIENTID,
-        redirectUri: process.env.AUTH0_CALLBACK_URL,
-        logoutUri: process.env.AUTH0_LOGOUT_URL
+    ...(process.env.GATSBY_IS_LOGIN_ENABLED === "true"
+      ? [
+        {
+          resolve: "@bmi/gatsby-theme-auth0",
+          options: {
+            domain: process.env.AUTH0_DOMAIN,
+            clientID: process.env.AUTH0_CLIENTID,
+            redirectUri: process.env.AUTH0_CALLBACK_URL,
+            logoutUri: process.env.AUTH0_LOGOUT_URL
 
-        // audience: process.env.AUTH0_AUDIENCE, // Optional
-        // responseType: process.env.AUTH0_RESPONSE_TYPE, // Optional
-        // scope: process.env.AUTH0_SCOPE // Optional
-        // callbackPath: "/auth/callback", // Optional
-      }
-    },
+          }
+        }
+      ]
+      : []),
     `@bmi/gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
     {

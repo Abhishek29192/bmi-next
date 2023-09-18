@@ -1,0 +1,31 @@
+lint_gatsby-theme-auth0:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/gatsby-theme-auth0"
+    WORKSPACE: "@bmi/gatsby-theme-auth0"
+
+build_gatsby-theme-auth0:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/gatsby-theme-auth0"
+    WORKSPACE: "@bmi/gatsby-theme-auth0"
+
+test_gatsby-theme-auth0:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/gatsby-theme-auth0"
+    WORKSPACE: "@bmi/gatsby-theme-auth0"
+  needs:
+    - build_gatsby-theme-auth0

@@ -1,8 +1,9 @@
 import { styled } from "@mui/material/styles";
+import { buttonClasses } from "@mui/material";
 
 export const LoginBlockStyles = styled("div")(({ theme }) => ({
   display: "flex",
-  "[class*=MuiButton-root]": {
+  [`.${buttonClasses.root}`]: {
     fontSize: "0.875rem",
     color: theme.colours.charcoal,
     textAlign: "end"

@@ -10,6 +10,7 @@ import { Config, ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import SystemDetailsPage from "../systemDetailsPage";
+import { local } from "../../../utils/storage";
 
 const systemCode = "1234";
 const siteId = "1234";
@@ -68,6 +69,7 @@ describe("SystemDetailsPage template component", () => {
         callback(0);
         return 0;
       });
+    local.setItem("isAlreadyShownAlert", null);
   });
 
   afterEach(() => {

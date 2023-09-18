@@ -64,7 +64,8 @@ const renderWithProviders = ({
 }: Params): RenderResult => {
   const defaultPageEnvVars = {
     documentDownloadMaxLimit: 200,
-    isPreviewMode: false
+    isPreviewMode: false,
+    isLoginEnabled: true
   } as Partial<Config>;
   const defaultPageContext = {
     pageId: null,

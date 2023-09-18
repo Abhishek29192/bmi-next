@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import Alert from "@mui/material/Alert";
 
-export const LoginAlertStyles = styled(Alert)(({ theme }) => ({
+export const LoginAlertStyles = styled(Alert)(() => ({
   display: "flex",
   alignItems: "center",
   position: "absolute",

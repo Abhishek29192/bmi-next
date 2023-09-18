@@ -1,7 +1,7 @@
+import * as process from "process";
 import * as auth0 from "auth0-js";
 import { navigate } from "gatsby";
 import { config } from "./config";
-import * as process from "process";
 
 const isBrowser = typeof window !== "undefined";
 
@@ -17,6 +17,7 @@ class Auth {
   private idToken?: string;
   private userProfile?: auth0.Auth0UserProfile;
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   public sessionStateCallback = (_state: SessionState) => {};
 
   private auth0 = process.env.AUTH0_DOMAIN
@@ -26,11 +27,16 @@ class Auth {
   private logoutUri = process.env.AUTH0_LOGOUT_URL;
 
   public login = () => {
-    if (!isBrowser) return;
+    if (!isBrowser) {
+      return;
+    }
     // Save postLoginUrl so we can redirect user back to where they left off after login screen
     localStorage.setItem("postLoginUrl", window.location.pathname);
-    // @ts-ignore
-    this.auth0 && this.auth0.authorize({market: process.env.SPACE_MARKET_CODE});
+    if (this.auth0) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this.auth0.authorize({ market: process.env.SPACE_MARKET_CODE });
+    }
   };
 
   public handleAuthentication = () =>
@@ -43,7 +49,8 @@ class Auth {
             const postLoginUrl = localStorage.getItem("postLoginUrl");
             localStorage.removeItem("postLoginUrl");
             if (postLoginUrl) {
-              navigate(postLoginUrl);
+              localStorage.setItem("isAlreadyShownAlert", "false");
+              navigate(postLoginUrl, { state: { needToShowAlert: true } });
             }
 
             return resolve(authResult);
@@ -61,7 +68,9 @@ class Auth {
   public getUserProfile = () => this.userProfile;
 
   private setSession(authResult: auth0.Auth0DecodedHash) {
-    if (!isBrowser) return;
+    if (!isBrowser) {
+      return;
+    }
     localStorage.setItem("isLoggedIn", "true");
     this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;
@@ -92,7 +101,9 @@ class Auth {
     });
 
   public localLogout = () => {
-    if (!isBrowser) return;
+    if (!isBrowser) {
+      return;
+    }
     // Remove tokens and user profile
     this.accessToken = undefined;
     this.idToken = undefined;
@@ -108,18 +119,22 @@ class Auth {
   };
 
   public logout = () => {
-    if (!isBrowser) return;
+    if (!isBrowser) {
+      return;
+    }
 
     this.localLogout();
     this.auth0 &&
       this.auth0.logout({
         returnTo: this.logoutUri
       });
-
+    localStorage.setItem("isAlreadyShownAlert", "false");
   };
 
   public isAuthenticated = () => {
-    if (!isBrowser) return false;
+    if (!isBrowser) {
+      return false;
+    }
     return localStorage.getItem("isLoggedIn") === "true";
   };
 }

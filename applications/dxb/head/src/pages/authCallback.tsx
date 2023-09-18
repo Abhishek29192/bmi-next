@@ -6,16 +6,16 @@ interface Props {
   location: WindowLocation;
 }
 
-const CallbackPage: React.FunctionComponent<Props> = (props) => {
+const AuthCallback: React.FunctionComponent<Props> = (props) => {
   const { location } = props;
 
   React.useEffect(() => {
+    console.log("I AM CALLBACK");
     if (/access_token|id_token|error/.test(location.hash)) {
       AuthService.handleAuthentication();
     }
   }, [location.hash]);
-
-  //return <div style={{ margin: "10px" }}>Logging you in. Please wait..</div>;
+  return null;
 };
 
-export default CallbackPage;
+export default AuthCallback;

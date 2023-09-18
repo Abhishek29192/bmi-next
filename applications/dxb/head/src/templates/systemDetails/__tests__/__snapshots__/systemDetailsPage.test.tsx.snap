@@ -1095,127 +1095,134 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
       </div>
     </div>
     <div
-      class="css-1xf8n4r"
+      class="css-fopdqx"
       data-testid="tabs"
     >
       <div
-        class="Tabs-tabsBar"
+        class="css-k008qs"
       >
         <div
-          class=" css-ze8cyt"
+          class="Tabs-tabsBar"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiTabs-root css-6wm242-MuiTabs-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
             >
               <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowLeftIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-              />
-              <div
-                class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                style="margin-bottom: 0px;"
+                class="MuiTabs-root css-6wm242-MuiTabs-root"
               >
                 <div
-                  aria-label="tabs"
-                  class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                  role="tablist"
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                 >
-                  <button
-                    aria-controls="tabpanel-one"
-                    aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
-                    data-testid="tab-one"
-                    id="tab-one"
-                    role="tab"
-                    tabindex="0"
-                    type="button"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowLeftIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    MC: sdp.leadBlock.about
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <path
+                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                     />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-two"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
-                    data-testid="tab-two"
-                    id="tab-two"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.technicalSpecification
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-three"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
-                    data-testid="tab-three"
-                    id="tab-three"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.documentsAndDownloads
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <span
-                  class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                  style="left: 0px; width: 0px;"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowRightIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                </div>
+                <div
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
+                <div
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-one"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
+                      data-testid="tab-one"
+                      id="tab-one"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.about
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-two"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
+                      data-testid="tab-two"
+                      id="tab-two"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.technicalSpecification
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-three"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
+                      data-testid="tab-three"
+                      id="tab-three"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.documentsAndDownloads
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+        />
       </div>
       <div
         aria-labelledby="tab-one"
@@ -2180,7 +2187,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -3634,127 +3641,134 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
       </div>
     </div>
     <div
-      class="css-1xf8n4r"
+      class="css-fopdqx"
       data-testid="tabs"
     >
       <div
-        class="Tabs-tabsBar"
+        class="css-k008qs"
       >
         <div
-          class=" css-ze8cyt"
+          class="Tabs-tabsBar"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiTabs-root css-6wm242-MuiTabs-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
             >
               <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowLeftIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-              />
-              <div
-                class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                style="margin-bottom: 0px;"
+                class="MuiTabs-root css-6wm242-MuiTabs-root"
               >
                 <div
-                  aria-label="tabs"
-                  class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                  role="tablist"
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                 >
-                  <button
-                    aria-controls="tabpanel-one"
-                    aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
-                    data-testid="tab-one"
-                    id="tab-one"
-                    role="tab"
-                    tabindex="0"
-                    type="button"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowLeftIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    MC: sdp.leadBlock.about
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <path
+                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                     />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-two"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
-                    data-testid="tab-two"
-                    id="tab-two"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.technicalSpecification
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-three"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
-                    data-testid="tab-three"
-                    id="tab-three"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.documentsAndDownloads
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <span
-                  class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                  style="left: 0px; width: 0px;"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowRightIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                </div>
+                <div
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
+                <div
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-one"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
+                      data-testid="tab-one"
+                      id="tab-one"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.about
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-two"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
+                      data-testid="tab-two"
+                      id="tab-two"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.technicalSpecification
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-three"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
+                      data-testid="tab-three"
+                      id="tab-three"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.documentsAndDownloads
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+        />
       </div>
       <div
         aria-labelledby="tab-one"
@@ -4719,7 +4733,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -6177,127 +6191,134 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
         </div>
       </div>
       <div
-        class="css-1xf8n4r"
+        class="css-fopdqx"
         data-testid="tabs"
       >
         <div
-          class="Tabs-tabsBar"
+          class="css-k008qs"
         >
           <div
-            class=" css-ze8cyt"
+            class="Tabs-tabsBar"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+              class=" css-ze8cyt"
             >
               <div
-                class="MuiTabs-root css-6wm242-MuiTabs-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                    data-testid="KeyboardArrowLeftIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                />
-                <div
-                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                  style="margin-bottom: 0px;"
+                  class="MuiTabs-root css-6wm242-MuiTabs-root"
                 >
                   <div
-                    aria-label="tabs"
-                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                    role="tablist"
+                    class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                   >
-                    <button
-                      aria-controls="tabpanel-one"
-                      aria-selected="true"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
-                      data-testid="tab-one"
-                      id="tab-one"
-                      role="tab"
-                      tabindex="0"
-                      type="button"
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowLeftIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
                     >
-                      MC: sdp.leadBlock.about
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      <path
+                        d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                       />
-                    </button>
-                    <button
-                      aria-controls="tabpanel-two"
-                      aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
-                      data-testid="tab-two"
-                      id="tab-two"
-                      role="tab"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      MC: sdp.leadBlock.technicalSpecification
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      aria-controls="tabpanel-three"
-                      aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
-                      data-testid="tab-three"
-                      id="tab-three"
-                      role="tab"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      MC: sdp.leadBlock.documentsAndDownloads
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
-                  <span
-                    class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                    style="left: 0px; width: 0px;"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                    data-testid="KeyboardArrowRightIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  </div>
+                  <div
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
+                  <div
+                    class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                    style="margin-bottom: 0px;"
+                  >
+                    <div
+                      aria-label="tabs"
+                      class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                      role="tablist"
+                    >
+                      <button
+                        aria-controls="tabpanel-one"
+                        aria-selected="true"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                        data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
+                        data-testid="tab-one"
+                        id="tab-one"
+                        role="tab"
+                        tabindex="0"
+                        type="button"
+                      >
+                        MC: sdp.leadBlock.about
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                      <button
+                        aria-controls="tabpanel-two"
+                        aria-selected="false"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                        data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
+                        data-testid="tab-two"
+                        id="tab-two"
+                        role="tab"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        MC: sdp.leadBlock.technicalSpecification
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                      <button
+                        aria-controls="tabpanel-three"
+                        aria-selected="false"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                        data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
+                        data-testid="tab-three"
+                        id="tab-three"
+                        role="tab"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        MC: sdp.leadBlock.documentsAndDownloads
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                    <span
+                      class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
+                  </div>
+                  <div
+                    class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowRightIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <hr
+            class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+          />
         </div>
         <div
           aria-labelledby="tab-one"
@@ -7263,7 +7284,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -8717,127 +8738,134 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       </div>
     </div>
     <div
-      class="css-1xf8n4r"
+      class="css-fopdqx"
       data-testid="tabs"
     >
       <div
-        class="Tabs-tabsBar"
+        class="css-k008qs"
       >
         <div
-          class=" css-ze8cyt"
+          class="Tabs-tabsBar"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiTabs-root css-6wm242-MuiTabs-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
             >
               <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowLeftIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-              />
-              <div
-                class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                style="margin-bottom: 0px;"
+                class="MuiTabs-root css-6wm242-MuiTabs-root"
               >
                 <div
-                  aria-label="tabs"
-                  class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                  role="tablist"
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                 >
-                  <button
-                    aria-controls="tabpanel-one"
-                    aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
-                    data-testid="tab-one"
-                    id="tab-one"
-                    role="tab"
-                    tabindex="0"
-                    type="button"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowLeftIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    MC: sdp.leadBlock.about
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <path
+                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                     />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-two"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
-                    data-testid="tab-two"
-                    id="tab-two"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.technicalSpecification
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-three"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
-                    data-testid="tab-three"
-                    id="tab-three"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.documentsAndDownloads
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <span
-                  class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                  style="left: 0px; width: 0px;"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowRightIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                </div>
+                <div
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
+                <div
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-one"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
+                      data-testid="tab-one"
+                      id="tab-one"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.about
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-two"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
+                      data-testid="tab-two"
+                      id="tab-two"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.technicalSpecification
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-three"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
+                      data-testid="tab-three"
+                      id="tab-three"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.documentsAndDownloads
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+        />
       </div>
       <div
         aria-labelledby="tab-one"
@@ -9802,7 +9830,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -11256,127 +11284,134 @@ exports[`SystemDetailsPage template component should render without specificatio
       </div>
     </div>
     <div
-      class="css-1xf8n4r"
+      class="css-fopdqx"
       data-testid="tabs"
     >
       <div
-        class="Tabs-tabsBar"
+        class="css-k008qs"
       >
         <div
-          class=" css-ze8cyt"
+          class="Tabs-tabsBar"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiTabs-root css-6wm242-MuiTabs-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
             >
               <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowLeftIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-              />
-              <div
-                class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                style="margin-bottom: 0px;"
+                class="MuiTabs-root css-6wm242-MuiTabs-root"
               >
                 <div
-                  aria-label="tabs"
-                  class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                  role="tablist"
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                 >
-                  <button
-                    aria-controls="tabpanel-one"
-                    aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
-                    data-testid="tab-one"
-                    id="tab-one"
-                    role="tab"
-                    tabindex="0"
-                    type="button"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowLeftIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    MC: sdp.leadBlock.about
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <path
+                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                     />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-two"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
-                    data-testid="tab-two"
-                    id="tab-two"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.technicalSpecification
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-three"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
-                    data-testid="tab-three"
-                    id="tab-three"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.documentsAndDownloads
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <span
-                  class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                  style="left: 0px; width: 0px;"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowRightIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                </div>
+                <div
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
+                <div
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-one"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
+                      data-testid="tab-one"
+                      id="tab-one"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.about
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-two"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
+                      data-testid="tab-two"
+                      id="tab-two"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.technicalSpecification
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-three"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
+                      data-testid="tab-three"
+                      id="tab-three"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.documentsAndDownloads
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+        />
       </div>
       <div
         aria-labelledby="tab-one"
@@ -12302,7 +12337,7 @@ exports[`SystemDetailsPage template component should render without specificatio
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -13756,127 +13791,134 @@ exports[`SystemDetailsPage template component should render without systemLayers
       </div>
     </div>
     <div
-      class="css-1xf8n4r"
+      class="css-fopdqx"
       data-testid="tabs"
     >
       <div
-        class="Tabs-tabsBar"
+        class="css-k008qs"
       >
         <div
-          class=" css-ze8cyt"
+          class="Tabs-tabsBar"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiTabs-root css-6wm242-MuiTabs-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
             >
               <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowLeftIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-              />
-              <div
-                class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                style="margin-bottom: 0px;"
+                class="MuiTabs-root css-6wm242-MuiTabs-root"
               >
                 <div
-                  aria-label="tabs"
-                  class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                  role="tablist"
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                 >
-                  <button
-                    aria-controls="tabpanel-one"
-                    aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
-                    data-testid="tab-one"
-                    id="tab-one"
-                    role="tab"
-                    tabindex="0"
-                    type="button"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowLeftIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    MC: sdp.leadBlock.about
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <path
+                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                     />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-two"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
-                    data-testid="tab-two"
-                    id="tab-two"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.technicalSpecification
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-three"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
-                    data-testid="tab-three"
-                    id="tab-three"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.documentsAndDownloads
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <span
-                  class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                  style="left: 0px; width: 0px;"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowRightIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                </div>
+                <div
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
+                <div
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-one"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
+                      data-testid="tab-one"
+                      id="tab-one"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.about
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-two"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
+                      data-testid="tab-two"
+                      id="tab-two"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.technicalSpecification
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-three"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
+                      data-testid="tab-three"
+                      id="tab-three"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.documentsAndDownloads
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+        />
       </div>
       <div
         aria-labelledby="tab-one"
@@ -14841,7 +14883,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -16421,127 +16463,134 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
       </div>
     </div>
     <div
-      class="css-1xf8n4r"
+      class="css-fopdqx"
       data-testid="tabs"
     >
       <div
-        class="Tabs-tabsBar"
+        class="css-k008qs"
       >
         <div
-          class=" css-ze8cyt"
+          class="Tabs-tabsBar"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiTabs-root css-6wm242-MuiTabs-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
             >
               <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowLeftIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-              />
-              <div
-                class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                style="margin-bottom: 0px;"
+                class="MuiTabs-root css-6wm242-MuiTabs-root"
               >
                 <div
-                  aria-label="tabs"
-                  class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                  role="tablist"
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                 >
-                  <button
-                    aria-controls="tabpanel-one"
-                    aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
-                    data-testid="tab-one"
-                    id="tab-one"
-                    role="tab"
-                    tabindex="0"
-                    type="button"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowLeftIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    MC: sdp.leadBlock.about
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <path
+                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                     />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-two"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
-                    data-testid="tab-two"
-                    id="tab-two"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.technicalSpecification
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    aria-controls="tabpanel-three"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                    data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
-                    data-testid="tab-three"
-                    id="tab-three"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    MC: sdp.leadBlock.documentsAndDownloads
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <span
-                  class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                  style="left: 0px; width: 0px;"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                  data-testid="KeyboardArrowRightIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                </div>
+                <div
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
+                <div
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-one"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.about","action":"Selector – Tabs"}"
+                      data-testid="tab-one"
+                      id="tab-one"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.about
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-two"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.technicalSpecification","action":"Selector – Tabs"}"
+                      data-testid="tab-two"
+                      id="tab-two"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.technicalSpecification
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-three"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                      data-gtm="{"id":"selector-tabs4","label":"MC: sdp.leadBlock.documentsAndDownloads","action":"Selector – Tabs"}"
+                      data-testid="tab-three"
+                      id="tab-three"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      MC: sdp.leadBlock.documentsAndDownloads
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+        />
       </div>
       <div
         aria-labelledby="tab-one"
@@ -17506,7 +17555,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div

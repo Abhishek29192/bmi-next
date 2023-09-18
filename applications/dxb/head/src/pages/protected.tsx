@@ -12,27 +12,11 @@ const ProtectedPage: React.FunctionComponent<Props> = ({ children }) => {
 
   React.useEffect(() => {
     if (!isLoggedIn) {
-      console.log(
-        "---- user is NOT logged in :: automatically signin in user ----"
-      );
       AuthService.login();
-      // tried this method but it doid not work!
-      // const result = Promise.resolve(AuthService.checkSession());
-      // if (!result) {
-      //   console.log("-------- check session result ---------");
-      //   console.log(result);
-      //   AuthService.login();
-      // }
     }
   }, [isLoggedIn]);
 
-  return !isLoggedIn ? (
-    <div style={{ margin: "10px" }}>
-      This is protected page. Logging you in. Please wait..
-    </div>
-  ) : (
-    profile && <>{children}</>
-  );
+  return !isLoggedIn || !profile ? null : <>{children}</>;
 };
 
 export default ProtectedPage;

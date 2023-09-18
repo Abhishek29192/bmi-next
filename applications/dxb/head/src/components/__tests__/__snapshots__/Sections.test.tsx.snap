@@ -341,95 +341,102 @@ exports[`Sections component renders correctly 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-nxi0jm"
+              class=" css-1y9y18v"
               data-testid="tabs"
             >
               <div
-                class="Tabs-tabsBar"
+                class="css-k008qs"
               >
                 <div
-                  class=" css-ze8cyt"
+                  class="Tabs-tabsBar"
                 >
                   <div
-                    class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+                    class=" css-ze8cyt"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                     >
                       <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                          data-testid="KeyboardArrowLeftIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                      <div
-                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                        style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                      />
-                      <div
-                        class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                        style="margin-bottom: 0px;"
+                        class="MuiTabs-root css-6wm242-MuiTabs-root"
                       >
                         <div
-                          aria-label="tabs"
-                          class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                          role="tablist"
+                          class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                         >
-                          <button
-                            aria-controls="tabpanel-hello"
-                            aria-selected="true"
-                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                            data-gtm="{"id":"selector-tabs2","label":"hello","action":"Selector – Tabs"}"
-                            data-testid="tab-hello"
-                            id="tab-hello"
-                            role="tab"
-                            tabindex="0"
-                            type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                            data-testid="KeyboardArrowLeftIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
                           >
-                            hello
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            <path
+                              d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                             />
-                          </button>
-                        </div>
-                        <span
-                          class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                          style="left: 0px; width: 0px;"
-                        />
-                      </div>
-                      <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                          data-testid="KeyboardArrowRightIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        </div>
+                        <div
+                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                          style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                         />
+                        <div
+                          class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                          style="margin-bottom: 0px;"
+                        >
+                          <div
+                            aria-label="tabs"
+                            class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                            role="tablist"
+                          >
+                            <button
+                              aria-controls="tabpanel-hello"
+                              aria-selected="true"
+                              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                              data-gtm="{"id":"selector-tabs2","label":"hello","action":"Selector – Tabs"}"
+                              data-testid="tab-hello"
+                              id="tab-hello"
+                              role="tab"
+                              tabindex="0"
+                              type="button"
+                            >
+                              hello
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                          </div>
+                          <span
+                            class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                            style="left: 0px; width: 0px;"
+                          />
+                        </div>
+                        <div
+                          class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                            data-testid="KeyboardArrowRightIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                            />
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <hr
+                  class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                />
               </div>
               <div
                 aria-labelledby="tab-hello"
@@ -1354,69 +1361,76 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
+            class="Tabs-secondary Tabs-visibleUntillg css-11rq2kv"
             data-testid="tabs"
           >
             <div
-              class="Tabs-tabsBar"
+              class="css-k008qs"
             >
               <div
-                class=" css-ze8cyt"
+                class="Tabs-tabsBar"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+                  class=" css-ze8cyt"
                 >
                   <div
-                    class="MuiTabs-root css-6wm242-MuiTabs-root"
+                    class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
-                      style="overflow: hidden; margin-bottom: 0px;"
+                      class="MuiTabs-root css-6wm242-MuiTabs-root"
                     >
                       <div
-                        aria-label="tabs"
-                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                        role="tablist"
+                        class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
+                        style="overflow: hidden; margin-bottom: 0px;"
                       >
-                        <button
-                          aria-controls="tabpanel-list"
-                          aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
-                          data-testid="tab-list"
-                          id="tab-list"
-                          role="tab"
-                          tabindex="0"
-                          type="button"
+                        <div
+                          aria-label="tabs"
+                          class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                          role="tablist"
                         >
-                          findARoofer.listLabel
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </button>
-                        <button
-                          aria-controls="tabpanel-map"
-                          aria-selected="false"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
-                          data-testid="tab-map"
-                          id="tab-map"
-                          role="tab"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          findARoofer.mapLabel
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </button>
+                          <button
+                            aria-controls="tabpanel-list"
+                            aria-selected="true"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
+                            data-testid="tab-list"
+                            id="tab-list"
+                            role="tab"
+                            tabindex="0"
+                            type="button"
+                          >
+                            findARoofer.listLabel
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </button>
+                          <button
+                            aria-controls="tabpanel-map"
+                            aria-selected="false"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
+                            data-testid="tab-map"
+                            id="tab-map"
+                            role="tab"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            findARoofer.mapLabel
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </button>
+                        </div>
+                        <span
+                          class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                          style="left: 0px; width: 0px;"
+                        />
                       </div>
-                      <span
-                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                        style="left: 0px; width: 0px;"
-                      />
                     </div>
                   </div>
                 </div>
               </div>
+              <hr
+                class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+              />
             </div>
             <div
               aria-labelledby="tab-list"
@@ -1684,69 +1698,76 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
+            class="Tabs-secondary Tabs-visibleUntillg css-11rq2kv"
             data-testid="tabs"
           >
             <div
-              class="Tabs-tabsBar"
+              class="css-k008qs"
             >
               <div
-                class=" css-ze8cyt"
+                class="Tabs-tabsBar"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+                  class=" css-ze8cyt"
                 >
                   <div
-                    class="MuiTabs-root css-6wm242-MuiTabs-root"
+                    class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
-                      style="overflow: hidden; margin-bottom: 0px;"
+                      class="MuiTabs-root css-6wm242-MuiTabs-root"
                     >
                       <div
-                        aria-label="tabs"
-                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                        role="tablist"
+                        class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
+                        style="overflow: hidden; margin-bottom: 0px;"
                       >
-                        <button
-                          aria-controls="tabpanel-list"
-                          aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
-                          data-testid="tab-list"
-                          id="tab-list"
-                          role="tab"
-                          tabindex="0"
-                          type="button"
+                        <div
+                          aria-label="tabs"
+                          class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                          role="tablist"
                         >
-                          findARoofer.listLabel
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </button>
-                        <button
-                          aria-controls="tabpanel-map"
-                          aria-selected="false"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
-                          data-testid="tab-map"
-                          id="tab-map"
-                          role="tab"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          findARoofer.mapLabel
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </button>
+                          <button
+                            aria-controls="tabpanel-list"
+                            aria-selected="true"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
+                            data-testid="tab-list"
+                            id="tab-list"
+                            role="tab"
+                            tabindex="0"
+                            type="button"
+                          >
+                            findARoofer.listLabel
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </button>
+                          <button
+                            aria-controls="tabpanel-map"
+                            aria-selected="false"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
+                            data-testid="tab-map"
+                            id="tab-map"
+                            role="tab"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            findARoofer.mapLabel
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </button>
+                        </div>
+                        <span
+                          class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                          style="left: 0px; width: 0px;"
+                        />
                       </div>
-                      <span
-                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                        style="left: 0px; width: 0px;"
-                      />
                     </div>
                   </div>
                 </div>
               </div>
+              <hr
+                class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+              />
             </div>
             <div
               aria-labelledby="tab-list"
@@ -2308,99 +2329,106 @@ exports[`Sections component renders correctly 1`] = `
                 Team Section - alabaster
               </h2>
               <div
-                class="TeamSection-tabs css-nxi0jm"
+                class="TeamSection-tabs css-1y9y18v"
                 data-testid="tabs"
               >
                 <div
-                  class="Tabs-tabsBar"
+                  class="css-k008qs"
                 >
                   <div
-                    class=" css-ze8cyt"
+                    class="Tabs-tabsBar"
                   >
                     <div
-                      class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+                      class=" css-ze8cyt"
                     >
                       <div
-                        class=" css-ze8cyt"
+                        class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                       >
                         <div
-                          class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-4znb3b-MuiContainer-root-MuiTabs-root"
+                          class=" css-ze8cyt"
                         >
                           <div
-                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                              data-testid="KeyboardArrowLeftIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </div>
-                          <div
-                            class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                            style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                          />
-                          <div
-                            class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                            style="margin-bottom: 0px;"
+                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-4znb3b-MuiContainer-root-MuiTabs-root"
                           >
                             <div
-                              aria-label="tabs"
-                              class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                              role="tablist"
+                              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                             >
-                              <button
-                                aria-controls="tabpanel-0"
-                                aria-selected="true"
-                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                                data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector - Tabs"}"
-                                data-testid="tab-0"
-                                id="tab-0"
-                                role="tab"
-                                tabindex="0"
-                                type="button"
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                                data-testid="KeyboardArrowLeftIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
                               >
-                                Team Category 1
-                                <span
-                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                <path
+                                  d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                                 />
-                              </button>
-                            </div>
-                            <span
-                              class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                              style="left: 0px; width: 0px;"
-                            />
-                          </div>
-                          <div
-                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                              data-testid="KeyboardArrowRightIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                              </svg>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                               />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            </div>
+                            <div
+                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                              style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                             />
+                            <div
+                              class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                              style="margin-bottom: 0px;"
+                            >
+                              <div
+                                aria-label="tabs"
+                                class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                                role="tablist"
+                              >
+                                <button
+                                  aria-controls="tabpanel-0"
+                                  aria-selected="true"
+                                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                                  data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector - Tabs"}"
+                                  data-testid="tab-0"
+                                  id="tab-0"
+                                  role="tab"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  Team Category 1
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </button>
+                              </div>
+                              <span
+                                class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                                style="left: 0px; width: 0px;"
+                              />
+                            </div>
+                            <div
+                              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                                data-testid="KeyboardArrowRightIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                                />
+                              </svg>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <hr
+                    class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                  />
                 </div>
                 <div
                   aria-labelledby="tab-0"
@@ -2526,115 +2554,122 @@ exports[`Sections component renders correctly 1`] = `
                 Team Section - undefined colour (2 categories)
               </h2>
               <div
-                class="TeamSection-tabs css-nxi0jm"
+                class="TeamSection-tabs css-1y9y18v"
                 data-testid="tabs"
               >
                 <div
-                  class="Tabs-tabsBar"
+                  class="css-k008qs"
                 >
                   <div
-                    class=" css-ze8cyt"
+                    class="Tabs-tabsBar"
                   >
                     <div
-                      class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+                      class=" css-ze8cyt"
                     >
                       <div
-                        class=" css-ze8cyt"
+                        class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                       >
                         <div
-                          class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-4znb3b-MuiContainer-root-MuiTabs-root"
+                          class=" css-ze8cyt"
                         >
                           <div
-                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                              data-testid="KeyboardArrowLeftIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </div>
-                          <div
-                            class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                            style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                          />
-                          <div
-                            class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                            style="margin-bottom: 0px;"
+                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-4znb3b-MuiContainer-root-MuiTabs-root"
                           >
                             <div
-                              aria-label="tabs"
-                              class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                              role="tablist"
+                              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                             >
-                              <button
-                                aria-controls="tabpanel-0"
-                                aria-selected="true"
-                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                                data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector - Tabs"}"
-                                data-testid="tab-0"
-                                id="tab-0"
-                                role="tab"
-                                tabindex="0"
-                                type="button"
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                                data-testid="KeyboardArrowLeftIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
                               >
-                                Team Category 1
-                                <span
-                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                <path
+                                  d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                                 />
-                              </button>
-                              <button
-                                aria-controls="tabpanel-1"
-                                aria-selected="false"
-                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                                data-gtm="{"id":"selector-tabs2","label":"Team Category 2","action":"Selector - Tabs"}"
-                                data-testid="tab-1"
-                                id="tab-1"
-                                role="tab"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                Team Category 2
-                                <span
-                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                />
-                              </button>
-                            </div>
-                            <span
-                              class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                              style="left: 0px; width: 0px;"
-                            />
-                          </div>
-                          <div
-                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                              data-testid="KeyboardArrowRightIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                              </svg>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                               />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            </div>
+                            <div
+                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                              style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                             />
+                            <div
+                              class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                              style="margin-bottom: 0px;"
+                            >
+                              <div
+                                aria-label="tabs"
+                                class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                                role="tablist"
+                              >
+                                <button
+                                  aria-controls="tabpanel-0"
+                                  aria-selected="true"
+                                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                                  data-gtm="{"id":"selector-tabs2","label":"Team Category 1","action":"Selector - Tabs"}"
+                                  data-testid="tab-0"
+                                  id="tab-0"
+                                  role="tab"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  Team Category 1
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </button>
+                                <button
+                                  aria-controls="tabpanel-1"
+                                  aria-selected="false"
+                                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                                  data-gtm="{"id":"selector-tabs2","label":"Team Category 2","action":"Selector - Tabs"}"
+                                  data-testid="tab-1"
+                                  id="tab-1"
+                                  role="tab"
+                                  tabindex="-1"
+                                  type="button"
+                                >
+                                  Team Category 2
+                                  <span
+                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                  />
+                                </button>
+                              </div>
+                              <span
+                                class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                                style="left: 0px; width: 0px;"
+                              />
+                            </div>
+                            <div
+                              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                                data-testid="KeyboardArrowRightIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                                />
+                              </svg>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <hr
+                    class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                  />
                 </div>
                 <div
                   aria-labelledby="tab-0"
@@ -3712,95 +3747,102 @@ exports[`Sections component renders correctly when incomplete 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-nxi0jm"
+              class=" css-1y9y18v"
               data-testid="tabs"
             >
               <div
-                class="Tabs-tabsBar"
+                class="css-k008qs"
               >
                 <div
-                  class=" css-ze8cyt"
+                  class="Tabs-tabsBar"
                 >
                   <div
-                    class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+                    class=" css-ze8cyt"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                     >
                       <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                          data-testid="KeyboardArrowLeftIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                      <div
-                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                        style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                      />
-                      <div
-                        class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                        style="margin-bottom: 0px;"
+                        class="MuiTabs-root css-6wm242-MuiTabs-root"
                       >
                         <div
-                          aria-label="tabs"
-                          class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                          role="tablist"
+                          class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                         >
-                          <button
-                            aria-controls="tabpanel-hello"
-                            aria-selected="true"
-                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                            data-gtm="{"id":"selector-tabs2","label":"hello","action":"Selector – Tabs"}"
-                            data-testid="tab-hello"
-                            id="tab-hello"
-                            role="tab"
-                            tabindex="0"
-                            type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                            data-testid="KeyboardArrowLeftIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
                           >
-                            hello
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            <path
+                              d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                             />
-                          </button>
-                        </div>
-                        <span
-                          class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                          style="left: 0px; width: 0px;"
-                        />
-                      </div>
-                      <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                          data-testid="KeyboardArrowRightIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        </div>
+                        <div
+                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                          style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                         />
+                        <div
+                          class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                          style="margin-bottom: 0px;"
+                        >
+                          <div
+                            aria-label="tabs"
+                            class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                            role="tablist"
+                          >
+                            <button
+                              aria-controls="tabpanel-hello"
+                              aria-selected="true"
+                              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                              data-gtm="{"id":"selector-tabs2","label":"hello","action":"Selector – Tabs"}"
+                              data-testid="tab-hello"
+                              id="tab-hello"
+                              role="tab"
+                              tabindex="0"
+                              type="button"
+                            >
+                              hello
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                          </div>
+                          <span
+                            class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                            style="left: 0px; width: 0px;"
+                          />
+                        </div>
+                        <div
+                          class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                            data-testid="KeyboardArrowRightIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                            />
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <hr
+                  class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                />
               </div>
               <div
                 aria-labelledby="tab-hello"
@@ -3993,95 +4035,102 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-nxi0jm"
+              class=" css-1y9y18v"
               data-testid="tabs"
             >
               <div
-                class="Tabs-tabsBar"
+                class="css-k008qs"
               >
                 <div
-                  class=" css-ze8cyt"
+                  class="Tabs-tabsBar"
                 >
                   <div
-                    class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+                    class=" css-ze8cyt"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                     >
                       <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                          data-testid="KeyboardArrowLeftIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                      <div
-                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
-                        style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                      />
-                      <div
-                        class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                        style="margin-bottom: 0px;"
+                        class="MuiTabs-root css-6wm242-MuiTabs-root"
                       >
                         <div
-                          aria-label="tabs"
-                          class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                          role="tablist"
+                          class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                         >
-                          <button
-                            aria-controls="tabpanel-hello"
-                            aria-selected="true"
-                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
-                            data-gtm="{"id":"selector-tabs2","label":"hello","action":"Selector – Tabs"}"
-                            data-testid="tab-hello"
-                            id="tab-hello"
-                            role="tab"
-                            tabindex="0"
-                            type="button"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                            data-testid="KeyboardArrowLeftIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
                           >
-                            hello
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            <path
+                              d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
                             />
-                          </button>
-                        </div>
-                        <span
-                          class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                          style="left: 0px; width: 0px;"
-                        />
-                      </div>
-                      <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
-                          data-testid="KeyboardArrowRightIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        </div>
+                        <div
+                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                          style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                         />
+                        <div
+                          class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                          style="margin-bottom: 0px;"
+                        >
+                          <div
+                            aria-label="tabs"
+                            class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                            role="tablist"
+                          >
+                            <button
+                              aria-controls="tabpanel-hello"
+                              aria-selected="true"
+                              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-7sdbr4-MuiButtonBase-root-MuiTab-root"
+                              data-gtm="{"id":"selector-tabs2","label":"hello","action":"Selector – Tabs"}"
+                              data-testid="tab-hello"
+                              id="tab-hello"
+                              role="tab"
+                              tabindex="0"
+                              type="button"
+                            >
+                              hello
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                          </div>
+                          <span
+                            class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                            style="left: 0px; width: 0px;"
+                          />
+                        </div>
+                        <div
+                          class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                            data-testid="KeyboardArrowRightIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                            />
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <hr
+                  class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                />
               </div>
               <div
                 aria-labelledby="tab-hello"
