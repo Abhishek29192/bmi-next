@@ -48,7 +48,7 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
   },
   ".field": {
     // Text box
-    "&.hs-fieldtype-text, &.hs-fieldtype-textarea, &.hs-fieldtype-number, &.hs-fieldtype-date, &.hs-fieldtype-file, &.hs-fieldtype-select":
+    "&.hs-fieldtype-text, &.hs-fieldtype-textarea, &.hs-fieldtype-number, &.hs-fieldtype-date, &.hs-fieldtype-file, &.hs-fieldtype-select, &.hs-fieldtype-phonenumber":
       {
         "&:focus-within": {
           "& > label": {
