@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { Grid } from "@bmi-digital/components";
+import { Grid, Typography } from "@bmi-digital/components";
 
 export const DescriptionGrid = styled(Grid)(({ theme }) => ({
   margin: "0 0 48px",
@@ -7,3 +7,7 @@ export const DescriptionGrid = styled(Grid)(({ theme }) => ({
     marginBottom: "60px"
   }
 }));
+
+export const DescriptionTypoMultiLine = styled(Typography)({
+  whiteSpace: "pre-line"
+});
