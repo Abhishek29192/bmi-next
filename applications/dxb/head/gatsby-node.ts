@@ -90,6 +90,58 @@ const createProductPages = async (
   );
 };
 
+const createTrainingPages = async (
+  siteId,
+  countryCode,
+  { graphql, actions }
+) => {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    query MyQuery {
+      allDoceboCourses {
+        nodes {
+          id_course
+          slug_name
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const {
+    data: {
+      allDoceboCourses: { nodes: courses }
+    }
+  } = result;
+
+  const component = path.resolve(
+    "./src/templates/trainingDetailsPage/training-details-page.tsx"
+  );
+
+  await Promise.all(
+    courses.map((course) => {
+      const path = getPathWithCountryCode(
+        countryCode,
+        `/t/${course.slug_name}`
+      );
+
+      createPage({
+        path,
+        component,
+        context: {
+          siteId: siteId,
+          countryCode,
+          courseId: course.id_course
+        }
+      });
+    })
+  );
+};
+
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions
@@ -198,6 +250,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
         { graphql, actions },
         variantCodeToPathMap
       );
+    }
+
+    if (
+      !process.env.GATSBY_PREVIEW &&
+      process.env.GATSBY_ENABLE_TRAININGS === "true"
+    ) {
+      await createTrainingPages(site.id, site.countryCode, {
+        graphql,
+        actions
+      });
     }
 
     await Promise.all(
