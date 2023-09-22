@@ -13,7 +13,10 @@ import { graphql } from "gatsby";
 import React, { useMemo } from "react";
 import { microCopy, MicroCopyValues } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import { DescriptionGrid } from "./styles/SyndicateSection.styles";
+import {
+  DescriptionGrid,
+  DescriptionTypoMultiLine
+} from "./styles/SyndicateSection.styles";
 import Image from "./Image";
 import Link, { getCTA } from "./Link";
 import RichText from "./RichText";
@@ -118,7 +121,9 @@ const SyndicateSection = ({
           {title && <Section.Title>{title}</Section.Title>}
           {description && (
             <DescriptionGrid container lg={8} xs={12}>
-              <Typography>{description.description}</Typography>
+              <DescriptionTypoMultiLine>
+                <Typography>{description.description}</Typography>
+              </DescriptionTypoMultiLine>
             </DescriptionGrid>
           )}
           <Villain {...villainProperties} isReversed={isReversed}>
@@ -147,7 +152,9 @@ const SyndicateSection = ({
       {title && <Section.Title>{title}</Section.Title>}
       {description && (
         <DescriptionGrid container lg={8} xs={12}>
-          <Typography>{description.description}</Typography>
+          <DescriptionTypoMultiLine>
+            <Typography>{description.description}</Typography>
+          </DescriptionTypoMultiLine>
         </DescriptionGrid>
       )}
       {villainsData?.map(
