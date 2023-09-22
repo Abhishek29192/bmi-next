@@ -481,10 +481,15 @@ exports[`Sections component renders correctly 1`] = `
             data-testid="grid-container"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-nx0k8s-MuiTypography-root"
               data-testid="typography"
             >
-              string
+              <p
+                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                data-testid="typography"
+              >
+                string
+              </p>
             </p>
           </div>
           <div
