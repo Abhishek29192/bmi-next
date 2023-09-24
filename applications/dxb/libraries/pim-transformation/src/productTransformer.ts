@@ -290,7 +290,7 @@ export const transformProduct = (
       bimIframeUrl: getBim(product.assets)?.url,
       brand: getBrand(product.categories),
       categories: getCategories(product.categories || []),
-      classifications,
+      classifications: getClassification(classifications),
       code: variant.code || "",
       colour,
       colourMicrocopy: getMicroCopy(
@@ -450,9 +450,24 @@ const mergeClassifications = (
 const groupClassifications = (
   classifications: readonly PimClassification[]
 ): Classification[] => {
-  return classifications
-    .map(mapClassification)
-    .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
+  return classifications.map(mapClassification);
+  // .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
+};
+
+const getClassification = (
+  classification: Classification[]
+): Classification[] => {
+  if (process.env.ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING !== "true") {
+    classification
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .forEach((classification) => {
+        classification.features.sort((a, b) =>
+          (a.name || "").localeCompare(b.name || "")
+        );
+      });
+    return classification;
+  }
+  return classification;
 };
 
 const getFilters = (

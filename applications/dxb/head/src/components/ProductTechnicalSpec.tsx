@@ -2,7 +2,6 @@ import { Accordion, Table, Typography } from "@bmi-digital/components";
 import React from "react";
 import { microCopy } from "@bmi/microcopies";
 import { Product } from "../types/pim";
-import { useConfig } from "../contexts/ConfigProvider";
 import ProductFeaturesTable from "./ProductFeaturesTable";
 import { useSiteContext } from "./Site";
 import { ProdTecSpecAccordianDetails } from "./styles/ProductTechnicalSpecStyles";
@@ -19,11 +18,7 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
     <div>{getMicroCopy(microCopy.PDP_NO_TECH_SPEC_MESSAGE)}</div>
   );
 
-  const { enableProductClassificationAttributeOrdering } = useConfig();
-
-  const classifications = enableProductClassificationAttributeOrdering
-    ? [...product.classifications].sort((a, b) => a.name.localeCompare(b.name))
-    : product.classifications;
+  const classifications = product.classifications;
 
   if (classifications.length === 1) {
     const classification = classifications[0];
