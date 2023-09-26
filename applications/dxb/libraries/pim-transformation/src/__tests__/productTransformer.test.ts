@@ -13643,7 +13643,8 @@ describe("transformProduct", () => {
   });
 
   it("should sort classification order if ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING is not set (existing behaviour)", async () => {
-    // const originalEnableClassificationValue = process.env.ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING
+    const originalEnableClassificationValue =
+      process.env.ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING;
     delete process.env.ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING;
 
     const product = createFullyPopulatedProduct();
@@ -14473,6 +14474,6 @@ describe("transformProduct", () => {
     ]
     `);
 
-    // process.env.ENABLE_SAMPLE_ORDERING = originalEnableClassificationValue;
+    process.env.ENABLE_SAMPLE_ORDERING = originalEnableClassificationValue;
   });
 });

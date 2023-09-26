@@ -461,11 +461,18 @@ const getClassification = (
     classification
       .sort((a, b) => a.name.localeCompare(b.name))
       .forEach((classification) => {
-        classification.features.sort((a, b) =>
-          (a.name || "").localeCompare(b.name || "")
-        );
+        if (classification.features.length === 1) {
+          return classification;
+        } else {
+          classification?.features.sort((a, b) => {
+            return String(a?.name) > String(b?.name)
+              ? 1
+              : String(a?.name) < String(b?.name)
+              ? -1
+              : 0;
+          });
+        }
       });
-    return classification;
   }
   return classification;
 };
