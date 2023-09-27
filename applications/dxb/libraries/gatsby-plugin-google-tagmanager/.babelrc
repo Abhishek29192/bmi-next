@@ -1,0 +1,11 @@
+{
+  "presets": [["babel-preset-gatsby-package"]],
+  "overrides": [
+    {
+      "test": ["**/gatsby-browser.js"],
+      "presets": [
+        ["babel-preset-gatsby-package", { "browser": true, "esm": true }]
+      ]
+    }
+  ]
+}

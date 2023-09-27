@@ -489,11 +489,10 @@ Follow the steps under [migrate initialise](../contentful-migrate/README.md#Init
 1. Open up a terminal
 1. Navigate to where this repo has been cloned to
 1. Install relevant dependencies `yarn install`
-1. Initialise personal Contentful space to use migration scripts using `yarn migrate init`
-1. Create content model in personal Contentnful space using `yarn migrate up -a -e master`
-1. Install `contentful-cli` globally using `yarn global add contentful-cli`
-1. Export the DXB `development` environment using `contentful space export --space-id <DXB SPACE ID> --environment-id development --mt <YOUR PERSONAL ACCESS TOKEN> --include-drafts --skip-roles --skip-webhooks --skip-content-model --content-file dump.json`
-1. Import the newly created JSON dump into your personal development space using `contentful space import --space-id <YOUR OWN ACC SPACE ID> --environment-id master --mt <YOUR PERSONAL ACCESS TOKEN> --content-file dump.json`
+1. Initialise personal Contentful space to use migration scripts using `yarn workspace @bmi/contentful-migrate migrate init`
+1. Create content model in personal Contentnful space using `yarn workspace @bmi/contentful-migrate migrate-up`
+1. Export the DXB `development` environment using `yarn dlx contentful-cli space export --space-id <DXB SPACE ID> --environment-id development --mt <YOUR PERSONAL ACCESS TOKEN> --include-drafts --skip-roles --skip-webhooks --skip-content-model --content-file dump.json`
+1. Import the newly created JSON dump into your personal development space using `yarn dlx contentful-cli space import --space-id <YOUR OWN ACC SPACE ID> --environment-id master --mt <YOUR PERSONAL ACCESS TOKEN> --content-file dump.json`
 
 Once the import is complete, it is likely a large printout will appear mentioning that errors occured. This is where there are content in DXB's `development` environment, stopping them from being published. However, this isn't an issue as everything will have been successfullly imported into your new environment.
 
