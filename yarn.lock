@@ -3136,7 +3136,7 @@ __metadata:
     "@bmi/pim-types": "workspace:*"
     "@bmi/pub-sub-types": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
-    "@google-cloud/pubsub": ^3.7.3
+    "@google-cloud/pubsub": ^4.0.0
     "@types/prettier": ^2.7.3
     "@typescript-eslint/eslint-plugin": ^5.62.0
     "@typescript-eslint/parser": ^5.62.0
@@ -3176,7 +3176,7 @@ __metadata:
     "@bmi/pim-types": "workspace:*"
     "@bmi/pub-sub-types": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
-    "@google-cloud/pubsub": ^3.7.3
+    "@google-cloud/pubsub": ^4.0.0
     "@types/prettier": ^2.7.3
     "@typescript-eslint/eslint-plugin": ^5.62.0
     "@typescript-eslint/parser": ^5.62.0
@@ -3329,7 +3329,7 @@ __metadata:
     "@bmi/pub-sub-types": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
-    "@google-cloud/pubsub": ^3.7.3
+    "@google-cloud/pubsub": ^4.0.0
     "@types/prettier": ^2.7.3
     "@types/request": ^2.48.8
     "@typescript-eslint/eslint-plugin": ^5.62.0
@@ -4901,20 +4901,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/paginator@npm:^4.0.0":
-  version: 4.0.1
-  resolution: "@google-cloud/paginator@npm:4.0.1"
+"@google-cloud/paginator@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@google-cloud/paginator@npm:5.0.0"
   dependencies:
     arrify: ^2.0.0
     extend: ^3.0.2
-  checksum: 90998184454f3f008141c9663025ef51e32bdfa03bc001f93d323b4b520116f1073121bf3ebc637b21928553a3483f9d85b5aaded92b342c29bc872e62ac7c0e
+  checksum: 070975332423fdf4565956c8ecd75b2d1755e1f0a1ad2780ef80f307526b8b8258fbfd651e68424a0d273ec45f9cbbe83e1d5da6507f8197dd9ac48705ebdb13
   languageName: node
   linkType: hard
 
-"@google-cloud/precise-date@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "@google-cloud/precise-date@npm:3.0.1"
-  checksum: b3921e35767cb046f7d44d37922393978679559b9adc0c249ce71c14961472dc6d28a4be6a73840a3d4671964c636be09c6e9fa20a157914f3d29757be789ac4
+"@google-cloud/precise-date@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@google-cloud/precise-date@npm:4.0.0"
+  checksum: 8788bec6bb5db3fcc9cf72f346dc7af35d0ad1c9457d40f800e580dc58631568589b6795b48bef88b958b718c81cd326b0ccfe9d0ef9e7d7e85f45c1375e9c14
   languageName: node
   linkType: hard
 
@@ -4925,10 +4925,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/promisify@npm:^2.0.0":
-  version: 2.0.4
-  resolution: "@google-cloud/promisify@npm:2.0.4"
-  checksum: fc7d738cf1c504489ebea18d25d6278392e0bb85012db8e36a2c625917121d0a667ba37a1f90692a5142fe8d2aa5026a08d5f24825c2cabbebc015752a6d486b
+"@google-cloud/projectify@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@google-cloud/projectify@npm:4.0.0"
+  checksum: 0d0a6ceca76a138973fcb3ad577f209acdbd9d9aed1c645b09f98d5e5a258053dbbe6c1f13e6f85310cc0d9308f5f3a84f8fa4f1a132549a68d86174fb21067f
   languageName: node
   linkType: hard
 
@@ -4939,27 +4939,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/pubsub@npm:^3.7.3":
-  version: 3.7.3
-  resolution: "@google-cloud/pubsub@npm:3.7.3"
+"@google-cloud/promisify@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@google-cloud/promisify@npm:4.0.0"
+  checksum: 4332cbd923d7c6943ecdf46f187f1417c84bb9c801525cd74d719c766bfaad650f7964fb74576345f6537b6d6273a4f2992c8d79ebec6c8b8401b23d626b8dd3
+  languageName: node
+  linkType: hard
+
+"@google-cloud/pubsub@npm:^4.0.0":
+  version: 4.0.6
+  resolution: "@google-cloud/pubsub@npm:4.0.6"
   dependencies:
-    "@google-cloud/paginator": ^4.0.0
-    "@google-cloud/precise-date": ^3.0.0
-    "@google-cloud/projectify": ^3.0.0
-    "@google-cloud/promisify": ^2.0.0
-    "@opentelemetry/api": ^1.0.0
-    "@opentelemetry/semantic-conventions": ~1.3.0
+    "@google-cloud/paginator": ^5.0.0
+    "@google-cloud/precise-date": ^4.0.0
+    "@google-cloud/projectify": ^4.0.0
+    "@google-cloud/promisify": ^4.0.0
+    "@opentelemetry/api": ^1.6.0
+    "@opentelemetry/semantic-conventions": ~1.17.0
     "@types/duplexify": ^3.6.0
     "@types/long": ^4.0.0
     arrify: ^2.0.0
     extend: ^3.0.2
-    google-auth-library: ^8.0.2
-    google-gax: ^3.6.1
+    google-auth-library: ^9.0.0
+    google-gax: ^4.0.4
     heap-js: ^2.2.0
     is-stream-ended: ^0.1.4
     lodash.snakecase: ^4.1.1
     p-defer: ^3.0.0
-  checksum: bb66d0118a5202db9365c58ea9d0844423191f84d989e2fd5b66007f00ef064732c50cdad46b8f955b5c720326b138f648c4d525434375935ea4db52b280e881
+  checksum: 7d74bbad8fcf51fd5e15b74ed4b35b8866eb7dc5a07cb2990876ee06fa914d95a84f049f9b276ba00c0693a30c6feddef97166b95e7002ff27e2184a174d6d44
   languageName: node
   linkType: hard
 
@@ -5266,6 +5273,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@grpc/grpc-js@npm:~1.9.0":
+  version: 1.9.4
+  resolution: "@grpc/grpc-js@npm:1.9.4"
+  dependencies:
+    "@grpc/proto-loader": ^0.7.8
+    "@types/node": ">=12.12.47"
+  checksum: 2cfebb3d65f3795faf5780fcddbf1c19da7a5e469038c762aeeca35763b04d7d39cea99072808fabffaf63bbaa268a9c70fe2402e68c21e860249d89f7b01280
+  languageName: node
+  linkType: hard
+
 "@grpc/proto-loader@npm:^0.7.0":
   version: 0.7.8
   resolution: "@grpc/proto-loader@npm:0.7.8"
@@ -5278,6 +5295,20 @@ __metadata:
   bin:
     proto-loader-gen-types: build/bin/proto-loader-gen-types.js
   checksum: acfd4e3c6dca84de734cbb11a1ca210fe732d7a06c658dce9d29ffb4df761f74611f518a3ee8906fea5e69800f645efbda00fde4d76227c1fb7e28c2a903fa7b
+  languageName: node
+  linkType: hard
+
+"@grpc/proto-loader@npm:^0.7.8":
+  version: 0.7.10
+  resolution: "@grpc/proto-loader@npm:0.7.10"
+  dependencies:
+    lodash.camelcase: ^4.3.0
+    long: ^5.0.0
+    protobufjs: ^7.2.4
+    yargs: ^17.7.2
+  bin:
+    proto-loader-gen-types: build/bin/proto-loader-gen-types.js
+  checksum: efd9a094afd90a271019adb7213dbbf6ae8788b7ad5b9b98e2b15848f0dcdd645ab8701b7feb981e3692846d4f81f71468be61bb10e85ced53dfd9a5aa2df7dd
   languageName: node
   linkType: hard
 
@@ -7005,17 +7036,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/api@npm:^1.0.0":
-  version: 1.4.1
-  resolution: "@opentelemetry/api@npm:1.4.1"
-  checksum: 5ee641d3d64c91e87ee328fc22251fc70c809a3c744e51e595ca77c0bd3cad933b77a79beb4dac66b811e5068941cef9da58c1ec217c0748a01f598e08a7ae66
+"@opentelemetry/api@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@opentelemetry/api@npm:1.6.0"
+  checksum: f419853358fdd7d9bad51dfeea5a676d7894e7983633448d1022b867e979bc28083181e000e477ee53efda97895dd6a357e15392ac39ac8dfdc42dd194e0f17e
   languageName: node
   linkType: hard
 
-"@opentelemetry/semantic-conventions@npm:~1.3.0":
-  version: 1.3.1
-  resolution: "@opentelemetry/semantic-conventions@npm:1.3.1"
-  checksum: 76ca38105cd89e5c9a7827b98a0a038f810043cd2738f5bfd527bb9059578fd96f3a92097aa9e07d850145fc3473e929fe292211f94adf8195049537c1b69273
+"@opentelemetry/semantic-conventions@npm:~1.17.0":
+  version: 1.17.0
+  resolution: "@opentelemetry/semantic-conventions@npm:1.17.0"
+  checksum: d39281ff653c14b143c7c3a923b4c8b6b98d9e6045bc0bb1fd99edc3cd5cec16b557137c50a29ec3696a2ea5bca0c9262ec4cdcdaaad15df7f259faefcec2bc8
   languageName: node
   linkType: hard
 
@@ -18366,7 +18397,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-gax@npm:^3.5.7, google-gax@npm:^3.6.1":
+"google-gax@npm:^3.5.7":
   version: 3.6.1
   resolution: "google-gax@npm:3.6.1"
   dependencies:
@@ -18408,6 +18439,25 @@ __metadata:
     protobufjs: 7.2.4
     retry-request: ^6.0.0
   checksum: 213172502effe26ea887f99270f16eaddfb359a02be4d427345717965ff0e17695a6b0252a9dba82c24b88c524034db909cb8ec774f680965e8a0882c93fd325
+  languageName: node
+  linkType: hard
+
+"google-gax@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "google-gax@npm:4.0.4"
+  dependencies:
+    "@grpc/grpc-js": ~1.9.0
+    "@grpc/proto-loader": ^0.7.0
+    "@types/long": ^4.0.0
+    abort-controller: ^3.0.0
+    duplexify: ^4.0.0
+    google-auth-library: ^9.0.0
+    node-fetch: ^2.6.1
+    object-hash: ^3.0.0
+    proto3-json-serializer: ^2.0.0
+    protobufjs: 7.2.5
+    retry-request: ^6.0.0
+  checksum: f88670bdbd778c4a973dfc20ff7544214b26154873f7cd3d722cb93cfbbbf5f3b0db4b5b48420a8647e0e37b98247256af61245d6397a4f9bd7f2597ab858a7b
   languageName: node
   linkType: hard
 
@@ -26805,6 +26855,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proto3-json-serializer@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "proto3-json-serializer@npm:2.0.0"
+  dependencies:
+    protobufjs: ^7.0.0
+  checksum: 2b63d6d9d740f107f0c0864adb4cb16c7beaa7d55fccce0c8cd1b9e30cbb2571f11798bff2410532024ca87684d00ab54150a44c0d1993738424065b8b8067ed
+  languageName: node
+  linkType: hard
+
 "protobufjs-cli@npm:1.1.1":
   version: 1.1.1
   resolution: "protobufjs-cli@npm:1.1.1"
@@ -26845,6 +26904,26 @@ __metadata:
     "@types/node": ">=13.7.0"
     long: ^5.0.0
   checksum: 7610b4e3b961e7637e8f61099931161af7f47f8b88b4a0d55124158f9b7fbe6e8fdfe551803b0c65fefad9d58d49332f0b5b4aa5826d8dcd8b062c351cbe2ebb
+  languageName: node
+  linkType: hard
+
+"protobufjs@npm:7.2.5":
+  version: 7.2.5
+  resolution: "protobufjs@npm:7.2.5"
+  dependencies:
+    "@protobufjs/aspromise": ^1.1.2
+    "@protobufjs/base64": ^1.1.2
+    "@protobufjs/codegen": ^2.0.4
+    "@protobufjs/eventemitter": ^1.1.0
+    "@protobufjs/fetch": ^1.1.0
+    "@protobufjs/float": ^1.0.2
+    "@protobufjs/inquire": ^1.1.0
+    "@protobufjs/path": ^1.1.2
+    "@protobufjs/pool": ^1.1.0
+    "@protobufjs/utf8": ^1.1.0
+    "@types/node": ">=13.7.0"
+    long: ^5.0.0
+  checksum: 12bb88965a2291ec717daddb1b7153c0e567586076da7d138c8f04558d3d0a9cad6445a3558f16c1a61f5cd9dec1a107712590daccb71763429d9b1e10d164d3
   languageName: node
   linkType: hard
 

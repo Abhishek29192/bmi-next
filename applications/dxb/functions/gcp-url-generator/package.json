@@ -21,7 +21,7 @@
     "@bmi-digital/functions-logger": "^1.7.5",
     "@bmi/pim-transformation": "workspace:*",
     "@bmi/utils": "workspace:*",
-    "@google-cloud/pubsub": "^3.7.3",
+    "@google-cloud/pubsub": "^4.0.0",
     "dotenv": "^16.3.1",
     "request": "^2.88.2"
   },
