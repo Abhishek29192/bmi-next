@@ -62,6 +62,7 @@ const TechnicalSpecificationLeadBlock = ({
             {[...technicalSpecClassifications]
               .sort((a, b) => (a.name > b.name ? 1 : -1))
               .map(({ name, features }, id) => {
+                features.sort((a, b) => (a.name > b.name ? 1 : -1));
                 return (
                   <Accordion.Item
                     key={`tech-spec-${id}`}

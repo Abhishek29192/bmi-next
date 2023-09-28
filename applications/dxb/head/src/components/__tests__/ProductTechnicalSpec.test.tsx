@@ -1,11 +1,10 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from "react";
 import createClassification from "../../__tests__/helpers/ClassificationHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import ProductTechnicalSpec from "../ProductTechnicalSpec";
 import { SiteContextProvider } from "../Site";
-import { ConfigProvider } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -127,61 +126,6 @@ describe("ProductTechnicalSpec component", () => {
           </ThemeProvider>
         );
         expect(baseElement).toMatchSnapshot();
-      });
-    });
-
-    describe("classification ordering", () => {
-      const products = createProduct({
-        classifications: [
-          createClassification({
-            name: "secondClassProduct",
-            features: [{ name: "feature1", value: "200" }]
-          }),
-          createClassification({
-            name: "firstClassProduct",
-            features: [{ name: "feature1", value: "200" }]
-          })
-        ]
-      });
-
-      describe("When the 'enable product attribute ordering' feature flag is set as true", () => {
-        it("should sort classification by name", () => {
-          render(
-            <ConfigProvider
-              configOverride={{
-                enableProductClassificationAttributeOrdering: true
-              }}
-            >
-              <ThemeProvider>
-                <ProductTechnicalSpec product={products} />
-              </ThemeProvider>
-            </ConfigProvider>
-          );
-          const classificationName = screen.getAllByRole("heading", {
-            level: 6
-          });
-          expect(classificationName[0].textContent).toBe("firstClassProduct");
-        });
-      });
-
-      describe("When the 'enable product attribute ordering' feature flag is set as false", () => {
-        it("should NOT sort classification by name", () => {
-          render(
-            <ConfigProvider
-              configOverride={{
-                enableProductClassificationAttributeOrdering: false
-              }}
-            >
-              <ThemeProvider>
-                <ProductTechnicalSpec product={products} />
-              </ThemeProvider>
-            </ConfigProvider>
-          );
-          const classificationName = screen.getAllByRole("heading", {
-            level: 6
-          });
-          expect(classificationName[0].textContent).toBe("secondClassProduct");
-        });
       });
     });
   });

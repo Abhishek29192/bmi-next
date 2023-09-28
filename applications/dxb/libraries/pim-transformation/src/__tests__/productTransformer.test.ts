@@ -30,6 +30,7 @@ const transformProduct = async (
 
 beforeEach(() => {
   process.env.ENABLE_SAMPLE_ORDERING = "true";
+  process.env.ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING = "false";
 });
 
 describe("transformProduct", () => {
@@ -849,16 +850,12 @@ describe("transformProduct", () => {
             {
               "features": [
                 {
-                  "name": "Length",
-                  "value": "6 symbol",
-                },
-                {
-                  "name": "Width",
-                  "value": "7 symbol",
-                },
-                {
                   "name": "Height",
                   "value": "8 symbol",
+                },
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
                 },
                 {
                   "name": "Thickness",
@@ -868,8 +865,21 @@ describe("transformProduct", () => {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
               ],
               "name": "Measurements",
+            },
+            {
+              "features": [
+                {
+                  "name": "name",
+                  "value": "value symbol",
+                },
+              ],
+              "name": "name",
             },
             {
               "features": [
@@ -895,15 +905,6 @@ describe("transformProduct", () => {
                 },
               ],
               "name": "Weight",
-            },
-            {
-              "features": [
-                {
-                  "name": "name",
-                  "value": "value symbol",
-                },
-              ],
-              "name": "name",
             },
           ],
           "code": "variant-code",
@@ -1679,16 +1680,12 @@ describe("transformProduct", () => {
             {
               "features": [
                 {
-                  "name": "Length",
-                  "value": "6 symbol",
-                },
-                {
-                  "name": "Width",
-                  "value": "7 symbol",
-                },
-                {
                   "name": "Height",
                   "value": "8 symbol",
+                },
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
                 },
                 {
                   "name": "Thickness",
@@ -1698,8 +1695,21 @@ describe("transformProduct", () => {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
               ],
               "name": "Measurements",
+            },
+            {
+              "features": [
+                {
+                  "name": "name",
+                  "value": "value symbol",
+                },
+              ],
+              "name": "name",
             },
             {
               "features": [
@@ -1725,15 +1735,6 @@ describe("transformProduct", () => {
                 },
               ],
               "name": "Weight",
-            },
-            {
-              "features": [
-                {
-                  "name": "name",
-                  "value": "value symbol",
-                },
-              ],
-              "name": "name",
             },
           ],
           "code": "variant-code",
@@ -2514,16 +2515,12 @@ describe("transformProduct", () => {
             {
               "features": [
                 {
-                  "name": "Length",
-                  "value": "6 symbol",
-                },
-                {
-                  "name": "Width",
-                  "value": "7 symbol",
-                },
-                {
                   "name": "Height",
                   "value": "8 symbol",
+                },
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
                 },
                 {
                   "name": "Thickness",
@@ -2533,8 +2530,21 @@ describe("transformProduct", () => {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
               ],
               "name": "Measurements",
+            },
+            {
+              "features": [
+                {
+                  "name": "name",
+                  "value": "value symbol",
+                },
+              ],
+              "name": "name",
             },
             {
               "features": [
@@ -2560,15 +2570,6 @@ describe("transformProduct", () => {
                 },
               ],
               "name": "Weight",
-            },
-            {
-              "features": [
-                {
-                  "name": "name",
-                  "value": "value symbol",
-                },
-              ],
-              "name": "name",
             },
           ],
           "code": "variant-code",
@@ -3349,16 +3350,12 @@ describe("transformProduct", () => {
             {
               "features": [
                 {
-                  "name": "Length",
-                  "value": "6 symbol",
-                },
-                {
-                  "name": "Width",
-                  "value": "7 symbol",
-                },
-                {
                   "name": "Height",
                   "value": "8 symbol",
+                },
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
                 },
                 {
                   "name": "Thickness",
@@ -3368,8 +3365,21 @@ describe("transformProduct", () => {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
               ],
               "name": "Measurements",
+            },
+            {
+              "features": [
+                {
+                  "name": "name",
+                  "value": "value symbol",
+                },
+              ],
+              "name": "name",
             },
             {
               "features": [
@@ -3395,15 +3405,6 @@ describe("transformProduct", () => {
                 },
               ],
               "name": "Weight",
-            },
-            {
-              "features": [
-                {
-                  "name": "name",
-                  "value": "value symbol",
-                },
-              ],
-              "name": "name",
             },
           ],
           "code": "variant-code",
@@ -4288,16 +4289,12 @@ describe("transformProduct", () => {
             {
               "features": [
                 {
-                  "name": "Length",
-                  "value": "6 symbol",
-                },
-                {
-                  "name": "Width",
-                  "value": "7 symbol",
-                },
-                {
                   "name": "Height",
                   "value": "8 symbol",
+                },
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
                 },
                 {
                   "name": "Thickness",
@@ -4319,8 +4316,21 @@ describe("transformProduct", () => {
                   "name": "Volume",
                   "value": "5",
                 },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
               ],
               "name": "Measurements",
+            },
+            {
+              "features": [
+                {
+                  "name": "name",
+                  "value": "value symbol",
+                },
+              ],
+              "name": "name",
             },
             {
               "features": [
@@ -4346,15 +4356,6 @@ describe("transformProduct", () => {
                 },
               ],
               "name": "Weight",
-            },
-            {
-              "features": [
-                {
-                  "name": "name",
-                  "value": "value symbol",
-                },
-              ],
-              "name": "name",
             },
           ],
           "code": "variant-code",
@@ -5180,16 +5181,12 @@ describe("transformProduct", () => {
             {
               "features": [
                 {
-                  "name": "Length",
-                  "value": "6 symbol",
-                },
-                {
-                  "name": "Width",
-                  "value": "7 symbol",
-                },
-                {
                   "name": "Height",
                   "value": "8 symbol",
+                },
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
                 },
                 {
                   "name": "Thickness",
@@ -5199,8 +5196,21 @@ describe("transformProduct", () => {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
               ],
               "name": "Measurements",
+            },
+            {
+              "features": [
+                {
+                  "name": "name",
+                  "value": "value symbol",
+                },
+              ],
+              "name": "name",
             },
             {
               "features": [
@@ -5226,15 +5236,6 @@ describe("transformProduct", () => {
                 },
               ],
               "name": "Weight",
-            },
-            {
-              "features": [
-                {
-                  "name": "name",
-                  "value": "value symbol",
-                },
-              ],
-              "name": "name",
             },
           ],
           "code": "variant1",
@@ -6092,16 +6093,12 @@ describe("transformProduct", () => {
             {
               "features": [
                 {
-                  "name": "Length",
-                  "value": "6 symbol",
-                },
-                {
-                  "name": "Width",
-                  "value": "7 symbol",
-                },
-                {
                   "name": "Height",
                   "value": "8 symbol",
+                },
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
                 },
                 {
                   "name": "Thickness",
@@ -6111,8 +6108,21 @@ describe("transformProduct", () => {
                   "name": "Volume",
                   "value": "10 symbol",
                 },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
               ],
               "name": "Measurements",
+            },
+            {
+              "features": [
+                {
+                  "name": "name",
+                  "value": "value symbol",
+                },
+              ],
+              "name": "name",
             },
             {
               "features": [
@@ -6138,15 +6148,6 @@ describe("transformProduct", () => {
                 },
               ],
               "name": "Weight",
-            },
-            {
-              "features": [
-                {
-                  "name": "name",
-                  "value": "value symbol",
-                },
-              ],
-              "name": "name",
             },
           ],
           "code": "variant2",
@@ -9753,16 +9754,12 @@ describe("transformProduct", () => {
             {
               "features": [
                 {
-                  "name": "Length",
-                  "value": "1 symbol",
-                },
-                {
-                  "name": "width",
-                  "value": "2 symbol",
-                },
-                {
                   "name": "Height",
                   "value": "3 symbol",
+                },
+                {
+                  "name": "Length",
+                  "value": "1 symbol",
                 },
                 {
                   "name": "Thickness",
@@ -9771,6 +9768,10 @@ describe("transformProduct", () => {
                 {
                   "name": "Volume",
                   "value": "5 symbol",
+                },
+                {
+                  "name": "width",
+                  "value": "2 symbol",
                 },
               ],
               "name": "Measurements",
@@ -10714,16 +10715,12 @@ describe("transformProduct", () => {
             {
               "features": [
                 {
-                  "name": "Length",
-                  "value": "6 symbol",
-                },
-                {
-                  "name": "Width",
-                  "value": "7 symbol",
-                },
-                {
                   "name": "Height",
                   "value": "8 symbol",
+                },
+                {
+                  "name": "Length",
+                  "value": "6 symbol",
                 },
                 {
                   "name": "Thickness",
@@ -10732,6 +10729,10 @@ describe("transformProduct", () => {
                 {
                   "name": "Volume",
                   "value": "10 symbol",
+                },
+                {
+                  "name": "Width",
+                  "value": "7 symbol",
                 },
               ],
               "name": "Measurements",
@@ -12804,5 +12805,1675 @@ describe("transformProduct", () => {
         approvalStatus: ApprovalStatus.Preview
       })
     ]);
+  });
+
+  it("should not sort classification order if ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING is set to true", async () => {
+    const originalEnableClassificationValue =
+      process.env.ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING;
+    process.env.ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING = "true";
+
+    const product = createFullyPopulatedProduct();
+    const transformedProducts = await transformProduct(product);
+
+    expect(transformedProducts).toMatchInlineSnapshot(`
+    [
+      {
+        "approvalStatus": "approved",
+        "awardsAndCertificateDocuments": [
+          {
+            "allowedToDownload": true,
+            "assetType": "AWARDS",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": false,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": undefined,
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 1.7976931348623157e+308,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": undefined,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": undefined,
+          },
+        ],
+        "awardsAndCertificateImages": [
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": undefined,
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": undefined,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": undefined,
+            "url": "http://localhost:8000",
+          },
+        ],
+        "baseCode": "base-code",
+        "baseScoringWeight": 100,
+        "bimIframeUrl": "http://localhost:8000",
+        "brand": {
+          "code": "code",
+          "logo": "http://localhost:8000",
+          "name": "name",
+        },
+        "categories": [
+          {
+            "categoryType": "Brand",
+            "code": "code",
+            "image": {
+              "allowedToDownload": true,
+              "fileSize": 10,
+              "mime": "image/png",
+              "name": "name",
+              "realFileName": "real-file-name.png",
+              "url": "http://localhost:8000",
+            },
+            "name": "name",
+            "parentCategoryCode": "parent-category-code",
+          },
+          {
+            "categoryType": "Category",
+            "code": "parent-category",
+            "image": {
+              "allowedToDownload": true,
+              "fileSize": 10,
+              "mime": "image/png",
+              "name": "name",
+              "realFileName": "real-file-name.png",
+              "url": "http://localhost:8000",
+            },
+            "name": "Parent Category",
+            "parentCategoryCode": "",
+          },
+          {
+            "categoryType": "Category",
+            "code": "child-category",
+            "image": {
+              "allowedToDownload": true,
+              "fileSize": 10,
+              "mime": "image/png",
+              "name": "name",
+              "realFileName": "real-file-name.png",
+              "url": "http://localhost:8000",
+            },
+            "name": "Child Category",
+            "parentCategoryCode": "parent-category",
+          },
+        ],
+        "classifications": [
+          {
+            "features": [
+              {
+                "name": "name",
+                "value": "value symbol",
+              },
+            ],
+            "name": "name",
+          },
+          {
+            "features": [
+              {
+                "name": "Material",
+                "value": "Concrete",
+              },
+            ],
+            "name": "General",
+          },
+          {
+            "features": [
+              {
+                "name": "Length",
+                "value": "6 symbol",
+              },
+              {
+                "name": "Width",
+                "value": "7 symbol",
+              },
+              {
+                "name": "Height",
+                "value": "8 symbol",
+              },
+              {
+                "name": "Thickness",
+                "value": "9 symbol",
+              },
+              {
+                "name": "Volume",
+                "value": "10 symbol",
+              },
+            ],
+            "name": "Measurements",
+          },
+          {
+            "features": [
+              {
+                "name": "Gross Weight",
+                "value": "6 symbol",
+              },
+              {
+                "name": "Net Weight",
+                "value": "7 symbol",
+              },
+              {
+                "name": "Weight per Pallet",
+                "value": "8 symbol",
+              },
+              {
+                "name": "Weight per Piece",
+                "value": "9 symbol",
+              },
+              {
+                "name": "Weight per sq m",
+                "value": "10 symbol",
+              },
+            ],
+            "name": "Weight",
+          },
+        ],
+        "code": "variant-code",
+        "colour": "Shadow Black",
+        "colourFamily": "Black",
+        "colourMicrocopy": "Colour",
+        "description": "<p>Long description</p>",
+        "documents": [
+          {
+            "assetType": "ASSEMBLY_INSTRUCTIONS",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "AWARDS",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "id": "2583923841",
+            "isLinkDocument": true,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "id": "2583923841",
+            "isLinkDocument": true,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "id": "2583923841",
+            "isLinkDocument": true,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "BIM",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "FIXING_TOOL",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "GUARANTIES",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "SPECIFICATION",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "VIDEO",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "84587715",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
+          },
+          {
+            "assetType": "WARRANTIES",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+        ],
+        "externalProductCode": "external-product-code",
+        "filters": [
+          {
+            "code": "code",
+            "filterCode": "classification-feature-code",
+            "groupLabel": "name",
+            "isCategory": false,
+            "name": "name",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "value",
+          },
+          {
+            "code": "code",
+            "filterCode": "generalInformation.materials",
+            "groupLabel": "Material",
+            "isCategory": false,
+            "name": "Material",
+            "parentFilterCode": "",
+            "unit": undefined,
+            "value": "Concrete",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.length",
+            "groupLabel": "Length",
+            "isCategory": false,
+            "name": "Length",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "6",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.width",
+            "groupLabel": "Width",
+            "isCategory": false,
+            "name": "Width",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "7",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.height",
+            "groupLabel": "Height",
+            "isCategory": false,
+            "name": "Height",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "8",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.thickness",
+            "groupLabel": "Thickness",
+            "isCategory": false,
+            "name": "Thickness",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "9",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.volume",
+            "groupLabel": "Volume",
+            "isCategory": false,
+            "name": "Volume",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "10",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.grossweight",
+            "groupLabel": "Gross Weight",
+            "isCategory": false,
+            "name": "Gross Weight",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "6",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.netweight",
+            "groupLabel": "Net Weight",
+            "isCategory": false,
+            "name": "Net Weight",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "7",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.weightperpallet",
+            "groupLabel": "Weight per Pallet",
+            "isCategory": false,
+            "name": "Weight per Pallet",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "8",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.weightperpiece",
+            "groupLabel": "Weight per Piece",
+            "isCategory": false,
+            "name": "Weight per Piece",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "9",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.weightpersqm",
+            "groupLabel": "Weight per sq m",
+            "isCategory": false,
+            "name": "Weight per sq m",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "10",
+          },
+          {
+            "code": "code",
+            "filterCode": "Brand",
+            "groupLabel": undefined,
+            "isCategory": true,
+            "name": "name",
+            "parentFilterCode": "parent-category-code",
+            "value": "code",
+          },
+          {
+            "code": "parent-category",
+            "filterCode": "Category",
+            "groupLabel": undefined,
+            "isCategory": true,
+            "name": "Parent Category",
+            "parentFilterCode": "",
+            "value": "parent-category",
+          },
+          {
+            "code": "child-category",
+            "filterCode": "Category",
+            "groupLabel": "Parent Category",
+            "isCategory": true,
+            "name": "Child Category",
+            "parentFilterCode": "parent-category",
+            "value": "child-category",
+          },
+        ],
+        "fixingToolIframeUrl": "http://localhost:8000",
+        "galleryImages": [
+          {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
+        ],
+        "goodBetterBest": undefined,
+        "groups": [
+          {
+            "code": "parent-category",
+            "label": "Parent Category",
+          },
+        ],
+        "guaranteesAndWarrantiesImages": [],
+        "guaranteesAndWarrantiesLinks": [],
+        "hashedCode": "3464354221",
+        "isSampleOrderAllowed": true,
+        "isVisualiserAvailable": false,
+        "masterImage": {
+          "altText": "name",
+          "mainSource": "http://localhost:8000",
+          "thumbnail": "http://localhost:8000",
+        },
+        "materials": "Concrete",
+        "measurements": {
+          "height": {
+            "unit": "symbol",
+            "value": "8",
+          },
+          "label": "6x7x8x9symbol",
+          "length": {
+            "unit": "symbol",
+            "value": "6",
+          },
+          "thickness": {
+            "unit": "symbol",
+            "value": "9",
+          },
+          "volume": {
+            "unit": "symbol",
+            "value": "10",
+          },
+          "width": {
+            "unit": "symbol",
+            "value": "7",
+          },
+        },
+        "name": "name",
+        "path": "/p/name-shadow-black-gloss-concrete-3464354221",
+        "productBenefits": [
+          "product-benefits",
+        ],
+        "relatedVariants": [],
+        "seoDescription": "seo_descr",
+        "seoTags": [
+          "seo",
+          "test",
+        ],
+        "seoTitle": "test",
+        "specificationIframeUrl": "http://localhost:8000",
+        "techDrawings": [
+          {
+            "altText": undefined,
+            "mainSource": "http://localhost:8000",
+            "thumbnail": undefined,
+          },
+        ],
+        "textureFamily": "Gloss",
+        "textureFamilyMicrocopy": "Texture Family",
+        "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
+        "videos": [
+          {
+            "label": "name",
+            "previewMedia": null,
+            "subtitle": null,
+            "title": "",
+            "videoRatio": null,
+            "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
+          },
+        ],
+        "weight": {
+          "grossWeight": {
+            "unit": "symbol",
+            "value": "6",
+          },
+          "netWeight": {
+            "unit": "symbol",
+            "value": "7",
+          },
+          "weightPerPallet": {
+            "unit": "symbol",
+            "value": "8",
+          },
+          "weightPerPiece": {
+            "unit": "symbol",
+            "value": "9",
+          },
+          "weightPerSqm": {
+            "unit": "symbol",
+            "value": "10",
+          },
+        },
+      },
+    ]
+    `);
+
+    process.env.ENABLE_SAMPLE_ORDERING = originalEnableClassificationValue;
+  });
+
+  it("should sort classification order if ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING is not set (existing behaviour)", async () => {
+    const originalEnableClassificationValue =
+      process.env.ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING;
+    delete process.env.ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING;
+
+    const product = createFullyPopulatedProduct();
+    const transformedProducts = await transformProduct(product);
+
+    expect(transformedProducts).toMatchInlineSnapshot(`
+    [
+      {
+        "approvalStatus": "approved",
+        "awardsAndCertificateDocuments": [
+          {
+            "allowedToDownload": true,
+            "assetType": "AWARDS",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": false,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": undefined,
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 1.7976931348623157e+308,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": undefined,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": "real-file-name.pdf",
+            "url": undefined,
+          },
+        ],
+        "awardsAndCertificateImages": [
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": 10,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": undefined,
+            "url": "http://localhost:8000",
+          },
+          {
+            "allowedToDownload": true,
+            "assetType": "CERTIFICATES",
+            "fileSize": undefined,
+            "format": "pdf",
+            "mime": "application/pdf",
+            "name": "name",
+            "realFileName": undefined,
+            "url": "http://localhost:8000",
+          },
+        ],
+        "baseCode": "base-code",
+        "baseScoringWeight": 100,
+        "bimIframeUrl": "http://localhost:8000",
+        "brand": {
+          "code": "code",
+          "logo": "http://localhost:8000",
+          "name": "name",
+        },
+        "categories": [
+          {
+            "categoryType": "Brand",
+            "code": "code",
+            "image": {
+              "allowedToDownload": true,
+              "fileSize": 10,
+              "mime": "image/png",
+              "name": "name",
+              "realFileName": "real-file-name.png",
+              "url": "http://localhost:8000",
+            },
+            "name": "name",
+            "parentCategoryCode": "parent-category-code",
+          },
+          {
+            "categoryType": "Category",
+            "code": "parent-category",
+            "image": {
+              "allowedToDownload": true,
+              "fileSize": 10,
+              "mime": "image/png",
+              "name": "name",
+              "realFileName": "real-file-name.png",
+              "url": "http://localhost:8000",
+            },
+            "name": "Parent Category",
+            "parentCategoryCode": "",
+          },
+          {
+            "categoryType": "Category",
+            "code": "child-category",
+            "image": {
+              "allowedToDownload": true,
+              "fileSize": 10,
+              "mime": "image/png",
+              "name": "name",
+              "realFileName": "real-file-name.png",
+              "url": "http://localhost:8000",
+            },
+            "name": "Child Category",
+            "parentCategoryCode": "parent-category",
+          },
+        ],
+        "classifications": [
+          {
+            "features": [
+              {
+                "name": "Material",
+                "value": "Concrete",
+              },
+            ],
+            "name": "General",
+          },
+          {
+            "features": [
+              {
+                "name": "Height",
+                "value": "8 symbol",
+              },
+              {
+                "name": "Length",
+                "value": "6 symbol",
+              },
+              {
+                "name": "Thickness",
+                "value": "9 symbol",
+              },
+              {
+                "name": "Volume",
+                "value": "10 symbol",
+              },
+              {
+                "name": "Width",
+                "value": "7 symbol",
+              },
+            ],
+            "name": "Measurements",
+          },
+          {
+            "features": [
+              {
+                "name": "name",
+                "value": "value symbol",
+              },
+            ],
+            "name": "name",
+          },
+          {
+            "features": [
+              {
+                "name": "Gross Weight",
+                "value": "6 symbol",
+              },
+              {
+                "name": "Net Weight",
+                "value": "7 symbol",
+              },
+              {
+                "name": "Weight per Pallet",
+                "value": "8 symbol",
+              },
+              {
+                "name": "Weight per Piece",
+                "value": "9 symbol",
+              },
+              {
+                "name": "Weight per sq m",
+                "value": "10 symbol",
+              },
+            ],
+            "name": "Weight",
+          },
+        ],
+        "code": "variant-code",
+        "colour": "Shadow Black",
+        "colourFamily": "Black",
+        "colourMicrocopy": "Colour",
+        "description": "<p>Long description</p>",
+        "documents": [
+          {
+            "assetType": "ASSEMBLY_INSTRUCTIONS",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "AWARDS",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "id": "2583923841",
+            "isLinkDocument": true,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "id": "2583923841",
+            "isLinkDocument": true,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "CERTIFICATES",
+            "id": "2583923841",
+            "isLinkDocument": true,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "BIM",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "FIXING_TOOL",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "GUARANTIES",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "SPECIFICATION",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+          {
+            "assetType": "VIDEO",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "84587715",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
+          },
+          {
+            "assetType": "WARRANTIES",
+            "extension": "pdf",
+            "fileSize": 10,
+            "format": "application/pdf",
+            "id": "2583923841",
+            "isLinkDocument": false,
+            "productBaseCode": "base-code",
+            "productCategories": [
+              {
+                "code": "code",
+                "parentCategoryCode": "parent-category-code",
+              },
+              {
+                "code": "parent-category",
+                "parentCategoryCode": "",
+              },
+              {
+                "code": "child-category",
+                "parentCategoryCode": "parent-category",
+              },
+            ],
+            "productName": "name",
+            "realFileName": "real-file-name.pdf",
+            "title": "name",
+            "url": "http://localhost:8000",
+          },
+        ],
+        "externalProductCode": "external-product-code",
+        "filters": [
+          {
+            "code": "code",
+            "filterCode": "classification-feature-code",
+            "groupLabel": "name",
+            "isCategory": false,
+            "name": "name",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "value",
+          },
+          {
+            "code": "code",
+            "filterCode": "generalInformation.materials",
+            "groupLabel": "Material",
+            "isCategory": false,
+            "name": "Material",
+            "parentFilterCode": "",
+            "unit": undefined,
+            "value": "Concrete",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.length",
+            "groupLabel": "Length",
+            "isCategory": false,
+            "name": "Length",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "6",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.width",
+            "groupLabel": "Width",
+            "isCategory": false,
+            "name": "Width",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "7",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.height",
+            "groupLabel": "Height",
+            "isCategory": false,
+            "name": "Height",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "8",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.thickness",
+            "groupLabel": "Thickness",
+            "isCategory": false,
+            "name": "Thickness",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "9",
+          },
+          {
+            "code": "",
+            "filterCode": "measurements.volume",
+            "groupLabel": "Volume",
+            "isCategory": false,
+            "name": "Volume",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "10",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.grossweight",
+            "groupLabel": "Gross Weight",
+            "isCategory": false,
+            "name": "Gross Weight",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "6",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.netweight",
+            "groupLabel": "Net Weight",
+            "isCategory": false,
+            "name": "Net Weight",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "7",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.weightperpallet",
+            "groupLabel": "Weight per Pallet",
+            "isCategory": false,
+            "name": "Weight per Pallet",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "8",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.weightperpiece",
+            "groupLabel": "Weight per Piece",
+            "isCategory": false,
+            "name": "Weight per Piece",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "9",
+          },
+          {
+            "code": "",
+            "filterCode": "weightAttributes.weightpersqm",
+            "groupLabel": "Weight per sq m",
+            "isCategory": false,
+            "name": "Weight per sq m",
+            "parentFilterCode": "",
+            "unit": "symbol",
+            "value": "10",
+          },
+          {
+            "code": "code",
+            "filterCode": "Brand",
+            "groupLabel": undefined,
+            "isCategory": true,
+            "name": "name",
+            "parentFilterCode": "parent-category-code",
+            "value": "code",
+          },
+          {
+            "code": "parent-category",
+            "filterCode": "Category",
+            "groupLabel": undefined,
+            "isCategory": true,
+            "name": "Parent Category",
+            "parentFilterCode": "",
+            "value": "parent-category",
+          },
+          {
+            "code": "child-category",
+            "filterCode": "Category",
+            "groupLabel": "Parent Category",
+            "isCategory": true,
+            "name": "Child Category",
+            "parentFilterCode": "parent-category",
+            "value": "child-category",
+          },
+        ],
+        "fixingToolIframeUrl": "http://localhost:8000",
+        "galleryImages": [
+          {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
+        ],
+        "goodBetterBest": undefined,
+        "groups": [
+          {
+            "code": "parent-category",
+            "label": "Parent Category",
+          },
+        ],
+        "guaranteesAndWarrantiesImages": [],
+        "guaranteesAndWarrantiesLinks": [],
+        "hashedCode": "3464354221",
+        "isSampleOrderAllowed": true,
+        "isVisualiserAvailable": false,
+        "masterImage": {
+          "altText": "name",
+          "mainSource": "http://localhost:8000",
+          "thumbnail": "http://localhost:8000",
+        },
+        "materials": "Concrete",
+        "measurements": {
+          "height": {
+            "unit": "symbol",
+            "value": "8",
+          },
+          "label": "6x7x8x9symbol",
+          "length": {
+            "unit": "symbol",
+            "value": "6",
+          },
+          "thickness": {
+            "unit": "symbol",
+            "value": "9",
+          },
+          "volume": {
+            "unit": "symbol",
+            "value": "10",
+          },
+          "width": {
+            "unit": "symbol",
+            "value": "7",
+          },
+        },
+        "name": "name",
+        "path": "/p/name-shadow-black-gloss-concrete-3464354221",
+        "productBenefits": [
+          "product-benefits",
+        ],
+        "relatedVariants": [],
+        "seoDescription": "seo_descr",
+        "seoTags": [
+          "seo",
+          "test",
+        ],
+        "seoTitle": "test",
+        "specificationIframeUrl": "http://localhost:8000",
+        "techDrawings": [
+          {
+            "altText": undefined,
+            "mainSource": "http://localhost:8000",
+            "thumbnail": undefined,
+          },
+        ],
+        "textureFamily": "Gloss",
+        "textureFamilyMicrocopy": "Texture Family",
+        "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
+        "videos": [
+          {
+            "label": "name",
+            "previewMedia": null,
+            "subtitle": null,
+            "title": "",
+            "videoRatio": null,
+            "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
+          },
+        ],
+        "weight": {
+          "grossWeight": {
+            "unit": "symbol",
+            "value": "6",
+          },
+          "netWeight": {
+            "unit": "symbol",
+            "value": "7",
+          },
+          "weightPerPallet": {
+            "unit": "symbol",
+            "value": "8",
+          },
+          "weightPerPiece": {
+            "unit": "symbol",
+            "value": "9",
+          },
+          "weightPerSqm": {
+            "unit": "symbol",
+            "value": "10",
+          },
+        },
+      },
+    ]
+    `);
+
+    process.env.ENABLE_SAMPLE_ORDERING = originalEnableClassificationValue;
   });
 });
