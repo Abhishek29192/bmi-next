@@ -18,7 +18,7 @@
     "@bmi/functions-contentful-client": "workspace:*",
     "@bmi/functions-es-client": "workspace:*",
     "@bmi/pim-api": "workspace:*",
-    "@google-cloud/pubsub": "^3.7.3",
+    "@google-cloud/pubsub": "^4.0.0",
     "contentful": "^10.5.1",
     "node-fetch": "^2.7.0"
   },
