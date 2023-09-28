@@ -161,7 +161,7 @@
     "jest-preset-gatsby": "^1.0.134",
     "prettier": "^2.8.8",
     "process-top": "^1.2.0",
-    "puppeteer": "^20.9.0",
+    "puppeteer": "^21.0.0",
     "schema-dts": "^1.1.2",
     "typescript": "^5.2.2",
     "yalc": "^1.0.0-pre.53"
