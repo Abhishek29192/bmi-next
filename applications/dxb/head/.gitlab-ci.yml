@@ -1,3 +1,8 @@
+.ignore_renovate_mrs:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^renovate\\/.*/"
+      when: never
+
 lint_head:
   extends: .lint_yarn_workspace
   rules:
@@ -63,6 +68,7 @@ wait_until_head_deployed_to_gatsby:
   stage: deploy
   image: !reference [.node-full-image, image]
   rules:
+    - !reference [.ignore_renovate_mrs, rules]
     - !reference [.ignore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
@@ -129,6 +135,7 @@ wait_until_head_deployed_to_gatsby:
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
+    - !reference [.ignore_renovate_mrs, rules]
     - !reference [.ignore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
@@ -203,6 +210,7 @@ baseline_scan_head_prod:
 lighthouseci_scan_head_preview:
   extends: .lighthouse_scan
   rules:
+    - !reference [.ignore_renovate_mrs, rules]
     - !reference [.ignore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
