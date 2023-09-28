@@ -8691,9 +8691,9 @@ __metadata:
   linkType: soft
 
 "@types/imurmurhash@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@types/imurmurhash@npm:0.1.1"
-  checksum: 9f61f8bca1e7dd4617aba589cc45d29947671382d4173eee8467efe377f86332e9298d08960da6a4aebd369877995ded88de89e3b4ad7dbf385f6d27d99be7a8
+  version: 0.1.2
+  resolution: "@types/imurmurhash@npm:0.1.2"
+  checksum: c71745c6f365f0cc450466b88ec92f5601837c51db37a7ebe489c461eef4eb6b4febdd070f172ae90c2b29bad750eadd70fc507f8da28cbeb7ca3016258f063d
   languageName: node
   linkType: hard
 
