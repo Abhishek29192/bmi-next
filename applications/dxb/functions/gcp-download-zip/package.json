@@ -18,7 +18,7 @@
     "@bmi-digital/functions-logger": "^1.7.5",
     "@bmi/functions-recaptcha": "workspace:*",
     "@google-cloud/functions-framework": "^3.3.0",
-    "@google-cloud/storage": "^6.12.0",
+    "@google-cloud/storage": "^7.0.0",
     "archiver": "^5.3.2",
     "node-fetch": "^2.7.0"
   },
