@@ -2862,7 +2862,7 @@ __metadata:
     "@bmi-digital/functions-logger": ^1.7.5
     "@bmi/functions-recaptcha": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
-    "@google-cloud/storage": ^6.12.0
+    "@google-cloud/storage": ^7.0.0
     "@types/archiver": ^5.3.2
     "@types/prettier": ^2.7.3
     "@typescript-eslint/eslint-plugin": ^5.62.0
@@ -3016,7 +3016,7 @@ __metadata:
   dependencies:
     "@bmi-digital/functions-logger": ^1.7.5
     "@google-cloud/functions-framework": ^3.3.0
-    "@google-cloud/storage": ^6.12.0
+    "@google-cloud/storage": ^7.0.0
     "@types/jest-when": ^3.5.2
     "@types/prettier": ^2.7.3
     "@typescript-eslint/eslint-plugin": ^5.62.0
@@ -4970,7 +4970,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/storage@npm:^6.12.0, @google-cloud/storage@npm:^6.9.5":
+"@google-cloud/storage@npm:^6.9.5":
   version: 6.12.0
   resolution: "@google-cloud/storage@npm:6.12.0"
   dependencies:
@@ -4993,6 +4993,31 @@ __metadata:
     teeny-request: ^8.0.0
     uuid: ^8.0.0
   checksum: 8347bc2174dd59be4fb3b372fde93f204309f3f828e2beba4cc05fa32a8a24fb45051c0a94416e8718874c98e6c92f1b382b4c7caec6274f4a5d14e3868b0af7
+  languageName: node
+  linkType: hard
+
+"@google-cloud/storage@npm:^7.0.0":
+  version: 7.1.0
+  resolution: "@google-cloud/storage@npm:7.1.0"
+  dependencies:
+    "@google-cloud/paginator": ^5.0.0
+    "@google-cloud/projectify": ^4.0.0
+    "@google-cloud/promisify": ^4.0.0
+    abort-controller: ^3.0.0
+    async-retry: ^1.3.3
+    compressible: ^2.0.12
+    duplexify: ^4.0.0
+    ent: ^2.2.0
+    fast-xml-parser: ^4.2.2
+    gaxios: ^6.0.2
+    google-auth-library: ^9.0.0
+    mime: ^3.0.0
+    mime-types: ^2.0.8
+    p-limit: ^3.0.1
+    retry-request: ^6.0.0
+    teeny-request: ^9.0.0
+    uuid: ^8.0.0
+  checksum: b272302e6d13c3fa06359d275d1a71aba10d91249ba80695bf37682a21972061e821bee9be394951a9516a96750e9f386610c84b865f59e6a6d40974e80752bc
   languageName: node
   linkType: hard
 
@@ -18021,7 +18046,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gaxios@npm:^6.0.0":
+"gaxios@npm:^6.0.0, gaxios@npm:^6.0.2":
   version: 6.1.1
   resolution: "gaxios@npm:6.1.1"
   dependencies:
@@ -30239,6 +30264,19 @@ __metadata:
     stream-events: ^1.0.5
     uuid: ^9.0.0
   checksum: d3f60db26aa314ed64776c89255abc2d2cfb264656921c952781b27c314e2d157134ad0c514ce170eb9c0c5443e7e2dbfe221310ade6c5b1badbc980184e6b57
+  languageName: node
+  linkType: hard
+
+"teeny-request@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "teeny-request@npm:9.0.0"
+  dependencies:
+    http-proxy-agent: ^5.0.0
+    https-proxy-agent: ^5.0.0
+    node-fetch: ^2.6.9
+    stream-events: ^1.0.5
+    uuid: ^9.0.0
+  checksum: 1c51a284075b57b7b7f970fc8d855d611912f0e485aa1d1dfda3c0be3f2df392e4ce83b1b39877134041abb7c255f3777f175b27323ef5bf008839e42a1958bc
   languageName: node
   linkType: hard
 
