@@ -248,6 +248,7 @@ lighthouseci_scan_head:
   needs: []
   cache: {}
   script:
+    - "curl -X POST https://webhook.gatsbyjs.com/hooks/builds/trigger/${SITE_ID} --header 'x-gatsby-cache: false'"
     - "curl -X POST https://webhook.gatsbyjs.com/hooks/builds/trigger/${SITE_ID} --header 'x-gatsby-cache: false' --header 'x-runner-type: PREVIEW'"
 
 clear_gatsby_cloud_cache_albania:
