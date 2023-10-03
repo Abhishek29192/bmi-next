@@ -33,11 +33,14 @@ const TechnicalSpecificationLeadBlock = ({
   const technicalSpecification = () => {
     if (technicalSpecClassifications.length === 1) {
       const classification = technicalSpecClassifications[0];
+      const featureAttr = classification.features.sort((a, b) =>
+        a.name > b.name ? 1 : -1
+      );
       return (
         <div data-testid="technical-specification-classifications-table-wrapper">
           <ProductFeaturesTable
             key={`tech-spec-${classification.name}`}
-            features={classification.features}
+            features={featureAttr}
             rowBgColorPattern="even"
             HeadRow={
               <Table.Row>
