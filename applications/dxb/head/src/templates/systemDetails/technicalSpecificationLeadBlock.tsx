@@ -33,6 +33,7 @@ const TechnicalSpecificationLeadBlock = ({
   const technicalSpecification = () => {
     if (technicalSpecClassifications.length === 1) {
       const classification = technicalSpecClassifications[0];
+      classification.features.sort((a, b) => a.name.localeCompare(b.name));
       return (
         <div data-testid="technical-specification-classifications-table-wrapper">
           <ProductFeaturesTable
@@ -62,7 +63,7 @@ const TechnicalSpecificationLeadBlock = ({
             {[...technicalSpecClassifications]
               .sort((a, b) => (a.name > b.name ? 1 : -1))
               .map(({ name, features }, id) => {
-                features.sort((a, b) => (a.name > b.name ? 1 : -1));
+                features.sort((a, b) => a.name.localeCompare(b.name));
                 return (
                   <Accordion.Item
                     key={`tech-spec-${id}`}
