@@ -31507,12 +31507,12 @@ __metadata:
   linkType: hard
 
 "url@npm:^0.11.1, url@npm:^0.11.2":
-  version: 0.11.2
-  resolution: "url@npm:0.11.2"
+  version: 0.11.3
+  resolution: "url@npm:0.11.3"
   dependencies:
     punycode: ^1.4.1
     qs: ^6.11.2
-  checksum: c4a4b783ad30b47e0b4a7a7b9ac908db59898eaaf53e3142af81231c99d065776c2e7f617eb6d8099587a890180cad9726c260a9874d2f6736a67b867fa78e06
+  checksum: 7546b878ee7927cfc62ca21dbe2dc395cf70e889c3488b2815bf2c63355cb3c7db555128176a01b0af6cccf265667b6fd0b4806de00cb71c143c53986c08c602
   languageName: node
   linkType: hard
 
