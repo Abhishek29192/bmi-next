@@ -134,6 +134,15 @@ export type Product = Omit<
   seoTitle?: string;
 };
 
+export type DoceboCourse = {
+  description?: string;
+  id_course: number;
+  img_url: string;
+  name: string;
+  slug_name: string;
+  code?: string;
+};
+
 export type KeyAssetDocument = {
   assetType: string;
   documents: ProductDocument[];

@@ -1237,4 +1237,13 @@ type ContentfulSystemConfiguratorSection implements ContentfulObject & Node @don
   systemProperties: [String]
   question: ContentfulSystemConfiguratorQuestion! @link(from: "question___NODE")
 }
+
+type DoceboCourses implements Node @dontInfer {
+  id: ID!
+  id_course: Int!
+  slug_name: String!
+  name: String!
+  description: String
+  code: String
+}
 `;
