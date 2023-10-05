@@ -26,7 +26,7 @@
     "contentful-management": "^10.45.0",
     "lodash-es": "^4.17.21",
     "migrate": "^2.0.0",
-    "ora": "^6.3.1",
+    "ora": "^7.0.0",
     "semver-parser": "^4.1.4"
   },
   "devDependencies": {
