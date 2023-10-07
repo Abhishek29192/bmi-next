@@ -30,7 +30,7 @@
     "@types/uuid": "^9.0.3",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "contentful-management": "^10.45.0",
+    "contentful-management": "^11.0.0",
     "env-cmd": "^10.1.0",
     "eslint": "^8.49.0",
     "eslint-config-airbnb": "^19.0.4",

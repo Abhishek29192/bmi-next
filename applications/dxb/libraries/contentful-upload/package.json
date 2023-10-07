@@ -9,7 +9,7 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "contentful-management": "^10.45.0",
+    "contentful-management": "^11.0.0",
     "dotenv": "^16.3.1",
     "node-fetch": "^2.7.0"
   },
