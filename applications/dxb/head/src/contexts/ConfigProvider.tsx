@@ -35,6 +35,7 @@ export interface Config {
   isSampleOrderingEnabled: boolean;
   renderTeamCategoriesAsRows: boolean;
   enableProductClassificationAttributeOrdering: boolean;
+  isLoginEnabled: boolean;
 }
 
 const envConfig = (): Config => ({
@@ -92,7 +93,8 @@ const envConfig = (): Config => ({
   ),
   enableProductClassificationAttributeOrdering: convertStrToBool(
     process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING
-  )
+  ),
+  isLoginEnabled: convertStrToBool(process.env.GATSBY_IS_LOGIN_ENABLED)
 });
 
 const ConfigContext = createContext<Config>({

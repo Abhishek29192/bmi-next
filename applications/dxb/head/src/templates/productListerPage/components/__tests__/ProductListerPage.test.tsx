@@ -211,7 +211,10 @@ describe("ProductListerPage template", () => {
         const { baseElement } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext,
-          { isBrandProviderEnabled: false, isLegacyFiltersUsing: false }
+          {
+            isBrandProviderEnabled: false,
+            isLegacyFiltersUsing: false
+          }
         );
         await screen.findByText(heroTitle);
         expect(baseElement).toMatchSnapshot();

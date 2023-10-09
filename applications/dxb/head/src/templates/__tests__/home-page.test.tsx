@@ -13,10 +13,12 @@ import HomePage, { Props as HomePageData } from "../home-page";
 
 let isSpaEnabled: boolean;
 let isGatsbyDisabledElasticSearch: boolean;
+let isLoginEnabled: boolean;
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
     isSpaEnabled,
-    isGatsbyDisabledElasticSearch
+    isGatsbyDisabledElasticSearch,
+    isLoginEnabled
   })
 }));
 
@@ -207,7 +209,7 @@ describe("Home Page Template", () => {
   it("render correctly with all data", () => {
     isSpaEnabled = false;
     isGatsbyDisabledElasticSearch = false;
-
+    isLoginEnabled = true;
     const { container } = renderWithRouter(
       <ThemeProvider>
         <HomePage

@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",
-    "@bmi-digital/components": "^1.53.3",
+    "@auth0/auth0-react": "^2.2.0",
+    "@bmi-digital/components": "^1.55.0",
     "@bmi-digital/react-pdf-maker": "^1.7.5",
     "@bmi-digital/styles": "^1.7.5",
     "@bmi-digital/svg-import": "^1.7.5",
@@ -50,6 +51,7 @@
     "@bmi/gatsby-source-docebo": "workspace:*",
     "@bmi/gatsby-source-firestore": "workspace:*",
     "@bmi/gatsby-source-hubspot-forms": "workspace:*",
+    "@bmi/gatsby-theme-auth0": "workspace:*",
     "@bmi/microcopies": "workspace:*",
     "@bmi/utils": "workspace:*",
     "@contentful/rich-text-react-renderer": "^15.17.1",

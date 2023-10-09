@@ -460,7 +460,7 @@ exports[`General Error render correctly 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -1103,7 +1103,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div

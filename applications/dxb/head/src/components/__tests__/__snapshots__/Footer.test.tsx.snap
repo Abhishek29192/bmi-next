@@ -6,7 +6,7 @@ exports[`Footer component renders correctly 1`] = `
     class=" css-bnck4c-HidePrint"
   >
     <div
-      class=" css-avqws"
+      class=" css-r109q4"
       data-testid="footer"
     >
       <div
@@ -222,7 +222,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
     class=" css-bnck4c-HidePrint"
   >
     <div
-      class=" css-avqws"
+      class=" css-r109q4"
       data-testid="footer"
     >
       <div
