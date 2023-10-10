@@ -20,12 +20,20 @@ const mockResources = createMockSiteData();
 const mockCourse = createCourse();
 const mockSiteData = createMockSiteData({
   resources: {
-    ...mockResources.resources,
+    ...mockResources.resources!,
     pdpShareWidget: {
-      ...mockResources.resources!.pdpShareWidget,
-      email: true,
-      facebook: true,
-      copy: true
+      email: null,
+      facebook: null,
+      copy: null,
+      __typename: "ShareWidgetSection",
+      title: "My Title",
+      message: null,
+      clipboardSuccessMessage: null,
+      clipboardErrorMessage: null,
+      twitter: null,
+      linkedin: null,
+      pinterest: null,
+      isLeftAligned: null
     }
   }
 });
@@ -62,9 +70,17 @@ describe("Training DetailsPage", () => {
     renderTrainingDetailsPage({});
 
     expect(screen.getByTestId("training-name")).toBeInTheDocument();
-    expect(screen.getByTestId("training-id")).toBeInTheDocument();
+    expect(screen.queryByTestId("training-id")).not.toBeInTheDocument();
     expect(screen.getByTestId("training-description")).toBeInTheDocument();
     expect(screen.getByRole("banner")).toBeInTheDocument();
     expect(screen.getByTestId("footer")).toBeInTheDocument();
+  });
+
+  it("should render training id label if code exists for course", () => {
+    renderTrainingDetailsPage({
+      course: { ...mockCourse, code: "DK_TEST_01" }
+    });
+    expect(screen.getByTestId("training-id")).toBeInTheDocument();
+    expect(screen.getByTestId("training-id")).toHaveTextContent("DK_TEST_01");
   });
 });
