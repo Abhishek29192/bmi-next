@@ -135,7 +135,7 @@ export const compileESQuery = (
             }
           },
           resultType === "Simple Archive" && {
-            match: { "approvalStatus.keyword": ApprovalStatus.Approved }
+            match: { "approvalStatus.keyword": ApprovalStatus.Discontinued }
           },
           assetTypeCodes.length && {
             terms: {
