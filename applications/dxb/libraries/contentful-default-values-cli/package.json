@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@bmi/cms-consolidation-utility": "workspace:*",
-    "contentful-management": "^10.45.0",
+    "contentful-management": "^11.0.0",
     "dotenv": "^16.3.1",
     "env-cmd": "^10.1.0"
   },

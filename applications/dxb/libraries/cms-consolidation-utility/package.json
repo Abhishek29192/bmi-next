@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@bmi/utils": "workspace:*",
-    "contentful-management": "^10.45.0"
+    "contentful-management": "^11.0.0"
   },
   "devDependencies": {
     "@types/prettier": "^2.7.3",
