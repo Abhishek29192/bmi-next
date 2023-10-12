@@ -3,7 +3,6 @@ import { AuthService, useAuth } from "@bmi/gatsby-theme-auth0";
 import { Button } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
 import { LoginBlockStyles } from "./styles/LoginBlock";
-import LoginAlert from "./LoginAlert";
 import { useSiteContext } from "./Site";
 
 const LoginBlock = () => {
@@ -12,7 +11,6 @@ const LoginBlock = () => {
 
   return (
     <LoginBlockStyles>
-      <LoginAlert />
       {isLoggedIn && profile && (
         <Button variant="text" className="account">
           {getMicroCopy(microCopy.MY_ACCOUNT_LABEL)}
