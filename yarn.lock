@@ -2764,19 +2764,13 @@ __metadata:
     "@testing-library/react-hooks": ^8.0.1
     "@types/auth0-js": ^9.21.0
     "@types/eslint": ^8
-    "@types/node": ^18.16.8
-    "@types/react": ^18.2.6
-    "@types/react-dom": ^18.2.4
     auth0-js: ^9.12.2
     eslint: 8.40.0
     gatsby: ^5.9.1
-    gatsby-plugin-typescript: ^5.9.0
-    husky: ^8.0.3
     jest: 29.5.0
     prettier: ^2.8.8
-    pretty-quick: ^3.0.0
     rimraf: ^3.0.0
-    typescript: ^4.9.4
+    typescript: ^5.2.2
   peerDependencies:
     gatsby: ^5.9.1
     react: ^18.2.0
@@ -9030,13 +9024,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimatch@npm:^3.0.3":
-  version: 3.0.5
-  resolution: "@types/minimatch@npm:3.0.5"
-  checksum: a1a19ba342d6f39b569510f621ae4bbe972dc9378d15e9a5e47904c440ee60744f5b09225bc73be1c6490e3a9c938eee69eb53debf55ce1f15761201aa965f97
-  languageName: node
-  linkType: hard
-
 "@types/minimist@npm:^1.2.0":
   version: 1.2.2
   resolution: "@types/minimist@npm:1.2.2"
@@ -9081,13 +9068,6 @@ __metadata:
   version: 17.0.45
   resolution: "@types/node@npm:17.0.45"
   checksum: 0db377133d709b33a47892581a21a41cd7958f22723a3cc6c71d55ac018121382de42fbfc7970d5ae3e7819dbe5f40e1c6a5174aedf7e7964e9cb8fa72b580b0
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.16.8":
-  version: 18.17.18
-  resolution: "@types/node@npm:18.17.18"
-  checksum: 730c6cb4c963c1306afd5a05b37fc2a7e083df3b2c7d81ced5635add301d9ba32ece130876f6915ab14fbfa31bb8d043472c4937da35b39ed75498847a72cead
   languageName: node
   linkType: hard
 
@@ -9169,7 +9149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.4, @types/react-dom@npm:^18.2.7":
+"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.7":
   version: 18.2.7
   resolution: "@types/react-dom@npm:18.2.7"
   dependencies:
@@ -9230,17 +9210,6 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 5b5aff55d38c358a50108dddb24e06d344e4d578cc177dd2e24a7c5d0fadb034298e5e652b174053b5e75f0d6b0d9f926976c1c9f5e84fe94bb91348c54f5313
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^18.2.6":
-  version: 18.2.22
-  resolution: "@types/react@npm:18.2.22"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: ac481c8a85c95cf1eb0a09c3c7e609428f12ff61d57ac0e9c8dd94b6dcfde44306c4f41d98f83e9554ed33a66e605ba35687c0a38d367e7d77dd2bdea9d6145e
   languageName: node
   linkType: hard
 
@@ -10486,13 +10455,6 @@ __metadata:
     call-bind: ^1.0.2
     is-array-buffer: ^3.0.1
   checksum: 12f84f6418b57a954caa41654e5e63e019142a4bbb2c6829ba86d1ba65d31ccfaf1461d1743556fd32b091fac34ff44d9dfbdb001402361c45c373b2c86f5c20
-  languageName: node
-  linkType: hard
-
-"array-differ@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "array-differ@npm:3.0.0"
-  checksum: c0d924cc2b7e3f5a0e6ae932e8941c5fddc0412bcecf8d5152641910e60f5e1c1e87da2b32083dec2f92f9a8f78e916ea68c22a0579794ba49886951ae783123
   languageName: node
   linkType: hard
 
@@ -16364,23 +16326,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.0.0":
-  version: 4.1.0
-  resolution: "execa@npm:4.1.0"
-  dependencies:
-    cross-spawn: ^7.0.0
-    get-stream: ^5.0.0
-    human-signals: ^1.1.1
-    is-stream: ^2.0.0
-    merge-stream: ^2.0.0
-    npm-run-path: ^4.0.0
-    onetime: ^5.1.0
-    signal-exit: ^3.0.2
-    strip-final-newline: ^2.0.0
-  checksum: 02211601bb1c52710260edcc68fb84c3c030dc68bafc697c90ada3c52cc31375337de8c24826015b8382a58d63569ffd203b79c94fef217d65503e3e8d2c52ba
-  languageName: node
-  linkType: hard
-
 "execa@npm:^5.0.0, execa@npm:^5.1.1":
   version: 5.1.1
   resolution: "execa@npm:5.1.1"
@@ -17848,7 +17793,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-typescript@npm:^5.12.0, gatsby-plugin-typescript@npm:^5.9.0":
+"gatsby-plugin-typescript@npm:^5.12.0":
   version: 5.12.0
   resolution: "gatsby-plugin-typescript@npm:5.12.0"
   dependencies:
@@ -18392,7 +18337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-stream@npm:^5.0.0, get-stream@npm:^5.1.0":
+"get-stream@npm:^5.1.0":
   version: 5.2.0
   resolution: "get-stream@npm:5.2.0"
   dependencies:
@@ -19464,13 +19409,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"human-signals@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "human-signals@npm:1.1.1"
-  checksum: 18810ed239a7a5e23fb6c32d0fd4be75d7cd337a07ad59b8dbf0794cb0761e6e628349ee04c409e605fe55344716eab5d0a47a62ba2a2d0d367c89a2b4247b1e
-  languageName: node
-  linkType: hard
-
 "human-signals@npm:^2.1.0":
   version: 2.1.0
   resolution: "human-signals@npm:2.1.0"
@@ -19624,7 +19562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.0.4, ignore@npm:^5.1.4, ignore@npm:^5.2.0, ignore@npm:^5.2.4":
+"ignore@npm:^5.0.4, ignore@npm:^5.2.0, ignore@npm:^5.2.4":
   version: 5.2.4
   resolution: "ignore@npm:5.2.4"
   checksum: 7c7cd90edd9fea6e037f9b9da4b01bf0a86b198ce78345f9bbd983929d68ff14830be31111edc5d70c264921f4962404d75b7262b4d9cc3bc12381eccbd03096
@@ -24626,13 +24564,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mri@npm:^1.1.5":
-  version: 1.2.0
-  resolution: "mri@npm:1.2.0"
-  checksum: a3d32379c2554cf7351db6237ddc18dc9e54e4214953f3da105b97dc3babe0deb3ffe99cf409b38ea47cc29f9430561ba6b53b24ab8f9ce97a4b50409e4a50e7
-  languageName: node
-  linkType: hard
-
 "mrmime@npm:^1.0.0":
   version: 1.0.1
   resolution: "mrmime@npm:1.0.1"
@@ -24716,19 +24647,6 @@ __metadata:
     type-is: ^1.6.4
     xtend: ^4.0.0
   checksum: 4c6c91e93e510c99e791b6520e3e2f4a227a57f4f509427ff7f3a6f4cc0b4b09ad77c475f629c12f7ae01dba11645b2bd6568877cab775de8bf853b0a67259b4
-  languageName: node
-  linkType: hard
-
-"multimatch@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "multimatch@npm:4.0.0"
-  dependencies:
-    "@types/minimatch": ^3.0.3
-    array-differ: ^3.0.0
-    array-union: ^2.1.0
-    arrify: ^2.0.1
-    minimatch: ^3.0.4
-  checksum: 08e6b71ea2eee2feba17bb4159d247b78d26f9a9b556abddc136c05baa5eba9d80717986e494972284947e9c0e26a19eba3fe20851463fa3dbb770e289f7a0b8
   languageName: node
   linkType: hard
 
@@ -25335,7 +25253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-run-path@npm:^4.0.0, npm-run-path@npm:^4.0.1":
+"npm-run-path@npm:^4.0.1":
   version: 4.0.1
   resolution: "npm-run-path@npm:4.0.1"
   dependencies:
@@ -27097,24 +27015,6 @@ __metadata:
     ansi-styles: ^5.0.0
     react-is: ^18.0.0
   checksum: edc5ff89f51916f036c62ed433506b55446ff739358de77207e63e88a28ca2894caac6e73dcb68166a606e51c8087d32d400473e6a9fdd2dbe743f46c9c0276f
-  languageName: node
-  linkType: hard
-
-"pretty-quick@npm:^3.0.0":
-  version: 3.1.3
-  resolution: "pretty-quick@npm:3.1.3"
-  dependencies:
-    chalk: ^3.0.0
-    execa: ^4.0.0
-    find-up: ^4.1.0
-    ignore: ^5.1.4
-    mri: ^1.1.5
-    multimatch: ^4.0.0
-  peerDependencies:
-    prettier: ">=2.0.0"
-  bin:
-    pretty-quick: bin/pretty-quick.js
-  checksum: 4d52119b8247f398898347eb5a0166622c7bd9662b31dad05d19397f9ad3c2fea8318f95aec53993343d363f03c229c18b0934310b2bb27c23d33ea4a7ea04b0
   languageName: node
   linkType: hard
 
