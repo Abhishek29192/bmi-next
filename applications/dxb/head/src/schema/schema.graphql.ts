@@ -395,7 +395,7 @@ type ContentfulTabsOrAccordionSection implements ContentfulObject & Node @dontIn
   metadata: ContentfulMetadata!
   title: String
   description: contentfulTabsOrAccordionSectionDescriptionTextNode @link(from: "description___NODE")
-  items: [ContentfulTitleWithContent] @link(from: "items___NODE")
+  items: [ContentfulTitleWithContent!]! @link(from: "items___NODE")
   type: String
 }
 
