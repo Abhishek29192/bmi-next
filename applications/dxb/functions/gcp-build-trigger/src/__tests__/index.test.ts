@@ -101,6 +101,16 @@ describe("Invalid environment variables", () => {
 
     process.env.DELAY_MILLISECONDS = delaySeconds;
   });
+
+  it("should return 500 if ES_INDEX_NAME_TRAININGS is not set", async () => {
+    const esIndexNameTrainings = process.env.ES_INDEX_NAME_TRAININGS;
+    delete process.env.ES_INDEX_NAME_TRAININGS;
+
+    const res = mockResponse();
+    await build(mockRequest(), res);
+    expect(res.sendStatus).toBeCalledWith(500);
+    process.env.ES_INDEX_NAME_TRAININGS = esIndexNameTrainings;
+  });
 });
 
 describe("Making a POST request", () => {
@@ -188,9 +198,9 @@ describe("Making a POST request", () => {
     expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
       method: "POST"
     });
-    // `ES_INDEX_PREFIX` and `ES_INDEX_NAME_DOCUMENTS` are globally setup for testing
+    // `ES_INDEX_PREFIX`, `ES_INDEX_NAME_DOCUMENTS` and `ES_INDEX_NAME_TRAININGS` are globally setup for testing
     // see `jest/src/setEnvVars.ts`
-    expect(swapReadWriteAliases).toBeCalledTimes(3);
+    expect(swapReadWriteAliases).toBeCalledTimes(4);
   });
 
   it("waits for the DELAY_MILLISECONDS milliseconds before making any requests", async () => {
@@ -223,9 +233,9 @@ describe("Making a POST request", () => {
       method: "POST"
     });
 
-    // `ES_INDEX_PREFIX` and `ES_INDEX_NAME_DOCUMENTS` are globally setup for testing
+    // `ES_INDEX_PREFIX`, `ES_INDEX_NAME_DOCUMENTS`, and ES_INDEX_NAME_TRAININGS are globally setup for testing
     // see `jest/src/setEnvVars.ts`
-    expect(swapReadWriteAliases).toBeCalledTimes(6);
+    expect(swapReadWriteAliases).toBeCalledTimes(8);
     delete process.env.METRIC_LATENCY_DELAY;
   });
 });

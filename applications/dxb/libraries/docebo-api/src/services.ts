@@ -1,17 +1,21 @@
-import {
-  Auth,
+import type {
   Catalogue,
   Category,
   Certification,
   Course,
+  ExtendedCourse
+} from "@bmi/docebo-types";
+import type {
+  Auth,
   DoceboApiServiceParams,
   DoceboData,
+  GetCourseByIdResponseType,
   StringOrUndefined
-} from "../types";
+} from "./types";
 
 export const PAGE_SIZE = 50;
 
-export default class DoceboApiService {
+export class DoceboApiService {
   apiUrl: StringOrUndefined = undefined;
   clientId: StringOrUndefined = undefined;
   clientSecret: StringOrUndefined = undefined;
@@ -50,17 +54,26 @@ export default class DoceboApiService {
     return data.access_token;
   }
 
-  async fetchCourses({ page = 1 }: { page?: number }): Promise<Course[]> {
+  async fetchCourses({
+    page = 1,
+    pageSize = PAGE_SIZE,
+    ignoreNextPage = true
+  }: {
+    page?: number;
+    pageSize?: number;
+    ignoreNextPage?: boolean;
+  }): Promise<Course[]> {
     const accessToken = await this.getAccessToken();
     const response = await fetch(
-      `${this.apiUrl}learn/v1/courses?page=${page}&page_size=${PAGE_SIZE}`,
+      `${this.apiUrl}learn/v1/courses?page=${page}&page_size=${pageSize}`,
       {
         headers: { Authorization: `Bearer ${accessToken}` }
       }
     );
 
     const { data }: DoceboData<Course> = await response.json();
-    return data.has_more_data
+    //prevents other pages from being fetched if "page" property has been passed
+    return !ignoreNextPage && data.has_more_data
       ? [...data.items, ...(await this.fetchCourses({ page: page + 1 }))]
       : data.items;
   }
@@ -122,5 +135,15 @@ export default class DoceboApiService {
     return data.has_more_data
       ? [...data.items, ...(await this.fetchCertifications({ page: page + 1 }))]
       : data.items;
+  }
+
+  async getCourseById(courseId: number): Promise<ExtendedCourse> {
+    const accessToken = await this.getAccessToken();
+    const response = await fetch(`${this.apiUrl}learn/v1/courses/${courseId}`, {
+      headers: { Authorization: `Bearer ${accessToken}` }
+    });
+
+    const { data }: GetCourseByIdResponseType = await response.json();
+    return data;
   }
 }

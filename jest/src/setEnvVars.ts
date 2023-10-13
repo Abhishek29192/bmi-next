@@ -44,6 +44,7 @@ process.env.ES_HOST = "http://localhost:3000";
 process.env.ES_CLOUD_ID = "es-cloud-id";
 process.env.ES_USERNAME = "es-username";
 process.env.ES_PASSWORD = "es-password-secret";
+process.env.ES_APIKEY = "es-api-key";
 
 process.env.LC_ALL = "en_US.UTF-8";
 
@@ -95,3 +96,12 @@ process.env.BEARER_TOKEN_SECRET = "bearerToken";
 
 process.env.SPACE_MARKET_CODE = "no";
 process.env.GATSBY_MARKET_LOCALE_CODE = "nb-NO";
+
+process.env.DOCEBO_API_URL = "https://docebo-fake-api-url";
+process.env.DOCEBO_API_CLIENT_ID = "docebo-api-client-id";
+process.env.DOCEBO_API_CLIENT_SECRET = "docebo-api-client-secret";
+process.env.DOCEBO_API_USERNAME = "docebo-api-username";
+process.env.DOCEBO_API_PASSWORD = "docebo-api-password";
+process.env.DOCEBO_API_CATALOGUE_IDS = "1,2,3,4";
+process.env.ES_INDEX_NAME_TRAININGS = "dxb_no_trainings";
+process.env.PULL_DOCEBO_DATA = "false";

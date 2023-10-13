@@ -3,6 +3,7 @@ import fetchRetry from "@bmi/fetch-retry";
 import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
 import { Response } from "node-fetch";
+import { getCachedDoceboApi } from "@bmi/docebo-api";
 import { getNumberOfDocuments } from "./contentful";
 import {
   createElasticSearchIndex,
@@ -24,16 +25,24 @@ const {
   CONTENTFUL_DELIVERY_TOKEN,
   SPACE_ID,
   CONTENTFUL_ENVIRONMENT,
-  TAG
+  TAG,
+  PULL_DOCEBO_DATA,
+  ES_INDEX_NAME_TRAININGS,
+  DOCEBO_API_URL,
+  DOCEBO_API_CLIENT_ID,
+  DOCEBO_API_CLIENT_SECRET,
+  DOCEBO_API_USERNAME,
+  DOCEBO_API_PASSWORD
 } = process.env;
 
 // The maximum number of entries returned by the API is 1000.
 // The API will throw a BadRequestError for values higher than 1000 and values other than an integer.
 // The default number of entries returned by the API is 100.
 const MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE = 1000;
+const MAX_NUMBER_OF_COURSES_PER_RESPONSE = 10;
 
 const triggerFullFetch = async (
-  type: PimTypes | "documents",
+  type: PimTypes | "documents" | "trainings",
   lastStartPage: number,
   numberOfPages: number
 ): Promise<Response> => {
@@ -113,6 +122,29 @@ const triggerDocumentsFullFetchBatch = async () => {
   });
 };
 
+const triggerTrainingsFullFetchBatch = async () => {
+  logger.info({ message: "Batching trainings" });
+
+  const doceboApi = getCachedDoceboApi();
+  const trainings = await doceboApi.fetchCourses({ ignoreNextPage: false });
+  if (!trainings?.length) {
+    return;
+  }
+
+  const numberOfRequests = Math.ceil(
+    trainings.length / MAX_NUMBER_OF_COURSES_PER_RESPONSE
+  );
+  const promises: Promise<Response>[] = [];
+  for (let i = 0; i < numberOfRequests; i++) {
+    const batchResponse = triggerFullFetch("trainings", i + 1, 1);
+    promises.push(batchResponse);
+  }
+  await Promise.all(promises);
+  logger.info({
+    message: `Success for triggerFullFetchBatch type: trainings.`
+  });
+};
+
 /**
  * Responds to any HTTP request.
  *
@@ -120,6 +152,8 @@ const triggerDocumentsFullFetchBatch = async () => {
  * @param {!express:Response} res HTTP response context.
  */
 const handleRequest: HttpFunction = async (req, res) => {
+  const pullDoceboData = PULL_DOCEBO_DATA === "true";
+
   if (!BUILD_TRIGGER_ENDPOINT) {
     logger.error({ message: "BUILD_TRIGGER_ENDPOINT has not been set." });
     return res.sendStatus(500);
@@ -165,31 +199,68 @@ const handleRequest: HttpFunction = async (req, res) => {
     return res.sendStatus(500);
   }
 
+  if (pullDoceboData && !DOCEBO_API_URL) {
+    logger.error({ message: "DOCEBO_API_URL has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (pullDoceboData && !DOCEBO_API_CLIENT_ID) {
+    logger.error({ message: "DOCEBO_API_CLIENT_ID has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (pullDoceboData && !DOCEBO_API_CLIENT_SECRET) {
+    logger.error({ message: "DOCEBO_API_CLIENT_SECRET has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (pullDoceboData && !DOCEBO_API_PASSWORD) {
+    logger.error({
+      message: "DOCEBO_API_PASSWORD has not been set."
+    });
+    return res.sendStatus(500);
+  }
+
+  if (pullDoceboData && !DOCEBO_API_USERNAME) {
+    logger.error({ message: "DOCEBO_API_USERNAME has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!ES_INDEX_NAME_TRAININGS) {
+    logger.error({ message: "ES_INDEX_NAME_TRAININGS is not set." });
+    return res.sendStatus(500);
+  }
+
   const timeStamp = new Date().getMilliseconds();
 
   // this is now read alias!
   const productsIndex = `${ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`;
   const systemsIndex = `${ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`;
   const documentsIndex = ES_INDEX_NAME_DOCUMENTS;
+  const trainingsIndex = ES_INDEX_NAME_TRAININGS;
 
   const productsIndexNew = `${ES_INDEX_PREFIX}${timeStamp}_${ElasticsearchIndexes.Products}`;
   const systemsIndexNew = `${ES_INDEX_PREFIX}${timeStamp}_${ElasticsearchIndexes.Systems}`;
   const documentsIndexNew = `${documentsIndex}_${timeStamp}`;
+  const trainingsIndexNew = `${trainingsIndex}_${timeStamp}`;
 
   // write alias
   const productsIndexWriteAlias = `${productsIndex}_write`;
   const systemsIndexWriteAlias = `${systemsIndex}_write`;
   const documentsIndexWriteAlias = `${documentsIndex}_write`;
+  const trainingsIndexWriteAlias = `${trainingsIndex}_write`;
 
   // create new index with new name
   await createElasticSearchIndex(productsIndexNew);
   await createElasticSearchIndex(systemsIndexNew);
   await createElasticSearchIndex(documentsIndexNew);
+  await createElasticSearchIndex(trainingsIndexNew);
 
   // point write alias to the newly created indexes
   await createIndexAlias(productsIndexNew, productsIndexWriteAlias);
   await createIndexAlias(systemsIndexNew, systemsIndexWriteAlias);
   await createIndexAlias(documentsIndexNew, documentsIndexWriteAlias);
+  await createIndexAlias(trainingsIndexNew, trainingsIndexWriteAlias);
 
   await deleteFirestoreCollection(FirestoreCollections.Products);
   await deleteFirestoreCollection(FirestoreCollections.Systems);
@@ -197,6 +268,9 @@ const handleRequest: HttpFunction = async (req, res) => {
   await triggerFullFetchBatch(PimTypes.Products);
   await triggerFullFetchBatch(PimTypes.Systems);
   await triggerDocumentsFullFetchBatch();
+  if (pullDoceboData) {
+    await triggerTrainingsFullFetchBatch();
+  }
 
   try {
     const token = await generateGoogleSignedIdToken(BUILD_TRIGGER_ENDPOINT!);

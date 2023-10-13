@@ -1,6 +1,6 @@
-import type { PartnerData, Course } from "../../types";
+import { Course } from "./types";
 
-export const createCourseMock = (course: Partial<Course> = {}): Course => ({
+export const createCourse = (course: Partial<Course> = {}): Course => ({
   id_course: 1,
   start_date: "1693586500594",
   end_date: "1693586500594",
@@ -33,8 +33,6 @@ export const createCourseMock = (course: Partial<Course> = {}): Course => ({
   slug_name: "italian-test-course",
   uidCourse: "I-KVOYX1",
   affiliate_price: "",
-  partner_fileds: "",
   available_seats: [],
-  partner_data: {} as unknown as PartnerData,
   ...course
 });

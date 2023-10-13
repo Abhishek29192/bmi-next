@@ -1,9 +1,15 @@
 {
   "extends": "../../../../tsconfig.common.json",
   "compilerOptions": {
-    "noEmit": false,
     "outDir": "dist",
     "composite": true
   },
-  "references": []
+  "references": [
+    {
+      "path": "../docebo-api"
+    },
+    {
+      "path": "../docebo-types"
+    }
+  ]
 }

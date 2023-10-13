@@ -1,11 +1,13 @@
 import { testPluginOptionsSchema } from "gatsby-plugin-utils";
+import {
+  createCatalogue,
+  createCategory,
+  createCertification,
+  createCourse
+} from "@bmi/docebo-types";
 import { sourceNodes, pluginOptionsSchema } from "../index";
 import { nodeBuilder } from "../utils";
 import { NODE_TYPES } from "../types";
-import { createCourseMock } from "./helpers/createCourseMock";
-import { createCategoryMock } from "./helpers/createCategoryMock";
-import { createCertificationMock } from "./helpers/createCertificationMock";
-import { createCatalogueMock } from "./helpers/createCatalogueMock";
 import type { PluginOptions, SourceNodesArgs } from "gatsby";
 
 jest.mock("../utils");
@@ -15,14 +17,15 @@ const fetchCatalogueMock = jest.fn();
 const fetchCategoriesMock = jest.fn();
 const fetchCertificationsMock = jest.fn();
 
-jest.mock("../api/services", () => ({
-  __esModule: true,
-  default: jest.fn().mockImplementation(() => ({
-    fetchCourses: fetchCoursesMock,
-    fetchCategories: fetchCategoriesMock,
-    fetchCatalogues: fetchCatalogueMock,
-    fetchCertifications: fetchCertificationsMock
-  }))
+jest.mock("@bmi/docebo-api", () => ({
+  DoceboApiService: function () {
+    return {
+      fetchCourses: fetchCoursesMock,
+      fetchCategories: fetchCategoriesMock,
+      fetchCatalogues: fetchCatalogueMock,
+      fetchCertifications: fetchCertificationsMock
+    };
+  }
 }));
 
 const mockCallback = jest.fn();
@@ -56,7 +59,7 @@ beforeEach(() => {
 
 describe("source-nodes", () => {
   it("should write categories", async () => {
-    const category = createCategoryMock();
+    const category = createCategory();
     fetchCategoriesMock.mockReturnValue([category]);
     await sourceNodes!(mockGatsbyApi, mockConfigOptions, mockCallback);
     expect(nodeBuilder).toHaveBeenCalledWith({
@@ -70,7 +73,7 @@ describe("source-nodes", () => {
   });
 
   it("should write certification", async () => {
-    const certification = createCertificationMock();
+    const certification = createCertification();
     fetchCertificationsMock.mockReturnValue([certification]);
     await sourceNodes!(mockGatsbyApi, mockConfigOptions, mockCallback);
     expect(nodeBuilder).toHaveBeenCalledWith({
@@ -84,7 +87,7 @@ describe("source-nodes", () => {
   });
 
   it("should write courses", async () => {
-    const course = createCourseMock();
+    const course = createCourse();
     fetchCoursesMock.mockReturnValue([course]);
     await sourceNodes!(mockGatsbyApi, mockConfigOptions, mockCallback);
     expect(nodeBuilder).toHaveBeenCalledWith({
@@ -98,7 +101,7 @@ describe("source-nodes", () => {
   });
 
   it("should fetch only needed catalogs", async () => {
-    const catalogue = createCatalogueMock();
+    const catalogue = createCatalogue();
     fetchCatalogueMock.mockResolvedValue([catalogue]);
     const catalogueIds = "1,2,3,4";
 

@@ -1,6 +1,6 @@
-import type { Catalogue, CatalogueSubItem } from "../../types";
+import type { Catalogue, CatalogueSubItem } from "./types";
 
-export const createCatalogueMock = (
+export const createCatalogue = (
   catalogue: Partial<Catalogue> = {}
 ): Catalogue => ({
   catalogue_code: "BMI_NO_CAT_01",
@@ -10,13 +10,13 @@ export const createCatalogueMock = (
   catalogue_name: "NO General Catalogue",
   catalogue_sort_attr: "item_id",
   catalogue_sort_dir: "desc",
-  items_count: 1,
+  items_count: "1",
   number_items: 1,
-  sub_items: [createCatalogueSubItemMock()],
+  sub_items: [createCatalogueSubItem()],
   ...catalogue
 });
 
-export const createCatalogueSubItemMock = (
+export const createCatalogueSubItem = (
   catalogSubItem: Partial<CatalogueSubItem> = {}
 ): CatalogueSubItem => ({
   access_status: 1,

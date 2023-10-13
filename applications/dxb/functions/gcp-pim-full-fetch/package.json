@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "^1.7.5",
+    "@bmi/docebo-api": "workspace:*",
     "@bmi/functions-contentful-client": "workspace:*",
     "@bmi/functions-es-client": "workspace:*",
     "@bmi/pim-api": "workspace:*",

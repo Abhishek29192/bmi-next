@@ -1,0 +1,19 @@
+lint_docebo-types:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/docebo-types"
+    WORKSPACE: "@bmi/docebo-types"
+
+build_docebo-types:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+  variables:
+    WORKSPACE: "@bmi/docebo-types"
+    ROOT_DIR: "applications/dxb/libraries/docebo-types"

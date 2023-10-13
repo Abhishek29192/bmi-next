@@ -12,6 +12,7 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "devDependencies": {
+    "@bmi/docebo-types": "workspace:*",
     "@bmi/pim-types": "workspace:*",
     "@types/prettier": "^2.7.3",
     "@typescript-eslint/eslint-plugin": "^5.62.0",

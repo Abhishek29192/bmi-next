@@ -331,7 +331,7 @@ const config = {
             resolve: "@bmi/gatsby-source-docebo",
             options: {
               apiUrl: process.env.DOCEBO_API_URL,
-              catalogueIds: process.env.DOCEBO_API_CATALOG_IDS,
+              catalogueIds: process.env.DOCEBO_API_CATALOGUE_IDS,
               clientId: process.env.DOCEBO_API_CLIENT_ID,
               clientSecret: process.env.DOCEBO_API_CLIENT_SECRET,
               username: process.env.DOCEBO_API_USERNAME,

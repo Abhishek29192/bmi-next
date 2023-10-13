@@ -15,7 +15,7 @@ module.exports = {
       options: {
         apiUrl: process.env.DOCEBO_API_URL,
         clientId: process.env.DOCEBO_API_CLIENT_ID,
-        catalogIds: process.env.DOCEBO_API_CATALOG_IDS,
+        catalogIds: process.env.DOCEBO_API_CATALOGUE_IDS,
         clientSecret: process.env.DOCEBO_API_CLIENT_SECRET,
         username: process.env.DOCEBO_API_USERNAME,
         password: process.env.DOCEBO_API_PASSWORD

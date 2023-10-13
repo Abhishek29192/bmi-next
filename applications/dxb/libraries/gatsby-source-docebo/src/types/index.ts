@@ -1,41 +1,9 @@
 import type {
-  BackgroundImage,
-  Course,
-  CourseAdditionalFields,
-  CourseCategory,
-  CourseDates,
-  CourseSessions,
-  CourseSessionAttendanceType,
-  Enrolled,
-  PartnerData
-} from "./course";
-import type { Category } from "./category";
-import type { Catalogue } from "./catalogue";
-import type { Certification } from "./certification";
-import type { Sort } from "./sort";
-
-export type { Catalogue, CatalogueSubItem, CatalogueData } from "./catalogue";
-export type { Category } from "./category";
-export type { Certification } from "./certification";
-export type {
-  BackgroundImage,
-  Course,
-  CourseAdditionalFields,
-  CourseCategory,
-  CourseDates,
-  CourseSessions,
-  CourseSessionAttendanceType,
-  Enrolled,
-  PartnerData
-};
-
-export type Auth = {
-  access_token: string;
-  expires_in: number;
-  token_type: string;
-  scope: string;
-  refresh_token: string;
-};
+  Catalogue,
+  Category,
+  Certification,
+  Course
+} from "@bmi/docebo-types";
 
 export type NodeBuilderInput =
   | {
@@ -54,29 +22,6 @@ export type NodeBuilderInput =
       type: typeof NODE_TYPES.Certifications;
       data: Certification;
     };
-
-export interface DoceboData<T> {
-  data: {
-    count: number;
-    has_more_data: boolean;
-    current_page: number;
-    current_page_size: number;
-    total_page_count: number;
-    total_count: number;
-    sort: Sort[];
-    items: T[];
-  };
-}
-
-export interface DoceboApiServiceParams {
-  apiUrl: string;
-  clientId: string;
-  clientSecret: string;
-  username: string;
-  password: string;
-}
-
-export type StringOrUndefined = string | undefined;
 
 export const NODE_TYPES = {
   Categories: "DoceboCategories",
