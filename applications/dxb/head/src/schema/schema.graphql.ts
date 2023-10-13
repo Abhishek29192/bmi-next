@@ -222,6 +222,26 @@ type ContentfulProductListerPage implements ContentfulObject & ContentfulPage & 
   allowFilterBy: [String!]
 }
 
+type ContentfulTrainingListerPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
+  id: ID!
+  contentful_id: String!
+  metadata: ContentfulMetadata!
+  title: String!
+  subtitle: String
+  slug: String!
+  path: String!
+  breadcrumbTitle: String
+  breadcrumbs: [BreadcrumbItem]
+  featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  brandLogo: String
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
+}
+
 type ContentfulPromo implements ContentfulObject & Node @dontInfer {
   name: String!
   metadata: ContentfulMetadata!
@@ -249,6 +269,7 @@ union ContentfulPromoOrPage =
   | ContentfulSimplePage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
+  | ContentfulTrainingListerPage
 
 union ContentfulRichTextReference =
   ContentfulAsset
@@ -260,6 +281,7 @@ union ContentfulRichTextReference =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
   | ContentfulBrandLandingPage
+  | ContentfulTrainingListerPage
 
 union ContentfulMediasTypes = ContentfulImage | ContentfulVideo
 
@@ -625,6 +647,7 @@ union LinkedPage =
   | ContentfulHomePage
   | ContentfulBrandLandingPage
   | ContentfulCookiePolicyPage
+  | ContentfulTrainingListerPage
 
 type ContentfulLink implements ContentfulObject & Node @dontInfer {
   id: ID!

@@ -2133,7 +2133,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         data-testid="brand-colors-provider"
       >
         <div
-          class="ScrimStyles-scrim--light css-1qqmo68"
+          class="ScrimStyles-scrim--light css-o8e9td"
         >
           <span
             class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
@@ -3254,7 +3254,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         data-testid="brand-colors-provider"
       >
         <div
-          class="ScrimStyles-scrim--light css-1qqmo68"
+          class="ScrimStyles-scrim--light css-o8e9td"
         >
           <span
             class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
@@ -10351,7 +10351,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         data-testid="brand-colors-provider"
       >
         <div
-          class="ScrimStyles-scrim--light css-1qqmo68"
+          class="ScrimStyles-scrim--light css-o8e9td"
         >
           <span
             class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
@@ -11458,7 +11458,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
         data-testid="brand-colors-provider"
       >
         <div
-          class="ScrimStyles-scrim--light css-1qqmo68"
+          class="ScrimStyles-scrim--light css-o8e9td"
         >
           <span
             class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
@@ -12579,7 +12579,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         data-testid="brand-colors-provider"
       >
         <div
-          class="ScrimStyles-scrim--light css-1qqmo68"
+          class="ScrimStyles-scrim--light css-o8e9td"
         >
           <span
             class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
@@ -13891,7 +13891,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         data-testid="brand-colors-provider"
       >
         <div
-          class="ScrimStyles-scrim--light css-1qqmo68"
+          class="ScrimStyles-scrim--light css-o8e9td"
         >
           <span
             class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"

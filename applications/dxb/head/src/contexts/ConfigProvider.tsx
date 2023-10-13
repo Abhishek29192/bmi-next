@@ -23,6 +23,7 @@ export interface Config {
   googleApiKey?: string;
   esIndexNameSystem?: string;
   esIndexNameProduct?: string;
+  esIndexNameTrainings?: string;
   isDevMode: boolean;
   gcpSystemConfiguratorEndpoint?: string;
   isLegacyFiltersUsing: boolean;
@@ -76,6 +77,7 @@ const envConfig = (): Config => ({
   googleApiKey: process.env.GATSBY_GOOGLE_API_KEY,
   esIndexNameSystem: process.env.GATSBY_ES_INDEX_NAME_SYSTEMS,
   esIndexNameProduct: process.env.GATSBY_ES_INDEX_NAME_PRODUCTS,
+  esIndexNameTrainings: process.env.GATSBY_ES_INDEX_NAME_TRAININGS,
   isDevMode: process.env.NODE_ENV === "development",
   gcpSystemConfiguratorEndpoint:
     process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,

@@ -91,9 +91,7 @@ export type Course = {
   start_date: string;
   end_date: string;
   enrollment_policy: number;
-  max_attempts: number;
   is_affiliate: boolean;
-  affiliate_price: string;
   available_seats: { [seatId: string]: number | null }[];
   category: CourseCategory;
 };

@@ -12,7 +12,8 @@ export type Data = {
     | "ContentfulContactUsPage"
     | "ContentfulProductListerPage"
     | "ContentfulDocumentLibraryPage"
-    | "ContentfulBrandLandingPage";
+    | "ContentfulBrandLandingPage"
+    | "ContentfulTrainingListerPage";
   id: string;
   title: string;
   subtitle: string | null;
