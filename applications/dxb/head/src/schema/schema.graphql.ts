@@ -1243,7 +1243,7 @@ type DoceboCourses implements Node @dontInfer {
   id_course: Int!
   slug_name: String!
   name: String!
-  description: String
+  description: String!
   code: String
 }
 `;

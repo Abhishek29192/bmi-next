@@ -135,7 +135,7 @@ export type Product = Omit<
 };
 
 export type DoceboCourse = {
-  description?: string;
+  description: string;
   id_course: number;
   img_url: string;
   name: string;

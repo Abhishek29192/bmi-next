@@ -25,9 +25,11 @@ const TrainingDetails = ({ course: { name, description, code } }: Props) => {
       >
         {name}
       </Title>
-      <Typography data-testid="training-id">
-        {getMicroCopy(microCopy.TRAINING_DETAILS_COURSE_ID_LABEL)}: {code}
-      </Typography>
+      {code && (
+        <Typography data-testid="training-id">
+          {getMicroCopy(microCopy.TRAINING_DETAILS_COURSE_ID_LABEL)}: {code}
+        </Typography>
+      )}
       <CourseDescription
         dangerouslySetInnerHTML={{ __html: description }}
         data-testid="training-description"
