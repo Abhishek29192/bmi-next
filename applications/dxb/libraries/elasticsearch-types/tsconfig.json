@@ -6,6 +6,9 @@
   },
   "references": [
     {
+      "path": "../docebo-types"
+    },
+    {
       "path": "../pim-types"
     }
   ]

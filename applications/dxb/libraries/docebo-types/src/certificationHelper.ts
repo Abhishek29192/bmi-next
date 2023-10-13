@@ -1,6 +1,6 @@
-import type { Certification } from "../../types";
+import type { Certification } from "./types";
 
-export const createCertificationMock = (
+export const createCertification = (
   certification: Partial<Certification> = {}
 ): Certification => ({
   id_cert: 1,

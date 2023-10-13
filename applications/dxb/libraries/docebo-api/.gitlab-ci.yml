@@ -1,0 +1,31 @@
+lint_docebo-api:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/docebo-api"
+    WORKSPACE: "@bmi/docebo-api"
+
+build_docebo-api:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+  variables:
+    WORKSPACE: "@bmi/docebo-api"
+    ROOT_DIR: "applications/dxb/libraries/docebo-api"
+
+test_docebo-api:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+  variables:
+    WORKSPACE: "@bmi/docebo-api"
+    ROOT_DIR: "applications/dxb/libraries/docebo-api"
+  needs:
+    - build_docebo-api

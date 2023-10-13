@@ -1,8 +1,6 @@
-import type { Category } from "../../types";
+import type { Category } from "./types";
 
-export const createCategoryMock = (
-  category: Partial<Category> = {}
-): Category => ({
+export const createCategory = (category: Partial<Category> = {}): Category => ({
   id: 1,
   code: "code",
   title: "title",

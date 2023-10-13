@@ -1,6 +1,6 @@
+import { DoceboApiService } from "@bmi/docebo-api";
 import { nodeBuilder } from "./utils";
 import { NODE_TYPES } from "./types";
-import DoceboApiService from "./api/services";
 import type { GatsbyNode } from "gatsby";
 
 export type ConfigOptions = {
@@ -47,7 +47,7 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async (
     });
     const [courses, categories, catalogues, certifications] = await Promise.all(
       [
-        apiService.fetchCourses({}),
+        apiService.fetchCourses({ ignoreNextPage: false }),
         apiService.fetchCategories({}),
         apiService.fetchCatalogues({
           catalogueIds: catalogueIds ? parseCatalogIds(catalogueIds) : undefined

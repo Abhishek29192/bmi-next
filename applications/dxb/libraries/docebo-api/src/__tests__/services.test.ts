@@ -1,18 +1,18 @@
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import fetchMockJest from "fetch-mock-jest";
-import DoceboApiService, { PAGE_SIZE } from "../services";
 import {
   Catalogue,
   Category,
   Certification,
   Course,
-  DoceboApiServiceParams,
-  DoceboData
-} from "../../types";
-import { createCourseMock } from "../../__tests__/helpers/createCourseMock";
-import { createCatalogueMock } from "../../__tests__/helpers/createCatalogueMock";
-import { createCategoryMock } from "../../__tests__/helpers/createCategoryMock";
-import { createCertificationMock } from "../../__tests__/helpers/createCertificationMock";
+  createCatalogue,
+  createCategory,
+  createCertification,
+  createCourse,
+  createExtendedCourse
+} from "@bmi/docebo-types";
+import { DoceboApiService, PAGE_SIZE } from "../services";
+import { DoceboApiServiceParams, DoceboData } from "../types";
 
 const fetchMock = fetchMockJest.sandbox();
 global.fetch = fetchMock as typeof fetch;
@@ -64,7 +64,7 @@ describe("services", () => {
 
     describe("fetchCourses", () => {
       it("should fetch courses", async () => {
-        const course = createCourseMock();
+        const course = createCourse();
         mockResponses(fetchMock, {
           url: "*",
           method: "GET",
@@ -85,9 +85,9 @@ describe("services", () => {
         expect(res).toEqual([course]);
       });
 
-      it("sends request twice if the first request returns has_more_data === true", async () => {
-        const course1 = createCourseMock({ id_course: 1 });
-        const course2 = createCourseMock({ id_course: 2 });
+      it("sends request twice if the first request returns has_more_data === true and ignoreNextPage === false", async () => {
+        const course1 = createCourse({ id_course: 1 });
+        const course2 = createCourse({ id_course: 2 });
         mockResponses(
           fetchMock,
           {
@@ -108,7 +108,7 @@ describe("services", () => {
         );
 
         const docepoApi = new DoceboApiService(defaultParams);
-        const res = await docepoApi.fetchCourses({});
+        const res = await docepoApi.fetchCourses({ ignoreNextPage: false });
         //because fetchCourses gets called twice in order to fetch all pages
         expect(docepoApi.getAccessToken).toHaveBeenCalledTimes(2);
         expect(fetchMock).toHaveBeenCalledTimes(2);
@@ -128,11 +128,38 @@ describe("services", () => {
         );
         expect(res).toEqual([course1, course2]);
       });
+
+      it("should not send request twice if the first request returns has_more_data === true and 'ignoreNextPage' property provided", async () => {
+        const course = createCourse({ id_course: 1 });
+        mockResponses(fetchMock, {
+          url: `${defaultParams.apiUrl}learn/v1/courses?page=1&page_size=${PAGE_SIZE}`,
+          method: "GET",
+          status: 200,
+          body: getMockedDoceboData({
+            items: [course],
+            has_more_data: true
+          })
+        });
+
+        const docepoApi = new DoceboApiService(defaultParams);
+        const res = await docepoApi.fetchCourses({
+          ignoreNextPage: true
+        });
+        expect(docepoApi.getAccessToken).toHaveBeenCalledTimes(1);
+        expect(fetchMock).toHaveBeenCalledTimes(1);
+        expect(fetchMock).toHaveBeenCalledWith(
+          `${defaultParams.apiUrl}learn/v1/courses?page=1&page_size=${PAGE_SIZE}`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` }
+          }
+        );
+        expect(res).toEqual([course]);
+      });
     });
 
     describe("fetchCatalogues", () => {
       it("should fetch catalogues", async () => {
-        const catalogue = createCatalogueMock();
+        const catalogue = createCatalogue();
         mockResponses(fetchMock, {
           url: "*",
           method: "GET",
@@ -156,7 +183,7 @@ describe("services", () => {
       it("should only fetch those catalogues", async () => {
         const catalogueIds = [1, 5, 7];
         const mockedCatalogues = [...catalogueIds, 14, 37, 12].map(
-          (catalogId) => createCatalogueMock({ catalogue_id: catalogId })
+          (catalogId) => createCatalogue({ catalogue_id: catalogId })
         );
         mockResponses(fetchMock, {
           url: "*",
@@ -175,8 +202,8 @@ describe("services", () => {
       });
 
       it("sends request twice if the first request returns has_more_data === true", async () => {
-        const catalogue1 = createCatalogueMock({ catalogue_id: 1 });
-        const catalogue2 = createCatalogueMock({ catalogue_id: 2 });
+        const catalogue1 = createCatalogue({ catalogue_id: 1 });
+        const catalogue2 = createCatalogue({ catalogue_id: 2 });
         mockResponses(
           fetchMock,
           {
@@ -225,7 +252,7 @@ describe("services", () => {
 
     describe("fetchCategories", () => {
       it("should fetch categories", async () => {
-        const category = createCategoryMock();
+        const category = createCategory();
         mockResponses(fetchMock, {
           url: "*",
           method: "GET",
@@ -248,8 +275,8 @@ describe("services", () => {
       });
 
       it("sends request twice if the first request returns has_more_data === true", async () => {
-        const category1 = createCategoryMock({ code: "category-1" });
-        const category2 = createCourseMock({ code: "category-2" });
+        const category1 = createCategory({ code: "category-1" });
+        const category2 = createCourse({ code: "category-2" });
         mockResponses(
           fetchMock,
           {
@@ -297,7 +324,7 @@ describe("services", () => {
 
     describe("fetchCertifications", () => {
       it("should fetch certifications", async () => {
-        const certification = await createCertificationMock();
+        const certification = await createCertification();
         mockResponses(fetchMock, {
           url: "*",
           method: "GET",
@@ -319,8 +346,8 @@ describe("services", () => {
       });
 
       it("sends request twice if the first request returns has_more_data === true", async () => {
-        const certification1 = createCertificationMock({ id_cert: 1 });
-        const certification2 = createCertificationMock({ id_cert: 2 });
+        const certification1 = createCertification({ id_cert: 1 });
+        const certification2 = createCertification({ id_cert: 2 });
         mockResponses(
           fetchMock,
           {
@@ -363,6 +390,31 @@ describe("services", () => {
           }
         );
         expect(res).toEqual([certification1, certification2]);
+      });
+    });
+
+    describe("getCourseById", () => {
+      it("fetches course by id correctly", async () => {
+        const coureId = 1;
+        const course = createExtendedCourse({ id: coureId });
+        mockResponses(fetchMock, {
+          url: "*",
+          method: "GET",
+          status: 200,
+          body: { data: course }
+        });
+
+        const docepoApi = new DoceboApiService(defaultParams);
+        const res = await docepoApi.getCourseById(coureId);
+        expect(docepoApi.getAccessToken).toHaveBeenCalled();
+        expect(fetchMock).toHaveBeenCalledTimes(1);
+        expect(fetchMock).toHaveBeenCalledWith(
+          `${defaultParams.apiUrl}learn/v1/courses/${coureId}`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` }
+          }
+        );
+        expect(res).toEqual(course);
       });
     });
   });

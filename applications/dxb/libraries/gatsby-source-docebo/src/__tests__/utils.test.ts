@@ -1,6 +1,6 @@
+import { createCertification } from "@bmi/docebo-types";
 import { nodeBuilder, Props } from "../utils";
 import { NODE_TYPES } from "../types";
-import { createCertificationMock } from "./helpers/createCertificationMock";
 import type { SourceNodesArgs } from "gatsby";
 
 const mockGatsbyApi = {
@@ -11,7 +11,7 @@ const mockGatsbyApi = {
   createContentDigest: jest.fn()
 } as unknown as SourceNodesArgs;
 
-const certification = createCertificationMock();
+const certification = createCertification();
 
 const mockInput = {
   type: NODE_TYPES.Certifications,

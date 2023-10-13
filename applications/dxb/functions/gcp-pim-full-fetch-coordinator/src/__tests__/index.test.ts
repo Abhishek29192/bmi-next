@@ -10,6 +10,7 @@ import {
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
+import { createCourse } from "@bmi/docebo-types";
 import { ElasticsearchIndexes } from "../elasticsearch";
 import { FirestoreCollections } from "../firestoreCollections";
 
@@ -18,10 +19,12 @@ import { FirestoreCollections } from "../firestoreCollections";
 let productsIndex = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`;
 let systemsIndex = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`;
 let documentsIndex = process.env.ES_INDEX_NAME_DOCUMENTS;
+let trainingsIndex = process.env.ES_INDEX_NAME_TRAININGS;
 
 const productsIndex_alias = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}_write`;
 const systemsIndex_alias = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}_write`;
 const documentsIndex_alias = `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`;
+const trainingsIndex_alias = `${process.env.ES_INDEX_NAME_TRAININGS}_write`;
 
 const createElasticSearchIndex = jest.fn();
 const createIndexAlias = jest.fn();
@@ -34,7 +37,7 @@ jest.mock("../elasticsearch", () => {
 
   return {
     ElasticsearchIndexes: ElasticsearchIndexes,
-    createElasticSearchIndex: (...args: any) =>
+    createElasticSearchIndex: (...args: unknown[]) =>
       createElasticSearchIndex(...args),
     createIndexAlias: (...args: any) => createIndexAlias(...args)
   };
@@ -43,7 +46,7 @@ jest.mock("../elasticsearch", () => {
 const deleteFirestoreCollection = jest.fn();
 jest.mock("../firestore", () => {
   return {
-    deleteFirestoreCollection: (...args: any) =>
+    deleteFirestoreCollection: (...args: unknown[]) =>
       deleteFirestoreCollection(...args)
   };
 });
@@ -53,14 +56,14 @@ jest.mock("@bmi/pim-api", () => {
   const pim = jest.requireActual("@bmi/pim-api");
   return {
     ...pim,
-    fetchData: (...args: any) => fetchData(...args)
+    fetchData: (...args: unknown[]) => fetchData(...args)
   };
 });
 
 const getNumberOfDocuments = jest.fn();
 jest.mock("../contentful", () => {
   return {
-    getNumberOfDocuments: (...args: any) => getNumberOfDocuments(...args)
+    getNumberOfDocuments: (...args: unknown[]) => getNumberOfDocuments(...args)
   };
 });
 
@@ -74,6 +77,13 @@ jest.mock("../gcpAuth", () => {
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
+
+const fetchCoursesMock = jest.fn();
+jest.mock("@bmi/docebo-api", () => ({
+  getCachedDoceboApi: () => ({
+    fetchCourses: fetchCoursesMock
+  })
+}));
 
 beforeAll(() => {
   mockConsole();
@@ -91,6 +101,7 @@ beforeAll(() => {
     process.env.ES_INDEX_PREFIX
   }${systemDate.getMilliseconds()}_${ElasticsearchIndexes.Systems}`;
   documentsIndex = `${documentsIndex}_${systemDate.getMilliseconds()}`;
+  trainingsIndex = `${trainingsIndex}_${systemDate.getMilliseconds()}`;
 });
 
 beforeEach(() => {
@@ -125,7 +136,8 @@ describe("handleRequest", () => {
     "MARKET_LOCALE",
     "CONTENTFUL_DELIVERY_TOKEN",
     "ES_INDEX_PREFIX",
-    "ES_INDEX_NAME_DOCUMENTS"
+    "ES_INDEX_NAME_DOCUMENTS",
+    "ES_INDEX_NAME_TRAININGS"
   ])("Returns 500, when %s is not set", async (name) => {
     // eslint-disable-next-line security/detect-object-injection
     const original = process.env[name];
@@ -149,6 +161,41 @@ describe("handleRequest", () => {
     process.env[name] = original;
   });
 
+  it.each([
+    "DOCEBO_API_URL",
+    "DOCEBO_API_CLIENT_ID",
+    "DOCEBO_API_CLIENT_SECRET",
+    "DOCEBO_API_PASSWORD",
+    "DOCEBO_API_USERNAME"
+  ])(
+    "Returns 500, when PULL_DOCEBO_DATA===true and %s is not set",
+    async (name) => {
+      const originPullDoceboData = process.env.PULL_DOCEBO_DATA;
+      process.env.PULL_DOCEBO_DATA = "true";
+      // eslint-disable-next-line security/detect-object-injection
+      const original = process.env[name];
+      // eslint-disable-next-line security/detect-object-injection
+      delete process.env[name];
+
+      const request = mockRequest({ method: "GET" });
+      const response = mockResponse();
+
+      await handleRequest(request, response);
+
+      expect(createElasticSearchIndex).not.toHaveBeenCalled();
+      expect(createIndexAlias).not.toHaveBeenCalled();
+      expect(deleteFirestoreCollection).not.toHaveBeenCalled();
+      expect(fetchData).not.toHaveBeenCalled();
+      expect(getNumberOfDocuments).not.toHaveBeenCalled();
+      expect(fetchMock).not.toHaveFetched();
+      expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+      // eslint-disable-next-line security/detect-object-injection
+      process.env[name] = original;
+      process.env.PULL_DOCEBO_DATA = originPullDoceboData;
+    }
+  );
+
   it("should error if creating products Elasticsearch index throws error", async () => {
     createElasticSearchIndex.mockRejectedValue(Error("Expected error"));
     const request = mockRequest({ method: "GET" });
@@ -164,6 +211,7 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).not.toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).not.toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).not.toHaveBeenCalledWith(trainingsIndex);
     expect(createIndexAlias).not.toHaveBeenCalled();
     expect(deleteFirestoreCollection).not.toHaveBeenCalled();
     expect(fetchData).not.toHaveBeenCalledWith("products");
@@ -190,6 +238,7 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).not.toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).not.toHaveBeenCalledWith(trainingsIndex);
     expect(createIndexAlias).not.toHaveBeenCalled();
     expect(deleteFirestoreCollection).not.toHaveBeenCalled();
     expect(fetchData).not.toHaveBeenCalledWith("products");
@@ -217,6 +266,32 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).not.toHaveBeenCalledWith(trainingsIndex);
+    expect(createIndexAlias).not.toHaveBeenCalled();
+    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
+    expect(fetchData).not.toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
+    expect(getNumberOfDocuments).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveFetched();
+    expect(response.status).not.toHaveBeenCalled();
+  });
+
+  it("should error if creating trainings Elasticsearch index throws error", async () => {
+    createElasticSearchIndex
+      .mockResolvedValueOnce({})
+      .mockResolvedValueOnce({})
+      .mockResolvedValueOnce({})
+      .mockRejectedValueOnce(Error("Expected error"));
+    const request = mockRequest({ method: "GET" });
+    const response = mockResponse();
+
+    await expect(handleRequest(request, response)).rejects.toThrow(
+      "Expected error"
+    );
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
     expect(createIndexAlias).not.toHaveBeenCalled();
     expect(deleteFirestoreCollection).not.toHaveBeenCalled();
     expect(fetchData).not.toHaveBeenCalledWith("products");
@@ -241,18 +316,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
@@ -284,18 +364,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -327,18 +412,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -382,18 +472,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -438,6 +533,17 @@ describe("handleRequest", () => {
         numberOfPages: 10
       }
     });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
     expect(response.status).not.toHaveBeenCalled();
   });
@@ -472,18 +578,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -528,6 +639,17 @@ describe("handleRequest", () => {
         numberOfPages: 10
       }
     });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
     expect(response.status).not.toHaveBeenCalled();
   });
@@ -562,18 +684,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -618,6 +745,17 @@ describe("handleRequest", () => {
         numberOfPages: 10
       }
     });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
     expect(response.status).not.toHaveBeenCalled();
   });
@@ -649,18 +787,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -703,6 +846,17 @@ describe("handleRequest", () => {
         type: "documents",
         startPage: 0,
         numberOfPages: 10
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
       }
     });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
@@ -749,18 +903,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -803,6 +962,17 @@ describe("handleRequest", () => {
         type: "documents",
         startPage: 0,
         numberOfPages: 10
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
       }
     });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
@@ -851,18 +1021,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -905,6 +1080,17 @@ describe("handleRequest", () => {
         type: "documents",
         startPage: 0,
         numberOfPages: 10
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
       }
     });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
@@ -953,18 +1139,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -1007,6 +1198,17 @@ describe("handleRequest", () => {
         type: "documents",
         startPage: 0,
         numberOfPages: 10
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
       }
     });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
@@ -1054,18 +1256,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -1111,6 +1318,17 @@ describe("handleRequest", () => {
         type: "documents",
         startPage: 0,
         numberOfPages: 10
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
       }
     });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
@@ -1167,18 +1385,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -1222,6 +1445,28 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -1282,18 +1527,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -1337,6 +1587,17 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -1397,18 +1658,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -1448,6 +1714,17 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -1505,18 +1782,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(getNumberOfDocuments).toHaveBeenCalledWith(
@@ -1563,6 +1845,17 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -1628,18 +1921,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -1686,6 +1984,17 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -1751,18 +2060,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -1809,6 +2123,17 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -1900,18 +2225,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
@@ -1986,6 +2316,17 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
@@ -2041,18 +2382,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(getNumberOfDocuments).toHaveBeenCalledWith(
@@ -2099,6 +2445,17 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -2154,18 +2511,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(getNumberOfDocuments).toHaveBeenCalledWith(
@@ -2212,6 +2574,17 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -2270,18 +2643,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(getNumberOfDocuments).toHaveBeenCalledWith(
@@ -2328,6 +2706,17 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -2383,18 +2772,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(getNumberOfDocuments).toHaveBeenCalledWith(
@@ -2441,6 +2835,17 @@ describe("handleRequest", () => {
       },
       body: {
         type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
         startPage: 0,
         numberOfPages: 1
       }
@@ -2496,18 +2901,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(getNumberOfDocuments).toHaveBeenCalledWith(
@@ -2566,6 +2976,17 @@ describe("handleRequest", () => {
       },
       body: { isFullFetch: true }
     });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
     expect(response.status).toHaveBeenCalledWith(200);
   });
 
@@ -2620,18 +3041,23 @@ describe("handleRequest", () => {
     expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
     expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
 
     expect(createIndexAlias).toHaveBeenCalledWith(
       productsIndex,
       productsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${systemsIndex}`,
+      systemsIndex,
       systemsIndex_alias
     );
     expect(createIndexAlias).toHaveBeenCalledWith(
-      `${documentsIndex}`,
+      documentsIndex,
       documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
     );
 
     expect(getNumberOfDocuments).toHaveBeenCalledWith(
@@ -2682,6 +3108,17 @@ describe("handleRequest", () => {
         numberOfPages: 1
       }
     });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
       headers: {
@@ -2694,5 +3131,633 @@ describe("handleRequest", () => {
     expect(response.status).toHaveBeenCalledWith(200);
 
     delete process.env.TAG;
+  });
+
+  it("should trigger a full fetch for trainings and return 200 if PULL_DOCEBO_DATA===true", async () => {
+    const initialPullDoceboData = process.env.PULL_DOCEBO_DATA;
+    process.env.PULL_DOCEBO_DATA = "true";
+    fetchData
+      .mockResolvedValueOnce(createProductsApiResponse({ totalPageCount: 10 }))
+      .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
+    getNumberOfDocuments.mockResolvedValueOnce(1000);
+    fetchCoursesMock.mockReturnValue([createCourse()]);
+
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "documents",
+          startPage: 0,
+          numberOfPages: 1
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "trainings",
+          startPage: 1,
+          numberOfPages: 1
+        }
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+
+    const request = mockRequest({ method: "GET" });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
+
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      productsIndex,
+      productsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      systemsIndex,
+      systemsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      documentsIndex,
+      documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
+    );
+
+    expect(getNumberOfDocuments).toHaveBeenCalledWith(
+      process.env.MARKET_LOCALE,
+      process.env.TAG
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Products
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Systems
+    );
+    expect(fetchData).toHaveBeenCalledWith("products", process.env.LOCALE);
+    expect(fetchData).toHaveBeenCalledWith("systems", process.env.LOCALE);
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: {
+        type: "systems",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: {
+        type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 1,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: { isFullFetch: true }
+    });
+
+    expect(response.status).toHaveBeenCalledWith(200);
+    process.env.PULL_DOCEBO_DATA = initialPullDoceboData;
+  });
+
+  it("should send multiple requests for multiple pages of trainings", async () => {
+    const initialPullDoceboData = process.env.PULL_DOCEBO_DATA;
+    process.env.PULL_DOCEBO_DATA = "true";
+    fetchData
+      .mockResolvedValueOnce(createProductsApiResponse({ totalPageCount: 10 }))
+      .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
+    getNumberOfDocuments.mockResolvedValueOnce(1000);
+    const courses = new Array(30);
+    courses.fill(createCourse());
+    fetchCoursesMock.mockReturnValue(courses);
+
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "documents",
+          startPage: 0,
+          numberOfPages: 1
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "trainings",
+          startPage: 1,
+          numberOfPages: 1
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "trainings",
+          startPage: 2,
+          numberOfPages: 1
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "trainings",
+          startPage: 3,
+          numberOfPages: 1
+        }
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+
+    const request = mockRequest({ method: "GET" });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
+
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      productsIndex,
+      productsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      systemsIndex,
+      systemsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      documentsIndex,
+      documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
+    );
+
+    expect(getNumberOfDocuments).toHaveBeenCalledWith(
+      process.env.MARKET_LOCALE,
+      process.env.TAG
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Products
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Systems
+    );
+    expect(fetchData).toHaveBeenCalledWith("products", process.env.LOCALE);
+    expect(fetchData).toHaveBeenCalledWith("systems", process.env.LOCALE);
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: {
+        type: "systems",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: {
+        type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 1,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 2,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 3,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: { isFullFetch: true }
+    });
+
+    expect(response.status).toHaveBeenCalledWith(200);
+    process.env.PULL_DOCEBO_DATA = initialPullDoceboData;
+  });
+
+  it("works correctly if there are no courses and PULL_DOCEBO_DATA===true", async () => {
+    const initialPullDoceboData = process.env.PULL_DOCEBO_DATA;
+    process.env.PULL_DOCEBO_DATA = "true";
+    fetchData
+      .mockResolvedValueOnce(createProductsApiResponse({ totalPageCount: 10 }))
+      .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
+    getNumberOfDocuments.mockResolvedValueOnce(1000);
+    fetchCoursesMock.mockReturnValue(undefined);
+
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "documents",
+          startPage: 0,
+          numberOfPages: 1
+        }
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+
+    const request = mockRequest({ method: "GET" });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
+
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      productsIndex,
+      productsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      systemsIndex,
+      systemsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      documentsIndex,
+      documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
+    );
+
+    expect(getNumberOfDocuments).toHaveBeenCalledWith(
+      process.env.MARKET_LOCALE,
+      process.env.TAG
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Products
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Systems
+    );
+    expect(fetchData).toHaveBeenCalledWith("products", process.env.LOCALE);
+    expect(fetchData).toHaveBeenCalledWith("systems", process.env.LOCALE);
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: {
+        type: "systems",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: {
+        type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 1,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: { isFullFetch: true }
+    });
+
+    expect(response.status).toHaveBeenCalledWith(200);
+    process.env.PULL_DOCEBO_DATA = initialPullDoceboData;
+  });
+
+  it("should retry 5 times and eventually error if triggering full fetch functions for trainings if it returns error code 429 and PULL_DOCEBO_DATA===true", async () => {
+    const initialPullDoceboData = process.env.PULL_DOCEBO_DATA;
+    process.env.PULL_DOCEBO_DATA = "true";
+    fetchData
+      .mockResolvedValueOnce(createProductsApiResponse({ totalPageCount: 10 }))
+      .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
+    getNumberOfDocuments.mockResolvedValueOnce(1000);
+    fetchCoursesMock.mockReturnValue([createCourse()]);
+
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "documents",
+          startPage: 0,
+          numberOfPages: 1
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "trainings",
+          startPage: 1,
+          numberOfPages: 1
+        },
+        status: 429
+      }
+    );
+    const request = mockRequest({ method: "GET" });
+    const response = mockResponse();
+
+    await expect(handleRequest(request, response)).rejects.toThrow(
+      `Failed request for "${process.env.FULL_FETCH_ENDPOINT}" after 5 retries with the following errors: ["Too Many Requests - ","Too Many Requests - ","Too Many Requests - ","Too Many Requests - ","Too Many Requests - "]`
+    );
+
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(trainingsIndex);
+
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      productsIndex,
+      productsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      systemsIndex,
+      systemsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      documentsIndex,
+      documentsIndex_alias
+    );
+    expect(createIndexAlias).toHaveBeenCalledWith(
+      trainingsIndex,
+      trainingsIndex_alias
+    );
+
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Products
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Systems
+    );
+    expect(fetchData).toHaveBeenCalledWith("products", process.env.LOCALE);
+    expect(fetchData).toHaveBeenCalledWith("systems", process.env.LOCALE);
+    expect(getNumberOfDocuments).toHaveBeenCalledWith(
+      process.env.MARKET_LOCALE,
+      undefined
+    );
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "systems",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "documents",
+        startPage: 0,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).toHaveFetchedTimes(5, process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "trainings",
+        startPage: 1,
+        numberOfPages: 1
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
+    expect(response.status).not.toHaveBeenCalled();
+    process.env.PULL_DOCEBO_DATA = initialPullDoceboData;
   });
 });

@@ -5,6 +5,9 @@
   },
   "references": [
     {
+      "path": "../../libraries/docebo-api"
+    },
+    {
       "path": "../../libraries/functions-contentful-client"
     },
     {

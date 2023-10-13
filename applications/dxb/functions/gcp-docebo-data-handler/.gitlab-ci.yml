@@ -1,0 +1,37 @@
+lint_gcp-docebo-data-handler:
+  extends: .lint_function
+  variables:
+    ROOT_DIR: "applications/dxb/functions/gcp-docebo-data-handler"
+    WORKSPACE: "@bmi/gcp-docebo-data-handler"
+
+build_gcp-docebo-data-handler:
+  extends: .build_function
+  variables:
+    WORKSPACE: "@bmi/gcp-docebo-data-handler"
+    ROOT_DIR: "applications/dxb/functions/gcp-docebo-data-handler"
+
+test_gcp-docebo-data-handler:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-docebo-data-handler"
+    ROOT_DIR: "applications/dxb/functions/gcp-docebo-data-handler"
+  needs:
+    - build_gcp-docebo-data-handler
+
+package_gcp-docebo-data-handler:
+  extends: .package_function
+  needs:
+    - job: build_gcp-docebo-data-handler
+      artifacts: true
+  variables:
+    FUNCTION_NAME: gcp-docebo-data-handler
+    ROOT_DIR: applications/dxb/functions/gcp-docebo-data-handler
+
+deploy_gcp-docebo-data-handler:
+  extends: .deploy_function
+  needs:
+    - job: package_gcp-docebo-data-handler
+      artifacts: true
+  variables:
+    FUNCTION_NAME: gcp-docebo-data-handler
+    ROOT_DIR: applications/dxb/functions/gcp-docebo-data-handler

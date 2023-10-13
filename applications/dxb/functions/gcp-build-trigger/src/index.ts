@@ -8,7 +8,8 @@ const {
   DELAY_MILLISECONDS,
   NETLIFY_BUILD_HOOK,
   ES_INDEX_PREFIX,
-  ES_INDEX_NAME_DOCUMENTS
+  ES_INDEX_NAME_DOCUMENTS,
+  ES_INDEX_NAME_TRAININGS
 } = process.env;
 
 export const build: HttpFunction = async (_req, res) => {
@@ -38,6 +39,13 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
+  if (!ES_INDEX_NAME_TRAININGS) {
+    logger.error({
+      message: "ES_INDEX_NAME_TRAININGS was not provided"
+    });
+    return res.sendStatus(500);
+  }
+
   const delayMilliseconds = Number.parseInt(DELAY_MILLISECONDS);
   if (Number.isNaN(delayMilliseconds)) {
     logger.error({
@@ -59,7 +67,8 @@ export const build: HttpFunction = async (_req, res) => {
       await swapReadWriteAliases(`${ES_INDEX_PREFIX}_${indexEntity}`);
     }
 
-    await swapReadWriteAliases(`${ES_INDEX_NAME_DOCUMENTS}`);
+    await swapReadWriteAliases(ES_INDEX_NAME_DOCUMENTS);
+    await swapReadWriteAliases(ES_INDEX_NAME_TRAININGS);
   }
   await fetch(NETLIFY_BUILD_HOOK, { method: "POST" });
   res.sendStatus(200);

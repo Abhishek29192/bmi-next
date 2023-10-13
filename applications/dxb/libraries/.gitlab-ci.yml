@@ -5,6 +5,8 @@ include:
   - local: "/applications/dxb/libraries/contentful-tag-cli/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/contentful-types/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/contentful-upload/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/docebo-api/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/docebo-types/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/fetch-retry/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/firestore-types/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-contentful-client/.gitlab-ci.yml"

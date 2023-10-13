@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.common.json",
   "files": [],
+  "include": ["./jest/**/*"],
   "references": [
     {
       "path": "applications/frc-website"
@@ -28,6 +29,9 @@
     },
     {
       "path": "applications/dxb/functions/gcp-contentful-documents-ingest"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-docebo-data-handler"
     },
     {
       "path": "applications/dxb/functions/gcp-download-zip"
@@ -85,6 +89,12 @@
     },
     {
       "path": "applications/dxb/libraries/contentful-upload"
+    },
+    {
+      "path": "applications/dxb/libraries/docebo-api"
+    },
+    {
+      "path": "applications/dxb/libraries/docebo-types"
     },
     {
       "path": "applications/dxb/libraries/elasticsearch-types"
