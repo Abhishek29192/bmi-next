@@ -27,7 +27,7 @@ const TrainingDetails = ({ course: { name, description, code } }: Props) => {
       </Title>
       {code && (
         <Typography data-testid="training-id">
-          {getMicroCopy(microCopy.TRAINING_DETAILS_COURSE_ID_LABEL)}: {code}
+          {getMicroCopy(microCopy.TRAINING_ID_LABEL)}: {code}
         </Typography>
       )}
       <CourseDescription
