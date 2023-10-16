@@ -672,7 +672,7 @@ exports[`Document Library page renders correctly  1`] = `
       data-testid="brand-colors-provider"
     >
       <div
-        class="ScrimStyles-scrim--light css-1qqmo68"
+        class="ScrimStyles-scrim--light css-o8e9td"
       >
         <span
           class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"

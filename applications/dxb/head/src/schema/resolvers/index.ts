@@ -20,7 +20,8 @@ const {
   ContentfulDocumentLibraryPage: ContentfulDocumentLibraryPageCommon,
   ContentfulProductListerPage,
   ContentfulSimplePage: ContentfulSimplePageCommon,
-  ContentfulCookiePolicyPage
+  ContentfulCookiePolicyPage,
+  ContentfulTrainingListerPage
 } = ContentfulPage;
 
 /**
@@ -63,5 +64,6 @@ export default {
     relatedProducts: System.relatedProducts,
     relatedOptionalProducts: System.relatedOptionalProducts
   },
-  ContentfulCookiePolicyPage
+  ContentfulCookiePolicyPage,
+  ContentfulTrainingListerPage
 };

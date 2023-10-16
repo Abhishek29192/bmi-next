@@ -193,6 +193,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
         ),
         ContentfulCookiePolicyPage: path.resolve(
           "./src/templates/cookiePolicy/components/cookie-policy-page.tsx"
+        ),
+        ContentfulTrainingListerPage: path.resolve(
+          "./src/templates/trainingListerPage/training-lister-page.tsx"
         )
       };
 

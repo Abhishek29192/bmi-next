@@ -4,7 +4,6 @@ export const createCourse = (course: Partial<Course> = {}): Course => ({
   id_course: 1,
   start_date: "1693586500594",
   end_date: "1693586500594",
-  max_attempts: 2,
   date_last_updated: "1693586500594",
   can_rate: false,
   can_self_unenroll: false,
@@ -32,7 +31,6 @@ export const createCourse = (course: Partial<Course> = {}): Course => ({
   selling: false,
   slug_name: "italian-test-course",
   uidCourse: "I-KVOYX1",
-  affiliate_price: "",
   available_seats: [],
   ...course
 });
