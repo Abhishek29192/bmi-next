@@ -1,7 +1,9 @@
 {
   "extends": "./tsconfig.common.json",
   "files": [],
-  "include": ["./jest/**/*"],
+  "include": [
+    "./jest/**/*"
+  ],
   "references": [
     {
       "path": "applications/frc-website"

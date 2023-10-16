@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.17",
-    "@bmi-digital/eslint-config": "^2.0.0",
+    "@bmi-digital/eslint-config": "^2.1.2",
     "@bmi-digital/tsconfig": "^1.4.6",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-angular": "^17.7.0",

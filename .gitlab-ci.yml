@@ -1,7 +1,7 @@
 include:
   - project: "bmi-digital/gitlab-templates"
     file: "yarn.gitlab-ci.yml"
-    ref: "v2.0.2"
+    ref: "v2.1.0"
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/redirects-website/.gitlab-ci.yml"
@@ -70,12 +70,6 @@ install_yarn:
       changes:
         - yarn.lock
     - if: '$WHICH_SCHEDULE == "install_yarn"'
-
-code_quality:
-  rules:
-    - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
 
 nodejs-scan-sast:
   rules:
