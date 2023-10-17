@@ -144,7 +144,9 @@ const TrainingCatalogue = ({
                 )
               }}
               title={training.name}
-              subtitle={training.code}
+              subtitle={`${getMicroCopy(microCopy.TRAINING_ID_LABEL)} ${
+                training.code
+              }`}
               trainingType={{
                 type: training.courseType,
                 label: getMicroCopy(
