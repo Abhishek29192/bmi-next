@@ -5,11 +5,13 @@ import {
   Category,
   Certification,
   Course,
+  Session,
   createCatalogue,
   createCategory,
   createCertification,
   createCourse,
-  createExtendedCourse
+  createExtendedCourse,
+  createSession
 } from "@bmi/docebo-types";
 import { DoceboApiService, PAGE_SIZE } from "../services";
 import { DoceboApiServiceParams, DoceboData } from "../types";
@@ -18,7 +20,7 @@ const fetchMock = fetchMockJest.sandbox();
 global.fetch = fetchMock as typeof fetch;
 
 const getMockedDoceboData = <
-  T extends Catalogue | Category | Certification | Course
+  T extends Catalogue | Category | Certification | Course | Session
 >(
   data: Partial<DoceboData<T>["data"]> = {}
 ): DoceboData<T> => ({
@@ -154,6 +156,86 @@ describe("services", () => {
           }
         );
         expect(res).toEqual([course]);
+      });
+
+      it("should return empty array as sessions when name field is present", async () => {
+        mockResponses(fetchMock, {
+          url: "*",
+          method: "GET",
+          status: 400,
+          body: { name: "Error fetching sessions" }
+        });
+        const docepoApi = new DoceboApiService(defaultParams);
+        const res = await docepoApi.fetchSessions({ course_id: 202 });
+        expect(res).toEqual([]);
+      });
+    });
+    describe("fetchSessions", () => {
+      it("should fetch sessions", async () => {
+        const sessions = createSession();
+        mockResponses(fetchMock, {
+          url: "*",
+          method: "GET",
+          status: 200,
+          body: getMockedDoceboData({ items: sessions })
+        });
+
+        const docepoApi = new DoceboApiService(defaultParams);
+        const res = await docepoApi.fetchSessions({ course_id: 202, page: 1 });
+        expect(docepoApi.getAccessToken).toHaveBeenCalled();
+        expect(fetchMock).toHaveBeenCalledTimes(1);
+        expect(fetchMock).toHaveBeenCalledWith(
+          `${defaultParams.apiUrl}course/v1/courses/202/sessions?page=1&page_size=${PAGE_SIZE}`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` }
+          }
+        );
+        expect(res).toEqual(sessions);
+      });
+
+      it("sends request twice if the first request returns has_more_data === true", async () => {
+        const session1 = createSession({ id: 1 });
+        const session2 = createSession({ id: 2 });
+        mockResponses(
+          fetchMock,
+          {
+            url: `${defaultParams.apiUrl}course/v1/courses/202/sessions?page=1&page_size=${PAGE_SIZE}`,
+            method: "GET",
+            status: 200,
+            body: getMockedDoceboData({ items: session1, has_more_data: true })
+          },
+          {
+            url: `${defaultParams.apiUrl}course/v1/courses/202/sessions?page=2&page_size=${PAGE_SIZE}`,
+            method: "GET",
+            status: 200,
+            body: getMockedDoceboData({
+              items: session2,
+              has_more_data: false
+            })
+          }
+        );
+
+        const docepoApi = new DoceboApiService(defaultParams);
+        const res = await docepoApi.fetchSessions({ course_id: 202 });
+
+        expect(docepoApi.getAccessToken).toHaveBeenCalledTimes(2);
+        expect(fetchMock).toHaveBeenCalledTimes(2);
+
+        expect(fetchMock).toHaveBeenCalledWith(
+          `${defaultParams.apiUrl}course/v1/courses/202/sessions?page=1&page_size=${PAGE_SIZE}`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` }
+          }
+        );
+
+        expect(fetchMock).toHaveBeenCalledWith(
+          `${defaultParams.apiUrl}course/v1/courses/202/sessions?page=2&page_size=${PAGE_SIZE}`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` }
+          }
+        );
+
+        expect(res).toEqual([...session1, ...session2]);
       });
     });
 

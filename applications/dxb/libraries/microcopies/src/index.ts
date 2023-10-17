@@ -380,6 +380,8 @@ export const microCopy = {
   TRAINING_CATALOGUE_SHOW_LESS: "trainingCatalogue.showLess",
 
   TRAINING_ID_LABEL: "training.courseIdLabel",
+  TRAINING_DETAILS_SESSIONS_LABEL: "trainingDetails.sessionsLabel",
+  TRAINING_DETAILS_SESSION_ENROLL_LABEL: "trainingDetails.session.enrollLabel",
 
   LOG_IN_LABEL_ALERT: "login.label.alert",
   LOG_OUT_LABEL_ALERT: "logout.label.alert",

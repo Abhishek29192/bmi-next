@@ -65,6 +65,60 @@ export type Certification = {
 
 export type CourseType = "classroom" | "elearning" | "webinar";
 
+export interface SessionAdditionalField {
+  id: string;
+  name: string;
+  value: string;
+  mandatory: boolean;
+  type: string;
+}
+
+export interface Session {
+  id: number;
+  code: string;
+  name: string;
+  date_start: string;
+  date_end: string;
+  hours: string;
+  events: string;
+  events_with_sync_failed: string;
+  instructors: string;
+  instructors_emails_number: number;
+  waiting: string;
+  enrolled: string;
+  max_enroll: string;
+  created_by: string;
+  uid_session: string;
+  externally_managed: boolean;
+  additional_fields: Array<SessionAdditionalField>;
+  attendance_details: {
+    onsite: number;
+    online: number;
+    flexible: number;
+  };
+  location: {
+    id: number;
+    name: string;
+    address: string;
+    count: number;
+  };
+  attendance_type: string;
+}
+
+export interface SessionsData {
+  data: {
+    items: Session[];
+    count: number;
+    has_more_data: boolean;
+    current_page: number;
+    current_page_size: number;
+    total_page_count: number;
+    total_count: number;
+  };
+  name?: string;
+  version?: string;
+}
+
 export type Course = {
   id_course: number;
   name: string;
@@ -95,6 +149,8 @@ export type Course = {
   available_seats: { [seatId: string]: number | null }[];
   category: CourseCategory;
 };
+
+export type CourseWithSessions = Course & { sessions?: Session[] };
 
 export type Enrolled = {
   is_enrolled: boolean;

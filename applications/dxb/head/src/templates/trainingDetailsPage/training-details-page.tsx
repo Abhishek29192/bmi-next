@@ -1,9 +1,9 @@
 import React from "react";
-import { Container } from "@bmi-digital/components";
 import { graphql } from "gatsby";
+import { CourseWithSessions } from "@bmi/docebo-types";
+import { Container } from "@bmi-digital/components";
 import Page, { Data as PageData } from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
-import { DoceboCourse } from "../../types/pim";
 import TrainingDetail from "./components/TrainingDetail";
 
 export type Props = {
@@ -13,7 +13,7 @@ export type Props = {
     countryCode: string;
   };
   data: {
-    doceboCourses: DoceboCourse;
+    doceboCourses: CourseWithSessions;
     contentfulSite: SiteData;
   };
 };
@@ -46,6 +46,12 @@ export const pageQuery = graphql`
       name
       description
       code
+      sessions {
+        code
+        name
+        date_start
+        date_end
+      }
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

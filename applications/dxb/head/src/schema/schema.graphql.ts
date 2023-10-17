@@ -1261,6 +1261,50 @@ type ContentfulSystemConfiguratorSection implements ContentfulObject & Node @don
   question: ContentfulSystemConfiguratorQuestion! @link(from: "question___NODE")
 }
 
+type SessionAdditionalField @dontInfer {
+  id: String!
+  name: String!
+  value: String!
+  mandatory: Boolean!
+  type: String!
+}
+
+type DoceboCourseSessionAttendanceDetails @dontInfer {
+  onsite: Int!
+  online: Int!
+  flexible: Int!
+}
+
+type DoceboCourseSessionLocation @dontInfer {
+  id: Int!
+  name: String!
+  address: String!
+  count: Int!
+}
+
+type Session @dontInfer {
+  id: Int!
+  code: String!
+  name: String!
+  date_start: String!
+  date_end: String!
+  hours: String!
+  events: String!
+  events_with_sync_failed: String!
+  instructors: String!
+  instructors_emails_number: String!
+  waiting: String!
+  enrolled: String!
+  max_enroll: String!
+  created_by: String!
+  uid_session: String!
+  externally_managed: Boolean!
+  additional_fields: [SessionAdditionalField]!
+  attendance_details: DoceboCourseSessionAttendanceDetails!
+  location: DoceboCourseSessionLocation!
+  attendance_type: String!
+}
+
 type DoceboCourses implements Node @dontInfer {
   id: ID!
   id_course: Int!
@@ -1268,5 +1312,6 @@ type DoceboCourses implements Node @dontInfer {
   name: String!
   description: String!
   code: String
+  sessions: [Session]
 }
 `;

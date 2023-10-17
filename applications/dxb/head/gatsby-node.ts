@@ -3,13 +3,14 @@ import fetch from "node-fetch";
 import dotenv from "dotenv";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { ApprovalStatus } from "@bmi/pim-types";
+import { Course as DoceboCourse } from "@bmi/docebo-types";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
 import { getRedirects, Redirect } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
 import { convertStrToBool } from "./src/utils/convertStrToBool";
-import { DoceboCourse, Product } from "./src/types/pim";
+import { Product } from "./src/types/pim";
 import type {
   CreateBabelConfigArgs,
   CreatePagesArgs,
