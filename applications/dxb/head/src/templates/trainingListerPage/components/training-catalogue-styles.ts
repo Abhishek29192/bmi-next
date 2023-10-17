@@ -18,12 +18,12 @@ export const Title = styled(Typography)({
 });
 
 export const Description = styled(Typography)({
-  fontSize: "18px",
   marginBottom: "24px"
 });
 
 export const ItemsCount = styled(Typography)({
-  marginBottom: "12px"
+  marginBottom: "12px",
+  lineHeight: 1.2
 });
 
 export const ShowMoreButton = styled(Button)({
