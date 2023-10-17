@@ -3561,7 +3561,7 @@ __metadata:
     "@emotion/react": ^11.10.8
     "@emotion/styled": ^11.10.8
     "@lhci/cli": ^0.12.0
-    "@lilib/hooks": ^1.0.1
+    "@lilib/hooks": ^1.0.3
     "@mui/icons-material": ^5.11.16
     "@mui/lab": ^5.0.0-alpha.129
     "@mui/material": ^5.12.3
@@ -6094,9 +6094,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lilib/hooks@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@lilib/hooks@npm:1.0.1"
+"@lilib/hooks@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@lilib/hooks@npm:1.0.3"
   dependencies:
     "@babel/runtime-corejs3": ^7.18.3
     "@lilib/utils": ^1.0.0
@@ -6114,7 +6114,7 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: a91f42c21182b0bb3713588437b8f3698a6bf230faa3f1d1c58db60830823122c0dac4a5518312d736d274516db2fd0046e0e76e573c341eb608ed5c5633d1ce
+  checksum: 33b022ac937153b73b689a1e6af5c6ef4cdbf761111a0e8c2ceb8752b609f21bf84923f82efe463f5c69fd8da8300c2b984f00d4a145b51c1e744312969ec29d
   languageName: node
   linkType: hard
 
