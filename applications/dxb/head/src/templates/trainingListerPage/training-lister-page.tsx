@@ -109,6 +109,8 @@ export const pageQuery = graphql`
   query TrainingListerPageById($pageId: String!, $siteId: String!) {
     contentfulTrainingListerPage(id: { eq: $pageId }) {
       ...BreadcrumbsFragment
+      path
+      slug
       title
       subtitle
       featuredMedia {
