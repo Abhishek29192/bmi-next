@@ -3,7 +3,7 @@ import {
   createCatalogue,
   createCategory,
   createCertification,
-  createCourse
+  createCourseWithSession
 } from "@bmi/docebo-types";
 import { sourceNodes, pluginOptionsSchema } from "../index";
 import { nodeBuilder } from "../utils";
@@ -16,10 +16,12 @@ const fetchCoursesMock = jest.fn();
 const fetchCatalogueMock = jest.fn();
 const fetchCategoriesMock = jest.fn();
 const fetchCertificationsMock = jest.fn();
+const fetchSessionMock = jest.fn();
 
 jest.mock("@bmi/docebo-api", () => ({
   DoceboApiService: function () {
     return {
+      fetchSessions: fetchSessionMock,
       fetchCourses: fetchCoursesMock,
       fetchCategories: fetchCategoriesMock,
       fetchCatalogues: fetchCatalogueMock,
@@ -55,6 +57,7 @@ beforeEach(() => {
   fetchCatalogueMock.mockReturnValue([]);
   fetchCategoriesMock.mockReturnValue([]);
   fetchCertificationsMock.mockReturnValue([]);
+  fetchSessionMock.mockReturnValue([]);
 });
 
 describe("source-nodes", () => {
@@ -87,7 +90,7 @@ describe("source-nodes", () => {
   });
 
   it("should write courses", async () => {
-    const course = createCourse();
+    const course = createCourseWithSession({ sessions: [] });
     fetchCoursesMock.mockReturnValue([course]);
     await sourceNodes!(mockGatsbyApi, mockConfigOptions, mockCallback);
     expect(nodeBuilder).toHaveBeenCalledWith({

@@ -3,7 +3,9 @@ import type {
   Category,
   Certification,
   Course,
-  ExtendedCourse
+  ExtendedCourse,
+  Session,
+  SessionsData
 } from "@bmi/docebo-types";
 import type {
   Auth,
@@ -54,6 +56,34 @@ export class DoceboApiService {
     return data.access_token;
   }
 
+  async fetchSessions({
+    course_id,
+    page = 1
+  }: {
+    course_id: number;
+    page?: number;
+  }): Promise<Session[]> {
+    const accessToken = await this.getAccessToken();
+    const response = await fetch(
+      `${this.apiUrl}course/v1/courses/${course_id}/sessions?page=${page}&page_size=${PAGE_SIZE}`,
+      {
+        headers: { Authorization: `Bearer ${accessToken}` }
+      }
+    );
+
+    const { data, name }: SessionsData = await response.json();
+    if (name) {
+      return [];
+    }
+
+    const { items, has_more_data } = data;
+    const sessions = has_more_data
+      ? [...items, ...(await this.fetchSessions({ course_id, page: page + 1 }))]
+      : items;
+
+    return sessions;
+  }
+
   async fetchCourses({
     page = 1,
     pageSize = PAGE_SIZE,
@@ -72,6 +102,7 @@ export class DoceboApiService {
     );
 
     const { data }: DoceboData<Course> = await response.json();
+
     //prevents other pages from being fetched if "page" property has been passed
     return !ignoreNextPage && data.has_more_data
       ? [...data.items, ...(await this.fetchCourses({ page: page + 1 }))]
