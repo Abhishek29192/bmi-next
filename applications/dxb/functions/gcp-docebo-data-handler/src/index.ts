@@ -94,10 +94,10 @@ export const handleRequest: HttpFunction = async (req, res) => {
   }
 
   if (
-    req.headers["php-auth-user"] !== DOCEBO_API_USERNAME ||
-    req.headers["php-auth-pw"] !== DOCEBO_API_PASSWORD
+    req.headers["authorization"] !==
+    `Basic ${btoa(`${DOCEBO_API_USERNAME}:${DOCEBO_API_PASSWORD}`)}`
   ) {
-    logger.error({ message: "Authorisation failed." });
+    logger.error({ message: "Authorization failed." });
     return res.sendStatus(401);
   }
 

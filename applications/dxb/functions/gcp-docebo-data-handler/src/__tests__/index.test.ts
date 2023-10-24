@@ -45,9 +45,10 @@ jest.mock("node-fetch", () => fetchMock);
 
 const metadataUrl = `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`;
 const gcpAuthToken = "gcp-auth-token";
-const authHeaders = {
-  "php-auth-user": process.env.DOCEBO_API_USERNAME,
-  "php-auth-pw": process.env.DOCEBO_API_PASSWORD
+const defaultHeaders = {
+  authorization: `Basic ${btoa(
+    `${process.env.DOCEBO_API_USERNAME}:${process.env.DOCEBO_API_PASSWORD}`
+  )}`
 };
 
 const catalogueIds =
@@ -75,7 +76,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -92,7 +93,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -109,7 +110,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -126,7 +127,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -143,7 +144,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -160,7 +161,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -177,7 +178,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -194,7 +195,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -211,7 +212,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -228,7 +229,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -237,25 +238,12 @@ describe("handleRequest", () => {
     process.env.ES_INDEX_NAME_TRAININGS = originEsIndexNameTrainings;
   });
 
-  it("returns 401 if 'php-auth-user' header is not correct", async () => {
+  it("returns 401 if 'authorization' header is not correct", async () => {
     const res = mockResponse();
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: { ...authHeaders, "php-auth-user": "wrong-user-name" }
-    });
-    await handleRequest(req, res);
-
-    expect(res.sendStatus).toHaveBeenCalledWith(401);
-    expect(getEsClientMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 401 if 'php-auth-pw' header is not correct", async () => {
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: createCourseUpdatedEvent(),
-      headers: { ...authHeaders, "php-auth-pw": "wrong-user-password" }
+      headers: { ...defaultHeaders, authorization: "fake auth token" }
     });
     await handleRequest(req, res);
 
@@ -268,7 +256,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: { ...createCourseUpdatedEvent(), event: undefined },
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -284,7 +272,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent({ course_id: undefined }),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -299,7 +287,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseDeletedFromCatalogueEvent({ catalog_id: undefined }),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -314,7 +302,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseDeletedFromCatalogueEvent({ course_id: undefined }),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -333,7 +321,7 @@ describe("handleRequest", () => {
         payload: undefined,
         payloads: undefined
       },
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -350,7 +338,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseDeletedFromCatalogueEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -370,7 +358,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseDeletedEvent({ course_id: undefined }),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -394,7 +382,7 @@ describe("handleRequest", () => {
           createCourseDeletedPayload({ course_id: undefined })
         ]
       },
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -428,7 +416,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseDeletedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -482,7 +470,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createMultipleCoursesDeletedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -542,7 +530,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createMultipleCoursesDeletedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -594,7 +582,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseDeletedFromCatalogueEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -636,7 +624,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: createCourseUpdatedEvent(),
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -659,7 +647,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: event,
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -684,7 +672,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: event,
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -723,7 +711,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: event,
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -766,7 +754,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: event,
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -799,7 +787,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: event,
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -843,7 +831,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: event,
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
@@ -875,7 +863,7 @@ describe("handleRequest", () => {
     const req = mockRequest({
       method: "POST",
       body: { ...createCourseDeletedEvent(), event: "unexpected-event" },
-      headers: authHeaders
+      headers: defaultHeaders
     });
     await handleRequest(req, res);
 
