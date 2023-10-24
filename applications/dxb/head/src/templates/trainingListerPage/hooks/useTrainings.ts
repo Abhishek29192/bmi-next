@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Training } from "@bmi/elasticsearch-types";
-import { QUERY_KEY } from "@bmi-digital/components";
+import { QUERY_KEY, useIsClient } from "@bmi-digital/components";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { queryElasticSearch } from "../../../utils/elasticSearch";
 import { EsResponse, EsCollapsedTraining, EsTrainingHit } from "../types";
@@ -20,8 +20,18 @@ export const useTrainings: UseTrainings = () => {
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
   const [trainings, setTrainings] = useState<Training[]>([]);
   const [total, setTotal] = useState<{ [catalogueId: string]: number }>({});
-  const [searchQuery, setSearchQuery] = useState<string>("");
   const { esIndexNameTrainings } = useConfig();
+
+  const { isClient } = useIsClient();
+  const params = useMemo(() => {
+    return new URLSearchParams(
+      isClient && window ? window.location.search : ""
+    );
+  }, [isClient]);
+
+  const searchQuery = useMemo(() => {
+    return params.get(QUERY_KEY);
+  }, [params]);
 
   const getSearchTrainings = async (searchQuery) => {
     if (!esIndexNameTrainings) {
@@ -177,11 +187,6 @@ export const useTrainings: UseTrainings = () => {
   };
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-
-    const queryString = params.get(QUERY_KEY);
-    setSearchQuery(queryString);
-
     if (searchQuery) {
       getSearchTrainings(searchQuery);
     } else {
