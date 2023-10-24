@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Training } from "@bmi/elasticsearch-types";
+import { QUERY_KEY } from "@bmi-digital/components";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { queryElasticSearch } from "../../../utils/elasticSearch";
 import { EsResponse, EsCollapsedTraining, EsTrainingHit } from "../types";
@@ -12,13 +13,61 @@ export type UseTrainings = () => {
   fetchPaginatedTrainings: (catalogueId: number, from: number) => Promise<void>;
   collapseCatalogueCourses: (catalogueId: number) => void;
   total: { [catalogueId: string]: number };
+  searchQuery: string;
 };
 
 export const useTrainings: UseTrainings = () => {
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
   const [trainings, setTrainings] = useState<Training[]>([]);
   const [total, setTotal] = useState<{ [catalogueId: string]: number }>({});
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const { esIndexNameTrainings } = useConfig();
+
+  const getSearchTrainings = async (searchQuery) => {
+    if (!esIndexNameTrainings) {
+      setInitialLoading(false);
+      return;
+    }
+    try {
+      const responseSearch = await queryElasticSearch(
+        {
+          query: {
+            query_string: {
+              query: `*${searchQuery}*`,
+              fields: ["code", "name"]
+            }
+          },
+
+          collapse: {
+            field: "catalogueId",
+            inner_hits: {
+              name: "inner_hits",
+              size: SHOW_MORE_LIMIT
+            }
+          }
+        },
+        esIndexNameTrainings
+      );
+      const receivedTrainings = responseSearch.hits.hits.flatMap((hit) => {
+        const { hits } = hit.inner_hits.inner_hits.hits;
+        return hits.map((training) => training._source);
+      });
+
+      const total = responseSearch.hits.hits.reduce((acc, hit) => {
+        const catalogueId = hit._source.catalogueId;
+        return {
+          ...acc,
+          [catalogueId]: hit.inner_hits.inner_hits.hits.total.value
+        };
+      }, {});
+
+      setTotal(total);
+      setTrainings(receivedTrainings);
+      setInitialLoading(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const getTrainings = async () => {
     if (!esIndexNameTrainings) {
@@ -69,31 +118,76 @@ export const useTrainings: UseTrainings = () => {
     }
 
     try {
-      const res: EsResponse<EsTrainingHit> = await queryElasticSearch(
-        {
-          from,
-          size: SHOW_MORE_LIMIT,
-          query: {
-            match: {
-              catalogueId: catalogueId
+      if (searchQuery) {
+        const res = await queryElasticSearch(
+          {
+            from,
+            size: SHOW_MORE_LIMIT,
+            query: {
+              bool: {
+                must: [
+                  {
+                    query_string: {
+                      query: `*${searchQuery}*`,
+                      fields: ["code", "name"]
+                    }
+                  },
+                  {
+                    match: {
+                      catalogueId: catalogueId
+                    }
+                  }
+                ]
+              }
             }
-          }
-        },
-        esIndexNameTrainings
-      );
-
-      const receivedTrainings = res.hits.hits.map(
-        (training) => training._source
-      );
-      setTrainings((prevTrainings) => [...prevTrainings, ...receivedTrainings]);
+          },
+          esIndexNameTrainings
+        );
+        const receivedTrainings = res.hits.hits.map(
+          (training) => training._source
+        );
+        setTrainings((prevTrainings) => [
+          ...prevTrainings,
+          ...receivedTrainings
+        ]);
+      } else {
+        const res: EsResponse<EsTrainingHit> = await queryElasticSearch(
+          {
+            from,
+            size: SHOW_MORE_LIMIT,
+            query: {
+              match: {
+                catalogueId: catalogueId
+              }
+            }
+          },
+          esIndexNameTrainings
+        );
+        const receivedTrainings = res.hits.hits.map(
+          (training) => training._source
+        );
+        setTrainings((prevTrainings) => [
+          ...prevTrainings,
+          ...receivedTrainings
+        ]);
+      }
     } catch (err) {
       console.error(err);
     }
   };
 
   useEffect(() => {
-    getTrainings();
-  }, []);
+    const params = new URLSearchParams(window.location.search);
+
+    const queryString = params.get(QUERY_KEY);
+    setSearchQuery(queryString);
+
+    if (searchQuery) {
+      getSearchTrainings(searchQuery);
+    } else {
+      getTrainings();
+    }
+  }, [searchQuery]);
 
   const groupedTrainings = useMemo(
     () => groupBy(trainings, (training) => training.catalogueId.toString()),
@@ -124,6 +218,7 @@ export const useTrainings: UseTrainings = () => {
     groupedTrainings,
     fetchPaginatedTrainings,
     collapseCatalogueCourses,
-    total
+    total,
+    searchQuery
   };
 };

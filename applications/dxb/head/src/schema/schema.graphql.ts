@@ -232,6 +232,7 @@ type ContentfulTrainingListerPage implements ContentfulObject & ContentfulPage &
   path: String!
   breadcrumbTitle: String
   breadcrumbs: [BreadcrumbItem]
+  searchTips: ContentfulTitleWithContent @link(from: "searchTips___NODE")
   featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")
   parentPage: LinkedPage @link(from: "parentPage___NODE")
