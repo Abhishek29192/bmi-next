@@ -1,4 +1,4 @@
-import { ThemeProvider, replaceSpaces } from "@bmi-digital/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { LocationProvider } from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
@@ -97,6 +97,7 @@ describe("Training DetailsPage", () => {
   it("should not render sessions if no sessions available for the course", () => {
     renderTrainingDetailsPage({});
     expect(screen.queryByTestId("sessions-container")).not.toBeInTheDocument();
+    expect(screen.getByTestId("no-available-sessions")).toBeInTheDocument();
   });
 
   it("should render sessions if sessions are available for the course", () => {
@@ -105,14 +106,12 @@ describe("Training DetailsPage", () => {
     });
 
     expect(screen.getByTestId("sessions-container")).toBeInTheDocument();
-    expect(
-      screen.getByTestId(`${replaceSpaces(sessions[0].name)}-session-container`)
-    ).toBeInTheDocument();
-    expect(
-      screen.getByTestId(`${replaceSpaces(sessions[0].name)}-session`)
-    ).toBeInTheDocument();
-    expect(
-      screen.getByTestId(`${replaceSpaces(sessions[0].name)}-session`)
-    ).toHaveTextContent("Test course session");
+    expect(screen.getByTestId("available-session")).toBeInTheDocument();
+    expect(screen.getByTestId("session-name")).toBeInTheDocument();
+    expect(screen.getByTestId("session-name")).toHaveTextContent(
+      "Test course session"
+    );
+    expect(screen.getByTestId("session-date")).toBeInTheDocument();
+    expect(screen.getByTestId("session-cta-button")).toBeInTheDocument();
   });
 });
