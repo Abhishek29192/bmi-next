@@ -359,7 +359,6 @@ describe("useTrainings", () => {
         },
         esIndexNameTrainings
       );
-      log(">>>asas", result.current.groupedTrainings);
 
       await waitFor(() =>
         expect(result.current.groupedTrainings).toEqual({
