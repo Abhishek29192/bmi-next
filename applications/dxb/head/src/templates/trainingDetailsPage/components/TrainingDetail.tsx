@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography, replaceSpaces } from "@bmi-digital/components";
+import { Grid, Typography } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
 import { CourseWithSessions } from "@bmi/docebo-types";
 import { useSiteContext } from "../../../components/Site";
@@ -89,19 +89,17 @@ const TrainingDetails = ({
                     index={index}
                     dataLength={runningSessions.length}
                     key={code}
-                    data-testId={`${replaceSpaces(name)}-session-container`}
+                    data-testId={"available-session"}
                   >
                     <SessionDetailContainer>
-                      <SessionName
-                        data-testid={`${replaceSpaces(name)}-session`}
-                      >
+                      <SessionName data-testid={"session-name"}>
                         {name}
                       </SessionName>
-                      <SessionInterval>
+                      <SessionInterval data-testid={"session-date"}>
                         {formatDate(date_start)} - {formatDate(date_end)}
                       </SessionInterval>
                       <EnrollButtonContainer>
-                        <EnrollButton>
+                        <EnrollButton data-testid={"session-cta-button"}>
                           {getMicroCopy(
                             microCopy.TRAINING_DETAILS_SESSION_ENROLL_LABEL
                           )}
@@ -114,7 +112,9 @@ const TrainingDetails = ({
             )}
           </div>
         ) : (
-          <Typography>{sessions_unavailable}</Typography>
+          <Typography data-testid={"no-available-sessions"}>
+            {sessions_unavailable}
+          </Typography>
         )}
       </SessionContainer>
     </Wrapper>
