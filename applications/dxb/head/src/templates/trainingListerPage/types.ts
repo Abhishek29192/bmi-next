@@ -1,7 +1,9 @@
 import { Training } from "@bmi/elasticsearch-types";
+import { Filter } from "@bmi-digital/components";
 import { Data as PageData } from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import { Data as ImageData } from "../../components/Image";
+import { Aggregations } from "../../utils/elasticSearch";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 
 export type EsCollapsedTraining = {
@@ -34,7 +36,7 @@ export type EsTrainingHit = {
   _source: Training;
 };
 
-export type EsResponse<T extends EsCollapsedTraining | EsTrainingHit> = {
+export type EsCommonResponse<T extends EsCollapsedTraining | EsTrainingHit> = {
   hits: {
     total: {
       value: number;
@@ -45,12 +47,18 @@ export type EsResponse<T extends EsCollapsedTraining | EsTrainingHit> = {
   };
 };
 
+export type PaginatedTrainingResponse = EsCommonResponse<EsTrainingHit>;
+
+export type CollapsedTrainingResponse =
+  EsCommonResponse<EsCollapsedTraining> & { aggregations: Aggregations };
+
 export type TrainingListerPageData = Omit<PageData, "signupBlock"> & {
   __typename: "ContentfulTrainingListerPage";
   title: string;
   subtitle: string | null;
   breadcrumbTitle: string | null;
   featuredMedia: ImageData;
+  filters: Filter[];
   searchTips: TitleWithContentData;
 };
 

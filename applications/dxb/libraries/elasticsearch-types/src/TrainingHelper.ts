@@ -8,9 +8,8 @@ export const createTraining = (training: Partial<Training> = {}): Training => ({
   slug: "training-slug",
   courseType: "classroom",
   imgUrl: "https://fake-image.png",
-  categoryId: 1,
-  categoryName: "Pitched",
-  catalogueId: 1,
+  category: "Pitched",
+  catalogueId: "1",
   catalogueName: "Catalogue name",
   catalogueDescription: "Catalogue description",
   ...training

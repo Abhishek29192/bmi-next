@@ -10,7 +10,7 @@ import {
 import { Training } from "@bmi/elasticsearch-types";
 import fetchRetry from "@bmi/fetch-retry";
 import { isDefined } from "@bmi/utils";
-import { getCachedDoceboApi } from "@bmi/docebo-api";
+import { getCachedDoceboApi, transformCourseCategory } from "@bmi/docebo-api";
 import { EventType, MultipleCoursesDeletedEvent } from "./types";
 
 const {
@@ -248,9 +248,8 @@ const updateCourse = async (esClient: Client, courseId: number) => {
     slug: course.slug_name,
     courseType: course.type,
     imgUrl: course.thumbnail,
-    categoryId: course.category.id,
-    categoryName: course.category.name,
-    catalogueId: catalogue.catalogue_id,
+    category: transformCourseCategory(course.category),
+    catalogueId: `${catalogue.catalogue_id}`,
     catalogueName: catalogue.catalogue_name,
     catalogueDescription: catalogue.catalogue_description
   }));

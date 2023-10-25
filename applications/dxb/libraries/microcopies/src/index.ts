@@ -368,13 +368,7 @@ export const microCopy = {
   TRAINING_TYPE_CLASSROOM: "trainingType.classroom",
   TRAINING_TYPE_ELEARNING: "trainingType.elearning",
   TRAINING_CATEGORY_FLAT: "trainingCategory.flat",
-  TRAINING_CATEGORY_FLAT_LIQUID: "trainingCategory.flatLiquid",
-  TRAINING_CATEGORY_FLAT_BITUMEN: "trainingCategory.flatBitumen",
-  TRAINING_CATEGORY_FLAT_SYNTHETIC: "trainingCategory.flatSynthetic",
   TRAINING_CATEGORY_PITCHED: "trainingCategory.pitched",
-  TRAINING_CATEGORY_PITCHED_CONCRETE: "trainingCategory.pitchedConcrete",
-  TRAINING_CATEGORY_PITCHED_CLAY: "trainingCategory.pitchedClay",
-  TRAINING_CATEGORY_PITCHED_METAL: "trainingCategory.pitchedMetal",
   TRAINING_CATEGORY_OTHER: "trainingCategory.other",
   TRAINING_CATALOGUE_SHOW_MORE: "trainingCatalogue.showMore",
   TRAINING_CATALOGUE_SHOW_LESS: "trainingCatalogue.showLess",
@@ -389,6 +383,11 @@ export const microCopy = {
   TRAINING_LISTING_NO_SEARCH_TITLE: "trainingListerPage.noSearch.title",
   TRAINING_LISTING_NO_SEARCH_DESCRIPTION:
     "trainingListerPage.noSearch.description",
+
+  TRAINING_FILTERS_TITLE: "training.filters.title",
+  TRAINING_FILTERS_CLEAR_ALL_LABEL: "training.filters.clearAll.label",
+  TRAINING_FILTER_LABEL_CATALOGUE: "training.filterLabel.catalogue",
+  TRAINING_FILTER_LABEL_CATEGORY: "training.filterLabel.category",
 
   LOG_IN_LABEL_ALERT: "login.label.alert",
   LOG_OUT_LABEL_ALERT: "logout.label.alert",

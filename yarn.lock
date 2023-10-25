@@ -3543,6 +3543,8 @@ __metadata:
     "@bmi-digital/styles": ^1.7.5
     "@bmi-digital/svg-import": ^1.7.5
     "@bmi/contentful-graph": "workspace:*"
+    "@bmi/docebo-api": "workspace:*"
+    "@bmi/docebo-types": "workspace:*"
     "@bmi/elasticsearch-types": "workspace:*"
     "@bmi/fetch-retry": "workspace:*"
     "@bmi/firestore-types": "workspace:*"

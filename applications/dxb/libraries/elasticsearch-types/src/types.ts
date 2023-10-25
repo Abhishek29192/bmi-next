@@ -1,4 +1,4 @@
-import { CourseCategory, CourseType } from "@bmi/docebo-types";
+import { CourseType } from "@bmi/docebo-types";
 import type {
   ApprovalStatus,
   Asset,
@@ -171,9 +171,8 @@ export type Training = {
   slug: string;
   courseType: CourseType;
   imgUrl: string;
-  categoryId: CourseCategory["id"];
-  categoryName: CourseCategory["name"];
-  catalogueId: number;
+  category: string;
+  catalogueId: string;
   catalogueName: string;
   catalogueDescription: string;
 };

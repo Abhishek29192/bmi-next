@@ -32,6 +32,7 @@ jest.mock("@bmi/functions-es-client", () => ({
 const fetchCataloguesMock = jest.fn();
 const getCourseByIdMock = jest.fn();
 jest.mock("@bmi/docebo-api", () => ({
+  ...jest.requireActual("@bmi/docebo-api"),
   getCachedDoceboApi: () => ({
     fetchCatalogues: fetchCataloguesMock,
     getCourseById: getCourseByIdMock

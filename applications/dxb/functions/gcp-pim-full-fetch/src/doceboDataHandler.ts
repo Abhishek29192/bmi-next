@@ -1,4 +1,4 @@
-import { getCachedDoceboApi } from "@bmi/docebo-api";
+import { getCachedDoceboApi, transformCourseCategory } from "@bmi/docebo-api";
 import { isDefined } from "@bmi/utils";
 import { Training as ESTraining } from "@bmi/elasticsearch-types";
 
@@ -31,9 +31,8 @@ export const fetchDoceboData = async (page: number) => {
             slug: course.slug_name,
             courseType: course.course_type,
             imgUrl: course.img_url,
-            categoryId: course.category.id,
-            categoryName: course.category.name,
-            catalogueId: catalogue.catalogue_id,
+            category: transformCourseCategory(course.category),
+            catalogueId: `${catalogue.catalogue_id}`,
             catalogueName: catalogue.catalogue_name,
             catalogueDescription: catalogue.catalogue_description
           };

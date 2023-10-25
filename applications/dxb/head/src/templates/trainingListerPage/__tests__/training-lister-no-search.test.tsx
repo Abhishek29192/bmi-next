@@ -1,22 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { ThemeProvider } from "@bmi-digital/components";
-import { UseTrainings } from "../hooks/useTrainings";
 import TrainingNoResults from "../components/training-no-results";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
-
-const useTrainingsResult: ReturnType<UseTrainings> = {
-  initialLoading: false,
-  groupedTrainings: {},
-  total: {},
-  fetchPaginatedTrainings: jest.fn(),
-  collapseCatalogueCourses: jest.fn(),
-  searchQuery: ""
-};
-
-jest.mock("../hooks/useTrainings", () => ({
-  useTrainings: () => useTrainingsResult
-}));
 
 const searchTips: TitleWithContentData = {
   __typename: "ContentfulTitleWithContent",
@@ -29,9 +15,7 @@ const searchTips: TitleWithContentData = {
 };
 
 describe("Training-no-search", () => {
-  it("renders correctly if search results are 0 and initialLoading false", () => {
-    const originInitialLoading = useTrainingsResult.initialLoading;
-    useTrainingsResult.initialLoading = true;
+  it("renders correctly", () => {
     render(
       <ThemeProvider>
         <TrainingNoResults searchTips={searchTips} />
@@ -44,7 +28,5 @@ describe("Training-no-search", () => {
     expect(
       screen.getByText("MC: trainingListerPage.noSearch.description")
     ).toBeInTheDocument();
-
-    useTrainingsResult.initialLoading = originInitialLoading;
   });
 });

@@ -9,6 +9,7 @@ const fetchCataloguesMock = jest.fn();
 const fetchCoursesMock = jest.fn();
 
 jest.mock("@bmi/docebo-api", () => ({
+  ...jest.requireActual("@bmi/docebo-api"),
   getCachedDoceboApi: () => ({
     fetchCatalogues: fetchCataloguesMock,
     fetchCourses: fetchCoursesMock
@@ -58,9 +59,8 @@ describe("fetchDoceboData", () => {
         slug: course1.slug_name,
         courseType: course1.course_type,
         imgUrl: course1.img_url,
-        categoryId: course1.category.id,
-        categoryName: course1.category.name,
-        catalogueId: catalogue.catalogue_id,
+        category: "Pitched",
+        catalogueId: `${catalogue.catalogue_id}`,
         catalogueName: catalogue.catalogue_name,
         catalogueDescription: catalogue.catalogue_description
       },
@@ -72,9 +72,8 @@ describe("fetchDoceboData", () => {
         slug: course2.slug_name,
         courseType: course2.course_type,
         imgUrl: course2.img_url,
-        categoryId: course2.category.id,
-        categoryName: course2.category.name,
-        catalogueId: catalogue.catalogue_id,
+        category: "Pitched",
+        catalogueId: `${catalogue.catalogue_id}`,
         catalogueName: catalogue.catalogue_name,
         catalogueDescription: catalogue.catalogue_description
       }
@@ -100,9 +99,8 @@ describe("fetchDoceboData", () => {
         slug: course1.slug_name,
         courseType: course1.course_type,
         imgUrl: course1.img_url,
-        categoryId: course1.category.id,
-        categoryName: course1.category.name,
-        catalogueId: catalogue.catalogue_id,
+        category: "Pitched",
+        catalogueId: `${catalogue.catalogue_id}`,
         catalogueName: catalogue.catalogue_name,
         catalogueDescription: catalogue.catalogue_description
       }
