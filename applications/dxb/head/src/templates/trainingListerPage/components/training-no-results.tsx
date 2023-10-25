@@ -21,20 +21,13 @@ const TrainingNoResults = ({ searchTips }: Props) => {
   return (
     <>
       <div>
-        {searchTitle && (
-          <Title
-            variant="h3"
-            hasUnderline
-            data-testid="nosearch-catalogue-title"
-          >
-            {searchTitle}
-          </Title>
-        )}
-        {searchDescription && (
-          <Typography data-testid="nosearch-catalogue-description">
-            {searchDescription}
-          </Typography>
-        )}
+        <Title variant="h3" hasUnderline data-testid="nosearch-catalogue-title">
+          {searchTitle}
+        </Title>
+
+        <Typography data-testid="nosearch-catalogue-description">
+          {searchDescription}
+        </Typography>
       </div>
       <div style={{ marginTop: "20px" }}>
         {searchTips?.title && (

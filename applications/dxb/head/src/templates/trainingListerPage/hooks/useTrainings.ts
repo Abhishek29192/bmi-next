@@ -16,6 +16,77 @@ export type UseTrainings = () => {
   searchQuery: string;
 };
 
+export const getESQuery = (
+  searchQuery: string,
+  isFrom: string,
+  catalogueId: number,
+  from: number
+) => {
+  let esQueryObj;
+
+  if (searchQuery && isFrom === "initialMount") {
+    esQueryObj = {
+      query: {
+        query_string: {
+          query: `*${searchQuery}*`,
+          fields: ["code", "name"]
+        }
+      },
+      collapse: {
+        field: "catalogueId",
+        inner_hits: {
+          name: "inner_hits",
+          size: SHOW_MORE_LIMIT
+        }
+      }
+    };
+  } else if (!searchQuery && isFrom === "initialMount") {
+    esQueryObj = {
+      collapse: {
+        field: "catalogueId",
+        inner_hits: {
+          name: "inner_hits",
+          size: SHOW_MORE_LIMIT
+        }
+      }
+    };
+  } else if (searchQuery && isFrom === "pagination") {
+    esQueryObj = {
+      from,
+      size: SHOW_MORE_LIMIT,
+      query: {
+        bool: {
+          must: [
+            {
+              query_string: {
+                query: `*${searchQuery}*`,
+                fields: ["code", "name"]
+              }
+            },
+            {
+              match: {
+                catalogueId: catalogueId
+              }
+            }
+          ]
+        }
+      }
+    };
+  } else {
+    esQueryObj = {
+      from,
+      size: SHOW_MORE_LIMIT,
+      query: {
+        match: {
+          catalogueId: catalogueId
+        }
+      }
+    };
+  }
+
+  return esQueryObj;
+};
+
 export const useTrainings: UseTrainings = () => {
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
   const [trainings, setTrainings] = useState<Training[]>([]);
@@ -23,6 +94,7 @@ export const useTrainings: UseTrainings = () => {
   const { esIndexNameTrainings } = useConfig();
 
   const { isClient } = useIsClient();
+
   const params = useMemo(() => {
     return new URLSearchParams(
       isClient && window ? window.location.search : ""
@@ -33,47 +105,20 @@ export const useTrainings: UseTrainings = () => {
     return params.get(QUERY_KEY);
   }, [params]);
 
-  const getSearchTrainings = async (searchQuery) => {
+  const fetchPaginatedTrainings = async (catalogueId: number, from: number) => {
     if (!esIndexNameTrainings) {
-      setInitialLoading(false);
       return;
     }
-    try {
-      const responseSearch = await queryElasticSearch(
-        {
-          query: {
-            query_string: {
-              query: `*${searchQuery}*`,
-              fields: ["code", "name"]
-            }
-          },
 
-          collapse: {
-            field: "catalogueId",
-            inner_hits: {
-              name: "inner_hits",
-              size: SHOW_MORE_LIMIT
-            }
-          }
-        },
+    try {
+      const res: EsResponse<EsTrainingHit> = await queryElasticSearch(
+        getESQuery(searchQuery, "pagination", catalogueId, from),
         esIndexNameTrainings
       );
-      const receivedTrainings = responseSearch.hits.hits.flatMap((hit) => {
-        const { hits } = hit.inner_hits.inner_hits.hits;
-        return hits.map((training) => training._source);
-      });
-
-      const total = responseSearch.hits.hits.reduce((acc, hit) => {
-        const catalogueId = hit._source.catalogueId;
-        return {
-          ...acc,
-          [catalogueId]: hit.inner_hits.inner_hits.hits.total.value
-        };
-      }, {});
-
-      setTotal(total);
-      setTrainings(receivedTrainings);
-      setInitialLoading(false);
+      const receivedTrainings = res.hits.hits.map(
+        (training) => training._source
+      );
+      setTrainings((prevTrainings) => [...prevTrainings, ...receivedTrainings]);
     } catch (err) {
       console.error(err);
     }
@@ -88,15 +133,7 @@ export const useTrainings: UseTrainings = () => {
     try {
       const response: EsResponse<EsCollapsedTraining> =
         await queryElasticSearch(
-          {
-            collapse: {
-              field: "catalogueId",
-              inner_hits: {
-                name: "inner_hits",
-                size: SHOW_MORE_LIMIT
-              }
-            }
-          },
+          getESQuery(searchQuery, "initialMount", 0, 0),
           esIndexNameTrainings
         );
 
@@ -122,76 +159,8 @@ export const useTrainings: UseTrainings = () => {
     }
   };
 
-  const fetchPaginatedTrainings = async (catalogueId: number, from: number) => {
-    if (!esIndexNameTrainings) {
-      return;
-    }
-
-    try {
-      if (searchQuery) {
-        const res = await queryElasticSearch(
-          {
-            from,
-            size: SHOW_MORE_LIMIT,
-            query: {
-              bool: {
-                must: [
-                  {
-                    query_string: {
-                      query: `*${searchQuery}*`,
-                      fields: ["code", "name"]
-                    }
-                  },
-                  {
-                    match: {
-                      catalogueId: catalogueId
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          esIndexNameTrainings
-        );
-        const receivedTrainings = res.hits.hits.map(
-          (training) => training._source
-        );
-        setTrainings((prevTrainings) => [
-          ...prevTrainings,
-          ...receivedTrainings
-        ]);
-      } else {
-        const res: EsResponse<EsTrainingHit> = await queryElasticSearch(
-          {
-            from,
-            size: SHOW_MORE_LIMIT,
-            query: {
-              match: {
-                catalogueId: catalogueId
-              }
-            }
-          },
-          esIndexNameTrainings
-        );
-        const receivedTrainings = res.hits.hits.map(
-          (training) => training._source
-        );
-        setTrainings((prevTrainings) => [
-          ...prevTrainings,
-          ...receivedTrainings
-        ]);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   useEffect(() => {
-    if (searchQuery) {
-      getSearchTrainings(searchQuery);
-    } else {
-      getTrainings();
-    }
+    getTrainings();
   }, [searchQuery]);
 
   const groupedTrainings = useMemo(

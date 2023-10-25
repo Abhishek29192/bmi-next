@@ -2,12 +2,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import { Hero, Grid, Section } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
-import {
-  Search,
-  Button,
-  ButtonProps,
-  Typography
-} from "@bmi-digital/components";
+import { Search, Typography } from "@bmi-digital/components";
 import Page from "../../components/Page";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import Image from "../../components/Image";
@@ -15,7 +10,6 @@ import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import Scrim from "../../components/Scrim";
-import withGTM from "../../utils/google-tag-manager";
 import { generateGetMicroCopy } from "../../components/MicroCopy";
 import { TrainingListerPageProps } from "./types";
 import TrainingCatalogue from "./components/training-catalogue";
@@ -47,8 +41,6 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
     total,
     searchQuery
   } = useTrainings();
-
-  const GTMButton = withGTM<ButtonProps>(Button);
 
   const getMicroCopy = generateGetMicroCopy(
     data.contentfulSite.resources?.microCopy
@@ -101,22 +93,14 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
               {searchLabel}
             </Typography>
             <Search
-              buttonComponent={(props) => (
-                <GTMButton
-                  gtm={{
-                    id: "training-list-search",
-                    label: { searchLabel }
-                  }}
-                  {...props}
-                />
-              )}
               label={searchLabel}
               value={searchQuery}
               placeholder={searchPlaceholder}
+              data-testid="training-list-search-form"
             />
           </Grid>
           <Grid xs={12} md={12} lg={9}>
-            {Object.entries(groupedTrainings).length > 0 &&
+            {Object.keys(groupedTrainings).length > 0 &&
               Object.entries(groupedTrainings).map(([catalogueId, courses]) => (
                 <TrainingCatalogue
                   key={`training-catalogue-${catalogueId}`}
@@ -129,8 +113,9 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
                   total={total[catalogueId]}
                 />
               ))}
-            {Object.entries(groupedTrainings).length === 0 &&
-              !initialLoading && <TrainingNoResults searchTips={searchTips} />}
+            {Object.keys(groupedTrainings).length === 0 && !initialLoading && (
+              <TrainingNoResults searchTips={searchTips} />
+            )}
           </Grid>
         </Grid>
       </Section>
