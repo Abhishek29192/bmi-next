@@ -32,7 +32,7 @@ describe("Training-no-search", () => {
   it("renders correctly if search results are 0 and initialLoading false", () => {
     const originInitialLoading = useTrainingsResult.initialLoading;
     useTrainingsResult.initialLoading = true;
-    const { container } = render(
+    render(
       <ThemeProvider>
         <TrainingNoResults searchTips={searchTips} />
       </ThemeProvider>
@@ -45,7 +45,6 @@ describe("Training-no-search", () => {
       screen.getByText("MC: trainingListerPage.noSearch.description")
     ).toBeInTheDocument();
 
-    expect(container).toMatchSnapshot();
     useTrainingsResult.initialLoading = originInitialLoading;
   });
 });

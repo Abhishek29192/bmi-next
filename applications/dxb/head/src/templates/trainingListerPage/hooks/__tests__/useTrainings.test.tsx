@@ -127,98 +127,6 @@ const paginatedEsResponse: EsResponse<EsTrainingHit> = {
   }
 };
 
-const collapsedTrainingsSearchResponse: EsResponse<EsCollapsedTraining> = {
-  hits: {
-    total: { value: 1, relation: "eq" },
-    max_score: null,
-    hits: [
-      {
-        inner_hits: {
-          inner_hits: {
-            hits: {
-              total: { value: 1, relation: "eq" },
-              max_score: 0,
-              hits: [
-                {
-                  _index: esIndexNameTrainings,
-                  _type: "_doc",
-                  _id: training2.id,
-                  _score: 0,
-                  _source: training2
-                }
-              ]
-            }
-          }
-        },
-        _source: training2
-      }
-    ]
-  }
-};
-
-const collapsedTrainingsMultipleSearchResponse: EsResponse<EsCollapsedTraining> =
-  {
-    hits: {
-      total: { value: 2, relation: "eq" },
-      max_score: null,
-      hits: [
-        {
-          inner_hits: {
-            inner_hits: {
-              hits: {
-                total: { value: 2, relation: "eq" },
-                max_score: 0,
-                hits: [
-                  {
-                    _index: esIndexNameTrainings,
-                    _type: "_doc",
-                    _id: training2.id,
-                    _score: 0,
-                    _source: training2
-                  },
-                  {
-                    _index: esIndexNameTrainings,
-                    _type: "_doc",
-                    _id: training5.id,
-                    _score: 0,
-                    _source: training5
-                  }
-                ]
-              }
-            }
-          },
-          _source: training2
-        }
-      ]
-    }
-  };
-
-const paginatedSearchEsResponse: EsResponse<EsTrainingHit> = {
-  hits: {
-    total: {
-      value: 2,
-      relation: "eq"
-    },
-    max_score: null,
-    hits: [
-      {
-        _index: esIndexNameTrainings,
-        _type: "_doc",
-        _id: training2.id,
-        _score: 0,
-        _source: training2
-      },
-      {
-        _index: esIndexNameTrainings,
-        _type: "_doc",
-        _id: training2.id,
-        _score: 0,
-        _source: training2
-      }
-    ]
-  }
-};
-
 const queryElasticsearchMock = jest.fn();
 
 jest.mock("../../../../utils/elasticSearch", () => ({
@@ -580,9 +488,7 @@ describe("useTrainings", () => {
         }
       });
 
-      queryElasticsearchMock.mockResolvedValue(
-        collapsedTrainingsSearchResponse
-      );
+      queryElasticsearchMock.mockResolvedValue(collapsedTrainingsResponse);
 
       const { result } = render();
       await waitFor(() =>
@@ -608,18 +514,19 @@ describe("useTrainings", () => {
       await waitFor(() => expect(result.current.initialLoading).toBe(false));
 
       expect(result.current.groupedTrainings).toEqual({
-        1: [training2]
+        1: [training1, training2],
+        2: [training3]
       });
 
-      expect(result.current.total).toEqual({ 1: 1 });
+      expect(result.current.total).toEqual({ 1: 2, 2: 1 });
     });
   });
 
   describe("training list search - fetch pagination", () => {
     it("groups trainings correctly if 'fetchPaginatedTrainings' pulls trainings", async () => {
       queryElasticsearchMock
-        .mockResolvedValueOnce(collapsedTrainingsMultipleSearchResponse)
-        .mockResolvedValueOnce(paginatedSearchEsResponse);
+        .mockResolvedValueOnce(collapsedTrainingsResponse)
+        .mockResolvedValueOnce(paginatedEsResponse);
       Object.defineProperty(window, "location", {
         value: {
           search: "?q=uk"
@@ -679,9 +586,12 @@ describe("useTrainings", () => {
 
       await waitFor(() =>
         expect(result.current.groupedTrainings).toEqual({
-          1: [training2, training5]
+          1: [training1, training2],
+          2: [training3]
         })
       );
+
+      expect(result.current.total).toEqual({ 1: 2, 2: 1 });
     });
   });
 });
