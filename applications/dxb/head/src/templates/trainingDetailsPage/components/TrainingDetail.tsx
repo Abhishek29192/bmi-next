@@ -1,10 +1,9 @@
 import React from "react";
-import { Typography, replaceSpaces } from "@bmi-digital/components";
+import { Grid, Typography, replaceSpaces } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
 import { CourseWithSessions } from "@bmi/docebo-types";
 import { useSiteContext } from "../../../components/Site";
 import {
-  Container,
   Title,
   CourseDescription,
   SessionContainer,
@@ -14,8 +13,8 @@ import {
   EnrollButton,
   SessionName,
   Wrapper,
-  DetailsContainer,
-  EnrollButtonContainer
+  EnrollButtonContainer,
+  DetailsContainer
 } from "../trainingDetailsPageStyles";
 
 interface Props {
@@ -47,8 +46,8 @@ const TrainingDetails = ({
 
   return (
     <Wrapper>
-      <DetailsContainer>
-        <Container>
+      <Grid container spacing={3}>
+        <DetailsContainer xs={12} md={12} lg={8}>
           <Title
             variant="h1"
             hasUnderline
@@ -66,11 +65,11 @@ const TrainingDetails = ({
             dangerouslySetInnerHTML={{ __html: description }}
             data-testid="training-description"
           />
-        </Container>
-
-        {/* leaving an empty div for the moment to allow card info to be placed here */}
-        {/* <div></div> */}
-      </DetailsContainer>
+        </DetailsContainer>
+        <Grid xs={12} md={12} lg={4}>
+          {/* leaving empty grid to add training card for future */}
+        </Grid>
+      </Grid>
 
       <SessionContainer>
         <Title

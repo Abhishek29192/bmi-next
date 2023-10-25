@@ -1,24 +1,14 @@
 import { styled } from "@mui/material/styles";
 import { alpha } from "@mui/material";
-import {
-  Typography,
-  Container as MUIContainer,
-  Button
-} from "@bmi-digital/components";
+import { Typography, Button, Grid } from "@bmi-digital/components";
 
 export const Wrapper = styled("div")(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
+  margin: "1rem 0",
   background: theme.colours.white
 }));
 
-export const DetailsContainer = styled("div")({
-  width: "70%"
-});
-
-export const Container = styled(MUIContainer)({
-  margin: "1rem 0"
+export const DetailsContainer = styled(Grid)({
+  paddingRight: "20px"
 });
 
 export const Title = styled(Typography)({
@@ -34,6 +24,27 @@ export const Title = styled(Typography)({
 
 export const CourseDescription = styled("div")(({ theme }) => ({
   margin: "1rem 0",
+
+  "& p": {
+    maxWidth: "100% !important",
+    lineBreak: "anywhere !important"
+  },
+
+  "& iframe": {
+    maxWidth: "100% !important",
+    objectFit: "cover !important"
+  },
+
+  "& table": {
+    maxWidth: "100% !important",
+    lineBreak: "anywhere !important"
+  },
+
+  "& img": {
+    maxWidth: "100% !important",
+    objectFit: "cover !important"
+  },
+
   "& h3": {
     "&::after": {
       content: '""',
@@ -57,6 +68,13 @@ export const CourseDescription = styled("div")(({ theme }) => ({
     }
   },
 
+  "& ol": {
+    paddingLeft: "20px !important",
+    "& li": {
+      marginBottom: "5px !important"
+    }
+  },
+
   "& hr": {
     flexShrink: 0,
     backgroundColor: alpha(theme.colours.black, 0.12),
@@ -71,7 +89,7 @@ export const CourseDescription = styled("div")(({ theme }) => ({
 
 export const SessionContainer = styled("div")(({ theme }) => ({
   background: theme.colours.pearl,
-  padding: "30px"
+  padding: "30px 0"
 }));
 
 export const SessionDataContainer = styled("div")<{
@@ -86,7 +104,7 @@ export const SessionDataContainer = styled("div")<{
   borderBottom:
     index === dataLength - 1 ? `1px solid $${theme.colours.storm}` : "none",
   padding: "13px 16px",
-  width: "70%",
+  width: "65%",
   background: theme.colours.white,
 
   [theme.breakpoints.down("lg")]: {
