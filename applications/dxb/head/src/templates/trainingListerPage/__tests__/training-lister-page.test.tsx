@@ -27,6 +27,18 @@ const props: TrainingListerPageProps = {
       subtitle: "Contentful training lister page subtitle",
       breadcrumbTitle: "All trainings",
       featuredMedia: createImageData(),
+      searchTips: {
+        __typename: "ContentfulTitleWithContent",
+        title: "",
+        name: "",
+        content: {
+          raw: JSON.stringify({
+            data: {},
+            content: []
+          }),
+          references: []
+        }
+      },
       path: "/all-trainings",
       seo: {
         metaTitle: "Training liter page",
@@ -52,7 +64,8 @@ const useTrainingsResult: ReturnType<UseTrainings> = {
   groupedTrainings: {},
   total: {},
   fetchPaginatedTrainings: jest.fn(),
-  collapseCatalogueCourses: jest.fn()
+  collapseCatalogueCourses: jest.fn(),
+  searchQuery: ""
 };
 
 jest.mock("../hooks/useTrainings", () => ({
@@ -60,6 +73,8 @@ jest.mock("../hooks/useTrainings", () => ({
 }));
 
 jest.mock("../components/training-catalogue");
+
+jest.mock("../components/training-no-results");
 
 describe("Training lister page", () => {
   it("renders correctly if initialLoading === true", () => {

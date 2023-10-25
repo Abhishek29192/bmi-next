@@ -2,6 +2,7 @@ import { Training } from "@bmi/elasticsearch-types";
 import { Data as PageData } from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import { Data as ImageData } from "../../components/Image";
+import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 
 export type EsCollapsedTraining = {
   inner_hits: {
@@ -50,6 +51,7 @@ export type TrainingListerPageData = Omit<PageData, "signupBlock"> & {
   subtitle: string | null;
   breadcrumbTitle: string | null;
   featuredMedia: ImageData;
+  searchTips: TitleWithContentData;
 };
 
 export type TrainingListerPageProps = {

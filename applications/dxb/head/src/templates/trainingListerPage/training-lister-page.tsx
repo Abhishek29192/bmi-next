@@ -1,6 +1,8 @@
 import { graphql } from "gatsby";
 import React from "react";
 import { Hero, Grid, Section } from "@bmi-digital/components";
+import { microCopy } from "@bmi/microcopies";
+import { Search, Typography } from "@bmi-digital/components";
 import Page from "../../components/Page";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import Image from "../../components/Image";
@@ -8,8 +10,10 @@ import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import Scrim from "../../components/Scrim";
+import { generateGetMicroCopy } from "../../components/MicroCopy";
 import { TrainingListerPageProps } from "./types";
 import TrainingCatalogue from "./components/training-catalogue";
+import TrainingNoResults from "./components/training-no-results";
 import { useTrainings } from "./hooks/useTrainings";
 
 const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
@@ -20,20 +24,31 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
     path,
     seo,
     subtitle,
-    title
+    title,
+    searchTips
   } = data.contentfulTrainingListerPage;
+
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
+    breadcrumbs || [],
+    breadcrumbTitle
+  );
 
   const {
     groupedTrainings,
     fetchPaginatedTrainings,
     collapseCatalogueCourses,
     initialLoading,
-    total
+    total,
+    searchQuery
   } = useTrainings();
 
-  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
-    breadcrumbs || [],
-    breadcrumbTitle
+  const getMicroCopy = generateGetMicroCopy(
+    data.contentfulSite.resources?.microCopy
+  );
+
+  const searchLabel = getMicroCopy(microCopy.TRAINING_LISTING_SEARCH_LABEL);
+  const searchPlaceholder = getMicroCopy(
+    microCopy.TRAINING_LISTING_SEARCH_PLACEHOLDER
   );
 
   return (
@@ -71,23 +86,36 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
       </Hero>
       <Section>
         <Grid container spacing={3}>
-          <Grid xs={12} md={12} lg={3} p={0}>
+          <Grid xs={12} md={12} lg={3}>
             {/** placeholder for the filters */}
             {/** p={0} needs to be removed once we add search or filters */}
+            <Typography component="h3" variant="h6">
+              {searchLabel}
+            </Typography>
+            <Search
+              label={searchLabel}
+              value={searchQuery}
+              placeholder={searchPlaceholder}
+              data-testid="training-list-search-form"
+            />
           </Grid>
           <Grid xs={12} md={12} lg={9}>
-            {Object.entries(groupedTrainings).map(([catalogueId, courses]) => (
-              <TrainingCatalogue
-                key={`training-catalogue-${catalogueId}`}
-                defaultImageUrl={featuredMedia.image.file.url}
-                courses={courses}
-                countryCode={data.contentfulSite.countryCode}
-                fetchPaginatedTrainings={fetchPaginatedTrainings}
-                collapseCatalogueCourses={collapseCatalogueCourses}
-                // eslint-disable-next-line security/detect-object-injection
-                total={total[catalogueId]}
-              />
-            ))}
+            {Object.keys(groupedTrainings).length > 0 &&
+              Object.entries(groupedTrainings).map(([catalogueId, courses]) => (
+                <TrainingCatalogue
+                  key={`training-catalogue-${catalogueId}`}
+                  defaultImageUrl={featuredMedia.image.file.url}
+                  courses={courses}
+                  countryCode={data.contentfulSite.countryCode}
+                  fetchPaginatedTrainings={fetchPaginatedTrainings}
+                  collapseCatalogueCourses={collapseCatalogueCourses}
+                  // eslint-disable-next-line security/detect-object-injection
+                  total={total[catalogueId]}
+                />
+              ))}
+            {Object.keys(groupedTrainings).length === 0 && !initialLoading && (
+              <TrainingNoResults searchTips={searchTips} />
+            )}
           </Grid>
         </Grid>
       </Section>
@@ -118,6 +146,9 @@ export const pageQuery = graphql`
       }
       seo {
         ...SEOContentFragment
+      }
+      searchTips {
+        ...TitleWithContentFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {

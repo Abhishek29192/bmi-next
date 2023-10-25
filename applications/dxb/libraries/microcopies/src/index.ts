@@ -383,6 +383,13 @@ export const microCopy = {
   TRAINING_DETAILS_SESSIONS_LABEL: "trainingDetails.sessionsLabel",
   TRAINING_DETAILS_SESSION_ENROLL_LABEL: "trainingDetails.session.enrollLabel",
 
+  TRAINING_LISTING_SEARCH_LABEL: "trainingListerPage.search.label",
+  TRAINING_LISTING_SEARCH_PLACEHOLDER: "trainingListerPage.search.placeholder",
+
+  TRAINING_LISTING_NO_SEARCH_TITLE: "trainingListerPage.noSearch.title",
+  TRAINING_LISTING_NO_SEARCH_DESCRIPTION:
+    "trainingListerPage.noSearch.description",
+
   LOG_IN_LABEL_ALERT: "login.label.alert",
   LOG_OUT_LABEL_ALERT: "logout.label.alert",
 
