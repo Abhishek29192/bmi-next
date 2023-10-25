@@ -13,11 +13,11 @@ export type UseTrainings = () => {
   fetchPaginatedTrainings: (catalogueId: number, from: number) => Promise<void>;
   collapseCatalogueCourses: (catalogueId: number) => void;
   total: { [catalogueId: string]: number };
-  searchQuery: string;
+  searchQuery: string | null;
 };
 
 export const getESQuery = (
-  searchQuery: string,
+  searchQuery: string | null,
   isFrom: string,
   catalogueId: number,
   from: number
@@ -95,15 +95,12 @@ export const useTrainings: UseTrainings = () => {
 
   const { isClient } = useIsClient();
 
-  const params = useMemo(() => {
-    return new URLSearchParams(
+  const searchQuery = useMemo(() => {
+    const params = new URLSearchParams(
       isClient && window ? window.location.search : ""
     );
-  }, [isClient]);
-
-  const searchQuery = useMemo(() => {
     return params.get(QUERY_KEY);
-  }, [params]);
+  }, [isClient]);
 
   const fetchPaginatedTrainings = async (catalogueId: number, from: number) => {
     if (!esIndexNameTrainings) {
