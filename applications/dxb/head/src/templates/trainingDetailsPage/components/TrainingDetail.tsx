@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@bmi-digital/components";
+import { Container, Grid, Typography } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
 import { CourseWithSessions } from "@bmi/docebo-types";
 import { useSiteContext } from "../../../components/Site";
@@ -46,76 +46,80 @@ const TrainingDetails = ({
 
   return (
     <Wrapper>
-      <Grid container spacing={3}>
-        <DetailsContainer xs={12} md={12} lg={8}>
-          <Title
-            variant="h1"
-            hasUnderline
-            hasDarkBackground
-            data-testid="training-name"
-          >
-            {name}
-          </Title>
-          {code && (
-            <Typography data-testid="training-id">
-              {getMicroCopy(microCopy.TRAINING_ID_LABEL)} {code}
-            </Typography>
-          )}
-          <CourseDescription
-            dangerouslySetInnerHTML={{ __html: description }}
-            data-testid="training-description"
-          />
-        </DetailsContainer>
-        <Grid xs={12} md={12} lg={4}>
-          {/* leaving empty grid to add training card for future */}
+      <Container>
+        <Grid container spacing={3}>
+          <DetailsContainer xs={12} md={12} lg={8}>
+            <Title
+              variant="h1"
+              hasUnderline
+              hasDarkBackground
+              data-testid="training-name"
+            >
+              {name}
+            </Title>
+            {code && (
+              <Typography data-testid="training-id">
+                {getMicroCopy(microCopy.TRAINING_ID_LABEL)} {code}
+              </Typography>
+            )}
+            <CourseDescription
+              dangerouslySetInnerHTML={{ __html: description }}
+              data-testid="training-description"
+            />
+          </DetailsContainer>
+          <Grid xs={12} md={12} lg={4}>
+            {/* leaving empty grid to add training card for future */}
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
 
       <SessionContainer>
-        <Title
-          variant="h4"
-          hasUnderline
-          hasDarkBackground
-          data-testid="sessions-title"
-        >
-          {getMicroCopy(microCopy.TRAINING_DETAILS_SESSIONS_LABEL)}
-        </Title>
-        {runningSessions && runningSessions.length > 0 ? (
-          <div data-testid="sessions-container">
-            {runningSessions?.map(
-              ({ name, code, date_start, date_end }, index) => {
-                return (
-                  <SessionDataContainer
-                    index={index}
-                    dataLength={runningSessions.length}
-                    key={code}
-                    data-testId={"available-session"}
-                  >
-                    <SessionDetailContainer>
-                      <SessionName data-testid={"session-name"}>
-                        {name}
-                      </SessionName>
-                      <SessionInterval data-testid={"session-date"}>
-                        {formatDate(date_start)} - {formatDate(date_end)}
-                      </SessionInterval>
-                      <EnrollButtonContainer>
-                        <EnrollButton data-testid={"session-cta-button"}>
-                          {getMicroCopy(
-                            microCopy.TRAINING_DETAILS_SESSION_ENROLL_LABEL
-                          )}
-                        </EnrollButton>
-                      </EnrollButtonContainer>
-                    </SessionDetailContainer>
-                  </SessionDataContainer>
-                );
-              }
-            )}
-          </div>
-        ) : (
-          <Typography data-testid={"no-available-sessions"}>
-            {sessions_unavailable}
-          </Typography>
-        )}
+        <Container>
+          <Title
+            variant="h4"
+            hasUnderline
+            hasDarkBackground
+            data-testid="sessions-title"
+          >
+            {getMicroCopy(microCopy.TRAINING_DETAILS_SESSIONS_LABEL)}
+          </Title>
+          {runningSessions && runningSessions.length > 0 ? (
+            <div data-testid="sessions-container">
+              {runningSessions?.map(
+                ({ name, code, date_start, date_end }, index) => {
+                  return (
+                    <SessionDataContainer
+                      index={index}
+                      dataLength={runningSessions.length}
+                      key={code}
+                      data-testId={"available-session"}
+                    >
+                      <SessionDetailContainer>
+                        <SessionName data-testid={"session-name"}>
+                          {name}
+                        </SessionName>
+                        <SessionInterval data-testid={"session-date"}>
+                          {formatDate(date_start)} - {formatDate(date_end)}
+                        </SessionInterval>
+                        <EnrollButtonContainer>
+                          <EnrollButton data-testid={"session-cta-button"}>
+                            {getMicroCopy(
+                              microCopy.TRAINING_DETAILS_SESSION_ENROLL_LABEL
+                            )}
+                          </EnrollButton>
+                        </EnrollButtonContainer>
+                      </SessionDetailContainer>
+                    </SessionDataContainer>
+                  );
+                }
+              )}
+            </div>
+          ) : (
+            <Typography data-testid={"no-available-sessions"}>
+              {sessions_unavailable}
+            </Typography>
+          )}
+        </Container>
       </SessionContainer>
     </Wrapper>
   );

@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { CourseWithSessions } from "@bmi/docebo-types";
-import { Container } from "@bmi-digital/components";
 import Page, { Data as PageData } from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import TrainingDetail from "./components/TrainingDetail";
@@ -30,9 +29,7 @@ const TrainingDetailsPage = ({ data }: Props) => {
 
   return (
     <Page title={name} pageData={pageData} siteData={contentfulSite}>
-      <Container>
-        <TrainingDetail course={doceboCourses} />
-      </Container>
+      <TrainingDetail course={doceboCourses} />
     </Page>
   );
 };
