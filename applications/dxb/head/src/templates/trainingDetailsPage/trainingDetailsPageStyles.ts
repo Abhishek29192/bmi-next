@@ -27,7 +27,7 @@ export const CourseDescription = styled("div")(({ theme }) => ({
 
   "& p": {
     maxWidth: "100% !important",
-    lineBreak: "anywhere !important"
+    wordWrap: "break-word"
   },
 
   "& iframe": {
