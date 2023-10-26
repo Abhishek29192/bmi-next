@@ -1,97 +1,43 @@
 import { useEffect, useMemo, useState } from "react";
 import { Training } from "@bmi/elasticsearch-types";
+import { Filter } from "@bmi-digital/components";
 import { QUERY_KEY, useIsClient } from "@bmi-digital/components";
 import { useConfig } from "../../../contexts/ConfigProvider";
-import { queryElasticSearch } from "../../../utils/elasticSearch";
-import { EsResponse, EsCollapsedTraining, EsTrainingHit } from "../types";
+import {
+  disableFiltersFromAggregations,
+  queryElasticSearch
+} from "../../../utils/elasticSearch";
+import { CollapsedTrainingResponse, PaginatedTrainingResponse } from "../types";
 import groupBy from "../../../utils/groupBy";
 import { SHOW_MORE_LIMIT } from "../constants";
+import { updateFilterValue } from "../../../utils/filters";
+import {
+  constructFiltersQuery,
+  constructSearchQuery
+} from "../helpers/constructEsQuery";
 
-export type UseTrainings = () => {
+export type UseTrainings = (props: { defaultFilters: Filter[] }) => {
   initialLoading: boolean;
   groupedTrainings: { [catalogueId: string]: Training[] };
-  fetchPaginatedTrainings: (catalogueId: number, from: number) => Promise<void>;
-  collapseCatalogueCourses: (catalogueId: number) => void;
+  fetchPaginatedTrainings: (catalogueId: string, from: number) => Promise<void>;
+  collapseCatalogueCourses: (catalogueId: string) => void;
   total: { [catalogueId: string]: number };
-  searchQuery: string | null;
+  handleFiltersChange: (
+    filterName: string,
+    filterValue: string,
+    checked: boolean
+  ) => Promise<void>;
+  handleResetFilters: () => Promise<void>;
+  filters: Filter[];
+  searchQuery: string;
 };
 
-export const getESQuery = (
-  searchQuery: string | null,
-  isFrom: string,
-  catalogueId: number,
-  from: number
-) => {
-  let esQueryObj;
-
-  if (searchQuery && isFrom === "initialMount") {
-    esQueryObj = {
-      query: {
-        query_string: {
-          query: `*${searchQuery}*`,
-          fields: ["code", "name"]
-        }
-      },
-      collapse: {
-        field: "catalogueId",
-        inner_hits: {
-          name: "inner_hits",
-          size: SHOW_MORE_LIMIT
-        }
-      }
-    };
-  } else if (!searchQuery && isFrom === "initialMount") {
-    esQueryObj = {
-      collapse: {
-        field: "catalogueId",
-        inner_hits: {
-          name: "inner_hits",
-          size: SHOW_MORE_LIMIT
-        }
-      }
-    };
-  } else if (searchQuery && isFrom === "pagination") {
-    esQueryObj = {
-      from,
-      size: SHOW_MORE_LIMIT,
-      query: {
-        bool: {
-          must: [
-            {
-              query_string: {
-                query: `*${searchQuery}*`,
-                fields: ["code", "name"]
-              }
-            },
-            {
-              match: {
-                catalogueId: catalogueId
-              }
-            }
-          ]
-        }
-      }
-    };
-  } else {
-    esQueryObj = {
-      from,
-      size: SHOW_MORE_LIMIT,
-      query: {
-        match: {
-          catalogueId: catalogueId
-        }
-      }
-    };
-  }
-
-  return esQueryObj;
-};
-
-export const useTrainings: UseTrainings = () => {
+export const useTrainings: UseTrainings = (props) => {
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
   const [trainings, setTrainings] = useState<Training[]>([]);
   const [total, setTotal] = useState<{ [catalogueId: string]: number }>({});
   const { esIndexNameTrainings } = useConfig();
+  const [filters, setFilters] = useState<Filter[]>(props.defaultFilters);
 
   const { isClient } = useIsClient();
 
@@ -102,14 +48,30 @@ export const useTrainings: UseTrainings = () => {
     return params.get(QUERY_KEY);
   }, [isClient]);
 
-  const fetchPaginatedTrainings = async (catalogueId: number, from: number) => {
+  const fetchPaginatedTrainings = async (catalogueId: string, from: number) => {
     if (!esIndexNameTrainings) {
       return;
     }
 
     try {
-      const res: EsResponse<EsTrainingHit> = await queryElasticSearch(
-        getESQuery(searchQuery, "pagination", catalogueId, from),
+      const res: PaginatedTrainingResponse = await queryElasticSearch(
+        {
+          from,
+          size: SHOW_MORE_LIMIT,
+          query: {
+            bool: {
+              must: [
+                {
+                  match: {
+                    "catalogueId.keyword": catalogueId
+                  }
+                },
+                ...constructFiltersQuery(filters),
+                constructSearchQuery(searchQuery)
+              ]
+            }
+          }
+        },
         esIndexNameTrainings
       );
       const receivedTrainings = res.hits.hits.map(
@@ -121,18 +83,47 @@ export const useTrainings: UseTrainings = () => {
     }
   };
 
-  const getTrainings = async () => {
+  const getTrainings = async (filters: Filter[] = props.defaultFilters) => {
     if (!esIndexNameTrainings) {
       setInitialLoading(false);
       return;
     }
 
     try {
-      const response: EsResponse<EsCollapsedTraining> =
-        await queryElasticSearch(
-          getESQuery(searchQuery, "initialMount", 0, 0),
-          esIndexNameTrainings
-        );
+      const response: CollapsedTrainingResponse = await queryElasticSearch(
+        {
+          query: {
+            bool: {
+              must: [
+                ...constructFiltersQuery(filters),
+                constructSearchQuery(searchQuery)
+              ]
+            }
+          },
+          collapse: {
+            field: "catalogueId.keyword",
+            inner_hits: {
+              name: "inner_hits",
+              size: SHOW_MORE_LIMIT
+            }
+          },
+          aggs: {
+            catalogueId: {
+              terms: {
+                size: "10",
+                field: "catalogueId.keyword"
+              }
+            },
+            category: {
+              terms: {
+                size: "15",
+                field: "category.keyword"
+              }
+            }
+          }
+        },
+        esIndexNameTrainings
+      );
 
       const receivedTrainings = response.hits.hits.flatMap((hit) => {
         const { hits } = hit.inner_hits.inner_hits.hits;
@@ -146,6 +137,13 @@ export const useTrainings: UseTrainings = () => {
           [catalogueId]: hit.inner_hits.inner_hits.hits.total.value
         };
       }, {});
+
+      const updatedFilters = disableFiltersFromAggregations(
+        filters,
+        response.aggregations
+      );
+
+      setFilters(updatedFilters);
 
       setTotal(total);
       setTrainings(receivedTrainings);
@@ -165,7 +163,7 @@ export const useTrainings: UseTrainings = () => {
     [trainings]
   );
 
-  const collapseCatalogueCourses = (catalogueId: number) => {
+  const collapseCatalogueCourses = (catalogueId: string) => {
     const newTrainings = trainings.reduce<Training[]>((acc, training) => {
       if (training.catalogueId !== catalogueId) {
         return [...acc, training];
@@ -184,12 +182,36 @@ export const useTrainings: UseTrainings = () => {
     setTrainings(newTrainings);
   };
 
+  const handleFiltersChange = async (
+    filterName: string,
+    filterValue: string,
+    checked: boolean
+  ) => {
+    const newFilters = updateFilterValue(
+      filters,
+      filterName,
+      filterValue,
+      checked
+    );
+
+    setFilters(newFilters);
+    await getTrainings(newFilters);
+  };
+
+  const handleResetFilters = async () => {
+    setFilters(props.defaultFilters);
+    await getTrainings(props.defaultFilters);
+  };
+
   return {
     initialLoading,
     groupedTrainings,
     fetchPaginatedTrainings,
     collapseCatalogueCourses,
+    handleFiltersChange,
+    handleResetFilters,
     total,
-    searchQuery
+    filters,
+    searchQuery: searchQuery || ""
   };
 };

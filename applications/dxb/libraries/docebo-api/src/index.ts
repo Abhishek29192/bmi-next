@@ -2,4 +2,5 @@
 
 export * from "./getCachedDoceboApi";
 export * from "./services";
+export * from "./transformCourseCategory";
 export * from "./types";

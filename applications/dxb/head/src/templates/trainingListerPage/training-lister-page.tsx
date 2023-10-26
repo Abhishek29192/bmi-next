@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useMemo } from "react";
 import { Hero, Grid, Section } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
 import { Search, Typography } from "@bmi-digital/components";
@@ -10,17 +10,20 @@ import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import Scrim from "../../components/Scrim";
+import Filters from "../../components/FiltersSidebar";
 import { generateGetMicroCopy } from "../../components/MicroCopy";
 import { TrainingListerPageProps } from "./types";
 import TrainingCatalogue from "./components/training-catalogue";
 import TrainingNoResults from "./components/training-no-results";
 import { useTrainings } from "./hooks/useTrainings";
+import { CataloguesContainer, SearchWrapper } from "./styles";
 
 const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
   const {
     breadcrumbs,
     breadcrumbTitle,
     featuredMedia,
+    filters: defaultFilters,
     path,
     seo,
     subtitle,
@@ -34,13 +37,16 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
   );
 
   const {
+    filters,
+    handleFiltersChange,
+    handleResetFilters,
     groupedTrainings,
     fetchPaginatedTrainings,
     collapseCatalogueCourses,
     initialLoading,
     total,
     searchQuery
-  } = useTrainings();
+  } = useTrainings({ defaultFilters });
 
   const getMicroCopy = generateGetMicroCopy(
     data.contentfulSite.resources?.microCopy
@@ -50,6 +56,10 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
   const searchPlaceholder = getMicroCopy(
     microCopy.TRAINING_LISTING_SEARCH_PLACEHOLDER
   );
+
+  const disabledClearAllButton = useMemo(() => {
+    return filters.every((filter) => !filter.value?.length);
+  }, [filters]);
 
   return (
     <Page
@@ -87,19 +97,29 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
       <Section>
         <Grid container spacing={3}>
           <Grid xs={12} md={12} lg={3}>
-            {/** placeholder for the filters */}
-            {/** p={0} needs to be removed once we add search or filters */}
-            <Typography component="h3" variant="h6">
-              {searchLabel}
-            </Typography>
-            <Search
-              label={searchLabel}
-              value={searchQuery}
-              placeholder={searchPlaceholder}
-              data-testid="training-list-search-form"
+            <SearchWrapper>
+              <Typography component="h3" variant="h6">
+                {searchLabel}
+              </Typography>
+              <Search
+                label={searchLabel}
+                value={searchQuery}
+                placeholder={searchPlaceholder}
+                data-testid="training-list-search-form"
+              />
+            </SearchWrapper>
+            <Filters
+              filters={filters}
+              disableClearAllBtn={disabledClearAllButton}
+              onFiltersChange={handleFiltersChange}
+              onClearFilters={handleResetFilters}
+              filtersTitle={getMicroCopy(microCopy.TRAINING_FILTERS_TITLE)}
+              clearAllBtnLabel={getMicroCopy(
+                microCopy.TRAINING_FILTERS_CLEAR_ALL_LABEL
+              )}
             />
           </Grid>
-          <Grid xs={12} md={12} lg={9}>
+          <CataloguesContainer xs={12} md={12} lg={9}>
             {Object.keys(groupedTrainings).length > 0 &&
               Object.entries(groupedTrainings).map(([catalogueId, courses]) => (
                 <TrainingCatalogue
@@ -116,7 +136,7 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
             {Object.keys(groupedTrainings).length === 0 && !initialLoading && (
               <TrainingNoResults searchTips={searchTips} />
             )}
-          </Grid>
+          </CataloguesContainer>
         </Grid>
       </Section>
       <Section data-testid="training-lister-page-breadcrumbs-section-bottom">
@@ -146,6 +166,15 @@ export const pageQuery = graphql`
       }
       seo {
         ...SEOContentFragment
+      }
+      filters {
+        filterCode
+        label
+        name
+        options {
+          label
+          value
+        }
       }
       searchTips {
         ...TitleWithContentFragment

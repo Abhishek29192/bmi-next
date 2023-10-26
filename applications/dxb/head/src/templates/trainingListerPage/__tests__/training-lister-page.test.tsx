@@ -1,6 +1,6 @@
 import React from "react";
 import { screen } from "@testing-library/react";
-import { ThemeProvider } from "@bmi-digital/components";
+import { ThemeProvider, Filter as FilterType } from "@bmi-digital/components";
 import { createTraining } from "@bmi/elasticsearch-types";
 import TrainingListerPage from "../training-lister-page";
 import { TrainingListerPageProps } from "../types";
@@ -16,6 +16,22 @@ const breadcrumbs = [
     id: "test",
     label: "test",
     slug: "/test"
+  }
+];
+
+const filters: FilterType[] = [
+  {
+    filterCode: "filter1",
+    label: "filter1",
+    name: "filter1",
+    value: [],
+    options: [
+      {
+        value: "value",
+        label: "filterLabel",
+        isDisabled: false
+      }
+    ]
   }
 ];
 
@@ -45,7 +61,8 @@ const props: TrainingListerPageProps = {
         metaDescription: "How can we help?",
         noIndex: false
       },
-      breadcrumbs
+      breadcrumbs,
+      filters
     },
     contentfulSite: createMockSiteData()
   },
@@ -65,6 +82,9 @@ const useTrainingsResult: ReturnType<UseTrainings> = {
   total: {},
   fetchPaginatedTrainings: jest.fn(),
   collapseCatalogueCourses: jest.fn(),
+  handleFiltersChange: jest.fn(),
+  handleResetFilters: jest.fn(),
+  filters,
   searchQuery: ""
 };
 
@@ -74,7 +94,10 @@ jest.mock("../hooks/useTrainings", () => ({
 
 jest.mock("../components/training-catalogue");
 
-jest.mock("../components/training-no-results");
+jest.mock("../components/training-no-results", () => ({
+  __esModule: true,
+  default: () => <div data-testid="no-results-section"></div>
+}));
 
 describe("Training lister page", () => {
   it("renders correctly if initialLoading === true", () => {
@@ -123,15 +146,31 @@ describe("Training lister page", () => {
     useTrainingsResult.initialLoading = originInitialLoading;
   });
 
+  it("renders no-results section if initialLoading = false nad there are no trainings", () => {
+    const originInitialLoading = useTrainingsResult.initialLoading;
+    const initialTrainings = useTrainingsResult.groupedTrainings;
+    useTrainingsResult.initialLoading = false;
+    useTrainingsResult.groupedTrainings = {};
+    renderWithRouter(
+      <ThemeProvider>
+        <TrainingListerPage {...props} />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId("no-results-section")).toBeInTheDocument();
+    useTrainingsResult.initialLoading = originInitialLoading;
+    useTrainingsResult.groupedTrainings = initialTrainings;
+  });
+
   it("works correctly if useTrainings returns trainings", () => {
     const training1 = createTraining({
       courseId: 1,
-      catalogueId: 1,
+      catalogueId: "1",
       id: "1-1"
     });
     const training2 = createTraining({
       courseId: 2,
-      catalogueId: 2,
+      catalogueId: "2",
       id: "2-2"
     });
 

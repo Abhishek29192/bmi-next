@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { MicroCopyValues, microCopy } from "@bmi/microcopies";
 import { Grid, TrainingCard } from "@bmi-digital/components";
 import { ButtonBase } from "@mui/material";
@@ -18,13 +18,7 @@ import {
 
 export const trainingCategoriesName: { [key: string]: MicroCopyValues } = {
   FLAT: microCopy.TRAINING_CATEGORY_FLAT,
-  FLAT_LIQUID: microCopy.TRAINING_CATEGORY_FLAT_LIQUID,
-  FLAT_BITUMEN: microCopy.TRAINING_CATEGORY_FLAT_BITUMEN,
-  FLAT_SYNTHETIC: microCopy.TRAINING_CATEGORY_FLAT_SYNTHETIC,
   PITCHED: microCopy.TRAINING_CATEGORY_PITCHED,
-  PITCHED_CONCRETE: microCopy.TRAINING_CATEGORY_PITCHED_CONCRETE,
-  PITCHED_CLAY: microCopy.TRAINING_CATEGORY_PITCHED_CLAY,
-  PITCHED_METAL: microCopy.TRAINING_CATEGORY_PITCHED_METAL,
   OTHER: microCopy.TRAINING_CATEGORY_OTHER
 };
 
@@ -32,8 +26,8 @@ export type Props = {
   courses: Training[];
   defaultImageUrl?: string;
   countryCode: string;
-  fetchPaginatedTrainings: (catalogueId: number, from: number) => Promise<void>;
-  collapseCatalogueCourses: (catalogueId: number) => void;
+  fetchPaginatedTrainings: (catalogueId: string, from: number) => Promise<void>;
+  collapseCatalogueCourses: (catalogueId: string) => void;
   total: number;
 };
 
@@ -55,6 +49,12 @@ const TrainingCatalogue = ({
     }),
     [courses]
   );
+
+  useEffect(() => {
+    return () => {
+      setCount(SHOW_MORE_LIMIT);
+    };
+  }, [total]);
 
   const handleShowMore = useCallback(async () => {
     const showMore = count < total;
@@ -136,11 +136,9 @@ const TrainingCatalogue = ({
                 />
               )}
               category={{
-                type: training.categoryName.replace(" ", "_"),
+                type: training.category,
                 label: getMicroCopy(
-                  trainingCategoriesName[
-                    training.categoryName.replace(" ", "_").toUpperCase()
-                  ] || trainingCategoriesName.OTHER
+                  trainingCategoriesName[training.category.toUpperCase()]
                 )
               }}
               title={training.name}

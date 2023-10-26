@@ -75,7 +75,7 @@ type Filter @dontInfer {
   isCategory: Boolean!
 }
 
-type PLPFilter @dontInfer {
+type CommonFilter @dontInfer {
   filterCode: String!
   label: String!
   name: String!
@@ -84,7 +84,7 @@ type PLPFilter @dontInfer {
 }
 
 type PLPFilterResponse @dontInfer {
-  filters: [PLPFilter]
+  filters: [CommonFilter]
   allowFilterBy: [String]
 }
 
@@ -236,6 +236,7 @@ type ContentfulTrainingListerPage implements ContentfulObject & ContentfulPage &
   featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")
   parentPage: LinkedPage @link(from: "parentPage___NODE")
+  filters: [CommonFilter!]!
 
   brandLogo: String
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
@@ -974,7 +975,7 @@ type Feature @dontInfer {
 }
 
 type DocumentsFiltersResponse @dontInfer {
-  filters: [PLPFilter]!
+  filters: [CommonFilter]!
 }
 
 

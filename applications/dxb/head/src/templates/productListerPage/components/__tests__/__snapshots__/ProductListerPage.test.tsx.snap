@@ -2410,7 +2410,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-testid="grid-item"
                 >
                   <div
-                    class="css-v1c1u9"
+                    class="css-ypdee1"
                     data-testid="filter-sidebar-main"
                   >
                     <div
@@ -2424,7 +2424,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         MC: plp.filters.title
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
                         data-testid="filter-sidebar-clear-all-button"
                         tabindex="0"
                         type="button"
@@ -3531,7 +3531,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-testid="grid-item"
                 >
                   <div
-                    class="css-v1c1u9"
+                    class="css-ypdee1"
                     data-testid="filter-sidebar-main"
                   >
                     <div
@@ -3545,7 +3545,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         MC: plp.filters.title
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
                         data-testid="filter-sidebar-clear-all-button"
                         tabindex="0"
                         type="button"
@@ -4577,7 +4577,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-testid="grid-item"
                 >
                   <div
-                    class="css-v1c1u9"
+                    class="css-ypdee1"
                     data-testid="filter-sidebar-main"
                   >
                     <div
@@ -4591,7 +4591,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         MC: plp.filters.title
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
                         data-testid="filter-sidebar-clear-all-button"
                         tabindex="0"
                         type="button"
@@ -8427,7 +8427,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   data-testid="grid-item"
                 >
                   <div
-                    class="css-v1c1u9"
+                    class="css-ypdee1"
                     data-testid="filter-sidebar-main"
                   >
                     <div
@@ -8441,7 +8441,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         MC: plp.filters.title
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
                         data-testid="filter-sidebar-clear-all-button"
                         tabindex="0"
                         type="button"
@@ -9521,7 +9521,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                   data-testid="grid-item"
                 >
                   <div
-                    class="css-v1c1u9"
+                    class="css-ypdee1"
                     data-testid="filter-sidebar-main"
                   >
                     <div
@@ -9535,7 +9535,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                         MC: plp.filters.title
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
                         data-testid="filter-sidebar-clear-all-button"
                         tabindex="0"
                         type="button"
@@ -10628,7 +10628,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   data-testid="grid-item"
                 >
                   <div
-                    class="css-v1c1u9"
+                    class="css-ypdee1"
                     data-testid="filter-sidebar-main"
                   >
                     <div
@@ -10642,7 +10642,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                         MC: plp.filters.title
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
                         data-testid="filter-sidebar-clear-all-button"
                         tabindex="0"
                         type="button"
@@ -11735,7 +11735,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                   data-testid="grid-item"
                 >
                   <div
-                    class="css-v1c1u9"
+                    class="css-ypdee1"
                     data-testid="filter-sidebar-main"
                   >
                     <div
@@ -11749,7 +11749,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                         MC: plp.filters.title
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
                         data-testid="filter-sidebar-clear-all-button"
                         tabindex="0"
                         type="button"
@@ -12856,7 +12856,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   data-testid="grid-item"
                 >
                   <div
-                    class="css-v1c1u9"
+                    class="css-ypdee1"
                     data-testid="filter-sidebar-main"
                   >
                     <div
@@ -12870,7 +12870,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         MC: plp.filters.title
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
                         data-testid="filter-sidebar-clear-all-button"
                         tabindex="0"
                         type="button"
@@ -14168,7 +14168,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   data-testid="grid-item"
                 >
                   <div
-                    class="css-v1c1u9"
+                    class="css-ypdee1"
                     data-testid="filter-sidebar-main"
                   >
                     <div
@@ -14182,7 +14182,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         MC: plp.filters.title
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
                         data-testid="filter-sidebar-clear-all-button"
                         tabindex="0"
                         type="button"

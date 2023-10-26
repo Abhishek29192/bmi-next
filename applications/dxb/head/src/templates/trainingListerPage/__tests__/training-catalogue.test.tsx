@@ -124,59 +124,17 @@ describe("Training Catalogue component", () => {
     renderWithProviders(
       <TrainingCatalogue
         {...defaultProps}
-        courses={[createTraining({ categoryName: "flat", categoryId: 1 })]}
+        courses={[createTraining({ category: "Flat" })]}
       />
     );
     expect(screen.getByText("MC: trainingCategory.flat")).toBeInTheDocument();
-  });
-
-  it("renders correct label for 'Flat liquid' category", () => {
-    renderWithProviders(
-      <TrainingCatalogue
-        {...defaultProps}
-        courses={[
-          createTraining({ categoryName: "Flat liquid", categoryId: 1 })
-        ]}
-      />
-    );
-    expect(
-      screen.getByText("MC: trainingCategory.flatLiquid")
-    ).toBeInTheDocument();
-  });
-
-  it("renders correct label for 'Flat bitumen' category", () => {
-    renderWithProviders(
-      <TrainingCatalogue
-        {...defaultProps}
-        courses={[
-          createTraining({ categoryName: "Flat bitumen", categoryId: 1 })
-        ]}
-      />
-    );
-    expect(
-      screen.getByText("MC: trainingCategory.flatBitumen")
-    ).toBeInTheDocument();
-  });
-
-  it("renders correct label for 'Flat synthetic' category", () => {
-    renderWithProviders(
-      <TrainingCatalogue
-        {...defaultProps}
-        courses={[
-          createTraining({ categoryName: "Flat synthetic", categoryId: 1 })
-        ]}
-      />
-    );
-    expect(
-      screen.getByText("MC: trainingCategory.flatSynthetic")
-    ).toBeInTheDocument();
   });
 
   it("renders correct label for 'Pitched' category", () => {
     renderWithProviders(
       <TrainingCatalogue
         {...defaultProps}
-        courses={[createTraining({ categoryName: "Pitched", categoryId: 1 })]}
+        courses={[createTraining({ category: "Pitched" })]}
       />
     );
     expect(
@@ -184,65 +142,11 @@ describe("Training Catalogue component", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders correct label for 'Pitched concrete' category", () => {
-    renderWithProviders(
-      <TrainingCatalogue
-        {...defaultProps}
-        courses={[
-          createTraining({ categoryName: "Pitched concrete", categoryId: 1 })
-        ]}
-      />
-    );
-    expect(
-      screen.getByText("MC: trainingCategory.pitchedConcrete")
-    ).toBeInTheDocument();
-  });
-
-  it("renders correct label for 'Pitched clay' category", () => {
-    renderWithProviders(
-      <TrainingCatalogue
-        {...defaultProps}
-        courses={[
-          createTraining({ categoryName: "Pitched clay", categoryId: 1 })
-        ]}
-      />
-    );
-    expect(
-      screen.getByText("MC: trainingCategory.pitchedClay")
-    ).toBeInTheDocument();
-  });
-
-  it("renders correct label for 'Pitched metal' category", () => {
-    renderWithProviders(
-      <TrainingCatalogue
-        {...defaultProps}
-        courses={[
-          createTraining({ categoryName: "Pitched metal", categoryId: 1 })
-        ]}
-      />
-    );
-    expect(
-      screen.getByText("MC: trainingCategory.pitchedMetal")
-    ).toBeInTheDocument();
-  });
-
   it("renders correct label for 'Other' category", () => {
     renderWithProviders(
       <TrainingCatalogue
         {...defaultProps}
-        courses={[createTraining({ categoryName: "Other", categoryId: 1 })]}
-      />
-    );
-    expect(screen.getByText("MC: trainingCategory.other")).toBeInTheDocument();
-  });
-
-  it("renders with the default category label, if wrong category provided", () => {
-    renderWithProviders(
-      <TrainingCatalogue
-        {...defaultProps}
-        courses={[
-          createTraining({ categoryName: "fake category", categoryId: 0 })
-        ]}
+        courses={[createTraining({ category: "Other" })]}
       />
     );
     expect(screen.getByText("MC: trainingCategory.other")).toBeInTheDocument();

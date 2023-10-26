@@ -880,22 +880,22 @@ exports[`Document Library page renders correctly  1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="css-asp5i5"
-                  data-testid="document-library-filters"
+                  class="css-ypdee1"
+                  data-testid="filter-sidebar-main"
                 >
                   <div
-                    class="FilterSectionStyles-filterBox"
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
-                      data-testid="typography"
+                      data-testid="filter-sidebar-header-text"
                     >
                       MC: documentLibrary.filters.title
                     </h5>
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-testid="filters-clear-all"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
+                      data-testid="filter-sidebar-clear-all-button"
                       tabindex="0"
                       type="button"
                     >
