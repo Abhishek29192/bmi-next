@@ -394,5 +394,5 @@ export const queryElasticSearch = async (query = {}, indexName: string) => {
   }
 };
 
-const sanitiseQueryString = (queryString: string) =>
+export const sanitiseQueryString = (queryString: string) =>
   queryString.replace(/[^.,\s\p{L}\p{Nd}-]/gu, " ");
