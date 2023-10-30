@@ -46,6 +46,7 @@
     "@bmi/docebo-api": "workspace:*",
     "@bmi/fetch-retry": "workspace:*",
     "@bmi/gatsby-plugin-elasticsearch": "workspace:*",
+    "@bmi/gatsby-plugin-google-tagmanager": "workspace:*",
     "@bmi/gatsby-plugin-leadoo": "workspace:*",
     "@bmi/gatsby-plugin-material-ui": "workspace:*",
     "@bmi/gatsby-plugin-sitemap": "workspace:*",

@@ -54,7 +54,7 @@ const queries = [
             // Ignore contentfulSite as it's global data
             // eslint-disable-next-line no-unused-vars
             const { contentfulSite, ...pageData } =
-              (dataJSON && dataJSON.result && dataJSON.result.data) || {};
+                (dataJSON && dataJSON.result && dataJSON.result.data) || {};
 
             // Get something that might be the page data.
             // Also acts to specify what pages are handled
@@ -134,17 +134,19 @@ const ids = [
 
 const googleTagManagerPlugin =
   !process.env.GATSBY_PREVIEW && ids.length
-    ? ids.map((id) => ({
-        resolve: "gatsby-plugin-google-tagmanager",
-        options: {
-          id,
-          includeInDevelopment: true,
-          defaultDataLayer: {
-            platform: "gatsby",
-            env: process.env.NODE_ENV
+    ? [
+        {
+          resolve: "@bmi/gatsby-plugin-google-tagmanager",
+          options: {
+            ids,
+            includeInDevelopment: true,
+            defaultDataLayer: {
+              platform: "gatsby",
+              env: process.env.NODE_ENV
+            }
           }
         }
-      }))
+      ]
     : [];
 
 /**
