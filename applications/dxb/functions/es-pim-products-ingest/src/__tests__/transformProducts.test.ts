@@ -1738,4 +1738,388 @@ describe("transformProduct", () => {
       ])
     );
   });
+
+  it("ignores roofPitch*Min, roofPitch*Max, MaxBattenDistance* and FirstRowBattenDistance* attributes of variant product", async () => {
+    const product = createPimProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "tilesAttributes",
+              name: "tilesAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch1Min",
+                  name: "Roof Pitch 1 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch1Max",
+                  name: "Roof Pitch 1 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance1",
+                  name: "Max Batten Distance 1"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance1",
+                  name: "First Row Batten Distance 1"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch2Min",
+                  name: "roof Pitch 2 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch2Max",
+                  name: "roof Pitch 2 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance2",
+                  name: "Max Batten Distance 2"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance2",
+                  name: "First Row Batten Distance 2"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch3Min",
+                  name: "roof Pitch 3 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch3Max",
+                  name: "roof Pitch 3 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance3",
+                  name: "Max Batten Distance 3"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance3",
+                  name: "First Row Batten Distance 3"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch4Min",
+                  name: "roof Pitch 4 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch4Max",
+                  name: "roof Pitch 4 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance4",
+                  name: "Max Batten Distance 4"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance4",
+                  name: "First Row Batten Distance 4"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch5Min",
+                  name: "roof Pitch 5 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch5Max",
+                  name: "roof Pitch 5 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance5",
+                  name: "Max Batten Distance 5"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance5",
+                  name: "First Row Batten Distance 5"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch6Min",
+                  name: "roof Pitch 6 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch6Max",
+                  name: "roof Pitch 6 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance6",
+                  name: "Max Batten Distance 6"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance6",
+                  name: "First Row Batten Distance 6"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toEqual([
+      {
+        CATEGORY: [
+          { code: "parent-category-code", name: "name" },
+          { code: "code", name: "name" },
+          { code: "BMI-brand-code", name: "name" }
+        ],
+        PRODUCTFAMILY: [{ code: "code", name: "name" }],
+        PRODUCTLINE: [{ code: "code", name: "name" }],
+        "PARENT-CATEGORY-CODE": [
+          { code: "code", name: "name" },
+          { code: "code", name: "name" },
+          { code: "code", name: "name" }
+        ],
+        BMI_BRANDS: [{ code: "BMI-brand-code", name: "name" }],
+        approvalStatus: "approved",
+        externalProductCode: "external-product-code",
+        code: "variant-code",
+        isSampleOrderAllowed: true,
+        summary: "Summary",
+        description: "<p>Some description</p>",
+        longDescription: "<p>Long description</p>",
+        shortDescription: "Short description",
+        productBenefits: ["product-benefits"],
+        visualiserAssets: undefined,
+        name: "name",
+        baseProduct: { code: "base-code", name: "name" },
+        brandCode: undefined,
+        images: [
+          {
+            allowedToDownload: true,
+            assetType: "MASTER_IMAGE",
+            containerId: "container-id",
+            fileSize: 10,
+            format: "Product-Hero-Small-Desktop-Tablet",
+            mime: "image/jpeg",
+            name: "name",
+            realFileName: "real-file-name.jpeg",
+            url: "http://localhost:8000"
+          },
+          {
+            allowedToDownload: true,
+            assetType: "MASTER_IMAGE",
+            containerId: "container-id",
+            fileSize: 10,
+            format: "Product-Hero-Small-Desktop-Tablet",
+            mime: "image/jpeg",
+            name: "name",
+            realFileName: "real-file-name.jpeg",
+            url: "http://localhost:8000"
+          }
+        ],
+        allCategories: [
+          { code: "parent-category-code", parentCategoryCode: "" },
+          { code: "code", parentCategoryCode: "parent-category-code" },
+          {
+            code: "code",
+            parentCategoryCode: "parent-category-code"
+          },
+          {
+            code: "code",
+            parentCategoryCode: "parent-category-code"
+          },
+          { code: "BMI-brand-code", parentCategoryCode: "BMI_Brands" }
+        ],
+        classifications: [
+          { code: "tilesAttributes", features: [], name: "tilesAttributes" }
+        ],
+        goodBetterBest: undefined,
+        measurementValue: "",
+        productScoringWeightInt: 0,
+        variantScoringWeightInt: 0,
+        totalVariantCount: 1,
+        mainImage: "http://localhost:8000",
+        productReferences: undefined,
+        path: "/p/name-3464354221",
+        subTitle: ""
+      }
+    ]);
+  });
+
+  it("ignores roofPitch*Min, roofPitch*Max, MaxBattenDistance* and FirstRowBattenDistance* attributes of base product", async () => {
+    const product = createPimProduct({
+      classifications: [
+        createClassification({
+          code: "tilesAttributes",
+          name: "tilesAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch1Min",
+              name: "Roof Pitch 1 Min"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch1Max",
+              name: "Roof Pitch 1 Max"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance1",
+              name: "Max Batten Distance 1"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance1",
+              name: "First Row Batten Distance 1"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch2Min",
+              name: "roof Pitch 2 Min"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch2Max",
+              name: "roof Pitch 2 Max"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance2",
+              name: "Max Batten Distance 2"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance2",
+              name: "First Row Batten Distance 2"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch3Min",
+              name: "roof Pitch 3 Min"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch3Max",
+              name: "roof Pitch 3 Max"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance3",
+              name: "Max Batten Distance 3"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance3",
+              name: "First Row Batten Distance 3"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch4Min",
+              name: "roof Pitch 4 Min"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch4Max",
+              name: "roof Pitch 4 Max"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance4",
+              name: "Max Batten Distance 4"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance4",
+              name: "First Row Batten Distance 4"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch5Min",
+              name: "roof Pitch 5 Min"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch5Max",
+              name: "roof Pitch 5 Max"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance5",
+              name: "Max Batten Distance 5"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance5",
+              name: "First Row Batten Distance 5"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch6Min",
+              name: "roof Pitch 6 Min"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch6Max",
+              name: "roof Pitch 6 Max"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance6",
+              name: "Max Batten Distance 6"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance6",
+              name: "First Row Batten Distance 6"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption({ classifications: [] })]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toEqual([
+      {
+        CATEGORY: [
+          { code: "parent-category-code", name: "name" },
+          { code: "code", name: "name" },
+          { code: "BMI-brand-code", name: "name" }
+        ],
+        PRODUCTFAMILY: [{ code: "code", name: "name" }],
+        PRODUCTLINE: [{ code: "code", name: "name" }],
+        "PARENT-CATEGORY-CODE": [
+          { code: "code", name: "name" },
+          { code: "code", name: "name" },
+          { code: "code", name: "name" }
+        ],
+        BMI_BRANDS: [{ code: "BMI-brand-code", name: "name" }],
+        approvalStatus: "approved",
+        externalProductCode: "external-product-code",
+        code: "variant-code",
+        isSampleOrderAllowed: true,
+        summary: "Summary",
+        description: "<p>Some description</p>",
+        longDescription: "<p>Long description</p>",
+        shortDescription: "Short description",
+        productBenefits: ["product-benefits"],
+        visualiserAssets: undefined,
+        name: "name",
+        baseProduct: { code: "base-code", name: "name" },
+        brandCode: undefined,
+        images: [
+          {
+            allowedToDownload: true,
+            assetType: "MASTER_IMAGE",
+            containerId: "container-id",
+            fileSize: 10,
+            format: "Product-Hero-Small-Desktop-Tablet",
+            mime: "image/jpeg",
+            name: "name",
+            realFileName: "real-file-name.jpeg",
+            url: "http://localhost:8000"
+          },
+          {
+            allowedToDownload: true,
+            assetType: "MASTER_IMAGE",
+            containerId: "container-id",
+            fileSize: 10,
+            format: "Product-Hero-Small-Desktop-Tablet",
+            mime: "image/jpeg",
+            name: "name",
+            realFileName: "real-file-name.jpeg",
+            url: "http://localhost:8000"
+          }
+        ],
+        allCategories: [
+          { code: "parent-category-code", parentCategoryCode: "" },
+          { code: "code", parentCategoryCode: "parent-category-code" },
+          {
+            code: "code",
+            parentCategoryCode: "parent-category-code"
+          },
+          {
+            code: "code",
+            parentCategoryCode: "parent-category-code"
+          },
+          { code: "BMI-brand-code", parentCategoryCode: "BMI_Brands" }
+        ],
+        classifications: [
+          { code: "tilesAttributes", features: [], name: "tilesAttributes" }
+        ],
+        goodBetterBest: undefined,
+        measurementValue: "",
+        productScoringWeightInt: 0,
+        variantScoringWeightInt: 0,
+        totalVariantCount: 1,
+        mainImage: "http://localhost:8000",
+        productReferences: undefined,
+        path: "/p/name-3464354221",
+        subTitle: ""
+      }
+    ]);
+  });
 });
