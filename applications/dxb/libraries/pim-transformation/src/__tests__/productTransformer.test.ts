@@ -14476,4 +14476,120 @@ describe("transformProduct", () => {
 
     process.env.ENABLE_SAMPLE_ORDERING = originalEnableClassificationValue;
   });
+
+  it("ignores roofPitch*Min, roofPitch*Max, MaxBattenDistance* and FirstRowBattenDistance* attributes", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "tilesAttributes",
+              name: "tilesAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch1Min",
+                  name: "Roof Pitch 1 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch1Max",
+                  name: "Roof Pitch 1 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance1",
+                  name: "Max Batten Distance 1"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance1",
+                  name: "First Row Batten Distance 1"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch2Min",
+                  name: "roof Pitch 2 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch2Max",
+                  name: "roof Pitch 2 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance2",
+                  name: "Max Batten Distance 2"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance2",
+                  name: "First Row Batten Distance 2"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch3Min",
+                  name: "roof Pitch 3 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch3Max",
+                  name: "roof Pitch 3 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance3",
+                  name: "Max Batten Distance 3"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance3",
+                  name: "First Row Batten Distance 3"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch4Min",
+                  name: "roof Pitch 4 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch4Max",
+                  name: "roof Pitch 4 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance4",
+                  name: "Max Batten Distance 4"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance4",
+                  name: "First Row Batten Distance 4"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch5Min",
+                  name: "roof Pitch 5 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch5Max",
+                  name: "roof Pitch 5 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance5",
+                  name: "Max Batten Distance 5"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance5",
+                  name: "First Row Batten Distance 5"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch6Min",
+                  name: "roof Pitch 6 Min"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.roofPitch6Max",
+                  name: "roof Pitch 6 Max"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.MaxBattenDistance6",
+                  name: "Max Batten Distance 6"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.FirstRowBattenDistance6",
+                  name: "First Row Batten Distance 6"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].classifications).toEqual([]);
+  });
 });

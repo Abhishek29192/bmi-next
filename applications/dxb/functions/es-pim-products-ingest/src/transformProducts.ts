@@ -378,7 +378,8 @@ export enum TwoOneClassToIgnore {
   fabDisSupplierAndDistributorInformation = "fabDisSupplierAndDistributorInformation",
   fabDisCategoryInformation = "fabDisCategoryInformation",
   fabDisPackagingInformation = "fabDisPackagingInformation",
-  fabDisAssetInformation = "fabDisAssetInformation"
+  fabDisAssetInformation = "fabDisAssetInformation",
+  tilesAttributes = "tilesAttributes"
 }
 
 export enum TwoOneAttribToIgnore {
@@ -462,7 +463,31 @@ export enum TwoOneAttribToIgnore {
   RVU = "RVU",
   RNOM = "RNOM",
   RURL = "RURL",
-  RURLT = "RURLT"
+  RURLT = "RURLT",
+  roofPitch1Min = "roofPitch1Min",
+  roofPitch1Max = "roofPitch1Max",
+  maxBattenDistance1 = "MaxBattenDistance1",
+  firstRowBattenDistance1 = "FirstRowBattenDistance1",
+  roofPitch2Min = "roofPitch2Min",
+  roofPitch2Max = "roofPitch2Max",
+  maxBattenDistance2 = "MaxBattenDistance2",
+  firstRowBattenDistance2 = "FirstRowBattenDistance2",
+  roofPitch3Min = "roofPitch3Min",
+  roofPitch3Max = "roofPitch3Max",
+  maxBattenDistance3 = "MaxBattenDistance3",
+  firstRowBattenDistance3 = "FirstRowBattenDistance3",
+  roofPitch4Min = "roofPitch4Min",
+  roofPitch4Max = "roofPitch4Max",
+  maxBattenDistance4 = "MaxBattenDistance4",
+  firstRowBattenDistance4 = "FirstRowBattenDistance4",
+  roofPitch5Min = "roofPitch5Min",
+  roofPitch5Max = "roofPitch5Max",
+  maxBattenDistance5 = "MaxBattenDistance5",
+  firstRowBattenDistance5 = "FirstRowBattenDistance5",
+  roofPitch6Min = "roofPitch6Min",
+  roofPitch6Max = "roofPitch6Max",
+  maxBattenDistance6 = "MaxBattenDistance6",
+  firstRowBattenDistance6 = "FirstRowBattenDistance6"
 }
 
 export const commonIgnoreList = [
@@ -592,6 +617,32 @@ export const TwoOneIgnoreDictionary: TwoOneClassificationAttributeDictionary = {
     TwoOneAttribToIgnore.RNOM,
     TwoOneAttribToIgnore.RURL,
     TwoOneAttribToIgnore.RURLT
+  ],
+  [TwoOneClassToIgnore.tilesAttributes]: [
+    TwoOneAttribToIgnore.roofPitch1Min,
+    TwoOneAttribToIgnore.roofPitch1Max,
+    TwoOneAttribToIgnore.maxBattenDistance1,
+    TwoOneAttribToIgnore.firstRowBattenDistance1,
+    TwoOneAttribToIgnore.roofPitch2Min,
+    TwoOneAttribToIgnore.roofPitch2Max,
+    TwoOneAttribToIgnore.maxBattenDistance2,
+    TwoOneAttribToIgnore.firstRowBattenDistance2,
+    TwoOneAttribToIgnore.roofPitch3Min,
+    TwoOneAttribToIgnore.roofPitch3Max,
+    TwoOneAttribToIgnore.maxBattenDistance3,
+    TwoOneAttribToIgnore.firstRowBattenDistance3,
+    TwoOneAttribToIgnore.roofPitch4Min,
+    TwoOneAttribToIgnore.roofPitch4Max,
+    TwoOneAttribToIgnore.maxBattenDistance4,
+    TwoOneAttribToIgnore.firstRowBattenDistance4,
+    TwoOneAttribToIgnore.roofPitch5Min,
+    TwoOneAttribToIgnore.roofPitch5Max,
+    TwoOneAttribToIgnore.maxBattenDistance5,
+    TwoOneAttribToIgnore.firstRowBattenDistance5,
+    TwoOneAttribToIgnore.roofPitch6Min,
+    TwoOneAttribToIgnore.roofPitch6Max,
+    TwoOneAttribToIgnore.maxBattenDistance6,
+    TwoOneAttribToIgnore.firstRowBattenDistance6
   ]
 };
 
