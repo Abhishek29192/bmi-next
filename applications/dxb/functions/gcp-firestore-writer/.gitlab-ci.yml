@@ -14,12 +14,20 @@ build_gcp-firestore-writer:
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/utils/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pub-sub-types/**/*
     - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/utils/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pub-sub-types/**/*
     - if: !reference [.run_for_preprod_release, rules, if]
     - if: !reference [.run_for_prod_release, rules, if]
   variables:
@@ -36,12 +44,20 @@ test_gcp-firestore-writer:
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/utils/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pub-sub-types/**/*
     - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/utils/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pub-sub-types/**/*
   variables:
     WORKSPACE: "@bmi/gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
@@ -60,6 +76,10 @@ package_gcp-firestore-writer:
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/utils/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pub-sub-types/**/*
     - if: !reference [.run_for_preprod_release, rules, if]
     - if: !reference [.run_for_prod_release, rules, if]
   variables:
@@ -78,6 +98,10 @@ deploy_gcp-firestore-writer:
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/utils/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pub-sub-types/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
     - if: !reference [.run_for_preprod_release, rules, if]
