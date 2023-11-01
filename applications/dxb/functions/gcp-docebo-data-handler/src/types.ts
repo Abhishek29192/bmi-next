@@ -53,3 +53,14 @@ export type MultipleCoursesDeletedEvent = {
   message_id: string;
   payloads: (BaseFields & { deletion_date: string })[];
 };
+
+export enum MessageStatus {
+  InProgress = "in-progress",
+  Failed = "failed",
+  Succeeded = "succeeded"
+}
+
+export type DoceboMessageLog = {
+  id: string;
+  status: MessageStatus;
+};

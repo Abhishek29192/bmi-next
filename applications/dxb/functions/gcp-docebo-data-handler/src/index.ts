@@ -1,5 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
-import { HttpFunction } from "@google-cloud/functions-framework";
+import { HttpFunction, Response } from "@google-cloud/functions-framework";
 import { Client } from "@elastic/elasticsearch";
 import {
   IndexOperation,
@@ -11,7 +11,8 @@ import { Training } from "@bmi/elasticsearch-types";
 import fetchRetry from "@bmi/fetch-retry";
 import { isDefined } from "@bmi/utils";
 import { getCachedDoceboApi, transformCourseCategory } from "@bmi/docebo-api";
-import { EventType, MultipleCoursesDeletedEvent } from "./types";
+import { EventType, MessageStatus, MultipleCoursesDeletedEvent } from "./types";
+import { getMessageStatus, saveById } from "./firestore";
 
 const {
   BUILD_TRIGGER_ENDPOINT,
@@ -23,10 +24,24 @@ const {
   DOCEBO_API_CATALOGUE_IDS,
   ES_APIKEY,
   ES_CLOUD_ID,
-  ES_INDEX_NAME_TRAININGS
+  ES_INDEX_NAME_TRAININGS,
+  FIRESTORE_ROOT_COLLECTION,
+  GCP_PROJECT_ID
 } = process.env;
 
 export const handleRequest: HttpFunction = async (req, res) => {
+  if (!GCP_PROJECT_ID) {
+    logger.error({ message: "GCP_PROJECT_ID was not provided" });
+    return res.status(500).send({ message: "GCP_PROJECT_ID was not provided" });
+  }
+
+  if (!FIRESTORE_ROOT_COLLECTION) {
+    logger.error({ message: "FIRESTORE_ROOT_COLLECTION was not provided" });
+    return res
+      .status(500)
+      .send({ message: "FIRESTORE_ROOT_COLLECTION was not provided" });
+  }
+
   if (!BUILD_TRIGGER_ENDPOINT) {
     logger.error({ message: "BUILD_TRIGGER_ENDPOINT was not provided" });
     return res
@@ -93,34 +108,77 @@ export const handleRequest: HttpFunction = async (req, res) => {
       .send({ message: "ES_INDEX_NAME_TRAININGS was not provided" });
   }
 
-  if (
-    req.headers["authorization"] !==
-    `Basic ${btoa(`${DOCEBO_API_USERNAME}:${DOCEBO_API_PASSWORD}`)}`
-  ) {
-    logger.error({ message: "Authorization failed." });
-    return res.sendStatus(401);
-  }
+  logger.info({ message: `Received data: ${JSON.stringify(req.body)}` });
 
-  if (!req.body.event) {
-    logger.error({ message: "Event was not provided" });
-    return res.status(400).send({ message: "Event was not provided" });
-  }
-
-  if (!Object.values(EventType).includes(req.body.event)) {
-    logger.error({
-      message: `Received unexpected event - "${req.body.event}"`
-    });
-    return res.status(400).send({
-      message: `Received unexpected event - "${req.body.event}"`
-    });
+  if (!req.body.message_id) {
+    logger.error({ message: "message_id was not provided" });
+    return res.status(400).send({ message: "message_id was not provided" });
   }
 
   try {
+    const messageStatus = await getMessageStatus(
+      FIRESTORE_ROOT_COLLECTION,
+      req.body.message_id
+    );
+
+    if (
+      messageStatus === MessageStatus.InProgress ||
+      messageStatus === MessageStatus.Succeeded
+    ) {
+      logger.info({ message: "This event has been already handled" });
+      return res
+        .status(200)
+        .json({ message: "This event has been already handled" });
+    }
+
+    await saveById(FIRESTORE_ROOT_COLLECTION, {
+      id: req.body.message_id,
+      status: MessageStatus.InProgress
+    });
+
+    if (
+      req.headers["authorization"] !==
+      `Basic ${btoa(`${DOCEBO_API_USERNAME}:${DOCEBO_API_PASSWORD}`)}`
+    ) {
+      logger.error({ message: "Authorization failed." });
+      await saveById(FIRESTORE_ROOT_COLLECTION, {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      });
+      return res.sendStatus(401);
+    }
+
+    if (!req.body.event) {
+      logger.error({ message: "Event was not provided" });
+      await saveById(FIRESTORE_ROOT_COLLECTION, {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      });
+      return res.status(400).send({ message: "Event was not provided" });
+    }
+
+    if (!Object.values(EventType).includes(req.body.event)) {
+      logger.error({
+        message: `Received unexpected event - "${req.body.event}"`
+      });
+      await saveById(FIRESTORE_ROOT_COLLECTION, {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      });
+      return res.status(400).send({
+        message: `Received unexpected event - "${req.body.event}"`
+      });
+    }
+
     const esClient = await getEsClient();
 
     if (req.body.event === EventType.courseDeleted) {
       if (!req.body.payload && !req.body.payloads) {
         logger.error({ message: "payload was not provided" });
+        await saveById(FIRESTORE_ROOT_COLLECTION, {
+          id: req.body.message_id,
+          status: MessageStatus.Failed
+        });
         return res.status(400).send({ message: "payload was not provided" });
       }
 
@@ -133,6 +191,10 @@ export const handleRequest: HttpFunction = async (req, res) => {
       const filteredIds = idsToDelete.filter(isDefined);
       if (!filteredIds.length) {
         logger.error({ message: "No courses to delete" });
+        await saveById(FIRESTORE_ROOT_COLLECTION, {
+          id: req.body.message_id,
+          status: MessageStatus.Failed
+        });
         return res.status(400).send({ message: "No courses to delete" });
       }
 
@@ -148,6 +210,11 @@ export const handleRequest: HttpFunction = async (req, res) => {
     if (req.body.event === EventType.catalogueCourseDeleted) {
       if (!req.body.payload?.catalog_id || !req.body.payload?.course_id) {
         logger.error({ message: "catalog_id or course_id was not provided" });
+        await saveById(FIRESTORE_ROOT_COLLECTION, {
+          id: req.body.message_id,
+          status: MessageStatus.Failed
+        });
+
         return res
           .status(400)
           .send({ message: "catalog_id or course_id was not provided" });
@@ -160,17 +227,33 @@ export const handleRequest: HttpFunction = async (req, res) => {
       });
 
       logger.info({
-        message: `Course with id ${req.body.payload.course_id} and catalog_id ${req.body.payload.catalog_id} has been successfully deleted`
+        message: `Course with id ${req.body.payload.course_id} from catalog_id ${req.body.payload.catalog_id} has been successfully deleted`
       });
     }
 
     if (req.body.event === EventType.courseUpdated) {
       if (!req.body.payload?.course_id) {
         logger.error({ message: "course_id was not provided" });
+        await saveById(FIRESTORE_ROOT_COLLECTION, {
+          id: req.body.message_id,
+          status: MessageStatus.Failed
+        });
         return res.status(400).send({ message: "course_id was not provided" });
       }
 
-      await updateCourse(esClient, req.body.payload.course_id);
+      const courseCanNotBeUpdated = Boolean(
+        await updateCourse(
+          res,
+          req.body.message_id,
+          esClient,
+          req.body.payload.course_id
+        )
+      );
+
+      if (courseCanNotBeUpdated) {
+        return;
+      }
+
       logger.info({
         message: `Course with id ${req.body.payload.course_id} has been successfully updated`
       });
@@ -195,9 +278,19 @@ export const handleRequest: HttpFunction = async (req, res) => {
       body: JSON.stringify({ isFullFetch: false })
     });
     logger.info({ message: "Build triggered successfully" });
+
+    await saveById(FIRESTORE_ROOT_COLLECTION, {
+      id: req.body.message_id,
+      status: MessageStatus.Succeeded
+    });
+
     return res.sendStatus(200);
   } catch (err) {
     logger.error({ message: (err as Error).message });
+    await saveById(FIRESTORE_ROOT_COLLECTION, {
+      id: req.body.message_id,
+      status: MessageStatus.Failed
+    });
     return res.status(500).send({
       message: `Something went wrong: ${(err as Error).message}`
     });
@@ -217,12 +310,26 @@ const deleteCourseByQuery = async (
   });
 };
 
-const updateCourse = async (esClient: Client, courseId: number) => {
+const updateCourse = async (
+  res: Response,
+  messageId: string,
+  esClient: Client,
+  courseId: number
+) => {
   const doceboApi = getCachedDoceboApi();
   const indexName = `${ES_INDEX_NAME_TRAININGS}_write`;
   const course = await doceboApi.getCourseById(courseId);
   if (!course) {
-    throw new Error(`Course with "course_id: ${courseId}" does not exist`);
+    logger.info({
+      message: `Course with "course_id: ${courseId}" does not exist`
+    });
+    await saveById(FIRESTORE_ROOT_COLLECTION!, {
+      id: messageId,
+      status: MessageStatus.Failed
+    });
+    return res
+      .status(400)
+      .json({ message: `Course with "course_id: ${courseId}" does not exist` });
   }
 
   const catalogueIds = DOCEBO_API_CATALOGUE_IDS?.split(",")?.map(Number);
@@ -236,7 +343,11 @@ const updateCourse = async (esClient: Client, courseId: number) => {
     logger.info({
       message: `Course with "course_id: ${courseId}" does not belong to any catalog`
     });
-    return;
+    await saveById(FIRESTORE_ROOT_COLLECTION!, {
+      id: messageId,
+      status: MessageStatus.Succeeded
+    });
+    return res.sendStatus(200);
   }
 
   // The same course with the same ID can be in multiple catalogues

@@ -10,6 +10,8 @@ import {
   createCatalogueSubItem,
   createExtendedCourse
 } from "@bmi/docebo-types";
+import { saveById, getMessageStatus } from "../firestore";
+import { MessageStatus } from "../types";
 import {
   createCourseUpdatedEvent,
   createCourseDeletedFromCatalogueEvent,
@@ -37,6 +39,15 @@ jest.mock("@bmi/docebo-api", () => ({
     fetchCatalogues: fetchCataloguesMock,
     getCourseById: getCourseByIdMock
   })
+}));
+
+const saveDoceboWebhookMessageMock = jest.fn();
+const getDoceboWebhookMessageStatus = jest.fn();
+jest.mock("../firestore", () => ({
+  saveById: (...args: Parameters<typeof saveById>) =>
+    saveDoceboWebhookMessageMock(...args),
+  getMessageStatus: (...args: Parameters<typeof getMessageStatus>) =>
+    getDoceboWebhookMessageStatus(...args)
 }));
 
 const fetchMock = fetchMockJest.sandbox();
@@ -69,6 +80,44 @@ const handleRequest = async (request: Request, response: Response) =>
   (await import("../index")).handleRequest(request, response);
 
 describe("handleRequest", () => {
+  it("returns 500 if GCP_PROJECT_ID is not provided", async () => {
+    const originGcpProjectId = process.env.GCP_PROJECT_ID;
+    delete process.env.GCP_PROJECT_ID;
+
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createCourseUpdatedEvent(),
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
+    expect(getEsClientMock).not.toHaveBeenCalled();
+    process.env.GCP_PROJECT_ID = originGcpProjectId;
+  });
+
+  it("returns 500 if FIRESTORE_ROOT_COLLECTION is not provided", async () => {
+    const originFirestoreRootCollection = process.env.FIRESTORE_ROOT_COLLECTION;
+    delete process.env.FIRESTORE_ROOT_COLLECTION;
+
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createCourseUpdatedEvent(),
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
+    expect(getEsClientMock).not.toHaveBeenCalled();
+    process.env.FIRESTORE_ROOT_COLLECTION = originFirestoreRootCollection;
+  });
+
   it("returns 500 if BUILD_TRIGGER_ENDPOINT is not provided", async () => {
     const originBuildTriggerEndpoint = process.env.BUILD_TRIGGER_ENDPOINT;
     delete process.env.BUILD_TRIGGER_ENDPOINT;
@@ -82,6 +131,8 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.BUILD_TRIGGER_ENDPOINT = originBuildTriggerEndpoint;
   });
@@ -99,6 +150,8 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.DOCEBO_API_URL = originDoceboApiUrl;
   });
@@ -116,6 +169,8 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.DOCEBO_API_CLIENT_ID = originDoceboApiClientId;
   });
@@ -133,6 +188,8 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.DOCEBO_API_CLIENT_SECRET = originDoceboApiClientSecret;
   });
@@ -150,6 +207,8 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.DOCEBO_API_USERNAME = originDoceboApiUsername;
   });
@@ -167,6 +226,8 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.DOCEBO_API_PASSWORD = originDoceboApiPassword;
   });
@@ -184,6 +245,8 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.DOCEBO_API_CATALOGUE_IDS = originDoceboApiCatalogIds;
   });
@@ -201,6 +264,8 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.ES_APIKEY = originEsApiKey;
   });
@@ -218,6 +283,8 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.ES_CLOUD_ID = originEsCloudId;
   });
@@ -235,8 +302,74 @@ describe("handleRequest", () => {
     await handleRequest(req, res);
 
     expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.ES_INDEX_NAME_TRAININGS = originEsIndexNameTrainings;
+  });
+
+  it("returns 400 if message_id field does not exist", async () => {
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: { ...createCourseUpdatedEvent(), message_id: undefined },
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.send).toHaveBeenCalledWith({
+      message: "message_id was not provided"
+    });
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getEsClientMock).not.toHaveBeenCalled();
+  });
+
+  it("returns 200 if message status is 'InProgress'", async () => {
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createCourseUpdatedEvent(),
+      headers: defaultHeaders
+    });
+    getDoceboWebhookMessageStatus.mockResolvedValue(MessageStatus.InProgress);
+
+    await handleRequest(req, res);
+
+    expect(getDoceboWebhookMessageStatus).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      req.body.message_id
+    );
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "This event has been already handled"
+    });
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getEsClientMock).not.toHaveBeenCalled();
+  });
+
+  it("returns 200 if message status is 'Succeeded'", async () => {
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createCourseUpdatedEvent(),
+      headers: defaultHeaders
+    });
+    getDoceboWebhookMessageStatus.mockResolvedValue(MessageStatus.Succeeded);
+
+    await handleRequest(req, res);
+
+    expect(getDoceboWebhookMessageStatus).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      req.body.message_id
+    );
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "This event has been already handled"
+    });
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getEsClientMock).not.toHaveBeenCalled();
   });
 
   it("returns 401 if 'authorization' header is not correct", async () => {
@@ -248,7 +381,21 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.sendStatus).toHaveBeenCalledWith(401);
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(getEsClientMock).not.toHaveBeenCalled();
   });
 
@@ -261,10 +408,24 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith({
       message: "Event was not provided"
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(getEsClientMock).not.toHaveBeenCalled();
   });
 
@@ -277,7 +438,21 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(400);
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(res.send).toHaveBeenCalledWith({
       message: "course_id was not provided"
     });
@@ -292,10 +467,24 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith({
       message: "catalog_id or course_id was not provided"
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
   });
 
   it("returns 400 if event==='catalog.course.deleted' and 'course_id' field does not exist", async () => {
@@ -307,10 +496,24 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith({
       message: "catalog_id or course_id was not provided"
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
   });
 
   it("returns 400 if event==='course.deleted' and both 'payload' and 'payloads field do not exist", async () => {
@@ -326,10 +529,24 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith({
       message: "payload was not provided"
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
   });
 
   it("returns 500 if getEsClient function throws an error", async () => {
@@ -343,10 +560,24 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith({
       message: `Something went wrong: ${error.message}`
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(getEsClientMock).toHaveBeenCalledTimes(1);
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(getCourseByIdMock).not.toHaveBeenCalled();
@@ -363,8 +594,22 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith({ message: "No courses to delete" });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(getCourseByIdMock).not.toHaveBeenCalled();
@@ -387,10 +632,24 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith({
       message: "No courses to delete"
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(getCourseByIdMock).not.toHaveBeenCalled();
@@ -421,6 +680,13 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(deleteByQueryMock).toHaveBeenCalledWith({
       index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
       body: {
@@ -444,6 +710,13 @@ describe("handleRequest", () => {
       },
       body: { isFullFetch: false }
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
     expect(res.sendStatus).toHaveBeenCalledWith(200);
     expect(getCourseByIdMock).not.toHaveBeenCalled();
     expect(fetchCataloguesMock).not.toHaveBeenCalled();
@@ -475,6 +748,13 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(deleteByQueryMock).toHaveBeenCalledWith({
       index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
       body: {
@@ -498,6 +778,13 @@ describe("handleRequest", () => {
       },
       body: { isFullFetch: false }
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
     expect(res.sendStatus).toHaveBeenCalledWith(200);
     expect(getCourseByIdMock).not.toHaveBeenCalled();
     expect(fetchCataloguesMock).not.toHaveBeenCalled();
@@ -535,6 +822,13 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(deleteByQueryMock).toHaveBeenCalledWith({
       index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
       body: {
@@ -558,6 +852,13 @@ describe("handleRequest", () => {
       },
       body: { isFullFetch: false }
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
     expect(res.sendStatus).toHaveBeenCalledWith(200);
     expect(getCourseByIdMock).not.toHaveBeenCalled();
     expect(fetchCataloguesMock).not.toHaveBeenCalled();
@@ -587,6 +888,13 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(deleteByQueryMock).toHaveBeenCalledWith({
       index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
       body: {
@@ -612,13 +920,20 @@ describe("handleRequest", () => {
       },
       body: { isFullFetch: false }
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
     expect(res.sendStatus).toHaveBeenCalledWith(200);
     expect(getCourseByIdMock).not.toHaveBeenCalled();
     expect(fetchCataloguesMock).not.toHaveBeenCalled();
     expect(performBulkOperationsMock).not.toHaveBeenCalled();
   });
 
-  it("returns 500 if event==='course.updated' and 'getCourseById' does not return any course", async () => {
+  it("returns 400 if event==='course.updated' and 'getCourseById' does not return any course", async () => {
     getCourseByIdMock.mockResolvedValue(undefined);
     const event = createCourseUpdatedEvent();
     const res = mockResponse();
@@ -629,11 +944,25 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.send).toHaveBeenCalledWith({
-      message: `Something went wrong: Course with "course_id: ${event.payload.course_id}" does not exist`
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.json).toHaveBeenCalledWith({
+      message: `Course with "course_id: ${event.payload.course_id}" does not exist`
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(fetchCataloguesMock).not.toHaveBeenCalled();
@@ -652,11 +981,25 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith({
       message: `Something went wrong: ${error.message}`
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(fetchCataloguesMock).not.toHaveBeenCalled();
@@ -677,12 +1020,26 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(500);
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
     expect(res.send).toHaveBeenCalledWith({
       message: `Something went wrong: ${error.message}`
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(performBulkOperationsMock).not.toHaveBeenCalled();
@@ -716,24 +1073,24 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.sendStatus).toHaveBeenCalledWith(200);
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-    expect(fetchMock).toHaveFetched(metadataUrl, {
-      method: "GET",
-      headers: {
-        "Metadata-Flavor": "Google"
-      }
-    });
-    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `bearer ${gcpAuthToken}`
-      },
-      body: { isFullFetch: false }
-    });
+    expect(fetchMock).toHaveBeenCalledTimes(0);
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(performBulkOperationsMock).not.toHaveBeenCalled();
   });
@@ -759,6 +1116,13 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith({
       message: "Something went wrong: Expected error from getIndexOperationMock"
@@ -766,6 +1130,13 @@ describe("handleRequest", () => {
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
     expect(getIndexOperationMock).toHaveBeenCalled();
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
 
     expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
@@ -792,6 +1163,20 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith({
       message:
@@ -836,6 +1221,13 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.sendStatus).toHaveBeenCalledWith(200);
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
@@ -856,6 +1248,13 @@ describe("handleRequest", () => {
       },
       body: { isFullFetch: false }
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
     expect(deleteByQueryMock).not.toHaveBeenCalled();
   });
 
@@ -868,10 +1267,24 @@ describe("handleRequest", () => {
     });
     await handleRequest(req, res);
 
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
     expect(res.status).toHaveBeenCalledWith(400);
     expect(res.send).toHaveBeenCalledWith({
       message: `Received unexpected event - "${req.body.event}"`
     });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
     expect(getEsClientMock).not.toHaveBeenCalledTimes(1);
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(getCourseByIdMock).not.toHaveBeenCalled();

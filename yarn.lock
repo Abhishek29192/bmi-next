@@ -2954,6 +2954,7 @@ __metadata:
     "@bmi/elasticsearch-types": "workspace:*"
     "@bmi/fetch-retry": "workspace:*"
     "@bmi/functions-es-client": "workspace:*"
+    "@bmi/functions-firestore": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
