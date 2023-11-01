@@ -41,6 +41,7 @@ export interface TypeLinkFields {
     | "Braas"
     | "Bramac"
     | "Canopia"
+    | "Cementegola"
     | "Cobert"
     | "Coverland"
     | "Esha"

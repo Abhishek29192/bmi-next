@@ -19,6 +19,7 @@ export interface TypeDocumentFields {
     | "Braas"
     | "Bramac"
     | "Canopia"
+    | "Cementegola"
     | "Cobert"
     | "Coverland"
     | "Esha"
