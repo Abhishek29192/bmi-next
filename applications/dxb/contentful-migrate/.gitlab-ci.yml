@@ -50,17 +50,17 @@ test_contentful_migrate:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
-    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
       variables:
         CONTENTFUL_ENVIRONMENT: master
         CONTENTFUL_ALIAS: pre-production
-        DELETE_OLD_ENVIRONMENTS: true
+        DELETE_OLD_ENVIRONMENTS: "true"
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
         NEW_ENVIRONMENT_NAME: $CI_COMMIT_TAG
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_prod_release, rules, if]
       variables:
         CONTENTFUL_ENVIRONMENT: master
-        DELETE_OLD_ENVIRONMENTS: true
+        DELETE_OLD_ENVIRONMENTS: "true"
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
         NEW_ENVIRONMENT_NAME: $CI_COMMIT_TAG
   needs:
@@ -87,10 +87,10 @@ test_contentful_migrate:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
-    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
       variables:
         DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PREPROD
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_prod_release, rules, if]
       variables:
         DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PROD
   variables:
@@ -262,8 +262,6 @@ deploy_gatsby_cloud_qa_consolidated:
 
 migrate_content_italy:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "IT"
 
@@ -277,8 +275,6 @@ update_mc_italy:
 
 deploy_gatsby_cloud_italy:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_italy
     - update_mc_italy
@@ -287,8 +283,6 @@ deploy_gatsby_cloud_italy:
 
 migrate_content_france:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "FR"
 
@@ -302,8 +296,6 @@ update_mc_france:
 
 deploy_gatsby_cloud_france:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_france
     - update_mc_france
@@ -312,8 +304,6 @@ deploy_gatsby_cloud_france:
 
 migrate_content_germany:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "DE"
 
@@ -327,8 +317,6 @@ update_mc_germany:
 
 deploy_gatsby_cloud_germany:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_germany
     - update_mc_germany
@@ -337,8 +325,6 @@ deploy_gatsby_cloud_germany:
 
 migrate_content_netherlands:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "NL"
 
@@ -352,8 +338,6 @@ update_mc_netherlands:
 
 deploy_gatsby_cloud_netherlands:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_netherlands
     - update_mc_netherlands
@@ -362,8 +346,6 @@ deploy_gatsby_cloud_netherlands:
 
 migrate_content_unitedkingdom:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "UK"
 
@@ -377,8 +359,6 @@ update_mc_unitedkingdom:
 
 deploy_gatsby_cloud_unitedkingdom:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_unitedkingdom
     - update_mc_unitedkingdom
@@ -387,8 +367,6 @@ deploy_gatsby_cloud_unitedkingdom:
 
 migrate_content_space_1:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_1"
 
@@ -404,8 +382,6 @@ update_mc_space_1:
 # TODO: Move  Sweden and Germany here when consolidated
 deploy_gatsby_cloud_southafrica:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_7
     - update_mc_space_7
@@ -414,8 +390,6 @@ deploy_gatsby_cloud_southafrica:
 
 migrate_content_space_2:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_2"
 
@@ -430,8 +404,6 @@ update_mc_space_2:
 
 deploy_gatsby_cloud_finland:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_2
     - update_mc_space_2
@@ -440,8 +412,6 @@ deploy_gatsby_cloud_finland:
 
 deploy_gatsby_cloud_turkey:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_2
     - update_mc_space_2
@@ -450,8 +420,6 @@ deploy_gatsby_cloud_turkey:
 
 deploy_gatsby_belgium:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_2
     - update_mc_space_2
@@ -460,8 +428,6 @@ deploy_gatsby_belgium:
 
 deploy_gatsby_belgium_fr:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_2
     - update_mc_space_2
@@ -470,8 +436,6 @@ deploy_gatsby_belgium_fr:
 
 migrate_content_space_3:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_3"
 
@@ -488,8 +452,6 @@ update_mc_space_3:
 
 deploy_gatsby_cloud_croatia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_3
     - update_mc_space_3
@@ -498,8 +460,6 @@ deploy_gatsby_cloud_croatia:
 
 migrate_content_space_4:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_4"
 
@@ -514,8 +474,6 @@ update_mc_space_4:
 
 deploy_gatsby_cloud_austria:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_4
     - update_mc_space_4
@@ -524,8 +482,6 @@ deploy_gatsby_cloud_austria:
 
 deploy_gatsby_cloud_albania:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_4
     - update_mc_space_4
@@ -534,8 +490,6 @@ deploy_gatsby_cloud_albania:
 
 deploy_gatsby_cloud_denmark:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_4
     - update_mc_space_4
@@ -544,8 +498,6 @@ deploy_gatsby_cloud_denmark:
 
 migrate_content_space_5:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_5"
 
@@ -562,8 +514,6 @@ update_mc_space_5:
 
 deploy_gatsby_cloud_poland:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_5
     - update_mc_space_5
@@ -572,8 +522,6 @@ deploy_gatsby_cloud_poland:
 
 deploy_gatsby_cloud_latvia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_5
     - update_mc_space_5
@@ -582,8 +530,6 @@ deploy_gatsby_cloud_latvia:
 
 migrate_content_space_6:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_6"
 
@@ -599,8 +545,6 @@ update_mc_space_6:
 # TODO: Add UK and Group here when consolidated
 deploy_gatsby_cloud_group:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_6
     - update_mc_space_6
@@ -609,8 +553,6 @@ deploy_gatsby_cloud_group:
 
 deploy_gatsby_cloud_bosnia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_6
     - update_mc_space_6
@@ -619,8 +561,6 @@ deploy_gatsby_cloud_bosnia:
 
 deploy_gatsby_cloud_lithuania:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_6
     - update_mc_space_6
@@ -629,8 +569,6 @@ deploy_gatsby_cloud_lithuania:
 
 migrate_content_space_7:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_7"
 
@@ -645,8 +583,6 @@ update_mc_space_7:
 
 deploy_gatsby_cloud_malaysia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_7
     - update_mc_space_7
@@ -655,8 +591,6 @@ deploy_gatsby_cloud_malaysia:
 
 deploy_gatsby_cloud_china:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_7
     - update_mc_space_7
@@ -665,8 +599,6 @@ deploy_gatsby_cloud_china:
 
 deploy_gatsby_cloud_indonesia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_7
     - update_mc_space_7
@@ -675,8 +607,6 @@ deploy_gatsby_cloud_indonesia:
 
 migrate_content_space_8:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_8"
 
@@ -691,8 +621,6 @@ update_mc_space_8:
 
 deploy_gatsby_cloud_norway:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_8
     - update_mc_space_8
@@ -701,8 +629,6 @@ deploy_gatsby_cloud_norway:
 
 deploy_gatsby_cloud_spain:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_8
     - update_mc_space_8
@@ -711,8 +637,6 @@ deploy_gatsby_cloud_spain:
 
 deploy_gatsby_cloud_india:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_8
     - update_mc_space_8
@@ -721,8 +645,6 @@ deploy_gatsby_cloud_india:
 
 deploy_gatsby_cloud_slovenia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_8
     - update_mc_space_8
@@ -731,8 +653,6 @@ deploy_gatsby_cloud_slovenia:
 
 migrate_content_space_9:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_9"
 
@@ -747,8 +667,6 @@ update_mc_space_9:
 
 deploy_gatsby_cloud_czechia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_9
     - update_mc_space_9
@@ -757,8 +675,6 @@ deploy_gatsby_cloud_czechia:
 
 deploy_gatsby_cloud_hungary:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_9
     - update_mc_space_9
@@ -767,8 +683,6 @@ deploy_gatsby_cloud_hungary:
 
 deploy_gatsby_cloud_romania:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_9
     - update_mc_space_9
@@ -777,8 +691,6 @@ deploy_gatsby_cloud_romania:
 
 deploy_gatsby_cloud_slovakia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_9
     - update_mc_space_9
@@ -787,8 +699,6 @@ deploy_gatsby_cloud_slovakia:
 
 migrate_content_space_10:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_10"
 
@@ -803,8 +713,6 @@ update_mc_space_10:
 
 deploy_gatsby_cloud_ireland:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_10
     - update_mc_space_10
@@ -813,8 +721,6 @@ deploy_gatsby_cloud_ireland:
 
 deploy_gatsby_cloud_serbia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_10
     - update_mc_space_10
@@ -823,8 +729,6 @@ deploy_gatsby_cloud_serbia:
 
 deploy_gatsby_cloud_switzerland:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_10
     - update_mc_space_10
@@ -833,8 +737,6 @@ deploy_gatsby_cloud_switzerland:
 
 deploy_gatsby_cloud_switzerland_fr:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_10
     - update_mc_space_10
@@ -843,8 +745,6 @@ deploy_gatsby_cloud_switzerland_fr:
 
 migrate_content_space_11:
   extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "space_11"
 
@@ -859,8 +759,6 @@ update_mc_space_11:
 
 deploy_gatsby_cloud_portugal:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_11
     - update_mc_space_11
@@ -869,8 +767,6 @@ deploy_gatsby_cloud_portugal:
 
 deploy_gatsby_cloud_bulgaria:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_11
     - update_mc_space_11
@@ -879,8 +775,6 @@ deploy_gatsby_cloud_bulgaria:
 
 deploy_gatsby_cloud_estonia:
   extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
   needs:
     - migrate_content_space_11
     - update_mc_space_11
@@ -893,9 +787,13 @@ migrate_content_sandpit:
     # Only trigger for PROD tags
     # Gitlab CI/CD does not currently support pattern matching using a regex in
     # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     DXB_MARKET_ID: "SANDPIT"
+    CONTENTFUL_ENVIRONMENT: master
+    DELETE_OLD_ENVIRONMENTS: "true"
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
+    NEW_ENVIRONMENT_NAME: $CI_COMMIT_TAG
 
 update_mc_sandpit:
   extends: .update_mc
@@ -915,12 +813,13 @@ deploy_gatsby_cloud_sandpit:
     # Only trigger for PROD tags
     # Gitlab CI/CD does not currently support pattern matching using a regex in
     # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
+    - if: !reference [.run_for_prod_release, rules, if]
   needs:
     - migrate_content_sandpit
     - update_mc_sandpit
   variables:
     DXB_MARKET_ID: "SANDPIT"
+    DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PROD
 
 migrate_content_blueprint:
   extends: .migrate_content
@@ -928,9 +827,13 @@ migrate_content_blueprint:
     # Only trigger for PROD tags
     # Gitlab CI/CD does not currently support pattern matching using a regex in
     # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
+    CONTENTFUL_ENVIRONMENT: master
+    DELETE_OLD_ENVIRONMENTS: "true"
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
+    NEW_ENVIRONMENT_NAME: $CI_COMMIT_TAG
 
 update_mc_blueprint:
   extends: .update_mc
@@ -950,9 +853,10 @@ deploy_gatsby_cloud_blueprint:
     # Only trigger for PROD tags
     # Gitlab CI/CD does not currently support pattern matching using a regex in
     # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
+    - if: !reference [.run_for_prod_release, rules, if]
   needs:
     - migrate_content_blueprint
     - update_mc_blueprint
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
+    DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PROD
