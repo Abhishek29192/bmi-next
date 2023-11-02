@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { TableSize } from "@bmi-digital/components";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { ApprovalStatus } from "@bmi/pim-types";
 import { microCopy } from "@bmi/microcopies";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
@@ -55,7 +56,7 @@ export const getProductStatus = (
   }
 
   return getMicroCopy(
-    document.approvalStatus === "discontinued"
+    document.approvalStatus === ApprovalStatus.Discontinued
       ? microCopy.DOCUMENT_STATUS_DISCONTINUED
       : microCopy.DOCUMENT_STATUS_AVAILABLE
   );

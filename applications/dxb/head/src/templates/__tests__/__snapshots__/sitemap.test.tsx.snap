@@ -629,7 +629,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -1427,7 +1427,7 @@ exports[`Sitemap renders correctly 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -2177,7 +2177,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class="Footer-noBorder css-avqws"
+        class="Footer-noBorder css-r109q4"
         data-testid="footer"
       >
         <div
@@ -2911,7 +2911,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -3223,7 +3223,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -3550,7 +3550,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div

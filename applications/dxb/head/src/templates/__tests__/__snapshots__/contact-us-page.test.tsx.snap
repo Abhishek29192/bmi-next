@@ -2332,7 +2332,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -5051,7 +5051,7 @@ exports[`Contact us page render Sections correctly 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -7768,7 +7768,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -10487,7 +10487,7 @@ exports[`Contact us page render iframe correctly 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -13206,7 +13206,7 @@ exports[`Contact us page render location correctly 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -15925,7 +15925,7 @@ exports[`Contact us page renders correctly 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div

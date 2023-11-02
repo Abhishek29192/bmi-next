@@ -54,7 +54,7 @@ const queries = [
             // Ignore contentfulSite as it's global data
             // eslint-disable-next-line no-unused-vars
             const { contentfulSite, ...pageData } =
-              (dataJSON && dataJSON.result && dataJSON.result.data) || {};
+                (dataJSON && dataJSON.result && dataJSON.result.data) || {};
 
             // Get something that might be the page data.
             // Also acts to specify what pages are handled
@@ -66,6 +66,7 @@ const queries = [
               pageData.contentfulContactUsPage ||
               pageData.contentfulDocumentLibraryPage ||
               pageData.contentfulCookiePolicyPage ||
+              pageData.contentfulTrainingListerPage ||
               pageData.contentfulSimplePage;
 
             // If not one of the above pages or excluded then do not index
@@ -160,6 +161,19 @@ const config = {
   },
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
+    ...(process.env.GATSBY_IS_LOGIN_ENABLED === "true"
+      ? [
+          {
+            resolve: "@bmi/gatsby-theme-auth0",
+            options: {
+              domain: process.env.AUTH0_DOMAIN,
+              clientID: process.env.AUTH0_CLIENT_ID,
+              redirectUri: process.env.AUTH0_CALLBACK_URL,
+              logoutUri: process.env.AUTH0_LOGOUT_URL
+            }
+          }
+        ]
+      : []),
     `@bmi/gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
     {
@@ -313,6 +327,21 @@ const config = {
         }
       }
     },
+    ...(process.env.GATSBY_ENABLE_TRAININGS === "true"
+      ? [
+          {
+            resolve: "@bmi/gatsby-source-docebo",
+            options: {
+              apiUrl: process.env.DOCEBO_API_URL,
+              catalogueIds: process.env.DOCEBO_API_CATALOGUE_IDS,
+              clientId: process.env.DOCEBO_API_CLIENT_ID,
+              clientSecret: process.env.DOCEBO_API_CLIENT_SECRET,
+              username: process.env.DOCEBO_API_USERNAME,
+              password: process.env.DOCEBO_API_PASSWORD
+            }
+          }
+        ]
+      : []),
     ...contentfulCredentialData.map(({ spaceId, accessToken, environment }) => {
       let options = {
         spaceId,

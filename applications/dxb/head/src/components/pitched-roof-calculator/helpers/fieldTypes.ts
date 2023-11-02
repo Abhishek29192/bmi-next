@@ -35,7 +35,9 @@ type RangeValidatorCreator = (
 const rangeValidator: RangeValidatorCreator =
   (min, max, getErrorMessage) => (value) => {
     const error = numberValidator(value, getErrorMessage);
-    if (error) return error;
+    if (error) {
+      return error;
+    }
 
     const number = value ? parseFloat(value) : undefined;
 

@@ -359,7 +359,42 @@ export const microCopy = {
 
   GOOD_BETTER_BEST_LABEL_GOOD: "goodBetterBest.label.good",
   GOOD_BETTER_BEST_LABEL_BETTER: "goodBetterBest.label.better",
-  GOOD_BETTER_BEST_LABEL_BEST: "goodBetterBest.label.best"
+  GOOD_BETTER_BEST_LABEL_BEST: "goodBetterBest.label.best",
+
+  TRAINING_LISTER_PAGE_IN: "trainingListerPage.in",
+  TRAINING_LISTER_PAGE_TRAINING_COUNT: "trainingListerPage.training.count",
+  TRAINING_LISTER_PAGE_VIEW_TRAINING: "trainingListerPage.viewTraining",
+  TRAINING_TYPE_WEBINAR: "trainingType.webinar",
+  TRAINING_TYPE_CLASSROOM: "trainingType.classroom",
+  TRAINING_TYPE_ELEARNING: "trainingType.elearning",
+  TRAINING_CATEGORY_FLAT: "trainingCategory.flat",
+  TRAINING_CATEGORY_PITCHED: "trainingCategory.pitched",
+  TRAINING_CATEGORY_OTHER: "trainingCategory.other",
+  TRAINING_CATALOGUE_SHOW_MORE: "trainingCatalogue.showMore",
+  TRAINING_CATALOGUE_SHOW_LESS: "trainingCatalogue.showLess",
+
+  TRAINING_ID_LABEL: "training.courseIdLabel",
+  TRAINING_DETAILS_SESSIONS_LABEL: "trainingDetails.sessionsLabel",
+  TRAINING_DETAILS_SESSION_ENROLL_LABEL: "trainingDetails.session.enrollLabel",
+
+  TRAINING_LISTING_SEARCH_LABEL: "trainingListerPage.search.label",
+  TRAINING_LISTING_SEARCH_PLACEHOLDER: "trainingListerPage.search.placeholder",
+
+  TRAINING_LISTING_NO_SEARCH_TITLE: "trainingListerPage.noSearch.title",
+  TRAINING_LISTING_NO_SEARCH_DESCRIPTION:
+    "trainingListerPage.noSearch.description",
+
+  TRAINING_FILTERS_TITLE: "training.filters.title",
+  TRAINING_FILTERS_CLEAR_ALL_LABEL: "training.filters.clearAll.label",
+  TRAINING_FILTER_LABEL_CATALOGUE: "training.filterLabel.catalogue",
+  TRAINING_FILTER_LABEL_CATEGORY: "training.filterLabel.category",
+
+  LOG_IN_LABEL_ALERT: "login.label.alert",
+  LOG_OUT_LABEL_ALERT: "logout.label.alert",
+
+  LOG_IN_LABEL_BTN: "login.label.btn",
+  LOG_OUT_LABEL_BTN: "logout.label.btn",
+  MY_ACCOUNT_LABEL: "my.account.label"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

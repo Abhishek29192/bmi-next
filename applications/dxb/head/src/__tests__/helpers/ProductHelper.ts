@@ -1,3 +1,4 @@
+import { ApprovalStatus } from "@bmi/pim-types";
 import { Product } from "../../types/pim";
 import createAsset, { createImageAsset, createLinkAsset } from "./AssetHelper";
 import createAssetType from "./AssetTypeHelper";
@@ -15,7 +16,7 @@ import createVideo from "./PimVideoHelper";
 import createWeight from "./WeightHelper";
 
 export const createProduct = (product?: Partial<Product>): Product => ({
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   awardsAndCertificateDocuments: [
     createAsset({ assetType: "AWARDS" }),
     createAsset({ assetType: "CERTIFICATES" })

@@ -46,19 +46,27 @@ export const treeFieldsDisplay = (type: string) => ({
     description: "Please select the desired colour finish of the system.",
     helpContent: (
       <>
-        <img src={green} style={dialogImageStyle} />
+        <img src={green} style={dialogImageStyle} alt={"Green colour finish"} />
         <Typography>
           <b>Green</b>
         </Typography>
-        <img src={brown} style={dialogImageStyle} />
+        <img src={brown} style={dialogImageStyle} alt={"Brown colour finish"} />
         <Typography>
           <b>Brown</b>
         </Typography>
-        <img src={charcoal} style={dialogImageStyle} />
+        <img
+          src={charcoal}
+          style={dialogImageStyle}
+          alt={"Charcoal colour finish"}
+        />
         <Typography>
           <b>Charcoal</b>
         </Typography>
-        <img src={blueGrey} style={dialogImageStyle} />
+        <img
+          src={blueGrey}
+          style={dialogImageStyle}
+          alt={"Blue/Grey colour finish"}
+        />
         <Typography>
           <b>Blue/Grey</b>
         </Typography>
@@ -67,19 +75,35 @@ export const treeFieldsDisplay = (type: string) => ({
     options: {
       Green: {
         label: "Green",
-        before: <img src={green} style={swatchStyle} />
+        before: (
+          <img src={green} style={swatchStyle} alt={"Green colour finish"} />
+        )
       },
       Charcoal: {
         label: "Charcoal",
-        before: <img src={charcoal} style={swatchStyle} />
+        before: (
+          <img
+            src={charcoal}
+            style={swatchStyle}
+            alt={"Charcoal colour finish"}
+          />
+        )
       },
       "Blue/Grey": {
         label: "Blue/Grey",
-        before: <img src={blueGrey} style={swatchStyle} />
+        before: (
+          <img
+            src={blueGrey}
+            style={swatchStyle}
+            alt={"Blue/Grey colour finish"}
+          />
+        )
       },
       Brown: {
         label: "Brown",
-        before: <img src={brown} style={swatchStyle} />
+        before: (
+          <img src={brown} style={swatchStyle} alt={"Brown colour finish"} />
+        )
       }
     }
   }

@@ -357,6 +357,15 @@ updates:
     schedule:
       interval: "weekly"
   ###################################
+  # gcp-pim-preview-firestore-writer
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-pim-preview-firestore-writer"
+    schedule:
+      interval: "weekly"
+  ###################################
   # gcp-apsis-integration
   ###################################
   - package-ecosystem: "npm"
@@ -426,6 +435,15 @@ updates:
     registries:
       - npm-npmjs
     directory: "/applications/dxb/functions/gcp-build-status-logger"
+    schedule:
+      interval: "weekly"
+  ###################################
+  # gcp-get-gatsby-build-events
+  ###################################
+  - package-ecosystem: "npm"
+    registries:
+      - npm-npmjs
+    directory: "/applications/dxb/functions/gcp-get-gatsby-build-events"
     schedule:
       interval: "weekly"
   ###################################

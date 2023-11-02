@@ -9,3 +9,9 @@
   - https://gitlab.com/bmi-digital/license-finder/-/raw/main/dependency_decisions.yml
 - - :inherit_from
   - doc/workspace_dependencies.yml
+- - :approve
+  - linkfs
+  - :who: Benjamin Sproule
+    :why: UNLICENSED, but LicenseFinder can't find it
+    :versions: []
+    :when: 2023-08-31 20:12:35.595641000 Z

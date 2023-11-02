@@ -38,12 +38,12 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              feature-2
+              feature1
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              300
+              200
             </td>
           </tr>
           <tr
@@ -52,12 +52,12 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              feature1
+              feature-2
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              200
+              300
             </td>
           </tr>
         </tbody>
@@ -86,12 +86,12 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              feature-2
+              feature1
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              300
+              200
             </td>
           </tr>
           <tr
@@ -100,12 +100,12 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              feature1
+              feature-2
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              200
+              300
             </td>
           </tr>
         </tbody>
@@ -134,12 +134,12 @@ exports[`ProductFeaturesTable component Renders correctly With even row pattern 
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              feature-2
+              feature1
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              300
+              200
             </td>
           </tr>
           <tr
@@ -148,12 +148,12 @@ exports[`ProductFeaturesTable component Renders correctly With even row pattern 
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              feature1
+              feature-2
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              200
+              300
             </td>
           </tr>
         </tbody>
@@ -190,12 +190,12 @@ exports[`ProductFeaturesTable component Renders correctly With header row 1`] = 
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              feature-2
+              feature1
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              300
+              200
             </td>
           </tr>
           <tr
@@ -204,12 +204,12 @@ exports[`ProductFeaturesTable component Renders correctly With header row 1`] = 
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
-              feature1
+              feature-2
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
-              200
+              300
             </td>
           </tr>
         </tbody>

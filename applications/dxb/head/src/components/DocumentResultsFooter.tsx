@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import fetch, { Response } from "node-fetch";
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useRef } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { microCopy } from "@bmi/microcopies";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
@@ -313,16 +313,20 @@ const DocumentsFooterContent: React.FC<{ format: Format; page: number }> = ({
   const { remainingSize, size, selectedAllCheckboxDisabledByPages } =
     useContext(DownloadListContext);
 
+  const selectAllCheckboxRef: React.MutableRefObject<HTMLInputElement> =
+    useRef(null);
+
   const { showMobileTable } = useShowMobileTable();
   const maxSizeExceeded = remainingSize < 0;
 
   const getSelectAllCheckBoxWithWrapper = () => {
     return (
-      <SelectAllCheckboxWrapper format={format}>
+      <SelectAllCheckboxWrapper format={format} isMobile={showMobileTable}>
         <SelectAllCheckboxLabel
           variant="text"
           disabled={selectedAllCheckboxDisabledByPages[`${page}`]}
           data-testid={`document-table-select-all-footer-button`}
+          onClick={() => selectAllCheckboxRef.current.click()}
         >
           {getMicroCopy(microCopy.DOWNLOAD_LIST_SELECTALL)}
         </SelectAllCheckboxLabel>
@@ -333,26 +337,29 @@ const DocumentsFooterContent: React.FC<{ format: Format; page: number }> = ({
           )}`}
           disabled={selectedAllCheckboxDisabledByPages[`${page}`]}
           dataTestid={`document-table-select-all-footer-checkbox`}
+          ref={selectAllCheckboxRef}
         />
       </SelectAllCheckboxWrapper>
     );
   };
 
-  const getButtonsWrapper = () => {
-    return (
-      <ButtonsWrapper format={format}>
-        <DownloadDocumentsButton />
-        <ResetSelectionBtn
-          disabled={!size}
-          label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
-          data-testid="document-results-footer-reset-button"
-        />
-      </ButtonsWrapper>
-    );
+  const getButtonsWrapper = (children: React.ReactNode) => {
+    if (showMobileTable) {
+      return <>{children}</>;
+    } else if (format && format === "technicalTable") {
+      return (
+        <ButtonsSelectAllPanel>
+          {children}
+          {getSelectAllCheckBoxWithWrapper()}
+        </ButtonsSelectAllPanel>
+      );
+    } else {
+      return <>{children}</>;
+    }
   };
 
   const getMobileViewJSX = (children: React.ReactNode) => {
-    if (format !== "technicalTable" && showMobileTable) {
+    if (showMobileTable) {
       return (
         <FooterBottomWrapper format={format}>
           {getSelectAllCheckBoxWithWrapper()}
@@ -366,12 +373,15 @@ const DocumentsFooterContent: React.FC<{ format: Format; page: number }> = ({
 
   return (
     <ContentWrapper>
-      {format !== "technicalTable" && getButtonsWrapper()}
-      {format && format === "technicalTable" && (
-        <ButtonsSelectAllPanel>
-          {getButtonsWrapper()}
-          {getSelectAllCheckBoxWithWrapper()}
-        </ButtonsSelectAllPanel>
+      {getButtonsWrapper(
+        <ButtonsWrapper format={format}>
+          <DownloadDocumentsButton />
+          <ResetSelectionBtn
+            disabled={!size}
+            label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
+            data-testid="document-results-footer-reset-button"
+          />
+        </ButtonsWrapper>
       )}
 
       {getMobileViewJSX(

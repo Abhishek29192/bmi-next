@@ -13,12 +13,14 @@ import { Data as PromoData } from "../Promo";
 let isSpaEnabled: boolean;
 let isGatsbyDisabledElasticSearch: boolean;
 let isSampleOrderingEnabled: boolean;
+let isLoginEnabled: boolean;
 
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
     isSpaEnabled,
     isGatsbyDisabledElasticSearch,
-    isSampleOrderingEnabled
+    isSampleOrderingEnabled,
+    isLoginEnabled
   })
 }));
 
@@ -27,6 +29,7 @@ beforeEach(() => {
   isSpaEnabled = false;
   isGatsbyDisabledElasticSearch = false;
   isSampleOrderingEnabled = true;
+  isLoginEnabled = true;
 });
 
 afterEach(() => {
@@ -336,5 +339,25 @@ describe("Header component", () => {
     await waitFor(() =>
       expect(screen.getByTestId("shopping-cart-dialog")).not.toBeVisible()
     );
+  });
+
+  it("shows login btn", () => {
+    render(
+      <ThemeProvider>
+        <BasketContext.Provider value={sampleBasketProducts}>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            sampleBasketLink={sampleBasketLinkInfo}
+            maximumSamples={3}
+          />
+        </BasketContext.Provider>
+      </ThemeProvider>
+    );
+
+    expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
   });
 });

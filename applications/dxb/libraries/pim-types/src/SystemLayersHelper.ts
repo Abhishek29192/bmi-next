@@ -1,4 +1,4 @@
-import { SystemLayer } from "./types";
+import { SystemLayer, ApprovalStatus } from "./types";
 
 export const createSystemLayerProducts = (codes: string[]) =>
   codes.map((code) => ({ code }));
@@ -7,7 +7,7 @@ export const createSystemLayer = (
   layer?: Partial<SystemLayer>
 ): SystemLayer => ({
   addon: false,
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   code: "Layer_19",
   layerNumber: "layerNo 1",
   longDescription: "Long Dec System 2 NO",

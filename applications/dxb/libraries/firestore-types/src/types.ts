@@ -1,11 +1,12 @@
-import type {
+import {
   Asset as PimAsset,
   AssetAssetType as PimAssetAssetType,
   Category as PimCategory,
   CategoryImage as PimCategoryImage,
   CategoryType,
   Mime as PimMime,
-  GoodBetterBest
+  GoodBetterBest,
+  ApprovalStatus
 } from "@bmi/pim-types";
 
 export type System = {
@@ -75,10 +76,11 @@ export enum AwardAndCertificateAssetType {
   Images
 }
 
-export type ApprovalStatus = "approved" | "discontinued";
-
 export type Product = {
-  approvalStatus: ApprovalStatus;
+  approvalStatus:
+    | ApprovalStatus.Approved
+    | ApprovalStatus.Discontinued
+    | ApprovalStatus.Preview;
   awardsAndCertificateDocuments: readonly Asset[];
   awardsAndCertificateImages: readonly Asset[];
   baseCode: string;

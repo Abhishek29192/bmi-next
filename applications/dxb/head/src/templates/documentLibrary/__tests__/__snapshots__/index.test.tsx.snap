@@ -108,6 +108,24 @@ exports[`Document Library page renders correctly  1`] = `
               <li
                 class="Header-navItem"
               >
+                <div
+                  class="css-1vxhkfv"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    MC: login.label.btn
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </li>
+              <li
+                class="Header-navItem"
+              >
                 <button
                   aria-label="MC: menu.language"
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -654,7 +672,7 @@ exports[`Document Library page renders correctly  1`] = `
       data-testid="brand-colors-provider"
     >
       <div
-        class="ScrimStyles-scrim--light css-1qqmo68"
+        class="ScrimStyles-scrim--light css-o8e9td"
       >
         <span
           class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"
@@ -862,22 +880,22 @@ exports[`Document Library page renders correctly  1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="css-asp5i5"
-                  data-testid="document-library-filters"
+                  class="css-ypdee1"
+                  data-testid="filter-sidebar-main"
                 >
                   <div
-                    class="FilterSectionStyles-filterBox"
+                    class="FilterMobileStyles-filterBox"
                     data-testid="filter-sidebar-header"
                   >
                     <h5
                       class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
-                      data-testid="typography"
+                      data-testid="filter-sidebar-header-text"
                     >
                       MC: documentLibrary.filters.title
                     </h5>
                     <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-testid="filters-clear-all"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1og8x6r-MuiButtonBase-root-MuiButton-root"
+                      data-testid="filter-sidebar-clear-all-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1201,7 +1219,7 @@ exports[`Document Library page renders correctly  1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div

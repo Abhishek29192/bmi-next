@@ -1,0 +1,23 @@
+{
+  "extends": "../../../../tsconfig.common.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "references": [
+    {
+      "path": "../../libraries/functions-firestore"
+    },
+    {
+      "path": "../../libraries/pim-api"
+    },
+    {
+      "path": "../../libraries/pim-transformation"
+    },
+    {
+      "path": "../../libraries/firestore-types"
+    },
+    {
+      "path": "../../libraries/pim-types"
+    }
+  ]
+}

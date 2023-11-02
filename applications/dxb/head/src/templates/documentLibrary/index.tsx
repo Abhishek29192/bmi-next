@@ -10,6 +10,7 @@ import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { microCopy } from "@bmi/microcopies";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import DocumentResultsFooter from "../../components/DocumentResultsFooter";
@@ -31,10 +32,11 @@ import {
   replaceDotFiltersParameter,
   updateFilterValue
 } from "../../utils/filters";
+import FilterSection from "../../components/FiltersSidebar";
+import { generateGetMicroCopy } from "../../components/MicroCopy";
 import { ResultsSection, classes } from "./DocumentLibraryStyles";
 import { Format } from "./components/DocumentResults";
 import { DownloadListAlertBanner } from "./components/DownloadListAlertBanner";
-import FilterSection from "./components/FilterSection";
 import ResultSection from "./components/ResultSection";
 import {
   compileESQuery,
@@ -56,6 +58,9 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   const [filters, setFilters] = useState<Filter[]>([]);
   const [pageCount, setPageCount] = useState(
     Math.ceil(documents.length / PAGE_SIZE)
+  );
+  const getMicroCopy = generateGetMicroCopy(
+    data.contentfulSite.resources?.microCopy
   );
 
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -292,10 +297,17 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
               <Grid xs={12} md={12} lg={3}>
                 <FilterSection
                   filters={filters}
-                  handleFiltersChange={handleFiltersChange}
-                  clearFilters={handleClearFilters}
-                  resultsNumber={mobileShowAllDocuments}
-                  isTechnicalTable={resultsType === "Technical"}
+                  onFiltersChange={handleFiltersChange}
+                  onClearFilters={handleClearFilters}
+                  numberOfResults={
+                    resultsType !== "Technical" ? mobileShowAllDocuments : 0
+                  }
+                  filtersTitle={getMicroCopy(
+                    microCopy.DOCUMENT_LIBRARY_FILTERS_TITLE
+                  )}
+                  clearAllBtnLabel={getMicroCopy(
+                    microCopy.DOCUMENT_LIBRARY_FILTERS_CLEAR_ALL
+                  )}
                 />
               </Grid>
               <Grid xs={12} md={12} lg={9}>

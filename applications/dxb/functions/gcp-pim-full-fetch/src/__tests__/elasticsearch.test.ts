@@ -17,13 +17,15 @@ beforeEach(() => {
   jest.resetModules();
 });
 
+const indexName = "ES_index_name";
+
 describe("indexIntoES", () => {
   it("should throw error when getEsClient throws error", async () => {
     const esContentfulDocuments = [createContentfulDocument()];
     getEsClient.mockRejectedValueOnce(Error("Expected error"));
 
     try {
-      await indexIntoES(esContentfulDocuments);
+      await indexIntoES(esContentfulDocuments, indexName);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -40,7 +42,7 @@ describe("indexIntoES", () => {
     const bulkOperations = [
       {
         index: {
-          _index: process.env.ES_INDEX_NAME_DOCUMENTS,
+          _index: indexName,
           _id: esContentfulDocuments[0].id
         }
       },
@@ -50,7 +52,7 @@ describe("indexIntoES", () => {
     performBulkOperations.mockRejectedValueOnce(Error("Expected error"));
 
     try {
-      await indexIntoES(esContentfulDocuments);
+      await indexIntoES(esContentfulDocuments, indexName);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -59,14 +61,14 @@ describe("indexIntoES", () => {
     expect(getEsClient).toHaveBeenCalled();
     expect(getChunks).toHaveBeenCalledWith(esContentfulDocuments);
     expect(getIndexOperation).toHaveBeenCalledWith(
-      `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
+      `${indexName}_write`.toLowerCase(),
       esContentfulDocuments[0],
       esContentfulDocuments[0].id
     );
     expect(performBulkOperations).toHaveBeenCalledWith(
       esClient,
       [bulkOperations],
-      `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase()
+      `${indexName}_write`.toLowerCase()
     );
   });
 
@@ -78,7 +80,7 @@ describe("indexIntoES", () => {
     const bulkOperations = [
       {
         index: {
-          _index: process.env.ES_INDEX_NAME_DOCUMENTS,
+          _index: indexName,
           _id: esContentfulDocuments[0].id
         }
       },
@@ -86,19 +88,19 @@ describe("indexIntoES", () => {
     ];
     getIndexOperation.mockReturnValueOnce(bulkOperations);
 
-    await indexIntoES(esContentfulDocuments);
+    await indexIntoES(esContentfulDocuments, indexName);
 
     expect(getEsClient).toHaveBeenCalled();
     expect(getChunks).toHaveBeenCalledWith(esContentfulDocuments);
     expect(getIndexOperation).toHaveBeenCalledWith(
-      `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
+      `${indexName}_write`.toLowerCase(),
       esContentfulDocuments[0],
       esContentfulDocuments[0].id
     );
     expect(performBulkOperations).toHaveBeenCalledWith(
       esClient,
       [bulkOperations],
-      `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase()
+      `${indexName}_write`.toLowerCase()
     );
   });
 });

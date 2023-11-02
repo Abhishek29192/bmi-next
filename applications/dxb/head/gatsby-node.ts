@@ -2,12 +2,20 @@ import path from "path";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import { ApprovalStatus } from "@bmi/pim-types";
+import { Course as DoceboCourse } from "@bmi/docebo-types";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
 import { getRedirects, Redirect } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
-import type { CreateBabelConfigArgs, GatsbyNode } from "gatsby";
+import { convertStrToBool } from "./src/utils/convertStrToBool";
+import { Product } from "./src/types/pim";
+import type {
+  CreateBabelConfigArgs,
+  CreatePagesArgs,
+  GatsbyNode
+} from "gatsby";
 
 dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -18,16 +26,24 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const createProductPages = async (
-  siteId,
-  countryCode,
-  { graphql, actions },
-  variantCodeToPathMap
+  siteId: string,
+  countryCode: string,
+  {
+    graphql,
+    actions
+  }: {
+    graphql: CreatePagesArgs["graphql"];
+    actions: CreatePagesArgs["actions"];
+  },
+  variantCodeToPathMap: Record<string, string>
 ) => {
   const { createPage, createRedirect } = actions;
 
-  const result = await graphql(`
+  const result = await graphql<{
+    allProduct: { nodes: Pick<Product, "code" | "path" | "oldPath">[] };
+  }>(`
     {
-      allProduct(filter: { approvalStatus: { eq: "approved" } }) {
+      allProduct(filter: { approvalStatus: { eq: "${ApprovalStatus.Approved}" } }) {
         nodes {
           __typename
           code
@@ -51,41 +67,96 @@ const createProductPages = async (
   const component = path.resolve(
     "./src/templates/productDetailPage/product-details-page.tsx"
   );
-  await Promise.all(
-    products.map(async (product) => {
-      if (process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "false") {
-        variantCodeToPathMap[product.code] = product.path;
-      }
-      const path = getPathWithCountryCode(countryCode, product.path);
+  products.map((product) => {
+    if (process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "false") {
+      variantCodeToPathMap[product.code] = product.path;
+    }
+    const path = getPathWithCountryCode(countryCode, product.path);
 
-      // market has enabled PDP URL Redirects and
-      // OLD and new path are not the same hence write the redirects
-      if (
-        process.env.GATSBY_ENABLE_OLD_PDP_URL_REDIRECTS === "true" &&
-        (product.oldPath || "") !== (product.path || "")
-      ) {
-        const oldPath = getPathWithCountryCode(countryCode, product.oldPath);
-        const redirect = {
-          ...getRedirectConfig({
-            from: oldPath,
-            to: path
-          }),
-          isPermanent: true
-        };
-        createRedirect(redirect);
+    // market has enabled PDP URL Redirects and
+    // OLD and new path are not the same hence write the redirects
+    if (
+      process.env.GATSBY_ENABLE_OLD_PDP_URL_REDIRECTS === "true" &&
+      (product.oldPath || "") !== (product.path || "")
+    ) {
+      const oldPath = getPathWithCountryCode(countryCode, product.oldPath);
+      const redirect = {
+        ...getRedirectConfig({
+          from: oldPath,
+          to: path
+        }),
+        isPermanent: true
+      };
+      createRedirect(redirect);
+    }
+    createPage({
+      path,
+      component,
+      context: {
+        productCode: product.code,
+        siteId: siteId,
+        countryCode,
+        variantCodeToPathMap
       }
-      await createPage({
-        path,
-        component,
-        context: {
-          productCode: product.code,
-          siteId: siteId,
-          countryCode,
-          variantCodeToPathMap
+    });
+  });
+};
+
+const createTrainingPages = async (
+  siteId,
+  countryCode,
+  {
+    graphql,
+    actions
+  }: {
+    graphql: CreatePagesArgs["graphql"];
+    actions: CreatePagesArgs["actions"];
+  }
+) => {
+  const { createPage } = actions;
+
+  const result = await graphql<{
+    allDoceboCourses: {
+      nodes: Pick<DoceboCourse, "id_course" | "slug_name">[];
+    };
+  }>(`
+    query MyQuery {
+      allDoceboCourses {
+        nodes {
+          id_course
+          slug_name
         }
-      });
-    })
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const {
+    data: {
+      allDoceboCourses: { nodes: courses }
+    }
+  } = result;
+
+  const component = path.resolve(
+    "./src/templates/trainingDetailsPage/training-details-page.tsx"
   );
+
+  courses.forEach((course) => {
+    const path = getPathWithCountryCode(countryCode, `/t/${course.slug_name}`);
+
+    createPage({
+      path,
+      component,
+      context: {
+        siteId: siteId,
+        countryCode,
+        courseId: course.id_course
+      }
+    });
+  });
 };
 
 export const createPages: GatsbyNode["createPages"] = async ({
@@ -123,6 +194,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
         ),
         ContentfulCookiePolicyPage: path.resolve(
           "./src/templates/cookiePolicy/components/cookie-policy-page.tsx"
+        ),
+        ContentfulTrainingListerPage: path.resolve(
+          "./src/templates/trainingListerPage/training-lister-page.tsx"
         )
       };
 
@@ -198,38 +272,46 @@ export const createPages: GatsbyNode["createPages"] = async ({
       );
     }
 
-    await Promise.all(
-      ([site.homePage, ...site.pages] || []).map(async (page) => {
-        const component = componentMap[page.__typename];
+    if (
+      !process.env.GATSBY_PREVIEW &&
+      process.env.GATSBY_ENABLE_TRAININGS === "true"
+    ) {
+      await createTrainingPages(site.id, site.countryCode, {
+        graphql,
+        actions
+      });
+    }
 
-        if (!component) {
-          // eslint-disable-next-line no-console
-          console.warn(
-            `CreatePage: Could not map the page to any component. Make sure you handle the __typename ${page.__typename} with a template.`
-          );
-          return;
+    ([site.homePage, ...site.pages] || []).forEach(async (page) => {
+      const component = componentMap[page.__typename];
+
+      if (!component) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `CreatePage: Could not map the page to any component. Make sure you handle the __typename ${page.__typename} with a template.`
+        );
+        return;
+      }
+
+      createPage({
+        // TODO: This removes the extra / for the homepage. The country code
+        // could live in the page.path instead.
+        path: getPathWithCountryCode(site.countryCode, page.path).replace(
+          /\/+/gi,
+          "/"
+        ),
+        component,
+        context: {
+          pageId: page.id,
+          siteId: site.id,
+          categoryCodes: page.categoryCodes,
+          allowFilterBy: page.allowFilterBy,
+          variantCodeToPathMap
         }
-
-        await createPage({
-          // TODO: This removes the extra / for the homepage. The country code
-          // could live in the page.path instead.
-          path: getPathWithCountryCode(site.countryCode, page.path).replace(
-            /\/+/gi,
-            "/"
-          ),
-          component,
-          context: {
-            pageId: page.id,
-            siteId: site.id,
-            categoryCodes: page.categoryCodes,
-            allowFilterBy: page.allowFilterBy,
-            variantCodeToPathMap
-          }
-        });
-      })
-    );
+      });
+    });
     if (!isOnePageMarket) {
-      await createPage({
+      createPage({
         path: getPathWithCountryCode(site.countryCode, `search`),
         component: path.resolve("./src/templates/search-page.tsx"),
         context: {
@@ -250,7 +332,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       });
 
-      await createPage({
+      createPage({
         path: getPathWithCountryCode(site.countryCode, `422/`),
         component: path.resolve("./src/templates/general-error.tsx"),
         context: {
@@ -259,7 +341,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       });
 
       if (process.env.GATSBY_PREVIEW) {
-        await createPage({
+        createPage({
           path: `/previewer/`,
           component: path.resolve("./src/templates/previewer.tsx"),
           context: {
@@ -269,7 +351,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }
 
       if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
-        await createSystemPages({
+        createSystemPages({
           siteId: site.id,
           countryCode: site.countryCode,
           createPage: actions.createPage,
@@ -277,7 +359,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         });
       }
 
-      await createPage({
+      createPage({
         path: getPathWithCountryCode(site.countryCode, `ie-dialog/`),
         component: path.resolve("./src/templates/ie-dialog/index.tsx"),
         context: {
@@ -286,7 +368,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       });
     }
     if (!process.env.GATSBY_PREVIEW) {
-      await createPage({
+      createPage({
         path: getPathWithCountryCode(site.countryCode, `sitemap/`),
         component: path.resolve("./src/templates/sitemap.tsx"),
         context: {
@@ -301,9 +383,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     contentfulRedirectsFileUrl
   );
   redirects &&
-    (await Promise.all(
-      redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)))
-    ));
+    redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)));
 };
 
 const getRedirectConfig = (
@@ -342,8 +422,12 @@ const addSplatToUrl = (url: string): string => {
 };
 
 const areValuesEqual = (a, b) => {
-  if (a === b) return true;
-  if (typeof a !== typeof b) return false;
+  if (a === b) {
+    return true;
+  }
+  if (typeof a !== typeof b) {
+    return false;
+  }
   if (typeof a === "function") {
     return a.toString() === b.toString();
   }
@@ -421,10 +505,13 @@ export const onCreateBabelConfig = ({ actions }: CreateBabelConfigArgs) => {
 };
 
 export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async () => {
-  const buildId = process.env.GATSBY_NODE_GLOBALS
-    ? JSON.parse(process.env.GATSBY_NODE_GLOBALS)["buildId"]
-    : "";
+  const isMergeRequestPreviewBuild = getIsMergeRequestPreviewBuild();
 
+  if (isMergeRequestPreviewBuild) {
+    return;
+  }
+
+  const isCMSPreviewBuild = convertStrToBool(process.env.GATSBY_IS_PREVIEW);
   const buildStatusLoggerWebhook =
     process.env.GATSBY_GCP_BUILD_STATUS_LOGGER_ENDPOINT;
 
@@ -432,9 +519,8 @@ export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async () => {
     await fetch(buildStatusLoggerWebhook, {
       method: "POST",
       body: JSON.stringify({
-        body: buildId ? `Build for ${buildId} started` : "Empty BuildId",
-        buildId,
-        event: "BUILD_STARTED"
+        body: "A new build has been triggered",
+        event: isCMSPreviewBuild ? "PREVIEW_BUILD_STARTED" : "BUILD_STARTED"
       }),
       headers: {
         Accept: "application/json",
@@ -442,4 +528,13 @@ export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async () => {
       }
     });
   }
+};
+
+const getIsMergeRequestPreviewBuild = () => {
+  const branch = process.env.BRANCH;
+  return (
+    branch !== "master" &&
+    branch !== "pre-production" &&
+    branch !== "production"
+  );
 };

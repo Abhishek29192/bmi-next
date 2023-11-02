@@ -2,8 +2,8 @@ lint_gatsby-source-firestore:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/libraries/gatsby-source-firestore"
     WORKSPACE: "@bmi/gatsby-source-firestore"
@@ -12,11 +12,11 @@ test_gatsby-source-firestore:
   extends: .test_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/libraries/gatsby-source-firestore/**/*
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - applications/dxb/libraries/gatsby-source-firestore/**/*
         - yarn.lock

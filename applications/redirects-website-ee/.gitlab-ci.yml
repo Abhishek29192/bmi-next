@@ -2,8 +2,8 @@ lint_redirects_website_ee:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/redirects-website-ee"
     WORKSPACE: "@bmi/redirects-website-ee"
@@ -12,8 +12,8 @@ build_redirects_website_ee:
   extends: .build_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_mr, rules]
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
   variables:
     ROOT_DIR: applications/redirects-website-ee
     WORKSPACE: "@bmi/redirects-website-ee"

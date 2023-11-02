@@ -85,5 +85,7 @@ export const getClassificationsFilters = (
         )
       ].map((item) => JSON.parse(item))
     };
-  } else return {};
+  } else {
+    return {};
+  }
 };

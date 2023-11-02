@@ -119,6 +119,7 @@ const MobileDocumentTechnicalTableResults = ({
                 action: "Selector – Accordion"
               }}
             >
+              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions -- stopping interaction, not allowing*/}
               <div onClick={(e: React.MouseEvent) => e.stopPropagation()}>
                 <DownloadList.Checkbox
                   name={assets[0].productBaseCode}

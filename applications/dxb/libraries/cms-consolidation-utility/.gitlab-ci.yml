@@ -2,8 +2,8 @@ lint_cms-consolidation-utility:
   extends: .lint_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     ROOT_DIR: "applications/dxb/libraries/cms-consolidation-utility"
     WORKSPACE: "@bmi/cms-consolidation-utility"
@@ -12,8 +12,8 @@ build_cms-consolidation-utility:
   extends: .build_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     WORKSPACE: "@bmi/cms-consolidation-utility"
     ROOT_DIR: "applications/dxb/libraries/cms-consolidation-utility"
@@ -22,8 +22,8 @@ test_cms-consolidation-utility:
   extends: .test_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   needs:
     - build_cms-consolidation-utility
   variables:

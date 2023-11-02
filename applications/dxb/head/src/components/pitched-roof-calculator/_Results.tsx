@@ -1,11 +1,10 @@
-import { Button, replaceSpaces, Typography } from "@bmi-digital/components";
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState
-} from "react";
+import {
+  Button,
+  ButtonProps,
+  replaceSpaces,
+  Typography
+} from "@bmi-digital/components";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { microCopy } from "@bmi/microcopies";
 import { devLog } from "../../utils/devLog";
 import { useIsMobileDevice } from "../../utils/useIsMobileDevice";
@@ -14,10 +13,10 @@ import RichText from "../RichText";
 import { useSiteContext } from "../Site";
 import { Data as TitleWithContentType } from "../TitleWithContent";
 import { SourceType } from "../types/FormSectionTypes";
+import withGTM from "../../utils/google-tag-manager";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
-import { AnalyticsContext } from "./helpers/analytics";
 import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
 import Alert from "./subcomponents/_Alert";
 import FieldContainer from "./subcomponents/_FieldContainer";
@@ -42,6 +41,8 @@ import {
   StyledSpinnerContainer,
   StyledTypographyHelp
 } from "./_Results.styles";
+
+const GTMButton = withGTM<ButtonProps>(Button);
 
 type PrintReportSectionProps = {
   results: ResultsObject;
@@ -94,7 +95,6 @@ const PrintReportSection = ({
   setLoading
 }: PrintReportSectionProps) => {
   const { getMicroCopy } = useSiteContext();
-  const pushEvent = useContext(AnalyticsContext);
   const [hubSpotForm, setHubSpotForm] = useState<HTMLIFrameElement | null>(
     null
   );
@@ -151,13 +151,6 @@ const PrintReportSection = ({
   };
 
   const openPdfReport = async () => {
-    pushEvent({
-      event: "dxb.button_click",
-      id: "rc-solution",
-      label: getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL),
-      action: "selected"
-    });
-
     const pdfReport = await getPDFReport();
     // If user uses mobile device we should open the report in the same tab,
     // because opening in a separate tab doesn't work properly for all mobile devices
@@ -216,9 +209,16 @@ const PrintReportSection = ({
         <StyledTypographyHelp>
           {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_HELP)}
         </StyledTypographyHelp>
-        <Button onClick={openPdfReport}>
+        <GTMButton
+          onClick={openPdfReport}
+          gtm={{
+            id: "rc-solution",
+            label: getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL),
+            action: "selected"
+          }}
+        >
           {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL)}
-        </Button>
+        </GTMButton>
       </div>
       <StyledNeedHelpSection
         backgroundColor="pearl"

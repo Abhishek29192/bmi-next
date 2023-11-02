@@ -10,6 +10,7 @@ import fetchMockJest from "fetch-mock-jest";
 import mediaQuery from "css-mediaquery";
 import { waitFor } from "@testing-library/react";
 import { screen, render } from "@testing-library/react";
+import { ApprovalStatus } from "@bmi/pim-types";
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
@@ -146,7 +147,9 @@ describe("getProductStatus", () => {
 
   it("should return status 'Available'", () => {
     const getMicroCopy = jest.fn();
-    const document = createESPimProductDocument({ approvalStatus: "approved" });
+    const document = createESPimProductDocument({
+      approvalStatus: ApprovalStatus.Approved
+    });
     getProductStatus(document, getMicroCopy);
     expect(getMicroCopy).toHaveBeenCalledWith("document.status.available");
   });
@@ -154,7 +157,7 @@ describe("getProductStatus", () => {
   it("should return status 'Discontinued'", () => {
     const getMicroCopy = jest.fn();
     const document = createESPimProductDocument({
-      approvalStatus: "discontinued"
+      approvalStatus: ApprovalStatus.Discontinued
     });
     getProductStatus(document, getMicroCopy);
     expect(getMicroCopy).toHaveBeenCalledWith("document.status.discontinued");

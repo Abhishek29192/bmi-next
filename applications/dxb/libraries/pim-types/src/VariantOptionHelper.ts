@@ -3,7 +3,7 @@ import createClassification, {
   createFeatureValue
 } from "./ClassificationHelper";
 import createImage from "./ImageHelper";
-import { VariantOption } from "./types";
+import { VariantOption, ApprovalStatus } from "./types";
 
 export const createFullyPopulatedVariantOption = (
   variantOption?: Partial<VariantOption>
@@ -164,7 +164,7 @@ export const createFullyPopulatedVariantOption = (
 const createVariantOption = (
   variantOption?: Partial<VariantOption>
 ): VariantOption => ({
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   classifications: [createClassification({ code: "variant-code" })],
   code: "variant-code",
   externalProductCode: "external-product-code",

@@ -1,7 +1,7 @@
 include:
   - project: "bmi-digital/gitlab-templates"
     file: "yarn.gitlab-ci.yml"
-    ref: "v1.2.1"
+    ref: "v2.1.0"
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/redirects-website/.gitlab-ci.yml"
@@ -27,6 +27,8 @@ include:
   - local: "/applications/redirects-website-no-ventex/.gitlab-ci.yml"
   - local: "/applications/redirects-website-sk-bramac/.gitlab-ci.yml"
   - local: "/applications/redirects-website-sk-icopal/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-cz-bramac/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-cz-icopal/.gitlab-ci.yml"
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
@@ -61,23 +63,13 @@ variables:
 install_yarn:
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - yarn.lock
     - if: '$WHICH_SCHEDULE == "install_yarn"'
-
-code_quality:
-  rules:
-    - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-
-eslint-sast:
-  rules:
-    - when: never
 
 nodejs-scan-sast:
   rules:
@@ -87,16 +79,11 @@ semgrep-sast:
   rules:
     - when: never
 
-# To be removed when lint_yarn is made configurable everywhere
-lint_yarn:
-  rules:
-    - when: never
-
 secret_detection:
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
 
 update_dependabot_config:
   stage: audit

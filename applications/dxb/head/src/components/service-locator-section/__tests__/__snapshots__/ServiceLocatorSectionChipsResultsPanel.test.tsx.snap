@@ -231,69 +231,76 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg css-93lgkw"
+          class="Tabs-secondary Tabs-visibleUntillg css-11rq2kv"
           data-testid="tabs"
         >
           <div
-            class="Tabs-tabsBar"
+            class="css-k008qs"
           >
             <div
-              class=" css-ze8cyt"
+              class="Tabs-tabsBar"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
+                class=" css-ze8cyt"
               >
                 <div
-                  class="MuiTabs-root css-6wm242-MuiTabs-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
-                    style="overflow: hidden; margin-bottom: 0px;"
+                    class="MuiTabs-root css-6wm242-MuiTabs-root"
                   >
                     <div
-                      aria-label="tabs"
-                      class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
-                      role="tablist"
+                      class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
+                      style="overflow: hidden; margin-bottom: 0px;"
                     >
-                      <button
-                        aria-controls="tabpanel-list"
-                        aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
-                        data-testid="tab-list"
-                        id="tab-list"
-                        role="tab"
-                        tabindex="0"
-                        type="button"
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                        role="tablist"
                       >
-                        MC: findARoofer.listLabel
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </button>
-                      <button
-                        aria-controls="tabpanel-map"
-                        aria-selected="false"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
-                        data-testid="tab-map"
-                        id="tab-map"
-                        role="tab"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        MC: findARoofer.mapLabel
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </button>
+                        <button
+                          aria-controls="tabpanel-list"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Mui-selected Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
+                          data-testid="tab-list"
+                          id="tab-list"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          MC: findARoofer.listLabel
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                        <button
+                          aria-controls="tabpanel-map"
+                          aria-selected="false"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth Tabs-tabRoot css-1qqdwy9-MuiButtonBase-root-MuiTab-root"
+                          data-testid="tab-map"
+                          id="tab-map"
+                          role="tab"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          MC: findARoofer.mapLabel
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="MuiTabs-indicator Tabs-tabIndicator css-tv859c-MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
                     </div>
-                    <span
-                      class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
-                      style="left: 0px; width: 0px;"
-                    />
                   </div>
                 </div>
               </div>
             </div>
+            <hr
+              class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+            />
           </div>
           <div
             aria-labelledby="tab-list"

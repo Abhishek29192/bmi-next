@@ -4,6 +4,7 @@ import {
   createSystem as createEsSystem
 } from "@bmi/elasticsearch-types";
 import { RequestParams } from "@elastic/elasticsearch";
+import { ApprovalStatus } from "@bmi/pim-types";
 import { updateDocuments, updateItems } from "../elasticsearch";
 
 const getEsClient = jest.fn();
@@ -152,7 +153,9 @@ describe("updateItems", () => {
   });
 
   it("should delete product if approval status is check", async () => {
-    const esProducts = [createEsProduct({ approvalStatus: "check" })];
+    const esProducts = [
+      createEsProduct({ approvalStatus: ApprovalStatus.Check })
+    ];
     const index = `${process.env.ES_INDEX_PREFIX}_products`;
     const expectedIndex = `${index}_write`;
     const bulkOperations = [
@@ -186,7 +189,9 @@ describe("updateItems", () => {
   });
 
   it("should delete product if approval status is unapproved", async () => {
-    const esProducts = [createEsProduct({ approvalStatus: "unapproved" })];
+    const esProducts = [
+      createEsProduct({ approvalStatus: ApprovalStatus.Unapproved })
+    ];
     const index = `${process.env.ES_INDEX_PREFIX}_products`;
     const expectedIndex = `${index}_write`;
     const bulkOperations = [
@@ -220,7 +225,9 @@ describe("updateItems", () => {
   });
 
   it("should delete product if approval status is discontinued", async () => {
-    const esProducts = [createEsProduct({ approvalStatus: "discontinued" })];
+    const esProducts = [
+      createEsProduct({ approvalStatus: ApprovalStatus.Discontinued })
+    ];
     const index = `${process.env.ES_INDEX_PREFIX}_products`;
     const expectedIndex = `${index}_write`;
     const bulkOperations = [
@@ -254,7 +261,9 @@ describe("updateItems", () => {
   });
 
   it("should index system if approval status is approved", async () => {
-    const esSystems = [createEsSystem({ approvalStatus: "approved" })];
+    const esSystems = [
+      createEsSystem({ approvalStatus: ApprovalStatus.Approved })
+    ];
     const index = `${process.env.ES_INDEX_PREFIX}_systems`;
     const expectedIndex = `${index}_write`;
     const bulkOperations = [
@@ -290,7 +299,9 @@ describe("updateItems", () => {
   });
 
   it("should delete system if approval status is check", async () => {
-    const esSystems = [createEsSystem({ approvalStatus: "check" })];
+    const esSystems = [
+      createEsSystem({ approvalStatus: ApprovalStatus.Check })
+    ];
     const index = `${process.env.ES_INDEX_PREFIX}_systems`;
     const expectedIndex = `${index}_write`;
     const bulkOperations = [
@@ -321,7 +332,9 @@ describe("updateItems", () => {
   });
 
   it("should delete system if approval status is discontinued", async () => {
-    const esSystems = [createEsSystem({ approvalStatus: "discontinued" })];
+    const esSystems = [
+      createEsSystem({ approvalStatus: ApprovalStatus.Discontinued })
+    ];
     const index = `${process.env.ES_INDEX_PREFIX}_systems`;
     const expectedIndex = `${index}_write`;
     const bulkOperations = [

@@ -1,4 +1,4 @@
-/* eslint-disable testing-library/no-await-sync-query */
+/* eslint-disable testing-library/no-await-sync-queries */
 import { createYoutubeDetails, YoutubeDetails } from "@bmi/firestore-types";
 import createYoutubeVideoListResponse from "./YoutubeVideoListResponseHelper";
 

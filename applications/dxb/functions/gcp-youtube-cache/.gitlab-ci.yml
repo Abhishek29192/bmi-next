@@ -8,12 +8,12 @@ build_gcp-youtube-cache:
   extends: .build_function
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -28,12 +28,12 @@ test_gcp-youtube-cache:
   extends: .test_function
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -50,7 +50,7 @@ package_gcp-youtube-cache:
     - job: build_gcp-youtube-cache
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -67,7 +67,7 @@ deploy_gcp-youtube-cache:
     - job: package_gcp-youtube-cache
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock

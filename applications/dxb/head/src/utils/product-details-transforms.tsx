@@ -147,7 +147,9 @@ export const getProductAttributes = (
       values: allVariantAttributes
     }
   ].reduce<FilterKeys[]>((carry, { propName, values }) => {
-    if (values.length <= 0) return carry;
+    if (values.length <= 0) {
+      return carry;
+    }
     return [...carry, propName];
   }, []);
 

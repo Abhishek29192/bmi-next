@@ -2,8 +2,8 @@ lint_contentful-roles:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/scripts/contentful-roles"
     WORKSPACE: "@bmi/contentful-roles"
@@ -12,8 +12,8 @@ build_contentful-roles:
   extends: .build_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     WORKSPACE: "@bmi/contentful-roles"
     ROOT_DIR: "applications/dxb/scripts/contentful-roles"
@@ -22,8 +22,8 @@ test_contentful-roles:
   extends: .test_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     WORKSPACE: "@bmi/contentful-roles"
     ROOT_DIR: "applications/dxb/scripts/contentful-roles"

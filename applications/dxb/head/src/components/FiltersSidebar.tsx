@@ -4,39 +4,61 @@ import {
   Button,
   Checkbox,
   CheckboxProps,
+  Filter as FilterType,
   FilterProps,
   Filters,
+  Icon,
   Typography
 } from "@bmi-digital/components";
 import React, { useMemo, useState } from "react";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { Box, GlobalStyles, useMediaQuery, useTheme } from "@mui/material";
 import { Filter } from "@bmi-digital/components/icon";
-import { Filter as FilterType } from "@bmi-digital/components/dist/filters/Filters";
 import { microCopy } from "@bmi/microcopies";
+import { Close } from "@mui/icons-material";
 import withGTM from "../utils/google-tag-manager";
-import MobileFilters from "../templates/documentLibrary/components/MobileFilterSection";
 import { useSiteContext } from "./Site";
-import { StyledFilterIcon, classes, Root } from "./styles/FilterMobileStyles";
+import {
+  ClearAllButton,
+  MobileFiltersContainer,
+  StyledFilterIcon,
+  classes,
+  Root,
+  ShowResultsContainer,
+  StyledDrawer,
+  ShowResultsButton,
+  MobileFiltersHeaderContainer
+} from "./styles/FilterSidebarStyles";
 
-type Props = {
+export type Props = {
   // NOTE: Not doing FilterProps & { ... } because we're only interested in these specifics
   // Regardless of if FilterProps change
   filters: FilterProps["filters"];
   onFiltersChange: FilterProps["onChange"];
   onClearFilters: () => void;
   numberOfResults?: number;
+  disableClearAllBtn?: boolean;
+  filtersTitle?: string;
+  clearAllBtnLabel?: string;
 };
 
 const FiltersSidebar = ({
   filters,
   onFiltersChange,
   onClearFilters,
-  numberOfResults
+  numberOfResults,
+  disableClearAllBtn,
+  ...rest
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const [isOpenMobileFilters, setIsOpenMobileFilters] = useState(false);
+
+  const {
+    filtersTitle = getMicroCopy(microCopy.PLP_FILTERS_TITLE),
+    clearAllBtnLabel = getMicroCopy(microCopy.PLP_FILTERS_CLEAR_ALL)
+  } = rest;
+
   const handleDrawerToggle = () => {
     setIsOpenMobileFilters(!isOpenMobileFilters);
   };
@@ -102,19 +124,22 @@ const FiltersSidebar = ({
         variant="opaqueOutlined"
         onClick={handleDrawerToggle}
         className={classes.filterBtn}
-        data-testid="filters-mobile-btn"
+        data-testid="open-mobile-filters-btn"
       >
         <StyledFilterIcon source={Filter} />
-        {getMicroCopy("documentLibrary.filters.title")}
+        {filtersTitle}
       </Button>
       <div data-testid="mobile-filters">
         <MobileFilters
-          isOpenMobileFilters={isOpenMobileFilters}
+          isOpen={isOpenMobileFilters}
           clearFilters={onClearFilters}
           handleDrawerToggle={handleDrawerToggle}
           filtersComponent={filtersComponent}
-          showDocumentCount={!!numberOfResults}
+          showDocumentCount={Boolean(numberOfResults)}
           resultsNumber={numberOfResults}
+          filtersTitle={filtersTitle}
+          clearAllBtnLabel={clearAllBtnLabel}
+          disableClearAllBtn={Boolean(disableClearAllBtn)}
         />
       </div>
     </>
@@ -124,15 +149,16 @@ const FiltersSidebar = ({
     <>
       <div className={classes.filterBox} data-testid="filter-sidebar-header">
         <Typography variant="h5" data-testid="filter-sidebar-header-text">
-          {getMicroCopy(microCopy.PLP_FILTERS_TITLE)}
+          {filtersTitle}
         </Typography>
-        <Button
+        <ClearAllButton
           variant="text"
           onClick={onClearFilters}
           data-testid="filter-sidebar-clear-all-button"
+          disabled={disableClearAllBtn}
         >
-          {getMicroCopy(microCopy.PLP_FILTERS_CLEAR_ALL)}
-        </Button>
+          {clearAllBtnLabel}
+        </ClearAllButton>
       </div>
       {filtersComponent}
     </>
@@ -142,6 +168,102 @@ const FiltersSidebar = ({
     <Root data-testid="filter-sidebar-main">
       {isMobile ? mobileView : desktopView}
     </Root>
+  );
+};
+
+type MobileFiltersProps = {
+  isOpen: boolean;
+  handleDrawerToggle: () => void;
+  clearFilters: () => void;
+  filtersComponent: React.ReactNode;
+  resultsNumber?: number;
+  showDocumentCount: boolean;
+  filtersTitle: string;
+  clearAllBtnLabel: string;
+  disableClearAllBtn: boolean;
+};
+
+const MobileFilters = ({
+  isOpen,
+  handleDrawerToggle,
+  clearFilters,
+  filtersComponent,
+  resultsNumber,
+  showDocumentCount,
+  filtersTitle,
+  clearAllBtnLabel,
+  disableClearAllBtn
+}: MobileFiltersProps) => {
+  const { getMicroCopy } = useSiteContext();
+  return (
+    <StyledDrawer
+      variant="temporary"
+      open={isOpen}
+      onClose={handleDrawerToggle}
+      ModalProps={{
+        keepMounted: true
+      }}
+    >
+      <>
+        {isOpen && (
+          <GlobalStyles
+            styles={{
+              html: {
+                height: "100vh",
+                overflow: "hidden"
+              },
+              body: {
+                paddingRight: "0 !important",
+                height: "100vh"
+              }
+            }}
+          />
+        )}
+        <MobileFiltersHeaderContainer>
+          <Box display="flex">
+            <StyledFilterIcon
+              source={Filter}
+              className={classes.filterIconTitle}
+            />
+            <Typography variant="h5">{filtersTitle}</Typography>
+          </Box>
+          <div>
+            <ClearAllButton
+              variant="text"
+              onClick={clearFilters}
+              disabled={disableClearAllBtn}
+              data-testid="filters-clear-all-mobile"
+            >
+              {clearAllBtnLabel}
+            </ClearAllButton>
+            <Button
+              isIconButton
+              variant="outlined"
+              onClick={handleDrawerToggle}
+              data-testid="filters-close-btn"
+            >
+              <Icon source={Close} />
+            </Button>
+          </div>
+        </MobileFiltersHeaderContainer>
+        <MobileFiltersContainer>{filtersComponent}</MobileFiltersContainer>
+        <ShowResultsContainer>
+          <ShowResultsButton
+            variant="contained"
+            onClick={handleDrawerToggle}
+            data-testid="filters-show-all-results-btn"
+          >
+            {showDocumentCount
+              ? `${getMicroCopy(
+                  microCopy.FILTER_SHOW_WORLD_BTN
+                )} ${resultsNumber} ${getMicroCopy(
+                  microCopy.FILTER_RESULT_WORLD_BTN
+                )}`
+              : getMicroCopy(microCopy.FILTER_SHOW_ALL_RESULT_BTN)}
+          </ShowResultsButton>
+        </ShowResultsContainer>
+      </>
+    </StyledDrawer>
   );
 };
 

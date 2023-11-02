@@ -18,10 +18,10 @@ module.exports = {
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
-      statements: "82",
-      branches: "75",
-      functions: "81",
-      lines: "82"
+      statements: 88.29,
+      branches: 82.02,
+      functions: 86.37,
+      lines: 88.17
     }
   }
 };

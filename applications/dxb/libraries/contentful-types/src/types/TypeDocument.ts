@@ -35,6 +35,7 @@ export interface TypeDocumentFields {
     | "Ormax"
     | "Redland"
     | "Sealoflex"
+    | "SereniCoperture"
     | "Siplast"
     | "Sunscape"
     | "Vedag"

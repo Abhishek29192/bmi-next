@@ -8,6 +8,9 @@
   },
   "references": [
     {
+      "path": "../libraries/docebo-api"
+    },
+    {
       "path": "../libraries/fetch-retry"
     },
     {
@@ -20,13 +23,22 @@
       "path": "../libraries/gatsby-plugin-leadoo"
     },
     {
+      "path": "../libraries/gatsby-source-docebo"
+    },
+    {
       "path": "../libraries/gatsby-source-firestore"
+    },
+    {
+      "path": "../libraries/gatsby-theme-auth0"
     },
     {
       "path": "../libraries/microcopies"
     },
     {
       "path": "../libraries/utils"
+    },
+    {
+      "path": "../libraries/docebo-types"
     },
     {
       "path": "../libraries/elasticsearch-types"

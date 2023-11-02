@@ -2,8 +2,8 @@ lint_redirects_website:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/redirects-website"
     WORKSPACE: "@bmi/redirects-website"
@@ -12,8 +12,8 @@ build_redirects_website:
   extends: .build_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_mr, rules]
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
     ROOT_DIR: applications/redirects-website

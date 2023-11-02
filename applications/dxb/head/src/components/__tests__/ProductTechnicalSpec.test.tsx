@@ -99,6 +99,7 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
+
         const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />
@@ -118,6 +119,7 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
+
         const { baseElement } = render(
           <ThemeProvider>
             <ProductTechnicalSpec product={product} />

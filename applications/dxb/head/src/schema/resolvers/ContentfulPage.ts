@@ -7,7 +7,8 @@ const pages = [
   "ContentfulProductListerPage",
   "ContentfulDocumentLibraryPage",
   "ContentfulBrandLandingPage",
-  "ContentfulCookiePolicyPage"
+  "ContentfulCookiePolicyPage",
+  "ContentfulTrainingListerPage"
 ] as const;
 
 type ResolveArgsArray = [Node, ResolveArgs, Context];

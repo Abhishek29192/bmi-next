@@ -1,4 +1,5 @@
 import { Filter } from "@bmi-digital/components";
+import { ApprovalStatus } from "@bmi/pim-types";
 import { ResultType, Source } from "../../../utils/filters";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
 import { Format } from "../components/DocumentResults";
@@ -134,7 +135,7 @@ export const compileESQuery = (
             }
           },
           resultType === "Simple Archive" && {
-            match: { "approvalStatus.keyword": "discontinued" }
+            match: { "approvalStatus.keyword": ApprovalStatus.Discontinued }
           },
           assetTypeCodes.length && {
             terms: {

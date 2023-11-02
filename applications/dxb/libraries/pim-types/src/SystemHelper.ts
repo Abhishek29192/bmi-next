@@ -11,7 +11,7 @@ import createClassification, {
 import createImage from "./ImageHelper";
 import { createSystemLayer } from "./SystemLayersHelper";
 import createSystemReference from "./SystemReferencesHelper";
-import { System } from "./types";
+import { ApprovalStatus, System } from "./types";
 
 export const createFullyPopulatedSystem = (system?: Partial<System>): System =>
   createSystem({
@@ -140,7 +140,7 @@ const createSystem = (system?: Partial<System>): System => {
 
   return {
     type: "systemWsDTO",
-    approvalStatus: "approved",
+    approvalStatus: ApprovalStatus.Approved,
     code: "code",
     description: "<p>Some description</p>",
     assets: [createAsset()],

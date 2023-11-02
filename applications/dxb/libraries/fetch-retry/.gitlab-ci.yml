@@ -2,8 +2,8 @@ lint_fetch-retry:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/libraries/fetch-retry"
     WORKSPACE: "@bmi/fetch-retry"
@@ -12,8 +12,8 @@ build_fetch-retry:
   extends: .build_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     WORKSPACE: "@bmi/fetch-retry"
     ROOT_DIR: "applications/dxb/libraries/fetch-retry"
@@ -22,8 +22,8 @@ test_fetch-retry:
   extends: .test_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     WORKSPACE: "@bmi/fetch-retry"
     ROOT_DIR: "applications/dxb/libraries/fetch-retry"

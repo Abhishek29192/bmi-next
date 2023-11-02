@@ -8,6 +8,9 @@
   },
   "references": [
     {
+      "path": "../libraries/functions-contentful-management-client"
+    },
+    {
       "path": "../libraries/microcopies"
     },
     {

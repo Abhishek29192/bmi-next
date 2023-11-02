@@ -1,5 +1,6 @@
 import { Filter } from "@bmi-digital/components";
 import { isDefined } from "@bmi/utils";
+import { ApprovalStatus } from "@bmi/pim-types";
 import { availabilityFilterCode } from "../components/SearchTabDocuments";
 import { devLog } from "./devLog";
 import {
@@ -219,7 +220,7 @@ export const getDocumentQueryObject = (
             should: [
               {
                 term: {
-                  ["approvalStatus.keyword"]: "approved"
+                  ["approvalStatus.keyword"]: ApprovalStatus.Approved
                 }
               },
               {
@@ -363,7 +364,9 @@ export const getPageQueryObject = (
 };
 
 export const queryElasticSearch = async (query = {}, indexName: string) => {
-  if (process.env.GATSBY_DISABLE_SEARCH === "true") return;
+  if (process.env.GATSBY_DISABLE_SEARCH === "true") {
+    return;
+  }
 
   const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
 

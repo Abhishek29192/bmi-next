@@ -38,7 +38,9 @@ export const getProduct = (
 const VALUES_PARAM = "v";
 
 const getShareableLink = (values: FormValues): string => {
-  if (typeof window === "undefined") return "";
+  if (typeof window === "undefined") {
+    return "";
+  }
   const currentQueryParams = queryString.parse(window.location.search);
   const encoded = queryString.stringify({
     ...currentQueryParams,

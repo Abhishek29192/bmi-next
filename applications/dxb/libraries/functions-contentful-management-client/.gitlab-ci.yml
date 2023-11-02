@@ -1,0 +1,31 @@
+lint_functions-contentful-management-client:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/functions-contentful-management-client"
+    WORKSPACE: "@bmi/functions-contentful-management-client"
+
+build_functions-contentful-management-client:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+  variables:
+    WORKSPACE: "@bmi/functions-contentful-management-client"
+    ROOT_DIR: "applications/dxb/libraries/functions-contentful-management-client"
+
+test_functions-contentful-management-client:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+  variables:
+    WORKSPACE: "@bmi/functions-contentful-management-client"
+    ROOT_DIR: "applications/dxb/libraries/functions-contentful-management-client"
+  needs:
+    - build_functions-contentful-management-client

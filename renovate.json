@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": ["config:recommended"],
   "packageRules": [
     {
       "matchPackageNames": ["@bmi-digital/components"],
@@ -9,7 +9,14 @@
       "platformAutomerge": true
     },
     {
-      "ignoreDeps": ["@bmi-digital/components"],
+      "matchDepPatterns": ["^@mui"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    },
+    {
+      "excludeDepNames": ["@bmi-digital/components"],
+      "excludeDepPatterns": ["^@mui"],
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true,

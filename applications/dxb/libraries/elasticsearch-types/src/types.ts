@@ -1,3 +1,4 @@
+import { CourseType } from "@bmi/docebo-types";
 import type {
   ApprovalStatus,
   Asset,
@@ -161,3 +162,17 @@ export type ClassificationField = {
   value: string;
   name: string;
 }[];
+
+export type Training = {
+  id: string;
+  courseId: number;
+  code: string;
+  name: string;
+  slug: string;
+  courseType: CourseType;
+  imgUrl: string;
+  category: string;
+  catalogueId: string;
+  catalogueName: string;
+  catalogueDescription: string;
+};

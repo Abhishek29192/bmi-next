@@ -17,6 +17,7 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
   const NoTechSpecMessage = () => (
     <div>{getMicroCopy(microCopy.PDP_NO_TECH_SPEC_MESSAGE)}</div>
   );
+
   const classifications = product.classifications;
 
   if (classifications.length === 1) {
@@ -40,27 +41,25 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
   if (classifications.length > 1) {
     return (
       <Accordion noInnerPadding>
-        {[...classifications]
-          .sort((a, b) => (a.name > b.name ? 1 : -1))
-          .map((classification) => {
-            return (
-              <Accordion.Item
-                key={`tech-spec-${classification.name}`}
-                defaultExpanded={true}
-              >
-                <Accordion.Summary>
-                  <Typography variant="h6">{classification.name}</Typography>
-                </Accordion.Summary>
-                <ProdTecSpecAccordianDetails>
-                  <ProductFeaturesTable
-                    features={classification.features}
-                    rowBgColorPattern="even"
-                    hasNoBorder={true}
-                  />
-                </ProdTecSpecAccordianDetails>
-              </Accordion.Item>
-            );
-          })}
+        {classifications.map((classification) => {
+          return (
+            <Accordion.Item
+              key={`tech-spec-${classification.name}`}
+              defaultExpanded={true}
+            >
+              <Accordion.Summary>
+                <Typography variant="h6">{classification.name}</Typography>
+              </Accordion.Summary>
+              <ProdTecSpecAccordianDetails>
+                <ProductFeaturesTable
+                  features={classification.features}
+                  rowBgColorPattern="even"
+                  hasNoBorder={true}
+                />
+              </ProdTecSpecAccordianDetails>
+            </Accordion.Item>
+          );
+        })}
       </Accordion>
     );
   }
