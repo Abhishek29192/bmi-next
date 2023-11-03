@@ -16,6 +16,7 @@ import createProduct from "./ProductHelper";
 import createSystem from "./SystemHelper";
 import { createTraining } from "./TrainingHelper";
 import type {
+  BattenSpacing,
   Category,
   ClassificationField,
   ContentfulAssetType,
@@ -48,6 +49,7 @@ export {
   createTraining
 };
 export type {
+  BattenSpacing,
   Category,
   ClassificationField,
   ContentfulAssetType,
