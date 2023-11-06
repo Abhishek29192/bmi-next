@@ -45,6 +45,7 @@ exports[`Page component renders correctly 1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    data-testid="login"
                     tabindex="0"
                     type="button"
                   >

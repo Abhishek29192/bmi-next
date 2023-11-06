@@ -3,7 +3,10 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { AuthService } from "@bmi/gatsby-theme-auth0";
 import { useAuthType } from "@bmi/gatsby-theme-auth0/src/hooks/useAuth";
+import * as gatsby from "gatsby";
 import LoginBlock from "../LoginBlock";
+
+const navigateSpy = jest.spyOn(gatsby, "navigate");
 
 const mockUseAuth = jest.fn<useAuthType, [useAuthType]>();
 jest.mock("@bmi/gatsby-theme-auth0", () => ({
@@ -60,6 +63,36 @@ describe("LoginBlock Component", () => {
     expect(screen.getByText("MC: my.account.label")).toBeInTheDocument();
     expect(screen.getByText("MC: logout.label.btn")).toBeInTheDocument();
     expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
+  });
+
+  it("redirects to my acc page", () => {
+    mockUseAuth.mockReturnValue({
+      isLoading: false,
+      isLoggedIn: true,
+      profile: {
+        name: "User",
+        nickname: "",
+        picture: "",
+        user_id: "",
+        clientID: "",
+        identities: [],
+        created_at: "",
+        updated_at: "",
+        sub: ""
+      }
+    });
+    render(
+      <ThemeProvider>
+        <LoginBlock />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByText("MC: my.account.label")).toBeInTheDocument();
+    expect(screen.getByText("MC: logout.label.btn")).toBeInTheDocument();
+    fireEvent.click(screen.getByText("MC: my.account.label"));
+    expect(navigateSpy).toHaveBeenCalledWith(
+      expect.stringContaining(`my-account`)
+    );
   });
 
   it("calls AuthService.login when Login button is clicked", () => {

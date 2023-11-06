@@ -10,7 +10,6 @@ const AuthCallback: React.FunctionComponent<Props> = (props) => {
   const { location } = props;
 
   React.useEffect(() => {
-    console.log("I AM CALLBACK");
     if (/access_token|id_token|error/.test(location.hash)) {
       AuthService.handleAuthentication();
     }
