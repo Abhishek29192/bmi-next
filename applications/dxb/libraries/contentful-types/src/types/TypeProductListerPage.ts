@@ -33,6 +33,7 @@ export interface TypeProductListerPageFields {
     | "Braas"
     | "Bramac"
     | "Canopia"
+    | "Cementegola"
     | "Cobert"
     | "Coverland"
     | "Esha"
