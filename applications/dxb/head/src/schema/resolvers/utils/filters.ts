@@ -19,7 +19,9 @@ export const getPlpFilters = ({
   allowedFilters,
   microCopies
 }: PlpFiltersArgs): ProductFilter[] => {
-  if (allowedFilters.length === 0 || products.length === 0) return [];
+  if (allowedFilters.length === 0 || products.length === 0) {
+    return [];
+  }
 
   // extract categorynames and feature names from allowedFilters ONLY once
   const categoryAllowedFilters = extractAllowedCategories(allowedFilters);

@@ -14,7 +14,7 @@ export default function HTML(props: {
   postBodyComponents: [];
 }) {
   return (
-    <html {...props.htmlAttributes}>
+    <html {...props.htmlAttributes} lang={"en-GB"}>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />

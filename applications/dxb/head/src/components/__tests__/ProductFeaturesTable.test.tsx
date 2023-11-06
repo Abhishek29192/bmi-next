@@ -4,6 +4,17 @@ import React from "react";
 import { Feature } from "../../types/pim";
 import ProductFeaturesTable from "../ProductFeaturesTable";
 
+const features: Feature[] = [
+  {
+    name: "feature1",
+    value: "200"
+  },
+  {
+    name: "feature-2",
+    value: "300"
+  }
+];
+
 describe("ProductFeaturesTable component", () => {
   describe("Renders correctly", () => {
     it("When no features provided", () => {
@@ -16,17 +27,6 @@ describe("ProductFeaturesTable component", () => {
     });
 
     it("With default row pattern color", () => {
-      const features: Feature[] = [
-        {
-          name: "feature1",
-          value: "200"
-        },
-        {
-          name: "feature-2",
-          value: "300"
-        }
-      ];
-
       const { baseElement } = render(
         <ThemeProvider>
           <ProductFeaturesTable hasNoBorder features={features} />
@@ -36,17 +36,6 @@ describe("ProductFeaturesTable component", () => {
     });
 
     it("With default row pattern color and with border", () => {
-      const features: Feature[] = [
-        {
-          name: "feature1",
-          value: "200"
-        },
-        {
-          name: "feature-2",
-          value: "300"
-        }
-      ];
-
       const { baseElement } = render(
         <ThemeProvider>
           <ProductFeaturesTable hasNoBorder={false} features={features} />
@@ -56,17 +45,6 @@ describe("ProductFeaturesTable component", () => {
     });
 
     it("With header row", () => {
-      const features: Feature[] = [
-        {
-          name: "feature1",
-          value: "200"
-        },
-        {
-          name: "feature-2",
-          value: "300"
-        }
-      ];
-
       const { baseElement } = render(
         <ThemeProvider>
           <ProductFeaturesTable
@@ -80,17 +58,6 @@ describe("ProductFeaturesTable component", () => {
     });
 
     it("With even row pattern color", () => {
-      const features: Feature[] = [
-        {
-          name: "feature1",
-          value: "200"
-        },
-        {
-          name: "feature-2",
-          value: "300"
-        }
-      ];
-
       const { baseElement } = render(
         <ThemeProvider>
           <ProductFeaturesTable

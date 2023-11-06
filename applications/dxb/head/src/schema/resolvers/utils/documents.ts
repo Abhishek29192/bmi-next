@@ -3,12 +3,12 @@ import { isDefined } from "@bmi/utils";
 import { microCopy } from "@bmi/microcopies";
 import type { Product } from "@bmi/firestore-types";
 import { getPlpFilters } from "./filters";
+import { getMicroCopies } from "./getMicrocopies";
 import type { Node as GatsbyNode } from "gatsby";
 import type { ProductFilter } from "../../../types/pim";
 import type {
   ContentfulAssetType,
-  ContentfulDocument,
-  ContentfulSite
+  ContentfulDocument
 } from "../types/Contentful";
 import type { Context, Node } from "../types/Gatsby";
 
@@ -49,52 +49,12 @@ export const resolveDocumentsFiltersFromProducts = async (
     return [];
   }
 
-  const marketCode = process.env.SPACE_MARKET_CODE;
-  const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
-  if (!marketCode || !localeCode) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
-    );
-    return [];
-  }
-  const currSite = await context.nodeModel.findOne<ContentfulSite>(
-    {
-      query: {
-        filter: {
-          countryCode: { eq: marketCode },
-          node_locale: { eq: localeCode }
-        }
-      },
-      type: "ContentfulSite"
-    },
-    { connectionType: "ContentfulSite" }
-  );
-  if (!currSite) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
-    );
-    return [];
-  }
-  const resource = await context.nodeModel.getNodeById<Node>({
-    id: currSite.resources___NODE as string,
-    type: "ContentfulResources"
-  });
-  if (!resource) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
-    );
-    return [];
-  }
+  const microCopies = await getMicroCopies(context);
 
-  // MC access in consistently happens only via resource content type
-  // that means a market is only aware of MCs which are associated with the resource
-  const microCopies = await context.nodeModel.getNodesByIds<Node>({
-    ids: resource.microCopy___NODE,
-    type: "ContentfulMicroCopy"
-  });
+  if (!microCopies) {
+    console.error("Did not manage to get microcopies");
+    return [];
+  }
 
   const filterMicroCopies: Map<string, string> = microCopies.reduce(
     (map, microCopy) => {
@@ -211,52 +171,12 @@ const generateBrandFilterFromDocuments = async (
 ): Promise<ProductFilter> => {
   const microCopyKey = "filterLabels.Brand";
 
-  const marketCode = process.env.SPACE_MARKET_CODE;
-  const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
-  if (!marketCode || !localeCode) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `Please check environment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
-    );
-    return undefined;
-  }
-  const currSite = await context.nodeModel.findOne<ContentfulSite>(
-    {
-      query: {
-        filter: {
-          countryCode: { eq: marketCode },
-          node_locale: { eq: localeCode }
-        }
-      },
-      type: "ContentfulSite"
-    },
-    { connectionType: "ContentfulSite" }
-  );
-  if (!currSite) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
-    );
-    return undefined;
-  }
-  const resource = await context.nodeModel.getNodeById<Node>({
-    id: currSite.resources___NODE as string,
-    type: "ContentfulResources"
-  });
-  if (!resource) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
-    );
-    return undefined;
-  }
+  const microCopies = await getMicroCopies(context);
 
-  // MC access in consistently happens only via resource content type
-  // that means a market is only aware of MCs which are associated with the resource
-  const microCopies = await context.nodeModel.getNodesByIds<Node>({
-    ids: resource.microCopy___NODE,
-    type: "ContentfulMicroCopy"
-  });
+  if (!microCopies) {
+    console.error("Did not manage to get microcopies");
+    return;
+  }
 
   const filterMicroCopies = microCopies.filter(
     (microCopy) => microCopy.key === microCopyKey
@@ -292,52 +212,13 @@ const generateAssetTypeFilterFromDocuments = async (
   context: Context
 ): Promise<ProductFilter | undefined> => {
   const microCopyKey = microCopy.FILTER_LABELS_ASSET_TYPE;
-  const marketCode = process.env.SPACE_MARKET_CODE;
-  const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
-  if (!marketCode || !localeCode) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `Please check environment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
-    );
-    return undefined;
-  }
-  const currSite = await context.nodeModel.findOne<ContentfulSite>(
-    {
-      query: {
-        filter: {
-          countryCode: { eq: marketCode },
-          node_locale: { eq: localeCode }
-        }
-      },
-      type: "ContentfulSite"
-    },
-    { connectionType: "ContentfulSite" }
-  );
-  if (!currSite) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
-    );
-    return undefined;
-  }
-  const resource = await context.nodeModel.getNodeById<Node>({
-    id: currSite.resources___NODE as string,
-    type: "ContentfulResources"
-  });
-  if (!resource) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
-    );
-    return undefined;
-  }
 
-  // MC access in consistently happens only via resource content type
-  // that means a market is only aware of MCs which are associated with the resource
-  const microCopies = await context.nodeModel.getNodesByIds<Node>({
-    ids: resource.microCopy___NODE,
-    type: "ContentfulMicroCopy"
-  });
+  const microCopies = await getMicroCopies(context);
+
+  if (!microCopies) {
+    console.error("Did not manage to get microcopies");
+    return;
+  }
 
   const filterMicroCopies = microCopies.filter(
     (microCopy) => microCopy.key === microCopyKey

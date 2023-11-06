@@ -8,9 +8,9 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
-    "node-fetch": "^2.6.11"
+    "node-fetch": "^2.7.0"
   },
   "devDependencies": {
-    "eslint": "^8.40.0"
+    "eslint": "^8.49.0"
   }
 }

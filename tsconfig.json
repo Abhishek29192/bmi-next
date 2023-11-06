@@ -1,6 +1,9 @@
 {
   "extends": "./tsconfig.common.json",
   "files": [],
+  "include": [
+    "./jest/**/*"
+  ],
   "references": [
     {
       "path": "applications/frc-website"
@@ -30,6 +33,9 @@
       "path": "applications/dxb/functions/gcp-contentful-documents-ingest"
     },
     {
+      "path": "applications/dxb/functions/gcp-docebo-data-handler"
+    },
+    {
       "path": "applications/dxb/functions/gcp-download-zip"
     },
     {
@@ -45,6 +51,9 @@
       "path": "applications/dxb/functions/gcp-functions-deployer"
     },
     {
+      "path": "applications/dxb/functions/gcp-get-gatsby-build-events"
+    },
+    {
       "path": "applications/dxb/functions/gcp-pim-full-fetch"
     },
     {
@@ -52,6 +61,9 @@
     },
     {
       "path": "applications/dxb/functions/gcp-pim-message-handler"
+    },
+    {
+      "path": "applications/dxb/functions/gcp-pim-preview-firestore-writer"
     },
     {
       "path": "applications/dxb/functions/gcp-system-configurator"
@@ -81,6 +93,12 @@
       "path": "applications/dxb/libraries/contentful-upload"
     },
     {
+      "path": "applications/dxb/libraries/docebo-api"
+    },
+    {
+      "path": "applications/dxb/libraries/docebo-types"
+    },
+    {
       "path": "applications/dxb/libraries/elasticsearch-types"
     },
     {
@@ -91,6 +109,9 @@
     },
     {
       "path": "applications/dxb/libraries/functions-contentful-client"
+    },
+    {
+      "path": "applications/dxb/libraries/functions-contentful-management-client"
     },
     {
       "path": "applications/dxb/libraries/functions-es-client"
@@ -111,7 +132,13 @@
       "path": "applications/dxb/libraries/gatsby-plugin-leadoo"
     },
     {
+      "path": "applications/dxb/libraries/gatsby-source-docebo"
+    },
+    {
       "path": "applications/dxb/libraries/gatsby-source-firestore"
+    },
+    {
+      "path": "applications/dxb/libraries/gatsby-theme-auth0"
     },
     {
       "path": "applications/dxb/libraries/microcopies"

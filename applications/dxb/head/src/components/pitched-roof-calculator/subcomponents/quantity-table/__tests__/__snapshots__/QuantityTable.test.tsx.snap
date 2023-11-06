@@ -49,6 +49,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <img
+                      alt=""
                       class="quantityTableStyles-picture"
                       src="path-to-image"
                     />
@@ -192,6 +193,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <img
+                      alt=""
                       class="quantityTableStyles-picture"
                       src="path-to-image"
                     />
@@ -335,6 +337,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <img
+                      alt=""
                       class="quantityTableStyles-picture"
                       src="path-to-image"
                     />
@@ -478,6 +481,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <img
+                      alt=""
                       class="quantityTableStyles-picture"
                       src="path-to-image"
                     />
@@ -621,6 +625,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                     class="quantityTableStyles-cellRow"
                   >
                     <img
+                      alt=""
                       class="quantityTableStyles-picture"
                       src="path-to-image"
                     />
@@ -822,6 +827,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />
@@ -944,6 +950,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />
@@ -1066,6 +1073,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />
@@ -1188,6 +1196,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />
@@ -1310,6 +1319,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />
@@ -1513,6 +1523,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />
@@ -1644,6 +1655,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />
@@ -1775,6 +1787,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />
@@ -1906,6 +1919,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />
@@ -2037,6 +2051,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                   class="quantityTableStyles-cellRow"
                 >
                   <img
+                    alt=""
                     class="quantityTableStyles-picture"
                     src="path-to-image"
                   />

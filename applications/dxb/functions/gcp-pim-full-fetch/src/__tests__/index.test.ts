@@ -5,7 +5,9 @@ import {
 } from "@bmi/contentful-types";
 import {
   ContentfulDocument as EsContentfulDocument,
-  createContentfulDocument as createEsContentfulDocument
+  Training as ESTraining,
+  createContentfulDocument as createEsContentfulDocument,
+  createTraining as createEsTraining
 } from "@bmi/elasticsearch-types";
 import {
   createProduct,
@@ -15,6 +17,9 @@ import {
   PimTypes
 } from "@bmi/pim-types";
 import { Request, Response } from "express";
+import { fetchData as originalFetchData } from "@bmi/pim-api";
+import { Topic } from "@google-cloud/pubsub";
+import { fetchDoceboData as originalFetchDoceboData } from "../doceboDataHandler";
 import { createFullFetchRequest } from "./helpers/fullFetchHelper";
 
 const fetchData = jest.fn();
@@ -22,19 +27,28 @@ jest.mock("@bmi/pim-api", () => {
   const pim = jest.requireActual("@bmi/pim-api");
   return {
     ...pim,
-    fetchData: (...args: any) => fetchData(...args)
+    fetchData: (...args: Parameters<typeof originalFetchData>) =>
+      fetchData(...args)
   };
 });
 
 const publishMessage = jest.fn();
 jest.mock("@google-cloud/pubsub", () => {
   const mPubSub = jest.fn(() => ({
-    topic: (...args: any) => ({
-      publishMessage: (...args: any) => publishMessage(...args)
+    topic: () => ({
+      publishMessage: (
+        ...args: Parameters<typeof Topic.prototype.publishMessage>
+      ) => publishMessage(...args)
     })
   }));
   return { PubSub: mPubSub };
 });
+
+const fetchDoceboData = jest.fn();
+jest.mock("../doceboDataHandler", () => ({
+  fetchDoceboData: (...args: Parameters<typeof originalFetchDoceboData>) =>
+    fetchDoceboData(...args)
+}));
 
 const getDocuments: jest.Mock<
   Promise<ContentfulDocument<undefined, "en-US">[]>,
@@ -56,11 +70,13 @@ jest.mock("../documentTransformer", () => ({
 
 const indexIntoES: jest.Mock<
   Promise<void>,
-  [ContentfulDocument<undefined, "en-US">[]]
+  [(ContentfulDocument<undefined, "en-US"> | ESTraining)[], string]
 > = jest.fn();
 jest.mock("../elasticsearch", () => ({
-  indexIntoES: (documents: ContentfulDocument<undefined, "en-US">[]) =>
-    indexIntoES(documents)
+  indexIntoES: (
+    documents: ContentfulDocument<undefined, "en-US">[],
+    indexName: string
+  ) => indexIntoES(documents, indexName)
 }));
 
 beforeEach(() => {
@@ -98,6 +114,7 @@ describe("handleRequest", () => {
     await handleRequest(request, response);
 
     expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchDoceboData).not.toHaveBeenCalled();
     expect(publishMessage).not.toHaveBeenCalled();
     expect(getDocuments).not.toHaveBeenCalled();
     expect(transformDocuments).not.toHaveBeenCalled();
@@ -123,6 +140,7 @@ describe("handleRequest", () => {
     await handleRequest(request, response);
 
     expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchDoceboData).not.toHaveBeenCalled();
     expect(publishMessage).not.toHaveBeenCalled();
     expect(getDocuments).not.toHaveBeenCalled();
     expect(transformDocuments).not.toHaveBeenCalled();
@@ -148,6 +166,7 @@ describe("handleRequest", () => {
     await handleRequest(request, response);
 
     expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchDoceboData).not.toHaveBeenCalled();
     expect(publishMessage).not.toHaveBeenCalled();
     expect(getDocuments).not.toHaveBeenCalled();
     expect(transformDocuments).not.toHaveBeenCalled();
@@ -173,6 +192,7 @@ describe("handleRequest", () => {
     await handleRequest(request, response);
 
     expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchDoceboData).not.toHaveBeenCalled();
     expect(publishMessage).not.toHaveBeenCalled();
     expect(getDocuments).not.toHaveBeenCalled();
     expect(transformDocuments).not.toHaveBeenCalled();
@@ -198,6 +218,7 @@ describe("handleRequest", () => {
     await handleRequest(request, response);
 
     expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchDoceboData).not.toHaveBeenCalled();
     expect(publishMessage).not.toHaveBeenCalled();
     expect(getDocuments).not.toHaveBeenCalled();
     expect(transformDocuments).not.toHaveBeenCalled();
@@ -215,9 +236,11 @@ describe("handleRequest", () => {
 
     expect(response.status).toBeCalledWith(400);
     expect(response.send).toBeCalledWith({
-      error: "type, startPage and numberOfPages was not provided."
+      error: "type was not provided."
     });
     expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(fetchDoceboData).not.toHaveBeenCalled();
     expect(publishMessage).not.toHaveBeenCalled();
     expect(getDocuments).not.toHaveBeenCalled();
     expect(transformDocuments).not.toHaveBeenCalled();
@@ -241,10 +264,157 @@ describe("handleRequest", () => {
     expect(response.status).toBeCalledWith(400);
     expect(response.send).toBeCalledWith({ error: "type was not provided." });
     expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchDoceboData).not.toHaveBeenCalled();
     expect(publishMessage).not.toHaveBeenCalled();
     expect(getDocuments).not.toHaveBeenCalled();
     expect(transformDocuments).not.toHaveBeenCalled();
     expect(indexIntoES).not.toHaveBeenCalled();
+  });
+
+  it("should return 500 if type===trainings and DOCEBO_API_URL is not set", async () => {
+    const inintialDoceboApiUrl = process.env.DOCEBO_API_URL;
+    delete process.env.DOCEBO_API_URL;
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    process.env.DOCEBO_API_URL = inintialDoceboApiUrl;
+  });
+
+  it("should return 500 if type===trainings and DOCEBO_API_CLIENT_ID is not set", async () => {
+    const inintialDoceboApiClientId = process.env.DOCEBO_API_CLIENT_ID;
+    delete process.env.DOCEBO_API_CLIENT_ID;
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    process.env.DOCEBO_API_CLIENT_ID = inintialDoceboApiClientId;
+  });
+
+  it("should return 500 if type===trainings and DOCEBO_API_CLIENT_SECRET is not set", async () => {
+    const inintialDoceboApiClientSecret = process.env.DOCEBO_API_CLIENT_SECRET;
+    delete process.env.DOCEBO_API_CLIENT_SECRET;
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    process.env.DOCEBO_API_CLIENT_SECRET = inintialDoceboApiClientSecret;
+  });
+
+  it("should return 500 if type===trainings and DOCEBO_API_PASSWORD is not set", async () => {
+    const inintialDoceboApiPassword = process.env.DOCEBO_API_PASSWORD;
+    delete process.env.DOCEBO_API_PASSWORD;
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    process.env.DOCEBO_API_PASSWORD = inintialDoceboApiPassword;
+  });
+
+  it("should return 500 if type===trainings and DOCEBO_API_USERNAME is not set", async () => {
+    const inintialDoceboApiUsername = process.env.DOCEBO_API_USERNAME;
+    delete process.env.DOCEBO_API_USERNAME;
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    process.env.DOCEBO_API_USERNAME = inintialDoceboApiUsername;
+  });
+
+  it("should return 500 if type===trainings and DOCEBO_API_CATALOGUE_IDS is not set", async () => {
+    const inintialDoceboApiCatalogIds = process.env.DOCEBO_API_CATALOGUE_IDS;
+    delete process.env.DOCEBO_API_CATALOGUE_IDS;
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    process.env.DOCEBO_API_CATALOGUE_IDS = inintialDoceboApiCatalogIds;
+  });
+
+  it("should return 500 if type===trainings and ES_INDEX_NAME_TRAININGS is not set", async () => {
+    const inintialEsIndexNameTrainings = process.env.ES_INDEX_NAME_TRAININGS;
+    delete process.env.ES_INDEX_NAME_TRAININGS;
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    process.env.ES_INDEX_NAME_TRAININGS = inintialEsIndexNameTrainings;
+  });
+
+  it("inserts trainings into ES index", async () => {
+    const training = createEsTraining();
+    fetchDoceboData.mockResolvedValue([training]);
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(fetchDoceboData).toHaveBeenCalledTimes(1);
+    expect(indexIntoES).toHaveBeenCalledWith(
+      [training],
+      process.env.ES_INDEX_NAME_TRAININGS
+    );
   });
 
   it("should return 400 if body does not contain startPage", async () => {
@@ -263,7 +433,7 @@ describe("handleRequest", () => {
 
     expect(response.status).toBeCalledWith(400);
     expect(response.send).toBeCalledWith({
-      error: "startPage must be a number greater than or equal to 0."
+      error: "startPage was not provided."
     });
     expect(fetchData).not.toHaveBeenCalled();
     expect(publishMessage).not.toHaveBeenCalled();
@@ -314,7 +484,7 @@ describe("handleRequest", () => {
 
     expect(response.status).toBeCalledWith(400);
     expect(response.send).toBeCalledWith({
-      error: "numberOfPages must be a number greater than 0."
+      error: "numberOfPages was not provided."
     });
     expect(fetchData).not.toHaveBeenCalled();
     expect(publishMessage).not.toHaveBeenCalled();
@@ -780,7 +950,10 @@ describe("handleRequest", () => {
       undefined
     );
     expect(transformDocuments).toHaveBeenCalledWith(contentfulDocuments);
-    expect(indexIntoES).toHaveBeenCalledWith(esContentfulDocuments);
+    expect(indexIntoES).toHaveBeenCalledWith(
+      esContentfulDocuments,
+      process.env.ES_INDEX_NAME_DOCUMENTS
+    );
   });
 
   it("should filter documents by TAG and index transformed documents into Elasticsearch", async () => {
@@ -806,7 +979,10 @@ describe("handleRequest", () => {
       process.env.TAG
     );
     expect(transformDocuments).toHaveBeenCalledWith(contentfulDocuments);
-    expect(indexIntoES).toHaveBeenCalledWith(esContentfulDocuments);
+    expect(indexIntoES).toHaveBeenCalledWith(
+      esContentfulDocuments,
+      process.env.ES_INDEX_NAME_DOCUMENTS
+    );
     expect(response.sendStatus).toHaveBeenCalledWith(200);
     delete process.env.TAG;
   });

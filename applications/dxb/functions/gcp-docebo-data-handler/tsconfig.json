@@ -1,0 +1,27 @@
+{
+  "extends": "../../../../tsconfig.common.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist"
+  },
+  "references": [
+    {
+      "path": "../../libraries/docebo-api"
+    },
+    {
+      "path": "../../libraries/fetch-retry"
+    },
+    {
+      "path": "../../libraries/functions-es-client"
+    },
+    {
+      "path": "../../libraries/utils"
+    },
+    {
+      "path": "../../libraries/docebo-types"
+    },
+    {
+      "path": "../../libraries/elasticsearch-types"
+    }
+  ]
+}

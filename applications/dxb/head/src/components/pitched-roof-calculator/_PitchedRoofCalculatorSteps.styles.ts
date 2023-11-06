@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles";
 import { Grid } from "@mui/material";
-import { AnchorLink } from "@bmi-digital/components";
 
 export const StyledResultsGrid = styled(Grid)(({ theme }) => ({
   flexDirection: "column",
@@ -11,14 +10,3 @@ export const StyledResultsGrid = styled(Grid)(({ theme }) => ({
     width: "100%"
   }
 }));
-
-export const StyledCalculationReportAnchor = styled(AnchorLink)(
-  ({ theme }) => ({
-    color: theme.colours.white,
-    backgroundColor: theme.colours.cyan500,
-    textDecoration: "none",
-    padding: "12px 16px",
-    marginTop: "30px",
-    borderRadius: "3px"
-  })
-);

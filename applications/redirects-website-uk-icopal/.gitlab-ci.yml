@@ -2,8 +2,8 @@ lint_redirects_website_uk_icopal:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/redirects-website-uk-icopal"
     WORKSPACE: "@bmi/redirects-website-uk-icopal"
@@ -12,8 +12,8 @@ build_redirects_website_uk_icopal:
   extends: .build_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_mr, rules]
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
   variables:
     ROOT_DIR: applications/redirects-website-uk-icopal
     WORKSPACE: "@bmi/redirects-website-uk-icopal"

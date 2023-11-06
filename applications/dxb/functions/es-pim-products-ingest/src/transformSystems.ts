@@ -1,17 +1,18 @@
 import logger from "@bmi-digital/functions-logger";
 import { generateHashFromString, generateUrl } from "@bmi/utils";
+import {
+  ApprovalStatus,
+  type Category as PimCategory,
+  type Classification as PimClassification,
+  type Image as PimImage,
+  type ImageAssetType as PimImageAssetType,
+  type System as PimSystem
+} from "@bmi/pim-types";
 import type {
   Image as EsImage,
   System as EsSystem,
   SystemAttribute as EsSystemAttribute
 } from "@bmi/elasticsearch-types";
-import type {
-  Category as PimCategory,
-  Classification as PimClassification,
-  Image as PimImage,
-  ImageAssetType as PimImageAssetType,
-  System as PimSystem
-} from "@bmi/pim-types";
 
 const getBrand = (
   categories: PimSystem["categories"]
@@ -132,7 +133,7 @@ export const transformSystem = (system: PimSystem): EsSystem | undefined => {
     classifications,
     goodBetterBest
   } = system;
-  if (!name || approvalStatus !== "approved") {
+  if (!name || approvalStatus !== ApprovalStatus.Approved) {
     return undefined;
   }
   const brand = getBrand(system.categories);

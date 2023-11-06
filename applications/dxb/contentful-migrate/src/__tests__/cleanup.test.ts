@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
+import { createCollection } from "@bmi/functions-contentful-management-client/helpers";
 import { cleanupOldEnvironments } from "../cleanup.js";
-import createCollection from "./helpers/CollectionHelper.js";
 import { createEnvironmentAliasWithEnvironmentId } from "./helpers/EnvironmentAliasHelper.js";
 import { createEnvironmentWithId } from "./helpers/EnvironmentHelper.js";
 import type { Space } from "contentful-management";

@@ -9,7 +9,7 @@ import {
   SystemLayer,
   Video
 } from "@bmi/firestore-types";
-import { System as PimSystem } from "@bmi/pim-types";
+import { ApprovalStatus, System as PimSystem } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl } from "@bmi/utils";
 import { systemIgnorableAttributes } from "./ignorableFeatureCodes.js";
 import {
@@ -28,7 +28,7 @@ import {
 } from "./transformerUtils.js";
 
 export const transformSystem = (system: PimSystem): System[] => {
-  if (system.approvalStatus !== "approved") {
+  if (system.approvalStatus !== ApprovalStatus.Approved) {
     return [];
   }
   let promotionalContent: string | undefined;
@@ -159,7 +159,9 @@ const getSpecification = (system: PimSystem): Asset | undefined =>
 
 const mapSystemLayers = (system: PimSystem): SystemLayer[] =>
   (system.systemLayers || [])
-    .filter((systemLayer) => systemLayer.approvalStatus === "approved")
+    .filter(
+      (systemLayer) => systemLayer.approvalStatus === ApprovalStatus.Approved
+    )
     .map((systemLayer) => ({
       layerNumber: systemLayer.layerNumber,
       name: systemLayer.name,

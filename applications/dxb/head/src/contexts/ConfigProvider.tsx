@@ -23,6 +23,7 @@ export interface Config {
   googleApiKey?: string;
   esIndexNameSystem?: string;
   esIndexNameProduct?: string;
+  esIndexNameTrainings?: string;
   isDevMode: boolean;
   gcpSystemConfiguratorEndpoint?: string;
   isLegacyFiltersUsing: boolean;
@@ -34,6 +35,8 @@ export interface Config {
   oneTrustId?: string;
   isSampleOrderingEnabled: boolean;
   renderTeamCategoriesAsRows: boolean;
+  enableProductClassificationAttributeOrdering: boolean;
+  isLoginEnabled: boolean;
 }
 
 const envConfig = (): Config => ({
@@ -74,6 +77,7 @@ const envConfig = (): Config => ({
   googleApiKey: process.env.GATSBY_GOOGLE_API_KEY,
   esIndexNameSystem: process.env.GATSBY_ES_INDEX_NAME_SYSTEMS,
   esIndexNameProduct: process.env.GATSBY_ES_INDEX_NAME_PRODUCTS,
+  esIndexNameTrainings: process.env.GATSBY_ES_INDEX_NAME_TRAININGS,
   isDevMode: process.env.NODE_ENV === "development",
   gcpSystemConfiguratorEndpoint:
     process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
@@ -88,7 +92,11 @@ const envConfig = (): Config => ({
   ),
   renderTeamCategoriesAsRows: convertStrToBool(
     process.env.GATSBY_TEAM_CATEGORIES_AS_ROWS
-  )
+  ),
+  enableProductClassificationAttributeOrdering: convertStrToBool(
+    process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING
+  ),
+  isLoginEnabled: convertStrToBool(process.env.GATSBY_IS_LOGIN_ENABLED)
 });
 
 const ConfigContext = createContext<Config>({

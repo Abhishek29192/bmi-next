@@ -23,7 +23,6 @@ import createVideo from "./VideoHelper";
 import createWeight from "./WeightHelper";
 import createYoutubeDetails from "./YoutubeDetailsHelper";
 import type {
-  ApprovalStatus,
   Asset,
   AssetAssetType,
   BIM,
@@ -55,7 +54,6 @@ import type {
 } from "./types";
 
 export type {
-  ApprovalStatus,
   Asset,
   AssetAssetType,
   BIM,

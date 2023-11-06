@@ -99,7 +99,11 @@ export const ServiceLocatorResultList = ({
                 </Subtitle>
               }
             >
-              <CompanyDetails details={getCompanyDetails(service, true)}>
+              <CompanyDetails
+                details={getCompanyDetails(service, true)?.filter(
+                  (detail) => detail.type !== "roofProLevel"
+                )}
+              >
                 {service.summary ? (
                   <Typography>{service.summary}</Typography>
                 ) : null}

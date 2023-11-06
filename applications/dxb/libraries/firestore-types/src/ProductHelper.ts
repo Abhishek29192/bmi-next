@@ -1,4 +1,4 @@
-import { createCategory } from "@bmi/pim-types";
+import { ApprovalStatus, createCategory } from "@bmi/pim-types";
 import createAsset from "./AssetHelper";
 import createBrand from "./BrandHelper";
 import createClassification from "./ClassificationHelper";
@@ -13,7 +13,7 @@ import createVideo from "./VideoHelper";
 import createWeight from "./WeightHelper";
 
 const createProduct = (product?: Partial<Product>): Product => ({
-  approvalStatus: "approved",
+  approvalStatus: ApprovalStatus.Approved,
   awardsAndCertificateDocuments: [
     createAsset(),
     createAsset({

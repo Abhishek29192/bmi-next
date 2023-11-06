@@ -1,0 +1,31 @@
+lint_gatsby-source-docebo:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/gatsby-source-docebo"
+    WORKSPACE: "@bmi/gatsby-source-docebo"
+
+build_gatsby-source-docebo:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/gatsby-source-docebo"
+    WORKSPACE: "@bmi/gatsby-source-docebo"
+
+test_gatsby-source-docebo:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/gatsby-source-docebo"
+    WORKSPACE: "@bmi/gatsby-source-docebo"
+  needs:
+    - build_gatsby-source-docebo

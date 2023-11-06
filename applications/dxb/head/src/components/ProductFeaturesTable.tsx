@@ -19,15 +19,12 @@ const ProductFeaturesTable = ({
     <Table hasNoBorder={hasNoBorder} rowBgColorPattern={rowBgColorPattern}>
       {HeadRow && <Table.Head>{HeadRow}</Table.Head>}
       <Table.Body>
-        {features &&
-          features
-            .sort((a, b) => (a.name > b.name ? 1 : -1))
-            .map(({ name, value }, index) => (
-              <Table.Row key={`feat-row-${name}--${index}`}>
-                <Table.Cell align="left">{name}</Table.Cell>
-                <Table.Cell align="right">{value}</Table.Cell>
-              </Table.Row>
-            ))}
+        {features.map(({ name, value }, index) => (
+          <Table.Row key={`feat-row-${name}--${index}`}>
+            <Table.Cell align="left">{name}</Table.Cell>
+            <Table.Cell align="right">{value}</Table.Cell>
+          </Table.Row>
+        ))}
       </Table.Body>
     </Table>
   );

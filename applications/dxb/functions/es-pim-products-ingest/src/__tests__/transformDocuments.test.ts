@@ -3,6 +3,7 @@ import {
   PimSystemDocument
 } from "@bmi/elasticsearch-types";
 import {
+  ApprovalStatus,
   Category,
   Classification,
   createAsset,
@@ -104,7 +105,7 @@ describe("transformDocuments", () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
     const product = createProduct({
-      approvalStatus: "approved",
+      approvalStatus: ApprovalStatus.Approved,
       assets: [createAsset({ assetType: pimCode })]
     });
     getAssetTypes.mockResolvedValueOnce([
@@ -114,7 +115,9 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments.length).toBe(1);
-    expect(transformedDocuments[0]["approvalStatus"]).toEqual("approved");
+    expect(transformedDocuments[0]["approvalStatus"]).toEqual(
+      ApprovalStatus.Approved
+    );
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
   });
 
@@ -122,7 +125,7 @@ describe("transformDocuments", () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
     const product = createProduct({
-      approvalStatus: "discontinued",
+      approvalStatus: ApprovalStatus.Discontinued,
       assets: [createAsset({ assetType: pimCode })]
     });
     getAssetTypes.mockResolvedValueOnce([
@@ -132,7 +135,9 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
 
     expect(transformedDocuments.length).toBe(1);
-    expect(transformedDocuments[0]["approvalStatus"]).toEqual("discontinued");
+    expect(transformedDocuments[0]["approvalStatus"]).toEqual(
+      ApprovalStatus.Discontinued
+    );
     expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
   });
 
@@ -140,8 +145,65 @@ describe("transformDocuments", () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
     const product = createProduct({
-      approvalStatus: "unapproved",
+      approvalStatus: ApprovalStatus.Unapproved,
       assets: [createAsset({ assetType: pimCode })]
+    });
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
+
+    const transformedDocuments = await transformDocuments(product, locale);
+
+    expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
+    expect(transformedDocuments).toEqual([]);
+  });
+
+  it("should return an empty array if the product's approval status is 'preview'", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Preview,
+      assets: [createAsset({ assetType: pimCode })]
+    });
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
+
+    const transformedDocuments = await transformDocuments(product, locale);
+
+    expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
+    expect(transformedDocuments).toEqual([]);
+  });
+
+  it("should return an empty array if the base product's approval status is approved and the variant status is preview", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Approved,
+      assets: [createAsset({ assetType: pimCode })],
+      variantOptions: [
+        createVariantOption({ approvalStatus: ApprovalStatus.Preview })
+      ]
+    });
+    getAssetTypes.mockResolvedValueOnce([
+      createContentfulAssetType({ pimCode })
+    ]);
+
+    const transformedDocuments = await transformDocuments(product, locale);
+
+    expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
+    expect(transformedDocuments).toEqual([]);
+  });
+
+  it("should return an empty array if the base product's approval status is discontinued and the variant status is preview", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const product = createProduct({
+      approvalStatus: ApprovalStatus.Discontinued,
+      assets: [createAsset({ assetType: pimCode })],
+      variantOptions: [
+        createVariantOption({ approvalStatus: ApprovalStatus.Preview })
+      ]
     });
     getAssetTypes.mockResolvedValueOnce([
       createContentfulAssetType({ pimCode })
@@ -157,7 +219,7 @@ describe("transformDocuments", () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
     const product = createProduct({
-      approvalStatus: "check",
+      approvalStatus: ApprovalStatus.Check,
       assets: [createAsset({ assetType: pimCode })]
     });
     getAssetTypes.mockResolvedValueOnce([

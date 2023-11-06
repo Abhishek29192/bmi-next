@@ -725,7 +725,7 @@ exports[`404 page tests When error page data is partially populated renders plac
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div
@@ -1837,7 +1837,7 @@ exports[`404 page tests When site data and error page data are fully populated r
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-avqws"
+        class=" css-r109q4"
         data-testid="footer"
       >
         <div

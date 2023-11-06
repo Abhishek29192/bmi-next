@@ -6,7 +6,7 @@ import {
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
@@ -58,7 +58,6 @@ beforeEach(() => {
 });
 
 afterEach(async () => {
-  await cleanup();
   executeRecaptchaMock = jest.fn();
 });
 

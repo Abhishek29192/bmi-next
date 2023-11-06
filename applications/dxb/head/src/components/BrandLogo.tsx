@@ -32,6 +32,7 @@ import Logo, {
   RoofProPartnerSmall,
   RoofProServiceTeam,
   Sealoflex,
+  SereniCoperture,
   Siplast,
   Standard,
   StandardCentred,
@@ -81,6 +82,7 @@ export type Logo =
   | "RoofProPartnerSmall"
   | "RoofProServiceTeam"
   | "Sealoflex"
+  | "SereniCoperture"
   | "Siplast"
   | "Standard"
   | "StandardCentred"
@@ -160,6 +162,8 @@ export const getLogo = (logo?: Logo | null) => {
       return RoofProServiceTeam;
     case "Sealoflex":
       return Sealoflex;
+    case "SereniCoperture":
+      return SereniCoperture;
     case "Siplast":
       return Siplast;
     case "Standard":

@@ -75,7 +75,7 @@ type Filter @dontInfer {
   isCategory: Boolean!
 }
 
-type PLPFilter @dontInfer {
+type CommonFilter @dontInfer {
   filterCode: String!
   label: String!
   name: String!
@@ -84,7 +84,7 @@ type PLPFilter @dontInfer {
 }
 
 type PLPFilterResponse @dontInfer {
-  filters: [PLPFilter]
+  filters: [CommonFilter]
   allowFilterBy: [String]
 }
 
@@ -222,6 +222,28 @@ type ContentfulProductListerPage implements ContentfulObject & ContentfulPage & 
   allowFilterBy: [String!]
 }
 
+type ContentfulTrainingListerPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
+  id: ID!
+  contentful_id: String!
+  metadata: ContentfulMetadata!
+  title: String!
+  subtitle: String
+  slug: String!
+  path: String!
+  breadcrumbTitle: String
+  breadcrumbs: [BreadcrumbItem]
+  searchTips: ContentfulTitleWithContent @link(from: "searchTips___NODE")
+  featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+  filters: [CommonFilter!]!
+
+  brandLogo: String
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
+}
+
 type ContentfulPromo implements ContentfulObject & Node @dontInfer {
   name: String!
   metadata: ContentfulMetadata!
@@ -249,6 +271,7 @@ union ContentfulPromoOrPage =
   | ContentfulSimplePage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
+  | ContentfulTrainingListerPage
 
 union ContentfulRichTextReference =
   ContentfulAsset
@@ -260,6 +283,7 @@ union ContentfulRichTextReference =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
   | ContentfulBrandLandingPage
+  | ContentfulTrainingListerPage
 
 union ContentfulMediasTypes = ContentfulImage | ContentfulVideo
 
@@ -368,9 +392,16 @@ type ContentfulLeadBlockSection implements ContentfulObject & Node @dontInfer {
   postItCard: ContentfulRichText
 }
 
+type contentfulSyndicateSectionDescriptionTextNode implements Node @dontInfer {
+  id: ID!
+  description: String
+}
+
+
 type ContentfulSyndicateSection implements ContentfulObject & Node @dontInfer {
   id: ID!
   metadata: ContentfulMetadata!
+  description: contentfulSyndicateSectionDescriptionTextNode @link(from: "description___NODE")
   title: String
   villains: [ContentfulPromoOrPage] @link(from: "villains___NODE")
   isReversed: Boolean
@@ -388,7 +419,7 @@ type ContentfulTabsOrAccordionSection implements ContentfulObject & Node @dontIn
   metadata: ContentfulMetadata!
   title: String
   description: contentfulTabsOrAccordionSectionDescriptionTextNode @link(from: "description___NODE")
-  items: [ContentfulTitleWithContent] @link(from: "items___NODE")
+  items: [ContentfulTitleWithContent!]! @link(from: "items___NODE")
   type: String
 }
 
@@ -618,6 +649,7 @@ union LinkedPage =
   | ContentfulHomePage
   | ContentfulBrandLandingPage
   | ContentfulCookiePolicyPage
+  | ContentfulTrainingListerPage
 
 type ContentfulLink implements ContentfulObject & Node @dontInfer {
   id: ID!
@@ -943,7 +975,7 @@ type Feature @dontInfer {
 }
 
 type DocumentsFiltersResponse @dontInfer {
-  filters: [PLPFilter]!
+  filters: [CommonFilter]!
 }
 
 
@@ -1229,5 +1261,59 @@ type ContentfulSystemConfiguratorSection implements ContentfulObject & Node @don
   description: ContentfulRichText
   systemProperties: [String]
   question: ContentfulSystemConfiguratorQuestion! @link(from: "question___NODE")
+}
+
+type SessionAdditionalField @dontInfer {
+  id: String!
+  name: String!
+  value: String!
+  mandatory: Boolean!
+  type: String!
+}
+
+type DoceboCourseSessionAttendanceDetails @dontInfer {
+  onsite: Int!
+  online: Int!
+  flexible: Int!
+}
+
+type DoceboCourseSessionLocation @dontInfer {
+  id: Int!
+  name: String!
+  address: String!
+  count: Int!
+}
+
+type Session @dontInfer {
+  id: Int!
+  code: String!
+  name: String!
+  date_start: String!
+  date_end: String!
+  hours: String!
+  events: String!
+  events_with_sync_failed: String!
+  instructors: String!
+  instructors_emails_number: String!
+  waiting: String!
+  enrolled: String!
+  max_enroll: String!
+  created_by: String!
+  uid_session: String!
+  externally_managed: Boolean!
+  additional_fields: [SessionAdditionalField]!
+  attendance_details: DoceboCourseSessionAttendanceDetails!
+  location: DoceboCourseSessionLocation!
+  attendance_type: String!
+}
+
+type DoceboCourses implements Node @dontInfer {
+  id: ID!
+  id_course: Int!
+  slug_name: String!
+  name: String!
+  description: String!
+  code: String
+  sessions: [Session]
 }
 `;

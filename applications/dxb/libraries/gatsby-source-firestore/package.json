@@ -21,12 +21,12 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "firebase-admin": "^11.8.0"
+    "firebase-admin": "^11.10.1"
   },
   "devDependencies": {
     "@types/gatsby-plugin-types": "workspace:*",
-    "eslint": "^8.40.0",
-    "jest": "^29.5.0",
+    "eslint": "^8.49.0",
+    "jest": "^29.6.4",
     "jest-node-exports-resolver": "^1.1.6"
   },
   "peerDependencies": {

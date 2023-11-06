@@ -2,8 +2,8 @@ lint_netlify-plugin-trigger-gitlab:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main, rules ]
-    - !reference [ .run_for_changes_on_mr, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/libraries/netlify-plugin-trigger-gitlab"
     WORKSPACE: "@bmi/netlify-plugin-trigger-gitlab"

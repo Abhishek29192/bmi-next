@@ -12,6 +12,7 @@ import {
   waitFor
 } from "@testing-library/react";
 import React from "react";
+import { ApprovalStatus } from "@bmi/pim-types";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument, {
@@ -142,7 +143,7 @@ describe("DocumentSimpleTableResult", () => {
     it("should render document with product status cell", () => {
       renderDocumentResults({
         headers: ["productStatus"],
-        documents: [{ ...pimDocument, approvalStatus: "approved" }]
+        documents: [{ ...pimDocument, approvalStatus: ApprovalStatus.Approved }]
       });
       expect(
         screen.getByText("MC: document.status.available")

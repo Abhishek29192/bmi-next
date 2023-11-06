@@ -4875,7 +4875,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
 exports[`SystemConfiguratorSection component throws error 1`] = `
 <div>
   <div
-    class="ScrimStyles-scrim--light css-1qqmo68"
+    class="ScrimStyles-scrim--light css-o8e9td"
   >
     <span
       class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicatorStyles-progressIndicator--light css-sbue0o-MuiCircularProgress-root"

@@ -53,6 +53,7 @@ export interface TypeBrandLandingPageFields {
     | "RoofPro"
     | "RoofProServiceTeam"
     | "Sealoflex"
+    | "SereniCoperture"
     | "Siplast"
     | "Sunscape"
     | "Vedag"

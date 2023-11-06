@@ -9,6 +9,7 @@ import ContentfulServiceLocatorSection from "./ContentfulServiceLocatorSection";
 import ContentfulSimplePage from "./ContentfulSimplePage";
 import ContentfulSite from "./ContentfulSite";
 import ContentfulSystemConfiguratorSection from "./ContentfulSystemConfiguratorSection";
+import ContentfulTrainingListerPage from "./ContentfulTrainingListerPage";
 import ContentfulVideo from "./ContentfulVideo";
 import Product from "./Product";
 import Query from "./Query";
@@ -20,7 +21,8 @@ const {
   ContentfulDocumentLibraryPage: ContentfulDocumentLibraryPageCommon,
   ContentfulProductListerPage,
   ContentfulSimplePage: ContentfulSimplePageCommon,
-  ContentfulCookiePolicyPage
+  ContentfulCookiePolicyPage,
+  ContentfulTrainingListerPage: ContentfulTrainingListerPageCommon
 } = ContentfulPage;
 
 /**
@@ -63,5 +65,9 @@ export default {
     relatedProducts: System.relatedProducts,
     relatedOptionalProducts: System.relatedOptionalProducts
   },
-  ContentfulCookiePolicyPage
+  ContentfulCookiePolicyPage,
+  ContentfulTrainingListerPage: {
+    ...ContentfulTrainingListerPage,
+    ...ContentfulTrainingListerPageCommon
+  }
 };

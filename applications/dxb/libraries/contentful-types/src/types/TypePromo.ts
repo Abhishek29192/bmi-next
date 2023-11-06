@@ -39,6 +39,7 @@ export interface TypePromoFields {
     | "RoofPro"
     | "RoofProServiceTeam"
     | "Sealoflex"
+    | "SereniCoperture"
     | "Siplast"
     | "Sunscape"
     | "Vedag"

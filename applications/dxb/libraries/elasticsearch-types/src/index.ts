@@ -14,6 +14,7 @@ import createPimSystemDocument, {
 } from "./PimSystemDocumentHelper";
 import createProduct from "./ProductHelper";
 import createSystem from "./SystemHelper";
+import { createTraining } from "./TrainingHelper";
 import type {
   Category,
   ClassificationField,
@@ -27,7 +28,8 @@ import type {
   Product,
   ProductReference,
   System,
-  SystemAttribute
+  SystemAttribute,
+  Training
 } from "./types";
 
 export {
@@ -42,7 +44,8 @@ export {
   createPimProductDocument,
   createPimSystemDocument,
   createProduct,
-  createSystem
+  createSystem,
+  createTraining
 };
 export type {
   Category,
@@ -57,5 +60,6 @@ export type {
   Product,
   ProductReference,
   System,
-  SystemAttribute
+  SystemAttribute,
+  Training
 };

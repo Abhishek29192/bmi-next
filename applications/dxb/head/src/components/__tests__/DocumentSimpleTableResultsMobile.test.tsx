@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { ApprovalStatus } from "@bmi/pim-types";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument, {
@@ -103,7 +104,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
     render(
       <ThemeProvider>
         <DocumentSimpleTableResultsMobile
-          documents={[{ ...document, approvalStatus: "approved" }]}
+          documents={[{ ...document, approvalStatus: ApprovalStatus.Approved }]}
           headers={[...defaultTableHeaders, "productStatus"]}
           selectedDocuments={{}}
           titleField="title"

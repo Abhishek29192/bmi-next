@@ -1,0 +1,111 @@
+lint_gcp-pim-preview-firestore-writer:
+  extends: .lint_function
+  variables:
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-preview-firestore-writer"
+    WORKSPACE: "@bmi/gcp-pim-preview-firestore-writer"
+
+build_gcp-pim-preview-firestore-writer:
+  extends: .build_function
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-api/**/*
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-api/**/*
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
+  variables:
+    WORKSPACE: "@bmi/gcp-pim-preview-firestore-writer"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-preview-firestore-writer"
+
+test_gcp-pim-preview-firestore-writer:
+  extends: .test_function
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-api/**/*
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-api/**/*
+  variables:
+    WORKSPACE: "@bmi/gcp-pim-preview-firestore-writer"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-preview-firestore-writer"
+  needs:
+    - build_gcp-pim-preview-firestore-writer
+
+package_gcp-pim-preview-firestore-writer:
+  extends: .package_function
+  needs:
+    - job: build_gcp-pim-preview-firestore-writer
+      artifacts: true
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-api/**/*
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
+  variables:
+    FUNCTION_NAME: "gcp-pim-preview-firestore-writer"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-preview-firestore-writer"
+
+deploy_gcp-pim-preview-firestore-writer:
+  extends: .deploy_function
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+        - applications/dxb/libraries/pim-transformation/**/*
+        - applications/dxb/libraries/firestore-types/**/*
+        - applications/dxb/libraries/pim-types/**/*
+        - applications/dxb/libraries/pim-api/**/*
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
+    - if: !reference [.run_for_preprod_release, rules, if]
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: !reference [.run_for_prod_release, rules, if]
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
+  needs:
+    - job: package_gcp-pim-preview-firestore-writer
+      artifacts: true
+  variables:
+    FUNCTION_NAME: "gcp-pim-preview-firestore-writer"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-preview-firestore-writer"

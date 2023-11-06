@@ -7,10 +7,12 @@ import {
 } from "@bmi/pim-types";
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import { Request, Response } from "express";
+import { isDefined } from "@bmi/utils";
 import { getDocuments } from "./contentful";
 import { transformDocuments } from "./documentTransformer";
 import { indexIntoES } from "./elasticsearch";
 import { FullFetchRequest } from "./types";
+import { fetchDoceboData } from "./doceboDataHandler";
 
 const {
   TRANSITIONAL_TOPIC_NAME,
@@ -18,7 +20,14 @@ const {
   LOCALE,
   MARKET_LOCALE,
   ES_INDEX_NAME_DOCUMENTS,
-  TAG
+  TAG,
+  DOCEBO_API_URL,
+  DOCEBO_API_CLIENT_ID,
+  DOCEBO_API_CLIENT_SECRET,
+  DOCEBO_API_USERNAME,
+  DOCEBO_API_PASSWORD,
+  DOCEBO_API_CATALOGUE_IDS,
+  ES_INDEX_NAME_TRAININGS
 } = process.env;
 
 const pubSubClient = new PubSub({
@@ -63,7 +72,12 @@ const handlePimData = async (type: PimTypes, locale: string, page: number) => {
   await publishMessage(type, response);
 };
 
-const handleDocuments = async (locale: string, page: number, tag?: string) => {
+const handleDocuments = async (
+  locale: string,
+  page: number,
+  indexName: string,
+  tag?: string
+) => {
   const documents = await getDocuments(locale, page, tag);
   logger.info({
     message: `Fetched data for documents body type: ${JSON.stringify(
@@ -74,7 +88,56 @@ const handleDocuments = async (locale: string, page: number, tag?: string) => {
     return;
   }
   const transformedDocuments = transformDocuments(documents);
-  await indexIntoES(transformedDocuments);
+  await indexIntoES(transformedDocuments, indexName);
+};
+
+const handleTrainings = async (res: Response, page: number) => {
+  if (!DOCEBO_API_URL) {
+    logger.error({ message: "DOCEBO_API_URL has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!DOCEBO_API_CLIENT_ID) {
+    logger.error({ message: "DOCEBO_API_CLIENT_ID has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!DOCEBO_API_CLIENT_SECRET) {
+    logger.error({ message: "DOCEBO_API_CLIENT_SECRET has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!DOCEBO_API_PASSWORD) {
+    logger.error({
+      message: "DOCEBO_API_PASSWORD has not been set."
+    });
+    return res.sendStatus(500);
+  }
+
+  if (!DOCEBO_API_USERNAME) {
+    logger.error({ message: "DOCEBO_API_USERNAME has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!DOCEBO_API_CATALOGUE_IDS) {
+    logger.error({ message: "DOCEBO_API_CATALOGUE_IDS has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!ES_INDEX_NAME_TRAININGS) {
+    logger.error({
+      message: "ES_INDEX_NAME_TRAININGS has not been set."
+    });
+    return res.sendStatus(500);
+  }
+
+  const courses = await fetchDoceboData(page);
+
+  logger.info({
+    message: `Transformed trainings: ${JSON.stringify(courses)}`
+  });
+
+  await indexIntoES(courses, ES_INDEX_NAME_TRAININGS);
 };
 
 /**
@@ -114,19 +177,23 @@ const handleRequest = async (
 
   const body = req.body;
 
-  if (!body.type && !body.startPage && !body.numberOfPages) {
-    logger.error({
-      message: "type, startPage and numberOfPages was not provided."
-    });
-    res
-      .status(400)
-      .send({ error: "type, startPage and numberOfPages was not provided." });
-    return;
-  }
   if (!body.type) {
     logger.error({ message: "type was not provided." });
     res.status(400).send({ error: "type was not provided." });
     return;
+  }
+
+  if (!isDefined(body.startPage)) {
+    logger.error({
+      message: "startPage was not provided."
+    });
+    return res.status(400).send({ error: "startPage was not provided." });
+  }
+  if (!isDefined(body.numberOfPages)) {
+    logger.error({
+      message: "numberOfPages was not provided."
+    });
+    return res.status(400).send({ error: "numberOfPages was not provided." });
   }
   if ((!body.startPage && body.startPage !== 0) || body.startPage < 0) {
     logger.error({
@@ -137,7 +204,7 @@ const handleRequest = async (
     });
     return;
   }
-  if (!body.numberOfPages || body.numberOfPages < 1) {
+  if (body.numberOfPages < 1) {
     logger.error({ message: "numberOfPages must be a number greater than 0." });
     res
       .status(400)
@@ -149,8 +216,12 @@ const handleRequest = async (
   for (let i = body.startPage; i < body.startPage + body.numberOfPages; i++) {
     if (body.type === PimTypes.Products || body.type === PimTypes.Systems) {
       promises.push(handlePimData(body.type, LOCALE, i));
+    } else if (body.type === "documents") {
+      promises.push(
+        handleDocuments(MARKET_LOCALE, i, ES_INDEX_NAME_DOCUMENTS, TAG)
+      );
     } else {
-      promises.push(handleDocuments(MARKET_LOCALE, i, TAG));
+      promises.push(handleTrainings(res, i));
     }
   }
   await Promise.all(promises);

@@ -78,7 +78,9 @@ const getValidatorsArray = (headerRow, columnValidators) => {
   const validators = [];
 
   for (const column of headerRow) {
-    if (!column) break;
+    if (!column) {
+      break;
+    }
 
     // eslint-disable-next-line security/detect-object-injection
     if (!columnValidators[column]) {
@@ -171,7 +173,9 @@ const getDecisions = () => {
 };
 
 const notEmpty = (value) => {
-  if (value == "") throw new Error("Found empty cell on a required column");
+  if (value == "") {
+    throw new Error("Found empty cell on a required column");
+  }
 
   return value;
 };

@@ -51,7 +51,9 @@ const UpDownSimpleNumericInput = ({
 
   const handleInputChange = (value: string) => {
     const newValue = parseFloat(value);
-    if (!isNaN(newValue)) handleChange(newValue);
+    if (!isNaN(newValue)) {
+      handleChange(newValue);
+    }
   };
 
   const UpButton = (

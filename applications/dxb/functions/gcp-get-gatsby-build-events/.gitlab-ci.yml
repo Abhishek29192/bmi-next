@@ -1,0 +1,37 @@
+lint_gcp-get-gatsby-build-events:
+  extends: .lint_function
+  variables:
+    ROOT_DIR: "applications/dxb/functions/gcp-get-gatsby-build-events"
+    WORKSPACE: "@bmi/gcp-get-gatsby-build-events"
+
+build_gcp-get-gatsby-build-events:
+  extends: .build_function
+  variables:
+    WORKSPACE: "@bmi/gcp-get-gatsby-build-events"
+    ROOT_DIR: "applications/dxb/functions/gcp-get-gatsby-build-events"
+
+test_gcp-get-gatsby-build-events:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-get-gatsby-build-events"
+    ROOT_DIR: "applications/dxb/functions/gcp-get-gatsby-build-events"
+  needs:
+    - build_gcp-get-gatsby-build-events
+
+package_gcp-get-gatsby-build-events:
+  extends: .package_function
+  needs:
+    - job: build_gcp-get-gatsby-build-events
+      artifacts: true
+  variables:
+    FUNCTION_NAME: "gcp-get-gatsby-build-events"
+    ROOT_DIR: "applications/dxb/functions/gcp-get-gatsby-build-events"
+
+deploy_gcp-get-gatsby-build-events:
+  extends: .deploy_function
+  needs:
+    - job: package_gcp-get-gatsby-build-events
+      artifacts: true
+  variables:
+    FUNCTION_NAME: "gcp-get-gatsby-build-events"
+    ROOT_DIR: "applications/dxb/functions/gcp-get-gatsby-build-events"

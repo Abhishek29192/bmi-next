@@ -34,6 +34,7 @@ export interface TypeBrandFields {
     | "RoofPro"
     | "RoofProServiceTeam"
     | "Sealoflex"
+    | "SereniCoperture"
     | "Siplast"
     | "Sunscape"
     | "Vedag"
