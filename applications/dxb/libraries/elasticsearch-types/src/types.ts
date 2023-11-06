@@ -22,6 +22,19 @@ export type ProductReference = ReferenceTarget & {
   type: ProductReferenceType;
 };
 
+export type BattenSpacing = {
+  minAngle: number;
+  maxAngle: number;
+  battenDistance: {
+    value: number;
+    unit: string;
+  };
+  firstRowBattenDistance: {
+    value: number;
+    unit: string;
+  };
+};
+
 export type Product = {
   description: string;
   externalProductCode: string;
@@ -48,6 +61,7 @@ export type Product = {
   visualiserAssets?: readonly Asset[];
   keywords?: string[];
   goodBetterBest?: GoodBetterBest;
+  battenSpacings?: BattenSpacing[];
 } & {
   [extractedFilter: string]: any;
 };
