@@ -160,7 +160,8 @@ jest.mock("../../../../utils/elasticSearch", () => ({
     queryElasticsearchMock(...args),
   disableFiltersFromAggregations: jest
     .fn()
-    .mockImplementation((filters, _aggregations) => filters)
+    .mockImplementation((filters, _aggregations) => filters),
+  sanitiseQueryString: (searchQuery: string) => searchQuery
 }));
 
 const render = ({

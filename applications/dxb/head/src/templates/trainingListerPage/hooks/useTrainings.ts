@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Training } from "@bmi/elasticsearch-types";
-import { Filter } from "@bmi-digital/components";
-import { QUERY_KEY, useIsClient } from "@bmi-digital/components";
+import { Filter, useIsClient } from "@bmi-digital/components";
+import { QUERY_KEY } from "@bmi-digital/components";
+import queryString from "query-string";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import {
   disableFiltersFromAggregations,
@@ -41,12 +42,14 @@ export const useTrainings: UseTrainings = (props) => {
 
   const { isClient } = useIsClient();
 
-  const searchQuery = useMemo(() => {
-    const params = new URLSearchParams(
-      isClient && window ? window.location.search : ""
-    );
-    return params.get(QUERY_KEY);
+  const params = useMemo(() => {
+    return isClient ? queryString.parse(window.location.search, {}) : "";
   }, [isClient]);
+
+  const searchQuery = useMemo(() => {
+    const queryValue = params && params[QUERY_KEY.toString()];
+    return typeof queryValue === "string" ? queryValue : "";
+  }, [params]);
 
   const fetchPaginatedTrainings = async (catalogueId: string, from: number) => {
     if (!esIndexNameTrainings) {
@@ -212,6 +215,6 @@ export const useTrainings: UseTrainings = (props) => {
     handleResetFilters,
     total,
     filters,
-    searchQuery: searchQuery || ""
+    searchQuery: searchQuery
   };
 };
