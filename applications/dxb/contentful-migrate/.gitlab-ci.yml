@@ -84,9 +84,6 @@ test_contentful_migrate:
 .deploy_gatsby_cloud:
   stage: deploy
   rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
-      changes:
-        - applications/dxb/contentful-migrate/src/**/*
     - if: !reference [.run_for_preprod_release, rules, if]
       variables:
         DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PREPROD
