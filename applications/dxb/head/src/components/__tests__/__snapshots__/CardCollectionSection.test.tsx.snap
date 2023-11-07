@@ -41,8 +41,9 @@ exports[`CardCollectionSection component Card label doesn't render button if car
               data-testid="card-collection-grid-item-visible-test"
             >
               <button
-                class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"test","action":"visualiser"}"
+                data-testid="overview-card-box"
                 tabindex="0"
                 type="button"
               >
@@ -153,7 +154,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
                 data-testid="card-collection-grid-item-visible-1234"
               >
                 <div
-                  class="OverviewCard-flat MuiBox-root css-8upnc"
+                  class="OverviewCard-flat MuiBox-root css-179egsz"
                   data-testid="overview-card-box"
                 >
                   <div
@@ -375,8 +376,9 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                            class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                             data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                            data-testid="overview-card-box"
                             href="/en/"
                             tabindex="0"
                             type="button"
@@ -541,8 +543,9 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -725,8 +728,9 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -886,8 +890,9 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1047,8 +1052,9 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1208,8 +1214,9 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1369,8 +1376,9 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1530,8 +1538,9 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1689,8 +1698,9 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1870,7 +1880,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="card-collection-grid-item-visible-1234"
               >
                 <div
-                  class=" MuiBox-root css-8upnc"
+                  class=" MuiBox-root css-179egsz"
                   data-testid="overview-card-box"
                 >
                   <div
@@ -1906,8 +1916,9 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1967,8 +1978,9 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="card-collection-grid-item-visible-test 2"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -2028,8 +2040,9 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 data-testid="card-collection-grid-item-visible-test 3"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -2209,8 +2222,9 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="card-collection-grid-item-visible-test 3"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -2270,8 +2284,9 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="card-collection-grid-item-visible-test 2"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -2331,8 +2346,9 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -2392,7 +2408,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 data-testid="card-collection-grid-item-visible-1234"
               >
                 <div
-                  class=" MuiBox-root css-8upnc"
+                  class=" MuiBox-root css-179egsz"
                   data-testid="overview-card-box"
                 >
                   <div
@@ -2548,8 +2564,9 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -2609,8 +2626,9 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="card-collection-grid-item-visible-test 2"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -2670,8 +2688,9 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="card-collection-grid-item-visible-test 3"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -2731,7 +2750,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 data-testid="card-collection-grid-item-visible-1234"
               >
                 <div
-                  class=" MuiBox-root css-8upnc"
+                  class=" MuiBox-root css-179egsz"
                   data-testid="overview-card-box"
                 >
                   <div
@@ -2887,8 +2906,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -2948,8 +2968,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-visible-test 2"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -3009,8 +3030,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-visible-test 3"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -3070,7 +3092,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-visible-1234"
               >
                 <div
-                  class=" MuiBox-root css-8upnc"
+                  class=" MuiBox-root css-179egsz"
                   data-testid="overview-card-box"
                 >
                   <div
@@ -3226,8 +3248,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-visible-test"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -3287,8 +3310,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-visible-test 2"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -3348,8 +3372,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-visible-test 3"
               >
                 <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                  data-testid="overview-card-box"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -3409,7 +3434,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="card-collection-grid-item-visible-1234"
               >
                 <div
-                  class=" MuiBox-root css-8upnc"
+                  class=" MuiBox-root css-179egsz"
                   data-testid="overview-card-box"
                 >
                   <div
@@ -3587,8 +3612,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                            class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                             data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
+                            data-testid="overview-card-box"
                             href="/en/"
                             tabindex="0"
                             type="button"
@@ -3661,8 +3687,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                            class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                             data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
+                            data-testid="overview-card-box"
                             href="/en/"
                             tabindex="0"
                             type="button"
@@ -3735,8 +3762,9 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           style="width: 100%;"
                         >
                           <a
-                            class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                            class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                             data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
+                            data-testid="overview-card-box"
                             href="/en/"
                             tabindex="0"
                             type="button"
@@ -3809,7 +3837,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           style="width: 100%;"
                         >
                           <div
-                            class=" MuiBox-root css-8upnc"
+                            class=" MuiBox-root css-179egsz"
                             data-testid="overview-card-box"
                           >
                             <div

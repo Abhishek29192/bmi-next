@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 import {
   Filter,
   Grid,
@@ -7,10 +6,8 @@ import {
 } from "@bmi-digital/components";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
-import type {
-  ClassificationField,
-  Product as EsProduct
-} from "@bmi/elasticsearch-types";
+import { microCopy } from "@bmi/microcopies";
+import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import BrandLogo from "../../../components/BrandLogo";
 import DefaultImage from "../../../images/DefaultImage.svg";
 import { getSearchParams } from "../../../utils/filters";
@@ -19,7 +16,6 @@ import withGTM from "../../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { FooterAnchorLink } from "../styles";
 import GoodBetterBestIndicator from "../../../components/GoodBetterBestIndicator";
-import groupBy from "../../../utils/groupBy";
 import type { PageContextType } from "../components/product-lister-page";
 import type { Context as SiteContext } from "../../../components/Site";
 
@@ -40,56 +36,6 @@ export const resolveFilters = (filters: readonly Filter[]) => {
 
 const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
-export const createSizeLabel = (product: EsProduct): string => {
-  const width: ClassificationField = product["MEASUREMENTS$WIDTH"];
-  const length: ClassificationField = product["MEASUREMENTS$LENGTH"];
-  const height: ClassificationField = product["MEASUREMENTS$HEIGHT"];
-  const thickness: ClassificationField = product["MEASUREMENTS$THICKNESS"];
-  const dimensions = [length, width, height, thickness].filter(Boolean);
-
-  if (dimensions.length === 0) {
-    return "";
-  }
-
-  const getUnit = (str: string) => str.slice(-2).trim();
-  const getDimension = (str: string) => str.slice(0, -2).trim();
-
-  const defaultUnit = getUnit(dimensions[0][0].name);
-
-  const dimensionsHaveSameUnit = dimensions.every(
-    (value) => getUnit(value[0].name) === defaultUnit
-  );
-
-  const sizeLabel = dimensions
-    .map((value) => {
-      const { name } = value[0];
-      const dimension = getDimension(name);
-      const unit = getUnit(name);
-
-      return dimensionsHaveSameUnit ? dimension : `${dimension}${unit}`;
-    })
-    .join(dimensionsHaveSameUnit ? "x" : " x ");
-
-  const suffix = dimensionsHaveSameUnit ? defaultUnit : "";
-
-  return `${sizeLabel}${suffix}`;
-};
-
-export const findSurface = (
-  product: EsProduct
-): { value: string; mc?: string } => {
-  const surface = product.classifications.find(
-    (cl) => cl.code === "appearanceAttributes"
-  );
-  const textureFamily =
-    surface &&
-    surface.features?.find((el) => el.code.includes("textureFamily"));
-  const surfaceValue =
-    (textureFamily &&
-      textureFamily.featureValues.map((feat) => feat.value).join(" | ")) ||
-    "";
-  return { value: surfaceValue, mc: textureFamily && textureFamily.name };
-};
 export const renderProducts = (
   products: EsProduct[],
   pageContext: PageContextType,
@@ -106,35 +52,8 @@ export const renderProducts = (
     )}${getSearchParams()}`;
     const moreOptionsAvailable =
       variant.all_variants?.length > 1 &&
-      getMicroCopy("plp.product.moreOptionsAvailable");
+      getMicroCopy(microCopy.PLP_PRODUCT_MORE_OPTIONS_AVAILABLE);
 
-    let sizeLabel: string[] = [];
-    let surface: string[] = [];
-    let surfaceMc: string | undefined = "";
-
-    if (variant.all_variants) {
-      const variantsGroupByColor: { [p: string]: EsProduct[] } = groupBy(
-        variant.all_variants,
-        (v: EsProduct) =>
-          v._source &&
-          v._source.APPEARANCEATTRIBUTES$COLOUR &&
-          v._source.APPEARANCEATTRIBUTES$COLOUR[0].code
-      );
-      const filteredVariants = variant.APPEARANCEATTRIBUTES$COLOUR
-        ? variantsGroupByColor[variant.APPEARANCEATTRIBUTES$COLOUR[0].code]
-        : variant.all_variants;
-
-      filteredVariants.forEach((v: EsProduct) => {
-        if (v._source) {
-          sizeLabel = [...sizeLabel, createSizeLabel(v._source)];
-          surface = [...surface, findSurface(v._source).value];
-          surfaceMc = findSurface(v._source).mc;
-        }
-      });
-    }
-
-    sizeLabel = sizeLabel.filter(Boolean);
-    const uniqueSizeLabels = [...new Set(sizeLabel)].join(" | ");
     return (
       <Grid
         key={`${product?.code}-${variant.code}`}
@@ -146,6 +65,8 @@ export const renderProducts = (
         <GTMOverviewCard
           title={product?.name}
           titleVariant="h5"
+          subtitle={variant.subTitle}
+          subtitleVariant="h6"
           tag={
             <GoodBetterBestIndicator indicatorType={variant.goodBetterBest} />
           }
@@ -166,7 +87,7 @@ export const renderProducts = (
           gtm={{
             id: "cta-click1",
             action: productUrl,
-            label: getMicroCopy("plp.product.viewDetails")
+            label: getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)
           }}
           footer={
             <FooterAnchorLink
@@ -177,21 +98,10 @@ export const renderProducts = (
               }}
               iconEnd
             >
-              {getMicroCopy("plp.product.viewDetails")}
+              {getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
             </FooterAnchorLink>
           }
           moreOptionsAvailable={moreOptionsAvailable}
-          size={{
-            microCopy: uniqueSizeLabels
-              ? getMicroCopy("pdp.overview.size")
-              : "",
-
-            value: uniqueSizeLabels
-          }}
-          surface={{
-            microCopy: surfaceMc,
-            value: [...new Set(surface)].join(" | ")
-          }}
         >
           {variant.shortDescription}
         </GTMOverviewCard>
