@@ -28,8 +28,9 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -92,8 +93,9 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -217,8 +219,9 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -281,8 +284,9 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -376,8 +380,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -440,8 +445,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-2 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -535,8 +541,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -599,8 +606,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -694,8 +702,9 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -789,8 +798,9 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -884,8 +894,9 @@ exports[`RelatedSystems component renders systems correctly without classificati
               data-testid="system-card-system-code"
             >
               <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                data-testid="overview-card-box"
                 href="/en/s/path/"
                 tabindex="0"
               >
@@ -958,8 +969,9 @@ exports[`SystemCard renders correctly with related system 1`] = `
     data-testid="system-card-related-system-1"
   >
     <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-1byzjay-MuiButtonBase-root"
+      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
       data-gtm="{"id":"gtm-id"}"
+      data-testid="overview-card-box"
       href="/en/related-system-path/"
       tabindex="0"
     >
