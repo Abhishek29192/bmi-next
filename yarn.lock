@@ -9070,9 +9070,9 @@ __metadata:
   linkType: soft
 
 "@types/imurmurhash@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@types/imurmurhash@npm:0.1.1"
-  checksum: 9f61f8bca1e7dd4617aba589cc45d29947671382d4173eee8467efe377f86332e9298d08960da6a4aebd369877995ded88de89e3b4ad7dbf385f6d27d99be7a8
+  version: 0.1.4
+  resolution: "@types/imurmurhash@npm:0.1.4"
+  checksum: ad506185ca815e394431ce88c493b7ee99bfbcc04cf679f7c0108788153b6184a04c8fd24ef25a434aacfa3366586477565e78cc521179ec6d83e21cb17f39a6
   languageName: node
   linkType: hard
 
