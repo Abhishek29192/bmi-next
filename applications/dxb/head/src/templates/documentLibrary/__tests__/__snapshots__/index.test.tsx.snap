@@ -1616,12 +1616,13 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
     data-testid="grid-item"
   >
     <div
-      class="OverviewCard-clickable MuiBox-root css-8upnc"
+      class="OverviewCard-clickable MuiBox-root css-179egsz"
       data-testid="overview-card-box"
     >
       <a
         class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
         data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
+        data-testid="overview-card-main"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
         tabindex="0"

@@ -31,6 +31,7 @@ import {
   TransformedMeasurementValue
 } from "./CLONE";
 import { getCategoryFilters } from "./utils/filterHelpers";
+import { getBattenSpacings } from "./utils/battenSpacingHelpers";
 
 // Can't use lodash pick as it's not type-safe
 const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
@@ -96,11 +97,9 @@ const combineVariantClassifications = (
         mergedFeaturesMap.set(key, productFeature);
       }
     });
-    variantClassification.features = filterTwoOneAttributes(
-      PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
-      variantClassification.code,
-      Array.from(mergedFeaturesMap.values())
-    );
+
+    variantClassification.features = Array.from(mergedFeaturesMap.values());
+
     mergedClassifications.set(key, variantClassification);
     logger.info({
       message: `mergedClassifications common and variant classification: ${JSON.stringify(
@@ -118,12 +117,6 @@ const combineVariantClassifications = (
           classification
         )}`
       });
-      const origFeatures = classification.features || [];
-      classification.features = filterTwoOneAttributes(
-        PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
-        classification.code,
-        origFeatures
-      );
       mergedClassifications.set(key, classification);
     }
   });
@@ -133,6 +126,22 @@ const combineVariantClassifications = (
     )}`
   });
   return Array.from(mergedClassifications.values());
+};
+
+const filterClassifications = (
+  classifications: Classification[]
+): Classification[] => {
+  return classifications.map((classification) => {
+    const origFeatures = classification.features || [];
+
+    const filteredFeatures = filterTwoOneAttributes(
+      PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
+      classification.code,
+      origFeatures
+    );
+
+    return { ...classification, features: filteredFeatures };
+  });
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
@@ -163,16 +172,24 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
           combinedClassifications
         )}`
       });
+      const filteredClassifications = filterClassifications(
+        combinedClassifications
+      );
+      logger.info({
+        message: `filteredClassifications: ${JSON.stringify(
+          filteredClassifications
+        )}`
+      });
       const { goodBetterBest } = product;
       const indexedFeatures = indexFeatures(
         PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
-        combinedClassifications
+        filteredClassifications
       );
 
       // combined classifications does not override 'vairant' 'scoringWeightAttributes'
       // hence this is 'product' `scoringWeightAttributes` classification
       const scoringWeight =
-        combinedClassifications.find(
+        filteredClassifications.find(
           ({ code }) => code === "scoringWeightAttributes"
         )?.features?.[0]?.featureValues?.[0]?.value || "0";
 
@@ -219,7 +236,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         )}`
       });
       const colorTextureSubtitle: string = generateSubtitleValues(
-        combinedClassifications
+        filteredClassifications
       );
       const subTitle: string =
         colorTextureSubtitle.length === 0
@@ -248,6 +265,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         name,
         externalProductCode: baseAttributes.externalProductCode || "",
         isSampleOrderAllowed: baseAttributes.isSampleOrderAllowed || false,
+        battenSpacings: getBattenSpacings(combinedClassifications),
         code: variant.code,
         baseProduct: { ...baseProduct },
         brandCode: findProductBrandLogoCode(product),
@@ -260,7 +278,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
               parentCategoryCode: cat.parentCategoryCode || ""
             }))
           : [],
-        classifications: combinedClassifications,
+        classifications: filteredClassifications,
         goodBetterBest,
         measurementValue,
         productScoringWeightInt:
@@ -281,7 +299,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         path: `/p/${generateProductUrl(
           name,
           generateHashFromString(variant.code, false),
-          combinedClassifications
+          filteredClassifications
             .find(
               (classification) => classification.code === "appearanceAttributes"
             )
@@ -291,7 +309,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
                 feature.code.split("/").pop()!.toUpperCase() ===
                 "appearanceAttributes.colour".toUpperCase()
             )?.featureValues[0].value,
-          combinedClassifications
+          filteredClassifications
             .find(
               (classification) => classification.code === "generalInformation"
             )
@@ -301,7 +319,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
                 feature.code.split("/").pop()!.toUpperCase() ===
                 "generalInformation.materials".toUpperCase()
             )?.featureValues[0].value,
-          combinedClassifications
+          filteredClassifications
             .find(
               (classification) => classification.code === "appearanceAttributes"
             )
@@ -311,7 +329,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
                 feature.code.split("/").pop()!.toUpperCase() ===
                 "appearanceAttributes.texturefamily".toUpperCase()
             )?.featureValues[0].value,
-          combinedClassifications
+          filteredClassifications
             .find(
               (classification) => classification.code === "appearanceAttributes"
             )

@@ -1429,8 +1429,9 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <a
-                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                       data-gtm="{"id":"cta-click1","label":"News article page 2 - Testing ","action":"/en/frequently-asked-questions/news-article-page/"}"
+                      data-testid="overview-card-box"
                       href="/en/frequently-asked-questions/news-article-page/"
                       tabindex="0"
                       type="button"
@@ -1486,7 +1487,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" MuiBox-root css-8upnc"
+                      class=" MuiBox-root css-179egsz"
                       data-testid="overview-card-box"
                     >
                       <div
@@ -4148,8 +4149,9 @@ exports[`Contact us page render Sections correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <a
-                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                       data-gtm="{"id":"cta-click1","label":"News article page 2 - Testing ","action":"/en/frequently-asked-questions/news-article-page/"}"
+                      data-testid="overview-card-box"
                       href="/en/frequently-asked-questions/news-article-page/"
                       tabindex="0"
                       type="button"
@@ -4205,7 +4207,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" MuiBox-root css-8upnc"
+                      class=" MuiBox-root css-179egsz"
                       data-testid="overview-card-box"
                     >
                       <div
@@ -6865,8 +6867,9 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <a
-                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                       data-gtm="{"id":"cta-click1","label":"News article page 2 - Testing ","action":"/en/frequently-asked-questions/news-article-page/"}"
+                      data-testid="overview-card-box"
                       href="/en/frequently-asked-questions/news-article-page/"
                       tabindex="0"
                       type="button"
@@ -6922,7 +6925,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" MuiBox-root css-8upnc"
+                      class=" MuiBox-root css-179egsz"
                       data-testid="overview-card-box"
                     >
                       <div
@@ -9584,8 +9587,9 @@ exports[`Contact us page render iframe correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <a
-                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                       data-gtm="{"id":"cta-click1","label":"News article page 2 - Testing ","action":"/en/frequently-asked-questions/news-article-page/"}"
+                      data-testid="overview-card-box"
                       href="/en/frequently-asked-questions/news-article-page/"
                       tabindex="0"
                       type="button"
@@ -9641,7 +9645,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" MuiBox-root css-8upnc"
+                      class=" MuiBox-root css-179egsz"
                       data-testid="overview-card-box"
                     >
                       <div
@@ -12303,8 +12307,9 @@ exports[`Contact us page render location correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <a
-                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                       data-gtm="{"id":"cta-click1","label":"News article page 2 - Testing ","action":"/en/frequently-asked-questions/news-article-page/"}"
+                      data-testid="overview-card-box"
                       href="/en/frequently-asked-questions/news-article-page/"
                       tabindex="0"
                       type="button"
@@ -12360,7 +12365,7 @@ exports[`Contact us page render location correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" MuiBox-root css-8upnc"
+                      class=" MuiBox-root css-179egsz"
                       data-testid="overview-card-box"
                     >
                       <div
@@ -15022,8 +15027,9 @@ exports[`Contact us page renders correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <a
-                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1ffvdpe-MuiButtonBase-root"
+                      class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
                       data-gtm="{"id":"cta-click1","label":"News article page 2 - Testing ","action":"/en/frequently-asked-questions/news-article-page/"}"
+                      data-testid="overview-card-box"
                       href="/en/frequently-asked-questions/news-article-page/"
                       tabindex="0"
                       type="button"
@@ -15079,7 +15085,7 @@ exports[`Contact us page renders correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" MuiBox-root css-8upnc"
+                      class=" MuiBox-root css-179egsz"
                       data-testid="overview-card-box"
                     >
                       <div

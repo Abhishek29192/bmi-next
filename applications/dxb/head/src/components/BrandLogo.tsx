@@ -7,6 +7,7 @@ import Logo, {
   Braas,
   Bramac,
   Canopia,
+  Cementegola,
   Cobert,
   Coverland,
   Esha,
@@ -57,6 +58,7 @@ export type Logo =
   | "Braas"
   | "Bramac"
   | "Canopia"
+  | "Cementegola"
   | "Cobert"
   | "Coverland"
   | "Esha"
@@ -112,6 +114,8 @@ export const getLogo = (logo?: Logo | null) => {
       return Bramac;
     case "Canopia":
       return Canopia;
+    case "Cementegola":
+      return Cementegola;
     case "Cobert":
       return Cobert;
     case "Coverland":
