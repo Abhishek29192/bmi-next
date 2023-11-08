@@ -97,6 +97,9 @@ const combineVariantClassifications = (
         mergedFeaturesMap.set(key, productFeature);
       }
     });
+
+    variantClassification.features = Array.from(mergedFeaturesMap.values());
+
     mergedClassifications.set(key, variantClassification);
     logger.info({
       message: `mergedClassifications common and variant classification: ${JSON.stringify(
