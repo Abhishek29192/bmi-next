@@ -336,12 +336,6 @@ const getFeatureValue = (
   const fieldsToUseWithValue = [
     "measurements.length",
     "measurements.width",
-    "tilesAttributes.eaveGauge",
-    "tilesAttributes.eaveGaugeStartAngle",
-    "tilesAttributes.eaveGaugeEndAngle",
-    "tilesAttributes.maxGaugeStartAngle",
-    "tilesAttributes.maxGaugeEndAngle",
-    "tilesAttributes.maximumBattenSpacing",
     "tilesAttributes.minimumBattenSpacing",
     "tilesAttributes.ridgeSpace",
     "tilesAttributes.ridgeSpaceStartAngle",
