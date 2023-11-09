@@ -146,6 +146,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "code": "base-code",
       "name": "name",
     },
+    "battenSpacings": undefined,
     "brandCode": "BMI-brand-code",
     "classifications": [
       {
@@ -439,6 +440,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "code": "base-code",
       "name": "name",
     },
+    "battenSpacings": undefined,
     "brandCode": undefined,
     "classifications": [
       {
@@ -572,6 +574,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "code": "base-code",
       "name": "name",
     },
+    "battenSpacings": undefined,
     "brandCode": undefined,
     "classifications": [
       {
@@ -694,6 +697,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "code": "base-code",
       "name": "name",
     },
+    "battenSpacings": undefined,
     "brandCode": undefined,
     "classifications": [
       {
@@ -987,6 +991,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "code": "base-code",
       "name": "name",
     },
+    "battenSpacings": undefined,
     "brandCode": undefined,
     "classifications": [],
     "code": "variant-code",
@@ -1170,6 +1175,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "code": "base-code",
       "name": "name",
     },
+    "battenSpacings": undefined,
     "brandCode": undefined,
     "classifications": [
       {
@@ -1498,6 +1504,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "code": "base-code",
       "name": "name",
     },
+    "battenSpacings": undefined,
     "brandCode": undefined,
     "classifications": [
       {

@@ -2,7 +2,7 @@ import { graphql } from "gatsby";
 import React, { useMemo } from "react";
 import { Hero, Grid, Section } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
-import { Search, Typography } from "@bmi-digital/components";
+import { Search } from "@bmi-digital/components";
 import Page from "../../components/Page";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import Image from "../../components/Image";
@@ -16,7 +16,11 @@ import { TrainingListerPageProps } from "./types";
 import TrainingCatalogue from "./components/training-catalogue";
 import TrainingNoResults from "./components/training-no-results";
 import { useTrainings } from "./hooks/useTrainings";
-import { CataloguesContainer, SearchWrapper } from "./styles";
+import {
+  CataloguesContainer,
+  SearchWrapper,
+  StyledSearchTitle
+} from "./styles";
 
 const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
   const {
@@ -98,9 +102,7 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
         <Grid container spacing={3}>
           <Grid xs={12} md={12} lg={3}>
             <SearchWrapper>
-              <Typography component="h3" variant="h6">
-                {searchLabel}
-              </Typography>
+              <StyledSearchTitle variant="h5">{searchLabel}</StyledSearchTitle>
               <Search
                 label={searchLabel}
                 value={searchQuery}

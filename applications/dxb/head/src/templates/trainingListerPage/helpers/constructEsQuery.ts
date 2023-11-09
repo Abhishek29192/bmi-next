@@ -1,4 +1,5 @@
 import { Filter } from "@bmi-digital/components";
+import { sanitiseQueryString } from "../../../utils/elasticSearch";
 
 export const constructFiltersQuery = (filters: Filter[]) => {
   const selectedFilters = filters.filter((filter) => filter.value?.length);
@@ -14,9 +15,9 @@ export const constructFiltersQuery = (filters: Filter[]) => {
   }));
 };
 
-export const constructSearchQuery = (searchQuery: string | null) => ({
+export const constructSearchQuery = (searchQuery: string) => ({
   query_string: {
-    query: searchQuery ? `*${searchQuery}*` : "*",
+    query: searchQuery ? `*${sanitiseQueryString(searchQuery)}*` : "*",
     fields: ["code", "name"]
   }
 });

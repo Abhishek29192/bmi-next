@@ -16,6 +16,7 @@ export interface TypeBrandFields {
     | "Braas"
     | "Bramac"
     | "Canopia"
+    | "Cementegola"
     | "Cobert"
     | "Coverland"
     | "Esha"

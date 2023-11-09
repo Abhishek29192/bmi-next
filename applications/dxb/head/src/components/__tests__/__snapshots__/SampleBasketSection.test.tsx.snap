@@ -26,7 +26,8 @@ exports[`SampleBasketSection component renders correctly 1`] = `
           class="css-1yyiycy"
         >
           <button
-            class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1byzjay-MuiButtonBase-root"
+            class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-rctto-MuiButtonBase-root"
+            data-testid="overview-card-box"
             tabindex="0"
             type="button"
           >
@@ -180,7 +181,8 @@ exports[`SampleBasketSection component should render form after complete button 
           class="css-1yyiycy"
         >
           <button
-            class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-1byzjay-MuiButtonBase-root"
+            class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-rctto-MuiButtonBase-root"
+            data-testid="overview-card-box"
             tabindex="0"
             type="button"
           >

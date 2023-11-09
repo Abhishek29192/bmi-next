@@ -2087,9 +2087,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bmi-digital/components@npm:^1.55.2":
-  version: 1.55.2
-  resolution: "@bmi-digital/components@npm:1.55.2"
+"@bmi-digital/components@npm:^1.57.0":
+  version: 1.57.0
+  resolution: "@bmi-digital/components@npm:1.57.0"
   dependencies:
     "@bmi-digital/use-dimensions": ^1.7.5
     "@emotion/react": ^11.11.1
@@ -2122,7 +2122,7 @@ __metadata:
     "@mui/styles": ^5.12.3
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 15b8f68618cd67fe0f0df017d0e8bf87d3b495e189dd5ca4a5587d0b2a65f701d12e487b597057156bf72c75e8c2c255c684d1e8dc9d9a95e42ff3f2fb5f6436
+  checksum: ef6b5f69d1fcea465f5eca501e8da19f78d38819371ad06019b1d1cdda8b580800c51bccbc4cc41f008d9d4092485f538dc2188f7741f4bf46dd3d3fbf0962cc
   languageName: node
   linkType: hard
 
@@ -2514,6 +2514,7 @@ __metadata:
     "@bmi/pub-sub-types": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@elastic/elasticsearch": ^7.17.12
+    "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
     "@types/uuid": ^9.0.3
     "@typescript-eslint/eslint-plugin": ^5.62.0
@@ -2599,7 +2600,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.22.17
     "@babel/plugin-proposal-decorators": ^7.22.15
-    "@bmi-digital/components": ^1.55.2
+    "@bmi-digital/components": ^1.57.0
     "@bmi-digital/react-pdf-maker": ^1.7.5
     "@bmi-digital/styles": ^1.7.5
     "@bmi/gatsby-plugin-material-ui": "workspace:*"
@@ -3708,7 +3709,7 @@ __metadata:
     "@auth0/auth0-react": ^2.2.0
     "@babel/core": ^7.22.17
     "@babel/plugin-proposal-decorators": ^7.22.15
-    "@bmi-digital/components": ^1.55.2
+    "@bmi-digital/components": ^1.57.0
     "@bmi-digital/react-pdf-maker": ^1.7.5
     "@bmi-digital/styles": ^1.7.5
     "@bmi-digital/svg-import": ^1.7.5
