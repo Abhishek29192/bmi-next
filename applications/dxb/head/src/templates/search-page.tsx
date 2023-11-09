@@ -9,7 +9,8 @@ import {
   Tile,
   useIsClient
 } from "@bmi-digital/components";
-import { Article, Folder } from "@mui/icons-material";
+import Article from "@bmi-digital/components/icon/Article";
+import Folder from "@bmi-digital/components/icon/Folder";
 import { useMediaQuery } from "@mui/material";
 import SvgIcon from "@mui/material/SvgIcon";
 import { useTheme } from "@mui/material/styles";

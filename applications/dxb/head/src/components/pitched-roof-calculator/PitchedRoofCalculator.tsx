@@ -1,5 +1,5 @@
 import { ContainerDialog, useIsClient } from "@bmi-digital/components";
-import { BMI as brandLogo } from "@bmi-digital/components/logo";
+import brandLogo from "@bmi-digital/components/logo/Bmi";
 import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import ProgressIndicator from "../ProgressIndicator";

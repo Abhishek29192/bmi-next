@@ -8,7 +8,8 @@ import {
   MasonryGrid,
   Section
 } from "@bmi-digital/components";
-import { Add as AddIcon, Remove as RemoveIcon } from "@mui/icons-material";
+import AddIcon from "@bmi-digital/components/icon/Add";
+import RemoveIcon from "@bmi-digital/components/icon/Remove";
 import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "@bmi/microcopies";

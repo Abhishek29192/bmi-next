@@ -5,7 +5,7 @@ import {
   FooterMenuItem,
   HidePrint
 } from "@bmi-digital/components";
-import { BMI as BmiIcon } from "@bmi-digital/components/logo";
+import BmiIcon from "@bmi-digital/components/logo/Bmi";
 import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "@bmi/microcopies";

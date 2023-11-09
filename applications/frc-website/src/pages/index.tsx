@@ -1,6 +1,6 @@
 import { Button, Grid, Hero, Typography } from "@bmi-digital/components";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import HelpOutlineIcon from "@bmi-digital/components/icon/QuestionMarkOutline";
+import VerifiedUserIcon from "@bmi-digital/components/icon/VerifiedUser";
 import { Link } from "gatsby";
 import queryString from "query-string";
 import React from "react";

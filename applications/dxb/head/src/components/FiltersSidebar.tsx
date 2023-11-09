@@ -12,9 +12,9 @@ import {
 } from "@bmi-digital/components";
 import React, { useMemo, useState } from "react";
 import { Box, GlobalStyles, useMediaQuery, useTheme } from "@mui/material";
-import { Filter } from "@bmi-digital/components/icon";
+import Filter from "@bmi-digital/components/icon/Filter";
 import { microCopy } from "@bmi/microcopies";
-import { Close } from "@mui/icons-material";
+import Close from "@bmi-digital/components/icon/Close";
 import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
 import {

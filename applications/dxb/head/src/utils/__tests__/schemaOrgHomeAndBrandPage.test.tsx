@@ -1,6 +1,6 @@
 import { renderToString } from "react-dom/server";
 import React from "react";
-import { BMI as BmiIcon } from "@bmi-digital/components/logo";
+import BmiIcon from "@bmi-digital/components/logo/Bmi";
 import {
   createSchemaOrgForBrandPage,
   createSchemaOrgForHomeAndBrandPage,

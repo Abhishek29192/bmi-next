@@ -1,5 +1,5 @@
 import { Icon, Table, Typography } from "@bmi-digital/components";
-import { Delete } from "@mui/icons-material";
+import Delete from "@bmi-digital/components/icon/Delete";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";

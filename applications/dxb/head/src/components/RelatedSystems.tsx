@@ -7,10 +7,10 @@ import {
   Section,
   SectionBackgroundColor
 } from "@bmi-digital/components";
-import { CheckMark as CheckMarkIcon } from "@bmi-digital/components/icon";
+import CheckMarkIcon from "@bmi-digital/components/icon/Check";
 import uniqueId from "lodash-es/uniqueId";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
-import { Add as AddIcon } from "@mui/icons-material";
+import AddIcon from "@bmi-digital/components/icon/Add";
 import { graphql, Link } from "gatsby";
 import React, { useState } from "react";
 import { microCopy } from "@bmi/microcopies";
