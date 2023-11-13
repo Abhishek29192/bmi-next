@@ -112,13 +112,6 @@ const tile = createESProduct({
       value: "100"
     }
   ],
-  TILESATTRIBUTES$MAXIMUMBATTENSPACING: [
-    {
-      code: "200",
-      name: "200",
-      value: 200
-    }
-  ],
   TILESATTRIBUTES$RIDGESPACE: [
     {
       code: "10cm",
@@ -126,17 +119,24 @@ const tile = createESProduct({
       value: "10"
     }
   ],
-  TILESATTRIBUTES$EAVEGAUGE: [
-    {
-      code: "24cm",
-      name: "24 cm",
-      value: "24"
-    }
-  ],
   GENERALINFORMATION$PRODUCTTYPE: [
     {
       code: ProductType.tile,
       name: "Main Tile"
+    }
+  ],
+  battenSpacings: [
+    {
+      minAngle: 1,
+      maxAngle: 90,
+      battenDistance: {
+        value: 330,
+        unit: "mm"
+      },
+      firstRowBattenDistance: {
+        value: 380,
+        unit: "mm"
+      }
     }
   ],
   baseProduct: {
@@ -217,8 +217,9 @@ const gutterHook = createESProduct({
   ]
 });
 
+const angle = 30;
 const variant = {
-  ...transformClassificationAttributes([tile], ProductType.tile)[0],
+  ...transformClassificationAttributes([tile], ProductType.tile, [angle])[0],
   packSize: 1,
   ridgeOptions: transformClassificationAttributes([ridgeTile]) as RidgeOption[],
   ventilationHoodOptions: transformClassificationAttributes([
