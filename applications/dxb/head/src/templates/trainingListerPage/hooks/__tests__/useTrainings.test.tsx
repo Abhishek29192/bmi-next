@@ -1,10 +1,9 @@
-import React from "react";
-import { Filter as FilterType } from "@bmi-digital/components";
-import { renderHook } from "@testing-library/react-hooks";
-import { waitFor } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
+import { Filter as FilterType } from "@bmi-digital/components/filters";
 import { createTraining } from "@bmi/elasticsearch-types";
-import { useTrainings } from "../useTrainings";
+import { waitFor } from "@testing-library/react";
+import { renderHook } from "@testing-library/react-hooks";
+import mockConsole from "jest-mock-console";
+import React from "react";
 import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
 import {
   disableFiltersFromAggregations,
@@ -12,9 +11,10 @@ import {
 } from "../../../../utils/elasticSearch";
 import { SHOW_MORE_LIMIT } from "../../constants";
 import {
-  PaginatedTrainingResponse,
-  CollapsedTrainingResponse
+  CollapsedTrainingResponse,
+  PaginatedTrainingResponse
 } from "../../types";
+import { useTrainings } from "../useTrainings";
 
 const esIndexNameTrainings = "dxb-all-trainings_read";
 

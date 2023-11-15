@@ -1,14 +1,17 @@
-import { Button, Grid, Hero, Typography } from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import Grid from "@bmi-digital/components/grid";
+import Hero from "@bmi-digital/components/hero";
 import HelpOutlineIcon from "@bmi-digital/components/icon/QuestionMarkOutline";
 import VerifiedUserIcon from "@bmi-digital/components/icon/VerifiedUser";
+import Typography from "@bmi-digital/components/typography";
 import { Link } from "gatsby";
 import queryString from "query-string";
 import React from "react";
 import Container from "../components/Container";
 import DescriptionCard from "../components/DescriptionCard";
 import OptionCard from "../components/OptionCard";
-import landing from "../images/landing.jpg";
 import { StyledPage } from "../components/styles/PageStyles";
+import landing from "../images/landing.jpg";
 
 const VALUES_PARAM = "v";
 

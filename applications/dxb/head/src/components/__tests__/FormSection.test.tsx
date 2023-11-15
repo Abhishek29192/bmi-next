@@ -1,4 +1,5 @@
-import { replaceSpaces, ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import * as Gatsby from "gatsby";
 import React from "react";

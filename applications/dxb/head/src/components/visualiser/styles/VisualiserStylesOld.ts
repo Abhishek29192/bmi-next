@@ -1,5 +1,6 @@
-import { Button, ContainerDialog } from "@bmi-digital/components";
-import { iconButtonClasses } from "@mui/material";
+import Button from "@bmi-digital/components/button";
+import ContainerDialog from "@bmi-digital/components/container-dialog";
+import { iconButtonClasses } from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 
 const PREFIX = "VisualiserV1";

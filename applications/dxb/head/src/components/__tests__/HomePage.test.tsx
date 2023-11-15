@@ -1,4 +1,4 @@
-import { RegionCode } from "@bmi-digital/components";
+import { RegionCode } from "@bmi-digital/components/language-selection";
 import { render } from "@testing-library/react";
 import React from "react";
 import { Data as BrandData } from "../../components/Brands";

@@ -1,4 +1,4 @@
-import { Table } from "@bmi-digital/components";
+import Table from "@bmi-digital/components/table";
 import { graphql } from "gatsby";
 import React from "react";
 import { StyledEmbeddedTableContainer } from "./styles/EmbeddedTableStyles";

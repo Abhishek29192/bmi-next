@@ -1,4 +1,5 @@
-import { replaceSpaces, Section } from "@bmi-digital/components";
+import Section from "@bmi-digital/components/section";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React from "react";
 import RichText, { RichTextData } from "./RichText";

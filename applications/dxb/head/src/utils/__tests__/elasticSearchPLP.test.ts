@@ -1,4 +1,4 @@
-import { Filter } from "@bmi-digital/components";
+import { Filter } from "@bmi-digital/components/filters";
 import { xferFilterValue } from "../elasticSearchPLP";
 
 describe("syncFilterValue function", () => {

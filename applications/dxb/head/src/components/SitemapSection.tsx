@@ -1,4 +1,4 @@
-import { Section } from "@bmi-digital/components";
+import Section from "@bmi-digital/components/section";
 import React from "react";
 import { NavigationData } from "./Link";
 import SitemapBlock from "./SitemapBlock";

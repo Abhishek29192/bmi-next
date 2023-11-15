@@ -1,9 +1,10 @@
-import { replaceSpaces, Section } from "@bmi-digital/components";
+import Section from "@bmi-digital/components/section";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React from "react";
 import { useHasOptanonBoxClosed } from "../utils/useHasOptanonBoxClosed";
-import { IframeSummary, Iframe } from "./styles/IframeSectionStyles";
 import RichText, { RichTextData } from "./RichText";
+import { Iframe, IframeSummary } from "./styles/IframeSectionStyles";
 
 type CookieTypeToClass = {
   [key: string]: string;

@@ -1,15 +1,16 @@
-import React from "react";
-import { screen } from "@testing-library/react";
-import { ThemeProvider, Filter as FilterType } from "@bmi-digital/components";
+import { Filter as FilterType } from "@bmi-digital/components/filters";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { createTraining } from "@bmi/elasticsearch-types";
-import TrainingListerPage from "../training-lister-page";
-import { TrainingListerPageProps } from "../types";
+import { screen } from "@testing-library/react";
+import React from "react";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
-import { UseTrainings } from "../hooks/useTrainings";
 import TrainingCatalogue from "../components/training-catalogue";
+import { UseTrainings } from "../hooks/useTrainings";
+import TrainingListerPage from "../training-lister-page";
+import { TrainingListerPageProps } from "../types";
 
 const breadcrumbs = [
   {

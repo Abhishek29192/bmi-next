@@ -1,28 +1,27 @@
-import {
-  Button,
-  Icon,
-  OverviewCard,
-  Typography
-} from "@bmi-digital/components";
-import { isDefined } from "@bmi/utils";
+import Button from "@bmi-digital/components/button";
+import Icon from "@bmi-digital/components/icon";
 import Remove from "@bmi-digital/components/icon/Remove";
-import { useMediaQuery, useTheme } from "@mui/material";
+import OverviewCard from "@bmi-digital/components/overview-card";
+import Typography from "@bmi-digital/components/typography";
+import { microCopy } from "@bmi/microcopies";
+import { isDefined } from "@bmi/utils";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { navigate } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import {
   ACTION_TYPES,
   Sample,
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import { getPathWithCountryCode } from "../utils/path";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 import Image from "./Image";
 import { useSiteContext } from "./Site";
 import {
   StyledSampleBasketSection,
   classes
 } from "./styles/SampleBasketSectionProducts.styles";
-import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 const SampleBasketSectionProducts = () => {
   const { basketState, basketDispatch } = useBasketContext();

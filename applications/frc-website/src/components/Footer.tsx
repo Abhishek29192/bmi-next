@@ -1,13 +1,13 @@
-import { Button } from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
 import classnames from "classnames";
 import React from "react";
 import {
   StyledContainer,
   StyledFooter,
-  StyledLogo,
   StyledLink,
+  StyledList,
   StyledListItem,
-  StyledList
+  StyledLogo
 } from "./styles/FooterStyles";
 
 type MenuItem = {

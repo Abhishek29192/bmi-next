@@ -1,13 +1,13 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { createSession } from "@bmi/docebo-types";
 import { LocationProvider } from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { createSession } from "@bmi/docebo-types";
+import { createTraining } from "../../../__tests__/helpers/TrainingHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import TrainingDetailsPage, {
   Props as TrainingProps
 } from "../training-details-page";
-import { createTraining } from "../../../__tests__/helpers/TrainingHelper";
 import type { TrainingDetailsCourseType as Course } from "../types";
 
 const mockPageContext: TrainingProps["pageContext"] = {

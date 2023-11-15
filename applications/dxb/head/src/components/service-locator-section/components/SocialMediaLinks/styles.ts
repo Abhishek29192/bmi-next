@@ -1,4 +1,4 @@
-import { Link } from "@mui/material";
+import Link from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
 import Icon from "../../../../components/Icon";
 

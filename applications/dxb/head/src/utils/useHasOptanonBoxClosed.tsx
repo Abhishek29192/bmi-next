@@ -1,4 +1,4 @@
-import { useIsClient } from "@bmi-digital/components";
+import { useIsClient } from "@bmi-digital/components/hooks";
 import { useCookie } from "@lilib/hooks";
 import { useEffect, useState } from "react";
 

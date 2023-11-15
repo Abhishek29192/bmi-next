@@ -1,12 +1,12 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render } from "@testing-library/react";
 import React from "react";
+import createPimImage from "../../__tests__/helpers/PimImageHelper";
 import {
   BasketContextProvider,
   Sample
 } from "../../contexts/SampleBasketContext";
 import { local } from "../../utils/storage";
-import createPimImage from "../../__tests__/helpers/PimImageHelper";
 import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
 
 const samples: Sample[] = [

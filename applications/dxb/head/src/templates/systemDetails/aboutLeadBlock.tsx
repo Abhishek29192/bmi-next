@@ -1,20 +1,17 @@
-import {
-  AnchorLink,
-  AnchorLinkProps,
-  Button,
-  ButtonProps,
-  IconList,
-  LeadBlock,
-  replaceSpaces,
-  transformHyphens,
-  Typography,
-  useIsClient
-} from "@bmi-digital/components";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import { useIsClient } from "@bmi-digital/components/hooks";
+import IconList from "@bmi-digital/components/icon-list";
 import CheckIcon from "@bmi-digital/components/icon/Check";
 import Launch from "@bmi-digital/components/icon/ExternalLink";
-import React from "react";
-import { Asset } from "@bmi/pim-types";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import Typography from "@bmi-digital/components/typography";
+import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
+import { Asset } from "@bmi/pim-types";
+import React from "react";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import {
   getClickableActionFromUrl,
@@ -25,7 +22,7 @@ import { useSiteContext } from "../../components/Site";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
-import { classes, StyledLeadBlock } from "./styles/aboutLeadBlockStyles";
+import { StyledLeadBlock, classes } from "./styles/aboutLeadBlockStyles";
 
 const GTMButton = withGTM<ButtonProps>(Button);
 

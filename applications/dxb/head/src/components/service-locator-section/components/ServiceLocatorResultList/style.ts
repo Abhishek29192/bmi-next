@@ -1,5 +1,7 @@
-import { styled } from "@mui/material";
-import { Logo, Pagination, Typography } from "@bmi-digital/components";
+import Logo from "@bmi-digital/components/logo";
+import Pagination from "@bmi-digital/components/pagination";
+import Typography from "@bmi-digital/components/typography";
+import { styled } from "@mui/material/styles";
 
 interface StyleProps {
   pageCount: number;

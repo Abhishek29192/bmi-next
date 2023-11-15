@@ -1,4 +1,5 @@
-import { Section, tabsClasses } from "@bmi-digital/components";
+import Section from "@bmi-digital/components/section";
+import { tabsClasses } from "@bmi-digital/components/tabs";
 import { styled } from "@mui/material/styles";
 
 type Classes = {

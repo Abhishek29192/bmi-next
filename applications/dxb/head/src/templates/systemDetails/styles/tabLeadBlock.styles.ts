@@ -1,5 +1,5 @@
+import Tabs from "@bmi-digital/components/tabs";
 import { styled } from "@mui/material/styles";
-import { Tabs } from "@bmi-digital/components";
 import AssetsIframe from "../../../components/AssetsIframe";
 
 export const StyledSDPTabLeadBlock = styled(Tabs)(({ theme }) => ({

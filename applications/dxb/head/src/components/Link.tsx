@@ -1,9 +1,7 @@
-import {
-  Button,
-  ClickableAction,
-  Dialog,
-  transformHyphens
-} from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import { ClickableAction } from "@bmi-digital/components/clickable";
+import Dialog from "@bmi-digital/components/dialog";
+import { transformHyphens } from "@bmi-digital/components/utils";
 import { Link as GatsbyLink, graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
 import React, { useCallback, useContext, useMemo, useState } from "react";

@@ -1,9 +1,9 @@
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { renderHook, RenderHookResult } from "@testing-library/react";
-import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
+import { getMockSiteContext } from "../components/__tests__/utils/SiteContextProvider";
 import { fallbackGetMicroCopy } from "../components/MicroCopy";
 import { SiteContextProvider } from "../components/Site";
-import { getMockSiteContext } from "../components/__tests__/utils/SiteContextProvider";
 
 type RenderHookWithProviders = <P, R>(
   customHook: (...args: P[]) => R

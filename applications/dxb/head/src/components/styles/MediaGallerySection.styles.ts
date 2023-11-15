@@ -1,5 +1,5 @@
+import Grid from "@bmi-digital/components/grid";
 import { styled } from "@mui/material/styles";
-import { Grid } from "@bmi-digital/components";
 
 export const StyledDescription = styled("div")(({ theme }) => ({
   paddingBottom: "32px"

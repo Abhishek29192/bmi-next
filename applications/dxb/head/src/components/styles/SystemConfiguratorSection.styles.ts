@@ -1,5 +1,5 @@
+import Section from "@bmi-digital/components/section";
 import { styled } from "@mui/material/styles";
-import { Section } from "@bmi-digital/components";
 
 export const StyledSectionTitle = styled(Section.Title)(({ theme }) => ({
   marginBottom: "30px"

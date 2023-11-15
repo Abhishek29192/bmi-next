@@ -1,4 +1,6 @@
-import { Chip, ChipProps, Grid, replaceSpaces } from "@bmi-digital/components";
+import Chip, { ChipProps } from "@bmi-digital/components/chip";
+import Grid from "@bmi-digital/components/grid";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import React from "react";
 import withGTM from "../../../../utils/google-tag-manager";
 import { ServiceTypeFilter, ServiceTypesPrefixesEnum } from "../../../Service";

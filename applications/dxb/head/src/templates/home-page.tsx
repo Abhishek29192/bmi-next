@@ -1,13 +1,10 @@
-import {
-  Button,
-  ButtonProps,
-  CarouselHero,
-  Search,
-  useIsClient
-} from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import CarouselHero from "@bmi-digital/components/carousel-hero";
+import { useIsClient } from "@bmi-digital/components/hooks";
+import Search from "@bmi-digital/components/search";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import Brands, { Data as BrandData } from "../components/Brands";
 import OverlapCards, {
   Data as OverlapCardData
@@ -20,8 +17,8 @@ import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { getHeroItemsWithContext } from "./helpers/getHeroItemsWithContext";
-import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
+import type { Data as SlideData } from "../components/Promo";
 
 export type HomepageData = {
   __typename: "ContentfulHomePage";

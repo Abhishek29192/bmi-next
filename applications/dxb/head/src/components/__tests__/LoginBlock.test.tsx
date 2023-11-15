@@ -1,9 +1,9 @@
-import React from "react";
-import { ThemeProvider } from "@bmi-digital/components";
-import { render, screen, fireEvent } from "@testing-library/react";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { AuthService } from "@bmi/gatsby-theme-auth0";
 import { useAuthType } from "@bmi/gatsby-theme-auth0/src/hooks/useAuth";
+import { fireEvent, render, screen } from "@testing-library/react";
 import * as gatsby from "gatsby";
+import React from "react";
 import LoginBlock from "../LoginBlock";
 
 const navigateSpy = jest.spyOn(gatsby, "navigate");

@@ -1,6 +1,8 @@
+import ContainerDialog from "@bmi-digital/components/container-dialog";
+import Logo from "@bmi-digital/components/logo";
+import { iconButtonClasses } from "@mui/material/IconButton";
+import LinearProgress from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
-import { ContainerDialog, Logo } from "@bmi-digital/components";
-import { LinearProgress, iconButtonClasses } from "@mui/material";
 
 const PREFIX = "PitchedRoofCalculator";
 

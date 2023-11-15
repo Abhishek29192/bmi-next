@@ -1,5 +1,7 @@
+import Button from "@bmi-digital/components/button";
+import Section from "@bmi-digital/components/section";
+import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
-import { Button, Section, Typography } from "@bmi-digital/components";
 import FormSection from "../FormSection";
 import FieldContainer from "./subcomponents/_FieldContainer";
 

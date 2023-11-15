@@ -1,4 +1,4 @@
-import { withFormControl } from "@bmi-digital/components";
+import { withFormControl } from "@bmi-digital/components/form";
 import InputBase, { InputBaseProps } from "@mui/material/InputBase";
 import React from "react";
 

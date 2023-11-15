@@ -1,10 +1,7 @@
-import {
-  Grid,
-  RadioPane,
-  RadioPaneProps,
-  replaceSpaces,
-  Section
-} from "@bmi-digital/components";
+import Grid from "@bmi-digital/components/grid";
+import RadioPane, { RadioPaneProps } from "@bmi-digital/components/radio-pane";
+import Section from "@bmi-digital/components/section";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { navigate, useLocation } from "@reach/router";
 import { graphql } from "gatsby";
@@ -31,13 +28,13 @@ import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
-import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
 import ProgressIndicator from "./ProgressIndicator";
 import { SystemCard } from "./RelatedSystems";
 import RichText, { RichTextData } from "./RichText";
 import Scrim from "./Scrim";
 import { useSiteContext } from "./Site";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
+import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
 import {
   StyledSectionDescription,
   StyledSectionTitle

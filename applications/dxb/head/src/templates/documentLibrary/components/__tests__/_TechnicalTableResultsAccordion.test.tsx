@@ -1,4 +1,4 @@
-import { DownloadListContext } from "@bmi-digital/components";
+import { DownloadListContext } from "@bmi-digital/components/download-list";
 import {
   createFullyPopulatedPimProductDocument,
   createPimProductDocument,

@@ -1,12 +1,12 @@
-import {
-  CardCheckboxGroup as CheckBoxGroup,
-  CardCheckboxGroupProps,
-  CardRadioGroup as RadioGroup,
-  CardRadioGroupProps,
-  WithFormControlProps
-} from "@bmi-digital/components";
-import React from "react";
+import CheckBoxGroup, {
+  CardCheckboxGroupProps
+} from "@bmi-digital/components/card-checkbox-group";
+import RadioGroup, {
+  CardRadioGroupProps
+} from "@bmi-digital/components/card-radio-group";
+import { WithFormControlProps } from "@bmi-digital/components/form";
 import classnames from "classnames";
+import React from "react";
 import {
   classes,
   StyledCardCheckboxGroup,

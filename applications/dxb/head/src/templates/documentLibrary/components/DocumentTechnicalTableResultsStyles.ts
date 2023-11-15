@@ -1,10 +1,7 @@
-import { Accordion } from "@bmi-digital/components";
-import {
-  accordionSummaryClasses,
-  alpha,
-  formControlLabelClasses
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
+import Accordion from "@bmi-digital/components/accordion";
+import { accordionSummaryClasses } from "@mui/material/AccordionSummary";
+import { formControlLabelClasses } from "@mui/material/FormControlLabel";
+import { alpha, styled } from "@mui/material/styles";
 import { DocumentTitle } from "../../../components/DocumentSimpleTableResultCommon";
 
 const PREFIX = "DocumentTechnicalTableResults";

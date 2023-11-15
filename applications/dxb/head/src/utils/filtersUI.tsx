@@ -1,4 +1,4 @@
-import { Filter } from "@bmi-digital/components";
+import { Filter } from "@bmi-digital/components/filters";
 import { styled } from "@mui/material/styles";
 import React from "react";
 import ColorSwatch, { COLOR_CODES } from "../components/ColorSwatch";

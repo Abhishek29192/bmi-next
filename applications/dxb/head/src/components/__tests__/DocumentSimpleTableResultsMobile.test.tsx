@@ -1,7 +1,7 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { ApprovalStatus } from "@bmi/pim-types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { ApprovalStatus } from "@bmi/pim-types";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument, {

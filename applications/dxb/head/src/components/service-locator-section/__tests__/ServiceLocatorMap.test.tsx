@@ -1,12 +1,14 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { MapProps, ServiceLocatorMap } from "../components";
-import { imageData, selectedRooferMock } from "../__mocks__/markers";
 import createService from "../../../__tests__/helpers/ServiceHelper";
+import { imageData, selectedRooferMock } from "../__mocks__/markers";
+import { MapProps, ServiceLocatorMap } from "../components";
 
-jest.mock("@bmi-digital/components", () => {
-  const originalModule = jest.requireActual("@bmi-digital/components");
+jest.mock("@bmi-digital/components/google-map", () => {
+  const originalModule = jest.requireActual(
+    "@bmi-digital/components/google-map"
+  );
   const GoogleMap = jest.fn().mockImplementation(({ children }) => {
     return (
       <div className="GoogleMap">
@@ -18,7 +20,8 @@ jest.mock("@bmi-digital/components", () => {
 
   return {
     ...originalModule,
-    GoogleMap
+    __esModule: true,
+    default: GoogleMap
   };
 });
 

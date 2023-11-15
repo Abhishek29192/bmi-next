@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { BLOCKS } from "@contentful/rich-text-types";
 import * as ReactRouter from "@reach/router";
 import {

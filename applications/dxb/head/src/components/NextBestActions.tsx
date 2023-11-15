@@ -1,20 +1,18 @@
-import {
-  AnchorLink,
-  Colors,
-  Grid,
-  NBACard,
-  Section,
-  transformHyphens,
-  withClickable
-} from "@bmi-digital/components";
+import AnchorLink from "@bmi-digital/components/anchor-link";
+import { withClickable } from "@bmi-digital/components/clickable";
+import { Colors } from "@bmi-digital/components/color-pair";
+import Grid from "@bmi-digital/components/grid";
+import NBACard from "@bmi-digital/components/nba-card";
+import Section from "@bmi-digital/components/section";
+import { transformHyphens } from "@bmi-digital/components/utils";
+import { microCopy } from "@bmi/microcopies";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import { getCTA } from "./Link";
 import { useSiteContext } from "./Site";
-import type { Data as PromoData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
+import type { Data as PromoData } from "../components/Promo";
 
 export type Data = (PromoData | PageInfoData)[];
 

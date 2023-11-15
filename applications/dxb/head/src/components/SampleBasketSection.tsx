@@ -1,8 +1,9 @@
-import { Button, Section } from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import ShoppingCart from "@bmi-digital/components/icon/ShoppingCart";
-import React, { useEffect, useState } from "react";
+import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
+import React, { useEffect, useState } from "react";
 import {
   ACTION_TYPES,
   SampleOrderElement,

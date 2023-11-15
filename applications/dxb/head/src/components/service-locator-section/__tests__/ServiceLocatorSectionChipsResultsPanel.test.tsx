@@ -1,8 +1,8 @@
-import { ThemeProvider } from "@bmi-digital/components";
-import React from "react";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { screen } from "@testing-library/react";
-import { renderWithRouter } from "../../../test/renderWithRouter";
+import React from "react";
 import createService from "../../../__tests__/helpers/ServiceHelper";
+import { renderWithRouter } from "../../../test/renderWithRouter";
 import { EntryTypeEnum } from "../../Service";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType

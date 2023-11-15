@@ -1,6 +1,7 @@
-import { alpha, formControlLabelClasses, checkboxClasses } from "@mui/material";
+import { checkboxClasses } from "@mui/material/Checkbox";
+import { formControlLabelClasses } from "@mui/material/FormControlLabel";
 import { tooltipClasses } from "@mui/material/Tooltip";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 
 const PREFIX = "documentSimpleTableResultsMobile";
 export const classes = {

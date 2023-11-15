@@ -1,4 +1,4 @@
-import { GlobalStyles } from "@mui/material";
+import GlobalStyles from "@mui/material/GlobalStyles";
 import React from "react";
 
 export const globalStyles = (

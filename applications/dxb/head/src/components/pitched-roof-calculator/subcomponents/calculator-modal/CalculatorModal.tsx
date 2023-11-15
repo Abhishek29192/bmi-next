@@ -1,12 +1,10 @@
-import {
-  Button,
-  Container,
-  DialogClassNameContext,
-  Logo
-} from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import Container from "@bmi-digital/components/container";
+import { DialogClassNameContext } from "@bmi-digital/components/dialog";
+import CloseIcon from "@bmi-digital/components/icon/Close";
+import Logo from "@bmi-digital/components/logo";
 import brandLogo from "@bmi-digital/components/logo/Bmi";
 import { SVGImport } from "@bmi-digital/svg-import";
-import CloseIcon from "@bmi-digital/components/icon/Close";
 import Fade from "@mui/material/Fade";
 import Modal, { ModalProps } from "@mui/material/Modal";
 import classnames from "classnames";

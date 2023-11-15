@@ -1,8 +1,8 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
 import React from "react";
-import { BLOCKS } from "@contentful/rich-text-types";
 import RichText, { RichTextData } from "../RichText";
 
 describe("RichText component", () => {

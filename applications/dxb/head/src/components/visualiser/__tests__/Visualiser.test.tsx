@@ -1,11 +1,11 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { createProduct } from "@bmi/elasticsearch-types";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
 import React, { useEffect } from "react";
-import { sidingsSetData } from "../index";
 import Visualiser from "../Visualiser";
+import { sidingsSetData } from "../index";
 import sidingMock from "./__mocks__/siding";
 
 const mockChildComponent = jest.fn();

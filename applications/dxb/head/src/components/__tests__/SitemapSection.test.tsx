@@ -1,7 +1,7 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
+import { DataTypeEnum, Data as LinkData, NavigationData } from "../Link";
 import SitemapSection from "../SitemapSection";
 
 describe("SitemapSection component", () => {

@@ -1,6 +1,6 @@
-import { AlertBanner } from "@bmi-digital/components";
-import React from "react";
+import AlertBanner from "@bmi-digital/components/alert-banner";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import { useSiteContext } from "../../../components/Site";
 
 export const DownloadListAlertBanner = () => {

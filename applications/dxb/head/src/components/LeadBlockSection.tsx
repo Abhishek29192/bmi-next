@@ -1,15 +1,14 @@
-import {
-  AnchorLink,
-  AnchorLinkProps,
-  Button,
-  LeadBlock,
-  Section
-} from "@bmi-digital/components";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
+import Button from "@bmi-digital/components/button";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import Section from "@bmi-digital/components/section";
+import { microCopy } from "@bmi/microcopies";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";

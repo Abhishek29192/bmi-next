@@ -1,4 +1,4 @@
-import { RoofProLevel } from "@bmi-digital/components";
+import { RoofProLevel } from "@bmi-digital/components/company-details";
 import { graphql } from "gatsby";
 import { Data as ContentfulImageData } from "./Image";
 import { Data as ServiceType } from "./ServiceType";

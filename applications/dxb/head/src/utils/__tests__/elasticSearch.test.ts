@@ -1,4 +1,4 @@
-import { Filter } from "@bmi-digital/components";
+import { Filter } from "@bmi-digital/components/filters";
 import { ApprovalStatus } from "@bmi/pim-types";
 import {
   Aggregations,

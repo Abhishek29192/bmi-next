@@ -1,25 +1,22 @@
 import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
-import {
-  AnchorLink,
-  Button,
-  ButtonProps,
-  Checkbox,
-  Form,
-  getFileSizeString,
-  Grid,
-  InputValue,
-  RadioGroup,
-  replaceSpaces,
-  Section,
-  Select,
-  SelectMenuItem,
-  TextField,
-  Typography,
-  Upload,
-  useIsClient
-} from "@bmi-digital/components";
+import AnchorLink from "@bmi-digital/components/anchor-link";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Checkbox from "@bmi-digital/components/checkbox";
+import Form, { InputValue } from "@bmi-digital/components/form";
+import Grid from "@bmi-digital/components/grid";
+import { useIsClient } from "@bmi-digital/components/hooks";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
+import RadioGroup from "@bmi-digital/components/radio-group";
+import Section from "@bmi-digital/components/section";
+import Select, {
+  MenuItem as SelectMenuItem
+} from "@bmi-digital/components/select";
+import TextField from "@bmi-digital/components/text-field";
+import Typography from "@bmi-digital/components/typography";
+import Upload, { getFileSizeString } from "@bmi-digital/components/upload";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import logger from "@bmi-digital/functions-logger";
+import { microCopy } from "@bmi/microcopies";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
@@ -33,7 +30,6 @@ import React, {
 } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
-import { microCopy } from "@bmi/microcopies";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { useConfig } from "../contexts/ConfigProvider";
 import { isValidEmail } from "../utils/emailUtils";
@@ -43,15 +39,15 @@ import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
-import { isExternalUrl, Data as LinkData } from "./Link";
+import { Data as LinkData, isExternalUrl } from "./Link";
 import ProgressIndicator from "./ProgressIndicator";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import {
-  classes,
   HubspotFormWrapper,
-  StyledForm
+  StyledForm,
+  classes
 } from "./styles/FormSectionStyles";
 import { SourceType } from "./types/FormSectionTypes";
 

@@ -1,32 +1,34 @@
-import {
-  Accordion,
-  AccordionSummaryProps,
-  Button,
-  Checkbox,
-  CheckboxProps,
-  Filter as FilterType,
+import Accordion, {
+  AccordionSummaryProps
+} from "@bmi-digital/components/accordion";
+import Button from "@bmi-digital/components/button";
+import Checkbox, { CheckboxProps } from "@bmi-digital/components/checkbox";
+import Filters, {
   FilterProps,
-  Filters,
-  Icon,
-  Typography
-} from "@bmi-digital/components";
-import React, { useMemo, useState } from "react";
-import { Box, GlobalStyles, useMediaQuery, useTheme } from "@mui/material";
-import Filter from "@bmi-digital/components/icon/Filter";
-import { microCopy } from "@bmi/microcopies";
+  Filter as FilterType
+} from "@bmi-digital/components/filters";
+import Icon from "@bmi-digital/components/icon";
 import Close from "@bmi-digital/components/icon/Close";
+import Filter from "@bmi-digital/components/icon/Filter";
+import Typography from "@bmi-digital/components/typography";
+import { microCopy } from "@bmi/microcopies";
+import Box from "@mui/material/Box";
+import GlobalStyles from "@mui/material/GlobalStyles";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import React, { useMemo, useState } from "react";
 import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
 import {
   ClearAllButton,
   MobileFiltersContainer,
-  StyledFilterIcon,
-  classes,
+  MobileFiltersHeaderContainer,
   Root,
+  ShowResultsButton,
   ShowResultsContainer,
   StyledDrawer,
-  ShowResultsButton,
-  MobileFiltersHeaderContainer
+  StyledFilterIcon,
+  classes
 } from "./styles/FilterSidebarStyles";
 
 export type Props = {

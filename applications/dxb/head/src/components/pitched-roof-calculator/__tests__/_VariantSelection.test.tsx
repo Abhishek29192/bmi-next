@@ -1,10 +1,11 @@
-import { FormContext, ThemeProvider } from "@bmi-digital/components";
+import { FormContext } from "@bmi-digital/components/form";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
+import VariantSelection from "../_VariantSelection";
 import { AnalyticsContext } from "../helpers/analytics";
 import { MicroCopy } from "../helpers/microCopy";
 import { Tile } from "../types";
-import VariantSelection from "../_VariantSelection";
 import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
 

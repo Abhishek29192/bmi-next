@@ -1,9 +1,9 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import createProduct from "../../__tests__/helpers/ProductHelper";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
 import { Product } from "../../types/pim";
-import createProduct from "../../__tests__/helpers/ProductHelper";
 import { Data as PageInfoData } from "../PageInfo";
 import SampleOrderSection from "../SampleOrderSection";
 import { SiteContextProvider } from "../Site";

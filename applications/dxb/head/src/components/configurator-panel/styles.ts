@@ -1,10 +1,9 @@
 import { styled } from "@mui/material/styles";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary, {
   accordionSummaryClasses
-} from "@mui/material";
+} from "@mui/material/AccordionSummary";
 
 const PREFIX = "configuratorPanelStyles";
 export const classes = {

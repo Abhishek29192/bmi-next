@@ -3755,7 +3755,6 @@ __metadata:
     "@types/file-saver": ^2.0.5
     "@types/font": "workspace:*"
     "@types/google-maps": ^3.2.3
-    "@types/lodash-es": ^4.17.9
     "@types/node": ^18.17.15
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
@@ -3817,7 +3816,6 @@ __metadata:
     jest-environment-jsdom: ^29.5.0
     jest-preset-gatsby: ^1.0.134
     jsonfile: ^6.1.0
-    lodash-es: ^4.17.21
     node-fetch: ^2.7.0
     prettier: ^2.8.8
     process-top: ^1.2.0

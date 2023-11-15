@@ -1,11 +1,11 @@
-import React from "react";
+import Button from "@bmi-digital/components/button";
 import { AuthService, useAuth } from "@bmi/gatsby-theme-auth0";
-import { Button } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
 import { navigate } from "gatsby";
+import React from "react";
 import { getPathWithCountryCode } from "../utils/path";
-import { LoginBlockStyles } from "./styles/LoginBlock";
 import { useSiteContext } from "./Site";
+import { LoginBlockStyles } from "./styles/LoginBlock";
 
 const LoginBlock = () => {
   const { isLoggedIn, profile } = useAuth();

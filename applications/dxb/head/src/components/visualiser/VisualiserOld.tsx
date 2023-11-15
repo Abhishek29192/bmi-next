@@ -1,21 +1,17 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  ContainerDialog,
-  Grid,
-  Logo,
-  SelectRoof,
-  SelectTile,
-  SelectWallColour,
-  TileColour,
-  ToggleCard,
-  Typography
-} from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import Card, { CardActions, CardContent } from "@bmi-digital/components/card";
+import ContainerDialog from "@bmi-digital/components/container-dialog";
+import Grid from "@bmi-digital/components/grid";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
-import BMI from "@bmi-digital/components/logo/Bmi";
+import SelectRoof from "@bmi-digital/components/icon/SelectRoof";
+import SelectTile from "@bmi-digital/components/icon/SelectTile";
+import SelectWallColour from "@bmi-digital/components/icon/SelectWallColour";
 import ShareIcon from "@bmi-digital/components/icon/Share";
+import TileColour from "@bmi-digital/components/icon/TileColour";
+import Logo from "@bmi-digital/components/logo";
+import BMI from "@bmi-digital/components/logo/Bmi";
+import ToggleCard from "@bmi-digital/components/toggle-card";
+import Typography from "@bmi-digital/components/typography";
 import Popover from "@mui/material/Popover";
 import SvgIcon from "@mui/material/SvgIcon";
 import classnames from "classnames";
@@ -29,19 +25,19 @@ import React, {
   useState
 } from "react";
 import ProgressIndicator from "../ProgressIndicator";
-import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
-import { useMicroCopy } from "./helpers/useMicroCopy";
 import HouseViewerOld from "./HouseViewerOld";
+import TileViewer from "./TileViewerOld";
+import { Colour, Material, Siding, Tile } from "./Types";
+import { microCopy } from "./constants/microCopy";
+import { useMicroCopy } from "./helpers/useMicroCopy";
 import {
-  classes,
   StyledActions,
   StyledContainerDialog,
   StyledShareButton,
-  StyledSharePopover
+  StyledSharePopover,
+  classes
 } from "./styles/VisualiserStylesOld";
-import TileViewer from "./TileViewerOld";
-import { Colour, Material, Siding, Tile } from "./Types";
 
 const MATERIAL_NAME_MAP: {
   [material in Material]: string;

@@ -1,22 +1,17 @@
-import {
-  Button,
-  ButtonProps,
-  Carousel,
-  Chip,
-  ChipProps,
-  Grid,
-  OverviewCard,
-  replaceSpaces,
-  Section,
-  transformHyphens,
-  Typography,
-  withClickable
-} from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Carousel from "@bmi-digital/components/carousel";
+import Chip, { ChipProps } from "@bmi-digital/components/chip";
+import { withClickable } from "@bmi-digital/components/clickable";
+import Grid from "@bmi-digital/components/grid";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
+import OverviewCard from "@bmi-digital/components/overview-card";
+import Section from "@bmi-digital/components/section";
+import Typography from "@bmi-digital/components/typography";
+import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
+import { microCopy } from "@bmi/microcopies";
 import { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";
-import { microCopy } from "@bmi/microcopies";
 import withGTM from "../utils/google-tag-manager";
 import BrandLogo from "./BrandLogo";
 import Image from "./Image";
@@ -25,19 +20,19 @@ import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
+import { TagData } from "./Tag";
+import Video from "./Video";
 import {
   CardCollectionSectionContainer,
-  classes,
+  CardDate,
+  StyledButtonBase,
   StyledChips,
   StyledClearAllButton,
   StyledGroupChips,
   StyledShowMoreGrid,
   StyledTitle,
-  StyledButtonBase,
-  CardDate
+  classes
 } from "./styles/CardCollectionSectionStyles";
-import { TagData } from "./Tag";
-import Video from "./Video";
 
 type Card = PageInfoData | PromoData;
 

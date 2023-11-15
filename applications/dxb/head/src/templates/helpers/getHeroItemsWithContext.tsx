@@ -1,6 +1,7 @@
-import { Button, CarouselHeroItem } from "@bmi-digital/components";
-import React from "react";
+import Button from "@bmi-digital/components/button";
+import { CarouselHeroItem } from "@bmi-digital/components/carousel-hero";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import Image from "../../components/Image";
 import Link from "../../components/Link";
 import { Context as SiteContext } from "../../components/Site";

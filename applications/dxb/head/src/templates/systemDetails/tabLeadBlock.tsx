@@ -1,7 +1,9 @@
-import { LeadBlock, Section, Tabs } from "@bmi-digital/components";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import Section from "@bmi-digital/components/section";
+import Tabs from "@bmi-digital/components/tabs";
+import { microCopy } from "@bmi/microcopies";
 import Tab, { TabProps } from "@mui/material/Tab";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
 import RichText, { RichTextData } from "../../components/RichText";
 import { useSiteContext } from "../../components/Site";
@@ -10,11 +12,11 @@ import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
 import AboutLeadBlock from "./aboutLeadBlock";
 import DocumentLeadBlock from "./documentsLeadBlock";
-import TechnicalSpecificationLeadBlock from "./technicalSpecificationLeadBlock";
 import {
   StyledSDPTabLeadBlock,
   StyledSDPTabLeadBlockAssetIframe
 } from "./styles/tabLeadBlock.styles";
+import TechnicalSpecificationLeadBlock from "./technicalSpecificationLeadBlock";
 
 type Props = {
   system: System;

@@ -1,5 +1,5 @@
+import Section from "@bmi-digital/components/section";
 import { styled } from "@mui/material/styles";
-import { Section } from "@bmi-digital/components";
 
 export const IframeSummary = styled(Section)(({ theme }) => ({
   marginBottom: "32px"
