@@ -271,6 +271,11 @@ export const transformProduct = (
       variant.approvalStatus = ApprovalStatus.Discontinued;
     }
 
+    const baseProductAndCategoryAssets = [
+      ...(product.assets || []),
+      ...(variant.categoryAssets || product.categoryAssets || [])
+    ];
+
     const transformedProduct: Product = {
       approvalStatus: allowPreviewStatus
         ? ApprovalStatus.Preview
@@ -279,15 +284,15 @@ export const transformProduct = (
             | ApprovalStatus.Discontinued),
       awardsAndCertificateDocuments: getAwardAndCertificateAsset(
         AwardAndCertificateAssetType.Documents,
-        product.assets
+        baseProductAndCategoryAssets
       ),
       awardsAndCertificateImages: getAwardAndCertificateAsset(
         AwardAndCertificateAssetType.Images,
-        product.assets
+        baseProductAndCategoryAssets
       ),
       baseCode: product.code,
       baseScoringWeight: getScoringWeight(product.classifications),
-      bimIframeUrl: getBim(product.assets)?.url,
+      bimIframeUrl: getBim(baseProductAndCategoryAssets)?.url,
       brand: getBrand(product.categories),
       categories: getCategories(product.categories || []),
       classifications: getClassification(classifications),
@@ -303,7 +308,7 @@ export const transformProduct = (
       externalProductCode:
         variant.externalProductCode ?? product.externalProductCode,
       filters: getFilters(classificationsForFilters, product.categories || []),
-      fixingToolIframeUrl: product.assets?.find(
+      fixingToolIframeUrl: baseProductAndCategoryAssets.find(
         (asset) => asset.assetType === "FIXING_TOOL"
       )?.url,
       galleryImages: mapImages(groupedImages, "GALLERY"),
@@ -311,11 +316,11 @@ export const transformProduct = (
       groups: getGroups(product.categories || []),
       guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
         GuaranteesAndWarrantiesAssetType.Images,
-        product.assets
+        baseProductAndCategoryAssets
       ),
       guaranteesAndWarrantiesLinks: getGuaranteesAndWarrantiesAsset(
         GuaranteesAndWarrantiesAssetType.Links,
-        product.assets
+        baseProductAndCategoryAssets
       ),
       hashedCode,
       isSampleOrderAllowed:
@@ -351,7 +356,7 @@ export const transformProduct = (
         variant.code,
         handlePreviewProducts
       ),
-      specificationIframeUrl: product.assets?.find(
+      specificationIframeUrl: baseProductAndCategoryAssets.find(
         (asset) => asset.assetType === "SPECIFICATION"
       )?.url,
       techDrawings: mapImages(groupedImages, "TECHNICAL_DRAWINGS"),
@@ -361,7 +366,7 @@ export const transformProduct = (
         "appearanceAttributes.texturefamily"
       ),
       variantAttribute,
-      videos: (product.assets || [])
+      videos: baseProductAndCategoryAssets
         .filter((asset) => asset.assetType === "VIDEO")
         .map((asset) => ({
           title: "",
@@ -743,7 +748,12 @@ const mapProductDocuments = (
     parentCategoryCode: category.parentCategoryCode
   }));
 
-  return mapDocuments(variant.assets || baseProduct.assets).map((document) => ({
+  const assets = [
+    ...(variant.assets || baseProduct.assets || []),
+    ...(variant.categoryAssets || baseProduct.categoryAssets || [])
+  ];
+
+  return mapDocuments(assets).map((document) => ({
     ...document,
     productBaseCode: baseProduct.code,
     productName: baseProduct.name || "",

@@ -75,11 +75,8 @@ const isPDFAsset = (asset: PimAsset) => {
 
 export const getGuaranteesAndWarrantiesAsset = (
   type: GuaranteesAndWarrantiesAssetType,
-  assets?: readonly PimAsset[]
+  assets: readonly PimAsset[]
 ) => {
-  if (!assets) {
-    return [];
-  }
   const guaranteesAndWarranties = assets.filter(
     (asset) =>
       asset.assetType === "GUARANTIES" || asset.assetType === "WARRANTIES"
@@ -94,11 +91,8 @@ export const getGuaranteesAndWarrantiesAsset = (
 
 export const getAwardAndCertificateAsset = (
   type: AwardAndCertificateAssetType,
-  assets?: readonly PimAsset[]
+  assets: readonly PimAsset[]
 ) => {
-  if (!assets) {
-    return [];
-  }
   const awardAndCertificates = assets.filter(
     (asset) =>
       asset.assetType === "AWARDS" || asset.assetType === "CERTIFICATES"

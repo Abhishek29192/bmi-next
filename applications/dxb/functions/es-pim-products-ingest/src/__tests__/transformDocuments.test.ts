@@ -1804,4 +1804,188 @@ describe("transformDocuments", () => {
     const transformedDocuments = await transformDocuments(product, locale);
     expect(transformedDocuments[0].validUntil).toBe(expectedResult);
   });
+
+  it("should return an empty array if both assets and categoryAssets fields are not defined for product", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const assetType = createContentfulAssetType({ pimCode });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createProduct({
+      assets: undefined,
+      categoryAssets: undefined,
+      variantOptions: [
+        createVariantOption({ assets: undefined, categoryAssets: undefined })
+      ]
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments).toEqual([]);
+  });
+
+  it("should return an empty array if both assets and categoryAssets fields are not defined for system", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const assetType = createContentfulAssetType({ pimCode });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createSystem({
+      assets: undefined,
+      categoryAssets: undefined
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments).toEqual([]);
+  });
+
+  it("should use categoryAssets of variant product if provided", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const variantCategoryAsset = createAsset({
+      name: "variant category asset",
+      assetType: pimCode
+    });
+    const baseProductCategoryAsset = createAsset({
+      name: "base product category asset",
+      assetType: pimCode
+    });
+    const assetType = createContentfulAssetType({ pimCode });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createProduct({
+      assets: [],
+      categoryAssets: [baseProductCategoryAsset],
+      variantOptions: [
+        createVariantOption({
+          assets: [],
+          categoryAssets: [variantCategoryAsset]
+        })
+      ]
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments).toEqual([
+      {
+        __typename: "PIMDocument",
+        approvalStatus: "approved",
+        assetType: {
+          code: "contentful asset type code",
+          name: "contentful asset type name",
+          pimCode: "ASSEMBLY_INSTRUCTIONS"
+        },
+        extension: "pdf",
+        fileSize: 10,
+        format: "application/pdf",
+        id: "uniqueId",
+        isLinkDocument: false,
+        noIndex: false,
+        productBaseCode: "base-code",
+        productName: "variant-name",
+        realFileName: "real-file-name.pdf",
+        title: undefined,
+        titleAndSize: "variant category asset_10",
+        url: "http://localhost:8000",
+        validUntil: undefined
+      }
+    ]);
+  });
+
+  it("should use categoryAssets of base product if categoryAssets of variant product are not defined", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const baseProductCategoryAsset = createAsset({
+      name: "base product category asset",
+      assetType: pimCode
+    });
+    const assetType = createContentfulAssetType({ pimCode });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createProduct({
+      assets: [],
+      categoryAssets: [baseProductCategoryAsset],
+      variantOptions: [
+        createVariantOption({
+          assets: [],
+          categoryAssets: undefined
+        })
+      ]
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments).toEqual([
+      {
+        __typename: "PIMDocument",
+        approvalStatus: "approved",
+        assetType: {
+          code: "contentful asset type code",
+          name: "contentful asset type name",
+          pimCode: "ASSEMBLY_INSTRUCTIONS"
+        },
+        extension: "pdf",
+        fileSize: 10,
+        format: "application/pdf",
+        id: "uniqueId",
+        isLinkDocument: false,
+        noIndex: false,
+        productBaseCode: "base-code",
+        productName: "variant-name",
+        realFileName: "real-file-name.pdf",
+        title: undefined,
+        titleAndSize: "base product category asset_10",
+        url: "http://localhost:8000",
+        validUntil: undefined
+      }
+    ]);
+  });
+
+  it("should return documents correctly if system has both assets and categoryAssets fields", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const assetType = createContentfulAssetType({ pimCode });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createSystem({
+      assets: [createAsset({ name: "system asset" })],
+      categoryAssets: [createAsset({ name: "system category asset" })]
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments).toEqual([
+      {
+        __typename: "PIMSystemDocument",
+        approvalStatus: "approved",
+        assetType: {
+          code: "contentful asset type code",
+          name: "contentful asset type name",
+          pimCode: "ASSEMBLY_INSTRUCTIONS"
+        },
+        extension: "pdf",
+        fileSize: 10,
+        format: "application/pdf",
+        id: "uniqueId",
+        isLinkDocument: false,
+        noIndex: false,
+        realFileName: "real-file-name.pdf",
+        title: undefined,
+        titleAndSize: "system asset_10",
+        url: "http://localhost:8000",
+        validUntil: undefined
+      },
+      {
+        __typename: "PIMSystemDocument",
+        approvalStatus: "approved",
+        assetType: {
+          code: "contentful asset type code",
+          name: "contentful asset type name",
+          pimCode: "ASSEMBLY_INSTRUCTIONS"
+        },
+        extension: "pdf",
+        fileSize: 10,
+        format: "application/pdf",
+        id: "uniqueId",
+        isLinkDocument: false,
+        noIndex: false,
+        realFileName: "real-file-name.pdf",
+        title: undefined,
+        titleAndSize: "system category asset_10",
+        url: "http://localhost:8000",
+        validUntil: undefined
+      }
+    ]);
+  });
 });
