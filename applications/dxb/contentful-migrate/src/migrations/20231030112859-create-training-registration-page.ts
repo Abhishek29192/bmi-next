@@ -290,7 +290,7 @@ export const up: MigrationFunction = async (migration, context) => {
   trainingRegistrationPage
     .createField("consentText")
     .name("Consent text")
-    .type("Symbol")
+    .type("Text")
     .localized(true)
     .required(true);
 
