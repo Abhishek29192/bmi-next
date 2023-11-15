@@ -134,7 +134,7 @@ const MyAccountPage = () => {
         <Button href="https://dev-no.intouch.bmigroup.com/roof-measurement">
           GO TO MY ROOF MEASUREMENT
         </Button>
-        <Button href="https://dev-no.intouch.bmigroup.com/roof-measurement">
+        <Button href="https://dev-no.intouch.bmigroup.com/training">
           GO TO MY ROOF TRAINING
         </Button>
       </Page>
