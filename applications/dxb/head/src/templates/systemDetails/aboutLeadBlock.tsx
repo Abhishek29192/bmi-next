@@ -10,7 +10,8 @@ import {
   Typography,
   useIsClient
 } from "@bmi-digital/components";
-import { Check as CheckIcon, Launch } from "@mui/icons-material";
+import CheckIcon from "@bmi-digital/components/icon/Check";
+import Launch from "@bmi-digital/components/icon/ExternalLink";
 import React from "react";
 import { Asset } from "@bmi/pim-types";
 import { microCopy } from "@bmi/microcopies";

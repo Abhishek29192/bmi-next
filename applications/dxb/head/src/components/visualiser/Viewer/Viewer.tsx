@@ -1,13 +1,12 @@
 import { Tooltip } from "@bmi-digital/components";
-import { ArrowBack, ArrowForward } from "@bmi-digital/components/icon";
-import {
-  Add,
-  ArrowDownward,
-  ArrowUpward,
-  Home,
-  Remove,
-  ThreeDRotation
-} from "@mui/icons-material";
+import ArrowBack from "@bmi-digital/components/icon/ArrowBack";
+import ArrowForward from "@bmi-digital/components/icon/ArrowForward";
+import Add from "@bmi-digital/components/icon/Add";
+import ArrowDownward from "@bmi-digital/components/icon/ArrowDownward";
+import ArrowUpward from "@bmi-digital/components/icon/ArrowUpward";
+import Home from "@bmi-digital/components/icon/Home";
+import Remove from "@bmi-digital/components/icon/Remove";
+import ThreeDRotation from "@bmi-digital/components/icon/ThreeDRotation";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import clamp from "lodash-es/clamp";
 import React from "react";

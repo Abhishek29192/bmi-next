@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { CheckCircle } from "@mui/icons-material";
+import CheckCircle from "@bmi-digital/components/icon/CheckCircle";
 import { useAuth } from "@bmi/gatsby-theme-auth0";
 import { microCopy } from "@bmi/microcopies";
 import { local } from "../utils/storage";

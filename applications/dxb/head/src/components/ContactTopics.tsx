@@ -7,17 +7,15 @@ import {
   IconList,
   Typography
 } from "@bmi-digital/components";
-import { QuestionMark as HelpIcon } from "@bmi-digital/components/icon";
-import {
-  AddShoppingCart as AddShoppingCartIcon,
-  Build as BuildIcon,
-  EmojiObjectsOutlined as EmojiObjectsOutlinedIcon,
-  FindReplace as FindReplaceIcon,
-  Info as InfoIcon,
-  LocalShipping as LocalShippingIcon,
-  ReportProblem as ReportProblemIcon,
-  VerifiedUser as VerifiedUserIcon
-} from "@mui/icons-material";
+import HelpIcon from "@bmi-digital/components/icon/QuestionMark";
+import AddShoppingCartIcon from "@bmi-digital/components/icon/AddShoppingCart";
+import BuildIcon from "@bmi-digital/components/icon/Build";
+import EmojiObjectsOutlinedIcon from "@bmi-digital/components/icon/EmojiObjectsOutlined";
+import FindReplaceIcon from "@bmi-digital/components/icon/FindReplace";
+import InfoIcon from "@bmi-digital/components/icon/Info";
+import LocalShippingIcon from "@bmi-digital/components/icon/LocalShipping";
+import ReportProblemIcon from "@bmi-digital/components/icon/ReportProblem";
+import VerifiedUserIcon from "@bmi-digital/components/icon/VerifiedUser";
 import { styled } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React from "react";

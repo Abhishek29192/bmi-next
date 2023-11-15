@@ -1620,7 +1620,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -1760,7 +1760,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -1900,7 +1900,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -4340,7 +4340,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -4480,7 +4480,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -4620,7 +4620,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -7058,7 +7058,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -7198,7 +7198,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -7338,7 +7338,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -9778,7 +9778,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -9918,7 +9918,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -10058,7 +10058,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -12498,7 +12498,7 @@ exports[`Contact us page render location correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -12638,7 +12638,7 @@ exports[`Contact us page render location correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -12778,7 +12778,7 @@ exports[`Contact us page render location correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -15218,7 +15218,7 @@ exports[`Contact us page renders correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -15358,7 +15358,7 @@ exports[`Contact us page renders correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -15498,7 +15498,7 @@ exports[`Contact us page renders correctly 1`] = `
                           <svg
                             aria-hidden="true"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium LocationCard-icon css-i4bv87-MuiSvgIcon-root"
-                            data-testid="LocationOnIcon"
+                            data-testid="PlaceIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >

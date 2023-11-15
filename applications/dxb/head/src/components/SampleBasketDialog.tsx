@@ -5,8 +5,9 @@ import {
   replaceSpaces,
   Typography
 } from "@bmi-digital/components";
-import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
-import { Close, Delete as DeleteIcon } from "@mui/icons-material";
+import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
+import Close from "@bmi-digital/components/icon/Close";
+import DeleteIcon from "@bmi-digital/components/icon/Delete";
 import React from "react";
 import { microCopy } from "@bmi/microcopies";
 import {

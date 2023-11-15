@@ -4,7 +4,7 @@ import {
   Typography,
   Button
 } from "@bmi-digital/components";
-import ErrorIcon from "@mui/icons-material/Error";
+import ErrorIcon from "@bmi-digital/components/icon/Error";
 import { buttonClasses } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
 import RecaptchaPrivacyLinks from "../RecaptchaPrivacyLinks";
