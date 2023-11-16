@@ -8,6 +8,7 @@ import Braas from "@bmi-digital/components/logo/Braas";
 import Bramac from "@bmi-digital/components/logo/Bramac";
 import Canopia from "@bmi-digital/components/logo/Canopia";
 import Cementegola from "@bmi-digital/components/logo/Cementegola";
+import Chova from "@bmi-digital/components/logo/Chova";
 import Cobert from "@bmi-digital/components/logo/Cobert";
 import Coverland from "@bmi-digital/components/logo/Coverland";
 import Esha from "@bmi-digital/components/logo/Esha";
@@ -58,6 +59,7 @@ export type Logo =
   | "Bramac"
   | "Canopia"
   | "Cementegola"
+  | "Chova"
   | "Cobert"
   | "Coverland"
   | "Esha"
@@ -115,6 +117,8 @@ export const getLogo = (logo?: Logo | null) => {
       return Canopia;
     case "Cementegola":
       return Cementegola;
+    case "Chova":
+      return Chova;
     case "Cobert":
       return Cobert;
     case "Coverland":

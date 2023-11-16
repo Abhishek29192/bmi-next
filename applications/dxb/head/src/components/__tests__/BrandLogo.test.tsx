@@ -10,6 +10,7 @@ import Canopia from "@bmi-digital/components/logo/Canopia";
 import Cementegola from "@bmi-digital/components/logo/Cementegola";
 import Cobert from "@bmi-digital/components/logo/Cobert";
 import Coverland from "@bmi-digital/components/logo/Coverland";
+import Chova from "@bmi-digital/components/logo/Chova";
 import Esha from "@bmi-digital/components/logo/Esha";
 import Everguard from "@bmi-digital/components/logo/Everguard";
 import Everlite from "@bmi-digital/components/logo/Everlite";
@@ -59,6 +60,7 @@ describe("getLogo", () => {
     { name: "Bramac", expected: Bramac },
     { name: "Canopia", expected: Canopia },
     { name: "Cementegola", expected: Cementegola },
+    { name: "Chova", expected: Chova },
     { name: "Cobert", expected: Cobert },
     { name: "Coverland", expected: Coverland },
     { name: "Esha", expected: Esha },

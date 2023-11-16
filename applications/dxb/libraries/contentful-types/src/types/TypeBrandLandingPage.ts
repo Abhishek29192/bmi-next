@@ -36,6 +36,7 @@ export interface TypeBrandLandingPageFields {
     | "Bramac"
     | "Canopia"
     | "Cementegola"
+    | "Chova"
     | "Cobert"
     | "Coverland"
     | "Esha"
