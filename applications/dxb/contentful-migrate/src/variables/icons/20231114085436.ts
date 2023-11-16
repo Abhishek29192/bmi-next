@@ -18,6 +18,7 @@ export const documentBrands = [
   "Braas",
   "Bramac",
   "Cementegola",
+  "Chova",
   "Canopia",
   "Cobert",
   "Coverland",

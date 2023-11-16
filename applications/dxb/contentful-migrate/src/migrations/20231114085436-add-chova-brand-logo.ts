@@ -1,19 +1,19 @@
 import {
   brands as prevBrands,
-  doumentBrands as prevDocumentBrands,
+  documentBrands as prevDocumentBrands,
   linkIcons as prevLinkIcons,
   brands as prevBrandIcons
-} from "../variables/icons/20230901140205.js";
+} from "../variables/icons/20231101153036.js";
 
 import {
   brands,
   documentBrands,
   linkIcons
-} from "../variables/icons/20231101153036.js";
+} from "../variables/icons/20231114085436.js";
 
 import type { MigrationFunction } from "contentful-migration";
 
-export const description = "Add IcopalVedag brand for all pages";
+export const description = "Add Chova brand for all pages";
 
 export const up: MigrationFunction = (migration) => {
   const brandLandingPage = migration.editContentType("brandLandingPage");
