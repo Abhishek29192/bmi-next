@@ -6298,21 +6298,21 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
           />
           <picture>
             <source
-              data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
               sizes="(min-width: 948px) 948px, 100vw"
+              srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
               type="image/webp"
             />
             <img
               alt="Image alt text"
               data-gatsby-image-ssr=""
               data-main-image=""
-              data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-              data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
               data-testid="hero-image"
               decoding="async"
               draggable="false"
-              loading="lazy"
+              loading="eager"
               sizes="(min-width: 948px) 948px, 100vw"
+              src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
               style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
             />
           </picture>

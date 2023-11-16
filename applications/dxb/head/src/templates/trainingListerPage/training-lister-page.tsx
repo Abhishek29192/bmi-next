@@ -87,7 +87,7 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
       <Hero
         level={1}
         title={title}
-        media={<Image {...featuredMedia} size="cover" />}
+        media={<Image {...featuredMedia} size="cover" loading="eager" />}
         breadcrumbs={
           <BackToResults isDarkThemed data-testid="breadcrumbs-hero-section">
             <Breadcrumbs

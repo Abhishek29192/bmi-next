@@ -49,7 +49,7 @@ export const generateHeroProps = (
     media: featuredVideo ? (
       <Video {...featuredVideo} />
     ) : featuredMedia ? (
-      <Image {...featuredMedia} size="cover" />
+      <Image {...featuredMedia} size="cover" loading="eager" />
     ) : undefined,
     cta:
       cta &&

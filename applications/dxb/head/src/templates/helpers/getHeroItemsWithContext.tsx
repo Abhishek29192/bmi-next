@@ -13,7 +13,7 @@ export const getHeroItemsWithContext = (
   slides: HomepageData["slides"]
 ): readonly CarouselHeroItem[] => {
   return slides.map(
-    ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
+    ({ title, subtitle, featuredMedia, featuredVideo, ...rest }, index) => {
       const hasPath = "path" in rest && !!rest.path;
 
       const callToAction =
@@ -40,7 +40,12 @@ export const getHeroItemsWithContext = (
         media: featuredVideo ? (
           <Video {...featuredVideo} data-testid={"hero-video"} />
         ) : featuredMedia ? (
-          <Image {...featuredMedia} size="cover" data-testid={"hero-image"} />
+          <Image
+            {...featuredMedia}
+            size="cover"
+            data-testid={"hero-image"}
+            loading={index === 0 ? "eager" : "lazy"}
+          />
         ) : undefined,
         cta: rest["cta"] || hasPath ? callToAction : null
       };

@@ -124,7 +124,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
         }`
       : null,
     media: featuredMedia ? (
-      <Image {...featuredMedia} size="cover" />
+      <Image {...featuredMedia} size="cover" loading="eager" />
     ) : undefined,
     hasUnderline: false,
     cta: cta ? (

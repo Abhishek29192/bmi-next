@@ -33,7 +33,9 @@ const Home = () => (
     <Hero
       title="Bitumen Flat Roof Estimator"
       level={1}
-      media={<img src={landing} alt="Bitumen Flat Roof Estimator" />}
+      media={
+        <img src={landing} alt="Bitumen Flat Roof Estimator" loading="eager" />
+      }
       className="hero"
     >
       Use this estimating tool to identify the best flat roof system for your

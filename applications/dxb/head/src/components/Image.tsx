@@ -1,5 +1,9 @@
 import { graphql } from "gatsby";
-import { IGatsbyImageData, GatsbyImage as Img } from "gatsby-plugin-image";
+import {
+  GatsbyImageProps,
+  IGatsbyImageData,
+  GatsbyImage as Img
+} from "gatsby-plugin-image";
 import React from "react";
 
 type ImageData = {
@@ -19,6 +23,7 @@ export type Data = {
     x: number;
     y: number;
   } | null;
+  loading?: GatsbyImageProps["loading"];
 };
 
 type Options = {
@@ -65,6 +70,7 @@ const Image = ({
   position,
   className,
   isMobile,
+  loading = "lazy",
   ...props
 }: Data & Options) => {
   if (!image?.gatsbyImageData) {
@@ -82,6 +88,7 @@ const Image = ({
             isMobile: isMobile
           })
         }}
+        loading={loading}
         {...props}
       />
     );
@@ -100,6 +107,7 @@ const Image = ({
         isMobile: isMobile
       })}
       className={className}
+      loading={loading}
       {...props}
     />
   );

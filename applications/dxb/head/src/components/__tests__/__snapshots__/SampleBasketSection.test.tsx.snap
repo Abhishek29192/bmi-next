@@ -38,6 +38,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
               <img
                 alt="sample-1"
                 class="SampleBasketSectionProducts-product-image OverviewCard-headerPicture css-7mgsqw-Media"
+                loading="lazy"
                 src="http://localhost:8000/image-real-file-name.jpg"
                 style="object-fit: contain; object-position: center;"
               />
@@ -193,6 +194,7 @@ exports[`SampleBasketSection component should render form after complete button 
               <img
                 alt="sample-1"
                 class="SampleBasketSectionProducts-product-image OverviewCard-headerPicture css-7mgsqw-Media"
+                loading="lazy"
                 src="http://localhost:8000/image-real-file-name.jpg"
                 style="object-fit: contain; object-position: center;"
               />

@@ -1,5 +1,7 @@
 import Button from "@bmi-digital/components/button";
+import Hero from "@bmi-digital/components/hero";
 import { RegionCode } from "@bmi-digital/components/language-selection";
+import Section from "@bmi-digital/components/section";
 import { graphql } from "gatsby";
 import React from "react";
 import Image from "../../components/Image";
