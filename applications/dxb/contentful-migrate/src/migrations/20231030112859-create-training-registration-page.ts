@@ -129,7 +129,7 @@ export const up: MigrationFunction = async (migration, context) => {
   trainingRegistrationPage
     .createField("competentChamberLabel")
     .name("Compenent Chamber Label")
-    .type("Symbol")
+    .type("Text")
     .localized(true)
     .required(true);
 
@@ -297,7 +297,7 @@ export const up: MigrationFunction = async (migration, context) => {
   trainingRegistrationPage
     .createField("termsOfUse")
     .name("Terms Of Use")
-    .type("Symbol")
+    .type("Text")
     .localized(true)
     .required(true);
 
