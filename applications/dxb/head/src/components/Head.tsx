@@ -11,6 +11,7 @@ import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { createSchemaOrgForHomeAndBrandPage } from "../utils/schemaOrgHomeAndBrandPage";
+import { extractScripts } from "../utils/extractScripts";
 import { Data as SEOContentData } from "./SEOContent";
 import { Data as SiteData } from "./Site";
 
@@ -189,7 +190,15 @@ export const Head = ({
           `}
       </script>
 
-      {headScripts && <script>{headScripts.headScripts}</script>}
+      {headScripts &&
+        extractScripts(headScripts.headScripts).map(
+          ({ props, content }, index: number) =>
+            content ? (
+              <script key={index}>{content}</script>
+            ) : (
+              <script key={index} async {...props} />
+            )
+        )}
 
       {schemaOrgActivated && (
         <script type="application/ld+json">
