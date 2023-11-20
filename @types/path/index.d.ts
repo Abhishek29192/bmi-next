@@ -1,6 +1,6 @@
 declare module "*/path" {
   export const getPathWithCountryCode = (
-    countryCode: string,
+    countryCode?: string,
     path?: string | null
   ) => string;
 }

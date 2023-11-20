@@ -2,8 +2,9 @@ import path from "path";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import { ApprovalStatus } from "@bmi/pim-types";
-import { Course as DoceboCourse } from "@bmi/docebo-types";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import type { Course as DoceboCourse } from "@bmi/docebo-types";
+import createSvgs from "./src/gatsby/createSvgs";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
@@ -42,16 +43,16 @@ const createProductPages = async (
   const result = await graphql<{
     allProduct: { nodes: Pick<Product, "code" | "path" | "oldPath">[] };
   }>(`
-    {
-      allProduct(filter: { approvalStatus: { eq: "${ApprovalStatus.Approved}" } }) {
-        nodes {
-          __typename
-          code
-          path
-          oldPath
-        }
+      {
+          allProduct(filter: { approvalStatus: { eq: "${ApprovalStatus.Approved}" } }) {
+              nodes {
+                  __typename
+                  code
+                  path
+                  oldPath
+              }
+          }
       }
-    }
   `);
 
   if (result.errors) {
@@ -213,38 +214,38 @@ export const createPages: GatsbyNode["createPages"] = async ({
       };
 
   const result = await graphql<any, any>(`
-    {
-      allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
-        nodes {
-          file {
-            url
-          }
-        }
-      }
-      allContentfulSite(filter: {countryCode: {eq: "${process.env.SPACE_MARKET_CODE}"}}) {
-        nodes {
-          id
-          countryCode
-          homePage {
-            __typename
-            id
-            path
-          }
-          pages {
-            ... on ContentfulPage {
-              __typename
-              id
-              path
-              title
-              ... on ContentfulProductListerPage {
-                categoryCodes
-                allowFilterBy
+      {
+          allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
+              nodes {
+                  file {
+                      url
+                  }
               }
-            }
           }
-        }
+          allContentfulSite(filter: {countryCode: {eq: "${process.env.SPACE_MARKET_CODE}"}}) {
+              nodes {
+                  id
+                  countryCode
+                  homePage {
+                      __typename
+                      id
+                      path
+                  }
+                  pages {
+                      ... on ContentfulPage {
+                          __typename
+                          id
+                          path
+                          title
+                          ... on ContentfulProductListerPage {
+                              categoryCodes
+                              allowFilterBy
+                          }
+                      }
+                  }
+              }
+          }
       }
-    }
   `);
 
   if (result.errors) {
@@ -532,6 +533,8 @@ export const onCreateBabelConfig = ({ actions }: CreateBabelConfigArgs) => {
 };
 
 export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async () => {
+  createSvgs();
+
   const isMergeRequestPreviewBuild = getIsMergeRequestPreviewBuild();
 
   if (isMergeRequestPreviewBuild) {

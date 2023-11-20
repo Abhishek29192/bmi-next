@@ -57,6 +57,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
     const result = createSchemaOrgDataForPdpPage(siteUrl, product, "no");
 
     expect(result).toEqual({
+      "@context": "https://schema.org",
       "@type": "Product",
       award: undefined,
       brand: undefined,
@@ -85,6 +86,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
     const result = createSchemaOrgDataForPdpPage(siteUrl, product, "no");
 
     expect(result).toEqual({
+      "@context": "https://schema.org",
       "@type": "Product",
       award: "asset-name",
       brand: {
