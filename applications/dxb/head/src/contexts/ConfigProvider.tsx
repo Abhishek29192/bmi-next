@@ -36,6 +36,7 @@ export interface Config {
   renderTeamCategoriesAsRows: boolean;
   enableProductClassificationAttributeOrdering: boolean;
   isLoginEnabled: boolean;
+  excludeLocalisedAlternate: boolean;
   marketLocaleCode?: string;
 }
 
@@ -96,7 +97,10 @@ const envConfig = (): Config => ({
     process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING
   ),
   isLoginEnabled: convertStrToBool(process.env.GATSBY_IS_LOGIN_ENABLED),
-  marketLocaleCode: process.env.GATSBY_MARKET_LOCALE_CODE
+  marketLocaleCode: process.env.GATSBY_MARKET_LOCALE_CODE,
+  excludeLocalisedAlternate: convertStrToBool(
+    process.env.GATSBY_EXCLUDE_LOCALISED_ALTERNATE
+  )
 });
 
 const ConfigContext = createContext<Config>({

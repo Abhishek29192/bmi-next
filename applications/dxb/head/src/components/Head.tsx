@@ -41,9 +41,13 @@ export const Head = ({
   pageType,
   brandLogo
 }: HeadProps) => {
-  const { headScripts } = scripts;
-  const { isPreviewMode, hubSpotId, isSchemaORGActivated, oneTrustId } =
-    useConfig();
+  const {
+    excludeLocalisedAlternate,
+    isPreviewMode,
+    hubSpotId,
+    isSchemaORGActivated,
+    oneTrustId
+  } = useConfig();
   const imageUrl = getJpgImage(ogImageUrl);
 
   const isScriptOnetrustEnabled = Boolean(oneTrustId);
@@ -88,7 +92,7 @@ export const Head = ({
           )}"
         }
       `}</script>
-      {htmlAttributes.lang && (
+      {!excludeLocalisedAlternate && htmlAttributes.lang && (
         <link
           rel="alternate"
           href={`${correctGatsbySiteUrl}${getPathWithCountryCode(
@@ -191,7 +195,9 @@ export const Head = ({
           `}
       </script>
 
-      {headScripts && <script>{headScripts.headScripts}</script>}
+      {scripts?.headScripts && (
+        <script>{scripts.headScripts.headScripts}</script>
+      )}
 
       {schemaOrgActivated && (
         <script type="application/ld+json">
