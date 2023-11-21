@@ -5,9 +5,9 @@ import {
   Grid,
   Typography
 } from "@bmi-digital/components";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import SaveAltIcon from "@mui/icons-material/SaveAlt";
+import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
+import EditOutlinedIcon from "@bmi-digital/components/icon/EditOutlined";
+import SaveAltIcon from "@bmi-digital/components/icon/SaveAlt";
 import Divider from "@mui/material/Divider";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";

@@ -22,6 +22,7 @@ export interface TypePromoFields {
     | "Bramac"
     | "Canopia"
     | "Cementegola"
+    | "Chova"
     | "Cobert"
     | "Coverland"
     | "Esha"

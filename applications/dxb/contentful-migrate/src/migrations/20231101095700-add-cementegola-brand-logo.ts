@@ -7,7 +7,7 @@ import {
 
 import {
   brands,
-  doumentBrands,
+  documentBrands,
   linkIcons
 } from "../variables/icons/20231101153036.js";
 
@@ -43,7 +43,7 @@ export const up: MigrationFunction = (migration) => {
   const document = migration.editContentType("document");
   document.editField("brand", {
     type: "Symbol",
-    validations: [{ in: doumentBrands }]
+    validations: [{ in: documentBrands }]
   });
 
   const brand = migration.editContentType("brand");

@@ -1,52 +1,52 @@
-import Logo, {
-  AeroDek,
-  Awak,
-  BMI,
-  BMIAcademy,
-  BMIAcademyDE,
-  Braas,
-  Bramac,
-  Canopia,
-  Cementegola,
-  Cobert,
-  Coverland,
-  Esha,
-  Everguard,
-  Everlite,
-  GuaranteeProduct,
-  GuaranteeSolution,
-  GuaranteeSystem,
-  Icopal,
-  IcopalKatto,
-  IcopalVedag,
-  Klober,
-  Monarflex,
-  Monarplan,
-  Monier,
-  Necoflex,
-  Ormax,
-  Redland,
-  RoofPro,
-  RoofProElite,
-  RoofProExpert,
-  RoofProPartner,
-  RoofProPartnerSmall,
-  RoofProServiceTeam,
-  Sealoflex,
-  SereniCoperture,
-  Siplast,
-  Standard,
-  StandardCentred,
-  Sunscape,
-  Vedag,
-  Villas,
-  Wierer,
-  Wolfin,
-  Zanda
-} from "@bmi-digital/components/logo";
+import Logo from "@bmi-digital/components/logo";
+import AeroDek from "@bmi-digital/components/logo/AeroDek";
+import Awak from "@bmi-digital/components/logo/Awak";
+import BMI from "@bmi-digital/components/logo/Bmi";
+import BMIAcademy from "@bmi-digital/components/logo/BmiAcademy";
+import BMIAcademyDE from "@bmi-digital/components/logo/BmiAcademyDe";
+import Braas from "@bmi-digital/components/logo/Braas";
+import Bramac from "@bmi-digital/components/logo/Bramac";
+import Canopia from "@bmi-digital/components/logo/Canopia";
+import Cementegola from "@bmi-digital/components/logo/Cementegola";
+import Chova from "@bmi-digital/components/logo/Chova";
+import Cobert from "@bmi-digital/components/logo/Cobert";
+import Coverland from "@bmi-digital/components/logo/Coverland";
+import Esha from "@bmi-digital/components/logo/Esha";
+import Everguard from "@bmi-digital/components/logo/Everguard";
+import Everlite from "@bmi-digital/components/logo/Everlite";
+import GuaranteeProduct from "@bmi-digital/components/logo/GuaranteeProduct";
+import GuaranteeSolution from "@bmi-digital/components/logo/GuaranteeSolution";
+import GuaranteeSystem from "@bmi-digital/components/logo/GuaranteeSystem";
+import Icopal from "@bmi-digital/components/logo/Icopal";
+import IcopalKatto from "@bmi-digital/components/logo/IcopalKatto";
+import IcopalVedag from "@bmi-digital/components/logo/IcopalVedag";
+import Klober from "@bmi-digital/components/logo/Klober";
+import Monarflex from "@bmi-digital/components/logo/Monarflex";
+import Monarplan from "@bmi-digital/components/logo/Monarplan";
+import Monier from "@bmi-digital/components/logo/Monier";
+import Necoflex from "@bmi-digital/components/logo/Necoflex";
+import Ormax from "@bmi-digital/components/logo/Ormax";
+import Redland from "@bmi-digital/components/logo/Redland";
+import RoofPro from "@bmi-digital/components/logo/RoofPro";
+import RoofProElite from "@bmi-digital/components/logo/RoofProElite";
+import RoofProExpert from "@bmi-digital/components/logo/RoofProExpert";
+import RoofProPartner from "@bmi-digital/components/logo/RoofProPartner";
+import RoofProPartnerSmall from "@bmi-digital/components/logo/RoofProPartnerSmall";
+import RoofProServiceTeam from "@bmi-digital/components/logo/RoofProServiceTeam";
+import Sealoflex from "@bmi-digital/components/logo/Sealoflex";
+import SereniCoperture from "@bmi-digital/components/logo/SereniCoperture";
+import Siplast from "@bmi-digital/components/logo/Siplast";
+import Standard from "@bmi-digital/components/logo/Standard";
+import StandardCentred from "@bmi-digital/components/logo/StandardCentred";
+import Sunscape from "@bmi-digital/components/logo/Sunscape";
+import Vedag from "@bmi-digital/components/logo/Vedag";
+import Villas from "@bmi-digital/components/logo/Villas";
+import Wierer from "@bmi-digital/components/logo/Wierer";
+import Wolfin from "@bmi-digital/components/logo/Wolfin";
+import Zanda from "@bmi-digital/components/logo/Zanda";
 import classnames from "classnames";
 import React from "react";
-import { LogoComponent, classes } from "./styles/BrandLogoStyles";
+import { classes, LogoComponent } from "./styles/BrandLogoStyles";
 
 export type Logo =
   | "AeroDek"
@@ -59,6 +59,7 @@ export type Logo =
   | "Bramac"
   | "Canopia"
   | "Cementegola"
+  | "Chova"
   | "Cobert"
   | "Coverland"
   | "Esha"
@@ -116,6 +117,8 @@ export const getLogo = (logo?: Logo | null) => {
       return Canopia;
     case "Cementegola":
       return Cementegola;
+    case "Chova":
+      return Chova;
     case "Cobert":
       return Cobert;
     case "Coverland":
@@ -212,4 +215,5 @@ const BrandLogo = ({
     />
   ) : null;
 };
+
 export default BrandLogo;

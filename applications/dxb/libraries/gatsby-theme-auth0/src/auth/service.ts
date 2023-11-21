@@ -1,9 +1,8 @@
 import * as process from "process";
 import * as auth0 from "auth0-js";
 import { navigate } from "gatsby";
+import { getPathWithCountryCode } from "@bmi/head/src/utils/path";
 import { config } from "./config";
-
-const isBrowser = typeof window !== "undefined";
 
 export interface SessionState {
   isLoggedIn: boolean;
@@ -16,22 +15,20 @@ class Auth {
   private accessToken?: string;
   private idToken?: string;
   private userProfile?: auth0.Auth0UserProfile;
-
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   public sessionStateCallback = (_state: SessionState) => {};
-
-  private auth0 = process.env.AUTH0_DOMAIN
+  public isBrowser = typeof window !== "undefined";
+  public auth0 = process.env.AUTH0_DOMAIN
     ? new auth0.WebAuth(config)
     : undefined;
 
-  private logoutUri = process.env.AUTH0_LOGOUT_URL;
+  public authorize = process.env.AUTH0_DOMAIN
+    ? new auth0.Authentication(config)
+    : undefined;
 
-  public login = () => {
-    if (!isBrowser) {
-      return;
-    }
-    // Save postLoginUrl so we can redirect user back to where they left off after login screen
-    localStorage.setItem("postLoginUrl", window.location.pathname);
+  public logoutUri = process.env.AUTH0_LOGOUT_URL;
+
+  public redirectDirectlyToLogin = () => {
     if (this.auth0) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -39,20 +36,49 @@ class Auth {
     }
   };
 
-  public handleAuthentication = () =>
-    new Promise((resolve, reject) => {
+  public login = () => {
+    if (!this.isBrowser) {
+      return;
+    }
+    // Save postLoginUrl so we can redirect user
+    // back to where they left off after login screen
+    localStorage.setItem("postLoginUrl", window.location.pathname);
+    this.redirectDirectlyToLogin();
+  };
+
+  public handleAuthentication = (): Promise<auth0.Auth0DecodedHash | null> =>
+    new Promise<auth0.Auth0DecodedHash | null>((resolve, reject): void => {
       this.auth0 &&
         this.auth0.parseHash((err, authResult) => {
           if (authResult && authResult.accessToken && authResult.idToken) {
             this.setSession(authResult);
+            const isEmailVerified = authResult.idTokenPayload.email_verified;
+            if (!isEmailVerified) {
+              localStorage.setItem("isLoggedIn", "false");
+              if (process.env.GATSBY_SITE_URL) {
+                const verifyUrl = getPathWithCountryCode(
+                  process.env.SPACE_MARKET_CODE as string,
+                  "verify-email"
+                );
+                const logoutUrl = `${process.env.GATSBY_SITE_URL}${verifyUrl}`;
+                this.auth0?.logout({
+                  returnTo: logoutUrl
+                });
+              }
+            } else {
+              const postLoginUrl = localStorage.getItem("postLoginUrl");
+              if (postLoginUrl) {
+                const urlToNavigate = postLoginUrl.includes("verify-email")
+                  ? getPathWithCountryCode(
+                      process.env.SPACE_MARKET_CODE as string,
+                      ""
+                    )
+                  : postLoginUrl;
 
-            const postLoginUrl = localStorage.getItem("postLoginUrl");
-            localStorage.removeItem("postLoginUrl");
-            if (postLoginUrl) {
-              localStorage.setItem("isAlreadyShownAlert", "false");
-              navigate(postLoginUrl, { state: { needToShowAlert: true } });
+                navigate(urlToNavigate);
+              }
+              localStorage.removeItem("postLoginUrl");
             }
-
             return resolve(authResult);
           } else if (err) {
             return reject(err);
@@ -67,8 +93,8 @@ class Auth {
 
   public getUserProfile = () => this.userProfile;
 
-  private setSession(authResult: auth0.Auth0DecodedHash) {
-    if (!isBrowser) {
+  public setSession(authResult: auth0.Auth0DecodedHash): void {
+    if (!this.isBrowser) {
       return;
     }
     localStorage.setItem("isLoggedIn", "true");
@@ -83,8 +109,8 @@ class Auth {
     });
   }
 
-  public checkSession = () =>
-    new Promise<void>((resolve) => {
+  public checkSession = (): Promise<auth0.Auth0DecodedHash | null> =>
+    new Promise<auth0.Auth0DecodedHash | null>((resolve) => {
       this.auth0 &&
         this.auth0.checkSession({}, (err, authResult) => {
           if (authResult && authResult.accessToken && authResult.idToken) {
@@ -96,12 +122,12 @@ class Auth {
             // Remove local session.
             this.localLogout();
           }
-          return resolve();
+          return resolve(null);
         });
     });
 
   public localLogout = () => {
-    if (!isBrowser) {
+    if (!this.isBrowser) {
       return;
     }
     // Remove tokens and user profile
@@ -119,7 +145,7 @@ class Auth {
   };
 
   public logout = () => {
-    if (!isBrowser) {
+    if (!this.isBrowser) {
       return;
     }
 
@@ -132,7 +158,7 @@ class Auth {
   };
 
   public isAuthenticated = () => {
-    if (!isBrowser) {
+    if (!this.isBrowser) {
       return false;
     }
     return localStorage.getItem("isLoggedIn") === "true";

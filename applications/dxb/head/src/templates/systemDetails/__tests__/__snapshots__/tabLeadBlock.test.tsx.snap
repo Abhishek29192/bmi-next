@@ -961,21 +961,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                           >
                             <span
                               class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                            >
-                              <svg
-                                class="css-bwy9pl"
-                                fill="none"
-                                viewBox="0 0 48 48"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  clip-rule="evenodd"
-                                  d="M39.43 6H16.285L6 16.286V39.43c.004 1.417 1.153 2.566 2.57 2.57h30.86c1.417-.004 2.566-1.153 2.57-2.57V8.57c-.004-1.417-1.153-2.566-2.57-2.57zm-5.297 10.98l-8.95 8.95-3.097-3.1 8.95-8.948-4.026-4.025 11.122.013.013 11.122-4.012-4.012z"
-                                  fill="#0072B0"
-                                  fill-rule="evenodd"
-                                />
-                              </svg>
-                            </span>
+                            />
                             <p
                               class="css-1cigd93"
                             >
@@ -1453,21 +1439,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                       >
                         <span
                           class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                        >
-                          <svg
-                            class="css-bwy9pl"
-                            fill="none"
-                            viewBox="0 0 48 48"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              clip-rule="evenodd"
-                              d="M39.43 6H16.285L6 16.286V39.43c.004 1.417 1.153 2.566 2.57 2.57h30.86c1.417-.004 2.566-1.153 2.57-2.57V8.57c-.004-1.417-1.153-2.566-2.57-2.57zm-5.297 10.98l-8.95 8.95-3.097-3.1 8.95-8.948-4.026-4.025 11.122.013.013 11.122-4.012-4.012z"
-                              fill="#0072B0"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
+                        />
                         <p
                           class="css-1cigd93"
                         >

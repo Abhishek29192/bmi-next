@@ -6,7 +6,7 @@ import {
   GoogleMap,
   MarkerOptionsWithData
 } from "@bmi-digital/components";
-import { Close as CloseIcon } from "@mui/icons-material";
+import CloseIcon from "@bmi-digital/components/icon/Close";
 import classnames from "classnames";
 import React, { useState } from "react";
 import { microCopy } from "@bmi/microcopies";

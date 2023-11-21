@@ -56,7 +56,7 @@ export const SearchLocationBlock = ({
           noOptionsText={getMicroCopy(microCopy.FIND_A_ROOFER_NO_RESULTS_LABEL)}
           onPlaceChange={handlePlaceChange}
           freeSolo
-          startAdornmentIcon="LocationOn"
+          startAdornmentIcon="Place"
           controlledValue={userPosition}
           googleAutocompleteOptions={
             countryCode !== "grp" && {

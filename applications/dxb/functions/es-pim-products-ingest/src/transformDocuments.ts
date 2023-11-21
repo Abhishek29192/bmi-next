@@ -67,7 +67,12 @@ export const transformDocuments = async (
     : {};
 
   if (isSystemItem) {
-    const systemDocuments = (item.assets || [])
+    const systemAssets = [
+      ...(item.assets || []),
+      ...(item.categoryAssets || [])
+    ];
+
+    const systemDocuments = systemAssets
       .map((asset) => {
         const doc = getDocument(
           asset,
@@ -102,7 +107,13 @@ export const transformDocuments = async (
         item.classifications,
         variant.classifications
       );
-      return (variant.assets || item.assets || [])
+
+      const assets = [
+        ...(variant.assets || item.assets || []),
+        ...(variant.categoryAssets || item.categoryAssets || [])
+      ];
+
+      return assets
         .map((asset) => {
           const doc = getDocument(
             asset,

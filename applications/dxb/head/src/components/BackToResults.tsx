@@ -1,5 +1,5 @@
 import { Button, ButtonProps, useIsClient } from "@bmi-digital/components";
-import { ArrowBack as ArrowBackIcon } from "@bmi-digital/components/icon";
+import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
 import { useMediaQuery, useTheme } from "@mui/material";
 import React, { FC, ReactElement } from "react";
 import { microCopy } from "@bmi/microcopies";

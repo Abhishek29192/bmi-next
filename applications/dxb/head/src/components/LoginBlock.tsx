@@ -2,26 +2,39 @@ import React from "react";
 import { AuthService, useAuth } from "@bmi/gatsby-theme-auth0";
 import { Button } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
+import { navigate } from "gatsby";
+import { getPathWithCountryCode } from "../utils/path";
 import { LoginBlockStyles } from "./styles/LoginBlock";
 import { useSiteContext } from "./Site";
 
 const LoginBlock = () => {
   const { isLoggedIn, profile } = useAuth();
-  const { getMicroCopy } = useSiteContext();
+  const { getMicroCopy, countryCode } = useSiteContext();
 
   return (
     <LoginBlockStyles>
       {isLoggedIn && profile && (
-        <Button variant="text" className="account">
+        <Button
+          variant="text"
+          className="account"
+          data-testid="ma-acc"
+          onClick={() =>
+            navigate(getPathWithCountryCode(countryCode, "my-account"))
+          }
+        >
           {getMicroCopy(microCopy.MY_ACCOUNT_LABEL)}
         </Button>
       )}
       {isLoggedIn ? (
-        <Button onClick={AuthService.logout} variant="text">
+        <Button
+          onClick={AuthService.logout}
+          variant="text"
+          data-testid="logout"
+        >
           {getMicroCopy(microCopy.LOG_OUT_LABEL_BTN)}
         </Button>
       ) : (
-        <Button onClick={AuthService.login} variant="text">
+        <Button onClick={AuthService.login} variant="text" data-testid="login">
           {getMicroCopy(microCopy.LOG_IN_LABEL_BTN)}
         </Button>
       )}

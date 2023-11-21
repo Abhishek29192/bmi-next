@@ -5,7 +5,7 @@ import {
   LeadBlock,
   Section
 } from "@bmi-digital/components";
-import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
+import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";

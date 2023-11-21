@@ -52,6 +52,7 @@ export interface TypePageFields {
     | "Bramac"
     | "Canopia"
     | "Cementegola"
+    | "Chova"
     | "Cobert"
     | "Coverland"
     | "Esha"

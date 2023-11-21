@@ -10,8 +10,8 @@ import IconComponent, {
   Cube,
   Design,
   Download,
-  External,
-  ExternalMobile,
+  ExternalDocument,
+  ExternalLink,
   Facebook,
   FileDOCX,
   FileJPEG,
@@ -32,7 +32,7 @@ import IconComponent, {
   IconProps,
   Instagram,
   LinkedIn,
-  LocationOn,
+  Place,
   Mail,
   OtherTraining,
   Phone,
@@ -88,10 +88,10 @@ export type IconName =
   | "GetApp"
   | "Cross"
   | "Design"
-  | "External"
-  | "ExternalMobile"
+  | "ExternalDocument"
+  | "ExternalLink"
   | "HardHatHead"
-  | "LocationOn"
+  | "Place"
   | "PlayArrow"
   | "Tile"
   | "TileColour"
@@ -173,14 +173,14 @@ const getIcon = (icon: string) => {
       return Cross;
     case "Design":
       return Design;
-    case "External":
-      return External;
-    case "ExternalMobile":
-      return ExternalMobile;
+    case "ExternalDocument":
+      return ExternalDocument;
+    case "ExternalLink":
+      return ExternalLink;
     case "HardHatHead":
       return HardHatHead;
-    case "LocationOn":
-      return LocationOn;
+    case "Place":
+      return Place;
     case "PlayArrow":
       return PlayArrow;
     case "Tile":

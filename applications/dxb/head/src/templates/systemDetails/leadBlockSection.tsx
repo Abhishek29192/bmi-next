@@ -4,11 +4,9 @@ import {
   IconList,
   LeadBlock
 } from "@bmi-digital/components";
-import {
-  ArrowBack as ArrowBackIcon,
-  ArrowForward as ArrowForwardIcon
-} from "@bmi-digital/components/icon";
-import { Check as CheckIcon } from "@mui/icons-material";
+import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
+import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
+import CheckIcon from "@bmi-digital/components/icon/Check";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
 import { GoodBetterBest } from "@bmi/pim-types";

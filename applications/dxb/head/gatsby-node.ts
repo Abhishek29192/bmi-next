@@ -376,6 +376,17 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       });
     }
+
+    if (process.env.GATSBY_IS_LOGIN_ENABLED === "true") {
+      createPage({
+        path: getPathWithCountryCode(site.countryCode, `my-account/`),
+        component: path.resolve("./src/templates/myAccountPage/my-account.tsx"),
+        context: {
+          siteId: site.id,
+          countryCode: site.countryCode
+        }
+      });
+    }
   }
 
   const redirects = await getRedirects(
@@ -460,12 +471,16 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
   if (stage === "build-javascript") {
     const config = getConfig();
 
-    // Find dependencies rule similar to how gatsby-plugin-remove-dependency-transpilation does it
+    // Find dependencies rule similar to
+    // how gatsby-plugin-remove-dependency-transpilation does it
     const dependenciesRuleExample = rules.dependencies();
-    // dependencies rule compiles most node_modules files which tend to be already compiled,
-    // it excludes  a few popular packages (to speed up the build and reduce the memory consumption),
+    // dependencies rule compiles most node_modules
+    // files which tend to be already compiled,
+    // it excludes  a few popular packages
+    // (to speed up the build and reduce the memory consumption),
     // here we remove the rule to avoid overloading the memory.
-    // NOTE: if the issue continues and no notable performance imporvments were introduced by gatsby/webpack/babel, consider upgrading the pipeline memory
+    // NOTE: if the issue continues and no
+    // notable performance imporvments were introduced by gatsby/webpack/babel, consider upgrading the pipeline memory
     // and setting --max_old_space_size to the new limit.
     config.module.rules = config.module.rules.filter(
       (rule) => !areDeepEqualObjects(rule, dependenciesRuleExample)

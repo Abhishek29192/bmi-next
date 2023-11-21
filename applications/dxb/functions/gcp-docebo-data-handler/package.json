@@ -46,6 +46,7 @@
     "@bmi/docebo-api": "workspace:*",
     "@bmi/fetch-retry": "workspace:*",
     "@bmi/functions-es-client": "workspace:*",
+    "@bmi/functions-firestore": "workspace:*",
     "@bmi/utils": "workspace:*"
   }
 }

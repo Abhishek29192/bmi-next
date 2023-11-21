@@ -12,7 +12,7 @@ import {
   Typography,
   withClickable
 } from "@bmi-digital/components";
-import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
+import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";

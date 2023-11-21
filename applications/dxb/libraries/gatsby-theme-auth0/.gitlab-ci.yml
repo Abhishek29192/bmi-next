@@ -13,7 +13,7 @@ build_gatsby-theme-auth0:
   rules:
     - !reference [.ignore_release_mrs, rules]
     - !reference [.run_for_changes_on_main_workspace, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     ROOT_DIR: "applications/dxb/libraries/gatsby-theme-auth0"
     WORKSPACE: "@bmi/gatsby-theme-auth0"
@@ -23,7 +23,7 @@ test_gatsby-theme-auth0:
   rules:
     - !reference [.ignore_release_mrs, rules]
     - !reference [.run_for_changes_on_main_workspace, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     ROOT_DIR: "applications/dxb/libraries/gatsby-theme-auth0"
     WORKSPACE: "@bmi/gatsby-theme-auth0"

@@ -6,7 +6,7 @@ import {
   RegionCode,
   TabProps
 } from "@bmi-digital/components";
-import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
+import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import Tab from "@mui/material/Tab";
 import { Link, graphql, withPrefix } from "gatsby";
 import React, { useMemo } from "react";

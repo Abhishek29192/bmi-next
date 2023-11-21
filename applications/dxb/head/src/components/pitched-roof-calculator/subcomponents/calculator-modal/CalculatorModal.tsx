@@ -4,9 +4,9 @@ import {
   DialogClassNameContext,
   Logo
 } from "@bmi-digital/components";
-import { BMI as brandLogo } from "@bmi-digital/components/logo";
+import brandLogo from "@bmi-digital/components/logo/Bmi";
 import { SVGImport } from "@bmi-digital/svg-import";
-import { Close as CloseIcon } from "@mui/icons-material";
+import CloseIcon from "@bmi-digital/components/icon/Close";
 import Fade from "@mui/material/Fade";
 import Modal, { ModalProps } from "@mui/material/Modal";
 import classnames from "classnames";
