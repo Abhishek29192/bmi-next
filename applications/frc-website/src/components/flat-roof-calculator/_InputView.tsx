@@ -1,6 +1,6 @@
 import { Button, Form, FormProps, Typography } from "@bmi-digital/components";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
+import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import Divider from "@mui/material/Divider";
 import React from "react";
 import { Tree as CalculatorDataTree } from "./types/CalculatorData";

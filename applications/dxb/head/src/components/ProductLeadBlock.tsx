@@ -11,7 +11,8 @@ import {
   Tabs,
   useIsClient
 } from "@bmi-digital/components";
-import { Check as CheckIcon, Launch } from "@mui/icons-material";
+import CheckIcon from "@bmi-digital/components/icon/Check";
+import Launch from "@bmi-digital/components/icon/ExternalLink";
 import { styled } from "@mui/material/styles";
 import Tab, { TabProps } from "@mui/material/Tab";
 import React, { useRef, useState } from "react";

@@ -12604,6 +12604,478 @@ describe("transformProduct", () => {
     expect(transformedProduct[0].documents[0].assetType).toBe("AWARDS");
   });
 
+  it("returns assets-dependant fields correctly if both assets and categoryAssets fields are not defined", async () => {
+    const product = createProduct({
+      assets: undefined,
+      categoryAssets: undefined,
+      variantOptions: [
+        createVariantOption({
+          assets: undefined,
+          categoryAssets: undefined
+        })
+      ]
+    });
+
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0]).toEqual(
+      expect.objectContaining({
+        documents: [],
+        awardsAndCertificateDocuments: [],
+        awardsAndCertificateImages: [],
+        bimIframeUrl: undefined,
+        fixingToolIframeUrl: undefined,
+        guaranteesAndWarrantiesImages: [],
+        guaranteesAndWarrantiesLinks: [],
+        specificationIframeUrl: undefined,
+        videos: []
+      })
+    );
+  });
+
+  it("should use categoryAssets of variant product if provided", async () => {
+    const product = createProduct({
+      categoryAssets: [createAsset({ name: "base product asset" })],
+      variantOptions: [
+        createVariantOption({
+          categoryAssets: [
+            createAsset({
+              name: "awardsAndCertificateDocument",
+              assetType: "AWARDS",
+              url: "https://fake-url.pdf",
+              realFileName: "fake-file-name.pdf"
+            }),
+            createAsset({
+              name: "awardsAndCertificateImages",
+              assetType: "CERTIFICATES",
+              url: "https://fake-url.jpg",
+              realFileName: "fake-file-name.jpg"
+            }),
+            createAsset({
+              name: "BIM",
+              assetType: "BIM",
+              url: "https://fake-bim-iframe-url"
+            }),
+            createAsset({
+              name: "fixingToolIframeUrl",
+              assetType: "FIXING_TOOL",
+              url: "https://fake-fixing-tool-iframe-url"
+            }),
+            createAsset({
+              name: "guaranteesAndWarrantiesImages",
+              assetType: "GUARANTIES",
+              realFileName: "fake-guaranties-file-name.jpg"
+            }),
+            createAsset({
+              name: "guaranteesAndWarrantiesLinks",
+              assetType: "WARRANTIES",
+              url: "https://fake-warranties-url",
+              realFileName: undefined
+            }),
+            createAsset({
+              name: "specificationIframeUrl",
+              assetType: "SPECIFICATION",
+              url: "https://fake-specification-iframe-url"
+            }),
+            createAsset({
+              name: "video",
+              assetType: "VIDEO",
+              url: "https://fake-video-url"
+            })
+          ]
+        })
+      ]
+    });
+
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0]).toEqual(
+      expect.objectContaining({
+        awardsAndCertificateDocuments: [
+          {
+            allowedToDownload: true,
+            assetType: "AWARDS",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "awardsAndCertificateDocument",
+            realFileName: "fake-file-name.pdf",
+            url: "https://fake-url.pdf"
+          }
+        ],
+        awardsAndCertificateImages: [
+          {
+            allowedToDownload: true,
+            assetType: "CERTIFICATES",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "awardsAndCertificateImages",
+            realFileName: "fake-file-name.jpg",
+            url: "https://fake-url.jpg"
+          }
+        ],
+        bimIframeUrl: "https://fake-bim-iframe-url",
+        fixingToolIframeUrl: "https://fake-fixing-tool-iframe-url",
+        guaranteesAndWarrantiesImages: [
+          {
+            allowedToDownload: true,
+            assetType: "GUARANTIES",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "guaranteesAndWarrantiesImages",
+            realFileName: "fake-guaranties-file-name.jpg",
+            url: "http://localhost:8000"
+          }
+        ],
+        guaranteesAndWarrantiesLinks: [
+          {
+            allowedToDownload: true,
+            assetType: "WARRANTIES",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "guaranteesAndWarrantiesLinks",
+            realFileName: undefined,
+            url: "https://fake-warranties-url"
+          }
+        ],
+        specificationIframeUrl: "https://fake-specification-iframe-url",
+        videos: [
+          {
+            label: "video",
+            previewMedia: null,
+            subtitle: null,
+            title: "",
+            videoRatio: null,
+            videoUrl: "https://fake-video-url"
+          }
+        ],
+        documents: [
+          {
+            assetType: "AWARDS",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "2338814760",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "fake-file-name.pdf",
+            title: "awardsAndCertificateDocument",
+            url: "https://fake-url.pdf"
+          },
+          {
+            assetType: "CERTIFICATES",
+            extension: "jpg",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "3584779213",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "fake-file-name.jpg",
+            title: "awardsAndCertificateImages",
+            url: "https://fake-url.jpg"
+          },
+          {
+            assetType: "BIM",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "4243930147",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "real-file-name.pdf",
+            title: "BIM",
+            url: "https://fake-bim-iframe-url"
+          },
+          {
+            assetType: "FIXING_TOOL",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "1918965534",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "real-file-name.pdf",
+            title: "fixingToolIframeUrl",
+            url: "https://fake-fixing-tool-iframe-url"
+          },
+          {
+            assetType: "GUARANTIES",
+            extension: "jpg",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "2583923841",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "fake-guaranties-file-name.jpg",
+            title: "guaranteesAndWarrantiesImages",
+            url: "http://localhost:8000"
+          },
+          {
+            assetType: "SPECIFICATION",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "532996341",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "real-file-name.pdf",
+            title: "specificationIframeUrl",
+            url: "https://fake-specification-iframe-url"
+          },
+          {
+            assetType: "VIDEO",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "976736365",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "real-file-name.pdf",
+            title: "video",
+            url: "https://fake-video-url"
+          }
+        ]
+      })
+    );
+  });
+
+  it("should use categoryAssets of base product if categoryAssets of variant product are not provided", async () => {
+    const product = createProduct({
+      categoryAssets: [
+        createAsset({
+          name: "awardsAndCertificateDocument",
+          assetType: "AWARDS",
+          url: "https://fake-url.pdf",
+          realFileName: "fake-file-name.pdf"
+        }),
+        createAsset({
+          name: "awardsAndCertificateImages",
+          assetType: "CERTIFICATES",
+          url: "https://fake-url.jpg",
+          realFileName: "fake-file-name.jpg"
+        }),
+        createAsset({
+          name: "BIM",
+          assetType: "BIM",
+          url: "https://fake-bim-iframe-url"
+        }),
+        createAsset({
+          name: "fixingToolIframeUrl",
+          assetType: "FIXING_TOOL",
+          url: "https://fake-fixing-tool-iframe-url"
+        }),
+        createAsset({
+          name: "guaranteesAndWarrantiesImages",
+          assetType: "GUARANTIES",
+          realFileName: "fake-guaranties-file-name.jpg"
+        }),
+        createAsset({
+          name: "guaranteesAndWarrantiesLinks",
+          assetType: "WARRANTIES",
+          url: "https://fake-warranties-url",
+          realFileName: undefined
+        }),
+        createAsset({
+          name: "specificationIframeUrl",
+          assetType: "SPECIFICATION",
+          url: "https://fake-specification-iframe-url"
+        }),
+        createAsset({
+          name: "video",
+          assetType: "VIDEO",
+          url: "https://fake-video-url"
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          categoryAssets: undefined
+        })
+      ]
+    });
+
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0]).toEqual(
+      expect.objectContaining({
+        awardsAndCertificateDocuments: [
+          {
+            allowedToDownload: true,
+            assetType: "AWARDS",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "awardsAndCertificateDocument",
+            realFileName: "fake-file-name.pdf",
+            url: "https://fake-url.pdf"
+          }
+        ],
+        awardsAndCertificateImages: [
+          {
+            allowedToDownload: true,
+            assetType: "CERTIFICATES",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "awardsAndCertificateImages",
+            realFileName: "fake-file-name.jpg",
+            url: "https://fake-url.jpg"
+          }
+        ],
+        bimIframeUrl: "https://fake-bim-iframe-url",
+        fixingToolIframeUrl: "https://fake-fixing-tool-iframe-url",
+        guaranteesAndWarrantiesImages: [
+          {
+            allowedToDownload: true,
+            assetType: "GUARANTIES",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "guaranteesAndWarrantiesImages",
+            realFileName: "fake-guaranties-file-name.jpg",
+            url: "http://localhost:8000"
+          }
+        ],
+        guaranteesAndWarrantiesLinks: [
+          {
+            allowedToDownload: true,
+            assetType: "WARRANTIES",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "guaranteesAndWarrantiesLinks",
+            realFileName: undefined,
+            url: "https://fake-warranties-url"
+          }
+        ],
+        specificationIframeUrl: "https://fake-specification-iframe-url",
+        videos: [
+          {
+            label: "video",
+            previewMedia: null,
+            subtitle: null,
+            title: "",
+            videoRatio: null,
+            videoUrl: "https://fake-video-url"
+          }
+        ],
+        documents: [
+          {
+            assetType: "AWARDS",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "2338814760",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "fake-file-name.pdf",
+            title: "awardsAndCertificateDocument",
+            url: "https://fake-url.pdf"
+          },
+          {
+            assetType: "CERTIFICATES",
+            extension: "jpg",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "3584779213",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "fake-file-name.jpg",
+            title: "awardsAndCertificateImages",
+            url: "https://fake-url.jpg"
+          },
+          {
+            assetType: "BIM",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "4243930147",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "real-file-name.pdf",
+            title: "BIM",
+            url: "https://fake-bim-iframe-url"
+          },
+          {
+            assetType: "FIXING_TOOL",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "1918965534",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "real-file-name.pdf",
+            title: "fixingToolIframeUrl",
+            url: "https://fake-fixing-tool-iframe-url"
+          },
+          {
+            assetType: "GUARANTIES",
+            extension: "jpg",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "2583923841",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "fake-guaranties-file-name.jpg",
+            title: "guaranteesAndWarrantiesImages",
+            url: "http://localhost:8000"
+          },
+          {
+            assetType: "SPECIFICATION",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "532996341",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "real-file-name.pdf",
+            title: "specificationIframeUrl",
+            url: "https://fake-specification-iframe-url"
+          },
+          {
+            assetType: "VIDEO",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "976736365",
+            isLinkDocument: false,
+            productBaseCode: "base-code",
+            productCategories: expect.anything(),
+            productName: "name",
+            realFileName: "real-file-name.pdf",
+            title: "video",
+            url: "https://fake-video-url"
+          }
+        ]
+      })
+    );
+  });
+
   it("returns variants with goodBetterBest field", async () => {
     const product = createProduct({
       goodBetterBest: GoodBetterBest.good,

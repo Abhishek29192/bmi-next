@@ -34,6 +34,7 @@ export interface TypeProductListerPageFields {
     | "Bramac"
     | "Canopia"
     | "Cementegola"
+    | "Chova"
     | "Cobert"
     | "Coverland"
     | "Esha"

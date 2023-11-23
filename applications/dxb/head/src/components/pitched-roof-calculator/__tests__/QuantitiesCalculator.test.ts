@@ -2,7 +2,6 @@ import QuantitiesCalculator, {
   convertProductRowToResultsRow,
   QuantitiesCalculatorProps
 } from "../calculation/QuantitiesCalculator";
-import { createProduct } from "../helpers/products";
 import {
   Accessory,
   GutterHook,
@@ -18,6 +17,7 @@ import {
   WidthBasedProduct
 } from "../types";
 import { Measurements } from "../types/roof";
+import { createProduct } from "./helpers/createProduct";
 
 const vergeHalfLeftTile = createProduct<VergeVariant>({
   code: "849702122_Zanda_Protector_verge_half_tile_black_left",

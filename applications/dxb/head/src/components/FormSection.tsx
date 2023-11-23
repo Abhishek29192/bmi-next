@@ -18,7 +18,7 @@ import {
   Upload,
   useIsClient
 } from "@bmi-digital/components";
-import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
+import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import logger from "@bmi-digital/functions-logger";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";

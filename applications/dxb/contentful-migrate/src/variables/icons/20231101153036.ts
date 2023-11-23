@@ -12,7 +12,7 @@ export const social = [
   "XING"
 ];
 
-export const doumentBrands = [
+export const documentBrands = [
   "AeroDek",
   "Awak",
   "Braas",
@@ -46,7 +46,7 @@ export const doumentBrands = [
 ];
 
 export const brands = [
-  ...doumentBrands,
+  ...documentBrands,
   "BMIAcademyDE",
   "BMIAcademyEN",
   "RoofPro",

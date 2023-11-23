@@ -37,6 +37,7 @@ export type System = {
   type?: string;
   approvalStatus: ApprovalStatus;
   assets?: readonly Asset[];
+  categoryAssets?: readonly Asset[];
   categories?: readonly Category[];
   classifications?: readonly Classification[];
   code: string;
@@ -587,6 +588,7 @@ export type ProductReference = {
 export type VariantOption = {
   approvalStatus: ApprovalStatus;
   assets?: readonly Asset[];
+  categoryAssets?: readonly Asset[];
   classifications?: readonly Classification[];
   code: string;
   externalProductCode?: string;
@@ -618,6 +620,7 @@ export type Product = {
   externalProductCode?: string;
   description: HTML;
   assets?: readonly Asset[];
+  categoryAssets?: readonly Asset[];
   categories?: readonly Category[];
   classifications?: readonly Classification[];
   images?: readonly Image[];

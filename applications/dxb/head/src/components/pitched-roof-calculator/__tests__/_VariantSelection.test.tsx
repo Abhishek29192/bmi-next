@@ -3,9 +3,9 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { AnalyticsContext } from "../helpers/analytics";
 import { MicroCopy } from "../helpers/microCopy";
-import { createProduct } from "../helpers/products";
 import { Tile } from "../types";
 import VariantSelection from "../_VariantSelection";
+import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
 
 const tiles: Tile[] = [

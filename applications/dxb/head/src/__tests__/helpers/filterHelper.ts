@@ -1,5 +1,5 @@
-import { Filter } from "@bmi-digital/components";
 import { Filter as FirestoreFilter } from "../../types/pim";
+import type { Filter } from "@bmi-digital/components";
 
 export const createBrandFilterCriteria = (
   partialProps?: Partial<Filter>

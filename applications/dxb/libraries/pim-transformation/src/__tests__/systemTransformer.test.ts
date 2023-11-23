@@ -1144,4 +1144,143 @@ describe("transformSystem", () => {
       ])
     );
   });
+
+  it("returns assets-dependant fields correctly if both assets and categoryAssets fields are not defined", () => {
+    const product = createSystem({
+      assets: undefined,
+      categoryAssets: undefined
+    });
+
+    const transformedSystem = transformSystem(product)[0];
+    expect(transformedSystem).toEqual(
+      expect.objectContaining({
+        documents: [],
+        awardsAndCertificateDocuments: [],
+        awardsAndCertificateImages: [],
+        bim: undefined,
+        guaranteesAndWarrantiesImages: [],
+        guaranteesAndWarrantiesLinks: [],
+        videos: []
+      })
+    );
+  });
+
+  it("should return assets-dependant fields correctly if only categoryAssets field provided", () => {
+    const system = createSystem({
+      assets: undefined,
+      categoryAssets: [
+        createAsset({
+          name: "awardsAndCertificateDocument",
+          assetType: "AWARDS",
+          url: "https://fake-url.pdf",
+          realFileName: "fake-file-name.pdf"
+        }),
+        createAsset({
+          name: "awardsAndCertificateImages",
+          assetType: "CERTIFICATES",
+          url: "https://fake-url.jpg",
+          realFileName: "fake-file-name.jpg"
+        }),
+        createAsset({
+          name: "BIM",
+          assetType: "BIM",
+          url: "https://fake-bim-url"
+        }),
+        createAsset({
+          name: "guaranteesAndWarrantiesImages",
+          assetType: "GUARANTIES",
+          realFileName: "fake-guaranties-file-name.jpg"
+        }),
+        createAsset({
+          name: "guaranteesAndWarrantiesLinks",
+          assetType: "WARRANTIES",
+          url: "https://fake-warranties-url",
+          realFileName: undefined
+        }),
+        createAsset({
+          name: "video",
+          assetType: "VIDEO",
+          url: "https://fake-video-url"
+        })
+      ]
+    });
+
+    const transformedSystem = transformSystem(system)[0];
+    expect(transformedSystem).toEqual(
+      expect.objectContaining({
+        awardsAndCertificateDocuments: [
+          {
+            allowedToDownload: true,
+            assetType: "AWARDS",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "awardsAndCertificateDocument",
+            realFileName: "fake-file-name.pdf",
+            url: "https://fake-url.pdf"
+          }
+        ],
+        awardsAndCertificateImages: [
+          {
+            allowedToDownload: true,
+            assetType: "CERTIFICATES",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "awardsAndCertificateImages",
+            realFileName: "fake-file-name.jpg",
+            url: "https://fake-url.jpg"
+          }
+        ],
+        bim: { url: "https://fake-bim-url", name: "BIM" },
+        guaranteesAndWarrantiesImages: [
+          {
+            allowedToDownload: true,
+            assetType: "GUARANTIES",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "guaranteesAndWarrantiesImages",
+            realFileName: "fake-guaranties-file-name.jpg",
+            url: "http://localhost:8000"
+          }
+        ],
+        guaranteesAndWarrantiesLinks: [
+          {
+            allowedToDownload: true,
+            assetType: "WARRANTIES",
+            fileSize: 10,
+            format: "pdf",
+            mime: "application/pdf",
+            name: "guaranteesAndWarrantiesLinks",
+            realFileName: undefined,
+            url: "https://fake-warranties-url"
+          }
+        ],
+        videos: [
+          {
+            label: "video",
+            previewMedia: null,
+            subtitle: null,
+            title: "",
+            videoRatio: null,
+            videoUrl: "https://fake-video-url"
+          }
+        ],
+        documents: [
+          {
+            assetType: "VIDEO",
+            extension: "pdf",
+            fileSize: 10,
+            format: "application/pdf",
+            id: "976736365",
+            isLinkDocument: false,
+            realFileName: "real-file-name.pdf",
+            title: "video",
+            url: "https://fake-video-url"
+          }
+        ]
+      })
+    );
+  });
 });

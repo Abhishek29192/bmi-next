@@ -42,6 +42,7 @@ export interface TypeLinkFields {
     | "Bramac"
     | "Canopia"
     | "Cementegola"
+    | "Chova"
     | "Cobert"
     | "Coverland"
     | "Esha"

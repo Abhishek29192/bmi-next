@@ -1,5 +1,6 @@
 import { Icon, withFormControl } from "@bmi-digital/components";
-import { Add as AddIcon, Remove as RemoveIcon } from "@mui/icons-material";
+import AddIcon from "@bmi-digital/components/icon/Add";
+import RemoveIcon from "@bmi-digital/components/icon/Remove";
 import classnames from "classnames";
 import React, { useState } from "react";
 import RawTextField from "../raw-text-field/RawTextField";

@@ -13882,17 +13882,14 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-v6yrsk-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-vhaxby"
-                      viewBox="0 0 18 18"
-                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-xqdet-MuiSvgIcon-root"
+                      data-testid="PlaceIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
                     >
                       <path
-                        d="M0 0h18v18H0z"
-                        fill="none"
-                      />
-                      <path
-                        d="M9 0a7 7 0 0 0-7 7c0 4.821 7 11 7 11s7-6.179 7-11a7 7 0 0 0-7-7Zm0 9a2 2 0 1 1 2-2 2 2 0 0 1-2 2Z"
-                        fill="currentColor"
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
                       />
                     </svg>
                     <input
@@ -14625,17 +14622,14 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-vhaxby"
-                      viewBox="0 0 18 18"
-                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-xqdet-MuiSvgIcon-root"
+                      data-testid="PlaceIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
                     >
                       <path
-                        d="M0 0h18v18H0z"
-                        fill="none"
-                      />
-                      <path
-                        d="M9 0a7 7 0 0 0-7 7c0 4.821 7 11 7 11s7-6.179 7-11a7 7 0 0 0-7-7Zm0 9a2 2 0 1 1 2-2 2 2 0 0 1-2 2Z"
-                        fill="currentColor"
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
                       />
                     </svg>
                     <input

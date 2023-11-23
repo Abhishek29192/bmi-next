@@ -24,39 +24,21 @@ export const getProductsQuery = (pitches: number[]) => ({
               { exists: { field: "MEASUREMENTS$WIDTH" } },
               { exists: { field: "MEASUREMENTS$LENGTH" } },
               { exists: { field: "TILESATTRIBUTES$MINIMUMBATTENSPACING" } },
-              { exists: { field: "TILESATTRIBUTES$MAXIMUMBATTENSPACING" } },
               { exists: { field: "TILESATTRIBUTES$RIDGESPACE" } },
-              { exists: { field: "TILESATTRIBUTES$EAVEGAUGE" } },
               { exists: { field: "GENERALINFORMATION$CLASSIFICATION" } },
               { exists: { field: "APPEARANCEATTRIBUTES$COLOUR" } }
             ],
             filter: pitches.flatMap((pitchValue) => [
               {
                 range: {
-                  "TILESATTRIBUTES$EAVEGAUGEENDANGLE.value": {
-                    gte: pitchValue,
-                    lt: 90
+                  "battenSpacings.maxAngle": {
+                    gte: pitchValue
                   }
                 }
               },
               {
                 range: {
-                  "TILESATTRIBUTES$EAVEGAUGESTARTANGLE.value": {
-                    lte: pitchValue
-                  }
-                }
-              },
-              {
-                range: {
-                  "TILESATTRIBUTES$MAXGAUGEENDANGLE.value": {
-                    gte: pitchValue,
-                    lt: 90
-                  }
-                }
-              },
-              {
-                range: {
-                  "TILESATTRIBUTES$MAXGAUGESTARTANGLE.value": {
+                  "battenSpacings.minAngle": {
                     lte: pitchValue
                   }
                 }

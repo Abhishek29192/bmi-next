@@ -9,7 +9,11 @@ import {
   SystemLayer,
   Video
 } from "@bmi/firestore-types";
-import { ApprovalStatus, System as PimSystem } from "@bmi/pim-types";
+import {
+  ApprovalStatus,
+  Asset as PimAsset,
+  System as PimSystem
+} from "@bmi/pim-types";
 import { generateHashFromString, generateUrl } from "@bmi/utils";
 import { systemIgnorableAttributes } from "./ignorableFeatureCodes.js";
 import {
@@ -56,31 +60,32 @@ export const transformSystem = (system: PimSystem): System[] => {
   const hashedCode = generateHashFromString(system.code);
   const name = system.name;
   const groupedImages = groupImages(system.images || []);
+  const assets = [...(system.assets || []), ...(system.categoryAssets || [])];
   return [
     {
       awardsAndCertificateDocuments: getAwardAndCertificateAsset(
         AwardAndCertificateAssetType.Documents,
-        system.assets
+        assets
       ),
       awardsAndCertificateImages: getAwardAndCertificateAsset(
         AwardAndCertificateAssetType.Images,
-        system.assets
+        assets
       ),
-      bim: getBim(system.assets),
+      bim: getBim(assets),
       brand: getBrand(system.categories),
       categories: getCategories(system.categories || []),
       classifications: mapClassifications(system),
       code,
       description: system.longDescription,
-      documents: mapSystemDocuments(system),
+      documents: mapSystemDocuments(assets),
       goodBetterBest: system.goodBetterBest,
       guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
         GuaranteesAndWarrantiesAssetType.Images,
-        system.assets
+        assets
       ),
       guaranteesAndWarrantiesLinks: getGuaranteesAndWarrantiesAsset(
         GuaranteesAndWarrantiesAssetType.Links,
-        system.assets
+        assets
       ),
       hashedCode,
       galleryImages: mapImages(groupedImages, "GALLERY"),
@@ -97,7 +102,7 @@ export const transformSystem = (system: PimSystem): System[] => {
       systemLayers: mapSystemLayers(system),
       systemReferences: mapSystemReferences(system),
       uniqueSellingPropositions,
-      videos: mapVideos(system)
+      videos: mapVideos(assets)
     }
   ];
 };
@@ -116,9 +121,9 @@ const assetTypesToIgnore = [
   "WARRANTIES"
 ];
 
-const mapSystemDocuments = (system: PimSystem): SystemDocument[] =>
+const mapSystemDocuments = (assets: PimAsset[]): SystemDocument[] =>
   mapDocuments(
-    (system.assets || []).filter(
+    assets.filter(
       (asset) =>
         !assetTypesToIgnore.some((assetType) => assetType === asset.assetType)
     )
@@ -182,8 +187,8 @@ const mapSystemReferences = (system: PimSystem): string[] =>
     )
     .map((systemReference) => systemReference.target.code);
 
-const mapVideos = (system: PimSystem): Video[] =>
-  (system.assets || [])
+const mapVideos = (assets: PimAsset[]): Video[] =>
+  assets
     .filter((asset) => asset.assetType === "VIDEO")
     .map((asset) => ({
       title: "",

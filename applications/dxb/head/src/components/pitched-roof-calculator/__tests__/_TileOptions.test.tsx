@@ -3,7 +3,6 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { AnalyticsContext } from "../helpers/analytics";
 import { MicroCopy } from "../helpers/microCopy";
-import { createProduct } from "../helpers/products";
 import {
   RidgeOption,
   Tile,
@@ -12,6 +11,7 @@ import {
   VergeVariant
 } from "../types";
 import TileOptions from "../_TileOptions";
+import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
 
 const tileVariant = createProduct<Tile>({

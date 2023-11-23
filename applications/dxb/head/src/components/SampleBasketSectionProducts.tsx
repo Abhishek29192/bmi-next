@@ -5,7 +5,7 @@ import {
   Typography
 } from "@bmi-digital/components";
 import { isDefined } from "@bmi/utils";
-import { Remove } from "@mui/icons-material";
+import Remove from "@bmi-digital/components/icon/Remove";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { navigate } from "gatsby";
 import React from "react";

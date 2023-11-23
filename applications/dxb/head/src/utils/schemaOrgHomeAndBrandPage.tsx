@@ -1,4 +1,4 @@
-import { BMI as BmiIcon } from "@bmi-digital/components/logo";
+import BmiIcon from "@bmi-digital/components/logo/Bmi";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { getPathWithCountryCode } from "../utils/path";

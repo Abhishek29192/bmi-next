@@ -1,5 +1,4 @@
 import {
-  createProduct as createESProduct,
   Product as ESProduct,
   ProductReference
 } from "@bmi/elasticsearch-types";
@@ -27,7 +26,8 @@ import {
 // Function overloads to make it working correctly with products of different types
 export function transformClassificationAttributes(
   products: ESProduct[],
-  productType: ProductType.tile
+  productType: ProductType.tile,
+  angle: number[]
 ): Tile[];
 export function transformClassificationAttributes(
   products: ESProduct[],
@@ -42,7 +42,8 @@ export function transformClassificationAttributes(
 ): (RidgeOption | LengthBasedProduct | WidthBasedProduct | Accessory)[];
 export function transformClassificationAttributes(
   products: ESProduct[],
-  productType?: ProductType
+  productType?: ProductType,
+  angleValues?: number[]
 ) {
   if (!products) {
     return [];
@@ -56,12 +57,11 @@ export function transformClassificationAttributes(
         TILESATTRIBUTES$BROKENBOND: brokenBond,
         MEASUREMENTS$WIDTH: width,
         TILESATTRIBUTES$MINIMUMBATTENSPACING: minBattenSpacing,
-        TILESATTRIBUTES$MAXIMUMBATTENSPACING: maxBattenSpacing,
         TILESATTRIBUTES$RIDGESPACE: ridgeSpacing,
-        TILESATTRIBUTES$EAVEGAUGE: eaveGauge,
         MEASUREMENTS$LENGTH: length,
         UNDERLAYATTRIBUTES$OVERLAP: overlap,
         PACKAGINGINFORMATION$QUANTITYPERUNIT: packSize,
+        battenSpacings,
         ...rest
       } = product;
 
@@ -73,6 +73,12 @@ export function transformClassificationAttributes(
         };
 
         if (productType === ProductType.tile) {
+          const battenSpacing = battenSpacings.find((batten) =>
+            angleValues.every(
+              (angle) => batten.maxAngle >= angle && batten.minAngle <= angle
+            )
+          );
+
           return {
             ...initialData,
             brokenBond: convertStrToBool(brokenBond?.[0].name),
@@ -81,9 +87,15 @@ export function transformClassificationAttributes(
             width: convertToCentimeters(width[0]),
             length: convertToCentimeters(length[0]),
             minBattenSpacing: convertToCentimeters(minBattenSpacing[0]),
-            maxBattenSpacing: convertToCentimeters(maxBattenSpacing[0]),
+            maxBattenSpacing: convertToCentimeters({
+              value: `${battenSpacing?.battenDistance.value}`,
+              code: `${battenSpacing?.battenDistance.value}${battenSpacing?.battenDistance.unit}`
+            }),
             ridgeSpacing: convertToCentimeters(ridgeSpacing[0]),
-            eaveGauge: convertToCentimeters(eaveGauge[0]),
+            eaveGauge: convertToCentimeters({
+              value: `${battenSpacing?.firstRowBattenDistance.value}`,
+              code: `${battenSpacing?.firstRowBattenDistance.value}${battenSpacing?.firstRowBattenDistance.unit}`
+            }),
             productReferences: initialData.productReferences || []
           };
         }
@@ -121,7 +133,8 @@ export function transformClassificationAttributes(
 }
 
 export const groupByProductType = (
-  products: ESProduct[]
+  products: ESProduct[],
+  angleValues: number[]
 ): {
   tiles: Tile[];
   underlays: Underlay[];
@@ -136,7 +149,8 @@ export const groupByProductType = (
   return {
     tiles: transformClassificationAttributes(
       groupedProducts.MAIN_TILE,
-      ProductType.tile
+      ProductType.tile,
+      angleValues
     ),
     underlays: transformClassificationAttributes(
       groupedProducts.UNDERLAY,
@@ -153,8 +167,11 @@ export const groupByProductType = (
   };
 };
 
-export const prepareProducts = (products: ESProduct[]): Data => {
-  const transformedProducts = groupByProductType(products);
+export const prepareProducts = (
+  products: ESProduct[],
+  angleValues: number[]
+): Data => {
+  const transformedProducts = groupByProductType(products, angleValues);
 
   const groupedTiles = groupBy(
     transformedProducts.tiles,
@@ -178,7 +195,7 @@ export const convertToCentimeters = (
   input: {
     value: string;
     code: string;
-    name: string;
+    name?: string;
   },
   throwOnTypeError = true
 ): number => {
@@ -296,9 +313,3 @@ export const getVergeOption = (
     halfRight
   };
 };
-
-export const createProduct = <T extends ESProduct>(data: Partial<T>): T =>
-  ({
-    ...createESProduct(),
-    ...data
-  } as T);

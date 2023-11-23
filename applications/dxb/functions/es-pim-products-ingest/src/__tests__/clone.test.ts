@@ -370,30 +370,6 @@ describe("CLONE tests", () => {
               featureValues: [createFeatureValue({ value: "1" })]
             }),
             createFeature({
-              code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGauge",
-              featureValues: [createFeatureValue({ value: "1" })]
-            }),
-            createFeature({
-              code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeStartAngle",
-              featureValues: [createFeatureValue({ value: "1" })]
-            }),
-            createFeature({
-              code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeEndAngle",
-              featureValues: [createFeatureValue({ value: "1" })]
-            }),
-            createFeature({
-              code: "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeStartAngle",
-              featureValues: [createFeatureValue({ value: "1" })]
-            }),
-            createFeature({
-              code: "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeEndAngle",
-              featureValues: [createFeatureValue({ value: "1" })]
-            }),
-            createFeature({
-              code: "bmiClassificationCatalog/1.0/tilesAttributes.maximumBattenSpacing",
-              featureValues: [createFeatureValue({ value: "1" })]
-            }),
-            createFeature({
               code: "bmiClassificationCatalog/1.0/tilesAttributes.minimumBattenSpacing",
               featureValues: [createFeatureValue({ value: "1" })]
             }),
@@ -431,12 +407,6 @@ describe("CLONE tests", () => {
       expect(result["APPEARANCEATTRIBUTES$COLOUR"][0].value).toBeUndefined();
       expect(result["MEASUREMENTS$LENGTH"][0].value).toBe("1");
       expect(result["MEASUREMENTS$WIDTH"][0].value).toBe("1");
-      expect(result["TILESATTRIBUTES$EAVEGAUGE"][0].value).toBe("1");
-      expect(result["TILESATTRIBUTES$EAVEGAUGESTARTANGLE"][0].value).toBe("1");
-      expect(result["TILESATTRIBUTES$EAVEGAUGEENDANGLE"][0].value).toBe("1");
-      expect(result["TILESATTRIBUTES$MAXGAUGESTARTANGLE"][0].value).toBe("1");
-      expect(result["TILESATTRIBUTES$MAXGAUGEENDANGLE"][0].value).toBe("1");
-      expect(result["TILESATTRIBUTES$MAXIMUMBATTENSPACING"][0].value).toBe("1");
       expect(result["TILESATTRIBUTES$MINIMUMBATTENSPACING"][0].value).toBe("1");
       expect(result["TILESATTRIBUTES$RIDGESPACE"][0].value).toBe("1");
       expect(result["TILESATTRIBUTES$RIDGESPACESTARTANGLE"][0].value).toBe("1");

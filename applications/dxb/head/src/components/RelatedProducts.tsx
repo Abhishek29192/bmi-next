@@ -6,9 +6,9 @@ import {
   Section,
   Tabs
 } from "@bmi-digital/components";
-import { Add as AddIcon } from "@mui/icons-material";
+import AddIcon from "@bmi-digital/components/icon/Add";
 import Tab, { TabProps } from "@mui/material/Tab";
-import { Link, graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import React, { useMemo, useState } from "react";
 import { microCopy } from "@bmi/microcopies";
 import DefaultImage from "../images/DefaultImage.svg";

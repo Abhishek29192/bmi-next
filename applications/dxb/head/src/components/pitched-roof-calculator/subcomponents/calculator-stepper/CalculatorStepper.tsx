@@ -1,25 +1,25 @@
-import { ArrowBack as ArrowBackIcon } from "@bmi-digital/components/icon";
+import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
 import { useMediaQuery, useTheme } from "@mui/material";
 import classnames from "classnames";
 import React, { FormEvent } from "react";
 import ProgressIndicator from "../../../ProgressIndicator";
 import {
+  classes,
+  FooterButton,
   Root,
+  StepWrapper,
   StyledComputation,
   StyledContent,
   StyledFooter,
   StyledFooterBackButtonLink,
-  StepWrapper,
+  StyledForm,
   StyledFormContent,
   StyledFormSubmitButton,
   StyledHR,
   StyledSkipAndNextButtons,
   StyledSpinnerContainer,
   StyledStepTitle,
-  StyledSubTitle,
-  classes,
-  StyledForm,
-  FooterButton
+  StyledSubTitle
 } from "./CalculatorStepper.styles";
 
 export type Props = {

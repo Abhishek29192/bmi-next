@@ -10,9 +10,9 @@ import {
   ToggleCard,
   Typography
 } from "@bmi-digital/components";
-import { ArrowForward as ArrowForwardIcon } from "@bmi-digital/components/icon";
-import { BMI } from "@bmi-digital/components/logo";
-import { Share as ShareIcon } from "@mui/icons-material";
+import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
+import BMI from "@bmi-digital/components/logo/Bmi";
+import ShareIcon from "@bmi-digital/components/icon/Share";
 import { useMediaQuery } from "@mui/material";
 import Popover from "@mui/material/Popover";
 import { styled } from "@mui/material/styles";

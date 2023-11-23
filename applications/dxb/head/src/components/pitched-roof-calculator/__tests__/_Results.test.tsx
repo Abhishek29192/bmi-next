@@ -8,7 +8,6 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
 import Results, { replaceImageURLWithImage, ResultProps } from "../_Results";
 import { MicroCopy } from "../helpers/microCopy";
-import { createProduct } from "../helpers/products";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
 import {
   Accessory,
@@ -23,6 +22,7 @@ import {
   VergeVariant,
   WidthBasedProduct
 } from "../types";
+import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
 
 jest.mock("../../../utils/useIsMobileDevice", () => ({

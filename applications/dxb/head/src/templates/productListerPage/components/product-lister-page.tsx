@@ -10,7 +10,7 @@ import {
   SpotlightHeroProps,
   Typography
 } from "@bmi-digital/components";
-import { Check as CheckIcon } from "@mui/icons-material";
+import CheckIcon from "@bmi-digital/components/icon/Check";
 import { styled } from "@mui/material/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
