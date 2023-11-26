@@ -6,7 +6,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -205,6 +205,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -229,6 +230,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -253,6 +255,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -277,6 +280,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -2567,7 +2571,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -2766,6 +2770,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -2790,6 +2795,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -2814,6 +2820,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -2838,6 +2845,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -5100,7 +5108,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -5299,6 +5307,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -5323,6 +5332,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -5347,6 +5357,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -5371,6 +5382,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -7638,7 +7650,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -7837,6 +7849,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -7861,6 +7874,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -7885,6 +7899,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -7909,6 +7924,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -10171,7 +10187,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -10370,6 +10386,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -10394,6 +10411,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -10418,6 +10436,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -10442,6 +10461,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -12665,7 +12685,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -12864,6 +12884,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -12888,6 +12909,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -12912,6 +12934,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -12936,6 +12959,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -15198,7 +15222,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -15397,6 +15421,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -15421,6 +15446,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -15445,6 +15471,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -15469,6 +15496,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -16259,10 +16287,12 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               data-testid="grid-item"
             >
               <div
-                class=" css-1u48ai"
+                class=" css-makape"
+                data-testid="accordion"
               >
                 <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+                  data-testid="accordion-item"
                 >
                   <div
                     aria-expanded="false"
@@ -16313,7 +16343,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           role="region"
                         >
                           <div
-                            class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
+                            class="MuiAccordionDetails-root  css-188s0du-MuiAccordionDetails-root"
                           >
                             <div
                               class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"

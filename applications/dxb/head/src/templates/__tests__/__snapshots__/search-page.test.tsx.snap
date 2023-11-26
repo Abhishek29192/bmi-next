@@ -6,7 +6,7 @@ exports[`Search Page Template render correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -141,84 +141,46 @@ exports[`Search Page Template render correctly 1`] = `
       <div
         class="Header-drawer Header-languageDrawer"
         data-testid="language-section"
-        style="visibility: hidden; webkit-transform: translateX(1024px); transform: translateX(1024px);"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
-        <div
-          class="Header-backNavigation"
-          data-testid="back-navigation"
+        <button
+          aria-label="MC: global.close"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
+          data-testid="language-close-button"
+          tabindex="0"
+          type="button"
         >
-          <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row  css-1650nvj-MuiGrid2-root"
-            data-testid="grid-container"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <button
-              aria-pressed="false"
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Header-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Header-chevronLeft css-i4bv87-MuiSvgIcon-root"
-                  data-testid="ChevronLeftIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-            <button
-              aria-label="MC: global.close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-              data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
-              data-testid="language-close-button"
-              tabindex="0"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                data-testid="CloseIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-          <hr
-            class="Header-separator"
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </div>
+        </button>
         <div
           class="Header-languageContainer css-ze8cyt"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
           >
-            <div
-              data-testid="language-selection-mobile"
-            >
+            <div>
               <div
                 class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-pn037-MuiGrid2-root"
                 data-testid="grid-container"
               >
-                <div>
+                <div
+                  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xl-9 MuiGrid2-grid-lg-9 Grid-item css-1n3tg82-MuiGrid2-root"
+                  data-testid="grid-item"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-1j4kt3i-MuiTypography-root"
                     data-testid="typography"
@@ -243,6 +205,7 @@ exports[`Search Page Template render correctly 1`] = `
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -267,6 +230,7 @@ exports[`Search Page Template render correctly 1`] = `
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -291,6 +255,7 @@ exports[`Search Page Template render correctly 1`] = `
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -315,6 +280,7 @@ exports[`Search Page Template render correctly 1`] = `
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -854,7 +820,7 @@ exports[`Search Page Template render correctly 1`] = `
                         </div>
                       </div>
                       <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation InputGroup-button css-1i9gjut-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium InputGroup-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                         data-testid="search-submit-button"
                         disabled=""
                         tabindex="-1"
