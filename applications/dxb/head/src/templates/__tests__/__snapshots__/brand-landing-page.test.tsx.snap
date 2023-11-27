@@ -6,7 +6,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -205,6 +205,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -229,6 +230,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -253,6 +255,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -277,6 +280,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -1869,7 +1873,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -2068,6 +2072,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -2092,6 +2097,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -2116,6 +2122,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -2140,6 +2147,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -3493,7 +3501,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -3692,6 +3700,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -3716,6 +3725,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -3740,6 +3750,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -3764,6 +3775,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -5317,7 +5329,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -5516,6 +5528,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -5540,6 +5553,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -5564,6 +5578,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -5588,6 +5603,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -7171,7 +7187,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -7370,6 +7386,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -7394,6 +7411,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -7418,6 +7436,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -7442,6 +7461,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -8997,7 +9017,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -9196,6 +9216,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -9220,6 +9241,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -9244,6 +9266,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -9268,6 +9291,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -10853,7 +10877,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -11052,6 +11076,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -11076,6 +11101,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -11100,6 +11126,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -11124,6 +11151,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -12709,7 +12737,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -12908,6 +12936,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -12932,6 +12961,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -12956,6 +12986,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -12980,6 +13011,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -14577,7 +14609,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -14776,6 +14808,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -14800,6 +14833,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -14824,6 +14858,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -14848,6 +14883,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -16443,7 +16479,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -16642,6 +16678,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -16666,6 +16703,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -16690,6 +16728,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -16714,6 +16753,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -18311,7 +18351,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -18510,6 +18550,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -18534,6 +18575,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -18558,6 +18600,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -18582,6 +18625,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />

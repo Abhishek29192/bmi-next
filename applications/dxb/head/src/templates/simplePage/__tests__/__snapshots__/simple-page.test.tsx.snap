@@ -6,7 +6,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -192,6 +192,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -216,6 +217,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -240,6 +242,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -264,6 +267,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -1445,7 +1449,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1644,6 +1648,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -1668,6 +1673,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -1692,6 +1698,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -1716,6 +1723,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
