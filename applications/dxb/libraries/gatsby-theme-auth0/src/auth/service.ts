@@ -32,7 +32,7 @@ class Auth {
     if (this.auth0) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      this.auth0.authorize({ market: process.env.SPACE_MARKET_CODE });
+      this.auth0.authorize({ market: config.marketCode });
     }
   };
 

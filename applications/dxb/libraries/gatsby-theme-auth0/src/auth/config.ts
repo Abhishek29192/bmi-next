@@ -5,5 +5,6 @@ export const config = {
   audience: process.env.AUTH0_AUDIENCE!,
   responseType: process.env.AUTH0_RESPONSE_TYPE! || "token id_token",
   scope: process.env.AUTH0_SCOPE! || "openid email profile",
-  logoutUri: process.env.AUTH0_LOGOUT_URL!
+  logoutUri: process.env.AUTH0_LOGOUT_URL!,
+  marketCode: process.env.MARKET_CODE!
 };

@@ -631,6 +631,7 @@ type ContentfulSite implements ContentfulObject & Node @dontInfer {
   regions: [RegionJson]! @link(from: "regions___NODE")
   pitchedRoofCalculatorConfig: ContentfulWebToolCalculator @link(from: "pitchedRoofCalculatorConfig___NODE")
   visualiserHouseTypes: [ContentfulVisualiserHouseType!] @link(from: "visualiserHouseTypes___NODE")
+  accountPage: ContentfulAccountPage @link(from: "accountPage___NODE")
 }
 
 # Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
@@ -1314,11 +1315,25 @@ type DoceboCourses implements Node @dontInfer {
   name: String!
   description: String!
   code: String
+  sessions: [Session]
   categoryName: String!
   price: String
   course_type: String!
   img_url: String
-  sessions: [Session!]
   breadcrumbs: [BreadcrumbItem!]!
+}
+
+type ContentfulAccountPage implements Node @dontInfer {
+  id: ID!
+  contentful_id: String!
+  metadata: ContentfulMetadata!
+  slug: String!
+  salutation: String!
+  description: String!
+  featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
+  titleForToolSection: String!
+  titleForServiceSupportSection: String!
+  allowTools: [String]
+  serviceSupportCards: [ContentfulContactDetails] @link(from: "serviceSupportCards___NODE")
 }
 `;
