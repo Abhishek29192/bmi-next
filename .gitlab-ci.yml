@@ -29,6 +29,8 @@ include:
   - local: "/applications/redirects-website-sk-icopal/.gitlab-ci.yml"
   - local: "/applications/redirects-website-cz-bramac/.gitlab-ci.yml"
   - local: "/applications/redirects-website-cz-icopal/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-dk-monier/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-dk-icopal/.gitlab-ci.yml"
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest

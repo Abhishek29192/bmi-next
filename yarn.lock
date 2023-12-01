@@ -4133,6 +4133,34 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/redirects-website-dk-icopal@workspace:applications/redirects-website-dk-icopal":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-dk-icopal@workspace:applications/redirects-website-dk-icopal"
+  dependencies:
+    eslint: ^8.49.0
+    gatsby: ^5.12.4
+    gatsby-plugin-gatsby-cloud: ^5.12.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.88.2
+  languageName: unknown
+  linkType: soft
+
+"@bmi/redirects-website-dk-monier@workspace:applications/redirects-website-dk-monier":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-dk-monier@workspace:applications/redirects-website-dk-monier"
+  dependencies:
+    eslint: ^8.49.0
+    gatsby: ^5.12.4
+    gatsby-plugin-gatsby-cloud: ^5.12.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.88.2
+  languageName: unknown
+  linkType: soft
+
 "@bmi/redirects-website-dk@workspace:applications/redirects-website-dk":
   version: 0.0.0-use.local
   resolution: "@bmi/redirects-website-dk@workspace:applications/redirects-website-dk"
