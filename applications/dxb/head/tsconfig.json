@@ -8,9 +8,6 @@
   },
   "references": [
     {
-      "path": "../libraries/docebo-api"
-    },
-    {
       "path": "../libraries/fetch-retry"
     },
     {

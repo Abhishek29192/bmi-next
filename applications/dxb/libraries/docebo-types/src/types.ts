@@ -150,8 +150,6 @@ export type Course = {
   category: CourseCategory;
 };
 
-export type CourseWithSessions = Course & { sessions?: Session[] };
-
 export type Enrolled = {
   is_enrolled: boolean;
   count_enrolled: boolean;
@@ -179,35 +177,6 @@ export type CourseCategory = {
   id: number;
   name: string;
 };
-
-export type CourseSessions = {
-  id_session: number;
-  attendance_type: CourseSessionAttendanceType;
-  migrated_webinar_session_id: number;
-  uid_session: string;
-  name: string;
-  slug_name: string;
-  description: string;
-  start_date: string;
-  end_date: string;
-  last_subscription_date: string;
-  min_enroll: number;
-  max_enroll: number;
-  is_instructor: boolean;
-  is_session_instructor: boolean;
-  is_event_instructor: boolean;
-  enrolled: Enrolled[];
-  instructors: Instructors[];
-  dates: CourseDates[];
-  locations: Locations[];
-  additional_fields: CourseAdditionalFields[];
-};
-
-export type CourseSessionAttendanceType =
-  | "onsite"
-  | "online"
-  | "flexible"
-  | "blended";
 
 export type CourseDates = {
   date: string;

@@ -1,16 +1,21 @@
 import { testPluginOptionsSchema } from "gatsby-plugin-utils";
 import {
+  CourseCategory,
   createCatalogue,
   createCategory,
   createCertification,
-  createCourseWithSession
+  createCourse,
+  createSession
 } from "@bmi/docebo-types";
-import { sourceNodes, pluginOptionsSchema } from "../index";
-import { nodeBuilder } from "../utils";
+import { sourceNodes, pluginOptionsSchema } from "../gatsby-node";
+import { nodeBuilder, transformCourse } from "../utils";
 import { NODE_TYPES } from "../types";
 import type { PluginOptions, SourceNodesArgs } from "gatsby";
 
-jest.mock("../utils");
+jest.mock("../utils", () => ({
+  ...jest.requireActual("../utils"),
+  nodeBuilder: jest.fn()
+}));
 
 const fetchCoursesMock = jest.fn();
 const fetchCatalogueMock = jest.fn();
@@ -27,7 +32,8 @@ jest.mock("@bmi/docebo-api", () => ({
       fetchCatalogues: fetchCatalogueMock,
       fetchCertifications: fetchCertificationsMock
     };
-  }
+  },
+  transformCourseCategory: (category: CourseCategory) => category.name
 }));
 
 const mockCallback = jest.fn();
@@ -90,14 +96,18 @@ describe("source-nodes", () => {
   });
 
   it("should write courses", async () => {
-    const course = createCourseWithSession({ sessions: [] });
+    const course = createCourse();
+    const session = createSession();
+
     fetchCoursesMock.mockReturnValue([course]);
+    fetchSessionMock.mockReturnValue([session]);
+
     await sourceNodes!(mockGatsbyApi, mockConfigOptions, mockCallback);
     expect(nodeBuilder).toHaveBeenCalledWith({
       gatsbyApi: mockGatsbyApi,
       input: {
         type: NODE_TYPES.Courses,
-        data: course
+        data: transformCourse({ ...course, sessions: [session] })
       },
       itemId: course.id_course
     });

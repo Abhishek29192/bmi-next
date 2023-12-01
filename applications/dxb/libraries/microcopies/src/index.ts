@@ -372,10 +372,15 @@ export const microCopy = {
   TRAINING_CATEGORY_OTHER: "trainingCategory.other",
   TRAINING_CATALOGUE_SHOW_MORE: "trainingCatalogue.showMore",
   TRAINING_CATALOGUE_SHOW_LESS: "trainingCatalogue.showLess",
+  TRAINING_PRICE_FREE: "training.price.free",
 
   TRAINING_ID_LABEL: "training.courseIdLabel",
   TRAINING_DETAILS_SESSIONS_LABEL: "trainingDetails.sessionsLabel",
   TRAINING_DETAILS_SESSION_ENROLL_LABEL: "trainingDetails.session.enrollLabel",
+  TRAINING_DETAILS_NO_SESSIONS_TOOLTIP_MESSAGE:
+    "trainingDetails.no.sessions.tooltip.message",
+  TRAINING_DETAILS_SEE_AVAILABLE_SESSIONS_BUTTON:
+    "trainingDetails.see.available.sessions.button",
 
   TRAINING_LISTING_SEARCH_LABEL: "trainingListerPage.search.label",
   TRAINING_LISTING_SEARCH_PLACEHOLDER: "trainingListerPage.search.placeholder",

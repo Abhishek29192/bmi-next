@@ -126,7 +126,7 @@ export type TrainingListerPage = Pick<
   TrainingListerPageProps,
   "breadcrumbTitle" | "title" | "subtitle"
 > &
-  Pick<Node, "site___NODE" | "link___NODE" | "parent"> & {
+  GatsbyNode & {
     name: string;
     slug: string;
     featuredMedia___NODE: string;
@@ -146,4 +146,34 @@ export type MicroCopyNode = GatsbyNode & {
   contentful_id: string;
   key: MicroCopyValues;
   value: string;
+};
+
+export type ContentfulImageNode = GatsbyNode & {
+  title: string;
+  altText: string;
+  type: string | null;
+  image___NODE: string;
+  focalPoint___NODE: string | null;
+  caption___NODE: string | null;
+};
+
+export type ContentfulAssetNode = GatsbyNode & {
+  file: {
+    url: string;
+    details: {
+      image: { width: number; height: number } | null;
+      size: number;
+    };
+    fileName: string;
+    contentType: string;
+  };
+  title: string | null;
+  description: string | null;
+  url: string;
+  placeholderUrl: string;
+  mimeType: string;
+  filename: string;
+  width: number | null;
+  height: number | null;
+  size: number;
 };

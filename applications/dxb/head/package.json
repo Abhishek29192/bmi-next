@@ -39,11 +39,10 @@
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",
     "@auth0/auth0-react": "^2.2.0",
-    "@bmi-digital/components": "^1.59.3",
+    "@bmi-digital/components": "^1.61.0",
     "@bmi-digital/react-pdf-maker": "^1.7.5",
     "@bmi-digital/styles": "^1.7.5",
     "@bmi-digital/svg-import": "^1.7.5",
-    "@bmi/docebo-api": "workspace:*",
     "@bmi/fetch-retry": "workspace:*",
     "@bmi/gatsby-plugin-elasticsearch": "workspace:*",
     "@bmi/gatsby-plugin-google-tagmanager": "workspace:*",
