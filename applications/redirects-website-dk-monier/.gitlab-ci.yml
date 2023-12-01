@@ -1,0 +1,19 @@
+lint_redirects_website_dk_monier:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/redirects-website-dk-monier"
+    WORKSPACE: "@bmi/redirects-website-dk-monier"
+
+build_redirects_website_dk-monier:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+  variables:
+    ROOT_DIR: applications/redirects-website-dk-monier
+    WORKSPACE: "@bmi/redirects-website-dk-monier"
