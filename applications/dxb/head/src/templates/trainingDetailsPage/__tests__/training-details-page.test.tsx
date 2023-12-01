@@ -60,7 +60,7 @@ describe("Training DetailsPage", () => {
     expect(screen.getByTestId("training-description")).toBeInTheDocument();
     expect(screen.getByTestId("sessions-title")).toBeInTheDocument();
     expect(screen.getByRole("banner")).toBeInTheDocument();
-    expect(screen.getByText(`€${course.price}`)).toBeInTheDocument();
+    expect(screen.getByText("MC: training.price.free")).toBeInTheDocument();
   });
 
   it("should render training id label if code does not exists for course", () => {
@@ -93,10 +93,10 @@ describe("Training DetailsPage", () => {
     expect(screen.getByTestId("session-cta-button")).toBeInTheDocument();
   });
 
-  it("should render price label correctly if price is not defined", () => {
+  it("should render price if provided", () => {
     renderTrainingDetailsPage({
-      course: createTraining({ price: null })
+      course: createTraining({ price: "100" })
     });
-    expect(screen.getByText("MC: training.price.free")).toBeInTheDocument();
+    expect(screen.getByText("€100")).toBeInTheDocument();
   });
 });

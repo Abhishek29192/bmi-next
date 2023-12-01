@@ -112,7 +112,7 @@ const TrainingDetails = ({
               subtitle={`${getMicroCopy(microCopy.TRAINING_ID_LABEL)} ${code}`}
               media={img_url && <img src={img_url} alt={name} />}
               price={
-                price
+                Number(price) > 0
                   ? `€${price}`
                   : getMicroCopy(microCopy.TRAINING_PRICE_FREE)
               }
