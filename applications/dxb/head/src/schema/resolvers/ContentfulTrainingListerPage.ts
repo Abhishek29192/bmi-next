@@ -1,6 +1,6 @@
 import { microCopy } from "@bmi/microcopies";
-import { transformCourseCategory } from "@bmi/docebo-api";
-import type { Catalogue, Course } from "@bmi/docebo-types";
+import type { Catalogue } from "@bmi/docebo-types";
+import type { Course } from "@bmi/gatsby-source-docebo";
 import { getMicroCopies } from "./utils/getMicrocopies";
 import type { Filter } from "@bmi-digital/components";
 import type { Context } from "./types/Gatsby";
@@ -71,9 +71,7 @@ const getCategoryOptions = (
   courses: Course[],
   microCopies: MicroCopyNode[]
 ): Filter["options"] => {
-  const categories = courses.map((course) => {
-    return transformCourseCategory(course.category);
-  });
+  const categories = courses.map((course) => course.categoryName);
 
   const pitched = categories.find(
     (category) => category.toUpperCase() === "PITCHED"

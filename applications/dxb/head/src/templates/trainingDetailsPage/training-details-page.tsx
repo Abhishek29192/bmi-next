@@ -1,35 +1,63 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { CourseWithSessions } from "@bmi/docebo-types";
+import Section from "@bmi-digital/components/section";
 import Page, { Data as PageData } from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
+import BackToResults from "../../components/BackToResults";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import TrainingDetail from "./components/TrainingDetail";
+import { StyledTopBreadcrumbsSection } from "./trainingDetailsPageStyles";
+import type { TrainingDetailsCourseType as Course } from "./types";
 
 export type Props = {
   pageContext: {
-    productCode: string;
+    courseId: number;
     siteId: string;
     countryCode: string;
   };
   data: {
-    doceboCourses: CourseWithSessions;
+    doceboCourses: Course;
     contentfulSite: SiteData;
   };
 };
 
 const TrainingDetailsPage = ({ data }: Props) => {
-  const { doceboCourses, contentfulSite } = data;
-  const { name, slug_name } = doceboCourses;
+  const {
+    doceboCourses: { breadcrumbs, ...trainingData },
+    contentfulSite
+  } = data;
+
   const pageData: PageData = {
-    breadcrumbs: null,
+    breadcrumbs: breadcrumbs,
     signupBlock: null,
     seo: null,
-    path: `/t/${slug_name}`
+    path: `/t/${trainingData.slug_name}`
   };
 
   return (
-    <Page title={name} pageData={pageData} siteData={contentfulSite}>
-      <TrainingDetail course={doceboCourses} />
+    <Page
+      title={trainingData.name}
+      pageData={pageData}
+      siteData={contentfulSite}
+    >
+      <StyledTopBreadcrumbsSection
+        data-testid="breadcrumbs-section-top"
+        backgroundColor="pearl"
+      >
+        <BackToResults isDarkThemed>
+          <Breadcrumbs
+            isDarkThemed
+            data={breadcrumbs}
+            data-testid="breadcrumbs-top"
+          />
+        </BackToResults>
+      </StyledTopBreadcrumbsSection>
+      <TrainingDetail course={trainingData} />
+      <Section data-testid="breadcrumbs-section-bottom" backgroundColor="white">
+        <BackToResults>
+          <Breadcrumbs data={breadcrumbs} data-testid="breadcrumbs-bottom" />
+        </BackToResults>
+      </Section>
     </Page>
   );
 };
@@ -43,11 +71,20 @@ export const pageQuery = graphql`
       name
       description
       code
+      categoryName
+      price
+      course_type
+      img_url
       sessions {
         code
         name
         date_start
         date_end
+      }
+      breadcrumbs {
+        id
+        label
+        slug
       }
     }
     contentfulSite(id: { eq: $siteId }) {

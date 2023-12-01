@@ -172,7 +172,7 @@ describe("services", () => {
     });
     describe("fetchSessions", () => {
       it("should fetch sessions", async () => {
-        const sessions = createSession();
+        const sessions = [createSession()];
         mockResponses(fetchMock, {
           url: "*",
           method: "GET",
@@ -202,14 +202,17 @@ describe("services", () => {
             url: `${defaultParams.apiUrl}course/v1/courses/202/sessions?page=1&page_size=${PAGE_SIZE}`,
             method: "GET",
             status: 200,
-            body: getMockedDoceboData({ items: session1, has_more_data: true })
+            body: getMockedDoceboData({
+              items: [session1],
+              has_more_data: true
+            })
           },
           {
             url: `${defaultParams.apiUrl}course/v1/courses/202/sessions?page=2&page_size=${PAGE_SIZE}`,
             method: "GET",
             status: 200,
             body: getMockedDoceboData({
-              items: session2,
+              items: [session2],
               has_more_data: false
             })
           }
@@ -235,7 +238,7 @@ describe("services", () => {
           }
         );
 
-        expect(res).toEqual([...session1, ...session2]);
+        expect(res).toEqual([session1, session2]);
       });
     });
 

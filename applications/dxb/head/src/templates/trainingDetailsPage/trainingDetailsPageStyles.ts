@@ -1,15 +1,24 @@
-import { styled } from "@mui/material/styles";
-import { alpha } from "@mui/material";
-import { Typography, Button, Grid } from "@bmi-digital/components";
+import { styled, alpha } from "@mui/material/styles";
+import Button from "@bmi-digital/components/button";
+import Grid from "@bmi-digital/components/grid";
+import Section from "@bmi-digital/components/section";
+import Typography from "@bmi-digital/components/typography";
+import TrainingCard from "@bmi-digital/components/training-card";
+
+export const StyledTopBreadcrumbsSection = styled(Section)(({ theme }) => ({
+  backgroundColor: `${theme.colours.blue800} !important`
+}));
 
 export const Wrapper = styled("div")(({ theme }) => ({
-  margin: "1rem 0",
+  paddingTop: "30px",
   background: theme.colours.white
 }));
 
-export const DetailsContainer = styled(Grid)({
-  paddingRight: "20px"
-});
+export const TrainingInfoContainer = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.down("lg")]: {
+    flexDirection: "column-reverse"
+  }
+}));
 
 export const Title = styled(Typography)({
   lineHeight: 1.2,
@@ -88,8 +97,14 @@ export const CourseDescription = styled("div")(({ theme }) => ({
 }));
 
 export const SessionContainer = styled("div")(({ theme }) => ({
-  background: theme.colours.pearl,
-  padding: "30px 0"
+  //Needed for the anchor link to keep the content in the visible area after scrolling.
+  marginTop: "-150px",
+  paddingTop: "150px",
+
+  "&>div": {
+    background: theme.colours.pearl,
+    padding: "30px 0"
+  }
 }));
 
 export const SessionDataContainer = styled("div")<{
@@ -170,3 +185,33 @@ export const EnrollButton = styled(Button)({
   fontWeight: "400",
   width: "100%"
 });
+
+export const TrainingCardFooterButton = styled(Button)({
+  width: "100%"
+});
+
+export const StyledCardGrid = styled(Grid)(({ theme }) => ({
+  paddingBottom: "36px",
+
+  [theme.breakpoints.up("lg")]: {
+    position: "sticky",
+    height: "max-content",
+    paddingBottom: "30px"
+  }
+}));
+
+export const StyledTrainingCard = styled(TrainingCard)({
+  height: "auto"
+});
+
+export const TooltipPopper = styled("div")(({ theme }) => ({
+  color: theme.colours.white,
+  backgroundColor: theme.colours.slate,
+  borderRadius: "4px",
+  padding: "5px 10px",
+  maxWidth: "300px",
+  fontSize: "12px",
+  lineHeight: "17px",
+  marginBottom: "6px",
+  overflowWrap: "anywhere"
+}));

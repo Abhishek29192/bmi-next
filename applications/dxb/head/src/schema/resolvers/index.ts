@@ -14,6 +14,7 @@ import ContentfulVideo from "./ContentfulVideo";
 import Product from "./Product";
 import Query from "./Query";
 import System from "./System";
+import TrainingDetailsPage from "./TrainingDetailsPage";
 
 const {
   ContentfulBrandLandingPage,
@@ -69,5 +70,6 @@ export default {
   ContentfulTrainingListerPage: {
     ...ContentfulTrainingListerPage,
     ...ContentfulTrainingListerPageCommon
-  }
+  },
+  DoceboCourses: TrainingDetailsPage
 };

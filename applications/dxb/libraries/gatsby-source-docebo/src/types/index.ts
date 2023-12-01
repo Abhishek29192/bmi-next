@@ -2,8 +2,15 @@ import type {
   Catalogue,
   Category,
   Certification,
-  Course
+  Course as DoceboCourse,
+  Session
 } from "@bmi/docebo-types";
+
+export type Course = Omit<DoceboCourse, "category" | "price"> & {
+  categoryName: string;
+  price: string | null;
+  sessions: Session[];
+};
 
 export type NodeBuilderInput =
   | {

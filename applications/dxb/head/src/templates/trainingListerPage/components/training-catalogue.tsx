@@ -8,6 +8,8 @@ import { Training } from "@bmi/elasticsearch-types";
 import { useSiteContext } from "../../../components/Site";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { SHOW_MORE_LIMIT } from "../constants";
+import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
+import { getSearchParams } from "../../../utils/filters";
 import {
   Description,
   ItemsCount,
@@ -15,12 +17,6 @@ import {
   Title,
   TrainingCatalogueWrapper
 } from "./training-catalogue-styles";
-
-export const trainingCategoriesName: { [key: string]: MicroCopyValues } = {
-  FLAT: microCopy.TRAINING_CATEGORY_FLAT,
-  PITCHED: microCopy.TRAINING_CATEGORY_PITCHED,
-  OTHER: microCopy.TRAINING_CATEGORY_OTHER
-};
 
 export type Props = {
   courses: Training[];
@@ -129,16 +125,16 @@ const TrainingCatalogue = ({
                 <ButtonBase
                   {...props}
                   data-testid="training-card"
-                  href={getPathWithCountryCode(
+                  href={`${getPathWithCountryCode(
                     countryCode,
                     `/t/${training.slug}`
-                  )}
+                  )}${getSearchParams()}`}
                 />
               )}
               category={{
                 type: training.category,
                 label: getMicroCopy(
-                  trainingCategoriesName[training.category.toUpperCase()]
+                  trainingCategoryMicroCopies[training.category.toUpperCase()]
                 )
               }}
               title={training.name}
@@ -158,7 +154,7 @@ const TrainingCatalogue = ({
                   alt={training.name}
                 />
               }
-              viewTrainingLabel={getMicroCopy(
+              footerButtonLabel={getMicroCopy(
                 microCopy.TRAINING_LISTER_PAGE_VIEW_TRAINING
               )}
             />

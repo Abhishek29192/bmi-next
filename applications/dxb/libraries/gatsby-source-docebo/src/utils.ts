@@ -1,4 +1,6 @@
-import { NodeBuilderInput } from "./types";
+import { transformCourseCategory } from "@bmi/docebo-api";
+import type { Course as DoceboCourse, Session } from "@bmi/docebo-types";
+import { NodeBuilderInput, Course as TransformedCourse } from "./types";
 import type { SourceNodesArgs, NodeInput } from "gatsby";
 
 export interface Props {
@@ -23,3 +25,13 @@ export const nodeBuilder = ({ gatsbyApi, input, itemId }: Props) => {
 
   gatsbyApi.actions.createNode(node);
 };
+
+export const transformCourse = ({
+  category,
+  price,
+  ...rest
+}: DoceboCourse & { sessions: Session[] }): TransformedCourse => ({
+  categoryName: transformCourseCategory(category),
+  price: price ? price.toString() : null,
+  ...rest
+});

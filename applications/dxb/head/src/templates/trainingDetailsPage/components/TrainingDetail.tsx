@@ -1,37 +1,69 @@
-import React from "react";
-import { Container, Grid, Typography } from "@bmi-digital/components";
+import React, { useMemo } from "react";
+import Container from "@bmi-digital/components/container";
+import Grid from "@bmi-digital/components/grid";
+import Tooltip from "@bmi-digital/components/tooltip";
+import Typography from "@bmi-digital/components/typography";
 import { microCopy } from "@bmi/microcopies";
-import { CourseWithSessions } from "@bmi/docebo-types";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { useSiteContext } from "../../../components/Site";
+import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
 import {
-  Title,
   CourseDescription,
+  EnrollButton,
+  EnrollButtonContainer,
   SessionContainer,
   SessionDataContainer,
   SessionDetailContainer,
   SessionInterval,
-  EnrollButton,
   SessionName,
-  Wrapper,
-  EnrollButtonContainer,
-  DetailsContainer
+  StyledCardGrid,
+  StyledTrainingCard,
+  Title,
+  TooltipPopper,
+  TrainingCardFooterButton,
+  TrainingInfoContainer,
+  Wrapper
 } from "../trainingDetailsPageStyles";
+import { useHeaderHeight } from "../../../utils/useHeaderHeight";
+import type { TrainingDetailsCourseType as Course } from "../types";
 
 interface Props {
-  course: Pick<
-    CourseWithSessions,
-    "id_course" | "name" | "description" | "code" | "sessions"
-  >;
+  course: Omit<Course, "breadcrumbs">;
 }
 
-const TrainingDetails = ({
-  course: { name, description, code, sessions }
-}: Props) => {
-  const sessions_unavailable = "There are no available sessions yet";
-  const { getMicroCopy } = useSiteContext();
+const NO_AVAILABLE_SESSIONS_MESSAGE = "There are no available sessions yet";
 
-  const runningSessions = sessions?.filter(
-    (e) => new Date() < new Date(e.date_end)
+const TrainingDetails = ({
+  course: {
+    name,
+    description,
+    code,
+    sessions,
+    categoryName,
+    img_url,
+    course_type,
+    price
+  }
+}: Props) => {
+  const { getMicroCopy } = useSiteContext();
+  const headerHeight = useHeaderHeight();
+
+  const trainingCardTopOffset = useMemo(
+    () => `${headerHeight + 18}px`,
+    [headerHeight]
+  );
+
+  const runningSessions = useMemo(
+    () => sessions?.filter((e) => new Date() < new Date(e.date_end)),
+    [sessions]
+  );
+
+  const availableSessionsContainerId = useMemo(
+    () =>
+      replaceSpaces(
+        getMicroCopy(microCopy.TRAINING_DETAILS_SESSIONS_LABEL)
+      ).toLowerCase(),
+    [getMicroCopy]
   );
 
   function formatDate(inputDateString: string) {
@@ -47,8 +79,8 @@ const TrainingDetails = ({
   return (
     <Wrapper>
       <Container>
-        <Grid container spacing={3}>
-          <DetailsContainer xs={12} md={12} lg={8}>
+        <TrainingInfoContainer container spacing={3}>
+          <Grid xs={12} md={12} lg={8}>
             <Title
               variant="h1"
               hasUnderline
@@ -66,14 +98,66 @@ const TrainingDetails = ({
               dangerouslySetInnerHTML={{ __html: description }}
               data-testid="training-description"
             />
-          </DetailsContainer>
-          <Grid xs={12} md={12} lg={4}>
-            {/* leaving empty grid to add training card for future */}
           </Grid>
-        </Grid>
+          <StyledCardGrid
+            xs={12}
+            md={12}
+            lg={4}
+            top={trainingCardTopOffset}
+            data-testid="training-card-sticky-container"
+          >
+            <StyledTrainingCard
+              clickableArea="none"
+              title={name}
+              subtitle={`${getMicroCopy(microCopy.TRAINING_ID_LABEL)} ${code}`}
+              media={img_url && <img src={img_url} alt={name} />}
+              price={
+                price
+                  ? `€${price}`
+                  : getMicroCopy(microCopy.TRAINING_PRICE_FREE)
+              }
+              category={{
+                type: categoryName,
+                label: getMicroCopy(
+                  trainingCategoryMicroCopies[categoryName.toUpperCase()]
+                )
+              }}
+              trainingType={{
+                type: course_type,
+                label: getMicroCopy(`trainingType.${course_type}`)
+              }}
+              footerButtonLabel={getMicroCopy(
+                microCopy.TRAINING_DETAILS_SEE_AVAILABLE_SESSIONS_BUTTON
+              )}
+              footerButtonComponent={(props) => (
+                <Tooltip
+                  title={getMicroCopy(
+                    microCopy.TRAINING_DETAILS_NO_SESSIONS_TOOLTIP_MESSAGE
+                  )}
+                  placement="top"
+                  enterTouchDelay={0}
+                  components={{
+                    Tooltip: TooltipPopper
+                  }}
+                  disableHoverListener={Boolean(runningSessions?.length)}
+                  disableTouchListener={Boolean(runningSessions?.length)}
+                >
+                  <div>
+                    <TrainingCardFooterButton
+                      {...props}
+                      disabled={!runningSessions?.length}
+                      variant="contained"
+                      size="large"
+                      href={`#${availableSessionsContainerId}`}
+                    />
+                  </div>
+                </Tooltip>
+              )}
+            />
+          </StyledCardGrid>
+        </TrainingInfoContainer>
       </Container>
-
-      <SessionContainer>
+      <SessionContainer id={availableSessionsContainerId}>
         <Container>
           <Title
             variant="h4"
@@ -92,7 +176,7 @@ const TrainingDetails = ({
                       index={index}
                       dataLength={runningSessions.length}
                       key={code}
-                      data-testId={"available-session"}
+                      data-testid={"available-session"}
                     >
                       <SessionDetailContainer>
                         <SessionName data-testid={"session-name"}>
@@ -116,7 +200,7 @@ const TrainingDetails = ({
             </div>
           ) : (
             <Typography data-testid={"no-available-sessions"}>
-              {sessions_unavailable}
+              {NO_AVAILABLE_SESSIONS_MESSAGE}
             </Typography>
           )}
         </Container>

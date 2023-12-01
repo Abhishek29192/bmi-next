@@ -1314,6 +1314,11 @@ type DoceboCourses implements Node @dontInfer {
   name: String!
   description: String!
   code: String
-  sessions: [Session]
+  categoryName: String!
+  price: String
+  course_type: String!
+  img_url: String
+  sessions: [Session!]
+  breadcrumbs: [BreadcrumbItem!]!
 }
 `;
