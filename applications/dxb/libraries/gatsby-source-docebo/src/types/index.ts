@@ -6,9 +6,8 @@ import type {
   Session
 } from "@bmi/docebo-types";
 
-export type Course = Omit<DoceboCourse, "category" | "price"> & {
+export type Course = Omit<DoceboCourse, "category"> & {
   categoryName: string;
-  price: string | null;
   sessions: Session[];
 };
 

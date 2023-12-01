@@ -28,10 +28,8 @@ export const nodeBuilder = ({ gatsbyApi, input, itemId }: Props) => {
 
 export const transformCourse = ({
   category,
-  price,
   ...rest
 }: DoceboCourse & { sessions: Session[] }): TransformedCourse => ({
   categoryName: transformCourseCategory(category),
-  price: price ? price.toString() : null,
   ...rest
 });
