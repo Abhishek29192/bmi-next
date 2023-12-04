@@ -12,6 +12,7 @@ import type {
   DoceboApiServiceParams,
   DoceboData,
   GetCourseByIdResponseType,
+  GetCurrencyResponse,
   StringOrUndefined
 } from "./types";
 
@@ -175,6 +176,19 @@ export class DoceboApiService {
     });
 
     const { data }: GetCourseByIdResponseType = await response.json();
+    return data;
+  }
+
+  async getCurrency(): Promise<GetCurrencyResponse["data"]> {
+    const accessToken = await this.getAccessToken();
+    const response = await fetch(
+      `${this.apiUrl}ecommerce/v1/ecommerce/settings`,
+      {
+        headers: { Authorization: `Bearer ${accessToken}` }
+      }
+    );
+
+    const { data }: GetCurrencyResponse = await response.json();
     return data;
   }
 }

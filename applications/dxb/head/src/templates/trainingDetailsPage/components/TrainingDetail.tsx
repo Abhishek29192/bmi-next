@@ -38,6 +38,7 @@ const TrainingDetails = ({
     name,
     description,
     code,
+    currencySymbol,
     sessions,
     categoryName,
     img_url,
@@ -110,10 +111,10 @@ const TrainingDetails = ({
               clickableArea="none"
               title={name}
               subtitle={`${getMicroCopy(microCopy.TRAINING_ID_LABEL)} ${code}`}
-              media={img_url && <img src={img_url} alt={name} />}
+              media={img_url ? <img src={img_url} alt={name} /> : undefined}
               price={
                 Number(price) > 0
-                  ? `€${price}`
+                  ? `${currencySymbol}${price}`
                   : getMicroCopy(microCopy.TRAINING_PRICE_FREE)
               }
               category={{

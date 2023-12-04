@@ -380,4 +380,5 @@ export type ExtendedCourse = {
   };
   is_affiliate: boolean;
   max_attempts_reached: boolean;
+  sessions?: Session[];
 };
