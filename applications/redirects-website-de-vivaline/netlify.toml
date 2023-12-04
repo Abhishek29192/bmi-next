@@ -5,6 +5,6 @@
 # if no redirects are found, fall back to relevant root page
 
 [[redirects]]
- from="/"
+ from="/*"
  to="https://www.bmigroup.com/de/viva-line/"
  status = 301

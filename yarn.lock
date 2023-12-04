@@ -4160,6 +4160,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/redirects-website-de-vivaline@workspace:applications/redirects-website-de-vivaline":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-de-vivaline@workspace:applications/redirects-website-de-vivaline"
+  dependencies:
+    eslint: ^8.49.0
+    gatsby: ^5.12.4
+    gatsby-plugin-gatsby-cloud: ^5.12.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.88.2
+  languageName: unknown
+  linkType: soft
+
 "@bmi/redirects-website-dk-icopal@workspace:applications/redirects-website-dk-icopal":
   version: 0.0.0-use.local
   resolution: "@bmi/redirects-website-dk-icopal@workspace:applications/redirects-website-dk-icopal"
