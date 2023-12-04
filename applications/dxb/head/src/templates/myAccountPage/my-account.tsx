@@ -1,9 +1,11 @@
 import React from "react";
-import { Button, RegionCode } from "@bmi-digital/components";
+import { Button, Hero, RegionCode, Section } from "@bmi-digital/components";
+import { graphql } from "gatsby";
 import Link, { DataTypeEnum, NavigationData } from "../../components/Link";
 import Protected from "../../pages/protected";
 import { Data as SiteData } from "../../components/Site";
-import Page, { Data } from "../../components/Page";
+import Page from "../../components/Page";
+import Image from "../../components/Image";
 
 // !!!!FOR DEMO PURPOSE!!!!!
 const mockNavigation: NavigationData = {
@@ -117,17 +119,31 @@ const siteData: SiteData = {
   ]
 };
 
-const pageData: Data = {
-  breadcrumbs: null,
-  signupBlock: null,
-  seo: null,
-  path: "page/"
-};
-
-const MyAccountPage = () => {
+const MyAccountPage = ({ data }: any) => {
+  const {
+    featuredMedia,
+    salutation,
+    description,
+    titleForToolSection,
+    titleForServiceSupportSection
+  } = data.contentfulSite.accountPage;
   return (
     <Protected>
-      <Page title="My acc page" pageData={pageData} siteData={siteData}>
+      <Page title="My acc page" pageData={data} siteData={siteData}>
+        <Hero
+          level={1}
+          title={salutation}
+          media={featuredMedia && <Image {...featuredMedia} size="cover" />}
+        >
+          {description}
+        </Hero>
+        <Section backgroundColor="pearl" overflowVisible>
+          <Section.Title>{titleForToolSection}</Section.Title>
+        </Section>
+
+        <Section backgroundColor="pearl" overflowVisible>
+          <Section.Title>{titleForServiceSupportSection}</Section.Title>
+        </Section>
         <Link href="https://dev-no.intouch.bmigroup.com/profile">
           GO TO MY PROFILE
         </Link>
@@ -142,3 +158,25 @@ const MyAccountPage = () => {
   );
 };
 export default MyAccountPage;
+
+export const pageQuery = graphql`
+  query AccountPage($siteId: String!) {
+    contentfulSite(id: { eq: $siteId }) {
+      ...SiteFragment
+      accountPage {
+        slug
+        featuredMedia {
+          ...ImageDocumentFragment
+        }
+        salutation
+        description
+        titleForToolSection
+        titleForServiceSupportSection
+        allowTools
+        serviceSupportCards {
+          ...ContactDetailsFragment
+        }
+      }
+    }
+  }
+`;

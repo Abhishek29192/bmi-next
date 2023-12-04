@@ -14,7 +14,8 @@ exports.onCreateWebpackConfig = ({ plugins, actions }, options) => {
     audience,
     responseType,
     scope,
-    logoutUri
+    logoutUri,
+    marketCode
   } = options;
 
   checkRequiredCreds({ domain, clientID, redirectUri });
@@ -29,7 +30,8 @@ exports.onCreateWebpackConfig = ({ plugins, actions }, options) => {
           AUTH0_AUDIENCE: JSON.stringify(audience),
           AUTH0_RESPONSE_TYPE: JSON.stringify(responseType),
           AUTH0_SCOPE: JSON.stringify(scope),
-          AUTH0_LOGOUT_URL: JSON.stringify(logoutUri)
+          AUTH0_LOGOUT_URL: JSON.stringify(logoutUri),
+          MARKET_CODE: JSON.stringify(marketCode)
         }
       })
     ]
