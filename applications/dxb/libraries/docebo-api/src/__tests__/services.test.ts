@@ -170,14 +170,15 @@ describe("services", () => {
         expect(res).toEqual([]);
       });
     });
+
     describe("fetchSessions", () => {
       it("should fetch sessions", async () => {
-        const sessions = [createSession()];
+        const session = createSession();
         mockResponses(fetchMock, {
           url: "*",
           method: "GET",
           status: 200,
-          body: getMockedDoceboData({ items: sessions })
+          body: getMockedDoceboData({ items: [session] })
         });
 
         const docepoApi = new DoceboApiService(defaultParams);
@@ -190,7 +191,7 @@ describe("services", () => {
             headers: { Authorization: `Bearer ${accessToken}` }
           }
         );
-        expect(res).toEqual(sessions);
+        expect(res).toEqual([session]);
       });
 
       it("sends request twice if the first request returns has_more_data === true", async () => {
@@ -500,6 +501,32 @@ describe("services", () => {
           }
         );
         expect(res).toEqual(course);
+      });
+    });
+
+    describe("getCurrency", () => {
+      it("should fetch currency", async () => {
+        mockResponses(fetchMock, {
+          url: "*",
+          method: "GET",
+          status: 200,
+          body: { data: { currency_currency: "EUR", currency_symbol: "€" } }
+        });
+
+        const docepoApi = new DoceboApiService(defaultParams);
+        const res = await docepoApi.getCurrency();
+        expect(docepoApi.getAccessToken).toHaveBeenCalled();
+        expect(fetchMock).toHaveBeenCalledTimes(1);
+        expect(fetchMock).toHaveBeenCalledWith(
+          `${defaultParams.apiUrl}ecommerce/v1/ecommerce/settings`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` }
+          }
+        );
+        expect(res).toEqual({
+          currency_currency: "EUR",
+          currency_symbol: "€"
+        });
       });
     });
   });

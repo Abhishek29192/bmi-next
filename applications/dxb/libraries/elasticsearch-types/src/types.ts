@@ -189,4 +189,6 @@ export type Training = {
   catalogueId: string;
   catalogueName: string;
   catalogueDescription: string;
+  currency: string;
+  currencySymbol: string;
 };

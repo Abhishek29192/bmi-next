@@ -13,6 +13,7 @@ export type TrainingDetailsCourseType = Pick<
   | "description"
   | "img_url"
   | "price"
+  | "currencySymbol"
 > & {
   breadcrumbs: BreadcrumbsData;
 };

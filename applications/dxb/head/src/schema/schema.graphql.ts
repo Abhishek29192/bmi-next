@@ -1314,6 +1314,8 @@ type DoceboCourses implements Node @dontInfer {
   slug_name: String!
   name: String!
   description: String!
+  currency: String!
+  currencySymbol: String!
   code: String
   sessions: [Session]
   categoryName: String!

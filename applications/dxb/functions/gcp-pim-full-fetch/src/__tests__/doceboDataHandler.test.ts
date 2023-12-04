@@ -7,14 +7,23 @@ import { fetchDoceboData } from "../doceboDataHandler";
 
 const fetchCataloguesMock = jest.fn();
 const fetchCoursesMock = jest.fn();
+const getCurrencyMock = jest.fn();
 
 jest.mock("@bmi/docebo-api", () => ({
   ...jest.requireActual("@bmi/docebo-api"),
   getCachedDoceboApi: () => ({
     fetchCatalogues: fetchCataloguesMock,
-    fetchCourses: fetchCoursesMock
+    fetchCourses: fetchCoursesMock,
+    getCurrency: getCurrencyMock.mockResolvedValue({
+      currency_currency: "EUR",
+      currency_symbol: "€"
+    })
   })
 }));
+
+afterEach(() => {
+  jest.resetAllMocks();
+});
 
 describe("fetchDoceboData", () => {
   it("throws an error correctly", async () => {
@@ -62,7 +71,9 @@ describe("fetchDoceboData", () => {
         category: "Pitched",
         catalogueId: `${catalogue.catalogue_id}`,
         catalogueName: catalogue.catalogue_name,
-        catalogueDescription: catalogue.catalogue_description
+        catalogueDescription: catalogue.catalogue_description,
+        currency: "EUR",
+        currencySymbol: "€"
       },
       {
         id: `${course2.id_course}-${catalogue.catalogue_id}`,
@@ -75,7 +86,9 @@ describe("fetchDoceboData", () => {
         category: "Pitched",
         catalogueId: `${catalogue.catalogue_id}`,
         catalogueName: catalogue.catalogue_name,
-        catalogueDescription: catalogue.catalogue_description
+        catalogueDescription: catalogue.catalogue_description,
+        currency: "EUR",
+        currencySymbol: "€"
       }
     ]);
   });
@@ -102,7 +115,9 @@ describe("fetchDoceboData", () => {
         category: "Pitched",
         catalogueId: `${catalogue.catalogue_id}`,
         catalogueName: catalogue.catalogue_name,
-        catalogueDescription: catalogue.catalogue_description
+        catalogueDescription: catalogue.catalogue_description,
+        currency: "EUR",
+        currencySymbol: "€"
       }
     ]);
   });
@@ -114,5 +129,14 @@ describe("fetchDoceboData", () => {
 
     const res = await fetchDoceboData(1);
     expect(res).toEqual([]);
+  });
+
+  it("throws error correctly if getCurrency request fails", async () => {
+    const error = new Error("Currency does not exist");
+    getCurrencyMock.mockRejectedValue(error);
+
+    await expect(fetchDoceboData(1)).rejects.toThrowError(
+      `Did not manage to pull Docebo data: ${JSON.stringify(error)}`
+    );
   });
 });

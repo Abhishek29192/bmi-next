@@ -12,6 +12,7 @@ export const createTraining = (trainingData: Partial<Course> = {}): Course => ({
   price: "0",
   slug_name: "italian-test-course",
   sessions: [],
+  currencySymbol: "€",
   breadcrumbs: [createBreadcrumbItem()],
   ...trainingData
 });

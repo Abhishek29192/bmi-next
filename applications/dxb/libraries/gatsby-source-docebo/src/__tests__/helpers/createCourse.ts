@@ -29,6 +29,8 @@ export const createCourse = (courseData: Partial<Course> = {}): Course => ({
   slug_name: "italian-test-course",
   uidCourse: "I-KVOYX1",
   available_seats: [],
+  currency: "EUR",
+  currencySymbol: "€",
   sessions: [],
   ...courseData
 });

@@ -9,6 +9,8 @@ import type {
 export type Course = Omit<DoceboCourse, "category"> & {
   categoryName: string;
   sessions: Session[];
+  currency: string;
+  currencySymbol: string;
 };
 
 export type NodeBuilderInput =

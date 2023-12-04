@@ -57,13 +57,19 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async (
       ]
     );
 
+    const currency = await apiService.getCurrency();
     const coursesWithSessions: Course[] = [];
 
     for (const course of courses) {
       const { id_course: course_id } = course;
       const sessions = await apiService.fetchSessions({ page: 1, course_id });
-      const courseWithSession = { ...course, sessions };
-      coursesWithSessions.push(transformCourse(courseWithSession));
+      coursesWithSessions.push(
+        transformCourse({
+          ...course,
+          ...currency,
+          sessions
+        })
+      );
     }
 
     gatsbyApi.reporter.info(

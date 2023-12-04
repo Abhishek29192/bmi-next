@@ -72,6 +72,7 @@ export const pageQuery = graphql`
       description
       code
       categoryName
+      currencySymbol
       price
       course_type
       img_url

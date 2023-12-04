@@ -17,11 +17,17 @@ jest.mock("../utils", () => ({
   nodeBuilder: jest.fn()
 }));
 
+const currencyMock = {
+  currency_currency: "EUR",
+  currency_symbol: "€"
+};
+
 const fetchCoursesMock = jest.fn();
 const fetchCatalogueMock = jest.fn();
 const fetchCategoriesMock = jest.fn();
 const fetchCertificationsMock = jest.fn();
 const fetchSessionMock = jest.fn();
+const getCurrencyMock = jest.fn();
 
 jest.mock("@bmi/docebo-api", () => ({
   DoceboApiService: function () {
@@ -30,7 +36,8 @@ jest.mock("@bmi/docebo-api", () => ({
       fetchCourses: fetchCoursesMock,
       fetchCategories: fetchCategoriesMock,
       fetchCatalogues: fetchCatalogueMock,
-      fetchCertifications: fetchCertificationsMock
+      fetchCertifications: fetchCertificationsMock,
+      getCurrency: getCurrencyMock
     };
   },
   transformCourseCategory: (category: CourseCategory) => category.name
@@ -64,6 +71,7 @@ beforeEach(() => {
   fetchCategoriesMock.mockReturnValue([]);
   fetchCertificationsMock.mockReturnValue([]);
   fetchSessionMock.mockReturnValue([]);
+  getCurrencyMock.mockReturnValue(currencyMock);
 });
 
 describe("source-nodes", () => {
@@ -107,7 +115,11 @@ describe("source-nodes", () => {
       gatsbyApi: mockGatsbyApi,
       input: {
         type: NODE_TYPES.Courses,
-        data: transformCourse({ ...course, sessions: [session] })
+        data: transformCourse({
+          ...course,
+          ...currencyMock,
+          sessions: [session]
+        })
       },
       itemId: course.id_course
     });

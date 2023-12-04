@@ -63,6 +63,8 @@ describe("transformCourse", () => {
     const course = createCourse();
     const transformedCourse = transformCourse({
       ...course,
+      currency_currency: "EUR",
+      currency_symbol: "€",
       sessions: [session]
     });
 
@@ -136,7 +138,9 @@ describe("transformCourse", () => {
       ],
       slug_name: "italian-test-course",
       start_date: "1693586500594",
-      uidCourse: "I-KVOYX1"
+      uidCourse: "I-KVOYX1",
+      currency: "EUR",
+      currencySymbol: "€"
     });
   });
 });

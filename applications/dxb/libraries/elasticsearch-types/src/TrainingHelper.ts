@@ -12,5 +12,7 @@ export const createTraining = (training: Partial<Training> = {}): Training => ({
   catalogueId: "1",
   catalogueName: "Catalogue name",
   catalogueDescription: "Catalogue description",
+  currency: "EUR",
+  currencySymbol: "€",
   ...training
 });
