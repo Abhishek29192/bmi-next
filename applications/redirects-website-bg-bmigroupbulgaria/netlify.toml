@@ -1,0 +1,1074 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/podgotovka-za-pokrivave-na-pokriva/"
+ to="https://www.bmigroup.com/bg/за-вас-майстори/подготовка-за-покриваен-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/osnovni-ponyatiya-za-pokriva/topyl-pokriv/"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/топъл-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/osnovni-ponyatiya-za-pokriva/osnovni-funkcii-i-iziskvaniya/zvukoizolaciya/"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/основни-функции-и-изисквания/звукоизолация/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/osnovni-ponyatiya-za-pokriva/osnovni-funkcii-i-iziskvaniya/protivopojarna-zashtita/"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/основни-функции-и-изисквания/противопожарна-защита/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/osnovni-ponyatiya-za-pokriva/osnovni-funkcii-i-iziskvaniya/"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/основни-функции-и-изисквания/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/osnovni-ponyatiya-za-pokriva/neizpolzvaem-naklonen-pokriv/kakvi-sa-predimstvata-na-studeniq-pokriv/"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/неизползваем-наклонен-покрив/какви-са-предимствата-на-студения-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/osnovni-ponyatiya-za-pokriva/neizpolzvaem-naklonen-pokriv/kak-se-postiga-estestvena-ventilaciya/"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/неизползваем-наклонен-покрив/как-се-постига-естествена-вентилация/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/osnovni-ponyatiya-za-pokriva/neizpolzvaem-naklonen-pokriv/"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/неизползваем-наклонен-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/osnovni-ponyatiya-za-pokriva/izpolzvaem-provetryaem-pokriv/"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/използваем-проветряем-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/osnovni-ponyatiya-za-pokriva/"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/chesto-zadavani-vyprosi/obshti-vyprosi/"
+ to="https://www.bmigroup.com/bg/за-вас-майстори/за-вас-маистори-често-задавани-въпроси/общи-въпроси/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/chesto-zadavani-vyprosi/keremidi/"
+ to="https://www.bmigroup.com/bg/за-вас-майстори/за-вас-маистори-често-задавани-въпроси/керемиди-често-задавани-въпроси/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/chesto-zadavani-vyprosi/"
+ to="https://www.bmigroup.com/bg/за-вас-майстори/за-вас-маистори-често-задавани-въпроси/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/za-vas-maistori/"
+ to="https://www.bmigroup.com/bg/за-вас-майстори/"
+ status = 301
+
+[[redirects]]
+ from="/za-specialisti/"
+ to="https://www.bmigroup.com/bg/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/remont-na-pokrivi-ot-bramac-2/zashto-da-remontiram-pokriva/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покриви-от-брамак/защо-да-ремонтирам-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/remont-na-pokrivi-ot-bramac-2/vsichko-za-remonta-ot-edna-ryka/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покриви-от-брамак/всичко-за-ремонта-от-една-ръка/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/remont-na-pokrivi-ot-bramac-2/otkyde-da-zapochna-s-remonta-na-pokriva/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покриви-от-брамак/откъде-да-започна-с-ремонта-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/remont-na-pokrivi-ot-bramac-2/nov-pokriv-za-nyakolko-dni/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покриви-от-брамак/нов-покрив-за-няколко-дни/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/remont-na-pokrivi-ot-bramac-2/kakvo-shte-spestya-sled-remont-na-pokriva/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покриви-от-брамак/какво-ще-спестя-след-ремонт-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/remont-na-pokrivi-ot-bramac-2/kak-da-izbera-pokrivno-pokritie/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покриви-от-брамак/как-да-избера-покривно-покритие/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/remont-na-pokrivi-ot-bramac-2/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покриви-от-брамак/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/remont-na-pokrivi-ot-bramac/zapitvane-za-remont/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покриви-от-брамак/запитване-за-ремонт/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/remont-na-pokrivi-ot-bramac/chesto-zadavani-vyprosi-za-remont/"
+ to="https://www.bmigroup.com/bg/често-задавани-въпроси/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/pokrivut-e-pokriv-zashtoto/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/pokrivna-sistema/"
+ to="https://www.bmigroup.com/bg/покривна-система/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/originalna-bramac-keremida/"
+ to="https://www.bmigroup.com/bg/оригинална-брамак-керемида/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/deset-prichini-da-izberete-bramac/"
+ to="https://www.bmigroup.com/bg/десет-причини-да-изберете-брамак/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/bramac-protector-plus/"
+ to="https://www.bmigroup.com/bg/bramac-protector-plus/"
+ status = 301
+
+[[redirects]]
+ from="/zashto-bramac/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/ustoichivi-resheniya-za-vashiya-pokriv/solarni-pokrivi/"
+ to="https://www.bmigroup.com/bg/соларен-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/ustoichivi-resheniya-za-vashiya-pokriv/fotovoltaici/"
+ to="https://www.bmigroup.com/bg/фотоволтаици/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/ustoichivi-resheniya-za-vashiya-pokriv/"
+ to="https://www.bmigroup.com/bg/устойчиви-решения-за-вашия-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/remont-na-pokriva/skaten-pokriv/zashto-izgrajdane-na-nov-pokriv/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покрива/ремонт-на-скатен-покрив/защо-изграждане-на-нов-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/remont-na-pokriva/skaten-pokriv/prepokrivane-ili-pylna-podmyana-chesto-zadavani-vyprosi/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покрива/ремонт-на-скатен-покрив/препокриване-или-пълна-подмяна-често-задавани-въпроси/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/remont-na-pokriva/skaten-pokriv/cheklist-za-vashiya-proekt/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покрива/ремонт-на-скатен-покрив/чеклист-за-вашия-проект-ремонт/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/remont-na-pokriva/skaten-pokriv/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покрива/ремонт-на-скатен-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/remont-na-pokriva/"
+ to="https://www.bmigroup.com/bg/ремонт-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/rekonstrukciya/rekonstrukciya-na-pokrivnoto-prostranstvo/"
+ to="https://www.bmigroup.com/bg/реконструкция/реконструкция-на-покривното-пространство/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/rekonstrukciya/preustroistvo-na-vashiya-dom-chesto-zadavani-vyprosi/"
+ to="https://www.bmigroup.com/bg/реконструкция/преустройство-на-вашия-дом-често-задавани-въпроси/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/rekonstrukciya/neobhodimost-ot-preustroistvo-na-podpokrivno-prostranstvo/"
+ to="https://www.bmigroup.com/bg/реконструкция/необходимост-от-преустройство-на-подпокривното-пространство/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/rekonstrukciya/cheklist-za-vashiya-proekt/"
+ to="https://www.bmigroup.com/bg/реконструкция/чеклист-за-вашия-проект-реконструкция/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/rekonstrukciya/"
+ to="https://www.bmigroup.com/bg/реконструкция/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/napravi-si-sam/vsichko-za-pokrivna-sistema-bramac/"
+ to="https://www.bmigroup.com/bg/направи-си-сам/всичко-за-покривна-система-брамак/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/napravi-si-sam/pokrivni-formi-i-linii/"
+ to="https://www.bmigroup.com/bg/направи-си-сам/покривни-форми-и-линии/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/napravi-si-sam/napravi-si-sam-chesto-zadavani-vyprosi/"
+ to="https://www.bmigroup.com/bg/направи-си-сам/чеклист-за-вашия-проект/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/napravi-si-sam/cheklist-za-vashiya-proekt/"
+ to="https://www.bmigroup.com/bg/направи-си-сам/чеклист-за-вашия-проект/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/napravi-si-sam/"
+ to="https://www.bmigroup.com/bg/направи-си-сам/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/ventilirane-na-pokriva/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/отводнителна-система-stabicorм/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/ulama/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/улама/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/specialni-keremidi/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/специални-керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/snegozadyrjane/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/снегозадържане/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/slynchevi-kolektori-i-fotovoltaici/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/слънчеви-колектори-и-фотоволтаици/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/sistema-za-pridvijvane-po-pokriva-stypala/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/система-за-придвижване-по-покрива-–-стъпала/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/sigurnost-na-pokriva/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/сигурност-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/pokrivni-obshivki/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/покривни-обшивки/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/podpokrivno-folio/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/подпокривно-фолио/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/otvori-na-pokriva/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/отвори-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/otvoditelna-sistema-stabicorm/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/отводнителна-система-stabicorм/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/osvetyavane-na-pokriva/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/осветяване-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/keremidi/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/bilo-i-maia/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/било-и-маиа/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/inteligentna-pokrivna-sistema/"
+ to="https://www.bmigroup.com/bg/интелигентна-покривна-система/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/svyrzano-redene-na-keremidite/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/свързано-редене-на-керемидите/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/prenabiti-keremidi/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/пренабити-керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/neukrepeni-keremidi/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/неукрепени-керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/neukrepeni-kapaci-pri-suh-montaj/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/неукрепени-капаци-при-сух-монтаж/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/nespazeno-razstoyanie-mejdu-letvite/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/неспазено-разстояние-между-летвите/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/neravnomerno-vidimi-keremidi/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/неравномерно-видими-керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/nepravilno-razpredeleni-snegozadyrjashti-keremidi/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/неправилно-разпределени-снегозадържащи-керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/neoformen-detail-na-strehata/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/неоформен-детайл-на-стрехата/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/nekachestveno-zalepen-material/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/некачествено-залепен-материал/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/nedostatychen-razmer-na-letvite/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/недостатъчен-размер-на-летвите/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/nedostatychen-razmer-na-kontraletvite/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/недостатъчен-размер-на-контралетвите/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/nazybeni-ulami/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/назъбени-улами/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/letvite-ne-sa-v-prava-liniya/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/летвите-не-са-в-права-линия/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/krivi-koloni-keremidi/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/криви-колони-керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/greshki-v-praktikata/"
+ to="https://www.bmigroup.com/bg/грешки-в-практиката/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/energien-pokriv/solarnite-komponenti-bramac-optimalno-kompleksno-reshenie/"
+ to="https://www.bmigroup.com/bg/енергиен-покрив/соларните-компоненти-брамак-оптимално-комплексно-решение/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/energien-pokriv/solaren-kolektor-bramac-s-aluminieva-vana/"
+ to="https://www.bmigroup.com/bg/енергиен-покрив/соларен-колектор-брамак-с-алуминиева-вана/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/energien-pokriv/solaren-cikyl-za-podgryavane-na-voda-za-bitovi-nujdi/"
+ to="https://www.bmigroup.com/bg/енергиен-покрив/соларен-цикъл-за-подгряване-на-вода-за-битови-нужди/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/energien-pokriv/nasladete-se-na-golyamata-svoboda-energiya-ot-sobstveniya-pokriv/"
+ to="https://www.bmigroup.com/bg/енергиен-покрив/насладете-се-на-голямата-свобода-енергия-от-собствения-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/energien-pokriv/namalyavaneto-na-razhodite-za-otoplenie-i-bezplatna-topla-voda/"
+ to="https://www.bmigroup.com/bg/енергиен-покрив/намаляването-на-разходите-за-отопление-и-безплатна-топла-вода/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/energien-pokriv/"
+ to="https://www.bmigroup.com/bg/енергиен-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-pokriva/"
+ to="https://www.bmigroup.com/bg/"
+ status = 301
+
+[[redirects]]
+ from="/za-bmi-bulgaria/"
+ to="https://www.bmigroup.com/bg/за-bmi-българия/"
+ status = 301
+
+[[redirects]]
+ from="/za-arhitekti-i-proektanti/skaten-pokriv/"
+ to="https://www.bmigroup.com/bg/за-архитекти-и-проектанти/ролята-на-архитекта/"
+ status = 301
+
+[[redirects]]
+ from="/za-arhitekti-i-proektanti/plosyk-pokriv/"
+ to="https://www.bmigroup.com/bg/за-архитекти-и-проектанти/детайли-за-плосък-и-скатен-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/za-arhitekti-i-proektanti/"
+ to="https://www.bmigroup.com/bg/за-архитекти-и-проектанти/"
+ status = 301
+
+[[redirects]]
+ from="/wp-content/uploads/2023/08/studen-pokriv-1.png"
+ to="https://www.bmigroup.com/bg/основни-понятия-за-покрива/неизползваем-наклонен-покрив/какво-е-студен-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/wp-content/uploads/2023/06/tehnicheski-spravochnik-2023-bramac-v1.0-lowres_compressed-web-compressed.pdf"
+ to="https://assets.ctfassets.net/kk7nmvl28nyu/32edNQGv0ej9YXN1PpEdK7/e1b7462906bd64cb3fee8ca61f2a26da/tehnicheski-spravochnik-2023-bramac-v1.0-lowres_compressed-web-compressed.pdf"
+ status = 301
+
+[[redirects]]
+ from="/stranichna-keremida/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/керемиди-1-2/"
+ status = 301
+
+[[redirects]]
+ from="/sobstvenik-na-sajta/"
+ to="https://www.bmigroup.com/bg/собственик-на-сайта/"
+ status = 301
+
+[[redirects]]
+ from="/promoczii-i-aktualni-oferti/"
+ to="https://www.bmigroup.com/bg/промоции-и-цени-на-керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/produktovi-katalozi/"
+ to="https://www.bmigroup.com/bg/продуктови-каталози/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/zapitvane-za-oferta/"
+ to="https://www.bmigroup.com/bg/запитване-за-оферта/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/solaren-pokriv/zashto-slynchev-kolektor/"
+ to="https://www.bmigroup.com/bg/соларен-покрив/защо-слънчев-колектор/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/solaren-pokriv/solarna-sistema/"
+ to="https://www.bmigroup.com/bg/соларен-покрив/соларна-система/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/solaren-pokriv/slynchev-kolektor-za-vgrajdane/"
+ to="https://www.bmigroup.com/bg/соларен-покрив/слънчев-колектор-за-вграждане/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/solaren-pokriv/slynchev-kolektor-s-aluminieva-vana/"
+ to="https://www.bmigroup.com/bg/соларен-покрив/слънчев-колектор-с-алуминиева-вана/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/solaren-pokriv/podgryavane-na-vodata/"
+ to="https://www.bmigroup.com/bg/соларен-покрив/подгряване-на-водата/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/solaren-pokriv/ikonomichno-orazmeryavane/"
+ to="https://www.bmigroup.com/bg/соларен-покрив/икономично-оразмеряване/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/solaren-pokriv/energiya-ot-sobstveniya-pokriv/"
+ to="https://www.bmigroup.com/bg/соларен-покрив/енергия-от-собствения-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/solaren-pokriv/"
+ to="https://www.bmigroup.com/bg/соларен-покрив"
+ status = 301
+
+[[redirects]]
+ from="/produkti/solaren-pokriv/"
+ to="https://www.bmigroup.com/bg/соларен-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ventilirane-na-pokriva/ventilirashta-keremida/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/вентилиране-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ventilirane-na-pokriva/predpazna-reshetka-protiv-ptici/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/вентилиране-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ventilirane-na-pokriva/mreja-za-ventilirane/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/вентилиране-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ventilirane-na-pokriva/kombiniran-element-za-ventilirane/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/вентилиране-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ventilirane-na-pokriva/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/вентилиране-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ulami/ulama-profilo-s/"
+ to="https://www.bmigroup.com/bg/p/адаптор-за-profilo-s-червен-4146561562/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ulami/skoba-za-aluminieva-ulama/"
+ to="https://www.bmigroup.com/bg/p/скоба-за-алуминиева-улама-2683649408/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ulami/lenta-za-uplytnyavane-na-ulami/"
+ to="https://www.bmigroup.com/bg/p/лента-за-уплътняване-на-улами-0-03х0-06-м-самозалепваща-3259994906/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ulami/aluminieva-ulama/"
+ to="https://www.bmigroup.com/bg/p/алуминиева-улама-1-60-м-0-50-м-4210470628/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ulami/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/улами/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ukrepvane-na-pokriva/skoba-za-zakrepvane-na-keremidi/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/укрепване-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ukrepvane-na-pokriva/skoba-za-zakrepqne-narqzani-keremidi/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/укрепване-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ukrepvane-na-pokriva/skoba-za-kapaci/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/укрепване-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ukrepvane-na-pokriva/gvozdei-s-kapache/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/укрепване-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/ukrepvane-na-pokriva/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/укрепване-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/svyrzvasht-klamer-za-snegozadyrjashta-reshetka/"
+ to="https://www.bmigroup.com/bg/p/снегозадържаща-решетка-3м-20см-червенокафяв-3952887501/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/snegozadyrjashta-reshetka/"
+ to="https://www.bmigroup.com/bg/p/снегозадържаща-решетка-3м-20см-червенокафяв-3952887501/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/snegozadyrjashta-kuka/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/сигурност-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/skoba-za-snegozadyrjashta-reshetka/"
+ to="https://www.bmigroup.com/bg/p/снегозадържаща-решетка-3м-20см-червенокафяв-3952887501/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/sistema-za-snegozadyrjane/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/сигурност-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/osnova-za-snegozadyrjashtata-reshetka/"
+ to="https://www.bmigroup.com/bg/p/снегозадържаща-решетка-3м-20см-червенокафяв-3952887501/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/obezopasitelna-kuka/"
+ to="https://www.bmigroup.com/bg/p/снегозадържаща-решетка-3м-20см-червенокафяв-3952887501/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/komplekt-stypalo-uni-40-i-80/"
+ to="https://www.bmigroup.com/bg/p/снегозадържаща-решетка-3м-20см-червенокафяв-3952887501/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/keremida-za-mylniezashtita/"
+ to="https://www.bmigroup.com/bg/p/снегозадържаща-решетка-3м-20см-червенокафяв-3952887501/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/keremida-osnova-za-stypalo/"
+ to="https://www.bmigroup.com/bg/p/снегозадържаща-решетка-3м-20см-червенокафяв-3952887501/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/kapak-za-mylniezashtita/"
+ to="https://www.bmigroup.com/bg/p/снегозадържаща-решетка-3м-20см-червенокафяв-3952887501/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/sigurnost-na-pokriva/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/сигурност-на-покрива/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/pokrivni-obshivki/wakaflex-material-za-vryzka-okolo-komini-i-steni/"
+ to="https://www.bmigroup.com/bg/p/самозалепваща-лента-divotape-25-м-x-6-см-1986223123/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/pokrivni-obshivki/laisna-za-wakaflex/"
+ to="https://www.bmigroup.com/bg/p/уплътняваща-абсорбираща-лента-sealroll-30м-5-см-1082248728/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/pokrivni-obshivki/easyflash-material-za-vryzka-okolo-komini-i-steni/"
+ to="https://www.bmigroup.com/bg/p/уплътняваща-абсорбираща-лента-sealroll-30м-5-см-1082248728/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/pokrivni-obshivki/"
+ to="https://www.bmigroup.com/bg/p/самозалепваща-лента-divotape-25-м-x-6-см-1986223123/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/podpokrivno-folio/veltitech-120/"
+ to="https://www.bmigroup.com/bg/p/паронепропускливо-фолио-veltitech-120-ролка-75м-черен-1653943643/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/podpokrivno-folio/universal-eco/"
+ to="https://www.bmigroup.com/bg/p/паропропускливо-фолио-universal-eco-ролка-75м-зелен-654204550/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/podpokrivno-folio/universal-2s-resistant/"
+ to="https://www.bmigroup.com/bg/p/паропропускливо-фолио-bramac-universal-2s-resistant-ролка-75м-sp-зелен-2516115486/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/podpokrivno-folio/bramac-top-ru-resistant-sp/"
+ to="https://www.bmigroup.com/bg/p/bramac-top-ru-resistant-sp-230-ролка-75м-зелен-сив-758020258/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/podpokrivno-folio/bramac-standart-120/"
+ to="https://www.bmigroup.com/bg/p/паропропускливо-фолио-standard-120-ролка-75м-сив-бял-680231650/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/podpokrivno-folio/bramac-pro-plus-resistant-140/"
+ to="https://www.bmigroup.com/bg/p/паропропускливо-фолио-pro-plus-resistant-140-ролка-75м-зелен-черен-2303819275/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/podpokrivno-folio/bramac-elite-2s-resistant/"
+ to="https://www.bmigroup.com/bg/p/дифузионно-фолио-bramac-elite-2s-resistant-180-ролка-75м-зелен-черен-4090044230/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/podpokrivno-folio/bramac-ecotech-140/"
+ to="https://www.bmigroup.com/bg/p/паропропускливо-фолио-ecotec-140-ролка-75м-черен-2966131734/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/podpokrivno-folio/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/подпокривни-фолиа/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/otvoditelna-sistema/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/улуци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/osvetyavane-na-podpokrivnoto-prostranstvo/prozrachna-keremida/"
+ to="https://www.bmigroup.com/bg/p/прозрачна-керемида-1-1-3793857270/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/osvetyavane-na-podpokrivnoto-prostranstvo/pokriven-prozorec-lumineks-alu-44/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/осветяване-на-подпокривното-пространство/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/osvetyavane-na-podpokrivnoto-prostranstvo/pokriven-prozorec/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/осветяване-на-подпокривното-пространство/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/osvetyavane-na-podpokrivnoto-prostranstvo/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/осветяване-на-подпокривното-пространство/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/pregrada-za-kapaci-malka/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/pregrada-za-kapaci-golyama/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/pregrada-za-kapaci/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/polovin-keremida/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/керемиди-1-2/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/nachalen-kapak/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/metalroll-listov-material-za-pod-kapaci/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/letvodyrjatel/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/kapak-troinik/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/kapak-chetvornik/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/kapak/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/figaroll-listov-material-za-pod-kapaci/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/ecoroll/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/капаци/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/bilo/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/елементи-за-било/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/aspiraciya-na-pokriva/keremida-za-otrabotenite-gazove/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/отвори-в-покрива-и-отдушници/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/aspiraciya-na-pokriva/durovent-otdushnik/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/отвори-в-покрива-и-отдушници/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/aspiraciya-na-pokriva/durovent-keremida-za-antena/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/отвори-в-покрива-и-отдушници/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/aspiraciya-na-pokriva/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/отвори-в-покрива-и-отдушници/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/pokrivni-aksesoari/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/компоненти-и-фитинги-специални-изделия/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/modeli-keremidi/promocii-i-ceni-na-keremidi/"
+ to="https://www.bmigroup.com/bg/промоции-и-цени-на-керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/modeli-keremidi/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/бетонови-керемиди/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/skaten-pokriv/"
+ to="https://www.bmigroup.com/bg/скатен-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/plosyk-pokriv/techni-produkti/"
+ to="https://www.bmigroup.com/bg/плосък-покрив/течни-продукти/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/plosyk-pokriv/sintetichni-membrani/"
+ to="https://www.bmigroup.com/bg/плосък-покрив/синтетични-мембрани/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/plosyk-pokriv/fotovoltaici/"
+ to="https://www.bmigroup.com/bg/фотоволтаици/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/plosyk-pokriv/bitumni-membrani/"
+ to="https://www.bmigroup.com/bg/плосък-покрив/битумни-мембрани/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/plosyk-pokriv/"
+ to="https://www.bmigroup.com/bg/плосък-покрив/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/okolna-sreda/"
+ to="https://www.bmigroup.com/bg/околна-среда/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/garancii-sertifikati/zlaten-medal-plovdiv-klasik-pro/"
+ to="https://www.bmigroup.com/bg/гаранции-сертификати/златен-медал-пловдив-класик-про/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/garancii-sertifikati/zlaten-medal-plovdiv-atika/"
+ to="https://www.bmigroup.com/bg/гаранции-сертификати/златен-медал-пловдив-атика/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/garancii-sertifikati/izberete-bylgarskoto/"
+ to="https://www.bmigroup.com/bg/гаранции-сертификати/изберете-българското/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/garancii-sertifikati/ibo-znak/"
+ to="https://www.bmigroup.com/bg/гаранции-сертификати/ibo-знак/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/garancii-sertifikati/ce-sertifikat/"
+ to="https://www.bmigroup.com/bg/гаранции-сертификати/ce-сертификат/"
+ status = 301
+
+[[redirects]]
+ from="/dokumenti/"
+ to="https://www.bmigroup.com/bg/гаранции-сертификати/ce-сертификат/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/garancii-sertifikati/30-godini-garanciya/"
+ to="https://www.bmigroup.com/bg/гаранции-сертификати/30-години-гаранция/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/garancii-sertifikati/10-godini-garanciya-на-solaren-pokriv-bramac/"
+ to="https://www.bmigroup.com/bg/гаранции-сертификати/10-години-гаранция-на-соларен-покрив-брамак/"
+ status = 301
+
+[[redirects]]
+ from="/produkti/garancii-sertifikati/"
+ to="https://www.bmigroup.com/bg/гаранции-сертификати"
+ status = 301
+
+[[redirects]]
+ from="/produkti/"
+ to="https://www.bmigroup.com/bg/"
+ status = 301
+
+[[redirects]]
+ from="/politika-za-poveritelnost/"
+ to="https://www.bmigroup.com/bg/политика-за-поверителност/"
+ status = 301
+
+[[redirects]]
+ from="/politika-za-biskvitki/"
+ to="https://www.bmigroup.com/bg/политика-за-бисквитки/"
+ status = 301
+
+[[redirects]]
+ from="/pokrivyt-e-pokriv-kogato-vsichko-e-predvideno-da-pasva-perfektno/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/покривът-е-покрив-когато-всичко-е-предвидено-да-пасва-перфектно/"
+ status = 301
+
+[[redirects]]
+ from="/pokrivyt-e-pokriv-kogato-teji-tochno-kolkoto-tryabva/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/покривът-е-покрив-когато-тежи-точно-колкото-трябва/"
+ status = 301
+
+[[redirects]]
+ from="/pokrivyt-e-pokriv-kogato-stava-vse-po-zdrav-s-vremeto/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/покривът-е-покрив-когато-става-все-по-здрав-с-времето/"
+ status = 301
+
+[[redirects]]
+ from="/pokrivyt-e-pokriv-kogato-profesionalistite-se-pogrijat-za-tova/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/покривът-е-покрив-когато-професионалистите-се-погрижат-за-това/"
+ status = 301
+
+[[redirects]]
+ from="/pokrivyt-e-pokriv-kogato-ne-e-samo-zdrav-a-i-krasiv/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/покривът-е-покрив-когато-не-е-само-здрав-а-и-красив/"
+ status = 301
+
+[[redirects]]
+ from="/pokrivyt-e-pokriv-kogato-keremidite-sa-s-idealna-forma/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/покривът-е-покрив-когато-керемидите-са-с-идеална-форма/"
+ status = 301
+
+[[redirects]]
+ from="/pokrivyt-e-pokriv-kogato-e-ustoichiv-i-siguren/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/покривът-е-покрив-когато-е-устойчив-и-сигурен/"
+ status = 301
+
+[[redirects]]
+ from="/pokrivyt-e-pokriv-kogato-e-eko/"
+ to="https://www.bmigroup.com/bg/покривът-е-покрив-защото/покривът-е-покрив-когато-е-еко/"
+ status = 301
+
+[[redirects]]
+ from="/otkude-da-kupq/"
+ to="https://www.bmigroup.com/bg/откъде-да-купя/"
+ status = 301
+
+[[redirects]]
+ from="/oficialna-cenova-lista/"
+ to="https://www.bmigroup.com/bg/официална-ценова-листа/"
+ status = 301
+
+[[redirects]]
+ from="/novini/"
+ to="https://www.bmigroup.com/bg/новини/"
+ status = 301
+
+[[redirects]]
+ from="/nashite-uslugi/zastrahovka-na-pokrivna-sistema-bramac-15-godini/"
+ to="https://www.bmigroup.com/bg/застраховка-на-покривна-система-брамак-15години/"
+ status = 301
+
+[[redirects]]
+ from="/nashite-uslugi/pylen-paket-s-informaciya-za-nashite-produkti/"
+ to="https://www.bmigroup.com/bg/пълен-пакет-с-информация-за-нашите-продукти/"
+ status = 301
+
+[[redirects]]
+ from="/nashite-uslugi/prakticheski-i-teoretichni-obucheniya/"
+ to="https://www.bmigroup.com/bg/практически-и-теоретични-обучения/"
+ status = 301
+
+[[redirects]]
+ from="/nashite-uslugi/poseshteniya-na-obektite/"
+ to="https://www.bmigroup.com/bg/посещения-на-обектите/"
+ status = 301
+
+[[redirects]]
+ from="/nashite-uslugi/napravete-zapitvane/"
+ to="https://www.bmigroup.com/bg/направете-запитване/"
+ status = 301
+
+[[redirects]]
+ from="/nashite-uslugi/izchisleniya-za-solarni-instalacii/"
+ to="https://www.bmigroup.com/bg/изчисления-за-соларни-инсталации/"
+ status = 301
+
+[[redirects]]
+ from="/nashite-uslugi/bezplatni-konsultacii/"
+ to="https://www.bmigroup.com/bg/безплатни-консултации/"
+ status = 301
+
+[[redirects]]
+ from="/nashite-uslugi/"
+ to="https://www.bmigroup.com/bg/"
+ status = 301
+
+[[redirects]]
+ from="/kontakti/"
+ to="https://www.bmigroup.com/bg/контакти/"
+ status = 301
+
+[[redirects]]
+ from="/karieri/"
+ to="https://www.bmigroup.com/bg/кариери/"
+ status = 301
+
+[[redirects]]
+ from="/izklyuchvane-na-otgovornost/"
+ to="https://www.bmigroup.com/bg/изключване-на-отговорност/"
+ status = 301
+
+[[redirects]]
+ from="/divoroll-comfort-4d/"
+ to="https://www.bmigroup.com/bg/p/паропропускливо-фолио-divoroll-comfort-4d-ролка-60-м-зелен-сив-2341738560/"
+ status = 301
+
+[[redirects]]
+ from="/уплътняващ-материал-за-лайсна/"
+ to="https://www.bmigroup.com/bg/p/уплътняваща-абсорбираща-лента-sealroll-30м-5-см-1082248728/"
+ status = 301
+
+# General Bulgaria BmigroupBulgaria redirect
+
+ [[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/bg/"
+ status = 301
