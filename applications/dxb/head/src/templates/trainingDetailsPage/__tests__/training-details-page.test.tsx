@@ -15,7 +15,6 @@ const mockPageContext: TrainingProps["pageContext"] = {
   countryCode: "no",
   courseId: 10
 };
-const mockSiteData = createMockSiteData();
 
 const renderTrainingDetailsPage = ({ course }: { course: Course }) => {
   return render(
@@ -24,7 +23,10 @@ const renderTrainingDetailsPage = ({ course }: { course: Course }) => {
         <TrainingDetailsPage
           data={{
             doceboCourses: course,
-            contentfulSite: mockSiteData
+            contentfulSite: createMockSiteData(),
+            contentfulTrainingRegistrationPage: {
+              path: "training-registration-page/"
+            }
           }}
           pageContext={mockPageContext}
         />

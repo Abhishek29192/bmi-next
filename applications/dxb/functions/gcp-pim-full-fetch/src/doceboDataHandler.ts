@@ -36,6 +36,9 @@ export const fetchDoceboData = async (page: number) => {
             catalogueId: `${catalogue.catalogue_id}`,
             catalogueName: catalogue.catalogue_name,
             catalogueDescription: catalogue.catalogue_description,
+            onSale: course.selling,
+            startDate: course.start_date,
+            price: course.price,
             currency: currency.currency_currency,
             currencySymbol: currency.currency_symbol
           };

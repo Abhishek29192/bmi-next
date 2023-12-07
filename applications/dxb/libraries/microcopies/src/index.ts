@@ -399,7 +399,12 @@ export const microCopy = {
 
   LOG_IN_LABEL_BTN: "login.label.btn",
   LOG_OUT_LABEL_BTN: "logout.label.btn",
-  MY_ACCOUNT_LABEL: "my.account.label"
+  MY_ACCOUNT_LABEL: "my.account.label",
+
+  TRAINING_REGISTRATION_COST: "training.registration.cost",
+  TRAINING_REGISTRATION_DATE: "training.registration.date",
+  TRAINING_REGISTRATION_TYPE: "training.registration.type",
+  TRAINING_REGISTRATION: "training.registration"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

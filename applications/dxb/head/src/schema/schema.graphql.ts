@@ -244,6 +244,25 @@ type ContentfulTrainingListerPage implements ContentfulObject & ContentfulPage &
   tags: [ContentfulCategory] @link(from: "tags___NODE")
 }
 
+type ContentfulTrainingRegistrationPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
+  id: ID!
+  contentful_id: String!
+  metadata: ContentfulMetadata!
+  title: String!
+  subtitle: String
+  slug: String!
+  path: String!
+  breadcrumbTitle: String
+  breadcrumbs: [BreadcrumbItem]
+  brandLogo: String
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
+  featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+}
+
 type ContentfulPromo implements ContentfulObject & Node @dontInfer {
   name: String!
   metadata: ContentfulMetadata!

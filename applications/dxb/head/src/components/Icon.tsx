@@ -2,10 +2,12 @@ import IconComponent, {
   Arrow,
   Article,
   Box,
+  Calender,
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof,
   CopyContent,
+  Price,
   Cross,
   Cube,
   Design,
@@ -61,6 +63,8 @@ export type IconName =
   | "ArrowBack"
   | "ArrowForward"
   | "Box"
+  | "Calender"
+  | "Price"
   | "CopyContent"
   | "Download"
   | "Facebook"
@@ -121,6 +125,10 @@ const getIcon = (icon: string) => {
       return Box;
     case "Download":
       return Download;
+    case "Calender":
+      return Calender;
+    case "Price":
+      return Price;
     case "CopyContent":
       return CopyContent;
     case "Facebook":

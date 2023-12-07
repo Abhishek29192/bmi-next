@@ -72,6 +72,9 @@ describe("fetchDoceboData", () => {
         catalogueId: `${catalogue.catalogue_id}`,
         catalogueName: catalogue.catalogue_name,
         catalogueDescription: catalogue.catalogue_description,
+        onSale: false,
+        startDate: "1693586500594",
+        price: "0",
         currency: "EUR",
         currencySymbol: "€"
       },
@@ -87,6 +90,9 @@ describe("fetchDoceboData", () => {
         catalogueId: `${catalogue.catalogue_id}`,
         catalogueName: catalogue.catalogue_name,
         catalogueDescription: catalogue.catalogue_description,
+        onSale: false,
+        startDate: "1693586500594",
+        price: "0",
         currency: "EUR",
         currencySymbol: "€"
       }
@@ -116,6 +122,9 @@ describe("fetchDoceboData", () => {
         catalogueId: `${catalogue.catalogue_id}`,
         catalogueName: catalogue.catalogue_name,
         catalogueDescription: catalogue.catalogue_description,
+        onSale: false,
+        startDate: "1693586500594",
+        price: "0",
         currency: "EUR",
         currencySymbol: "€"
       }
