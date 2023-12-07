@@ -267,7 +267,7 @@ clear_gatsby_cloud_cache_albania:
 clear_gatsby_cloud_cache_austria:
   extends: .clear_gatsby_cloud_cache
   variables:
-    SITE_ID: 5082bfbb-1d30-4c97-a8f2-cf6f0e1f4ca1
+    SITE_ID: 2d15958a-381c-49c2-8dd4-c67602118302
 
 clear_gatsby_cloud_cache_belgium_fr:
   extends: .clear_gatsby_cloud_cache
@@ -317,7 +317,7 @@ clear_gatsby_cloud_cache_estonia:
 clear_gatsby_cloud_cache_finland:
   extends: .clear_gatsby_cloud_cache
   variables:
-    SITE_ID: fc634535-92fa-4d1c-bf22-6bb04e1bbb17
+    SITE_ID: 8fde6537-97e4-4018-8641-49b4b5c5f056
 
 clear_gatsby_cloud_cache_france:
   extends: .clear_gatsby_cloud_cache
@@ -332,7 +332,7 @@ clear_gatsby_cloud_cache_germany:
 clear_gatsby_cloud_cache_group:
   extends: .clear_gatsby_cloud_cache
   variables:
-    SITE_ID: ab6e44e9-2b4c-4b23-96ac-2f092d8355ac
+    SITE_ID: c2964abf-8fae-4677-a585-e9910f0abb4d
 
 clear_gatsby_cloud_cache_hungary:
   extends: .clear_gatsby_cloud_cache
@@ -372,7 +372,7 @@ clear_gatsby_cloud_cache_lithuania:
 clear_gatsby_cloud_cache_malaysia:
   extends: .clear_gatsby_cloud_cache
   variables:
-    SITE_ID: 7a5de5cc-61e5-4b37-b816-bac405bf67ee
+    SITE_ID: c1f9effc-8f07-49bd-a8b1-c2be954c80e8
 
 clear_gatsby_cloud_cache_netherlands:
   extends: .clear_gatsby_cloud_cache
@@ -382,7 +382,7 @@ clear_gatsby_cloud_cache_netherlands:
 clear_gatsby_cloud_cache_norway:
   extends: .clear_gatsby_cloud_cache
   variables:
-    SITE_ID: ad0cca44-d3be-410c-a70d-1fdc9c361037
+    SITE_ID: 79474b3a-2099-43f3-a9f1-2c3295913dd4
 
 clear_gatsby_cloud_cache_poland:
   extends: .clear_gatsby_cloud_cache
@@ -392,7 +392,7 @@ clear_gatsby_cloud_cache_poland:
 clear_gatsby_cloud_cache_portugal:
   extends: .clear_gatsby_cloud_cache
   variables:
-    SITE_ID: 4b56913d-9ddc-4608-b6a7-c04a932da079
+    SITE_ID: f5f0a81c-17b1-42da-809a-e00ed9a149b8
 
 clear_gatsby_cloud_cache_romania:
   extends: .clear_gatsby_cloud_cache
@@ -422,12 +422,12 @@ clear_gatsby_cloud_cache_slovenia:
 clear_gatsby_cloud_cache_south_africa:
   extends: .clear_gatsby_cloud_cache
   variables:
-    SITE_ID: 7459f657-4563-4757-a7ce-35428d48cf6a
+    SITE_ID: 61b7a9e8-a6c2-4162-a58f-f8ab3d2e81f3
 
 clear_gatsby_cloud_cache_spain:
   extends: .clear_gatsby_cloud_cache
   variables:
-    SITE_ID: 1879d6c9-3707-4e0f-8e63-716f942e3dda
+    SITE_ID: 47a2f696-6154-41d0-90d5-bebd32eea580
 
 clear_gatsby_cloud_cache_sweden:
   extends: .clear_gatsby_cloud_cache
