@@ -106,7 +106,8 @@ const siteData: SiteData = {
         { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
       ]
     }
-  ]
+  ],
+  accountPage: null
 };
 
 const pageData: Props["data"] = {

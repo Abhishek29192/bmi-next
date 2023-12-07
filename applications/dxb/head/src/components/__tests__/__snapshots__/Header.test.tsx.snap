@@ -38,7 +38,7 @@ exports[`Header component renders correctly 1`] = `
               class="Header-navItem"
             >
               <div
-                class="css-1vxhkfv"
+                class="css-12vfv7w"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -494,7 +494,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               class="Header-navItem"
             >
               <div
-                class="css-1vxhkfv"
+                class="css-12vfv7w"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -950,7 +950,7 @@ exports[`Header component shows sample basket icon 1`] = `
               class="Header-navItem"
             >
               <div
-                class="css-1vxhkfv"
+                class="css-12vfv7w"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -1599,7 +1599,7 @@ exports[`Header component toggles search 1`] = `
               class="Header-navItem"
             >
               <div
-                class="css-1vxhkfv"
+                class="css-12vfv7w"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"

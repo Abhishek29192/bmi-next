@@ -400,6 +400,9 @@ export const microCopy = {
   LOG_IN_LABEL_BTN: "login.label.btn",
   LOG_OUT_LABEL_BTN: "logout.label.btn",
   MY_ACCOUNT_LABEL: "my.account.label",
+  PROFILE_LABEL: "profile.label",
+  ROOF_MEASUREMENT_LABEL: "roof.measurement.label",
+  TRAINING_LABEL: "training.label",
 
   TRAINING_REGISTRATION_COST: "training.registration.cost",
   TRAINING_REGISTRATION_DATE: "training.registration.date",

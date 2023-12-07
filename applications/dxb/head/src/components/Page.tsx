@@ -86,9 +86,9 @@ const Page = ({
     headScripts,
     regions,
     pitchedRoofCalculatorConfig,
-    visualiserHouseTypes
+    visualiserHouseTypes,
+    accountPage
   } = siteData;
-
   const { breadcrumbs, signupBlock, seo, path } = pageData;
   const {
     gatsbyReCaptchaKey,
@@ -107,7 +107,8 @@ const Page = ({
     getMicroCopy,
     gatsbyReCaptchaKey,
     reCaptchaNet,
-    goodBetterBestIconsConfig: getGoodBetterBestIcons(resources)
+    goodBetterBestIconsConfig: getGoodBetterBestIcons(resources),
+    accountPage
   };
 
   const microCopyContext = resources?.microCopy?.reduce(
