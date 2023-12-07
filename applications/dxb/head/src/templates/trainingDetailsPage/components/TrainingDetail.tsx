@@ -24,11 +24,13 @@ import {
   TrainingInfoContainer,
   Wrapper
 } from "../trainingDetailsPageStyles";
+import { getPathWithCountryCode } from "../../../utils/path";
 import { useHeaderHeight } from "../../../utils/useHeaderHeight";
 import type { TrainingDetailsCourseType as Course } from "../types";
 
 interface Props {
   course: Omit<Course, "breadcrumbs">;
+  trainingRegistrationUrl: string | null;
 }
 
 const NO_AVAILABLE_SESSIONS_MESSAGE = "There are no available sessions yet";
@@ -37,16 +39,17 @@ const TrainingDetails = ({
   course: {
     name,
     description,
-    code,
+    code: courseCode,
     currencySymbol,
     sessions,
     categoryName,
     img_url,
     course_type,
     price
-  }
+  },
+  trainingRegistrationUrl
 }: Props) => {
-  const { getMicroCopy } = useSiteContext();
+  const { countryCode, getMicroCopy } = useSiteContext();
   const headerHeight = useHeaderHeight();
 
   const trainingCardTopOffset = useMemo(
@@ -90,9 +93,9 @@ const TrainingDetails = ({
             >
               {name}
             </Title>
-            {code && (
+            {courseCode && (
               <Typography data-testid="training-id">
-                {getMicroCopy(microCopy.TRAINING_ID_LABEL)} {code}
+                {getMicroCopy(microCopy.TRAINING_ID_LABEL)} {courseCode}
               </Typography>
             )}
             <CourseDescription
@@ -110,7 +113,9 @@ const TrainingDetails = ({
             <StyledTrainingCard
               clickableArea="none"
               title={name}
-              subtitle={`${getMicroCopy(microCopy.TRAINING_ID_LABEL)} ${code}`}
+              subtitle={`${getMicroCopy(
+                microCopy.TRAINING_ID_LABEL
+              )} ${courseCode}`}
               media={img_url ? <img src={img_url} alt={name} /> : undefined}
               price={
                 Number(price) > 0
@@ -187,7 +192,14 @@ const TrainingDetails = ({
                           {formatDate(date_start)} - {formatDate(date_end)}
                         </SessionInterval>
                         <EnrollButtonContainer>
-                          <EnrollButton data-testid={"session-cta-button"}>
+                          <EnrollButton
+                            href={getPathWithCountryCode(
+                              countryCode,
+                              `${trainingRegistrationUrl}?trainingCode=${courseCode}`
+                            )}
+                            data-testid={"session-cta-button"}
+                            disabled={!trainingRegistrationUrl}
+                          >
                             {getMicroCopy(
                               microCopy.TRAINING_DETAILS_SESSION_ENROLL_LABEL
                             )}

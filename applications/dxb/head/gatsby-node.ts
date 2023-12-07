@@ -153,7 +153,16 @@ const createTrainingPages = async (
       context: {
         siteId: siteId,
         countryCode,
-        courseId: course.id_course
+        courseId: course.id_course,
+        tagFilter: process.env.MARKET_TAG_NAME
+          ? {
+              tags: {
+                elemMatch: {
+                  contentful_id: { eq: process.env.MARKET_TAG_NAME }
+                }
+              }
+            }
+          : {}
       }
     });
   });
@@ -197,6 +206,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
         ),
         ContentfulTrainingListerPage: path.resolve(
           "./src/templates/trainingListerPage/training-lister-page.tsx"
+        ),
+        ContentfulTrainingRegistrationPage: path.resolve(
+          "./src/templates/trainingRegistrationPage/training-registration-page.tsx"
         )
       };
 

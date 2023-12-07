@@ -365,6 +365,9 @@ const updateCourse = async (
     catalogueId: `${catalogue.catalogue_id}`,
     catalogueName: catalogue.catalogue_name,
     catalogueDescription: catalogue.catalogue_description,
+    onSale: course.on_sale,
+    startDate: course.course_date_start,
+    price: course.price,
     currency: currency.currency_currency,
     currencySymbol: currency.currency_symbol
   }));

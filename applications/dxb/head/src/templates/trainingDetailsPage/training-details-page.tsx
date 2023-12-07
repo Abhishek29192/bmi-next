@@ -17,6 +17,7 @@ export type Props = {
   };
   data: {
     doceboCourses: Course;
+    contentfulTrainingRegistrationPage: { path: string } | null;
     contentfulSite: SiteData;
   };
 };
@@ -24,6 +25,7 @@ export type Props = {
 const TrainingDetailsPage = ({ data }: Props) => {
   const {
     doceboCourses: { breadcrumbs, ...trainingData },
+    contentfulTrainingRegistrationPage: { path: trainingRegistrationUrl },
     contentfulSite
   } = data;
 
@@ -52,7 +54,10 @@ const TrainingDetailsPage = ({ data }: Props) => {
           />
         </BackToResults>
       </StyledTopBreadcrumbsSection>
-      <TrainingDetail course={trainingData} />
+      <TrainingDetail
+        course={trainingData}
+        trainingRegistrationUrl={trainingRegistrationUrl}
+      />
       <Section data-testid="breadcrumbs-section-bottom" backgroundColor="white">
         <BackToResults>
           <Breadcrumbs data={breadcrumbs} data-testid="breadcrumbs-bottom" />
@@ -65,7 +70,11 @@ const TrainingDetailsPage = ({ data }: Props) => {
 export default TrainingDetailsPage;
 
 export const pageQuery = graphql`
-  query TrainingDetailsPage($courseId: Int!, $siteId: String!) {
+  query TrainingDetailsPage(
+    $courseId: Int!
+    $siteId: String!
+    $tagFilter: ContentfulMetadataFilterInput!
+  ) {
     doceboCourses(id_course: { eq: $courseId }) {
       id_course
       name
@@ -87,6 +96,9 @@ export const pageQuery = graphql`
         label
         slug
       }
+    }
+    contentfulTrainingRegistrationPage(metadata: $tagFilter) {
+      path
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

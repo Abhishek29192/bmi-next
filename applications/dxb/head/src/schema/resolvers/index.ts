@@ -23,7 +23,8 @@ const {
   ContentfulProductListerPage,
   ContentfulSimplePage: ContentfulSimplePageCommon,
   ContentfulCookiePolicyPage,
-  ContentfulTrainingListerPage: ContentfulTrainingListerPageCommon
+  ContentfulTrainingListerPage: ContentfulTrainingListerPageCommon,
+  ContentfulTrainingRegistrationPage
 } = ContentfulPage;
 
 /**
@@ -71,5 +72,6 @@ export default {
     ...ContentfulTrainingListerPage,
     ...ContentfulTrainingListerPageCommon
   },
-  DoceboCourses: TrainingDetailsPage
+  DoceboCourses: TrainingDetailsPage,
+  ContentfulTrainingRegistrationPage
 };
