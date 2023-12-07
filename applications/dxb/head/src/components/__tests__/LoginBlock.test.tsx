@@ -95,7 +95,66 @@ describe("LoginBlock Component", () => {
     );
   });
 
-  it("calls AuthService.login when Login button is clicked", () => {
+  // this test case will be valid in Phase 3
+  // it("calls AuthService.login when Login button is clicked", () => {
+  //   mockUseAuth.mockReturnValue({
+  //     isLoading: false,
+  //     isLoggedIn: false,
+  //     profile: {
+  //       name: "User",
+  //       nickname: "",
+  //       picture: "",
+  //       user_id: "",
+  //       clientID: "",
+  //       identities: [],
+  //       created_at: "",
+  //       updated_at: "",
+  //       sub: ""
+  //     }
+  //   });
+  //   render(
+  //     <ThemeProvider>
+  //       <LoginBlock />
+  //     </ThemeProvider>
+  //   );
+  //
+  //   const loginButton = screen.getByText("MC: login.label.btn");
+  //   fireEvent.click(loginButton);
+  //   expect(AuthService.login).toHaveBeenCalled();
+  // });
+
+  it("calls AuthService.logout when Logout button is clicked", () => {
+    // Update the mock for useAuth to indicate that the user is logged in
+    mockUseAuth.mockReturnValue({
+      isLoading: false,
+      isLoggedIn: true,
+      profile: {
+        name: "User",
+        nickname: "",
+        picture: "",
+        user_id: "",
+        clientID: "",
+        identities: [],
+        created_at: "",
+        updated_at: "",
+        sub: ""
+      }
+    });
+    render(
+      <ThemeProvider>
+        <LoginBlock />
+      </ThemeProvider>
+    );
+
+    const logoutButton = screen.getByText("MC: logout.label.btn");
+    fireEvent.click(logoutButton);
+
+    expect(AuthService.logout).toHaveBeenCalled();
+  });
+
+  it("redirect to intouch  when Login button is clicked", () => {
+    process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT =
+      "https://dev-en.intouch.bmigroup.com/";
     mockUseAuth.mockReturnValue({
       isLoading: false,
       isLoggedIn: false,
@@ -119,36 +178,9 @@ describe("LoginBlock Component", () => {
 
     const loginButton = screen.getByText("MC: login.label.btn");
     fireEvent.click(loginButton);
-    expect(AuthService.login).toHaveBeenCalled();
-  });
-
-  it("calls AuthService.logout when Logout button is clicked", () => {
-    // Update the mock for useAuth to indicate that the user is logged in
-    mockUseAuth.mockReturnValue({
-      isLoading: false,
-      isLoggedIn: true,
-      profile: {
-        name: "User",
-        nickname: "",
-        picture: "",
-        user_id: "",
-        clientID: "",
-        identities: [],
-        created_at: "",
-        updated_at: "",
-        sub: ""
-      }
-    });
-
-    render(
-      <ThemeProvider>
-        <LoginBlock />
-      </ThemeProvider>
+    expect(loginButton).toHaveAttribute(
+      "href",
+      expect.stringContaining(`intouch.bmigroup.com`)
     );
-
-    const logoutButton = screen.getByText("MC: logout.label.btn");
-    fireEvent.click(logoutButton);
-
-    expect(AuthService.logout).toHaveBeenCalled();
   });
 });

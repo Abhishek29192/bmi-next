@@ -34,7 +34,14 @@ const LoginBlock = () => {
           {getMicroCopy(microCopy.LOG_OUT_LABEL_BTN)}
         </Button>
       ) : (
-        <Button onClick={AuthService.login} variant="text" data-testid="login">
+        <Button
+          action={{
+            model: "htmlLink",
+            href: process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT
+          }}
+          variant="text"
+          data-testid="login"
+        >
           {getMicroCopy(microCopy.LOG_IN_LABEL_BTN)}
         </Button>
       )}
