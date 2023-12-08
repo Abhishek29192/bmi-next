@@ -21,7 +21,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             data-testid="grid-item"
           >
             <a
-              class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
+              class="MuiButtonBase-root css-1flrhdr-MuiButtonBase-root"
               data-gtm="{"id":"cta-click1","label":"Call to action","action":"/uk/some-page/"}"
               data-testid="overlap-card"
               href="/uk/some-page/"
@@ -110,7 +110,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             data-testid="grid-item"
           >
             <a
-              class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
+              class="MuiButtonBase-root css-1flrhdr-MuiButtonBase-root"
               data-gtm="{"id":"cta-click1","label":"Call to action","action":"/uk/some-page/"}"
               data-testid="overlap-card"
               href="/uk/some-page/"
@@ -199,7 +199,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             data-testid="grid-item"
           >
             <div
-              class="css-rf8wnt"
+              class="css-jt6ttj"
               data-test-class-name="card"
             >
               <div
@@ -355,7 +355,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <a
-              class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
+              class="MuiButtonBase-root css-1flrhdr-MuiButtonBase-root"
               data-gtm="{"id":"cta-click1","label":"Call to action","action":"/uk/some-page/"}"
               data-testid="overlap-card"
               href="/uk/some-page/"
@@ -444,7 +444,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <a
-              class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
+              class="MuiButtonBase-root css-1flrhdr-MuiButtonBase-root"
               data-gtm="{"id":"cta-click1","label":"Call to action","action":"/uk/some-page/"}"
               data-testid="overlap-card"
               href="/uk/some-page/"
@@ -533,7 +533,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="css-rf8wnt"
+              class="css-jt6ttj"
               data-test-class-name="card"
             >
               <div
