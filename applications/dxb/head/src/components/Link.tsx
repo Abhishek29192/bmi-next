@@ -7,6 +7,7 @@ import {
 import { Link as GatsbyLink, graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
 import React, { useCallback, useContext, useMemo, useState } from "react";
+import { useTheme } from "@mui/material";
 import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";
 import { getPathWithCountryCode } from "../utils/path";
 import { IconName } from "./Icon";
@@ -262,17 +263,21 @@ export const Link = ({
   component: Component = Button,
   data,
   onClick,
+  hasBrandColours,
   ...rest
 }: typeof Component & {
   children: React.ReactNode;
   component?: React.ElementType;
   data: Data;
   onClick?: (...args: unknown[]) => void;
+  hasBrandColours?: boolean;
 }) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const { countryCode } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
+
+  const theme = useTheme();
 
   const handleOnClick = useCallback(
     (...args: unknown[]) => {
@@ -314,7 +319,16 @@ export const Link = ({
 
   return (
     <>
-      <Component action={action} onClick={handleOnClick} {...rest}>
+      <Component
+        action={action}
+        onClick={handleOnClick}
+        style={{
+          background: hasBrandColours && theme.colours.accent,
+          borderColor: hasBrandColours && theme.colours.accent,
+          color: hasBrandColours && theme.colours.white
+        }}
+        {...rest}
+      >
         {transformHyphens(children)}
       </Component>
       {data?.type === "Dialog" && data?.dialogContent && memoedRenderDialog}

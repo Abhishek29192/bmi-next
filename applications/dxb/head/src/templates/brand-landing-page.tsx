@@ -23,7 +23,6 @@ import Page, { Data as PageData } from "../components/Page";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Context as SiteContext } from "../components/Site";
 import Video from "../components/Video";
-import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
@@ -58,7 +57,7 @@ const getHeroItemsWithContext = (
 ): CarouselHeroItem[] => {
   const GetCTAButton = (cta: LinkData | null) => {
     return cta?.label ? (
-      <Link component={Button} data={cta}>
+      <Link component={Button} data={cta} hasBrandColours>
         {cta?.label}
       </Link>
     ) : null;
@@ -116,7 +115,6 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     seo,
     path: data.contentfulBrandLandingPage.path
   };
-  const { isBrandProviderEnabled } = useConfig();
 
   const GTMButton = withGTM<ButtonProps>(Button);
   const firstSlide: CarouselHeroItem = {
@@ -132,7 +130,12 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     ) : undefined,
     hasUnderline: false,
     cta: cta ? (
-      <Link component={Button} data={cta} data-testid="first-slide-cta">
+      <Link
+        component={Button}
+        data={cta}
+        data-testid="first-slide-cta"
+        hasBrandColours
+      >
         {cta.label}
       </Link>
     ) : undefined
@@ -162,14 +165,12 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
                 >
                   <Breadcrumbs
                     data={enhancedBreadcrumbs}
-                    isDarkThemed
                     data-testid="brand-landing-page-breadcrumbs-top"
                   />
                 </BackToResults>
               }
               heroes={[firstSlide, ...heroItems]}
-              hasSpaceBottomLarge
-              isHeroKeyLine={Boolean(isBrandProviderEnabled && brandLogo)}
+              hasHorizon
             >
               <Search
                 buttonComponent={(props) => (

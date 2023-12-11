@@ -661,7 +661,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -683,7 +683,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -692,7 +692,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -733,7 +733,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -768,7 +768,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -777,7 +777,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -846,7 +846,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1a28zd1-MuiTypography-root"
                                   data-testid="hero-title"
                                 >
                                   searchPageNextBestActionsTitle
@@ -1010,6 +1010,21 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -2532,7 +2547,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -2554,7 +2569,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2563,7 +2578,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -2604,7 +2619,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -2639,7 +2654,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2648,7 +2663,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -2876,6 +2891,21 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -4164,7 +4194,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -4186,7 +4216,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4195,7 +4225,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -4236,7 +4266,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -4271,7 +4301,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4280,7 +4310,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -4349,7 +4379,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1a28zd1-MuiTypography-root"
                                   data-testid="hero-title"
                                 >
                                   ContentfulSimplePageTitle
@@ -4360,7 +4390,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                   data-testid="hero-content-slide-text"
                                 />
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"cta-click1","action":"/en/ContentfulSimplePagePath/"}"
                                   data-testid="hero-cta"
                                   href="/en/ContentfulSimplePagePath/"
@@ -4525,6 +4555,21 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -5996,7 +6041,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -6018,7 +6063,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6027,7 +6072,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -6068,7 +6113,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -6103,7 +6148,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6112,7 +6157,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -6338,6 +6383,21 @@ exports[`Brand Landing Page Template render no content for first slide when no d
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -7858,7 +7918,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -7880,7 +7940,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -7889,7 +7949,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -7930,7 +7990,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -7965,7 +8025,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -7974,7 +8034,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -8202,6 +8262,21 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -9692,7 +9767,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -9714,7 +9789,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9723,7 +9798,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -9764,7 +9839,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -9799,7 +9874,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9808,7 +9883,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -10036,6 +10111,21 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -11556,7 +11646,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -11578,7 +11668,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11587,7 +11677,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -11628,7 +11718,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -11663,7 +11753,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11672,7 +11762,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -11900,6 +11990,21 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -13420,7 +13525,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -13442,7 +13547,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13451,7 +13556,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -13492,7 +13597,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -13527,7 +13632,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13536,7 +13641,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -13616,10 +13721,11 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui...
                                 </p>
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
                                   data-testid="hero-cta"
                                   href="/en/roof-tiles/"
+                                  style="background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   firstSlideCTA
@@ -13776,6 +13882,21 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -15296,7 +15417,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -15318,7 +15439,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15327,7 +15448,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -15368,7 +15489,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -15403,7 +15524,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15412,7 +15533,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -15490,10 +15611,11 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                   data-testid="hero-content-slide-text"
                                 />
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
                                   data-testid="hero-cta"
                                   href="/en/roof-tiles/"
+                                  style="background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   firstSlideCTA
@@ -15650,6 +15772,21 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -17170,7 +17307,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -17192,7 +17329,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -17201,7 +17338,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -17242,7 +17379,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -17277,7 +17414,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -17286,7 +17423,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -17366,10 +17503,11 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
                                 </p>
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
                                   data-testid="hero-cta"
                                   href="/en/roof-tiles/"
+                                  style="background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   firstSlideCTA
@@ -17526,6 +17664,21 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
@@ -19046,7 +19199,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottomLarge css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -19068,7 +19221,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -19077,7 +19230,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -19118,7 +19271,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                           class="MuiBreadcrumbs-li"
                         >
                           <button
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-testid="bread-crumb-breadcrumbTitle"
                             disabled=""
                             tabindex="-1"
@@ -19153,7 +19306,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                   >
                     <nav
                       aria-label="breadcrumbs"
-                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
                     >
                       <ol
                         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -19162,7 +19315,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                           class="MuiBreadcrumbs-li"
                         >
                           <a
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                             data-testid="bread-crumb-Home"
                             href="/en/"
@@ -19242,10 +19395,11 @@ exports[`Brand Landing Page Template when description is more than 400 character
                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui...
                                 </p>
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
                                   data-testid="hero-cta"
                                   href="/en/roof-tiles/"
+                                  style="background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   firstSlideCTA
@@ -19402,6 +19556,21 @@ exports[`Brand Landing Page Template when description is more than 400 character
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >
