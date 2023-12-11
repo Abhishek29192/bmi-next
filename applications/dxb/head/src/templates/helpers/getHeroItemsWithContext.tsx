@@ -17,7 +17,7 @@ export const getHeroItemsWithContext = (
 
       const callToAction =
         rest.__typename === "ContentfulPromo" && rest.cta ? (
-          <Link component={Button} data={rest.cta}>
+          <Link component={Button} data={rest.cta} hasBrandColours>
             {rest.cta?.label}
           </Link>
         ) : (
@@ -26,6 +26,7 @@ export const getHeroItemsWithContext = (
             data={{
               linkedPage: { path: hasPath ? rest.path : undefined }
             }}
+            hasBrandColours
           >
             {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
           </Link>

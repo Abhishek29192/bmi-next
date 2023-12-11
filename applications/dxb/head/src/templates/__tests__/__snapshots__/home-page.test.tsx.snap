@@ -680,7 +680,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
+          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-1fs5a2c"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -730,7 +730,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1a28zd1-MuiTypography-root"
                                   data-testid="hero-title"
                                 >
                                   homePageSlideTitle
@@ -741,10 +741,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
                                   data-testid="hero-content-slide-text"
                                 />
                                 <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"slideCTA"}"
                                   data-testid="hero-cta"
                                   href="/en/roof-tiles/"
+                                  style="background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   slideCTA
@@ -857,6 +858,21 @@ exports[`Home Page Template render correctly with all data 1`] = `
             class="css-naufcy"
             data-testid="carousel-hero-image-carousel"
           >
+            <div
+              class="css-15arv44"
+              data-testid="horizon-container"
+            >
+              <div
+                style="display: flex;"
+              >
+                <div
+                  class="Horizon-left css-1ub0jwk"
+                />
+                <div
+                  class="Horizon-right css-1ub0jwk"
+                />
+              </div>
+            </div>
             <div
               class=" css-xi64lz"
             >

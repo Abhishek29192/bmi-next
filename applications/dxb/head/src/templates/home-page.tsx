@@ -89,6 +89,7 @@ const HomePage = ({ data, pageContext }: Props) => {
               heroes={heroItems}
               hasSpaceBottom
               disableLazyLoading={true}
+              hasHorizon
             >
               {!isGatsbyDisabledElasticSearch && (
                 <Search
