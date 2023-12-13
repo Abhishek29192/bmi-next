@@ -1,7 +1,8 @@
 import { UnitValue } from "@bmi/firestore-types";
-import { Product as ProductSchema, QuantitativeValue } from "schema-dts";
+import { QuantitativeValue } from "schema-dts";
 import { Product } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
+import { ProductSchema } from "./schemaTypes";
 
 // TODO: need to extract getting the combined categories
 export const createSchemaOrgDataForPdpPage = (
@@ -9,6 +10,7 @@ export const createSchemaOrgDataForPdpPage = (
   variant?: Product,
   countryCode?: string
 ): ProductSchema => ({
+  "@context": "https://schema.org",
   "@type": "Product",
   award: variant?.awardsAndCertificateDocuments.find(
     (asset) => asset.assetType === "AWARDS"

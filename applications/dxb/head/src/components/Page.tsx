@@ -33,7 +33,7 @@ export type Data = {
   breadcrumbs: BreadcrumbsData | null;
   signupBlock: SignupBlockData | null;
   seo: SEOContentData | null;
-  path: string | null;
+  path: string;
 };
 
 type Context = {
@@ -119,9 +119,7 @@ const Page = ({
   );
 
   const seoTitle =
-    variantProduct && variantProduct.seoTitle
-      ? variantProduct.seoTitle
-      : title || "";
+    variantProduct && variantProduct.seoTitle ? variantProduct.seoTitle : title;
   return (
     <div style={{ overflowX: "hidden", display: "contents" }}>
       {globalStyles}

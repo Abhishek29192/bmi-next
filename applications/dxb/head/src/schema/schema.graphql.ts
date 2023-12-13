@@ -103,7 +103,7 @@ type ContentfulCookiePolicyPage implements ContentfulObject & ContentfulPage & N
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
-  title: String
+  title: String!
   slug: String!
   path: String!
   heroType: String
@@ -125,6 +125,7 @@ type ContentfulSimplePage implements ContentfulObject & ContentfulPage & Node @d
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
   title: String
   slug: String!
   path: String!
@@ -155,6 +156,7 @@ type ContentfulContactUsPage implements ContentfulObject & ContentfulPage & Node
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
   title: String
   slug: String!
   path: String!
@@ -182,7 +184,7 @@ type ContentfulHomePage implements ContentfulObject & Node @dontInfer {
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
-  title: String
+  title: String!
   slug: String!
   path: String!
   breadcrumbs: [BreadcrumbItem]
@@ -200,6 +202,7 @@ type ContentfulProductListerPage implements ContentfulObject & ContentfulPage & 
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
   title: String
   slug: String!
   path: String!
@@ -226,7 +229,8 @@ type ContentfulTrainingListerPage implements ContentfulObject & ContentfulPage &
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
-  title: String!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
+  title: String
   subtitle: String
   slug: String!
   path: String!
@@ -745,6 +749,7 @@ type ContentfulDocumentLibraryPage implements ContentfulObject & ContentfulPage 
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
   title: String
   slug: String!
   categoryCodes: [String!]
@@ -1090,7 +1095,8 @@ type ContentfulBrandLandingPage implements ContentfulObject & ContentfulPage & N
   id: ID!
   metadata: ContentfulMetadata!
   contentful_id: String!
-  title: String
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
+  title: String!
   cta: ContentfulLink @link(from: "cta___NODE")
   slug: String!
   path: String!
