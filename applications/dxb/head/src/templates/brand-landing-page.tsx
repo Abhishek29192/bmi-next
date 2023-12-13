@@ -1,14 +1,12 @@
-import {
-  Button,
-  ButtonProps,
-  CarouselHero,
-  CarouselHeroItem,
-  Search,
-  Section
-} from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import CarouselHero, {
+  CarouselHeroItem
+} from "@bmi-digital/components/carousel-hero";
+import Search from "@bmi-digital/components/search";
+import Section from "@bmi-digital/components/section";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import BackToResults from "../components/BackToResults";
 import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
@@ -126,7 +124,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
         }`
       : null,
     media: featuredMedia ? (
-      <Image {...featuredMedia} size="cover" />
+      <Image {...featuredMedia} size="cover" loading="eager" />
     ) : undefined,
     hasUnderline: false,
     cta: cta ? (

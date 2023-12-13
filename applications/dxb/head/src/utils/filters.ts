@@ -2,7 +2,7 @@ import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { getPathWithCountryCode } from "../utils/path";
 import { removePLPFilterPrefix } from "./product-filters";
-import type { Filter } from "@bmi-digital/components";
+import type { Filter } from "@bmi-digital/components/filters";
 
 export type URLFilter = {
   name: string;

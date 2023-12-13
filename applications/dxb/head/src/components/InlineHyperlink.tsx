@@ -1,4 +1,6 @@
-import { AnchorLink, AnchorLinkProps } from "@bmi-digital/components";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
 import { Inline } from "@contentful/rich-text-types";
 import { graphql, Link } from "gatsby";
 import React, { useCallback, useContext, useState } from "react";

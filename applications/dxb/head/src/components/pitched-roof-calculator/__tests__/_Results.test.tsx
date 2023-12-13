@@ -1,12 +1,13 @@
-import { TextField, ThemeProvider } from "@bmi-digital/components";
+import TextField from "@bmi-digital/components/text-field";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
-import { BLOCKS } from "@contentful/rich-text-types";
 import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
-import Results, { replaceImageURLWithImage, ResultProps } from "../_Results";
+import Results, { ResultProps, replaceImageURLWithImage } from "../_Results";
 import { MicroCopy } from "../helpers/microCopy";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
 import {

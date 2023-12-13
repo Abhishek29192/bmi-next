@@ -1,6 +1,6 @@
-import * as all from "@bmi-digital/components";
-import { ThemeProvider } from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
+import * as hooks from "@bmi-digital/components/hooks";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { fireEvent, screen, waitFor, within } from "@testing-library/react";
 import { Data as Resources } from "applications/dxb/head/src/components/Resources";
 import React from "react";
@@ -13,12 +13,12 @@ import { renderWithRouter } from "../../test/renderWithRouter";
 import * as elasticSearch from "../../utils/elasticSearch";
 import SearchPage, { Props } from "../search-page";
 
-jest.mock("@mui/material", () => ({
-  ...jest.requireActual("@mui/material"),
-  useMediaQuery: jest.fn()
+jest.mock("@mui/material/useMediaQuery", () => ({
+  __esModule: true,
+  default: jest.fn()
 }));
 
-const useClientSpy = jest.spyOn(all, "useIsClient");
+const useClientSpy = jest.spyOn(hooks, "useIsClient");
 useClientSpy.mockImplementation(() => ({ isClient: true, key: "" }));
 
 const mockUseMediaQuery = useMediaQuery as jest.Mock<

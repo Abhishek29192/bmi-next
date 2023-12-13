@@ -1,5 +1,5 @@
+import TextField from "@bmi-digital/components/text-field";
 import { styled } from "@mui/material/styles";
-import { TextField } from "@bmi-digital/components";
 
 const PREFIX = "InputTextField";
 

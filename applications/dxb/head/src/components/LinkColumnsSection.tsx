@@ -1,18 +1,16 @@
-import {
-  AnchorLink,
-  AnchorLinkProps,
-  Button,
-  ButtonProps,
-  ClickableAction,
-  ExpandableLinksTextCard,
-  MasonryGrid,
-  Section
-} from "@bmi-digital/components";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import { ClickableAction } from "@bmi-digital/components/clickable";
+import ExpandableLinksTextCard from "@bmi-digital/components/expandable-links-text-card";
 import AddIcon from "@bmi-digital/components/icon/Add";
 import RemoveIcon from "@bmi-digital/components/icon/Remove";
+import MasonryGrid from "@bmi-digital/components/masonry-grid";
+import Section from "@bmi-digital/components/section";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import withGTM from "../utils/google-tag-manager";
 import {
   Data as LinkData,

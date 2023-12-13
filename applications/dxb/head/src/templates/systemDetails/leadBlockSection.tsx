@@ -1,16 +1,13 @@
-import {
-  Button,
-  ButtonProps,
-  IconList,
-  LeadBlock
-} from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import IconList from "@bmi-digital/components/icon-list";
 import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import CheckIcon from "@bmi-digital/components/icon/Check";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import { microCopy } from "@bmi/microcopies";
+import { GoodBetterBest } from "@bmi/pim-types";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
-import { GoodBetterBest } from "@bmi/pim-types";
-import { microCopy } from "@bmi/microcopies";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import Link, { Data as LinkData } from "../../components/Link";
 import { useSiteContext } from "../../components/Site";

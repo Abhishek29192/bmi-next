@@ -2484,6 +2484,7 @@ exports[`Sections component renders correctly 1`] = `
                                     >
                                       <img
                                         alt="alt text"
+                                        loading="lazy"
                                         src="https://testImage.jpg"
                                         style="object-fit: cover; object-position: center;"
                                       />
@@ -2725,6 +2726,7 @@ exports[`Sections component renders correctly 1`] = `
                                     >
                                       <img
                                         alt="alt text"
+                                        loading="lazy"
                                         src="https://testImage.jpg"
                                         style="object-fit: cover; object-position: center;"
                                       />
@@ -2804,6 +2806,7 @@ exports[`Sections component renders correctly 1`] = `
                                     >
                                       <img
                                         alt="alt text"
+                                        loading="lazy"
                                         src="https://testImage.jpg"
                                         style="object-fit: cover; object-position: center;"
                                       />

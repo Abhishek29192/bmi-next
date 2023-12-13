@@ -1,4 +1,5 @@
-import { RegionCode, ThemeProvider } from "@bmi-digital/components";
+import { RegionCode } from "@bmi-digital/components/language-selection";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { LocationProvider } from "@reach/router";
 import { render } from "@testing-library/react";
 import React from "react";

@@ -1,5 +1,7 @@
-import { GoogleAutocomplete, Grid, Typography } from "@bmi-digital/components";
-import { styled } from "@mui/material";
+import GoogleAutocomplete from "@bmi-digital/components/google-autocomplete";
+import Grid from "@bmi-digital/components/grid";
+import Typography from "@bmi-digital/components/typography";
+import { styled } from "@mui/material/styles";
 
 export const Root = styled(Grid)({
   marginBottom: 0

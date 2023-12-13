@@ -1,21 +1,23 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { LocationProvider } from "@reach/router";
 import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import mediaQuery from "css-mediaquery";
 import React from "react";
-import { renderWithRouter } from "../../../test/renderWithRouter";
 import createService from "../../../__tests__/helpers/ServiceHelper";
+import { renderWithRouter } from "../../../test/renderWithRouter";
 import { EntryTypeEnum } from "../../Service";
 import { Data as ServiceType } from "../../ServiceType";
+import { googleMock } from "../__mocks__/google";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../index";
-import { googleMock } from "../__mocks__/google";
 
 let callMarkerOnClick;
 
-jest.mock("@bmi-digital/components", () => {
-  const originalModule = jest.requireActual("@bmi-digital/components");
+jest.mock("@bmi-digital/components/google-map", () => {
+  const originalModule = jest.requireActual(
+    "@bmi-digital/components/google-map"
+  );
 
   const GoogleMap = jest
     .fn()
@@ -28,14 +30,27 @@ jest.mock("@bmi-digital/components", () => {
         </div>
       );
     });
-  const loadGoogleApi = jest.fn().mockImplementation();
-  const computeDistanceBetween = jest.fn().mockImplementation();
 
   return {
     ...originalModule,
-    GoogleMap,
-    loadGoogleApi,
-    computeDistanceBetween
+    __esModule: true,
+    default: GoogleMap
+  };
+});
+
+jest.mock("@bmi-digital/components/google-api", () => {
+  const originalModule = jest.requireActual(
+    "@bmi-digital/components/google-api"
+  );
+
+  const computeDistanceBetween = jest.fn().mockImplementation();
+  const loadGoogleApi = jest.fn().mockImplementation();
+
+  return {
+    ...originalModule,
+    __esModule: true,
+    computeDistanceBetween,
+    loadGoogleApi
   };
 });
 

@@ -1,4 +1,6 @@
-import { Icopal, ThemeProvider } from "@bmi-digital/components";
+import Icopal from "@bmi-digital/components/logo/Icopal";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { GoodBetterBest } from "@bmi/pim-types";
 import {
   createHistory,
   createMemorySource,
@@ -6,10 +8,9 @@ import {
 } from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { GoodBetterBest } from "@bmi/pim-types";
-import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
-import LeadBlockSection from "../leadBlockSection";
 import { renderWithProviders } from "../../../__tests__/renderWithProviders";
+import { DataTypeEnum, Data as LinkData } from "../../../components/Link";
+import LeadBlockSection from "../leadBlockSection";
 
 const leadBlockSectionName = "lead Block section";
 const uniqueSellingPropositions = ["feature 1", "feature 2"];

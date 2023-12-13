@@ -1,6 +1,6 @@
-import { Filter } from "@bmi-digital/components";
-import { isDefined } from "@bmi/utils";
+import { Filter } from "@bmi-digital/components/filters";
 import { ApprovalStatus } from "@bmi/pim-types";
+import { isDefined } from "@bmi/utils";
 import { availabilityFilterCode } from "../components/SearchTabDocuments";
 import { devLog } from "./devLog";
 import {

@@ -1,4 +1,4 @@
-import { Icon } from "@bmi-digital/components";
+import Icon from "@bmi-digital/components/icon";
 import { styled } from "@mui/material/styles";
 
 export const StyledBlueCheckIconInter = styled(Icon)(({ theme }) => ({

@@ -1,27 +1,23 @@
-import {
-  Button,
-  replaceSpaces,
-  Section,
-  transformHyphens,
-  Typography,
-  Villain,
-  VillainProps
-} from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
+import Button from "@bmi-digital/components/button";
+import Section from "@bmi-digital/components/section";
+import Typography from "@bmi-digital/components/typography";
+import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
+import Villain, { VillainProps } from "@bmi-digital/components/villain";
+import { MicroCopyValues, microCopy } from "@bmi/microcopies";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
-import { microCopy, MicroCopyValues } from "@bmi/microcopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import {
-  DescriptionGrid,
-  DescriptionTypoMultiLine
-} from "./styles/SyndicateSection.styles";
 import Image from "./Image";
 import Link, { getCTA } from "./Link";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
 import Video from "./Video";
+import {
+  DescriptionGrid,
+  DescriptionTypoMultiLine
+} from "./styles/SyndicateSection.styles";
 
 import type { Data as PageInfoData } from "./PageInfo";
 import type { Data as PromoData } from "./Promo";

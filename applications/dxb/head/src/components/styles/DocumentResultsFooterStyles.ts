@@ -1,11 +1,9 @@
-import {
-  DownloadList,
-  Pagination,
-  Typography,
-  Button
-} from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import DownloadList from "@bmi-digital/components/download-list";
 import ErrorIcon from "@bmi-digital/components/icon/Error";
-import { buttonClasses } from "@mui/material";
+import Pagination from "@bmi-digital/components/pagination";
+import Typography from "@bmi-digital/components/typography";
+import { buttonClasses } from "@mui/material/Button";
 import { alpha, styled } from "@mui/material/styles";
 import RecaptchaPrivacyLinks from "../RecaptchaPrivacyLinks";
 

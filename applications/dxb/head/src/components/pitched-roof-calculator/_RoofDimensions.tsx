@@ -1,9 +1,9 @@
-import { Grid } from "@bmi-digital/components";
+import Grid from "@bmi-digital/components/grid";
 import React from "react";
-import InputTextField from "./subcomponents/_InputTextField";
-import { DimensionsValues, RoofV2 as Roof } from "./types/roof";
 import Protrusions from "./_Protrusions";
 import { Root, classes } from "./_RoofDimensions.styles";
+import InputTextField from "./subcomponents/_InputTextField";
+import { DimensionsValues, RoofV2 as Roof } from "./types/roof";
 
 export type RoofDimensionsProps = {
   dimensions: DimensionsValues;

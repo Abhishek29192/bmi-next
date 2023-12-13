@@ -1,16 +1,16 @@
 import path from "path";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
-import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { ApprovalStatus } from "@bmi/pim-types";
 import { Course as DoceboCourse } from "@bmi/docebo-types";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
+import { Product } from "./src/types/pim";
+import { convertStrToBool } from "./src/utils/convertStrToBool";
 import { getRedirects, Redirect } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
-import { convertStrToBool } from "./src/utils/convertStrToBool";
-import { Product } from "./src/types/pim";
 import type {
   CreateBabelConfigArgs,
   CreatePagesArgs,

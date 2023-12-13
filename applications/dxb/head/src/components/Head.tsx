@@ -1,4 +1,4 @@
-import { transformHyphens } from "@bmi-digital/components";
+import { transformHyphens } from "@bmi-digital/components/utils";
 import React from "react";
 import { Helmet, HelmetProps } from "react-helmet";
 import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
@@ -7,11 +7,11 @@ import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
 import EffraRegular from "../../static/fonts/Effra_W_Regular.woff2";
 import { useConfig } from "../contexts/ConfigProvider";
 import { Product } from "../types/pim";
+import { extractScripts } from "../utils/extractScripts";
 import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
-import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { createSchemaOrgForHomeAndBrandPage } from "../utils/schemaOrgHomeAndBrandPage";
-import { extractScripts } from "../utils/extractScripts";
+import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { Data as SEOContentData } from "./SEOContent";
 import { Data as SiteData } from "./Site";
 

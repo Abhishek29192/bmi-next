@@ -1,5 +1,6 @@
 import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import classnames from "classnames";
 import React, { FormEvent } from "react";
 import ProgressIndicator from "../../../ProgressIndicator";

@@ -1,4 +1,4 @@
-import { LinkProps } from "@mui/material";
+import { LinkProps } from "@mui/material/Link";
 import React from "react";
 import withGTM from "../../../../utils/google-tag-manager";
 import { Service } from "../../index";

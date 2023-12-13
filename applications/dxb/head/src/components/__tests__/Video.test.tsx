@@ -1,4 +1,4 @@
-import { YoutubeVideoProps } from "@bmi-digital/components";
+import { YoutubeVideoProps } from "@bmi-digital/components/youtube-video";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { Data as ContentfulImageData } from "../Image";
@@ -18,8 +18,9 @@ jest.mock("../Image", () => ({
   default: () => <div data-testid="image"></div>
 }));
 
-jest.mock("@bmi-digital/components", () => ({
-  YoutubeVideo: (props: YoutubeVideoProps) => (
+jest.mock("@bmi-digital/components/youtube-video", () => ({
+  __esModule: true,
+  default: (props: YoutubeVideoProps) => (
     <div
       data-testid="wrapper"
       data-gtm={JSON.stringify(props.dataGTM)}

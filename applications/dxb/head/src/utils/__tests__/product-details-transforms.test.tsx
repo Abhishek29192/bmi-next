@@ -1,17 +1,17 @@
-import { MediaGallery, ThemeProvider } from "@bmi-digital/components";
+import MediaGallery from "@bmi-digital/components/media-gallery";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
-
 import React from "react";
 import createMeasurements from "../../__tests__/helpers/MeasurementsHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
+import { Product, RelatedVariant } from "../../types/pim";
 import {
   getAllValues,
   getProductAttributes,
   mapClassificationValues,
   transformImages
 } from "../product-details-transforms";
-import { Product, RelatedVariant } from "../../types/pim";
 
 describe("getAllValues tests", () => {
   const createSampleProduct = (

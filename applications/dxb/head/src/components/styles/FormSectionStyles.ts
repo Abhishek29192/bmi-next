@@ -1,4 +1,4 @@
-import { Form } from "@bmi-digital/components";
+import Form from "@bmi-digital/components/form";
 import { styled } from "@mui/material/styles";
 
 const PREFIX = "FormSection";

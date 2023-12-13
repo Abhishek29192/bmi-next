@@ -1,4 +1,4 @@
-import { Grid } from "@bmi-digital/components";
+import Grid from "@bmi-digital/components/grid";
 import { styled } from "@mui/material/styles";
 
 const PREFIX = "TitleWithContent";

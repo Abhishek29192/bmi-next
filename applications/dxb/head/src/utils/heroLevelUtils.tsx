@@ -1,9 +1,7 @@
-import {
-  Button,
-  HeroProps,
-  SpotlightHeroProps,
-  transformHyphens
-} from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import { HeroProps } from "@bmi-digital/components/hero";
+import { SpotlightHeroProps } from "@bmi-digital/components/spotlight-hero";
+import { transformHyphens } from "@bmi-digital/components/utils";
 import React from "react";
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
 import Image, { Data as ContentfulImageData } from "../components/Image";
@@ -51,7 +49,7 @@ export const generateHeroProps = (
     media: featuredVideo ? (
       <Video {...featuredVideo} />
     ) : featuredMedia ? (
-      <Image {...featuredMedia} size="cover" />
+      <Image {...featuredMedia} size="cover" loading="eager" />
     ) : undefined,
     cta:
       cta &&

@@ -128,6 +128,7 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
                 data-testid="profile-card-head-picture"
               >
                 <img
+                  loading="lazy"
                   style="object-fit: cover; object-position: center;"
                 />
               </div>

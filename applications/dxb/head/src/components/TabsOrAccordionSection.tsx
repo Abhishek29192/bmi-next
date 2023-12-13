@@ -1,12 +1,10 @@
-import {
-  Accordion,
-  AccordionSummaryProps,
-  replaceSpaces,
-  Section,
-  Tabs,
-  transformHyphens,
-  Typography
-} from "@bmi-digital/components";
+import Accordion, {
+  AccordionSummaryProps
+} from "@bmi-digital/components/accordion";
+import Section from "@bmi-digital/components/section";
+import Tabs from "@bmi-digital/components/tabs";
+import Typography from "@bmi-digital/components/typography";
+import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import Tab, { TabProps } from "@mui/material/Tab";
 import { graphql } from "gatsby";
 import React from "react";

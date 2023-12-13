@@ -1,9 +1,7 @@
-import {
-  Hero,
-  replaceSpaces,
-  Section,
-  Typography
-} from "@bmi-digital/components";
+import Hero from "@bmi-digital/components/hero";
+import Section from "@bmi-digital/components/section";
+import Typography from "@bmi-digital/components/typography";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../components/BackToResults";
@@ -98,7 +96,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
           featuredVideo ? (
             <Video {...featuredVideo} />
           ) : featuredMedia ? (
-            <Image {...featuredMedia} size="cover" />
+            <Image {...featuredMedia} size="cover" loading="eager" />
           ) : undefined
         }
         breadcrumbs={

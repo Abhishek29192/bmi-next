@@ -1,10 +1,8 @@
-import {
-  HeroProps,
-  Section,
-  SpotlightHeroProps,
-  TableOfContent,
-  useIsClient
-} from "@bmi-digital/components";
+import { HeroProps } from "@bmi-digital/components/hero";
+import { useIsClient } from "@bmi-digital/components/hooks";
+import Section from "@bmi-digital/components/section";
+import { SpotlightHeroProps } from "@bmi-digital/components/spotlight-hero";
+import TableOfContent from "@bmi-digital/components/table-of-content";
 import { styled } from "@mui/material/styles";
 import { graphql, Script } from "gatsby";
 import React from "react";
@@ -17,8 +15,9 @@ import LeadBlockSection, {
 } from "../../../components/LeadBlockSection";
 import Page, { Data as PageData } from "../../../components/Page";
 import { Data as PageInfoData } from "../../../components/PageInfo";
-import { Data as SEOContentData } from "../../../components/SEOContent";
+import ProgressIndicator from "../../../components/ProgressIndicator";
 import Sections, { Data as SectionsData } from "../../../components/Sections";
+import { Data as SEOContentData } from "../../../components/SEOContent";
 import { Data as SiteData } from "../../../components/Site";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
@@ -27,7 +26,6 @@ import {
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
-import ProgressIndicator from "../../../components/ProgressIndicator";
 
 export type Data = Pick<
   PageInfoData,

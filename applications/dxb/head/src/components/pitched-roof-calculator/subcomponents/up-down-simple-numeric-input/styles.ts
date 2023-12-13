@@ -1,5 +1,6 @@
-import { Button } from "@bmi-digital/components";
-import { filledInputClasses, iconButtonClasses } from "@mui/material";
+import Button from "@bmi-digital/components/button";
+import { filledInputClasses } from "@mui/material/FilledInput";
+import { iconButtonClasses } from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 
 export const StyledComponentWithButtons = styled("div")(({ theme }) => ({

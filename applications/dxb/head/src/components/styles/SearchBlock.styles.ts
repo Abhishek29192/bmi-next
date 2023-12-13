@@ -1,5 +1,5 @@
+import Grid from "@bmi-digital/components/grid";
 import { styled } from "@mui/material/styles";
-import { Grid } from "@bmi-digital/components";
 
 const PREFIX = "SearchPageBlock";
 

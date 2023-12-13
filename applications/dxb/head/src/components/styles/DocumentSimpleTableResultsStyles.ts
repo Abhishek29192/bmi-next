@@ -1,7 +1,6 @@
-import { Table } from "@bmi-digital/components";
+import Table from "@bmi-digital/components/table";
 import { ApprovalStatus } from "@bmi/pim-types";
-import { alpha } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 
 const PREFIX = "documentSimpleTableResultsStyles";
 export const classes = {

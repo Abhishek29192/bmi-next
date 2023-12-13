@@ -1,5 +1,7 @@
-import { styled, alpha } from "@mui/material/styles";
-import { Button, CardInput, Typography } from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import CardInput from "@bmi-digital/components/card-input";
+import Typography from "@bmi-digital/components/typography";
+import { alpha, styled } from "@mui/material/styles";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 const PREFIX = "Protrusions";

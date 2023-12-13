@@ -1,11 +1,14 @@
-import React from "react";
-import { Button, Hero, RegionCode, Section } from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import Hero from "@bmi-digital/components/hero";
+import { RegionCode } from "@bmi-digital/components/language-selection";
+import Section from "@bmi-digital/components/section";
 import { graphql } from "gatsby";
-import Link, { DataTypeEnum, NavigationData } from "../../components/Link";
-import Protected from "../../pages/protected";
-import { Data as SiteData } from "../../components/Site";
-import Page from "../../components/Page";
+import React from "react";
 import Image from "../../components/Image";
+import Link, { DataTypeEnum, NavigationData } from "../../components/Link";
+import Page from "../../components/Page";
+import { Data as SiteData } from "../../components/Site";
+import Protected from "../../pages/protected";
 
 // !!!!FOR DEMO PURPOSE!!!!!
 const mockNavigation: NavigationData = {

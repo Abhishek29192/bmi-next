@@ -1,4 +1,7 @@
-import { Card, Container, CTACard, Grid } from "@bmi-digital/components";
+import Card from "@bmi-digital/components/card";
+import Container from "@bmi-digital/components/container";
+import CTACard from "@bmi-digital/components/cta-card";
+import Grid from "@bmi-digital/components/grid";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
@@ -8,8 +11,8 @@ import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 import { useSiteContext } from "./Site";
-import { OverlapCardsSection } from "./styles/OverlapCardsStyles";
 import Video from "./Video";
+import { OverlapCardsSection } from "./styles/OverlapCardsStyles";
 
 type Card =
   | Pick<

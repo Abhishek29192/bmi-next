@@ -1,9 +1,9 @@
 // TODO: Move to under visualiser
-import { MicroCopy } from "@bmi-digital/components";
+import MicroCopy from "@bmi-digital/components/micro-copy";
 import { navigate as navigateWithParams, useLocation } from "@reach/router";
 import { graphql, navigate } from "gatsby";
 import queryString from "query-string";
-import React, { createContext, Suspense, useMemo, useState } from "react";
+import React, { Suspense, createContext, useMemo, useState } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { GTMContext, pushToDataLayer } from "../utils/google-tag-manager";
@@ -12,11 +12,11 @@ import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "./ShareWidgetSection";
 import { useSiteContext } from "./Site";
+import { HouseType, Tile } from "./visualiser/Types";
+import { Parameters } from "./visualiser/Visualiser";
 import no from "./visualiser/data/copy/no.json";
 import sidingsSetData from "./visualiser/data/sidings.json";
 import tilesSetData from "./visualiser/data/tiles.json";
-import { HouseType, Tile } from "./visualiser/Types";
-import { Parameters } from "./visualiser/Visualiser";
 
 const Visualiser = React.lazy(() => import("./visualiser/Visualiser"));
 const VisualiserOld = React.lazy(() => import("./visualiser/VisualiserOld"));

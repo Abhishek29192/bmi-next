@@ -1,9 +1,6 @@
-import {
-  Button,
-  ButtonProps,
-  ClickableAction,
-  PromoSection
-} from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import { ClickableAction } from "@bmi-digital/components/clickable";
+import PromoSection from "@bmi-digital/components/promo-section";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
@@ -12,8 +9,8 @@ import Link from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { SectionsContext } from "./Sections";
-import { PromoSectionLink } from "./styles/PromoSectionStyles";
 import Video from "./Video";
+import { PromoSectionLink } from "./styles/PromoSectionStyles";
 
 export type Data = PromoData;
 

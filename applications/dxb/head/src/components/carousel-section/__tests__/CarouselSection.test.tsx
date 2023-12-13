@@ -1,13 +1,13 @@
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
-import CarouselSection from "../CarouselSection";
 import createCarouselSectionData from "../../../__tests__/helpers/CarouselSectionHelper";
-import createPromoData from "../../../__tests__/helpers/PromoHelper";
-import createVideoData from "../../../__tests__/helpers/VideoHelper";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import createLinkData from "../../../__tests__/helpers/LinkHelper";
+import createPromoData from "../../../__tests__/helpers/PromoHelper";
+import createVideoData from "../../../__tests__/helpers/VideoHelper";
 import { renderWithProviders } from "../../../__tests__/renderWithProviders";
+import CarouselSection from "../CarouselSection";
 
 describe("Horizontal CarouselSection", () => {
   it("should not display the section title if provided", () => {

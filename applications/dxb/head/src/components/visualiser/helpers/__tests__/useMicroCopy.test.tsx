@@ -1,4 +1,4 @@
-import { getMicroCopy as getMicroCopyOld } from "@bmi-digital/components";
+import { getMicroCopy as getMicroCopyOld } from "@bmi-digital/components/micro-copy";
 import { renderHook } from "@testing-library/react-hooks";
 import React from "react";
 import { useMicroCopy } from "../useMicroCopy";
@@ -14,8 +14,8 @@ jest.mock("../../../Site", () => ({
   }))
 }));
 
-jest.mock("@bmi-digital/components", () => ({
-  ...(jest.requireActual("@bmi-digital/components") as any),
+jest.mock("@bmi-digital/components/micro-copy", () => ({
+  ...(jest.requireActual("@bmi-digital/components/micro-copy") as any),
   getMicroCopy: jest.fn()
 }));
 

@@ -1,4 +1,3 @@
-import { ThemeProvider } from "@bmi-digital/components";
 import AeroDek from "@bmi-digital/components/logo/AeroDek";
 import Awak from "@bmi-digital/components/logo/Awak";
 import BMI from "@bmi-digital/components/logo/Bmi";
@@ -44,6 +43,7 @@ import Villas from "@bmi-digital/components/logo/Villas";
 import Wierer from "@bmi-digital/components/logo/Wierer";
 import Wolfin from "@bmi-digital/components/logo/Wolfin";
 import Zanda from "@bmi-digital/components/logo/Zanda";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import BrandLogo, { getLogo } from "../BrandLogo";

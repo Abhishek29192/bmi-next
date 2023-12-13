@@ -1,6 +1,8 @@
-import { styled } from "@mui/material/styles";
+import Container from "@bmi-digital/components/container";
+import Icopal from "@bmi-digital/components/logo/Icopal";
+import Typography from "@bmi-digital/components/typography";
 import Paper from "@mui/material/Paper";
-import { Container, Icopal, Typography } from "@bmi-digital/components";
+import { styled } from "@mui/material/styles";
 
 export const StyledHeader = styled(Paper)(() => ({
   position: "fixed",

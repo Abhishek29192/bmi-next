@@ -1,22 +1,20 @@
-import {
-  Button,
-  ContainerDialog,
-  Grid,
-  Logo,
-  SelectRoof,
-  SelectTile,
-  SelectWallColour,
-  TileColour,
-  ToggleCard,
-  Typography
-} from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import ContainerDialog from "@bmi-digital/components/container-dialog";
+import Grid from "@bmi-digital/components/grid";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
-import BMI from "@bmi-digital/components/logo/Bmi";
+import SelectRoof from "@bmi-digital/components/icon/SelectRoof";
+import SelectTile from "@bmi-digital/components/icon/SelectTile";
+import SelectWallColour from "@bmi-digital/components/icon/SelectWallColour";
 import ShareIcon from "@bmi-digital/components/icon/Share";
-import { useMediaQuery } from "@mui/material";
+import TileColour from "@bmi-digital/components/icon/TileColour";
+import Logo from "@bmi-digital/components/logo";
+import BMI from "@bmi-digital/components/logo/Bmi";
+import ToggleCard from "@bmi-digital/components/toggle-card";
+import Typography from "@bmi-digital/components/typography";
 import Popover from "@mui/material/Popover";
-import { styled } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
+import { styled } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import classnames from "classnames";
 import React, {
   Dispatch,
@@ -31,21 +29,21 @@ import { useConfig } from "../../contexts/ConfigProvider";
 import { devLog } from "../../utils/devLog";
 import { queryElasticSearch } from "../../utils/elasticSearch";
 import ProgressIndicator from "../ProgressIndicator";
-import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
+import HouseViewer from "./HouseViewer";
+import TileViewer from "./TileViewer";
+import { Category, HouseType, PIMTile, Siding } from "./Types";
+import { microCopy } from "./constants/microCopy";
 import { getProductsQuery } from "./helpers/esQuery";
 import { prepareProducts } from "./helpers/products";
 import { useMicroCopy } from "./helpers/useMicroCopy";
-import HouseViewer from "./HouseViewer";
 import {
-  classes,
   StyledActions,
   StyledContainerDialog,
   StyledShareButton,
-  StyledSharePopover
+  StyledSharePopover,
+  classes
 } from "./styles/VisualiserStyles";
-import TileViewer from "./TileViewer";
-import { Category, HouseType, PIMTile, Siding } from "./Types";
 
 export type Parameters = {
   tileId?: string | number;

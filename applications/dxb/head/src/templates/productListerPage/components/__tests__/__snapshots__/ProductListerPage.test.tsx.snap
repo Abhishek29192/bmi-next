@@ -489,21 +489,21 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               />
               <picture>
                 <source
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   type="image/webp"
                 />
                 <img
                   alt="Image alt text"
                   data-gatsby-image-ssr=""
                   data-main-image=""
-                  data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   decoding="async"
                   draggable="false"
                   layout="in-place"
-                  loading="lazy"
+                  loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
                 />
               </picture>
@@ -1362,21 +1362,21 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               />
               <picture>
                 <source
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   type="image/webp"
                 />
                 <img
                   alt="Image alt text"
                   data-gatsby-image-ssr=""
                   data-main-image=""
-                  data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   decoding="async"
                   draggable="false"
                   layout="in-place"
-                  loading="lazy"
+                  loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
                 />
               </picture>
@@ -2292,21 +2292,21 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             />
             <picture>
               <source
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 sizes="(min-width: 948px) 948px, 100vw"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 type="image/webp"
               />
               <img
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 data-testid="hero-image"
                 decoding="async"
                 draggable="false"
-                loading="lazy"
+                loading="eager"
                 sizes="(min-width: 948px) 948px, 100vw"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
               />
             </picture>
@@ -3419,21 +3419,21 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             />
             <picture>
               <source
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 sizes="(min-width: 948px) 948px, 100vw"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 type="image/webp"
               />
               <img
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 data-testid="hero-image"
                 decoding="async"
                 draggable="false"
-                loading="lazy"
+                loading="eager"
                 sizes="(min-width: 948px) 948px, 100vw"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
               />
             </picture>
@@ -4471,21 +4471,21 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             />
             <picture>
               <source
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 sizes="(min-width: 948px) 948px, 100vw"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 type="image/webp"
               />
               <img
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 data-testid="hero-image"
                 decoding="async"
                 draggable="false"
-                loading="lazy"
+                loading="eager"
                 sizes="(min-width: 948px) 948px, 100vw"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
               />
             </picture>
@@ -5538,21 +5538,21 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               />
               <picture>
                 <source
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   type="image/webp"
                 />
                 <img
                   alt="Image alt text"
                   data-gatsby-image-ssr=""
                   data-main-image=""
-                  data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   decoding="async"
                   draggable="false"
                   layout="in-place"
-                  loading="lazy"
+                  loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
                 />
               </picture>
@@ -6494,21 +6494,21 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               />
               <picture>
                 <source
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   type="image/webp"
                 />
                 <img
                   alt="Image alt text"
                   data-gatsby-image-ssr=""
                   data-main-image=""
-                  data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   decoding="async"
                   draggable="false"
                   layout="in-place"
-                  loading="lazy"
+                  loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
                 />
               </picture>
@@ -7426,21 +7426,21 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             />
             <picture>
               <source
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 sizes="(min-width: 948px) 948px, 100vw"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 type="image/webp"
               />
               <img
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 data-testid="hero-image"
                 decoding="async"
                 draggable="false"
-                loading="lazy"
+                loading="eager"
                 sizes="(min-width: 948px) 948px, 100vw"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
               />
             </picture>
@@ -8335,21 +8335,21 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               />
               <picture>
                 <source
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   type="image/webp"
                 />
                 <img
                   alt="Image alt text"
                   data-gatsby-image-ssr=""
                   data-main-image=""
-                  data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   decoding="async"
                   draggable="false"
                   layout="in-place"
-                  loading="lazy"
+                  loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
                 />
               </picture>
@@ -9435,21 +9435,21 @@ exports[`ProductListerPage template renders an default image if there is no imag
               />
               <picture>
                 <source
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                   type="image/webp"
                 />
                 <img
                   alt="Image alt text"
                   data-gatsby-image-ssr=""
                   data-main-image=""
-                  data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   decoding="async"
                   draggable="false"
                   layout="in-place"
-                  loading="lazy"
+                  loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
+                  src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                  srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                   style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
                 />
               </picture>
@@ -10549,21 +10549,21 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             />
             <picture>
               <source
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 sizes="(min-width: 948px) 948px, 100vw"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 type="image/webp"
               />
               <img
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 data-testid="hero-image"
                 decoding="async"
                 draggable="false"
-                loading="lazy"
+                loading="eager"
                 sizes="(min-width: 948px) 948px, 100vw"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
               />
             </picture>
@@ -11662,21 +11662,21 @@ exports[`ProductListerPage template test handle change url by click on filters a
             />
             <picture>
               <source
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 sizes="(min-width: 948px) 948px, 100vw"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 type="image/webp"
               />
               <img
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 data-testid="hero-image"
                 decoding="async"
                 draggable="false"
-                loading="lazy"
+                loading="eager"
                 sizes="(min-width: 948px) 948px, 100vw"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
               />
             </picture>
@@ -12789,21 +12789,21 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             />
             <picture>
               <source
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 sizes="(min-width: 948px) 948px, 100vw"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 type="image/webp"
               />
               <img
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 data-testid="hero-image"
                 decoding="async"
                 draggable="false"
-                loading="lazy"
+                loading="eager"
                 sizes="(min-width: 948px) 948px, 100vw"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
               />
             </picture>
@@ -14107,21 +14107,21 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             />
             <picture>
               <source
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 sizes="(min-width: 948px) 948px, 100vw"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
                 type="image/webp"
               />
               <img
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 data-testid="hero-image"
                 decoding="async"
                 draggable="false"
-                loading="lazy"
+                loading="eager"
                 sizes="(min-width: 948px) 948px, 100vw"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
                 style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
               />
             </picture>

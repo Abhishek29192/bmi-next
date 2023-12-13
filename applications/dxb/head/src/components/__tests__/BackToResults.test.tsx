@@ -1,5 +1,5 @@
-import { ThemeProvider } from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { render, screen } from "@testing-library/react";
 import QueryString from "query-string";
 import React from "react";
@@ -13,9 +13,9 @@ const getLocation = (search: unknown): Location =>
     search: `?${QueryString.stringify(search)}`
   } as Location);
 
-jest.mock("@mui/material", () => ({
-  ...jest.requireActual("@mui/material"),
-  useMediaQuery: jest.fn()
+jest.mock("@mui/material/useMediaQuery", () => ({
+  __esModule: true,
+  default: jest.fn()
 }));
 
 const mockUseMediaQuery = useMediaQuery as jest.Mock<

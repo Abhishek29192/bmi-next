@@ -1,13 +1,13 @@
-import {
-  DownloadList,
-  DownloadListContext,
-  Table
-} from "@bmi-digital/components";
+import DownloadList, {
+  DownloadListContext
+} from "@bmi-digital/components/download-list";
+import Table from "@bmi-digital/components/table";
+import { microCopy } from "@bmi/microcopies";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import React, { useContext, useEffect } from "react";
-import { microCopy } from "@bmi/microcopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
+import { PseudoZipPIMDocument } from "../types/pim";
 import {
   getFileSizeByDocumentType,
   getFileUrlByDocumentType,
@@ -17,7 +17,6 @@ import {
   getValidityDate,
   useShowMobileTable
 } from "../utils/documentUtils";
-import { PseudoZipPIMDocument } from "../types/pim";
 import {
   CopyToClipboard,
   DocumentTitle,

@@ -1,8 +1,7 @@
-import {
-  Breadcrumbs,
-  BreadcrumbsProps,
-  replaceSpaces
-} from "@bmi-digital/components";
+import Breadcrumbs, {
+  BreadcrumbsProps
+} from "@bmi-digital/components/breadcrumbs";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React from "react";
 import { BreadcrumbItem } from "../types/pim";

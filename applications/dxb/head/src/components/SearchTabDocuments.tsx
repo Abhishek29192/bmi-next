@@ -1,11 +1,10 @@
-import {
-  DownloadList,
-  DownloadListContext,
-  Filter,
-  Grid
-} from "@bmi-digital/components";
-import React, { useEffect, useRef, useState } from "react";
+import DownloadList, {
+  DownloadListContext
+} from "@bmi-digital/components/download-list";
+import { Filter } from "@bmi-digital/components/filters";
+import Grid from "@bmi-digital/components/grid";
 import { microCopy } from "@bmi/microcopies";
+import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { useConfig } from "../contexts/ConfigProvider";
 import { DocumentTableHeader } from "../types/Document";

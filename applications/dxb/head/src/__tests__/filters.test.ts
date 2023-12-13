@@ -4,7 +4,7 @@ import {
   sortAlphabeticallyBy,
   updateFilterValue
 } from "../utils/filters";
-import type { Filter } from "@bmi-digital/components";
+import type { Filter } from "@bmi-digital/components/filters";
 
 describe("filters tests", () => {
   describe("sortAlphabeticallyBy tests", () => {

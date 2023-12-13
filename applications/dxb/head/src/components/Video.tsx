@@ -1,4 +1,4 @@
-import { Layout, YoutubeVideo } from "@bmi-digital/components";
+import YoutubeVideo, { Layout } from "@bmi-digital/components/youtube-video";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
 import { useGTM } from "../utils/google-tag-manager";

@@ -1,4 +1,5 @@
-import { AnchorLink, MasonryGrid } from "@bmi-digital/components";
+import AnchorLink from "@bmi-digital/components/anchor-link";
+import MasonryGrid from "@bmi-digital/components/masonry-grid";
 import classnames from "classnames";
 import React from "react";
 import {
@@ -9,9 +10,9 @@ import {
 } from "./Link";
 import { useSiteContext } from "./Site";
 import {
-  classes,
   StyledSitemapBlock,
-  StyledSitemapItem
+  StyledSitemapItem,
+  classes
 } from "./styles/SitemapBlock.styles";
 
 type Props = {

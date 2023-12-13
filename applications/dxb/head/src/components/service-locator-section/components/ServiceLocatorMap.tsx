@@ -1,27 +1,28 @@
+import { CardHeader } from "@bmi-digital/components/card";
+import CompanyDetails, {
+  CompanyDetailProps
+} from "@bmi-digital/components/company-details";
 import {
-  CardHeader,
-  CompanyDetailProps,
-  CompanyDetails,
   LatLngLiteral as GoogleLatLngLiteral,
-  GoogleMap,
   MarkerOptionsWithData
-} from "@bmi-digital/components";
+} from "@bmi-digital/components/google-api";
+import GoogleMap from "@bmi-digital/components/google-map";
 import CloseIcon from "@bmi-digital/components/icon/Close";
+import { microCopy } from "@bmi/microcopies";
 import classnames from "classnames";
 import React, { useState } from "react";
-import { microCopy } from "@bmi/microcopies";
 import { useSiteContext } from "../../Site";
 import { calculateCentre } from "../helpers";
 import { Service } from "../index";
 import {
   CloseBtn,
-  companyLogoClasses,
+  CompanyLogo,
   ProductDetailsCard,
   ProductDetailsCardBody,
-  productDetailsCardClasses,
   ProductDetailsCardSummary,
   StyledServiceLocatorMap,
-  CompanyLogo
+  companyLogoClasses,
+  productDetailsCardClasses
 } from "../styles/styles";
 
 export interface MapProps {

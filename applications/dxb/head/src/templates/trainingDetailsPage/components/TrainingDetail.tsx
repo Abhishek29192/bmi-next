@@ -1,12 +1,14 @@
-import React, { useMemo } from "react";
 import Container from "@bmi-digital/components/container";
 import Grid from "@bmi-digital/components/grid";
 import Tooltip from "@bmi-digital/components/tooltip";
 import Typography from "@bmi-digital/components/typography";
-import { microCopy } from "@bmi/microcopies";
 import { replaceSpaces } from "@bmi-digital/components/utils";
+import { microCopy } from "@bmi/microcopies";
+import React, { useMemo } from "react";
 import { useSiteContext } from "../../../components/Site";
 import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
+import { getPathWithCountryCode } from "../../../utils/path";
+import { useHeaderHeight } from "../../../utils/useHeaderHeight";
 import {
   CourseDescription,
   EnrollButton,
@@ -24,8 +26,6 @@ import {
   TrainingInfoContainer,
   Wrapper
 } from "../trainingDetailsPageStyles";
-import { getPathWithCountryCode } from "../../../utils/path";
-import { useHeaderHeight } from "../../../utils/useHeaderHeight";
 import type { TrainingDetailsCourseType as Course } from "../types";
 
 interface Props {

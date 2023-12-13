@@ -1,6 +1,6 @@
-import { inputBaseClasses } from "@mui/material";
+import TextField from "@bmi-digital/components/text-field";
+import { inputBaseClasses } from "@mui/material/InputBase";
 import { styled } from "@mui/material/styles";
-import { TextField } from "@bmi-digital/components";
 
 export const StyledTextField = styled(TextField)({
   [`& .${inputBaseClasses.input}`]: {

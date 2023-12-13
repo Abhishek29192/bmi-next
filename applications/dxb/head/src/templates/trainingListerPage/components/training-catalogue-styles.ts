@@ -1,5 +1,6 @@
+import Button from "@bmi-digital/components/button";
+import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
-import { Typography, Button } from "@bmi-digital/components";
 
 export const TrainingCatalogueWrapper = styled("div")(({ theme }) => ({
   "&:not(:first-of-type)": {

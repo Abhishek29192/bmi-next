@@ -1,5 +1,5 @@
 /* eslint-disable prefer-spread */
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import {
   createContentfulDocument,
   createPimProductDocument

@@ -1,13 +1,11 @@
-import {
-  Button,
-  ButtonProps,
-  Dialog,
-  SignupBlock,
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Dialog from "@bmi-digital/components/dialog";
+import SignupBlock, {
   SignupBlockColor
-} from "@bmi-digital/components";
+} from "@bmi-digital/components/signup-block";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import { microCopy } from "@bmi/microcopies";
 import { isValidEmail } from "../utils/emailUtils";
 import withGTM from "../utils/google-tag-manager";
 import FormSection, { Data as FormData } from "./FormSection";

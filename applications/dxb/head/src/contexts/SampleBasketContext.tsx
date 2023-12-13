@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useReducer } from "react";
-import { useIsClient } from "@bmi-digital/components";
+import { useIsClient } from "@bmi-digital/components/hooks";
 import { Measurements } from "@bmi/firestore-types";
+import React, { useContext, useEffect, useReducer } from "react";
 import { useSiteContext } from "../components/Site";
 import { Product } from "../types/pim";
 import { local } from "../utils/storage";

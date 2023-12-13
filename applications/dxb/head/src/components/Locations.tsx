@@ -1,10 +1,10 @@
-import { Grid } from "@bmi-digital/components";
+import Grid from "@bmi-digital/components/grid";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import { microCopy } from "@bmi/microcopies";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import { useSiteContext } from "./Site";
-import { LocationsSection, LocationsButton } from "./styles/LocationsStyles";
+import { LocationsButton, LocationsSection } from "./styles/LocationsStyles";
 
 export type Data = ContactDetailsData[];
 

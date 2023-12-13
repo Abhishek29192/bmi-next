@@ -1,8 +1,10 @@
-import { DownloadList, DownloadListContextType } from "@bmi-digital/components";
+import DownloadList, {
+  DownloadListContextType
+} from "@bmi-digital/components/download-list";
+import { microCopy } from "@bmi/microcopies";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import React, { forwardRef } from "react";
-import { microCopy } from "@bmi/microcopies";
 import { Document, DocumentTableHeader, TitleField } from "../types/Document";
 import {
   getFileSizeByDocumentType,
@@ -22,14 +24,14 @@ import { DocumentStatus } from "./styles/DocumentSimpleTableResultsCommonStyles"
 import {
   ActionBtnWrapper,
   ActionsRow,
-  classes,
   Divider,
   FieldTitle,
   FieldValue,
   StyledListItem,
   StyledListRow,
   StyledListRowItem,
-  StyledListTitleRow
+  StyledListTitleRow,
+  classes
 } from "./styles/DocumentSimpleTableResultsMobileStyles";
 
 type ListProps = {

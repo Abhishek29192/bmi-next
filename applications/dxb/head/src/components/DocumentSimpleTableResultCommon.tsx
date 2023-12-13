@@ -1,14 +1,11 @@
-import {
-  ButtonProps,
-  ClickableAction,
-  IconButtonProps,
-  Tooltip
-} from "@bmi-digital/components";
-import { Box } from "@mui/material";
+import { ButtonProps, IconButtonProps } from "@bmi-digital/components/button";
+import { ClickableAction } from "@bmi-digital/components/clickable";
+import Tooltip from "@bmi-digital/components/tooltip";
+import { microCopy } from "@bmi/microcopies";
+import Box from "@mui/material/Box";
 import classnames from "classnames";
 import React, { useMemo, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { microCopy } from "@bmi/microcopies";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { Document, TitleField } from "../types/Document";
 import { PseudoZipPIMDocument } from "../types/pim";

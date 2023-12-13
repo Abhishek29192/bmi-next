@@ -1,9 +1,9 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { renderWithRouter } from "../../../test/renderWithRouter";
 import createRelatedSystem from "../../../__tests__/helpers/RelatedSystemHelper";
 import createSystem from "../../../__tests__/helpers/SystemHelper";
+import { renderWithRouter } from "../../../test/renderWithRouter";
 import Component from "../tabLeadBlock";
 
 const systemDetailsMockData = createSystem({

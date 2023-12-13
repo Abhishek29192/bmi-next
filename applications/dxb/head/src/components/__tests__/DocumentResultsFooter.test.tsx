@@ -1,8 +1,8 @@
 import {
   DownloadListContext,
-  ThemeProvider,
   DownloadListContextType
-} from "@bmi-digital/components";
+} from "@bmi-digital/components/download-list";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import {
   fireEvent,
   render,
@@ -17,10 +17,10 @@ import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import { Config } from "../../contexts/ConfigProvider";
 import * as ClientDownloadUtils from "../../utils/client-download";
 import { devLog } from "../../utils/devLog";
+import * as utils from "../../utils/documentUtils";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
-import * as utils from "../../utils/documentUtils";
 
 jest.mock("../../utils/devLog");
 

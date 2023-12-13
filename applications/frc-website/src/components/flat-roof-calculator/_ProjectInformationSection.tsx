@@ -1,7 +1,9 @@
-import { Form, Grid, TextField } from "@bmi-digital/components";
+import Form from "@bmi-digital/components/form";
+import Grid from "@bmi-digital/components/grid";
+import TextField from "@bmi-digital/components/text-field";
 import React from "react";
-import { maxLengthValidator } from "./utils/maxLengthValidator";
 import FormSection from "./_FormSection";
+import { maxLengthValidator } from "./utils/maxLengthValidator";
 
 export const ProjectInformationSection = ({ header, defaultValues }: any) => (
   <FormSection header={header}>

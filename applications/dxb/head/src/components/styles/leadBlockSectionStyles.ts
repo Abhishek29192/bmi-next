@@ -1,4 +1,5 @@
-import { TableOfContent, LeadBlock } from "@bmi-digital/components";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import TableOfContent from "@bmi-digital/components/table-of-content";
 import { styled } from "@mui/material/styles";
 
 export const LinksContainer = styled(TableOfContent.Menu)({

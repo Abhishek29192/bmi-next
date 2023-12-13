@@ -1,12 +1,12 @@
-import { Tooltip } from "@bmi-digital/components";
-import ArrowBack from "@bmi-digital/components/icon/ArrowBack";
-import ArrowForward from "@bmi-digital/components/icon/ArrowForward";
 import Add from "@bmi-digital/components/icon/Add";
+import ArrowBack from "@bmi-digital/components/icon/ArrowBack";
 import ArrowDownward from "@bmi-digital/components/icon/ArrowDownward";
+import ArrowForward from "@bmi-digital/components/icon/ArrowForward";
 import ArrowUpward from "@bmi-digital/components/icon/ArrowUpward";
 import Home from "@bmi-digital/components/icon/Home";
 import Remove from "@bmi-digital/components/icon/Remove";
 import ThreeDRotation from "@bmi-digital/components/icon/ThreeDRotation";
+import Tooltip from "@bmi-digital/components/tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import clamp from "lodash-es/clamp";
 import React from "react";
@@ -22,10 +22,10 @@ import { rotationAngleInRad } from "../constants/visualiser";
 
 import { PIMTile, Siding } from "../Types";
 import {
-  classes,
   Canvas,
   Controls,
   ControlsGroup,
+  Icon3d,
   Root,
   RotateBottom,
   RotateContainer,
@@ -34,7 +34,7 @@ import {
   RotateRight,
   RotateTop,
   StyledIcon,
-  Icon3d
+  classes
 } from "./styles";
 
 export interface Props {

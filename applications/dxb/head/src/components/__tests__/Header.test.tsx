@@ -1,7 +1,8 @@
-import { RegionCode, ThemeProvider } from "@bmi-digital/components";
+import { RegionCode } from "@bmi-digital/components/language-selection";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { microCopy } from "@bmi/microcopies";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import BasketContext from "../../contexts/SampleBasketContext";
 import Header from "../Header";

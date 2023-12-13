@@ -1,8 +1,9 @@
-import { Container, Section } from "@bmi-digital/components";
+import Container from "@bmi-digital/components/container";
+import Section from "@bmi-digital/components/section";
+import { microCopy } from "@bmi/microcopies";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
-import { microCopy } from "@bmi/microcopies";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ExploreBar from "../../components/ExploreBar";

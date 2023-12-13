@@ -1,4 +1,4 @@
-import { LinkCard, LinkCardProps } from "@bmi-digital/components";
+import LinkCard, { LinkCardProps } from "@bmi-digital/components/link-card";
 import React, { MutableRefObject, useRef } from "react";
 import withGTM from "../../../utils/google-tag-manager";
 import { useScrollTo } from "./useScrollTo";

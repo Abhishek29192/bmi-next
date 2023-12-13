@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
 import classnames from "classnames";
 import { graphql } from "gatsby";
 import React from "react";

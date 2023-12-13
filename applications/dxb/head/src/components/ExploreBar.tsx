@@ -1,4 +1,4 @@
-import { ExploreBar } from "@bmi-digital/components";
+import ExploreBar from "@bmi-digital/components/explore-bar";
 import { graphql } from "gatsby";
 import React from "react";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";

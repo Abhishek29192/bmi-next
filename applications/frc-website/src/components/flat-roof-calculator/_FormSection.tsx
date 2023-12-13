@@ -1,4 +1,4 @@
-import { Typography } from "@bmi-digital/components";
+import Typography from "@bmi-digital/components/typography";
 import classnames from "classnames";
 import React from "react";
 import Section, { SectionProps } from "./_Section";

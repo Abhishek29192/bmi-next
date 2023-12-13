@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import {
   createHistory,
   createMemorySource,
@@ -16,7 +16,6 @@ import { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetS
 import { Data as SiteData } from "../../../components/Site";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import SimplePage, { Data, Props } from "../components/simple-page";
 import {
   cta,
   exploreBarData,
@@ -29,6 +28,7 @@ import {
   shareWidgetData,
   signupBlock
 } from "../__mocks__/simplePage";
+import SimplePage, { Data, Props } from "../components/simple-page";
 
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));

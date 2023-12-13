@@ -1,13 +1,12 @@
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import React from "react";
 import { PerspectiveCamera, Vector3 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { fireEvent, screen, waitFor } from "@testing-library/react";
-import React from "react";
-import { ThemeProvider } from "@bmi-digital/components";
-import { render } from "@testing-library/react";
 import { renderWithProviders } from "../../../__tests__/renderWithProviders";
 import Viewer, { Props, State } from "../Viewer/Viewer";
-import tileMock from "./__mocks__/tile";
 import sidingMock from "./__mocks__/siding";
+import tileMock from "./__mocks__/tile";
 
 class ViewerImpl extends Viewer<Props, State> {
   load() {}

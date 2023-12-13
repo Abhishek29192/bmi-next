@@ -1,5 +1,5 @@
 // istanbul ignore file: doesn't hold any logic
-import { Filter } from "@bmi-digital/components";
+import { Filter } from "@bmi-digital/components/filters";
 import {
   ContentfulDocument,
   createPimProductDocument,

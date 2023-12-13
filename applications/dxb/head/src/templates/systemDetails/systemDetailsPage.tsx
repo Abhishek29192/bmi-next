@@ -1,13 +1,10 @@
-import {
-  Grid,
-  MediaGallery,
-  Section,
-  Thumbnail,
-  ThumbnailProps
-} from "@bmi-digital/components";
+import Grid from "@bmi-digital/components/grid";
+import MediaGallery from "@bmi-digital/components/media-gallery";
+import Section from "@bmi-digital/components/section";
+import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import BrandLogo from "../../components/BrandLogo";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { generateGetMicroCopy } from "../../components/MicroCopy";
@@ -22,9 +19,9 @@ import withGTM from "../../utils/google-tag-manager";
 import { transformMediaSrc } from "../../utils/media";
 import { transformImages } from "../../utils/product-details-transforms";
 import LeadBlockSection from "./leadBlockSection";
+import { StyledImageGalarySection } from "./styles/systemDetailsPage.styles";
 import SystemLayersSection from "./systemLayersSection";
 import TabLeadBlock from "./tabLeadBlock";
-import { StyledImageGalarySection } from "./styles/systemDetailsPage.styles";
 
 type Props = {
   pageContext: {

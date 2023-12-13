@@ -1,9 +1,11 @@
-import { Button, ButtonProps, useIsClient } from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import { useIsClient } from "@bmi-digital/components/hooks";
 import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
-import { useMediaQuery, useTheme } from "@mui/material";
-import React, { FC, ReactElement } from "react";
 import { microCopy } from "@bmi/microcopies";
-import { getBackToResultsPath, PATHNAME_KEY } from "../utils/filters";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import React, { FC, ReactElement } from "react";
+import { PATHNAME_KEY, getBackToResultsPath } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
 import {
