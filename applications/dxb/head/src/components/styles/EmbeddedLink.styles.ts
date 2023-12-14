@@ -9,7 +9,7 @@ export const classes = {
 
 export const StyledEmbeddedLink = styled("div")(({ theme }) => ({
   [`.${classes.embeddedLink}`]: {
-    margin: "24px 0",
+    margin: "24px 0 !important",
     "&:last-child": {
       marginBottom: "0"
     }
