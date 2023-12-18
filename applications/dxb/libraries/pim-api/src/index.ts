@@ -109,7 +109,7 @@ export const fetchDataByCode = async (
           allowPreviewProducts ? ",preview" : ""
         }`;
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}/${code}${itemStatus}&version=${version}&lang=${locale}`;
+  const fullPath = `${PIM_HOST}/occ/v2/${PIM_CATALOG_NAME}/export/${type}/${code}${itemStatus}&version=${version}&lang=${locale}`;
   logger.info({ message: `FETCH: ${fullPath}` });
 
   const response = await fetch(fullPath, options);
@@ -138,7 +138,7 @@ export const fetchData = async (
     type === PimTypes.Systems
       ? `&status=approved`
       : `&status=approved,discontinued`;
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}${statusOfPimType}&lang=${locale}`;
+  const fullPath = `${PIM_HOST}/occ/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}${statusOfPimType}&lang=${locale}`;
 
   logger.info({ message: `FETCH: ${fullPath}` });
   const response = await fetch(fullPath, options);
@@ -165,7 +165,7 @@ const fetchDataByMessageId = async (
     redirect
   };
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${locale}`;
+  const fullPath = `${PIM_HOST}/occ/v2/${PIM_CATALOG_NAME}/export/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${locale}`;
 
   logger.info({ message: `FETCH: ${fullPath}` });
   const response = await fetch(fullPath, options);
