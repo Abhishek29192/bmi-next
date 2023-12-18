@@ -2,10 +2,10 @@ import Button from "@bmi-digital/components/button";
 import { ClickableAction } from "@bmi-digital/components/clickable";
 import Dialog from "@bmi-digital/components/dialog";
 import { transformHyphens } from "@bmi-digital/components/utils";
+import { useTheme } from "@mui/material";
 import { Link as GatsbyLink, graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
 import React, { useCallback, useContext, useMemo, useState } from "react";
-import { useTheme } from "@mui/material";
 import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";
 import { getPathWithCountryCode } from "../utils/path";
 import { IconName } from "./Icon";
@@ -321,8 +321,8 @@ export const Link = ({
         action={action}
         onClick={handleOnClick}
         style={{
-          background: hasBrandColours && theme.colours.accent,
-          borderColor: hasBrandColours && theme.colours.accent,
+          background: hasBrandColours && theme.colours.inter,
+          borderColor: hasBrandColours && theme.colours.inter,
           color: hasBrandColours && theme.colours.white
         }}
         {...rest}

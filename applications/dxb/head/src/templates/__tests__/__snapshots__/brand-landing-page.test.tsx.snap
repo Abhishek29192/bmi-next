@@ -661,7 +661,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -813,7 +813,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -846,13 +846,13 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 >
                                   searchPageNextBestActionsTitle
                                 </h1>
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 />
@@ -1007,26 +1007,29 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -1112,6 +1115,24 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -2547,7 +2568,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -2699,7 +2720,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -2732,11 +2753,11 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 />
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 >
@@ -2888,26 +2909,29 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -2991,6 +3015,24 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -4194,7 +4236,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -4346,7 +4388,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -4379,13 +4421,13 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 >
                                   ContentfulSimplePageTitle
                                 </h1>
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 />
@@ -4394,6 +4436,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                   data-gtm="{"id":"cta-click1","action":"/en/ContentfulSimplePagePath/"}"
                                   data-testid="hero-cta"
                                   href="/en/ContentfulSimplePagePath/"
+                                  style="background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   Go to page
@@ -4552,26 +4595,29 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -4606,6 +4652,24 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -6041,7 +6105,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -6193,7 +6257,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -6226,11 +6290,11 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 />
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 />
@@ -6380,26 +6444,29 @@ exports[`Brand Landing Page Template render no content for first slide when no d
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -6483,6 +6550,24 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -7918,7 +8003,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -8070,7 +8155,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -8103,11 +8188,11 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 />
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 >
@@ -8259,26 +8344,29 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -8362,6 +8450,24 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -9767,7 +9873,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -9919,7 +10025,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -9952,11 +10058,11 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 />
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 >
@@ -10108,26 +10214,29 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -10211,6 +10320,24 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -11646,7 +11773,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -11798,7 +11925,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -11831,11 +11958,11 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 />
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 >
@@ -11987,26 +12114,29 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -12090,6 +12220,24 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -13525,7 +13673,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -13677,7 +13825,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -13710,11 +13858,11 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 />
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 >
@@ -13725,7 +13873,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                                   data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
                                   data-testid="hero-cta"
                                   href="/en/roof-tiles/"
-                                  style="background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255);"
+                                  style="background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   firstSlideCTA
@@ -13879,26 +14027,29 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -13982,6 +14133,24 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -15417,7 +15586,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -15569,7 +15738,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -15602,11 +15771,11 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 />
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 />
@@ -15615,7 +15784,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                   data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
                                   data-testid="hero-cta"
                                   href="/en/roof-tiles/"
-                                  style="background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255);"
+                                  style="background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   firstSlideCTA
@@ -15769,26 +15938,29 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -15872,6 +16044,24 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -17307,7 +17497,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -17459,7 +17649,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -17492,11 +17682,11 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 />
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 >
@@ -17507,7 +17697,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                                   data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
                                   data-testid="hero-cta"
                                   href="/en/roof-tiles/"
-                                  style="background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255);"
+                                  style="background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   firstSlideCTA
@@ -17661,26 +17851,29 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -17764,6 +17957,24 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
@@ -19199,7 +19410,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
         data-testid="carousel-hero-container"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel css-1fs5a2c"
+          class="CarouselHero-slim CarouselHero-carousel css-19f7pye"
           data-test-class-name="hero"
           data-testid="hero"
         >
@@ -19351,7 +19562,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                   </div>
                 </div>
                 <div
-                  class=" css-xi64lz"
+                  class=" css-1qr26hk"
                 >
                   <div
                     class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
@@ -19384,11 +19595,11 @@ exports[`Brand Landing Page Template when description is more than 400 character
                                 class="CarouselHero-content"
                               >
                                 <h1
-                                  class="MuiTypography-root MuiTypography-h1 css-1a28zd1-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-h1 css-1wfxafx-MuiTypography-root"
                                   data-testid="hero-title"
                                 />
                                 <p
-                                  class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                   data-test-class-name="text"
                                   data-testid="hero-content-slide-text"
                                 >
@@ -19399,7 +19610,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                                   data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"firstSlideCTA"}"
                                   data-testid="hero-cta"
                                   href="/en/roof-tiles/"
-                                  style="background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255);"
+                                  style="background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255);"
                                   tabindex="0"
                                 >
                                   firstSlideCTA
@@ -19553,26 +19764,29 @@ exports[`Brand Landing Page Template when description is more than 400 character
             </div>
           </div>
           <div
-            class="css-naufcy"
+            class="css-5u7fxx"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15arv44"
-              data-testid="horizon-container"
+              class="css-15h7cdg"
             >
               <div
-                style="display: flex;"
+                class="css-1xhf3mw"
+                data-testid="horizon-container"
+                height="0"
               >
                 <div
-                  class="Horizon-left css-1ub0jwk"
+                  class="CarouselHero-left css-11bjqpr"
+                  height="0"
                 />
                 <div
-                  class="Horizon-right css-1ub0jwk"
+                  class="CarouselHero-right css-11bjqpr"
+                  height="0"
                 />
               </div>
             </div>
             <div
-              class=" css-xi64lz"
+              class="Carousel-horizon css-1qr26hk"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -19656,6 +19870,24 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="css-aqfcat"
+        >
+          <div
+            class="css-1xhf3mw"
+            data-testid="horizon-container"
+            height="0"
+          >
+            <div
+              class="CarouselHero-left css-11bjqpr"
+              height="0"
+            />
+            <div
+              class="CarouselHero-right css-11bjqpr"
+              height="0"
+            />
           </div>
         </div>
       </div>
