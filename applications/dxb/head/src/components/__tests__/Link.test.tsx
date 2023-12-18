@@ -202,7 +202,7 @@ describe("Link component", () => {
       const link = screen.getByTestId("cta-primary");
 
       expect(link).toHaveStyle(
-        "background: rgb(0, 159, 227); border-color: #009fe3; color: rgb(255, 255, 255)"
+        "background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255)"
       );
     });
   });

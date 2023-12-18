@@ -39,7 +39,7 @@
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",
     "@auth0/auth0-react": "^2.2.0",
-    "@bmi-digital/components": "^1.65.1",
+    "@bmi-digital/components": "^1.66.2",
     "@bmi-digital/react-pdf-maker": "^1.7.5",
     "@bmi-digital/styles": "^1.7.5",
     "@bmi-digital/svg-import": "^1.7.5",
@@ -165,6 +165,7 @@
     "prettier": "^2.8.8",
     "process-top": "^1.2.0",
     "puppeteer": "^21.0.0",
+    "resize-observer-polyfill": "^1.5.1",
     "schema-dts": "^1.1.2",
     "typescript": "^5.2.2",
     "yalc": "^1.0.0-pre.53"

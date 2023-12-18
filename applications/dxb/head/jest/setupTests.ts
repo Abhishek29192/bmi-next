@@ -10,3 +10,4 @@ jest.mock("react-player/lazy", () => {
 
 Object.assign(global, { TextDecoder, TextEncoder });
 global.fetch = jest.fn().mockResolvedValue({ json: () => ({}) });
+global.ResizeObserver = require("resize-observer-polyfill");

@@ -63,7 +63,11 @@ const getHeroItemsWithContext = (
 
   const GetCTALinkFromPath = (data: SlideData | PageInfoData) => {
     return "path" in data && data.path ? (
-      <Link component={Button} data={{ linkedPage: { path: data.path } }}>
+      <Link
+        component={Button}
+        data={{ linkedPage: { path: data.path } }}
+        hasBrandColours
+      >
         {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
       </Link>
     ) : null;
