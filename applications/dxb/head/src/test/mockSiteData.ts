@@ -1235,5 +1235,6 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
   ],
   pitchedRoofCalculatorConfig: null,
   visualiserHouseTypes: null,
+  accountPage: null,
   ...siteData
 });

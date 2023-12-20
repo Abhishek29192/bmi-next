@@ -115,7 +115,8 @@ describe("General Error", () => {
             { code: "no", label: "Norge", icon: "/icons/flags/no.svg" }
           ]
         }
-      ]
+      ],
+      accountPage: null
     }
   };
 

@@ -2,11 +2,10 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { AuthService } from "@bmi/gatsby-theme-auth0";
 import { useAuthType } from "@bmi/gatsby-theme-auth0/src/hooks/useAuth";
 import { fireEvent, render, screen } from "@testing-library/react";
-import * as gatsby from "gatsby";
 import React from "react";
 import LoginBlock from "../LoginBlock";
-
-const navigateSpy = jest.spyOn(gatsby, "navigate");
+import { SiteContextProvider } from "../Site";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const mockUseAuth = jest.fn<useAuthType, [useAuthType]>();
 jest.mock("@bmi/gatsby-theme-auth0", () => ({
@@ -83,15 +82,24 @@ describe("LoginBlock Component", () => {
     });
     render(
       <ThemeProvider>
-        <LoginBlock />
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <LoginBlock />
+        </SiteContextProvider>
       </ThemeProvider>
     );
 
     expect(screen.getByText("MC: my.account.label")).toBeInTheDocument();
     expect(screen.getByText("MC: logout.label.btn")).toBeInTheDocument();
-    fireEvent.click(screen.getByText("MC: my.account.label"));
-    expect(navigateSpy).toHaveBeenCalledWith(
-      expect.stringContaining(`my-account`)
+    const myAccBtn = screen.getByText("MC: my.account.label");
+    fireEvent.click(myAccBtn);
+    expect(myAccBtn).toHaveAttribute(
+      "href",
+      expect.stringContaining(`account`)
     );
   });
 

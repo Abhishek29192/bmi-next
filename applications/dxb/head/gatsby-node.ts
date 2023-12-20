@@ -214,38 +214,41 @@ export const createPages: GatsbyNode["createPages"] = async ({
       };
 
   const result = await graphql<any, any>(`
-      {
-          allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
-              nodes {
-                  file {
-                      url
-                  }
-              }
+    {
+      allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
+        nodes {
+          file {
+            url
           }
-          allContentfulSite(filter: {countryCode: {eq: "${process.env.SPACE_MARKET_CODE}"}}) {
-              nodes {
-                  id
-                  countryCode
-                  homePage {
-                      __typename
-                      id
-                      path
-                  }
-                  pages {
-                      ... on ContentfulPage {
-                          __typename
-                          id
-                          path
-                          title
-                          ... on ContentfulProductListerPage {
-                              categoryCodes
-                              allowFilterBy
-                          }
-                      }
-                  }
-              }
-          }
+        }
       }
+      allContentfulSite(filter: {countryCode: {eq: "${process.env.SPACE_MARKET_CODE}"}}) {
+        nodes {
+          id
+          countryCode
+          homePage {
+            __typename
+            id
+            path
+          }
+          pages {
+            ... on ContentfulPage {
+              __typename
+              id
+              path
+              title
+              ... on ContentfulProductListerPage {
+                categoryCodes
+                allowFilterBy
+              }
+            }
+          }
+         accountPage {
+           slug
+         }
+        }
+      }
+    }
   `);
 
   if (result.errors) {
@@ -390,9 +393,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
       });
     }
 
-    if (process.env.GATSBY_IS_LOGIN_ENABLED === "true") {
+    if (process.env.GATSBY_IS_LOGIN_ENABLED === "true" && site.accountPage) {
       createPage({
-        path: getPathWithCountryCode(site.countryCode, `my-account/`),
+        path: getPathWithCountryCode(site.countryCode, site.accountPage.slug),
         component: path.resolve("./src/templates/myAccountPage/my-account.tsx"),
         context: {
           siteId: site.id,

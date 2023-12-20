@@ -12,7 +12,6 @@ const useAuth = (stateCallback = (_state: SessionState) => {}): useAuthType => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [isLoggedIn, setIsLoggedIn] = React.useState(auth.isAuthenticated());
   const [profile, setProfile] = React.useState(auth.getUserProfile());
-
   React.useEffect(() => {
     // Override `sessionStateCallback` in auth service
     auth.sessionStateCallback = (state) => {

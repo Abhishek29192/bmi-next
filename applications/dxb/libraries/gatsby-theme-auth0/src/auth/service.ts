@@ -32,7 +32,11 @@ class Auth {
     if (this.auth0) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      this.auth0.authorize({ market: config.marketCode });
+      navigate(process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT);
+      // temperary solution, will be redone in Phase 3 of LOGIN AREA
+      // this.auth0.authorize({
+      //   market: config.marketCode
+      // });
     }
   };
 

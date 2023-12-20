@@ -14,6 +14,7 @@ import type { HouseType } from "../../../components/visualiser/Types";
 import type { Node } from "./Gatsby";
 import type { TrainingListerPageData as TrainingListerPageProps } from "../../../templates/trainingListerPage/types";
 import type { Node as GatsbyNode } from "gatsby";
+import type { AccountPage } from "../../../templates/myAccountPage/my-account";
 
 export type Resource = Node & {
   keyAssetTypes: string[] | null;
@@ -90,6 +91,7 @@ export type ContentfulSite = Node & {
   regions: Region[] | null;
   pitchedRoofCalculatorConfig: CalculatorConfig | null;
   visualiserHouseTypes: HouseType[] | null;
+  accountPage: AccountPage | null;
 };
 export type CTAType = {
   linkedPage: { path: string };

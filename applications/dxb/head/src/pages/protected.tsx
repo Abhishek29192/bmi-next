@@ -8,15 +8,14 @@ interface Props {
 }
 
 const ProtectedPage: React.FunctionComponent<Props> = ({ children }) => {
-  const { isLoggedIn, profile } = useAuth();
-
+  const { isLoggedIn, profile, isLoading } = useAuth();
   React.useEffect(() => {
-    if (!isLoggedIn) {
+    if (!isLoggedIn && !isLoading && !profile) {
       AuthService.login();
     }
-  }, [isLoggedIn]);
+  }, [isLoading, isLoggedIn, profile]);
 
-  return !isLoggedIn || !profile ? null : <>{children}</>;
+  return profile && <>{children}</>;
 };
 
 export default ProtectedPage;
