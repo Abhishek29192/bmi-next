@@ -2476,7 +2476,7 @@ __metadata:
     "@emotion/styled": ^11.10.8
     "@mui/material": ^5.12.3
     "@mui/styles": ^5.12.3
-    "@types/gtag.js": ^0.0.16
+    "@types/gtag.js": ^0.0.18
     "@types/prettier": ^2.7.3
     "@types/react-helmet": ^6.1.6
     "@typescript-eslint/eslint-plugin": ^5.62.0
@@ -9116,10 +9116,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gtag.js@npm:^0.0.16":
-  version: 0.0.16
-  resolution: "@types/gtag.js@npm:0.0.16"
-  checksum: 427da65f43bb30cf9d56f3de47de3632741705b7934a904ae17cd896f3080af3c4e3e74ac58527f4244728656ed607acbd72b0f9eae700a7f36cd2fd1c7df49f
+"@types/gtag.js@npm:^0.0.18":
+  version: 0.0.18
+  resolution: "@types/gtag.js@npm:0.0.18"
+  checksum: af7a0a5769c5cfbe75e47f2b0346a65db8234b3c89775b897681548dfb6898edb3145153e2bc5dd1751a5ace221e03e6a68b7650ecacc6aa16a099aa9d925c99
   languageName: node
   linkType: hard
 
