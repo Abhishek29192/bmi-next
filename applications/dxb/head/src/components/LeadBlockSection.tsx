@@ -2,14 +2,12 @@ import AnchorLink, {
   AnchorLinkProps
 } from "@bmi-digital/components/anchor-link";
 import Button from "@bmi-digital/components/button";
-import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import LeadBlock from "@bmi-digital/components/lead-block";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";
-import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";
 import RichText, { RichTextData, parseReachDataRawFields } from "./RichText";
@@ -37,7 +35,6 @@ const LeadBlockSection = ({
   data: Data;
 }) => {
   const { getMicroCopy } = useSiteContext();
-  const { isSpaEnabled } = useConfig();
 
   return (
     <Section
@@ -58,12 +55,7 @@ const LeadBlockSection = ({
           </Text>
           {link && (
             <LinkWrapper>
-              <Link
-                component={Button}
-                data={link}
-                endIcon={isSpaEnabled ? <ArrowForwardIcon /> : null}
-                variant="opaqueOutlined"
-              >
+              <Link component={Button} data={link} variant="opaqueOutlined">
                 {link.label}
               </Link>
             </LinkWrapper>
@@ -75,7 +67,6 @@ const LeadBlockSection = ({
               <RichText
                 document={postItCard}
                 underlineHeadings={["h2", "h3", "h4"]}
-                hyperlinkColor={isSpaEnabled ? "default" : "black"}
                 gtmLabel={
                   parseReachDataRawFields(postItCard)[BLOCKS.HEADING_4] ||
                   parseReachDataRawFields(postItCard)[BLOCKS.HEADING_5]

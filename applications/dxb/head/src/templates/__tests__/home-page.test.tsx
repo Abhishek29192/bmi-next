@@ -12,12 +12,10 @@ import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import HomePage, { Props as HomePageData } from "../home-page";
 
-let isSpaEnabled: boolean;
 let isGatsbyDisabledElasticSearch: boolean;
 let isLoginEnabled: boolean;
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
-    isSpaEnabled,
     isGatsbyDisabledElasticSearch,
     isLoginEnabled
   })
@@ -208,7 +206,6 @@ describe("Home Page Template", () => {
   };
 
   it("render correctly with all data", () => {
-    isSpaEnabled = false;
     isGatsbyDisabledElasticSearch = false;
     isLoginEnabled = true;
     const { container } = renderWithRouter(
@@ -253,7 +250,6 @@ describe("Home Page Template", () => {
   });
 
   it("render slide with not ContentfulPromo __typename and featureMedia data", () => {
-    isSpaEnabled = true;
     isGatsbyDisabledElasticSearch = false;
     slide.__typename = null;
     slide.featuredMedia = createImageData({

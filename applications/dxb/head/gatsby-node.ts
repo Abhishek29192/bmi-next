@@ -174,44 +174,39 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions
 }) => {
   const { createRedirect, createPage } = actions;
-  const isOnePageMarket = process.env.GATSBY_IS_SPA_ENABLED === "true";
   const redirectRegex = /\/?[a-zA-Z]{2}\//i;
   const redirectsFileName = `redirects_${process.env.SPACE_MARKET_CODE.replace(
     redirectRegex,
     ""
   )}.toml`; // be/
 
-  const componentMap = isOnePageMarket
-    ? {
-        ContentfulHomePage: path.resolve("./src/templates/home-page.tsx")
-      }
-    : {
-        ContentfulSimplePage: path.resolve(
-          "./src/templates/simplePage/components/simple-page.tsx"
-        ),
-        ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
-        ContentfulContactUsPage: path.resolve(
-          "./src/templates/contact-us-page.tsx"
-        ),
-        ContentfulProductListerPage: path.resolve(
-          "./src/templates/productListerPage/components/product-lister-page.tsx"
-        ),
-        ContentfulDocumentLibraryPage: path.resolve(
-          "./src/templates/documentLibrary/index.tsx"
-        ),
-        ContentfulBrandLandingPage: path.resolve(
-          "./src/templates/brand-landing-page.tsx"
-        ),
-        ContentfulCookiePolicyPage: path.resolve(
-          "./src/templates/cookiePolicy/components/cookie-policy-page.tsx"
-        ),
-        ContentfulTrainingListerPage: path.resolve(
-          "./src/templates/trainingListerPage/training-lister-page.tsx"
-        ),
-        ContentfulTrainingRegistrationPage: path.resolve(
-          "./src/templates/trainingRegistrationPage/training-registration-page.tsx"
-        )
-      };
+  const componentMap = {
+    ContentfulSimplePage: path.resolve(
+      "./src/templates/simplePage/components/simple-page.tsx"
+    ),
+    ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
+    ContentfulContactUsPage: path.resolve(
+      "./src/templates/contact-us-page.tsx"
+    ),
+    ContentfulProductListerPage: path.resolve(
+      "./src/templates/productListerPage/components/product-lister-page.tsx"
+    ),
+    ContentfulDocumentLibraryPage: path.resolve(
+      "./src/templates/documentLibrary/index.tsx"
+    ),
+    ContentfulBrandLandingPage: path.resolve(
+      "./src/templates/brand-landing-page.tsx"
+    ),
+    ContentfulCookiePolicyPage: path.resolve(
+      "./src/templates/cookiePolicy/components/cookie-policy-page.tsx"
+    ),
+    ContentfulTrainingListerPage: path.resolve(
+      "./src/templates/trainingListerPage/training-lister-page.tsx"
+    ),
+    ContentfulTrainingRegistrationPage: path.resolve(
+      "./src/templates/trainingRegistrationPage/training-registration-page.tsx"
+    )
+  };
 
   const result = await graphql<any, any>(`
     {
@@ -279,7 +274,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         ? {}
         : undefined;
 
-    if (!process.env.GATSBY_PREVIEW && !isOnePageMarket) {
+    if (!process.env.GATSBY_PREVIEW) {
       await createProductPages(
         site.id,
         site.countryCode,
@@ -326,63 +321,63 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       });
     });
-    if (!isOnePageMarket) {
-      createPage({
-        path: getPathWithCountryCode(site.countryCode, `search`),
-        component: path.resolve("./src/templates/search-page.tsx"),
-        context: {
-          siteId: site.id,
-          countryCode: site.countryCode,
-          variantCodeToPathMap,
-          assetTypeFilter: process.env.MARKET_TAG_NAME
-            ? {
-                metadata: {
-                  tags: {
-                    elemMatch: {
-                      contentful_id: { eq: process.env.MARKET_TAG_NAME }
-                    }
+
+    createPage({
+      path: getPathWithCountryCode(site.countryCode, `search`),
+      component: path.resolve("./src/templates/search-page.tsx"),
+      context: {
+        siteId: site.id,
+        countryCode: site.countryCode,
+        variantCodeToPathMap,
+        assetTypeFilter: process.env.MARKET_TAG_NAME
+          ? {
+              metadata: {
+                tags: {
+                  elemMatch: {
+                    contentful_id: { eq: process.env.MARKET_TAG_NAME }
                   }
                 }
               }
-            : null
-        }
-      });
-
-      createPage({
-        path: getPathWithCountryCode(site.countryCode, `422/`),
-        component: path.resolve("./src/templates/general-error.tsx"),
-        context: {
-          siteId: site.id
-        }
-      });
-
-      if (process.env.GATSBY_PREVIEW) {
-        createPage({
-          path: `/previewer/`,
-          component: path.resolve("./src/templates/previewer.tsx"),
-          context: {
-            siteId: site.id
-          }
-        });
+            }
+          : null
       }
+    });
 
-      if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
-        createSystemPages({
-          siteId: site.id,
-          countryCode: site.countryCode,
-          createPage: actions.createPage,
-          graphql
-        });
+    createPage({
+      path: getPathWithCountryCode(site.countryCode, `422/`),
+      component: path.resolve("./src/templates/general-error.tsx"),
+      context: {
+        siteId: site.id
       }
+    });
 
+    if (process.env.GATSBY_PREVIEW) {
       createPage({
-        path: getPathWithCountryCode(site.countryCode, `ie-dialog/`),
-        component: path.resolve("./src/templates/ie-dialog/index.tsx"),
+        path: `/previewer/`,
+        component: path.resolve("./src/templates/previewer.tsx"),
         context: {
           siteId: site.id
         }
       });
     }
+
+    if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
+      createSystemPages({
+        siteId: site.id,
+        countryCode: site.countryCode,
+        createPage: actions.createPage,
+        graphql
+      });
+    }
+
+    createPage({
+      path: getPathWithCountryCode(site.countryCode, `ie-dialog/`),
+      component: path.resolve("./src/templates/ie-dialog/index.tsx"),
+      context: {
+        siteId: site.id
+      }
+    });
+
     if (!process.env.GATSBY_PREVIEW) {
       createPage({
         path: getPathWithCountryCode(site.countryCode, `sitemap/`),

@@ -2,7 +2,6 @@ import TableOfContent from "@bmi-digital/components/table-of-content";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React, { createContext, useMemo } from "react";
-import { useConfig } from "../contexts/ConfigProvider";
 import CardCollectionSection, {
   Data as CardCollectionSectionData
 } from "./CardCollectionSection";
@@ -115,7 +114,6 @@ const Sections = ({
   startIndex?: number;
   pageTypename?: string;
 }) => {
-  const { isSpaEnabled } = useConfig();
   const themeMap = useMemo(
     () =>
       data.reduce<Context>((carry, section, index) => {
@@ -130,7 +128,7 @@ const Sections = ({
           return {
             ...carry,
             [id]: {
-              isReversed: !isSpaEnabled,
+              isReversed: true,
               backgroundColor: backgroundColor || "White"
             }
           };
@@ -152,7 +150,7 @@ const Sections = ({
           }
         };
       }, {}),
-    [data, isSpaEnabled]
+    [data]
   );
 
   return (

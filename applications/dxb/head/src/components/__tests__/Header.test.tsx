@@ -11,14 +11,12 @@ import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import { Data as PageInfoData } from "../PageInfo";
 import { Data as PromoData } from "../Promo";
 
-let isSpaEnabled: boolean;
 let isGatsbyDisabledElasticSearch: boolean;
 let isSampleOrderingEnabled: boolean;
 let isLoginEnabled: boolean;
 
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
-    isSpaEnabled,
     isGatsbyDisabledElasticSearch,
     isSampleOrderingEnabled,
     isLoginEnabled
@@ -27,7 +25,6 @@ jest.mock("../../contexts/ConfigProvider", () => ({
 
 beforeEach(() => {
   jest.useFakeTimers();
-  isSpaEnabled = false;
   isGatsbyDisabledElasticSearch = false;
   isSampleOrderingEnabled = true;
   isLoginEnabled = true;

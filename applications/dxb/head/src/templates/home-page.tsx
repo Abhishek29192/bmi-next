@@ -62,7 +62,7 @@ const HomePage = ({ data, pageContext }: Props) => {
     data.contentfulSite.resources || {};
 
   const GTMButton = withGTM<ButtonProps>(Button);
-  const { isSpaEnabled, isGatsbyDisabledElasticSearch } = useConfig();
+  const { isGatsbyDisabledElasticSearch } = useConfig();
   const { isClient } = useIsClient();
 
   return (
@@ -71,9 +71,7 @@ const HomePage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={
-        !isSpaEnabled ? slides?.[0]?.featuredMedia?.image?.file.url : ""
-      }
+      ogImageUrl={slides?.[0]?.featuredMedia?.image?.file.url}
       pageType="homePage"
     >
       {({ siteContext }) => {
