@@ -140,12 +140,15 @@ export const transformDocuments = async (
         .filter(isDefined);
     });
 
-  const assetsCounter = (item.variantOptions || []).reduce((acc, variant) => {
-    if (variant.assets) {
-      return acc + variant.assets.length;
-    }
-    return acc;
-  }, item.assets?.length || 0);
+  const assetsCounter = (item.variantOptions || []).reduce(
+    (acc, variant) => {
+      if (variant.assets) {
+        return acc + variant.assets.length;
+      }
+      return acc;
+    },
+    item.assets?.length || 0
+  );
 
   logger.info({
     message: `Initial count of assets: ${assetsCounter}, Count of indexed assets: ${variantDocuments.length}`

@@ -81,13 +81,14 @@ const mapImages = (
 const getScoringWeight = (classifications?: readonly PimClassification[]) =>
   Number.parseInt(
     classifications
-      ?.find((classification) =>
-        classification.features?.some(
-          (feature) =>
-            // TODO: Remove upercase checks - DXB-3449
-            feature.code.split("/").pop()!.toUpperCase() ===
-            "scoringWeightAttributes.scoringweight".toUpperCase()
-        )
+      ?.find(
+        (classification) =>
+          classification.features?.some(
+            (feature) =>
+              // TODO: Remove upercase checks - DXB-3449
+              feature.code.split("/").pop()!.toUpperCase() ===
+              "scoringWeightAttributes.scoringweight".toUpperCase()
+          )
       )
       ?.features?.find(
         (feature) =>

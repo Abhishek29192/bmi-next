@@ -137,9 +137,8 @@ export const setFiltersUrl = (newFilters: Filter[]): void => {
     const index: number = urlFilterValues.findIndex(
       (filter) => filter.name === name
     );
-    const value = newUrlFilterValues.find(
-      (value) => value.name === name
-    )?.value;
+    const value = newUrlFilterValues.find((value) => value.name === name)
+      ?.value;
 
     if (index === -1) {
       urlFilterValues.push({ name, value: value || [] });
