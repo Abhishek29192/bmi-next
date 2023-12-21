@@ -11,7 +11,7 @@ import { getMockSiteContext } from "./utils/SiteContextProvider";
 const getLocation = (search: unknown): Location =>
   ({
     search: `?${QueryString.stringify(search)}`
-  } as Location);
+  }) as Location;
 
 jest.mock("@mui/material/useMediaQuery", () => ({
   __esModule: true,

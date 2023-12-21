@@ -1500,7 +1500,7 @@ describe("ServiceLocatorSection component", () => {
           matches: mediaQuery.match(query, { width }),
           addListener: () => {},
           removeListener: () => {}
-        } as unknown as MediaQueryList);
+        }) as unknown as MediaQueryList;
     };
     window.matchMedia = createMatchMedia(1500);
     Object.defineProperty(window, "dataLayer", {

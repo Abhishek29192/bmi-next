@@ -81,9 +81,8 @@ export const createIndexAlias = async (
     message: `Finding index attached to  alias: ${indexAliasNameLower}.`
   });
 
-  const indexesWithWriteAlias: string[] = await findIndexNamesForAlias(
-    indexAliasNameLower
-  );
+  const indexesWithWriteAlias: string[] =
+    await findIndexNamesForAlias(indexAliasNameLower);
 
   logger.info({
     message: `${indexesWithWriteAlias.length} no. of Index(es) found with alias '${indexAliasNameLower}'.`
