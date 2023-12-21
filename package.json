@@ -30,7 +30,7 @@
     "@jest-mock/express": "^2.0.2",
     "@monorepo-utils/workspaces-to-typescript-project-references": "^2.10.2",
     "@semantic-release/commit-analyzer": "^11.0.0",
-    "@semantic-release/gitlab": "^12.0.5",
+    "@semantic-release/gitlab": "^13.0.0",
     "@semantic-release/release-notes-generator": "^12.0.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
