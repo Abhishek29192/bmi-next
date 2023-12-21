@@ -1,4 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["gitlab>bmi-digital/renovate-config"]
+  "extends": ["local>bmi-digital/renovate-config"]
 }
