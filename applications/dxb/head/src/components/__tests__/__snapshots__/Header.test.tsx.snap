@@ -265,7 +265,7 @@ exports[`Header component renders correctly 1`] = `
                 class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -721,7 +721,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -1177,7 +1177,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -1826,7 +1826,7 @@ exports[`Header component toggles search 1`] = `
                 class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -2024,7 +2024,7 @@ exports[`Header component toggles search 1`] = `
               data-testid="search-input-text"
             >
               <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="false"
                 for="search-input-text"
                 id="search-input-text-label"

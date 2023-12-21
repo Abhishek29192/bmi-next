@@ -381,7 +381,7 @@ exports[`Sections component renders correctly 1`] = `
                           />
                         </div>
                         <div
-                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                           style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                         />
                         <div
@@ -1251,7 +1251,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1537,7 +1537,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1666,7 +1666,7 @@ exports[`Sections component renders correctly 1`] = `
                     findARoofer.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Pitched-Roof"
                     role="button"
@@ -1682,7 +1682,7 @@ exports[`Sections component renders correctly 1`] = `
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof"
                     role="button"
@@ -2373,7 +2373,7 @@ exports[`Sections component renders correctly 1`] = `
                               />
                             </div>
                             <div
-                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                               style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                             />
                             <div
@@ -2599,7 +2599,7 @@ exports[`Sections component renders correctly 1`] = `
                               />
                             </div>
                             <div
-                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                               style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                             />
                             <div
@@ -2930,7 +2930,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-first-name"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="first-name"
                     id="first-name-label"
@@ -2983,7 +2983,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-second-names"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="second-names"
                     id="second-names-label"
@@ -3036,7 +3036,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-email"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="email"
                     id="email-label"
@@ -3089,7 +3089,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-company"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="company"
                     id="company-label"
@@ -3132,7 +3132,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-telephone"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="telephone"
                     id="telephone-label"
@@ -3174,7 +3174,7 @@ exports[`Sections component renders correctly 1`] = `
                   class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                   >
                     Type of query
@@ -3190,12 +3190,13 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1tnxenj-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                   >
                     <div
+                      aria-controls=":r9:"
                       aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-labelledby="mui-component-select-recipients"
                       class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                       id="mui-component-select-recipients"
-                      role="button"
+                      role="combobox"
                       tabindex="0"
                     >
                       form.none.selection
@@ -3303,7 +3304,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-message"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="message"
                     id="message-label"
@@ -3794,7 +3795,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                           />
                         </div>
                         <div
-                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                           style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                         />
                         <div
@@ -4085,7 +4086,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                           />
                         </div>
                         <div
-                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                           style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                         />
                         <div
