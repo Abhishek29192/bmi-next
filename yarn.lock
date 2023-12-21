@@ -2887,7 +2887,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-security: ^2.1.0
     eslint-plugin-you-dont-need-lodash-underscore: ^6.13.0
-    googleapis: ^118.0.0
+    googleapis: ^129.0.0
     inspectpack: ^4.7.1
     jest: ^29.6.4
     js-yaml: ^4.1.0
@@ -3555,7 +3555,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-security: ^2.1.0
     eslint-plugin-you-dont-need-lodash-underscore: ^6.13.0
-    googleapis: ^118.0.0
+    googleapis: ^129.0.0
     inspectpack: ^4.7.1
     jest: ^29.6.4
     js-yaml: ^4.1.0
@@ -3668,7 +3668,7 @@ __metadata:
     gatsby-source-filesystem: ^5.12.0
     gatsby-transformer-json: ^5.12.0
     gatsby-transformer-sharp: ^5.12.0
-    googleapis: ^118.0.0
+    googleapis: ^129.0.0
     graphql: ^16.8.0
     https-browserify: ^1.0.0
     if-env: ^1.0.4
@@ -18860,7 +18860,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gaxios@npm:^6.0.0, gaxios@npm:^6.0.2":
+"gaxios@npm:^6.0.0, gaxios@npm:^6.0.2, gaxios@npm:^6.0.3":
   version: 6.1.1
   resolution: "gaxios@npm:6.1.1"
   dependencies:
@@ -19324,27 +19324,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"googleapis-common@npm:^6.0.0":
-  version: 6.0.4
-  resolution: "googleapis-common@npm:6.0.4"
+"googleapis-common@npm:^7.0.0":
+  version: 7.0.1
+  resolution: "googleapis-common@npm:7.0.1"
   dependencies:
     extend: ^3.0.2
-    gaxios: ^5.0.1
-    google-auth-library: ^8.0.2
+    gaxios: ^6.0.3
+    google-auth-library: ^9.0.0
     qs: ^6.7.0
     url-template: ^2.0.8
     uuid: ^9.0.0
-  checksum: 7db7b6010d0ea00c01c74cb4ed1a7f8df7d6477a13b49a9bcf799cade322eb3e3a89655651f20cb5208f6d7d68b5a96f44befa35578bc290c732f7547fa31795
+  checksum: c4c346bbaf87219e36b79623a8e741a641c2fe5c76be72e3bea180ffb86e7584f8663ccd27137e5fefa2f644839af4f986c01d6b70a018a895ea41a86e99d341
   languageName: node
   linkType: hard
 
-"googleapis@npm:^118.0.0":
-  version: 118.0.0
-  resolution: "googleapis@npm:118.0.0"
+"googleapis@npm:^129.0.0":
+  version: 129.0.0
+  resolution: "googleapis@npm:129.0.0"
   dependencies:
-    google-auth-library: ^8.0.2
-    googleapis-common: ^6.0.0
-  checksum: a41635fcb760e7111e70fabb1b962ced0dbc89f4e8d56058ddd56be4ee2b2c458bbe0e217013e987e37fb2e951805bcfebeb1cb9b9445bc317fb5535ff6b93e7
+    google-auth-library: ^9.0.0
+    googleapis-common: ^7.0.0
+  checksum: a1e078b2c3da1a1fe3ba1de1233700872c973fb49a6254c59a83c2c1884f4493b059fe43e7bb65226b9493c429da69e09e842368c82abb8c52118d2dbc657da3
   languageName: node
   linkType: hard
 
