@@ -222,12 +222,13 @@ export const handleRequest: HttpFunction = async (req, res) => {
                 itemType: "PRODUCTS",
                 item: item as Product
               });
+            } else {
+              await publishMessage({
+                type,
+                itemType: "SYSTEMS",
+                item: item as System
+              });
             }
-            await publishMessage({
-              type,
-              itemType: "SYSTEMS",
-              item: item as System
-            });
           })
         );
       }

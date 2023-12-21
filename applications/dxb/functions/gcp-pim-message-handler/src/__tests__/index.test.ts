@@ -236,7 +236,7 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
@@ -823,7 +823,7 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
@@ -893,7 +893,7 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
@@ -964,7 +964,7 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
