@@ -35,7 +35,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -164,7 +164,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                     MC: findARoofer.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof"
                     role="button"
@@ -180,7 +180,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Pitched-Roof"
                     role="button"
@@ -196,7 +196,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Country Offices","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Country-Offices"
                     role="button"
@@ -212,7 +212,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Headquarters","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Headquarters"
                     role="button"
@@ -228,7 +228,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"BMI Icopal Merchant 1","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-BMI-Icopal-Merchant-1"
                     role="button"
@@ -561,7 +561,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1281,7 +1281,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1410,7 +1410,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                     MC: findARoofer.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-qxltfl-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1oqrm8k-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof 1","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof-1"
                     role="button"
@@ -1426,7 +1426,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof 2","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof-2"
                     role="button"
@@ -1442,7 +1442,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof 3","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof-3"
                     role="button"
@@ -1458,7 +1458,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof 4","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof-4"
                     role="button"
@@ -1474,7 +1474,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof 5","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof-5"
                     role="button"
@@ -1807,7 +1807,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -2348,7 +2348,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -2741,7 +2741,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
     </div>
   </div>
   <div
-    class="MuiAutocomplete-popper css-1s5lphu-MuiPopper-root-MuiAutocomplete-popper MuiPopper-root"
+    class="MuiPopper-root MuiAutocomplete-popper css-1s5lphu-MuiPopper-root-MuiAutocomplete-popper"
     data-popper-escaped=""
     data-popper-placement="bottom"
     data-popper-reference-hidden=""
@@ -2795,7 +2795,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                     MC: findABranch.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-qxltfl-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1oqrm8k-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Country Offices","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Country-Offices"
                     role="button"
@@ -2811,7 +2811,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Headquarters","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Headquarters"
                     role="button"
@@ -3142,7 +3142,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -3271,7 +3271,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                     MC: findAMerchant.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"BMI Icopal Flat Roof Systems","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-BMI-Icopal-Flat-Roof-Systems"
                     role="button"
@@ -3287,7 +3287,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-qxltfl-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1oqrm8k-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Merchant type 2","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Merchant-type-2"
                     role="button"
@@ -3597,7 +3597,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -3726,7 +3726,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                     MC: findARoofer.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-qxltfl-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1oqrm8k-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof"
                     role="button"
@@ -3742,7 +3742,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Pitched-Roof"
                     role="button"
@@ -4074,7 +4074,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -5258,7 +5258,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -5797,7 +5797,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -6336,7 +6336,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -6875,7 +6875,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -7004,7 +7004,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof"
                   role="button"
@@ -7020,7 +7020,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof"
                   role="button"
@@ -7036,7 +7036,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Flat Roof 1","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof-1"
                   role="button"
@@ -7052,7 +7052,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Pitched Roof 2","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof-2"
                   role="button"
@@ -7068,7 +7068,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Flat Roof 3","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof-3"
                   role="button"
@@ -7084,7 +7084,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Pitched Roof 4","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof-4"
                   role="button"
@@ -7100,7 +7100,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Flat Roof 5","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof-5"
                   role="button"
@@ -7116,7 +7116,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Pitched Roof 6","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof-6"
                   role="button"
@@ -7607,7 +7607,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -8146,7 +8146,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -8275,7 +8275,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof"
                   role="button"
@@ -8291,7 +8291,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof"
                   role="button"
@@ -8307,7 +8307,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Flat Roof 1","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-Roof-1"
                   role="button"
@@ -8323,7 +8323,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Pitched Roof 1","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-Roof-1"
                   role="button"
@@ -8814,7 +8814,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -9399,7 +9399,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -9801,7 +9801,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -10203,7 +10203,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -10332,7 +10332,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Flat roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Flat-roof"
                   role="button"
@@ -10348,7 +10348,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{"id":"selector-cards1","label":"Pitched roof","action":"Selector - Cards Filter"}"
                   data-testid="service-locator-chip-Pitched-roof"
                   role="button"
@@ -10679,7 +10679,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -11105,7 +11105,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -11536,7 +11536,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -12067,7 +12067,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
     </div>
   </div>
   <div
-    class="MuiAutocomplete-popper css-1s5lphu-MuiPopper-root-MuiAutocomplete-popper MuiPopper-root"
+    class="MuiPopper-root MuiAutocomplete-popper css-1s5lphu-MuiPopper-root-MuiAutocomplete-popper"
     data-popper-escaped=""
     data-popper-placement="bottom"
     data-popper-reference-hidden=""
@@ -12135,7 +12135,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -12539,7 +12539,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -13101,7 +13101,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -13513,7 +13513,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -13642,7 +13642,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                     MC: findARoofer.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof"
                     role="button"
@@ -13658,7 +13658,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Pitched-Roof"
                     role="button"
@@ -13798,7 +13798,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -13871,7 +13871,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   data-testid="location-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="location-autocomplete"
                     id="location-autocomplete-label"
@@ -14538,7 +14538,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -14611,7 +14611,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   data-testid="location-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="location-autocomplete"
                     id="location-autocomplete-label"
@@ -14848,7 +14848,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"

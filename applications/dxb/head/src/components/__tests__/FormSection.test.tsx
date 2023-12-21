@@ -747,7 +747,7 @@ describe("FormSection component", () => {
         <FormInputs inputs={specificData} />
       </ThemeProvider>
     );
-    const select = screen.getByRole("button");
+    const select = screen.getByRole("combobox");
     fireEvent.mouseDown(select);
 
     const options = screen.getAllByRole("option");

@@ -342,7 +342,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -3066,7 +3066,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -5790,7 +5790,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -8512,7 +8512,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -11236,7 +11236,7 @@ exports[`Contact us page render location correctly 1`] = `
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -13960,7 +13960,7 @@ exports[`Contact us page renders correctly 1`] = `
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div

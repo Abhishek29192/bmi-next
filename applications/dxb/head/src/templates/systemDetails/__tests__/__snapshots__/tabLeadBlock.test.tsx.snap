@@ -40,7 +40,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                 />
               </div>
               <div
-                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                 style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
               />
               <div
@@ -291,7 +291,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 />
               </div>
               <div
-                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                 style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
               />
               <div

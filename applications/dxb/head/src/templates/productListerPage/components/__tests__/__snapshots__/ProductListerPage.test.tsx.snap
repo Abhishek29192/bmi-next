@@ -209,7 +209,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -1082,7 +1082,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -1979,7 +1979,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -3106,7 +3106,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -4201,7 +4201,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -5258,7 +5258,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -6156,7 +6156,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -7156,7 +7156,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -8036,7 +8036,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -9136,7 +9136,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -10236,7 +10236,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -11349,7 +11349,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -12476,7 +12476,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
@@ -13794,7 +13794,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                   >
                     <div
-                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div

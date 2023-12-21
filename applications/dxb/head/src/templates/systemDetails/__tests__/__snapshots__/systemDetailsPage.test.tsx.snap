@@ -342,7 +342,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -1136,7 +1136,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   />
                 </div>
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -2907,7 +2907,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -3673,7 +3673,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                   />
                 </div>
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -5444,7 +5444,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -6214,7 +6214,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     />
                   </div>
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -7986,7 +7986,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -8752,7 +8752,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   />
                 </div>
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -10523,7 +10523,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -11289,7 +11289,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   />
                 </div>
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -13021,7 +13021,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -13787,7 +13787,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   />
                 </div>
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -15558,7 +15558,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -16452,7 +16452,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   />
                 </div>
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div

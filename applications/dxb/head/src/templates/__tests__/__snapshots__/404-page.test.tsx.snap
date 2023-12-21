@@ -342,7 +342,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -1459,7 +1459,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
