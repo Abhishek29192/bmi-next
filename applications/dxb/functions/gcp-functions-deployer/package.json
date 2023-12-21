@@ -23,8 +23,8 @@
   "devDependencies": {
     "@types/jest-when": "^3.5.2",
     "@types/prettier": "^2.7.3",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "env-cmd": "^10.1.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
