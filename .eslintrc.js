@@ -15,6 +15,7 @@ module.exports = {
     "applications/dxb/libraries/gatsby-plugin-sitemap"
   ],
   rules: {
+    "@typescript-eslint/no-explicit-any": "warn",
     complexity: "warn",
     "max-depth": "warn",
     "max-len": "warn",

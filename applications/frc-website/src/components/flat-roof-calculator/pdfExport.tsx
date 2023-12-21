@@ -221,7 +221,7 @@ const InputsTable = ({
     {/* TODO: type the input list or take this array as a prop */}
     {["guarantee", "combustible", "insulated", "color"].map((field) =>
       // eslint-disable-next-line security/detect-object-injection
-      typeof submittedValues[field as keyof FormValues] !== undefined &&
+      submittedValues[field as keyof FormValues] !== undefined &&
       // eslint-disable-next-line security/detect-object-injection
       treeFieldsDisplay[field].label /* Only display known fields */ ? (
         <ResultsTable.Row key={field}>

@@ -2096,8 +2096,8 @@ __metadata:
   dependencies:
     "@bmi/utils": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2122,8 +2122,8 @@ __metadata:
   dependencies:
     "@bmi/cms-consolidation-utility": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     dotenv: ^16.3.1
     env-cmd: ^10.1.0
@@ -2167,8 +2167,8 @@ __metadata:
     "@bmi/microcopies": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@types/lodash-es": ^4.17.9
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     dotenv: ^16.3.1
     eslint: ^8.56.0
@@ -2200,8 +2200,8 @@ __metadata:
   dependencies:
     "@bmi/fetch-retry": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2226,8 +2226,8 @@ __metadata:
   dependencies:
     "@bmi/cms-consolidation-utility": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     dotenv: ^16.3.1
     env-cmd: ^10.1.0
@@ -2255,8 +2255,8 @@ __metadata:
   dependencies:
     "@contentful/rich-text-types": ^16.2.1
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     cf-content-types-generator: ^2.12.2
     contentful: ^10.5.1
     eslint: ^8.56.0
@@ -2280,8 +2280,8 @@ __metadata:
   resolution: "@bmi/contentful-upload@workspace:applications/dxb/libraries/contentful-upload"
   dependencies:
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     dotenv: ^16.3.1
     eslint: ^8.56.0
@@ -2309,8 +2309,8 @@ __metadata:
     "@bmi/docebo-types": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2330,8 +2330,8 @@ __metadata:
   resolution: "@bmi/docebo-types@workspace:applications/dxb/libraries/docebo-types"
   dependencies:
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2351,8 +2351,8 @@ __metadata:
     "@bmi/docebo-types": "workspace:*"
     "@bmi/pim-types": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2385,8 +2385,8 @@ __metadata:
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
     "@types/uuid": ^9.0.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -2417,8 +2417,8 @@ __metadata:
   resolution: "@bmi/fetch-retry@workspace:applications/dxb/libraries/fetch-retry"
   dependencies:
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2444,8 +2444,8 @@ __metadata:
   dependencies:
     "@bmi/pim-types": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2479,8 +2479,8 @@ __metadata:
     "@types/gtag.js": ^0.0.18
     "@types/prettier": ^2.7.3
     "@types/react-helmet": ^6.1.6
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     babel-preset-gatsby: ^3.12.0
     cookieconsent: ^3.1.1
     core-js: ^3.32.2
@@ -2518,8 +2518,8 @@ __metadata:
   resolution: "@bmi/functions-contentful-client@workspace:applications/dxb/libraries/functions-contentful-client"
   dependencies:
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful: ^10.5.1
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2543,8 +2543,8 @@ __metadata:
   resolution: "@bmi/functions-contentful-management-client@workspace:applications/dxb/libraries/functions-contentful-management-client"
   dependencies:
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2569,8 +2569,8 @@ __metadata:
   dependencies:
     "@elastic/elasticsearch": ^7.17.12
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2593,8 +2593,8 @@ __metadata:
   resolution: "@bmi/functions-firestore@workspace:applications/dxb/libraries/functions-firestore"
   dependencies:
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2636,8 +2636,8 @@ __metadata:
     "@google-cloud/functions-framework": ^3.3.0
     "@types/archiver": ^6.0.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2670,8 +2670,8 @@ __metadata:
     "@elastic/elasticsearch": ^7.17.12
     "@types/gatsby-plugin-types": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2765,8 +2765,8 @@ __metadata:
     "@bmi/docebo-api": "workspace:*"
     "@bmi/docebo-types": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2835,8 +2835,8 @@ __metadata:
     "@bmi/functions-recaptcha": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2872,8 +2872,8 @@ __metadata:
     "@bmi/functions-firestore": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     dotenv: ^16.3.1
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -2912,8 +2912,8 @@ __metadata:
     "@google-cloud/functions-framework": ^3.3.0
     "@google-cloud/monitoring": ^4.0.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     copy-webpack-plugin: ^11.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -2954,8 +2954,8 @@ __metadata:
     "@bmi/functions-es-client": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful: ^10.5.1
     contentful-management: ^11.0.0
     env-cmd: ^10.1.0
@@ -2997,8 +2997,8 @@ __metadata:
     "@bmi/utils": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3032,8 +3032,8 @@ __metadata:
     "@google-cloud/storage": ^7.0.0
     "@types/archiver": ^6.0.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     archiver: ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -3069,8 +3069,8 @@ __metadata:
     "@types/node": ^18.17.15
     "@types/prettier": ^2.7.3
     "@types/uuid": ^9.0.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3110,8 +3110,8 @@ __metadata:
     "@bmi/utils": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     dotenv: ^16.3.1
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -3148,8 +3148,8 @@ __metadata:
     "@google-cloud/functions-framework": ^3.3.0
     "@sendgrid/mail": ^7.7.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -3186,8 +3186,8 @@ __metadata:
     "@google-cloud/storage": ^7.0.0
     "@types/jest-when": ^3.5.2
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3223,8 +3223,8 @@ __metadata:
     "@bmi/functions-firestore": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3264,8 +3264,8 @@ __metadata:
     "@bmi/pim-types": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3308,8 +3308,8 @@ __metadata:
     "@google-cloud/functions-framework": ^3.3.0
     "@google-cloud/pubsub": ^4.0.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful: ^10.5.1
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -3348,8 +3348,8 @@ __metadata:
     "@google-cloud/functions-framework": ^3.3.0
     "@google-cloud/pubsub": ^4.0.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3388,8 +3388,8 @@ __metadata:
     "@bmi/pim-types": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3422,8 +3422,8 @@ __metadata:
     "@bmi/functions-recaptcha": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -3459,8 +3459,8 @@ __metadata:
     "@bmi/functions-recaptcha": "workspace:*"
     "@google-cloud/functions-framework": ^3.3.0
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -3502,8 +3502,8 @@ __metadata:
     "@google-cloud/pubsub": ^4.0.0
     "@types/prettier": ^2.7.3
     "@types/request": ^2.48.8
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     dotenv: ^16.3.1
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -3541,8 +3541,8 @@ __metadata:
     "@google-cloud/functions-framework": ^3.3.0
     "@types/node": ^18.17.15
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3620,8 +3620,8 @@ __metadata:
     "@types/react-helmet": ^6.1.6
     "@types/react-is": ^18.2.1
     "@types/three": ^0.128.0
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     "@xmldom/xmldom": ^0.8.10
     assert: ^2.1.0
     babel-preset-gatsby: ^3.12.0
@@ -3730,8 +3730,8 @@ __metadata:
     "@types/node": ^18.17.15
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     "@yarnpkg/sdks": ^3.0.0-rc.50
     babel-jest: ^29.6.4
     babel-loader: ^9.1.3
@@ -3789,8 +3789,8 @@ __metadata:
   resolution: "@bmi/microcopies@workspace:applications/dxb/libraries/microcopies"
   dependencies:
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -3825,8 +3825,8 @@ __metadata:
     "@bmi-digital/functions-logger": ^1.7.5
     "@bmi/pim-types": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -3854,8 +3854,8 @@ __metadata:
     "@bmi/pim-types": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -3880,8 +3880,8 @@ __metadata:
   resolution: "@bmi/pim-types@workspace:applications/dxb/libraries/pim-types"
   dependencies:
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -3904,8 +3904,8 @@ __metadata:
   dependencies:
     "@bmi/pim-types": "workspace:*"
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -4378,8 +4378,8 @@ __metadata:
     "@types/crypto-js": ^4.1.2
     "@types/imurmurhash": ^0.1.1
     "@types/prettier": ^2.7.3
-    "@typescript-eslint/eslint-plugin": ^5.62.0
-    "@typescript-eslint/parser": ^5.62.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
     contentful-management: ^11.0.0
     crypto-js: ^4.1.1
     eslint: ^8.56.0
@@ -9834,7 +9834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.60.1, @typescript-eslint/eslint-plugin@npm:^5.62.0":
+"@typescript-eslint/eslint-plugin@npm:^5.60.1":
   version: 5.62.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.62.0"
   dependencies:
@@ -9883,7 +9883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.60.1, @typescript-eslint/parser@npm:^5.62.0":
+"@typescript-eslint/parser@npm:^5.60.1":
   version: 5.62.0
   resolution: "@typescript-eslint/parser@npm:5.62.0"
   dependencies:
