@@ -57,6 +57,9 @@ const createSpace = (space?: Partial<Space>): Space => ({
   updateScheduledAction: jest.fn<Space["updateScheduledAction"]>(),
   deleteScheduledAction: jest.fn<Space["deleteScheduledAction"]>(),
   toPlainObject: jest.fn<Space["toPlainObject"]>(),
+  getWebhookSigningSecret: jest.fn<Space["getWebhookSigningSecret"]>(),
+  upsertWebhookSigningSecret: jest.fn<Space["upsertWebhookSigningSecret"]>(),
+  deleteWebhookSigningSecret: jest.fn<Space["deleteWebhookSigningSecret"]>(),
   ...space
 });
 

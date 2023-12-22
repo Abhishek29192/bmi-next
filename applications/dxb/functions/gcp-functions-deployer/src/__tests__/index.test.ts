@@ -26,7 +26,7 @@ const bucket = jest.fn().mockImplementation(() => ({
   file: () => file()
 }));
 
-jest.mock("@google-cloud/storage/build/src/storage", () => {
+jest.mock("@google-cloud/storage", () => {
   const mStorage = jest.fn(() => ({
     bucket: (bucketName: string) => bucket(bucketName)
   }));

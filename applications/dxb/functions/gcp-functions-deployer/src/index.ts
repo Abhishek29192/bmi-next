@@ -1,8 +1,8 @@
 import logger from "@bmi-digital/functions-logger";
-import { Storage } from "@google-cloud/storage/build/src/storage";
+import { Storage } from "@google-cloud/storage";
 import fetch from "node-fetch";
 import { filterFunctionMetadata } from "./filter";
-import { FunctionMetadata } from "./types";
+import type { FunctionMetadata } from "./types";
 
 const storage = new Storage();
 const {
