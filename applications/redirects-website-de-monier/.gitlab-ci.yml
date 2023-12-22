@@ -5,15 +5,15 @@ lint_redirects_website_de_monier:
     - !reference [ .run_for_changes_on_main_workspace, rules ]
     - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
-    ROOT_DIR: "applications/dxb/redirects-website-de-monier"
+    ROOT_DIR: "applications/redirects-website-de-monier"
     WORKSPACE: "@bmi/redirects-website-de-monier"
 
 build_redirects_website_nl_monier:
   extends: .build_yarn_workspace
   rules:
-    - !reference [ .ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_mr_workspace, rules]
-    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
   variables:
     ROOT_DIR: applications/redirects-website-de-monier
     WORKSPACE: "@bmi/redirects-website-de-monier"
