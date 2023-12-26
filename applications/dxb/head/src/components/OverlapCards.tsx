@@ -12,7 +12,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 import { useSiteContext } from "./Site";
 import Video from "./Video";
-import { OverlapCardsSection } from "./styles/OverlapCardsStyles";
+import { OverlapCardsSection, StyledGrid } from "./styles/OverlapCardsStyles";
 
 type Card =
   | Pick<
@@ -40,7 +40,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
             ({ title, featuredMedia, featuredVideo, ...rest }, key) => {
               const cta = getCTA(rest, countryCode);
               return (
-                <Grid key={key} xs={12} sm={6} md={5} lg={3}>
+                <StyledGrid key={key} xs={12} sm={6} md={5} lg={3}>
                   <CTACard
                     title={title}
                     buttonComponent={(props: ButtonBaseProps) => (
@@ -69,7 +69,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
                     action={cta?.action}
                     data-testid="overlap-card"
                   />
-                </Grid>
+                </StyledGrid>
               );
             }
           )}

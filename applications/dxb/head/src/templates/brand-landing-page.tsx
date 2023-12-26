@@ -172,7 +172,6 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
                 </BackToResults>
               }
               heroes={[firstSlide, ...heroItems]}
-              hasHorizon
             >
               <Search
                 buttonComponent={(props) => (

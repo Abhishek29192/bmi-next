@@ -17,7 +17,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -106,7 +106,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             </a>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -195,7 +195,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             </a>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -351,7 +351,7 @@ exports[`OverlapCards component renders correctly 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -440,7 +440,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -529,7 +529,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div

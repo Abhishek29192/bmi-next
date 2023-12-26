@@ -677,83 +677,79 @@ exports[`Home Page Template render correctly with all data 1`] = `
       data-testid="brand-colors-provider"
     >
       <div
-        data-testid="carousel-hero-container"
+        class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-1oycno8"
+        data-test-class-name="hero"
+        data-testid="hero"
       >
         <div
-          class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-19f7pye"
-          data-test-class-name="hero"
-          data-testid="hero"
+          class=" css-ze8cyt"
         >
           <div
-            class=" css-ze8cyt"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-1tk6lda-MuiContainer-root"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+              class="CarouselHero-wrapper"
             >
               <div
-                class="CarouselHero-wrapper"
+                class="MuiBox-root css-i3pbo"
+              />
+              <div
+                class=" css-xi64lz"
               >
                 <div
-                  class="MuiBox-root css-i3pbo"
-                />
-                <div
-                  class=" css-1qr26hk"
+                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  data-testid="carousel"
                 >
                   <div
-                    class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
-                    data-testid="carousel"
+                    data-testid="carousel-swipable-slide"
+                    style="overflow-x: hidden;"
                   >
                     <div
-                      data-testid="carousel-swipable-slide"
-                      style="overflow-x: hidden;"
+                      class="react-swipeable-view-container"
+                      style="flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
                     >
                       <div
-                        class="react-swipeable-view-container"
-                        style="flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
+                        aria-hidden="false"
+                        class="Carousel-swipeableSlide"
+                        data-swipeable="true"
+                        style="width: 100%; flex-shrink: 0; overflow: auto;"
                       >
                         <div
-                          aria-hidden="false"
-                          class="Carousel-swipeableSlide"
-                          data-swipeable="true"
-                          style="width: 100%; flex-shrink: 0; overflow: auto;"
+                          class="Carousel-page"
                         >
                           <div
-                            class="Carousel-page"
+                            class="Carousel-slide"
+                            data-test-class-name="slide"
+                            data-testid="hero-content-slide-0"
+                            style="width: 100%;"
                           >
                             <div
-                              class="Carousel-slide"
-                              data-test-class-name="slide"
-                              data-testid="hero-content-slide-0"
-                              style="width: 100%;"
+                              class="CarouselHero-content"
                             >
-                              <div
-                                class="CarouselHero-content"
+                              <h1
+                                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1wfxafx-MuiTypography-root"
+                                data-testid="hero-title"
                               >
-                                <h1
-                                  class="MuiTypography-root MuiTypography-h1 Typography-underline css-1wfxafx-MuiTypography-root"
-                                  data-testid="hero-title"
-                                >
-                                  homePageSlideTitle
-                                </h1>
-                                <p
-                                  class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
-                                  data-test-class-name="text"
-                                  data-testid="hero-content-slide-text"
+                                homePageSlideTitle
+                              </h1>
+                              <p
+                                class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
+                                data-test-class-name="text"
+                                data-testid="hero-content-slide-text"
+                              />
+                              <a
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"slideCTA"}"
+                                data-testid="hero-cta"
+                                href="/en/roof-tiles/"
+                                style="background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255);"
+                                tabindex="0"
+                              >
+                                slideCTA
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
-                                <a
-                                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                                  data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"slideCTA"}"
-                                  data-testid="hero-cta"
-                                  href="/en/roof-tiles/"
-                                  style="background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255);"
-                                  tabindex="0"
-                                >
-                                  slideCTA
-                                  <span
-                                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                  />
-                                </a>
-                              </div>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -761,123 +757,110 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     </div>
                   </div>
                 </div>
-                <div
-                  class="SlideControls-mobileFullSize SlideControls-hide CarouselHero-controls css-9wcz94"
+              </div>
+              <div
+                class="SlideControls-mobileFullSize SlideControls-hide CarouselHero-controls css-9wcz94"
+              >
+                <span
+                  class="SlideControls-middleContainer"
                 >
                   <span
-                    class="SlideControls-middleContainer"
+                    class="css-pi0yvt"
                   >
                     <span
-                      class="css-pi0yvt"
+                      class=" css-rh00te"
                     >
                       <span
-                        class=" css-rh00te"
+                        class="SlideControls-number SlideControls-active"
                       >
-                        <span
-                          class="SlideControls-number SlideControls-active"
-                        >
-                          01
-                        </span>
+                        01
                       </span>
                     </span>
-                    <span
-                      class="SlideControls-total"
-                      data-testid="slide-controls-total-horizontal"
-                    >
-                      01
-                    </span>
                   </span>
-                </div>
-                <div
-                  class="css-1te4yym"
+                  <span
+                    class="SlideControls-total"
+                    data-testid="slide-controls-total-horizontal"
+                  >
+                    01
+                  </span>
+                </span>
+              </div>
+              <div
+                class="css-1te4yym"
+              >
+                <form
+                  action="/en/search/"
+                  class="css-1hsggty"
+                  data-testid="search-form"
                 >
-                  <form
-                    action="/en/search/"
-                    class="css-1hsggty"
-                    data-testid="search-form"
+                  <div
+                    class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="InputGroup-lockedxs css-14zqdme"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1tj5ndw-MuiFormControl-root-MuiTextField-root"
+                      data-testid="search-input-text"
                     >
+                      <label
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        data-shrink="false"
+                        for="search-input-text"
+                        id="search-input-text-label"
+                      >
+                        MC: search.placeholder.hero
+                      </label>
                       <div
-                        class="MuiFormControl-root MuiTextField-root InputGroup-input css-1tj5ndw-MuiFormControl-root-MuiTextField-root"
-                        data-testid="search-input-text"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
                       >
-                        <label
-                          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
-                          data-shrink="false"
-                          for="search-input-text"
-                          id="search-input-text-label"
-                        >
-                          MC: search.placeholder.hero
-                        </label>
-                        <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
-                        >
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
-                            data-testid="search-input-text-input"
-                            id="search-input-text"
-                            name="q"
-                            type="text"
-                            value=""
-                          />
-                        </div>
-                      </div>
-                      <button
-                        aria-label="MC: search.label"
-                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge InputGroup-button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                        data-gtm="{"id":"search2","label":"MC: search.label"}"
-                        data-testid="search-submit-button"
-                        tabindex="0"
-                        type="submit"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                          data-testid="SearchIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                          data-testid="search-input-text-input"
+                          id="search-input-text"
+                          name="q"
+                          type="text"
+                          value=""
                         />
-                      </button>
+                      </div>
                     </div>
-                  </form>
-                </div>
+                    <button
+                      aria-label="MC: search.label"
+                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge InputGroup-button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                      data-gtm="{"id":"search2","label":"MC: search.label"}"
+                      data-testid="search-submit-button"
+                      tabindex="0"
+                      type="submit"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="SearchIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
+        </div>
+        <div
+          class="css-fra6c2"
+          data-testid="horizon-wrapper"
+        >
           <div
-            class="css-5u7fxx"
+            class="css-1hpze53"
             data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="css-15h7cdg"
-            >
-              <div
-                class="css-1xhf3mw"
-                data-testid="horizon-container"
-                height="0"
-              >
-                <div
-                  class="CarouselHero-left css-11bjqpr"
-                  height="0"
-                />
-                <div
-                  class="CarouselHero-right css-11bjqpr"
-                  height="0"
-                />
-              </div>
-            </div>
-            <div
-              class="Carousel-horizon css-1qr26hk"
+              class=" css-xi64lz"
             >
               <div
                 class="Carousel-swipeable css-1s5ge7u"
@@ -964,22 +947,15 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="css-aqfcat"
-        >
           <div
-            class="css-1xhf3mw"
+            class="css-3bnn1v"
             data-testid="horizon-container"
-            height="0"
           >
             <div
-              class="CarouselHero-left css-11bjqpr"
-              height="0"
+              class="CarouselHero-left css-1e6009d"
             />
             <div
-              class="CarouselHero-right css-11bjqpr"
-              height="0"
+              class="CarouselHero-right css-1e6009d"
             />
           </div>
         </div>
@@ -999,7 +975,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <a
@@ -1088,7 +1064,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <a
@@ -1177,7 +1153,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div

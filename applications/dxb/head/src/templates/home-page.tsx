@@ -17,8 +17,8 @@ import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { getHeroItemsWithContext } from "./helpers/getHeroItemsWithContext";
-import type { Data as PageInfoData } from "../components/PageInfo";
 import type { Data as SlideData } from "../components/Promo";
+import type { Data as PageInfoData } from "../components/PageInfo";
 
 export type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -84,7 +84,6 @@ const HomePage = ({ data, pageContext }: Props) => {
               heroes={heroItems}
               hasSpaceBottom
               disableLazyLoading={true}
-              hasHorizon
             >
               {!isGatsbyDisabledElasticSearch && (
                 <Search
