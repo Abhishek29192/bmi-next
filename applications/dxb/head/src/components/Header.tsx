@@ -208,7 +208,6 @@ const Header = ({
 
   const { getMicroCopy } = useSiteContext();
   const {
-    isSpaEnabled,
     isGatsbyDisabledElasticSearch,
     isSampleOrderingEnabled,
     isLoginEnabled
@@ -244,7 +243,7 @@ const Header = ({
       component={() => (
         <HeaderComponent
           disableSearch={isGatsbyDisabledElasticSearch || disableSearch}
-          languages={isSpaEnabled ? [] : languages}
+          languages={languages}
           language={language}
           languageLabel={getMicroCopy(microCopy.MENU_LANGUAGE)}
           languageIntroduction={
@@ -253,8 +252,8 @@ const Header = ({
               document={countryNavigationIntroduction}
             />
           }
-          utilities={isSpaEnabled ? [] : utilities}
-          navigation={isSpaEnabled ? [] : navigation}
+          utilities={utilities}
+          navigation={navigation}
           logoAction={{
             model: "routerLink",
             linkComponent: Link,
@@ -281,9 +280,7 @@ const Header = ({
           shoppingCartCount={productsInBasket.length}
           basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
           sampleBasketDialog={
-            !isSpaEnabled &&
-            isSampleOrderingEnabled &&
-            sampleBasketLink?.sections?.[0]?.title
+            isSampleOrderingEnabled && sampleBasketLink?.sections?.[0]?.title
               ? (props: { toggleCart: () => void }) => (
                   <SampleBasketDialog
                     title={sampleBasketLink.sections[0].title}

@@ -46,7 +46,6 @@ describe("ConfigProvider", () => {
       key: "isLegacyFiltersUsing",
       env: "GATSBY_USE_LEGACY_FILTERS"
     },
-    { key: "isSpaEnabled", env: "GATSBY_IS_SPA_ENABLED" },
     {
       key: "isGatsbyDisabledElasticSearch",
       env: "GATSBY_DISABLE_SEARCH"

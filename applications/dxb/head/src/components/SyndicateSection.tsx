@@ -8,7 +8,6 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
-import { useConfig } from "../contexts/ConfigProvider";
 import Image from "./Image";
 import Link, { getCTA } from "./Link";
 import RichText from "./RichText";
@@ -44,7 +43,6 @@ const SyndicateSection = ({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { countryCode, getMicroCopy } = useSiteContext();
-  const { isSpaEnabled } = useConfig();
 
   const getCallToAction = (
     data: PromoData | PageInfoData,
@@ -52,8 +50,7 @@ const SyndicateSection = ({
     getMicroCopy: (
       path: MicroCopyValues,
       variables?: Record<string, string>
-    ) => string,
-    isSpaEnabled: boolean
+    ) => string
   ) => {
     const cta = getCTA(
       data,
@@ -63,11 +60,7 @@ const SyndicateSection = ({
 
     if (data.__typename == "ContentfulPromo" && data.cta) {
       return (
-        <Link
-          component={Button}
-          variant={isSpaEnabled ? "contained" : "opaqueOutlined"}
-          data={data.cta}
-        >
+        <Link component={Button} variant="opaqueOutlined" data={data.cta}>
           {data.cta.label}
         </Link>
       );
@@ -99,10 +92,10 @@ const SyndicateSection = ({
           ) : data.featuredMedia ? (
             <Image {...data.featuredMedia} size="cover" isMobile={isMobile} />
           ) : undefined,
-          cta: getCallToAction(data, countryCode, getMicroCopy, isSpaEnabled)
+          cta: getCallToAction(data, countryCode, getMicroCopy)
         };
       }),
-    [countryCode, getMicroCopy, isMobile, isSpaEnabled, villains]
+    [countryCode, getMicroCopy, isMobile, villains]
   );
 
   if (villainsData?.length === 1) {

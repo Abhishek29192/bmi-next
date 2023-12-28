@@ -30,7 +30,6 @@ export interface Config {
   spaceMarketCode?: string;
   isV2WebToolsCalculatorEnabled: boolean;
   isV2VisualiserEnabled: boolean;
-  isSpaEnabled: boolean;
   isGatsbyDisabledElasticSearch: boolean;
   oneTrustId?: string;
   isSampleOrderingEnabled: boolean;
@@ -83,7 +82,6 @@ const envConfig = (): Config => ({
   gcpSystemConfiguratorEndpoint:
     process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
   isLegacyFiltersUsing: convertStrToBool(process.env.GATSBY_USE_LEGACY_FILTERS),
-  isSpaEnabled: convertStrToBool(process.env.GATSBY_IS_SPA_ENABLED),
   isGatsbyDisabledElasticSearch: convertStrToBool(
     process.env.GATSBY_DISABLE_SEARCH
   ),

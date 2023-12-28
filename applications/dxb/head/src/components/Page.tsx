@@ -90,12 +90,8 @@ const Page = ({
     accountPage
   } = siteData;
   const { breadcrumbs, signupBlock, seo, path } = pageData;
-  const {
-    gatsbyReCaptchaKey,
-    gatsbyReCaptchaNet,
-    visualizerAssetUrl,
-    isSpaEnabled
-  } = useConfig();
+  const { gatsbyReCaptchaKey, gatsbyReCaptchaNet, visualizerAssetUrl } =
+    useConfig();
   const reCaptchaNet = gatsbyReCaptchaNet === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
@@ -194,9 +190,7 @@ const Page = ({
                       <Content>{children}</Content>
                     </BrandProvider>
                   </CalculatorProvider>
-                  {signupBlock && !isSpaEnabled ? (
-                    <SignupBlock data={signupBlock} />
-                  ) : null}
+                  {signupBlock ? <SignupBlock data={signupBlock} /> : null}
                   <Footer
                     mainNavigation={footerMainNavigation}
                     secondaryNavigation={footerSecondaryNavigation}
