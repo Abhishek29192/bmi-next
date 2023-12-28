@@ -6,11 +6,12 @@ export const classes = {
   box: `${PREFIX}-box`
 };
 
-export const ToolCardsBox = styled("div")(() => ({
+export const ToolCardsBox = styled("div")(({ theme }) => ({
   [`.${classes.box}`]: {
     justifyContent: "flex-start",
     marginTop: "24px",
-    marginBottom: 0
+    marginBottom: 0,
+    fill: theme.colours.cyan400
   }
 }));
 
