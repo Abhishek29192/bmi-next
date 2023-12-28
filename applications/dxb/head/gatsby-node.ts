@@ -317,7 +317,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
           siteId: site.id,
           categoryCodes: page.categoryCodes,
           allowFilterBy: page.allowFilterBy,
-          variantCodeToPathMap
+          variantCodeToPathMap,
+          tagFilter: process.env.MARKET_TAG_NAME
+            ? {
+                tags: {
+                  elemMatch: {
+                    contentful_id: { eq: process.env.MARKET_TAG_NAME }
+                  }
+                }
+              }
+            : {}
         }
       });
     });

@@ -2013,7 +2013,7 @@ exports[`Header component toggles search 1`] = `
         </h4>
         <form
           action="/gb/search/"
-          class="css-1mhzmpj"
+          class="css-1hsggty"
           data-testid="search-form"
         >
           <div

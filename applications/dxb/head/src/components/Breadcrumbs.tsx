@@ -3,7 +3,7 @@ import Breadcrumbs, {
 } from "@bmi-digital/components/breadcrumbs";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useMemo } from "react";
 import { BreadcrumbItem } from "../types/pim";
 import { getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
@@ -11,7 +11,8 @@ import { useSiteContext } from "./Site";
 export type Data = BreadcrumbItem[];
 
 const getBreadcrumbsItem = (
-  items: BreadcrumbItem[]
+  items: BreadcrumbItem[],
+  concatenateUrls: boolean
 ): [BreadcrumbItem[], BreadcrumbItem] => {
   if (items.length === 1) {
     return [[], items[0]];
@@ -25,11 +26,7 @@ const getBreadcrumbsItem = (
         label: item.label,
         slug:
           index !== array.length - 1
-            ? array
-                .slice(0, index + 1)
-                .map(({ slug }) => slug)
-                .join("/")
-                .concat("/")
+            ? getBreadcrumbSlug(array, index, concatenateUrls)
             : null
       };
 
@@ -44,17 +41,36 @@ const getBreadcrumbsItem = (
   return [existingBreadcrumbsItems, currentBreadcrumb];
 };
 
+const getBreadcrumbSlug = (
+  items: BreadcrumbItem[],
+  index: number,
+  concatenateUrls: boolean
+) =>
+  concatenateUrls
+    ? items
+        .slice(0, index + 1)
+        .map(({ slug }) => slug)
+        .join("/")
+        .concat("/")
+    : // eslint-disable-next-line security/detect-object-injection
+      items[index].slug;
+
 const IntegratedBreadcrumbs = ({
   data,
   "data-testid": dataTestId,
+  concatenateUrls = true,
   ...rest
 }: {
   data: Data;
 } & BreadcrumbsProps & {
+    concatenateUrls?: boolean;
     "data-testid"?: string;
   }) => {
   const { countryCode, homePage } = useSiteContext();
-  const [breadcrumbsItems, currentBreadcrumb] = getBreadcrumbsItem(data);
+  const [breadcrumbsItems, currentBreadcrumb] = useMemo(
+    () => getBreadcrumbsItem(data, concatenateUrls),
+    [data, concatenateUrls]
+  );
 
   return (
     <Breadcrumbs

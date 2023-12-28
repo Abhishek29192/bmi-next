@@ -296,7 +296,7 @@ exports[`SampleBasketSection component should render form after complete button 
           Complete form
         </h2>
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="sample-basket-section-checkout-form"
         >
           <div

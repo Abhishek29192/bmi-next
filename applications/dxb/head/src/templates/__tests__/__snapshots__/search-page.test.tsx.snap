@@ -825,7 +825,7 @@ exports[`Search Page Template render correctly 1`] = `
                 >
                   <form
                     action="/en/search/"
-                    class="css-1mhzmpj"
+                    class="css-1hsggty"
                     data-testid="search-form"
                   >
                     <div

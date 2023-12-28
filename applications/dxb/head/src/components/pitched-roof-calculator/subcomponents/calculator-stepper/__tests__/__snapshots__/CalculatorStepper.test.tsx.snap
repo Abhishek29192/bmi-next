@@ -9,7 +9,7 @@ exports[`CalculatorStepper component ignores footer when there are no buttons 1`
       class="css-99pxto"
     >
       <form
-        class=" css-x85nai"
+        class=" css-11tjtax"
         data-testid="calculator-step-form"
       >
         <div
@@ -150,7 +150,7 @@ exports[`CalculatorStepper component renders correctly 1`] = `
       class="css-99pxto"
     >
       <form
-        class="CalculatorStepper-form-lg-padding css-x85nai"
+        class="CalculatorStepper-form-lg-padding css-11tjtax"
         data-testid="calculator-step-form"
       >
         <div

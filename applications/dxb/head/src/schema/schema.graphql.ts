@@ -248,6 +248,26 @@ type ContentfulTrainingListerPage implements ContentfulObject & ContentfulPage &
   tags: [ContentfulCategory] @link(from: "tags___NODE")
 }
 
+type contentfulTrainingRegistrationPageCompetentChamberLabelTextNode implements Node @dontInfer {
+  id: ID!
+  competentChamberLabel: String!
+}
+
+type contentfulTrainingRegistrationPageConsentTextTextNode implements Node @dontInfer {
+  id: ID!
+  consentText: String!
+}
+
+type contentfulTrainingRegistrationPageTermsOfUseTextNode implements Node @dontInfer {
+  id: ID!
+  termsOfUse: String!
+}
+
+type contentfulTrainingRegistrationPageSuccessDescriptionTextNode implements Node @dontInfer {
+  id: ID!
+  successDescription: String!
+}
+
 type ContentfulTrainingRegistrationPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
   id: ID!
   contentful_id: String!
@@ -265,6 +285,42 @@ type ContentfulTrainingRegistrationPage implements ContentfulObject & Contentful
   featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")
   parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  salutationTitle: String!
+  salutationMale: String!
+  salutationFemale: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  companyName: String!
+  position: String!
+  customerNumber: String!
+  city: String!
+  street: String!
+  postalCode: String!
+  phoneNumber: String!
+  competentChamberLabel: contentfulTrainingRegistrationPageCompetentChamberLabelTextNode! @link(from: "competentChamberLabel___NODE")
+  competentChamber: String!
+  bmiSystemPartnerClubTitle: String!
+  isMemberOfBmiLabel: String!
+  isNotMemberOfBmiLabel: String!
+  discoverySourceTitle: String!
+  discoverySourceBrochure: String!
+  discoverySourceFieldService: String!
+  discoverySourceWebsite: String!
+  discoverySourceFacebook: String!
+  discoverySourceInstagram: String!
+  discoverySourceXing: String!
+  discoverySourceLinkedin: String!
+  discoverySourceOther: String!
+  discoverySourceSpecifyOther: String!
+  comment: String!
+  consentText: contentfulTrainingRegistrationPageConsentTextTextNode! @link(from: "consentText___NODE")
+  termsOfUse: contentfulTrainingRegistrationPageTermsOfUseTextNode! @link(from: "termsOfUse___NODE")
+  registerButton: String!
+  successTitle: String!
+  successDescription: contentfulTrainingRegistrationPageSuccessDescriptionTextNode! @link(from: "successDescription___NODE")
+  registrationCompletedDialogCloseButton:  String!
 }
 
 type ContentfulPromo implements ContentfulObject & Node @dontInfer {

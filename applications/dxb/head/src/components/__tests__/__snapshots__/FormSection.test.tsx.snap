@@ -82,7 +82,7 @@ exports[`FormSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -848,7 +848,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -1048,7 +1048,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -1176,7 +1176,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -1320,7 +1320,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -1485,7 +1485,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="test-form"
         >
           <div
@@ -1702,7 +1702,7 @@ exports[`FormSection component test multiply options in a checkbox group without
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="test-form"
         >
           <div
@@ -1919,7 +1919,7 @@ exports[`FormSection component test upload input with large file 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -2119,7 +2119,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -2264,7 +2264,7 @@ exports[`FormSection component test upload input with small file 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
