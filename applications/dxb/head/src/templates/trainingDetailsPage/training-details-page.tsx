@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import Section from "@bmi-digital/components/section";
+import { WindowLocation, useLocation } from "@reach/router";
 import Page, { Data as PageData } from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import TrainingDetail from "./components/TrainingDetail";
 import { StyledTopBreadcrumbsSection } from "./trainingDetailsPageStyles";
+import RegistrationCompletedDialog from "./components/RegistrationCompletedDialog";
 import type { TrainingDetailsCourseType as Course } from "./types";
 
 export type Props = {
@@ -17,7 +19,12 @@ export type Props = {
   };
   data: {
     doceboCourses: Course;
-    contentfulTrainingRegistrationPage: { path: string } | null;
+    contentfulTrainingRegistrationPage: {
+      path: string;
+      successTitle: string;
+      successDescription: { successDescription: string };
+      registrationCompletedDialogCloseButton: string;
+    } | null;
     contentfulSite: SiteData;
   };
 };
@@ -25,9 +32,13 @@ export type Props = {
 const TrainingDetailsPage = ({ data }: Props) => {
   const {
     doceboCourses: { breadcrumbs, ...trainingData },
-    contentfulTrainingRegistrationPage: { path: trainingRegistrationUrl },
+    contentfulTrainingRegistrationPage,
     contentfulSite
   } = data;
+
+  const {
+    state: historyState
+  }: WindowLocation<{ showResultsModal?: boolean }> = useLocation();
 
   const pageData: PageData = {
     breadcrumbs: breadcrumbs,
@@ -35,6 +46,12 @@ const TrainingDetailsPage = ({ data }: Props) => {
     seo: null,
     path: `/t/${trainingData.slug_name}`
   };
+
+  useEffect(() => {
+    if (historyState?.showResultsModal === true) {
+      history.replaceState({ showResultsModal: false }, "");
+    }
+  }, [historyState]);
 
   return (
     <Page
@@ -56,13 +73,24 @@ const TrainingDetailsPage = ({ data }: Props) => {
       </StyledTopBreadcrumbsSection>
       <TrainingDetail
         course={trainingData}
-        trainingRegistrationUrl={trainingRegistrationUrl}
+        trainingRegistrationUrl={contentfulTrainingRegistrationPage?.path}
       />
       <Section data-testid="breadcrumbs-section-bottom" backgroundColor="white">
         <BackToResults>
           <Breadcrumbs data={breadcrumbs} data-testid="breadcrumbs-bottom" />
         </BackToResults>
       </Section>
+      <RegistrationCompletedDialog
+        title={contentfulTrainingRegistrationPage?.successTitle}
+        description={
+          contentfulTrainingRegistrationPage?.successDescription
+            .successDescription
+        }
+        closeButtonLabel={
+          contentfulTrainingRegistrationPage?.registrationCompletedDialogCloseButton
+        }
+        open={Boolean(historyState?.showResultsModal)}
+      />
     </Page>
   );
 };
@@ -99,6 +127,11 @@ export const pageQuery = graphql`
     }
     contentfulTrainingRegistrationPage(metadata: $tagFilter) {
       path
+      successTitle
+      successDescription {
+        successDescription
+      }
+      registrationCompletedDialogCloseButton
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

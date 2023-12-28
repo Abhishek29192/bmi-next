@@ -32,7 +32,10 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { useConfig } from "../contexts/ConfigProvider";
-import { isValidEmail } from "../utils/emailUtils";
+import {
+  handleEmailValidation as validateEmail,
+  isValidEmail
+} from "../utils/emailUtils";
 import getCookie from "../utils/getCookie";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isRichText } from "../utils/isRichText";
@@ -117,7 +120,7 @@ export const convertMarkdownLinksToAnchorLinks = (
         <AnchorLink
           action={{ model: "htmlLink", href: link }}
           target="_blank"
-          rel={isExternalUrl(link) && "noopener"}
+          rel={isExternalUrl(link) ? "noopener" : undefined}
           data-testid={`label-${replaceSpaces(label)}-anchor-link`}
         >
           {label}
@@ -157,14 +160,8 @@ const Input = ({
   });
 
   const handleEmailValidation = useCallback(
-    (value: string) => {
-      // Has a full stop and a `@`, and at least one character in between both.
-      if (value.match(/.+@.+\..+/)) {
-        return false;
-      } else {
-        return getMicroCopy(microCopy.ERRORS_EMAIL_INVALID);
-      }
-    },
+    (value: string) =>
+      validateEmail(getMicroCopy(microCopy.ERRORS_EMAIL_INVALID), value),
     [getMicroCopy]
   );
 

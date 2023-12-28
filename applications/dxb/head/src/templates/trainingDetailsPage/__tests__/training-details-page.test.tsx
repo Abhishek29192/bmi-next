@@ -1,6 +1,11 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { createSession } from "@bmi/docebo-types";
-import { LocationProvider } from "@reach/router";
+import {
+  createHistory,
+  createMemorySource,
+  History,
+  LocationProvider
+} from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { createTraining } from "../../../__tests__/helpers/TrainingHelper";
@@ -16,17 +21,42 @@ const mockPageContext: TrainingProps["pageContext"] = {
   courseId: 10
 };
 
-const renderTrainingDetailsPage = ({ course }: { course: Course }) => {
+const trainingRegistrationPageData = {
+  path: "training-registration-page/",
+  registrationCompletedDialogCloseButton: "Close",
+  successTitle: "Thank you for registration",
+  successDescription: {
+    successDescription:
+      "We have received your registration and we’ll get in touch with you shortly."
+  }
+};
+
+jest.mock("../components/RegistrationCompletedDialog", () => ({
+  __esModule: true,
+  default: () => <>Success training registration modal</>
+}));
+
+window.history.replaceState = jest.fn();
+
+const renderTrainingDetailsPage = ({
+  course,
+  history: customHistory
+}: {
+  course: Course;
+  history?: History;
+}) => {
+  const history =
+    customHistory ||
+    createHistory(createMemorySource(`/no/t/${course.slug_name}`));
+
   return render(
     <ThemeProvider>
-      <LocationProvider>
+      <LocationProvider history={history}>
         <TrainingDetailsPage
           data={{
             doceboCourses: course,
             contentfulSite: createMockSiteData(),
-            contentfulTrainingRegistrationPage: {
-              path: "training-registration-page/"
-            }
+            contentfulTrainingRegistrationPage: trainingRegistrationPageData
           }}
           pageContext={mockPageContext}
         />
@@ -63,6 +93,9 @@ describe("Training DetailsPage", () => {
     expect(screen.getByTestId("sessions-title")).toBeInTheDocument();
     expect(screen.getByRole("banner")).toBeInTheDocument();
     expect(screen.getByText("MC: training.price.free")).toBeInTheDocument();
+    expect(
+      screen.getByText("Success training registration modal")
+    ).toBeInTheDocument();
   });
 
   it("should render training id label if code does not exists for course", () => {
@@ -100,5 +133,19 @@ describe("Training DetailsPage", () => {
       course: createTraining({ price: "100" })
     });
     expect(screen.getByText("€100")).toBeInTheDocument();
+  });
+
+  it("replaces history state if 'showResultsModal' is set to true", () => {
+    const historyMemorySource = createMemorySource("/no/t/course-slug-name");
+    historyMemorySource.history.pushState({ showResultsModal: true }, "", "");
+    const history = createHistory(historyMemorySource);
+
+    renderTrainingDetailsPage({ history, course: createTraining() });
+    expect(window.history.replaceState).toHaveBeenCalledWith(
+      {
+        showResultsModal: false
+      },
+      ""
+    );
   });
 });

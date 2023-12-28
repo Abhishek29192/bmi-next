@@ -148,6 +148,7 @@ export const microCopy = {
   FORM_UPLOAD_MAX_SIZE: "form.upload.maxSize",
   FORM_SUBMIT: "form.submit",
   FORM_NONE_SELECTION: "form.none.selection",
+  FORM_SUBMIT_BUTTON_HELP_TEXT: "form.submitButton.helpText",
 
   MENU_LANGUAGE: "menu.language",
   MENU_OPEN: "menu.open",

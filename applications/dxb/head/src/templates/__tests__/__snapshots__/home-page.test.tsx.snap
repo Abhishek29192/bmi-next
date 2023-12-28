@@ -793,7 +793,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 >
                   <form
                     action="/en/search/"
-                    class="css-1mhzmpj"
+                    class="css-1hsggty"
                     data-testid="search-form"
                   >
                     <div
