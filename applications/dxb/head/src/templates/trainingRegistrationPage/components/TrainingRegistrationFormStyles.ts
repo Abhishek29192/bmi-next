@@ -27,10 +27,16 @@ export const StyledSubmitButtonWrapper = styled(Form.ButtonWrapper)(
       marginTop: 0,
 
       [theme.breakpoints.down("lg")]: {
-        width: "100%",
-        [`& .${buttonClasses.root}`]: {
-          width: "100%"
-        }
+        width: "100%"
+      }
+    },
+
+    [`&& .${buttonClasses.root}`]: {
+      marginLeft: 0,
+      marginTop: 0,
+
+      [theme.breakpoints.down("lg")]: {
+        width: "100%"
       }
     }
   })

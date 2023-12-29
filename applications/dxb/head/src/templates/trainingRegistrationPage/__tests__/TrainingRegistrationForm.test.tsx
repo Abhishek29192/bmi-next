@@ -1,12 +1,6 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { LocationProvider } from "@reach/router";
-import {
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-  within
-} from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { trainingRegistrationPageData } from "../__mocks__/trainingRegistrationPage";
 import TrainingRegistrationForm from "../components/TrainingRegistrationForm";
@@ -136,9 +130,8 @@ describe("TrainingRegistrationForm", () => {
       }),
       { target: { value: "Postal code" } }
     );
-    fireEvent.click(
-      within(screen.getByTestId("terms-of-use-checkbox")).getByRole("checkbox")
-    );
+    fireEvent.click(screen.getByTestId("terms-of-use-checkbox"));
+    fireEvent.click(screen.getByTestId("consent-text-checkbox"));
 
     const submitButton = screen.getByRole("button", {
       name: trainingRegistrationPageData.registerButton
@@ -197,9 +190,8 @@ describe("TrainingRegistrationForm", () => {
       }),
       { target: { value: "Postal code" } }
     );
-    fireEvent.click(
-      within(screen.getByTestId("terms-of-use-checkbox")).getByRole("checkbox")
-    );
+    fireEvent.click(screen.getByTestId("terms-of-use-checkbox"));
+    fireEvent.click(screen.getByTestId("consent-text-checkbox"));
 
     const submitButton = screen.getByRole("button", {
       name: trainingRegistrationPageData.registerButton

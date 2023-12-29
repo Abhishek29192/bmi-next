@@ -1,5 +1,6 @@
 import Dialog from "@bmi-digital/components/dialog";
 import Typography from "@bmi-digital/components/typography";
+import GlobalStyles from "@mui/material/GlobalStyles";
 import React, { useEffect, useState } from "react";
 import { StyledDialog } from "./RegistrationCompletedDialogStyles";
 
@@ -20,24 +21,38 @@ const RegistrationCompetedDialog = (props: RegistrationCompetedDialogProps) => {
   }, [props.open]);
 
   return (
-    <StyledDialog
-      open={isOpen}
-      data-testid="registration-completed-dialog"
-      onCloseClick={() => setIsOpen(false)}
-    >
-      <Dialog.Title hasUnderline variant="h4">
-        {props.title}
-      </Dialog.Title>
-      <Dialog.Content>
-        <Typography data-testid="registration-completed-dialog-description">
-          {props.description}
-        </Typography>
-      </Dialog.Content>
-      <Dialog.Actions
-        confirmLabel={props.closeButtonLabel}
-        onConfirmClick={() => setIsOpen(false)}
-      />
-    </StyledDialog>
+    <>
+      {isOpen && (
+        <GlobalStyles
+          styles={{
+            body: {
+              paddingRight: "0 !important"
+            },
+            html: {
+              overflow: "hidden"
+            }
+          }}
+        />
+      )}
+      <StyledDialog
+        open={isOpen}
+        data-testid="registration-completed-dialog"
+        onCloseClick={() => setIsOpen(false)}
+      >
+        <Dialog.Title hasUnderline variant="h4">
+          {props.title}
+        </Dialog.Title>
+        <Dialog.Content>
+          <Typography data-testid="registration-completed-dialog-description">
+            {props.description}
+          </Typography>
+        </Dialog.Content>
+        <Dialog.Actions
+          confirmLabel={props.closeButtonLabel}
+          onConfirmClick={() => setIsOpen(false)}
+        />
+      </StyledDialog>
+    </>
   );
 };
 
