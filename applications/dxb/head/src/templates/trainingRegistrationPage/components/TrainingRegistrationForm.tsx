@@ -302,6 +302,10 @@ const TrainingRegistrationForm = (
                   label={convertMarkdownLinksToAnchorLinks(
                     props.consentText.consentText
                   )}
+                  isRequired
+                  fieldIsRequiredError={getMicroCopy(
+                    microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+                  )}
                 />
               </Grid>
               <Grid xs={12}>
