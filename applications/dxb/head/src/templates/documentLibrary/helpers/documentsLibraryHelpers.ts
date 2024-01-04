@@ -122,7 +122,10 @@ export const compileESQuery = (
       ...generateFiltersAggs(filters),
       unique_documents_count: {
         cardinality: {
-          field: "titleAndSize.keyword"
+          field:
+            resultType === "Technical"
+              ? "productBaseCode.keyword"
+              : "titleAndSize.keyword"
         }
       }
     },

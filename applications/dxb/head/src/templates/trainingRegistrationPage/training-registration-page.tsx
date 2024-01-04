@@ -1,18 +1,18 @@
-import { graphql } from "gatsby";
-import React, { useMemo } from "react";
 import Section from "@bmi-digital/components/section";
 import { isDefined } from "@bmi/utils";
+import { graphql } from "gatsby";
+import React, { useMemo } from "react";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import Page, { Data as PageData } from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import Scrim from "../../components/Scrim";
-import Breadcrumbs from "../../components/Breadcrumbs";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import { getPathWithCountryCode } from "../../utils/path";
+import TrainingRegistrationForm from "./components/TrainingRegistrationForm";
 import TrainingRegistrationHeader from "./components/TrainingRegistrationHeader";
 import { useRegistration } from "./hooks/useRegistration";
-import TrainingRegistrationForm from "./components/TrainingRegistrationForm";
-import type { TrainingRegistrationPageProps } from "./types";
 import type { BreadcrumbItem } from "../../types/pim";
+import type { TrainingRegistrationPageProps } from "./types";
 
 const TrainingRegistrationPage = ({
   data: {
@@ -89,7 +89,7 @@ const TrainingRegistrationPage = ({
           )}
         />
       )}
-      <Section backgroundColor="white" data-testid="breadcrumbs-section-top">
+      <Section backgroundColor="white" data-testid="breadcrumbs-section-bottom">
         <Breadcrumbs
           data={breadcrumbs}
           concatenateUrls={false}
