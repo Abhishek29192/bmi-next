@@ -117,4 +117,47 @@ describe("compileESQuery tests", () => {
       expect(generatedQuery).toEqual(expectedQuery);
     });
   });
+
+  describe("when resultsType is 'Technical'", () => {
+    it("does not generate asset type filter in Query", () => {
+      const generatedQuery = compileESQuery([], 1, "ALL", "Technical", []);
+
+      const expectedQuery = {
+        aggs: {
+          unique_documents_count: {
+            cardinality: {
+              field: "productBaseCode.keyword"
+            }
+          }
+        },
+        collapse: {
+          field: "productBaseCode.keyword",
+          inner_hits: {
+            name: "related_documents",
+            size: 100
+          }
+        },
+        from: 25,
+        query: {
+          bool: {
+            must: [
+              {
+                terms: {
+                  "__typename.keyword": ["PIMDocument"]
+                }
+              }
+            ]
+          }
+        },
+        size: 25,
+        sort: [
+          {
+            "title.keyword": "asc"
+          }
+        ]
+      };
+
+      expect(generatedQuery).toEqual(expectedQuery);
+    });
+  });
 });
