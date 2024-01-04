@@ -4,8 +4,11 @@ import { styled } from "@mui/material/styles";
 export const OverlapCardsSection = styled("div")(({ theme }) => ({
   marginTop: "-70px",
 
-  [theme.breakpoints.up("sm")]: {
-    marginTop: "-112px"
+  [theme.breakpoints.up("md")]: {
+    marginTop: "-45px"
+  },
+  [theme.breakpoints.up("lg")]: {
+    marginTop: "-75px"
   }
 }));
 

@@ -952,16 +952,16 @@ exports[`Home Page Template render correctly with all data 1`] = `
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div

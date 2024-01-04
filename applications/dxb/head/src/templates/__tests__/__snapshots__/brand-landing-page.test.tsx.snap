@@ -1104,16 +1104,16 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -2980,10 +2980,10 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
@@ -4593,16 +4593,16 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -6467,16 +6467,16 @@ exports[`Brand Landing Page Template render no content for first slide when no d
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -8343,16 +8343,16 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -10189,16 +10189,16 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -12065,16 +12065,16 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -13954,16 +13954,16 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -15841,16 +15841,16 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -17730,16 +17730,16 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -19619,16 +19619,16 @@ exports[`Brand Landing Page Template when description is more than 400 character
             data-testid="horizon-container"
           >
             <div
-              class="CarouselHero-left css-1e6009d"
+              class="CarouselHero-left css-1or315q"
             />
             <div
-              class="CarouselHero-right css-1e6009d"
+              class="CarouselHero-right css-1or315q"
             />
           </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-1571p5"
         data-testid="overlap-cards-wrapper"
       >
         <div
