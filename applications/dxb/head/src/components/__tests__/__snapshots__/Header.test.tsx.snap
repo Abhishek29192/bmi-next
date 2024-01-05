@@ -1291,7 +1291,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     />
                   </svg>
                   <span
-                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError css-12zkn4t-MuiBadge-badge"
+                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError css-1gzqy2d-MuiBadge-badge"
                     data-testid="shopping-cart-button-badge-slot"
                   >
                     1
@@ -2032,7 +2032,7 @@ exports[`Header component toggles search 1`] = `
                 MC: search.placeholder.header
               </label>
               <div
-                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
               >
                 <input
                   aria-invalid="false"

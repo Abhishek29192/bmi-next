@@ -6,7 +6,7 @@ exports[`ConfiguratorPanel component renders collapsed 1`] = `
     class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
       data-testid="configurator-panel-accordion"
     >
       <div
@@ -75,7 +75,7 @@ exports[`ConfiguratorPanel component renders correctly 1`] = `
     class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
       data-testid="configurator-panel-accordion"
     >
       <div
@@ -144,7 +144,7 @@ exports[`ConfiguratorPanel component renders disabled 1`] = `
     class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
       data-testid="configurator-panel-accordion"
     >
       <div
@@ -230,7 +230,7 @@ exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
     class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
       data-testid="configurator-panel-accordion"
     >
       <div
@@ -306,7 +306,7 @@ exports[`ConfiguratorPanel component renders expanded with child content and opt
     class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
       data-testid="configurator-panel-accordion"
     >
       <div
@@ -391,7 +391,7 @@ exports[`ConfiguratorPanel component renders with title with selected option tit
     class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
       data-testid="configurator-panel-accordion"
     >
       <div

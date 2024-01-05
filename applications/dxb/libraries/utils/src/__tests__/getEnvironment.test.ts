@@ -22,10 +22,10 @@ afterEach(() => {
 describe("getEnvironment", () => {
   it("returns already existing client on environment call", async () => {
     await getEnvironment();
-    expect(spaceGetEnvironment).toBeCalledTimes(1);
+    expect(spaceGetEnvironment).toHaveBeenCalledTimes(1);
 
     spaceGetEnvironment.mockReset();
     await getEnvironment();
-    expect(spaceGetEnvironment).toBeCalledTimes(0);
+    expect(spaceGetEnvironment).toHaveBeenCalledTimes(0);
   });
 });

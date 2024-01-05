@@ -1367,7 +1367,7 @@ describe("fourOFour", () => {
                   siteData: mockSiteData
                 });
                 // eslint-disable-next-line no-console
-                expect(console.warn).toBeCalledTimes(0);
+                expect(console.warn).toHaveBeenCalledTimes(0);
               });
             });
           });

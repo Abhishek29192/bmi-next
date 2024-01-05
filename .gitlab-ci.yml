@@ -1,7 +1,7 @@
 include:
   - project: "bmi-digital/gitlab-templates"
     file: "yarn.gitlab-ci.yml"
-    ref: "v2.1.0"
+    ref: "v2.2.1"
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/redirects-website/.gitlab-ci.yml"

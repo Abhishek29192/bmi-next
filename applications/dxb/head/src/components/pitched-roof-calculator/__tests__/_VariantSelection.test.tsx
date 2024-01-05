@@ -52,7 +52,7 @@ describe("PitchedRoofCalculator VariantSelection component", () => {
     );
 
     fireEvent.click(screen.getByText(tiles[0].color));
-    await waitFor(() => expect(pushEvent).toBeCalledTimes(1));
+    await waitFor(() => expect(pushEvent).toHaveBeenCalledTimes(1));
   });
 
   it("renders with no variants", () => {

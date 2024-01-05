@@ -43,8 +43,8 @@ describe("Making an OPTIONS request as part of CORS", () => {
     expect(res.set).toBeCalledWith("Access-Control-Max-Age", "3600");
     expect(res.status).toBeCalledWith(204);
     expect(res.send).toBeCalledWith("");
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
   });
 });
 
@@ -62,8 +62,8 @@ describe("Making a PUT request", () => {
     expect(res.send).toBeCalledWith(
       '{"error":"PUT request method is not supported. Use GET or POST."}'
     );
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
   });
 });
 
@@ -81,8 +81,8 @@ describe("Making a DELETE request", () => {
     expect(res.send).toBeCalledWith(
       '{"error":"DELETE request method is not supported. Use GET or POST."}'
     );
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
   });
 });
 
@@ -118,7 +118,7 @@ describe("Making a GET request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(500);
-    expect(res.setHeader).toBeCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
     expect(res.send).toBeCalledWith("Request to Elasticsearch failed.");
     expect(fetchMock).toHaveFetched(expectedResponse.url, {
       method: req.method,
@@ -289,7 +289,7 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(500);
-    expect(res.setHeader).toBeCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
     expect(res.send).toBeCalledWith("Request to Elasticsearch failed.");
     expect(fetchMock).toHaveFetched(expectedResponse.url, {
       body: req.body,

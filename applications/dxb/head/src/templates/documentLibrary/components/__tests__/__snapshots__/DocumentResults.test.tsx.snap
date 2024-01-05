@@ -470,7 +470,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
         data-testid="accordion"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-clt0iy-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ldqf96-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div

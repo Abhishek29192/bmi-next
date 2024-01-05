@@ -76,15 +76,15 @@ describe("Invalid environment variables", () => {
 
     await download(req, res);
 
-    expect(res.set).toBeCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(bucket).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(bucket).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -101,15 +101,15 @@ describe("Invalid environment variables", () => {
 
     await download(req, res);
 
-    expect(res.set).toBeCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -139,12 +139,12 @@ describe("Making an OPTIONS request as part of CORS", () => {
     expect(res.status).toBeCalledWith(204);
     expect(res.send).toBeCalledWith("");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -164,12 +164,12 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith("List of documents not provided.");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -192,12 +192,12 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith("List of documents not provided.");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -222,12 +222,12 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith("List of documents not provided.");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -250,12 +250,12 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith("Token not provided.");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -282,12 +282,12 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith("Invalid host(s).");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -314,12 +314,12 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith("Missing name(s).");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -346,12 +346,12 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith("Missing HREF(s).");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -385,11 +385,11 @@ describe("Making a POST request", () => {
       recaptchaSecret,
       parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
-    expect(file).toBeCalledTimes(0);
-    expect(fetchMock).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -418,11 +418,11 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith("QaAuthToken failed.");
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
-    expect(file).toBeCalledTimes(0);
-    expect(res.setHeader).toBeCalledTimes(0);
-    expect(createWriteStream).toBeCalledTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(res.setHeader).toHaveBeenCalledTimes(0);
+    expect(createWriteStream).toHaveBeenCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -475,11 +475,11 @@ describe("Making a POST request", () => {
     );
     expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
-    expect(createWriteStream).toBeCalledTimes(1);
+    expect(createWriteStream).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -528,9 +528,9 @@ describe("Making a POST request", () => {
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
     expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
-    expect(createWriteStream).toBeCalledTimes(1);
+    expect(createWriteStream).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveFetchedTimes(0);
-    expect(publicUrl).toBeCalledTimes(0);
+    expect(publicUrl).toHaveBeenCalledTimes(0);
     expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
@@ -571,7 +571,7 @@ describe("Making a POST request", () => {
     await download(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledTimes(0);
+    expect(res.status).toHaveBeenCalledTimes(0);
     expect(res.send).toBeCalledWith({ url: "https://somewhere/file.zip" });
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
     expect(verifyRecaptchaToken).toBeCalledWith(
@@ -581,11 +581,11 @@ describe("Making a POST request", () => {
     );
     expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
-    expect(createWriteStream).toBeCalledTimes(1);
+    expect(createWriteStream).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
-    expect(publicUrl).toBeCalledTimes(1);
+    expect(publicUrl).toHaveBeenCalledTimes(1);
     expect(temporaryFileContents(temporaryFile)!.length).toBeGreaterThan(0);
 
     deleteTemporaryFile(temporaryFile);
@@ -622,7 +622,7 @@ describe("Making a POST request", () => {
     await download(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledTimes(0);
+    expect(res.status).toHaveBeenCalledTimes(0);
     expect(res.send).toBeCalledWith({ url: "https://somewhere/file.zip" });
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
     expect(verifyRecaptchaToken).toBeCalledWith(
@@ -632,11 +632,11 @@ describe("Making a POST request", () => {
     );
     expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
-    expect(createWriteStream).toBeCalledTimes(1);
+    expect(createWriteStream).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
-    expect(publicUrl).toBeCalledTimes(1);
+    expect(publicUrl).toHaveBeenCalledTimes(1);
     expect(temporaryFileContents(temporaryFile)!.length).toBeGreaterThan(0);
 
     deleteTemporaryFile(temporaryFile);
@@ -685,11 +685,11 @@ describe("Making a POST request", () => {
     );
     expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
-    expect(createWriteStream).toBeCalledTimes(1);
+    expect(createWriteStream).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
-    expect(publicUrl).toBeCalledTimes(1);
+    expect(publicUrl).toHaveBeenCalledTimes(1);
     expect(temporaryFileContents(temporaryFile)!.length).toBeGreaterThan(0);
 
     deleteTemporaryFile(temporaryFile);
@@ -727,7 +727,7 @@ describe("Making a POST request", () => {
     await download(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledTimes(0);
+    expect(res.status).toHaveBeenCalledTimes(0);
     expect(res.send).toBeCalledWith({ url: "https://somewhere/file.zip" });
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
     expect(verifyRecaptchaToken).toBeCalledWith(
@@ -737,11 +737,11 @@ describe("Making a POST request", () => {
     );
     expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
-    expect(createWriteStream).toBeCalledTimes(1);
+    expect(createWriteStream).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
-    expect(publicUrl).toBeCalledTimes(1);
+    expect(publicUrl).toHaveBeenCalledTimes(1);
     expect(temporaryFileContents(temporaryFile)!.length).toBeGreaterThan(0);
 
     deleteTemporaryFile(temporaryFile);
@@ -780,7 +780,7 @@ describe("Making a POST request", () => {
     await download(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledTimes(0);
+    expect(res.status).toHaveBeenCalledTimes(0);
     expect(res.send).toBeCalledWith({ url: "https://somewhere/file.zip" });
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
     expect(verifyRecaptchaToken).toBeCalledWith(
@@ -790,9 +790,9 @@ describe("Making a POST request", () => {
     );
     expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
-    expect(createWriteStream).toBeCalledTimes(1);
+    expect(createWriteStream).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveFetched("https://somewhere/file.pdf");
-    expect(publicUrl).toBeCalledTimes(1);
+    expect(publicUrl).toHaveBeenCalledTimes(1);
     expect(temporaryFileContents(temporaryFile)!.length).toBeGreaterThan(0);
 
     deleteTemporaryFile(temporaryFile);
@@ -830,17 +830,17 @@ describe("Making a POST request", () => {
     await download(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledTimes(0);
+    expect(res.status).toHaveBeenCalledTimes(0);
     expect(res.send).toBeCalledWith({ url: "https://somewhere/file.zip" });
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
-    expect(verifyRecaptchaToken).toBeCalledTimes(0);
+    expect(verifyRecaptchaToken).toHaveBeenCalledTimes(0);
     expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
-    expect(createWriteStream).toBeCalledTimes(1);
+    expect(createWriteStream).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
-    expect(publicUrl).toBeCalledTimes(1);
+    expect(publicUrl).toHaveBeenCalledTimes(1);
     expect(temporaryFileContents(temporaryFile)!.length).toBeGreaterThan(0);
 
     deleteTemporaryFile(temporaryFile);

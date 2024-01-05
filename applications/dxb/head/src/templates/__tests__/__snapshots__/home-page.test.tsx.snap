@@ -809,7 +809,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -1417,7 +1417,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   data-testid="accordion"
                 >
                   <div
-                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
                     data-testid="accordion-item"
                   >
                     <div

@@ -32,7 +32,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
             data-testid="accordion"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
@@ -142,7 +142,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
             data-testid="accordion"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
