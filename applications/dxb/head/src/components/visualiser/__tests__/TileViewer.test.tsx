@@ -66,6 +66,7 @@ jest.mock("../ModelCache", () => ({
 
 afterEach(() => {
   jest.clearAllMocks();
+  jest.restoreAllMocks();
 });
 
 describe("HouseViewer", () => {
@@ -140,8 +141,8 @@ describe("HouseViewer", () => {
       const tileViewer = new TileViewer(defaultProps);
       tileViewer.container = document.createElement("div");
       tileViewer.load();
-      tileViewer.controls!.dispatchEvent({ type: "change", target: <div /> });
-      //First time - on background load, second time - before loadModel method and third time on change event
+      tileViewer.controls!.dispatchEvent({ type: "change" });
+      //First time – on background load, second time – before loadModel method and third time on change event
       await waitFor(() => expect(renderFrameSpy).toHaveBeenCalledTimes(3));
     });
 

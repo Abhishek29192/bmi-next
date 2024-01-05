@@ -648,7 +648,7 @@ describe("PitchedRoofCalculator Results component", () => {
       </ThemeProvider>
     );
 
-    await waitFor(() => expect(getBlobMock).toBeCalledTimes(1));
+    await waitFor(() => expect(getBlobMock).toHaveBeenCalledTimes(1));
   });
 
   it("renders with final report", () => {

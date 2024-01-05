@@ -376,7 +376,7 @@ describe("Making a POST request", () => {
 
     await build(req, res);
 
-    expect(fetchMock).toBeCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
   it("Calls all gatbsy cloud build webhooks, if called with a recognised tag, ", async () => {
@@ -401,7 +401,7 @@ describe("Making a POST request", () => {
 
     await build(req, res);
 
-    expect(fetchMock).toBeCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it("sends original request body to the POST request", async () => {

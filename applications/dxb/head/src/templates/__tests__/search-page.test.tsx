@@ -475,7 +475,7 @@ describe("Search Page Template", () => {
 
     fireEvent.click(nextPageButton);
     await screen.findByText("MC: search.tabHeadings.products (3)");
-    expect(elasticSearchSpy).toBeCalledTimes(2);
+    expect(elasticSearchSpy).toHaveBeenCalledTimes(2);
   });
 
   it("run handleSubmit and return message correctly when GATSBY_PREVIEW exists", async () => {

@@ -63,10 +63,10 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await upload(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_SPACE_ID = originalContentfulSpaceId;
@@ -83,10 +83,10 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await upload(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_ENVIRONMENT = originalContentfulEnvironment;
@@ -104,10 +104,10 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await upload(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_MANAGEMENT_TOKEN =
@@ -125,10 +125,10 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await upload(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.RECAPTCHA_KEY = originalRecaptchaSecretKey;
@@ -142,9 +142,9 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await upload(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "POST");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Headers", [
@@ -168,10 +168,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_SPACE_ID = originalContentfulSpaceId;
@@ -186,10 +186,10 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_ENVIRONMENT = originalContentfulEnvironment;
@@ -204,9 +204,9 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Token not provided."));
@@ -218,9 +218,9 @@ describe("Making a POST request", () => {
 
     await upload(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(
@@ -241,9 +241,9 @@ describe("Making a POST request", () => {
       recaptchaSecret,
       parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
@@ -260,9 +260,9 @@ describe("Making a POST request", () => {
     await upload(req, res);
 
     expect(verifyRecaptchaToken).not.toBeCalled();
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("QaAuthToken failed."));
@@ -282,9 +282,9 @@ describe("Making a POST request", () => {
       recaptchaSecret,
       parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(406);
     expect(res.send).toBeCalledWith(
@@ -305,9 +305,9 @@ describe("Making a POST request", () => {
       recaptchaSecret,
       parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(406);
     expect(res.send).toBeCalledWith(
@@ -333,8 +333,8 @@ describe("Making a POST request", () => {
       parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -358,7 +358,7 @@ describe("Making a POST request", () => {
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createUpload).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -565,15 +565,15 @@ describe("Making a POST request", () => {
       parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
-    expect(getSpace).toBeCalledTimes(1);
+    expect(getSpace).toHaveBeenCalledTimes(1);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(getEnvironment).toBeCalledTimes(1);
+    expect(getEnvironment).toHaveBeenCalledTimes(1);
     expect(createUpload).toBeCalledWith({ file: req.body });
-    expect(createUpload).toBeCalledTimes(2);
+    expect(createUpload).toHaveBeenCalledTimes(2);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.set).toBeCalledTimes(2);
+    expect(res.set).toHaveBeenCalledTimes(2);
     expect(res.send).toBeCalledWith(uploadResponse);
-    expect(res.send).toBeCalledTimes(2);
+    expect(res.send).toHaveBeenCalledTimes(2);
   });
 
   it("returns status 200 when authorization header is used", async () => {

@@ -31,7 +31,7 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
-        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
       >
         <input
           aria-invalid="false"
@@ -80,7 +80,7 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
-        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
       >
         <input
           aria-invalid="false"
@@ -170,7 +170,7 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
-        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
       >
         <input
           aria-invalid="false"

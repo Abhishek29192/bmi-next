@@ -22,7 +22,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -331,7 +331,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -640,7 +640,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -884,7 +884,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -1080,7 +1080,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -1318,7 +1318,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -1495,7 +1495,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -1691,7 +1691,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -1887,7 +1887,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -2064,7 +2064,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -2260,7 +2260,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -2485,7 +2485,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -2710,7 +2710,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -2956,7 +2956,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -3441,7 +3441,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -3820,7 +3820,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -3997,7 +3997,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -4121,7 +4121,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -4317,7 +4317,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -4494,7 +4494,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -4706,7 +4706,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div
@@ -4926,7 +4926,7 @@ exports[`SystemConfiguratorSection component throws error 1`] = `
           class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1vv87hy-MuiPaper-root-MuiAccordion-root"
             data-testid="configurator-panel-accordion"
           >
             <div

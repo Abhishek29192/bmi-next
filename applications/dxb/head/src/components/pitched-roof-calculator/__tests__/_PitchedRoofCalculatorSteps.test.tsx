@@ -670,7 +670,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
       { variant: variant.externalProductCode }
     );
     //first request to fetch main products and second two fetch nested products
-    expect(mockedES).toBeCalledTimes(2);
+    expect(mockedES).toHaveBeenCalledTimes(2);
     await waitFor(() => expect(selected).toBe(CalculatorSteps.TileOptions));
 
     rerender(getComponent(selected));
@@ -681,7 +681,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
       createFormEvent(),
       { variant: variant.externalProductCode }
     );
-    expect(mockedES).toBeCalledTimes(2);
+    expect(mockedES).toHaveBeenCalledTimes(2);
   });
 
   it("shouldn't send second request on gutter selection step if user selects the same gutter twice", async () => {
@@ -755,7 +755,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
       gutterSelection
     );
     //first request to fetch main products, second request to fetch product references of the main products and third request to fetch product references for the previous product references
-    expect(mockedES).toBeCalledTimes(3);
+    expect(mockedES).toHaveBeenCalledTimes(3);
     await waitFor(() =>
       expect(selected).toBe(CalculatorSteps.YourSolutionContains)
     );
@@ -767,7 +767,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
       createFormEvent(),
       gutterSelection
     );
-    expect(mockedES).toBeCalledTimes(3);
+    expect(mockedES).toHaveBeenCalledTimes(3);
   });
 });
 

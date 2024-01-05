@@ -60,6 +60,9 @@ const createSpace = (space?: Partial<Space>): Space => ({
   getWebhookSigningSecret: jest.fn<Space["getWebhookSigningSecret"]>(),
   upsertWebhookSigningSecret: jest.fn<Space["upsertWebhookSigningSecret"]>(),
   deleteWebhookSigningSecret: jest.fn<Space["deleteWebhookSigningSecret"]>(),
+  getWebhookRetryPolicy: jest.fn<Space["getWebhookRetryPolicy"]>(),
+  upsertWebhookRetryPolicy: jest.fn<Space["upsertWebhookRetryPolicy"]>(),
+  deleteWebhookRetryPolicy: jest.fn<Space["deleteWebhookRetryPolicy"]>(),
   ...space
 });
 

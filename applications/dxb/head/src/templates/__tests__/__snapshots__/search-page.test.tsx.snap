@@ -844,7 +844,7 @@ exports[`Search Page Template render correctly 1`] = `
                           MC: searchPage.placeholder
                         </label>
                         <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
                         >
                           <input
                             aria-invalid="false"

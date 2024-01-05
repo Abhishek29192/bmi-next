@@ -297,7 +297,7 @@ describe("DocumentResultsFooter component", () => {
       "MC: downloadList.download (3)"
     );
     fireEvent.click(downloadButton);
-    expect(executeRecaptcha).toBeCalledTimes(1);
+    expect(executeRecaptcha).toHaveBeenCalledTimes(1);
   });
 
   it("should not call executeRecaptcha if qaAuthToken exists", async () => {
@@ -612,7 +612,14 @@ describe("DocumentResultsFooter component", () => {
       sticky: true
     };
 
-    const useShowMobileSpy = jest.spyOn(utils, "useShowMobileTable");
+    let useShowMobileSpy;
+    beforeEach(() => {
+      useShowMobileSpy = jest.spyOn(utils, "useShowMobileTable");
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
 
     it("should render select all when mobile view", () => {
       useShowMobileSpy.mockReturnValueOnce({

@@ -22,8 +22,8 @@ import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
 import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
 import ProductListerPage, {
-  PageContextType,
   Data as PlpPageInfoData,
+  PageContextType,
   Props
 } from "../product-lister-page";
 
@@ -197,6 +197,7 @@ afterEach(() => {
 });
 
 beforeEach(() => {
+  jest.clearAllMocks();
   jest.resetModules();
   mockUseDimensions({
     containerWidth: 400,
@@ -505,7 +506,7 @@ describe("ProductListerPage template", () => {
       pageContext
     );
     fireEvent.click(screen.getByLabelText("Go to next page"));
-    expect(mockQueryES).toBeCalledTimes(1);
+    expect(mockQueryES).toHaveBeenCalledTimes(1);
     expect(baseElement).toMatchSnapshot();
   });
 
@@ -535,7 +536,7 @@ describe("ProductListerPage template", () => {
       pageContext
     );
     fireEvent.click(screen.getByLabelText("Go to next page"));
-    expect(mockQueryES).toBeCalledTimes(1);
+    expect(mockQueryES).toHaveBeenCalledTimes(1);
     expect(baseElement).toMatchSnapshot();
   });
 

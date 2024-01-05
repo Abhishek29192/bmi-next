@@ -73,7 +73,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
     fireEvent.click(
       screen.getByText(tiles.zanda_minster_main_tile[0].baseProduct!.name!)
     );
-    await waitFor(() => expect(pushEvent).toBeCalledTimes(1));
+    await waitFor(() => expect(pushEvent).toHaveBeenCalledTimes(1));
   });
 
   it("renders with no tiles", () => {

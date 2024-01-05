@@ -71,6 +71,7 @@ jest.mock("../GetRef", () => ({
 
 afterEach(() => {
   jest.clearAllMocks();
+  jest.restoreAllMocks();
 });
 
 describe("Visualiser HouseViewer", () => {
@@ -191,7 +192,7 @@ describe("Visualiser HouseViewer", () => {
         .mockImplementation(jest.fn());
 
       loadSidingSpy = jest
-        .spyOn(HouseViewer.prototype, "loadHouse")
+        .spyOn(HouseViewer.prototype, "loadSiding")
         .mockImplementation(jest.fn());
     });
 
@@ -200,43 +201,43 @@ describe("Visualiser HouseViewer", () => {
       loadSidingSpy.mockReset();
     });
 
-    it("calls loadHouse method", () => {
+    it("calls loadHouse method", async () => {
       const houseViewer = new HouseViewer(defaultProps);
       houseViewer.setState((prev) => ({ ...prev, tileCode: undefined }));
-      houseViewer.loadModel(defaultProps);
+      await houseViewer.loadModel(defaultProps);
       expect(loadHouseSpy).toHaveBeenCalled();
     });
 
-    it("calls loadSiding method", () => {
+    it("calls loadSiding method", async () => {
       const houseViewer = new HouseViewer(defaultProps);
       houseViewer.setState((prev) => ({ ...prev, siding: undefined }));
-      houseViewer.loadModel(defaultProps);
+      await houseViewer.loadModel(defaultProps);
       expect(loadSidingSpy).toHaveBeenCalled();
     });
   });
 
   describe("loadSiding method", () => {
-    it("loads diffuseMap texture", () => {
+    it("loads diffuseMap texture", async () => {
       const houseViewer = new HouseViewer(defaultProps);
-      houseViewer.loadSiding({
+      await houseViewer.loadSiding({
         ...sidingMock,
         diffuseMapRef: "https://diffuse_map_url"
       });
       expect(loadTexture).toHaveBeenCalledWith("https://diffuse_map_url");
     });
 
-    it("loads metallicMap texture", () => {
+    it("loads metallicMap texture", async () => {
       const houseViewer = new HouseViewer(defaultProps);
-      houseViewer.loadSiding({
+      await houseViewer.loadSiding({
         ...sidingMock,
         metallicRoughnessMapRef: "https://metallic_map_url"
       });
       expect(loadTexture).toHaveBeenCalledWith("https://metallic_map_url");
     });
 
-    it("loads normalMap texture", () => {
+    it("loads normalMap texture", async () => {
       const houseViewer = new HouseViewer(defaultProps);
-      houseViewer.loadSiding({
+      await houseViewer.loadSiding({
         ...sidingMock,
         normalMapRef: "https://normal_map_url"
       });

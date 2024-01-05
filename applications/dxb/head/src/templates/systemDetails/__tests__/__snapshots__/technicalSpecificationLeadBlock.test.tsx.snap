@@ -21,7 +21,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             data-testid="accordion"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
@@ -123,7 +123,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
@@ -253,7 +253,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             data-testid="accordion"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
@@ -341,7 +341,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
@@ -613,7 +613,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             data-testid="accordion"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
@@ -701,7 +701,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
@@ -817,7 +817,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             data-testid="accordion"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
@@ -905,7 +905,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-ibuwsh-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
               data-testid="accordion-item"
             >
               <div
