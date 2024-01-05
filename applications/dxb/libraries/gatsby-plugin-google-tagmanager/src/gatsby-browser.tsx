@@ -34,16 +34,16 @@ const sendWebVitals = async (dataLayerName = "dataLayer") => {
     sendToGTM(data, win[dataLayerName]);
   }
 
-  const { getLCP, getFID, getCLS } = await import("web-vitals/base");
+  const { onLCP, onFID, onCLS } = await import("web-vitals");
   const debouncedCLS = debounce(sendData, 3000);
   // we don't need to debounce FID - we send it when it happens
   const debouncedFID = sendData;
   // LCP can occur multiple times so we debounce it
   const debouncedLCP = debounce(sendData, 3000);
   // With the true flag, we measure all previous occurences too, in case we start listening to late.
-  getCLS(debouncedCLS, true);
-  getFID(debouncedFID, true);
-  getLCP(debouncedLCP, true);
+  onCLS(debouncedCLS, { reportAllChanges: true });
+  onFID(debouncedFID, { reportAllChanges: true });
+  onLCP(debouncedLCP, { reportAllChanges: true });
 };
 
 const sendToGTM = ({ name, value, id }: Data, dataLayer: DataLayer) => {
