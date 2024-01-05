@@ -2094,8 +2094,8 @@ __metadata:
   linkType: hard
 
 "@bmi-digital/contentful-migration@npm:^1.4.22":
-  version: 1.4.22
-  resolution: "@bmi-digital/contentful-migration@npm:1.4.22"
+  version: 1.4.23
+  resolution: "@bmi-digital/contentful-migration@npm:1.4.23"
   dependencies:
     "@contentful/rich-text-from-markdown": ^15.16.8
     chalk: ^5.3.0
@@ -2105,7 +2105,7 @@ __metadata:
     migrate: ^2.0.1
     ora: ^8.0.0
     rimraf: ^5.0.5
-  checksum: 7ccd41b081468c1da1cf056fe6c79d5a9ae88a722121e71c3997d7e0f7ba61a684bd7bba9b471964cb6833bb9ba9c73cd680e94ed8047644bcf5bf976272a4c5
+  checksum: 18135a231e0d2c569b0cb9291508088eefbd7f791d602ed0e0064d5fc8fd8a5f175119626840432ed8b80b9b5d25229fd775218dda89a19b07cb5681b2318b98
   languageName: node
   linkType: hard
 
