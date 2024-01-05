@@ -151,7 +151,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={featuredMedia?.image?.file.url}
+      ogImageUrl={featuredMedia?.src}
       pageType="brandPage"
     >
       {({ siteContext }) => {

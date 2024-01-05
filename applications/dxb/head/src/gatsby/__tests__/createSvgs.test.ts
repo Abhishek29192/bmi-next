@@ -1,5 +1,5 @@
-import { describe, it, jest } from "@jest/globals";
 import { logoIconMap } from "@bmi-digital/components";
+import { describe, it, jest } from "@jest/globals";
 import { ReactElement } from "react";
 import createSvgs from "../createSvgs";
 import type React from "react";
@@ -30,7 +30,7 @@ jest.mock("react", () => ({
   ) => mockCreateElement(type, props)
 }));
 
-const outDir = `${__dirname.replace("/__tests__", "")}/../../static/brands`;
+const outDir = `${__dirname.replace("/__tests__", "")}/../../public/brands`;
 
 beforeEach(() => {
   jest.clearAllMocks();

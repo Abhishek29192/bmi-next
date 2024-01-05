@@ -8,7 +8,7 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";
 import { replaceSpaces } from "@bmi-digital/components/utils";
-import RichText, { RichTextData, parseReachDataRawFields } from "./RichText";
+import RichText, { RichTextData, parseRichDataRawFields } from "./RichText";
 import { useSiteContext } from "./Site";
 import ButtonLink from "./link/ButtonLink";
 import { Data as LinkData } from "./link/types";
@@ -70,8 +70,8 @@ const LeadBlockSection = ({
                 document={postItCard}
                 underlineHeadings={["h2", "h3", "h4"]}
                 gtmLabel={
-                  parseReachDataRawFields(postItCard)[BLOCKS.HEADING_4] ||
-                  parseReachDataRawFields(postItCard)[BLOCKS.HEADING_5]
+                  parseRichDataRawFields(postItCard)[BLOCKS.HEADING_4] ||
+                  parseRichDataRawFields(postItCard)[BLOCKS.HEADING_5]
                 }
               />
             ) : (

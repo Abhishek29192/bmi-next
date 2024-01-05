@@ -55,10 +55,6 @@ typings/
 .env*
 !.env.example
 
-# gatsby files
-.cache/
-public
-
 # Mac files
 .DS_Store
 
@@ -80,4 +76,6 @@ lighthouseci/
 
 zap_output.html
 
-static/brands/
+public/brands/
+
+.next/

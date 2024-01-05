@@ -4,7 +4,10 @@
     "noEmit": true,
     "outDir": "dist",
     "strict": false,
-    "jsx": "react"
+    "jsx": "preserve",
+    "allowJs": true,
+    "incremental": true,
+    "isolatedModules": true
   },
   "references": [
     {
@@ -40,5 +43,7 @@
     {
       "path": "../libraries/firestore-types"
     }
-  ]
+  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

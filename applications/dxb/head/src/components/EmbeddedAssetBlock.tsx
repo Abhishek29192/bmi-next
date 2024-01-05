@@ -43,6 +43,7 @@ const EmbeddedAssetBlock = ({
   if (fallbackImageType) {
     const formattedUrl = url.startsWith("https:") ? url : `https:${url}`;
     return (
+      // Replace with NextJS Image, using deviceSizes and imageSizes
       <picture>
         <source
           type="image/webp"

@@ -1,7 +1,8 @@
 // TODO: Move to under visualiser
 import MicroCopy from "@bmi-digital/components/micro-copy";
 import { navigate as navigateWithParams, useLocation } from "@reach/router";
-import { graphql, navigate } from "gatsby";
+import { graphql } from "gatsby";
+import { redirect } from "next/navigation";
 import queryString from "query-string";
 import React, { Suspense, createContext, useMemo, useState } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -146,7 +147,7 @@ const VisualiserProvider = ({
     });
 
     if (pathWithCountryCode) {
-      navigate(pathWithCountryCode);
+      redirect(pathWithCountryCode);
     }
   };
 

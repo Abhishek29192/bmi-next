@@ -1,32 +1,14 @@
-import type { GatsbyImageProps, IGatsbyImageData } from "gatsby-plugin-image";
+import { ImageLoaderProps } from "next/image";
 
-type ImageData =
-  | {
-      file: {
-        fileName: string;
-        url?: never;
-      };
-      gatsbyImageData: IGatsbyImageData;
-      thumbnail?: IGatsbyImageData;
-    }
-  | {
-      file: {
-        fileName: string;
-        url: string;
-      };
-      gatsbyImageData?: never;
-      thumbnail?: IGatsbyImageData;
-    };
-
-export type Data = {
-  altText: string;
+export type Data = ImageLoaderProps & {
+  height: number;
+  altText: HTMLImageElement["alt"];
   type?: "Decorative" | "Descriptive" | null;
-  image: ImageData;
   focalPoint?: {
     x: number;
     y: number;
   } | null;
-  loading?: GatsbyImageProps["loading"];
+  loading?: HTMLImageElement["loading"];
 };
 
 export type Options = {

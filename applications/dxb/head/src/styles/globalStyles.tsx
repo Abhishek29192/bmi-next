@@ -21,6 +21,21 @@ export const globalStyles = (
       "body::backdrop": {
         backgroundColor: theme.colours.white
       }
+      // Copied from global.css - are these even needed?
+      // html: {
+      //   boxSizing: "border-box",
+      //   "-webkit-font-smoothing": "antialiased",
+      //   "-moz-osx-font-smoothing": "grayscale"
+      // },
+      // "*, *::before, *::after": {
+      //   boxSizing: "inherit"
+      // },
+      // b: {
+      //   fontWeight: 700
+      // },
+      // ".grecaptcha-badge": {
+      //   visibility: "hidden"
+      // }
     })}
   />
 );

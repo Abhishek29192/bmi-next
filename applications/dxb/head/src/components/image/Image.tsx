@@ -1,13 +1,19 @@
 import { graphql } from "gatsby";
-import { GatsbyImage as Img } from "gatsby-plugin-image";
+import Img, { ImageLoaderProps } from "next/image";
 import React from "react";
 import { getPosition, typeToObjectFitMap } from "./utils";
 import type { Props } from "./types";
 
+const contentfulLoader = ({ src, width, quality }: ImageLoaderProps) => {
+  if (src.includes("contentful")) {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  }
+  return src;
+};
+
 const Image = ({
   altText,
   focalPoint,
-  image,
   size,
   type,
   position,
@@ -16,9 +22,10 @@ const Image = ({
   loading = "lazy",
   ...props
 }: Props) => {
-  return image.gatsbyImageData ? (
+  return (
     <Img
-      image={image.gatsbyImageData}
+      loader={contentfulLoader}
+      className={className}
       alt={altText}
       draggable={false}
       objectFit={size || typeToObjectFitMap[type || "Decorative"]}
@@ -28,24 +35,6 @@ const Image = ({
         focalPoint: focalPoint,
         isMobile: isMobile
       })}
-      className={className}
-      loading={loading}
-      {...props}
-    />
-  ) : (
-    <img
-      className={className}
-      src={image.file.url}
-      alt={altText}
-      style={{
-        objectFit: size || typeToObjectFitMap[type || "Decorative"],
-        objectPosition: getPosition({
-          size,
-          position,
-          focalPoint: focalPoint,
-          isMobile: isMobile
-        })
-      }}
       loading={loading}
       {...props}
     />

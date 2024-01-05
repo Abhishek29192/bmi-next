@@ -1,6 +1,7 @@
 import BackToTop from "@bmi-digital/components/back-to-top";
 import MicroCopy from "@bmi-digital/components/micro-copy";
-import { graphql, navigate } from "gatsby";
+import { graphql } from "gatsby";
+import { redirect } from "next/navigation";
 import React, { useCallback, useMemo } from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
@@ -189,7 +190,9 @@ const Page = ({
                   houseTypes={visualiserHouseTypes}
                 >
                   <CalculatorProvider
-                    onError={onError}
+                    onError={() =>
+                      redirect(getPathWithCountryCode(countryCode, "422"))
+                    }
                     calculatorConfig={pitchedRoofCalculatorConfig}
                   >
                     <BrandProvider brand={brand}>

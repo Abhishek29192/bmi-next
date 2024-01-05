@@ -24,7 +24,9 @@ const createContentfulPromoCard = (
     altText: "alt-text-img",
     type: "Decorative",
     focalPoint: null,
-    image: { file: { fileName: "file1.jpg", url: "https://nowhere.com" } }
+    src: "https://nowhere.com/file1.jpg",
+    width: 100,
+    height: 100
   },
   resources___NODE: [],
   metadata: { tags___NODE: [] },

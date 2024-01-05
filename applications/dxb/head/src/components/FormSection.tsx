@@ -16,8 +16,9 @@ import { replaceSpaces } from "@bmi-digital/components/utils";
 import logger from "@bmi-digital/functions-logger";
 import { microCopy } from "@bmi/microcopies";
 import classNames from "classnames";
-import { graphql, navigate } from "gatsby";
+import { graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
+import { redirect } from "next/navigation";
 import fetch from "node-fetch";
 import React, {
   FormEvent,
@@ -601,7 +602,7 @@ const FormSection = ({
       onSuccess && onSuccess();
 
       if (successRedirect) {
-        navigate(
+        redirect(
           successRedirect.url ||
             getPathWithCountryCode(
               countryCode,
@@ -609,7 +610,7 @@ const FormSection = ({
             )
         );
       } else {
-        navigate("/");
+        redirect("/");
       }
     } catch (error) {
       logger.error({ message: (error as Error).message });
@@ -708,7 +709,7 @@ const FormSection = ({
       }
 
       if (successRedirect) {
-        navigate(
+        redirect(
           successRedirect.url ||
             getPathWithCountryCode(
               countryCode,
@@ -716,7 +717,7 @@ const FormSection = ({
             )
         );
       } else {
-        navigate("/");
+        redirect("/");
       }
     } catch (error) {
       logger.error({ message: (error as Error).message });
