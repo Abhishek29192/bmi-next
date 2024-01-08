@@ -19,7 +19,7 @@
     "@bmi/functions-recaptcha": "workspace:*",
     "@google-cloud/functions-framework": "^3.3.0",
     "contentful-management": "^11.8.0",
-    "file-type": "^18.7.0",
+    "file-type": "^19.0.0",
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {

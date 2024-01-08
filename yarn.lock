@@ -3573,7 +3573,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-security: ^2.1.0
     eslint-plugin-you-dont-need-lodash-underscore: ^6.13.0
-    file-type: ^18.7.0
+    file-type: ^19.0.0
     inspectpack: ^4.7.1
     jest: ^29.7.0
     js-yaml: ^4.1.0
@@ -17632,14 +17632,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^18.7.0":
-  version: 18.7.0
-  resolution: "file-type@npm:18.7.0"
+"file-type@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "file-type@npm:19.0.0"
   dependencies:
     readable-web-to-node-stream: ^3.0.2
     strtok3: ^7.0.0
     token-types: ^5.0.1
-  checksum: bd06a5a5b2ba13892e8690f01eaacdad1136e0cd8fcc92a2c558a76c0192e8b95e7dddebd3c996f1124ca009ec2f7562537682f361df519e4a369b55b40926a7
+  checksum: 1884c3627f5922365f86cb19f107850fe7b72d78bef5c2affc92aa098ba414c944e3763101068236345737f44a5b6da13bb0ba79de4c4e3b1b1c68e1958643d9
   languageName: node
   linkType: hard
 
