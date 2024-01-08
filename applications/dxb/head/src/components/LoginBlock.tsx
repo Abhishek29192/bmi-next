@@ -1,7 +1,8 @@
 import Button from "@bmi-digital/components/button";
-import { AuthService, useAuth } from "@bmi/gatsby-theme-auth0";
 import { microCopy } from "@bmi/microcopies";
 import React from "react";
+import AuthService from "../auth/service";
+import useAuth from "../hooks/useAuth";
 import { getPathWithCountryCode } from "../utils/path";
 import { useSiteContext } from "./Site";
 import { LoginBlockStyles } from "./styles/LoginBlock";
@@ -37,7 +38,6 @@ const LoginBlock = () => {
       ) : (
         <Button
           onClick={() => {
-            console.log("Clicked login");
             AuthService.login();
           }}
           variant="text"

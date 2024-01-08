@@ -1,12 +1,13 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import { AuthService } from "@bmi/gatsby-theme-auth0";
 import { WindowLocation } from "@reach/router";
+import { render } from "@testing-library/react";
+import React from "react";
+import AuthService from "../../auth/service";
 
-import AuthCallback from "../../pages/authCallback";
+import AuthCallback from "../../pages/auth/callback";
 
-jest.mock("@bmi/gatsby-theme-auth0", () => ({
-  AuthService: {
+jest.mock("../../auth/service", () => ({
+  __esModule: true,
+  default: {
     handleAuthentication: jest.fn()
   }
 }));

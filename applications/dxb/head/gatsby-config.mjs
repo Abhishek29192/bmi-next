@@ -162,19 +162,6 @@ const config = {
   },
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
-    ...(process.env.GATSBY_IS_LOGIN_ENABLED === "true"
-      ? [
-        {
-          resolve: "@bmi/gatsby-theme-auth0",
-          options: {
-            domain: process.env.AUTH0_DOMAIN,
-            clientID: process.env.AUTH0_CLIENT_ID,
-            redirectUri: process.env.AUTH0_CALLBACK_URL,
-            logoutUri: process.env.AUTH0_LOGOUT_URL
-          }
-        }
-      ]
-      : []),
     `@bmi/gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
     {

@@ -1,9 +1,8 @@
-import * as React from "react";
-import { WindowLocation } from "@reach/router";
-import { AuthService, useAuth } from "@bmi/gatsby-theme-auth0";
+import React from "react";
+import AuthService from "../auth/service";
+import useAuth from "../hooks/useAuth";
 
 interface Props {
-  location?: WindowLocation;
   children?: React.ReactNode;
 }
 

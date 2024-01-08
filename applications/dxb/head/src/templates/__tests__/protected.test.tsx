@@ -1,13 +1,17 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { AuthService } from "@bmi/gatsby-theme-auth0";
+import React from "react";
+import AuthService from "../../auth/service";
 
 import ProtectedPage from "../../pages/protected";
 
 const mockUseAuth = jest.fn();
-jest.mock("@bmi/gatsby-theme-auth0", () => ({
-  useAuth: (args) => mockUseAuth(args),
-  AuthService: {
+jest.mock("../../hooks/useAuth", () => ({
+  __esModule: true,
+  default: (args) => mockUseAuth(args)
+}));
+jest.mock("../../auth/service", () => ({
+  __esModule: true,
+  default: {
     login: jest.fn(),
     logout: jest.fn()
   }

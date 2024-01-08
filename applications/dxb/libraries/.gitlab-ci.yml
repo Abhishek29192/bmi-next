@@ -20,7 +20,6 @@ include:
   - local: "/applications/dxb/libraries/gatsby-plugin-material-ui/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/gatsby-source-firestore/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/gatsby-source-hubspot-forms/.gitlab-ci.yml"
-  - local: "/applications/dxb/libraries/gatsby-theme-auth0/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/gatsby-source-docebo/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/microcopies/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/netlify-plugin-trigger-gitlab/.gitlab-ci.yml"

@@ -1,8 +1,7 @@
 import auth0 from "auth0-js";
 import { navigate } from "gatsby";
 import { config } from "./config";
-
-const isBrowser = typeof window !== "undefined";
+import type { AuthorizeOptions } from "auth0-js";
 
 export interface SessionState {
   isLoggedIn: boolean;
@@ -18,20 +17,24 @@ class Auth {
 
   public sessionStateCallback = (_state: SessionState) => {};
 
-  private auth0 = process.env.AUTH0_DOMAIN
+  private auth0 = process.env.GATSBY_AUTH0_DOMAIN
     ? new auth0.WebAuth(config)
     : undefined;
 
-  private logoutUri = process.env.AUTH0_LOGOUT_URL!;
+  private logoutUri = process.env.GATSBY_AUTH0_LOGOUT_URL!;
+  private isBrowser = typeof window !== "undefined";
 
   public login = () => {
-    if (!isBrowser) {
+    if (!this.isBrowser) {
       return;
     }
     // Save postLoginUrl so we can redirect user back to where they left off
     // after login screen
     localStorage.setItem("postLoginUrl", window.location.pathname);
-    this.auth0 && this.auth0.authorize();
+    this.auth0 &&
+      this.auth0.authorize({
+        market: process.env.SPACE_MARKET_CODE
+      } as unknown as AuthorizeOptions);
   };
 
   public handleAuthentication = (): Promise<auth0.Auth0DecodedHash | null> =>
@@ -61,7 +64,7 @@ class Auth {
   public getUserProfile = () => this.userProfile;
 
   private setSession(authResult: auth0.Auth0DecodedHash) {
-    if (!isBrowser) {
+    if (!this.isBrowser) {
       return;
     }
     localStorage.setItem("isLoggedIn", "true");
@@ -94,7 +97,7 @@ class Auth {
     });
 
   public localLogout = () => {
-    if (!isBrowser) {
+    if (!this.isBrowser) {
       return;
     }
     // Remove tokens and user profile
@@ -112,7 +115,7 @@ class Auth {
   };
 
   public logout = () => {
-    if (!isBrowser) {
+    if (!this.isBrowser) {
       return;
     }
     this.localLogout();
@@ -123,7 +126,7 @@ class Auth {
   };
 
   public isAuthenticated = () => {
-    if (!isBrowser) {
+    if (!this.isBrowser) {
       return false;
     }
     return localStorage.getItem("isLoggedIn") === "true";

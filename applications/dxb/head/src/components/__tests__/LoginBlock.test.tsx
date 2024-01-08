@@ -1,16 +1,20 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
-import { AuthService } from "@bmi/gatsby-theme-auth0";
-import { useAuthType } from "@bmi/gatsby-theme-auth0/src/hooks/useAuth";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import AuthService from "../../auth/service";
 import LoginBlock from "../LoginBlock";
 import { SiteContextProvider } from "../Site";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
+import type { useAuthType } from "../../hooks/useAuth";
 
 const mockUseAuth = jest.fn<useAuthType, [useAuthType]>();
-jest.mock("@bmi/gatsby-theme-auth0", () => ({
-  useAuth: (args: useAuthType) => mockUseAuth(args),
-  AuthService: {
+jest.mock("../../hooks/useAuth", () => ({
+  __esModule: true,
+  default: (args: useAuthType) => mockUseAuth(args)
+}));
+jest.mock("../../auth/service", () => ({
+  __esModule: true,
+  default: {
     login: jest.fn(),
     logout: jest.fn()
   }
