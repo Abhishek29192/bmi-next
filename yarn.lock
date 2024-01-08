@@ -2055,8 +2055,8 @@ __metadata:
   linkType: hard
 
 "@bmi-digital/components@npm:^1.68.0":
-  version: 1.68.0
-  resolution: "@bmi-digital/components@npm:1.68.0"
+  version: 1.68.1
+  resolution: "@bmi-digital/components@npm:1.68.1"
   dependencies:
     "@bmi-digital/use-dimensions": ^1.7.5
     "@emotion/react": ^11.11.1
@@ -2089,7 +2089,7 @@ __metadata:
     "@mui/styles": ^5.12.3
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 92663313533fa10ba17f683a9181ae96cc14263f9788adbdeb124270e59467754b82c11237a2760e71e589d7ad1bc450557e4202b4a5cf0a2fef928215ac6f44
+  checksum: d5c6e39adecc09da710fa013ecfcdd2ef11111cdc700c4019a7bafa7bb8d641182cdb9411181346a7f60454dc475e1f011ff46aa3f2b9774c71ca2bfb618c8e6
   languageName: node
   linkType: hard
 
