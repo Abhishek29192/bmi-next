@@ -1,8 +1,8 @@
-import * as process from "process";
-import * as auth0 from "auth0-js";
+import auth0 from "auth0-js";
 import { navigate } from "gatsby";
-import { getPathWithCountryCode } from "@bmi/head/src/utils/path";
 import { config } from "./config";
+
+const isBrowser = typeof window !== "undefined";
 
 export interface SessionState {
   isLoggedIn: boolean;
@@ -15,39 +15,23 @@ class Auth {
   private accessToken?: string;
   private idToken?: string;
   private userProfile?: auth0.Auth0UserProfile;
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+
   public sessionStateCallback = (_state: SessionState) => {};
-  public isBrowser = typeof window !== "undefined";
-  public auth0 = process.env.AUTH0_DOMAIN
+
+  private auth0 = process.env.AUTH0_DOMAIN
     ? new auth0.WebAuth(config)
     : undefined;
 
-  public authorize = process.env.AUTH0_DOMAIN
-    ? new auth0.Authentication(config)
-    : undefined;
-
-  public logoutUri = process.env.AUTH0_LOGOUT_URL;
-
-  public redirectDirectlyToLogin = () => {
-    if (this.auth0) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      navigate(process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT);
-      // temperary solution, will be redone in Phase 3 of LOGIN AREA
-      // this.auth0.authorize({
-      //   market: config.marketCode
-      // });
-    }
-  };
+  private logoutUri = process.env.AUTH0_LOGOUT_URL!;
 
   public login = () => {
-    if (!this.isBrowser) {
+    if (!isBrowser) {
       return;
     }
-    // Save postLoginUrl so we can redirect user
-    // back to where they left off after login screen
+    // Save postLoginUrl so we can redirect user back to where they left off
+    // after login screen
     localStorage.setItem("postLoginUrl", window.location.pathname);
-    this.redirectDirectlyToLogin();
+    this.auth0 && this.auth0.authorize();
   };
 
   public handleAuthentication = (): Promise<auth0.Auth0DecodedHash | null> =>
@@ -56,32 +40,11 @@ class Auth {
         this.auth0.parseHash((err, authResult) => {
           if (authResult && authResult.accessToken && authResult.idToken) {
             this.setSession(authResult);
-            const isEmailVerified = authResult.idTokenPayload.email_verified;
-            if (!isEmailVerified) {
-              localStorage.setItem("isLoggedIn", "false");
-              if (process.env.GATSBY_SITE_URL) {
-                const verifyUrl = getPathWithCountryCode(
-                  process.env.SPACE_MARKET_CODE as string,
-                  "verify-email"
-                );
-                const logoutUrl = `${process.env.GATSBY_SITE_URL}${verifyUrl}`;
-                this.auth0?.logout({
-                  returnTo: logoutUrl
-                });
-              }
-            } else {
-              const postLoginUrl = localStorage.getItem("postLoginUrl");
-              if (postLoginUrl) {
-                const urlToNavigate = postLoginUrl.includes("verify-email")
-                  ? getPathWithCountryCode(
-                      process.env.SPACE_MARKET_CODE as string,
-                      ""
-                    )
-                  : postLoginUrl;
 
-                navigate(urlToNavigate);
-              }
-              localStorage.removeItem("postLoginUrl");
+            const postLoginUrl = localStorage.getItem("postLoginUrl");
+            localStorage.removeItem("postLoginUrl");
+            if (postLoginUrl) {
+              navigate(postLoginUrl);
             }
             return resolve(authResult);
           } else if (err) {
@@ -97,8 +60,8 @@ class Auth {
 
   public getUserProfile = () => this.userProfile;
 
-  public setSession(authResult: auth0.Auth0DecodedHash): void {
-    if (!this.isBrowser) {
+  private setSession(authResult: auth0.Auth0DecodedHash) {
+    if (!isBrowser) {
       return;
     }
     localStorage.setItem("isLoggedIn", "true");
@@ -131,7 +94,7 @@ class Auth {
     });
 
   public localLogout = () => {
-    if (!this.isBrowser) {
+    if (!isBrowser) {
       return;
     }
     // Remove tokens and user profile
@@ -149,20 +112,18 @@ class Auth {
   };
 
   public logout = () => {
-    if (!this.isBrowser) {
+    if (!isBrowser) {
       return;
     }
-
     this.localLogout();
     this.auth0 &&
       this.auth0.logout({
         returnTo: this.logoutUri
       });
-    localStorage.setItem("isAlreadyShownAlert", "false");
   };
 
   public isAuthenticated = () => {
-    if (!this.isBrowser) {
+    if (!isBrowser) {
       return false;
     }
     return localStorage.getItem("isLoggedIn") === "true";

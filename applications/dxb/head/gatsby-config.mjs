@@ -3,8 +3,8 @@
 import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
-import getCredentialData from "./src/utils/get-credentials-data.mjs";
 import process from "process";
+import getCredentialData from "./src/utils/get-credentials-data.mjs";
 
 /**
  * @typedef { import("gatsby").GatsbyConfig } GatsbyConfig

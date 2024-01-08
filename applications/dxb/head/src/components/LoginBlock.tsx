@@ -36,9 +36,9 @@ const LoginBlock = () => {
         </Button>
       ) : (
         <Button
-          action={{
-            model: "htmlLink",
-            href: process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT
+          onClick={() => {
+            console.log("Clicked login");
+            AuthService.login();
           }}
           variant="text"
           data-testid="login"

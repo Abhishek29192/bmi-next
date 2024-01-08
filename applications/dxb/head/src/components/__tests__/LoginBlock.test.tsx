@@ -160,7 +160,7 @@ describe("LoginBlock Component", () => {
     expect(AuthService.logout).toHaveBeenCalled();
   });
 
-  it("redirect to intouch  when Login button is clicked", () => {
+  it("calls AuthService.login when Login button is clicked", () => {
     process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT =
       "https://dev-en.intouch.bmigroup.com/";
     mockUseAuth.mockReturnValue({
@@ -186,9 +186,6 @@ describe("LoginBlock Component", () => {
 
     const loginButton = screen.getByText("MC: login.label.btn");
     fireEvent.click(loginButton);
-    expect(loginButton).toHaveAttribute(
-      "href",
-      expect.stringContaining(`intouch.bmigroup.com`)
-    );
+    expect(AuthService.login).toHaveBeenCalled();
   });
 });

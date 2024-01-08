@@ -10,13 +10,14 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/libraries/gatsby-theme-auth0/src/**/*.{ts,tsx,js}"
   ],
+  testEnvironment: "jsdom",
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
-      statements: 19.41,
-      branches: 2.5,
-      functions: 26.08,
-      lines: 20
+      statements: 28.03,
+      branches: 14.28,
+      functions: 30.76,
+      lines: 28.84
     }
   }
 };
