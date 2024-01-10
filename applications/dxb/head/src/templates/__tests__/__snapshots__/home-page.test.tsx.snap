@@ -961,7 +961,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
         </div>
       </div>
       <div
-        class="css-1571p5"
+        class="css-k868dp"
         data-testid="overlap-cards-wrapper"
       >
         <div

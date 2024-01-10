@@ -5,10 +5,13 @@ export const OverlapCardsSection = styled("div")(({ theme }) => ({
   marginTop: "-70px",
 
   [theme.breakpoints.up("md")]: {
-    marginTop: "-45px"
+    marginTop: "-35px"
   },
   [theme.breakpoints.up("lg")]: {
     marginTop: "-75px"
+  },
+  [theme.breakpoints.up("xl")]: {
+    marginTop: "-105px"
   }
 }));
 
