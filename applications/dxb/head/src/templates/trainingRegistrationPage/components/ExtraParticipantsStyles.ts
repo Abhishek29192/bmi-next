@@ -25,7 +25,8 @@ export const RemoveParticipantButton = styled(Button)(({ theme }) => ({
 
   [theme.breakpoints.down("lg")]: {
     lineHeight: 1.625,
-    height: "42px"
+    height: "42px",
+    marginLeft: "auto"
   }
 }));
 
