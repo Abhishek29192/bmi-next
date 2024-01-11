@@ -344,12 +344,10 @@ exports[`Sections component renders correctly 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-1y9y18v"
+              class=" css-kmsk3c"
               data-testid="tabs"
             >
-              <div
-                class="css-k008qs"
-              >
+              <div>
                 <div
                   class="Tabs-tabsBar"
                 >
@@ -360,7 +358,7 @@ exports[`Sections component renders correctly 1`] = `
                       class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                     >
                       <div
-                        class="MuiTabs-root css-6wm242-MuiTabs-root"
+                        class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                       >
                         <div
                           class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -1365,12 +1363,10 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg css-11rq2kv"
+            class="Tabs-secondary Tabs-visibleUntillg css-uj6ct4"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -1381,7 +1377,7 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -1702,12 +1698,10 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg css-11rq2kv"
+            class="Tabs-secondary Tabs-visibleUntillg css-uj6ct4"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -1718,7 +1712,7 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -2293,9 +2287,13 @@ exports[`Sections component renders correctly 1`] = `
               <div
                 style="opacity: 0; visibility: hidden; transition-delay: 500ms;"
               >
-                <div
+                <react-player
+                  config="[object Object]"
+                  controls="true"
                   data-testid="youtube-inline-react-player"
-                  style="width: 640px; height: 360px;"
+                  light="true"
+                  playing="false"
+                  url="https://www.youtube.com/watch?v=A-RfHC91Ewc"
                 />
               </div>
             </div>
@@ -2333,12 +2331,10 @@ exports[`Sections component renders correctly 1`] = `
                 Team Section - alabaster
               </h2>
               <div
-                class="TeamSection-tabs css-1y9y18v"
+                class="TeamSection-tabs css-kmsk3c"
                 data-testid="tabs"
               >
-                <div
-                  class="css-k008qs"
-                >
+                <div>
                   <div
                     class="Tabs-tabsBar"
                   >
@@ -2352,7 +2348,7 @@ exports[`Sections component renders correctly 1`] = `
                           class=" css-ze8cyt"
                         >
                           <div
-                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-4znb3b-MuiContainer-root-MuiTabs-root"
+                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-1essqfd-MuiContainer-root-MuiTabs-root"
                           >
                             <div
                               class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -2559,12 +2555,10 @@ exports[`Sections component renders correctly 1`] = `
                 Team Section - undefined colour (2 categories)
               </h2>
               <div
-                class="TeamSection-tabs css-1y9y18v"
+                class="TeamSection-tabs css-kmsk3c"
                 data-testid="tabs"
               >
-                <div
-                  class="css-k008qs"
-                >
+                <div>
                   <div
                     class="Tabs-tabsBar"
                   >
@@ -2578,7 +2572,7 @@ exports[`Sections component renders correctly 1`] = `
                           class=" css-ze8cyt"
                         >
                           <div
-                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-4znb3b-MuiContainer-root-MuiTabs-root"
+                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-1essqfd-MuiContainer-root-MuiTabs-root"
                           >
                             <div
                               class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -3758,12 +3752,10 @@ exports[`Sections component renders correctly when incomplete 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-1y9y18v"
+              class=" css-kmsk3c"
               data-testid="tabs"
             >
-              <div
-                class="css-k008qs"
-              >
+              <div>
                 <div
                   class="Tabs-tabsBar"
                 >
@@ -3774,7 +3766,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                       class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                     >
                       <div
-                        class="MuiTabs-root css-6wm242-MuiTabs-root"
+                        class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                       >
                         <div
                           class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -4049,12 +4041,10 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-1y9y18v"
+              class=" css-kmsk3c"
               data-testid="tabs"
             >
-              <div
-                class="css-k008qs"
-              >
+              <div>
                 <div
                   class="Tabs-tabsBar"
                 >
@@ -4065,7 +4055,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                       class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                     >
                       <div
-                        class="MuiTabs-root css-6wm242-MuiTabs-root"
+                        class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                       >
                         <div
                           class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
