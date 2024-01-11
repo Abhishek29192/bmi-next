@@ -1,4 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["local>bmi-digital/renovate-config"]
+  "extends": ["local>bmi-digital/renovate-config"],
+  "ignoreDeps": ["@lhci/cli"]
 }

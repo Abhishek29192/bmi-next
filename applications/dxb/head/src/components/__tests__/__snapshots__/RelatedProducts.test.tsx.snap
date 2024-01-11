@@ -22,12 +22,10 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
         </h2>
         <div>
           <div
-            class="Tabs-secondary css-1y9y18v"
+            class="Tabs-secondary css-kmsk3c"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -38,7 +36,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -248,12 +246,10 @@ exports[`RelatedProducts component renders correctly without Brand and External 
         </h2>
         <div>
           <div
-            class="Tabs-secondary css-1y9y18v"
+            class="Tabs-secondary css-kmsk3c"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -264,7 +260,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -628,12 +624,10 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
         </h2>
         <div>
           <div
-            class="Tabs-secondary css-1y9y18v"
+            class="Tabs-secondary css-kmsk3c"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -644,7 +638,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
