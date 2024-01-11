@@ -1,7 +1,7 @@
 import type { Training } from "@bmi/elasticsearch-types";
-import type { ESResponse } from "../../types/elasticsearch";
-import type { Data as SiteData } from "../../components/Site";
 import type { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
+import type { Data as SiteData } from "../../components/Site";
+import type { ESResponse } from "../../types/elasticsearch";
 
 export type TrainingRegistrationPageData = {
   __typename: "ContentfulTrainingRegistrationPage";
@@ -40,6 +40,13 @@ export type TrainingRegistrationPageData = {
   discoverySourceOther: string;
   discoverySourceSpecifyOther: string;
   comment: string;
+  extraParticipantTitle: string;
+  extraParticipantSubtitle: string;
+  addParticipantsButton: string;
+  newParticipantTitle: string;
+  removeParticipantButton: string;
+  newParticipantFirstName: string;
+  newParticipantLastName: string;
   consentText: {
     consentText: string;
   };

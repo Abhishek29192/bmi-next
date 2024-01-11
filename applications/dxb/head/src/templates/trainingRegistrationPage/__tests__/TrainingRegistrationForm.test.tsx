@@ -25,6 +25,11 @@ jest.mock("react-google-recaptcha-v3", () => ({
   })
 }));
 
+jest.mock("../components/ExtraParticipants", () => ({
+  __esModule: true,
+  default: () => <>Extra participants section</>
+}));
+
 afterEach(() => {
   jest.clearAllMocks();
   jest.resetAllMocks();
@@ -43,14 +48,16 @@ const renderTrainingRegistrationPage = () =>
   );
 
 describe("TrainingRegistrationForm", () => {
-  [
-    "firstName",
-    "lastName",
-    "email",
-    "position",
-    "street",
-    "postalCode"
-  ].forEach((fieldName) => {
+  (
+    [
+      "firstName",
+      "lastName",
+      "email",
+      "position",
+      "street",
+      "postalCode"
+    ] as const
+  ).forEach((fieldName) => {
     it(`renders an error if "${fieldName}" field is empty on blur`, () => {
       renderTrainingRegistrationPage();
       const positionLabel = screen.getByLabelText(
@@ -206,5 +213,10 @@ describe("TrainingRegistrationForm", () => {
       }
     );
     expect(executeRecaptchaMock).not.toHaveBeenCalled();
+  });
+
+  it("renders extra participants section", () => {
+    renderTrainingRegistrationPage();
+    expect(screen.getByText("Extra participants section")).toBeInTheDocument();
   });
 });

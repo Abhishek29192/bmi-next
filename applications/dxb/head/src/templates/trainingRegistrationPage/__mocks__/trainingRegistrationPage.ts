@@ -45,6 +45,14 @@ export const trainingRegistrationPageData: TrainingRegistrationPageData = {
   discoverySourceOther: "Other",
   discoverySourceSpecifyOther: "If other, please specify",
   comment: "Comment",
+  extraParticipantTitle: "Extra participants",
+  extraParticipantSubtitle:
+    "If you register yourself and want to add extra participants, please add them here.",
+  addParticipantsButton: "Add participant",
+  newParticipantTitle: "Participant",
+  removeParticipantButton: "Remove participant",
+  newParticipantFirstName: "First name",
+  newParticipantLastName: "Last name",
   consentText: {
     consentText: "Consent text"
   },
