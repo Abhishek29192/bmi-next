@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
 import CheckCircle from "@bmi-digital/components/icon/CheckCircle";
-import { useAuth } from "@bmi/gatsby-theme-auth0";
 import { microCopy } from "@bmi/microcopies";
+import React, { useCallback, useEffect, useState } from "react";
+import useAuth from "../hooks/useAuth";
 import { local } from "../utils/storage";
-import { LoginAlertStyles } from "./styles/LoginAlertStyles";
 import { useSiteContext } from "./Site";
+import { LoginAlertStyles } from "./styles/LoginAlertStyles";
 
 const LoginAlert = () => {
   const { isLoggedIn } = useAuth();

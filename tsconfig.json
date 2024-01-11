@@ -138,9 +138,6 @@
       "path": "applications/dxb/libraries/gatsby-source-firestore"
     },
     {
-      "path": "applications/dxb/libraries/gatsby-theme-auth0"
-    },
-    {
       "path": "applications/dxb/libraries/microcopies"
     },
     {

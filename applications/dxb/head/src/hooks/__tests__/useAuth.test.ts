@@ -1,11 +1,11 @@
 import { renderHook } from "@testing-library/react-hooks";
-import useAuth from "../hooks/useAuth";
-import auth, { SessionState } from "../auth/service";
+import auth, { SessionState } from "../../auth/service";
+import useAuth from "../useAuth";
 
 const mockIsAuthenticated = jest.fn();
 const mockGetUserProfile = jest.fn();
 
-jest.mock("../auth/service", () => ({
+jest.mock("../../auth/service", () => ({
   __esModule: true,
   default: {
     isAuthenticated: (...arg: unknown[]) => mockIsAuthenticated(...arg),

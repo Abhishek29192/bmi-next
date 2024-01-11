@@ -1,24 +1,24 @@
-import React from "react";
 import {
   Grid,
   Hero,
   Section,
-  ToolCards,
-  ToolCardItemProps
+  ToolCardItemProps,
+  ToolCards
 } from "@bmi-digital/components";
-import { graphql } from "gatsby";
-import { useAuth } from "@bmi/gatsby-theme-auth0";
 import { microCopy } from "@bmi/microcopies";
+import { graphql } from "gatsby";
+import React from "react";
+import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
-import Protected from "../../pages/protected";
-import { Data as SiteData, useSiteContext } from "../../components/Site";
-import Page from "../../components/Page";
-import Image, { type Data as ContentfulImage } from "../../components/Image";
 import ContactDetails, {
   Data as ContactDetailsData
 } from "../../components/ContactDetails";
-import BackToResults from "../../components/BackToResults";
-import { classes, HelloText, ToolCardsBox } from "./styles";
+import Image, { type Data as ContentfulImage } from "../../components/Image";
+import Page from "../../components/Page";
+import { Data as SiteData, useSiteContext } from "../../components/Site";
+import useAuth from "../../hooks/useAuth";
+import Protected from "../../pages/protected";
+import { HelloText, ToolCardsBox, classes } from "./styles";
 import { getUserInfo, transformToolCar } from "./utils";
 
 type Props = {

@@ -1,20 +1,22 @@
-import * as React from "react";
 import { WindowLocation } from "@reach/router";
-import { AuthService } from "@bmi/gatsby-theme-auth0";
+import * as React from "react";
+import AuthService from "../../auth/service";
+import Callback from "../../components/callback";
 
 interface Props {
   location: WindowLocation;
 }
 
-const AuthCallback: React.FunctionComponent<Props> = (props) => {
+const CallbackPage: React.FunctionComponent<Props> = (props) => {
   const { location } = props;
 
   React.useEffect(() => {
     if (/access_token|id_token|error/.test(location.hash)) {
       AuthService.handleAuthentication();
     }
-  }, [location.hash]);
-  return null;
+  }, []);
+
+  return <Callback />;
 };
 
-export default AuthCallback;
+export default CallbackPage;

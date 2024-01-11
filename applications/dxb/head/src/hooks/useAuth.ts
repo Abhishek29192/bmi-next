@@ -1,5 +1,5 @@
-import * as React from "react";
 import { Auth0UserProfile } from "auth0-js";
+import React from "react";
 import auth, { SessionState } from "../auth/service";
 
 export type useAuthType = {
@@ -7,11 +7,16 @@ export type useAuthType = {
   isLoggedIn: boolean;
   profile: Auth0UserProfile | undefined;
 };
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const useAuth = (stateCallback = (_state: SessionState) => {}): useAuthType => {
+
+const useAuth = (
+  stateCallback = (_state: SessionState) => {
+    // no-op
+  }
+): useAuthType => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [isLoggedIn, setIsLoggedIn] = React.useState(auth.isAuthenticated());
   const [profile, setProfile] = React.useState(auth.getUserProfile());
+
   React.useEffect(() => {
     // Override `sessionStateCallback` in auth service
     auth.sessionStateCallback = (state) => {
@@ -32,8 +37,10 @@ const useAuth = (stateCallback = (_state: SessionState) => {}): useAuthType => {
     })();
 
     return () => {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      auth.sessionStateCallback = () => {};
+      // Clean up sessionStateCallback
+      auth.sessionStateCallback = () => {
+        // no-op
+      };
     };
   }, []);
 

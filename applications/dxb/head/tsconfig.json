@@ -26,9 +26,6 @@
       "path": "../libraries/gatsby-source-firestore"
     },
     {
-      "path": "../libraries/gatsby-theme-auth0"
-    },
-    {
       "path": "../libraries/microcopies"
     },
     {
