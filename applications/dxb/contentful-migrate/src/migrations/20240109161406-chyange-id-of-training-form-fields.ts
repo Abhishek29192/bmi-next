@@ -8,7 +8,7 @@ export const up: MigrationFunction = async (migration) => {
   );
 
   trainingRegistrationPage.editField("extraParticpantTitle", {
-    newId: "extraParticpantTitle",
+    newId: "extraParticipantTitle",
     type: "Symbol"
   });
 
