@@ -12,6 +12,7 @@ import { useSiteContext } from "../../../components/Site";
 import { QA_AUTH_TOKEN } from "../../../constants/cookieConstants";
 import { handleEmailValidation } from "../../../utils/emailUtils";
 import getCookie from "../../../utils/getCookie";
+import ExtraParticipants from "./ExtraParticipants";
 import CustomTextField from "./TextField";
 import {
   CompetentChamberLabel,
@@ -294,7 +295,25 @@ const TrainingRegistrationForm = (
                 />
               </Grid>
             </StyledFormFieldsSection>
-            <StyledFormFieldsSection container spacing={3} rowSpacing="12px">
+            <StyledFormFieldsSection container spacing={3}>
+              <Grid xs={12}>
+                <ExtraParticipants
+                  title={props.addParticipantsButton}
+                  removeButtonLabel={props.removeParticipantButton}
+                  addParticipantButtonLabel={props.addParticipantsButton}
+                  subtitle={props.extraParticipantSubtitle}
+                  participantTitle={props.newParticipantTitle}
+                  firstNameLabel={props.newParticipantFirstName}
+                  lastNameLabel={props.newParticipantLastName}
+                />
+              </Grid>
+            </StyledFormFieldsSection>
+            <StyledFormFieldsSection
+              container
+              spacing={3}
+              rowSpacing="12px"
+              pt="6px"
+            >
               <Grid xs={12}>
                 <Checkbox
                   data-testid="consent-text-checkbox"

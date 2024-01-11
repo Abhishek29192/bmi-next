@@ -143,6 +143,13 @@ export const pageQuery = graphql`
       discoverySourceOther
       discoverySourceSpecifyOther
       comment
+      extraParticipantTitle
+      extraParticipantSubtitle
+      addParticipantsButton
+      newParticipantTitle
+      removeParticipantButton
+      newParticipantFirstName
+      newParticipantLastName
       consentText {
         consentText
       }

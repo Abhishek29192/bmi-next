@@ -315,6 +315,13 @@ type ContentfulTrainingRegistrationPage implements ContentfulObject & Contentful
   discoverySourceOther: String!
   discoverySourceSpecifyOther: String!
   comment: String!
+  extraParticipantTitle: String!
+  extraParticipantSubtitle: String!
+  addParticipantsButton: String!
+  newParticipantTitle: String!
+  removeParticipantButton: String!
+  newParticipantFirstName: String!
+  newParticipantLastName: String!
   consentText: contentfulTrainingRegistrationPageConsentTextTextNode! @link(from: "consentText___NODE")
   termsOfUse: contentfulTrainingRegistrationPageTermsOfUseTextNode! @link(from: "termsOfUse___NODE")
   registerButton: String!
