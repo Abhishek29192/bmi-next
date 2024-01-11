@@ -298,7 +298,7 @@ const TrainingRegistrationForm = (
             <StyledFormFieldsSection container spacing={3}>
               <Grid xs={12}>
                 <ExtraParticipants
-                  title={props.addParticipantsButton}
+                  title={props.extraParticipantTitle}
                   removeButtonLabel={props.removeParticipantButton}
                   addParticipantButtonLabel={props.addParticipantsButton}
                   subtitle={props.extraParticipantSubtitle}
