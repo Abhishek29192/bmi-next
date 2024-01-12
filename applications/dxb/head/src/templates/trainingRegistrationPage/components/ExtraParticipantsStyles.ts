@@ -1,4 +1,5 @@
 import Button from "@bmi-digital/components/button";
+import Grid from "@bmi-digital/components/grid";
 import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
 
@@ -30,10 +31,22 @@ export const RemoveParticipantButton = styled(Button)(({ theme }) => ({
   }
 }));
 
-export const ParticipantContainer = styled("div")({
+export const ParticipantContainer = styled("div")(({ theme }) => ({
   marginTop: "12px",
 
   "&:first-of-type": {
     marginTop: "24px"
+  },
+
+  [theme.breakpoints.down("lg")]: {
+    marginTop: "24px"
   }
-});
+}));
+
+export const StyledGrid = styled(Grid)(({ theme }) => ({
+  paddingTop: "12px",
+
+  [theme.breakpoints.down("lg")]: {
+    paddingTop: "8px"
+  }
+}));

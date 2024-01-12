@@ -9,6 +9,7 @@ import {
   AddParticipantButton,
   ParticipantContainer,
   RemoveParticipantButton,
+  StyledGrid,
   SubTitle
 } from "./ExtraParticipantsStyles";
 import TextField from "./TextField";
@@ -129,7 +130,7 @@ const ParticipantFields = (props: ParticipantFieldsType) => {
             fullWidth
           />
         </Grid>
-        <Grid xs={12} lg={6}>
+        <StyledGrid xs={12} lg={6}>
           <TextField
             id={`${replaceSpaces(props.lastNameLabel)}-${props.index}`}
             name={`${props.lastNameLabel}-${props.index}`}
@@ -137,7 +138,7 @@ const ParticipantFields = (props: ParticipantFieldsType) => {
             label={props.lastNameLabel}
             fullWidth
           />
-        </Grid>
+        </StyledGrid>
       </Grid>
     </ParticipantContainer>
   );
