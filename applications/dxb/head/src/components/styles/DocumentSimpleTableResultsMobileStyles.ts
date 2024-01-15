@@ -9,7 +9,7 @@ export const classes = {
 };
 
 export const StyledListItem = styled("div")(({ theme }) => ({
-  padding: "16px 0 4px",
+  padding: "16px 0 4px 16px",
   position: "relative",
   minHeight: "126px",
   display: "flex",
