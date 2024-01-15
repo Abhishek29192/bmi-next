@@ -1099,7 +1099,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
       </div>
     </div>
     <div
-      class="css-1olgmot"
+      class="css-11zde3h"
       data-testid="tabs"
     >
       <div>
@@ -3634,7 +3634,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
       </div>
     </div>
     <div
-      class="css-1olgmot"
+      class="css-11zde3h"
       data-testid="tabs"
     >
       <div>
@@ -6173,7 +6173,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
         </div>
       </div>
       <div
-        class="css-1olgmot"
+        class="css-11zde3h"
         data-testid="tabs"
       >
         <div>
@@ -8709,7 +8709,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       </div>
     </div>
     <div
-      class="css-1olgmot"
+      class="css-11zde3h"
       data-testid="tabs"
     >
       <div>
@@ -11244,7 +11244,7 @@ exports[`SystemDetailsPage template component should render without specificatio
       </div>
     </div>
     <div
-      class="css-1olgmot"
+      class="css-11zde3h"
       data-testid="tabs"
     >
       <div>
@@ -13740,7 +13740,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
       </div>
     </div>
     <div
-      class="css-1olgmot"
+      class="css-11zde3h"
       data-testid="tabs"
     >
       <div>
@@ -16403,7 +16403,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
       </div>
     </div>
     <div
-      class="css-1olgmot"
+      class="css-11zde3h"
       data-testid="tabs"
     >
       <div>
