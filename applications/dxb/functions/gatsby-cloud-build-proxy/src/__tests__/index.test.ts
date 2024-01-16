@@ -88,7 +88,7 @@ describe("Error responses", () => {
     process.env.PREVIEW_BUILD = IsPreview;
   });
   it("Return error, when CONTENTFUL_ENVIRONMENT is not set and build webhooks are not set", async () => {
-    const contentfulEnviroment = process.env.CONTENTFUL_ENVIRONMENT;
+    const contentfulEnvironment = process.env.CONTENTFUL_ENVIRONMENT;
     delete process.env.CONTENTFUL_ENVIRONMENT;
 
     const mockReq = mockRequest({ method: "POST" });
@@ -98,7 +98,7 @@ describe("Error responses", () => {
 
     expect(mockRes.sendStatus).toBeCalledWith(500);
 
-    process.env.CONTENTFUL_ENVIRONMENT = contentfulEnviroment;
+    process.env.CONTENTFUL_ENVIRONMENT = contentfulEnvironment;
   });
 
   it("Return error, when MANAGEMENT_ACCESS_TOKEN is not set and build webhooks are not set", async () => {

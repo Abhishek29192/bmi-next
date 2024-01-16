@@ -1,5 +1,5 @@
 import Query from "../Query";
-import { Context, ResolveArgs, Node } from "../types/Gatsby";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
@@ -84,9 +84,9 @@ describe("plpFilters", () => {
     });
   });
 
-  it("should log warning and return no filters when SPACE_MARKET_CODE is not set", async () => {
-    const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-    delete process.env.SPACE_MARKET_CODE;
+  it("should log warning and return no filters when GATSBY_SPACE_MARKET_CODE is not set", async () => {
+    const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+    delete process.env.GATSBY_SPACE_MARKET_CODE;
     const originalGatsbyMarketLocaleCode =
       process.env.GATSBY_MARKET_LOCALE_CODE;
     process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
@@ -104,7 +104,7 @@ describe("plpFilters", () => {
 
     // eslint-disable-next-line no-console
     expect(console.warn).toBeCalledWith(
-      "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+      "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
     );
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith({
@@ -116,13 +116,13 @@ describe("plpFilters", () => {
       type: "Product"
     });
 
-    process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+    process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
     process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
   });
 
   it("should log warning and return no filters when GATSBY_MARKET_LOCALE_CODE is not set", async () => {
-    const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-    process.env.SPACE_MARKET_CODE = "fi";
+    const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+    process.env.GATSBY_SPACE_MARKET_CODE = "fi";
     const originalGatsbyMarketLocaleCode =
       process.env.GATSBY_MARKET_LOCALE_CODE;
     delete process.env.GATSBY_MARKET_LOCALE_CODE;
@@ -140,7 +140,7 @@ describe("plpFilters", () => {
 
     // eslint-disable-next-line no-console
     expect(console.warn).toBeCalledWith(
-      "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+      "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
     );
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith({
@@ -152,7 +152,7 @@ describe("plpFilters", () => {
       type: "Product"
     });
 
-    process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+    process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
     process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
   });
 
@@ -171,7 +171,7 @@ describe("plpFilters", () => {
 
     // eslint-disable-next-line no-console
     expect(console.warn).toBeCalledWith(
-      `Site not found in contentful: for country code: '${process.env.SPACE_MARKET_CODE}' and locale: '${process.env.GATSBY_MARKET_LOCALE_CODE}'.`
+      `Site not found in contentful: for country code: '${process.env.GATSBY_SPACE_MARKET_CODE}' and locale: '${process.env.GATSBY_MARKET_LOCALE_CODE}'.`
     );
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith({
@@ -186,7 +186,7 @@ describe("plpFilters", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -230,7 +230,7 @@ describe("plpFilters", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -294,7 +294,7 @@ describe("plpFilters", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -353,7 +353,7 @@ describe("plpFilters", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -401,7 +401,7 @@ describe("plpFilters", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -469,7 +469,7 @@ describe("plpFilters", () => {
         {
           query: {
             filter: {
-              countryCode: { eq: process.env.SPACE_MARKET_CODE },
+              countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
               node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
             }
           },
@@ -558,7 +558,7 @@ describe("plpFilters", () => {
         {
           query: {
             filter: {
-              countryCode: { eq: process.env.SPACE_MARKET_CODE },
+              countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
               node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
             }
           },
@@ -653,7 +653,7 @@ describe("plpFilters", () => {
         {
           query: {
             filter: {
-              countryCode: { eq: process.env.SPACE_MARKET_CODE },
+              countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
               node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
             }
           },
@@ -710,8 +710,8 @@ describe("searchFilters", () => {
   describe("environment variable tests", () => {
     describe("when environment variables are NOT set", () => {
       it("should log warning", async () => {
-        const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-        delete process.env.SPACE_MARKET_CODE;
+        const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+        delete process.env.GATSBY_SPACE_MARKET_CODE;
         const originalGatsbyMarketLocaleCode =
           process.env.GATSBY_MARKET_LOCALE_CODE;
         delete process.env.GATSBY_MARKET_LOCALE_CODE;
@@ -725,7 +725,7 @@ describe("searchFilters", () => {
         await Query.searchFilters.resolve(source, args, context);
         // eslint-disable-next-line no-console
         expect(console.warn).toBeCalledWith(
-          "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
         );
 
         expect(context.nodeModel.findAll).toHaveBeenCalledWith({
@@ -737,14 +737,14 @@ describe("searchFilters", () => {
           type: "Product"
         });
 
-        process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+        process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
         process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
       });
     });
-    describe("when SPACE_MARKET_CODE is NOT set", () => {
+    describe("when GATSBY_SPACE_MARKET_CODE is NOT set", () => {
       it("should log warning", async () => {
-        const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-        delete process.env.SPACE_MARKET_CODE;
+        const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+        delete process.env.GATSBY_SPACE_MARKET_CODE;
         const originalGatsbyMarketLocaleCode =
           process.env.GATSBY_MARKET_LOCALE_CODE;
         process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
@@ -758,7 +758,7 @@ describe("searchFilters", () => {
         await Query.searchFilters.resolve(source, args, context);
         // eslint-disable-next-line no-console
         expect(console.warn).toBeCalledWith(
-          "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
         );
 
         expect(context.nodeModel.findAll).toHaveBeenCalledWith({
@@ -770,14 +770,14 @@ describe("searchFilters", () => {
           type: "Product"
         });
 
-        process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+        process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
         process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
       });
     });
     describe("when GATSBY_MARKET_LOCALE_CODE is NOT set", () => {
       it("should log warning", async () => {
-        const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-        process.env.SPACE_MARKET_CODE = "fi";
+        const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+        process.env.GATSBY_SPACE_MARKET_CODE = "fi";
         const originalGatsbyMarketLocaleCode =
           process.env.GATSBY_MARKET_LOCALE_CODE;
         delete process.env.GATSBY_MARKET_LOCALE_CODE;
@@ -791,7 +791,7 @@ describe("searchFilters", () => {
         await Query.searchFilters.resolve(source, args, context);
         // eslint-disable-next-line no-console
         expect(console.warn).toBeCalledWith(
-          "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
         );
 
         expect(context.nodeModel.findAll).toHaveBeenCalledWith({
@@ -803,7 +803,7 @@ describe("searchFilters", () => {
           type: "Product"
         });
 
-        process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+        process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
         process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
       });
     });
@@ -855,7 +855,7 @@ describe("searchFilters", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -948,9 +948,9 @@ describe("searchFilters", () => {
     });
   });
 
-  it("should log warning and return no filters when SPACE_MARKET_CODE is not set", async () => {
-    const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-    delete process.env.SPACE_MARKET_CODE;
+  it("should log warning and return no filters when GATSBY_SPACE_MARKET_CODE is not set", async () => {
+    const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+    delete process.env.GATSBY_SPACE_MARKET_CODE;
     const originalGatsbyMarketLocaleCode =
       process.env.GATSBY_MARKET_LOCALE_CODE;
     process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
@@ -980,7 +980,7 @@ describe("searchFilters", () => {
 
     // eslint-disable-next-line no-console
     expect(console.warn).toBeCalledWith(
-      "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+      "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
     );
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith({
@@ -992,13 +992,13 @@ describe("searchFilters", () => {
       type: "Product"
     });
 
-    process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+    process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
     process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
   });
 
   it("should log warning and return no filters when GATSBY_MARKET_LOCALE_CODE is not set", async () => {
-    const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-    process.env.SPACE_MARKET_CODE = "fi";
+    const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+    process.env.GATSBY_SPACE_MARKET_CODE = "fi";
     const originalGatsbyMarketLocaleCode =
       process.env.GATSBY_MARKET_LOCALE_CODE;
     delete process.env.GATSBY_MARKET_LOCALE_CODE;
@@ -1028,7 +1028,7 @@ describe("searchFilters", () => {
 
     // eslint-disable-next-line no-console
     expect(console.warn).toBeCalledWith(
-      "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+      "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
     );
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith({
@@ -1040,7 +1040,7 @@ describe("searchFilters", () => {
       type: "Product"
     });
 
-    process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+    process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
     process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
   });
 
@@ -1071,7 +1071,7 @@ describe("searchFilters", () => {
 
     // eslint-disable-next-line no-console
     expect(console.warn).toBeCalledWith(
-      `Site not found in contentful: for country code: '${process.env.SPACE_MARKET_CODE}' and locale: '${process.env.GATSBY_MARKET_LOCALE_CODE}'.`
+      `Site not found in contentful: for country code: '${process.env.GATSBY_SPACE_MARKET_CODE}' and locale: '${process.env.GATSBY_MARKET_LOCALE_CODE}'.`
     );
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith({
@@ -1086,7 +1086,7 @@ describe("searchFilters", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -1142,7 +1142,7 @@ describe("searchFilters", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -1161,8 +1161,8 @@ describe("fourOFour", () => {
   describe("environment variable tests", () => {
     describe("when environment variables are NOT set", () => {
       it("should log warning", async () => {
-        const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-        delete process.env.SPACE_MARKET_CODE;
+        const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+        delete process.env.GATSBY_SPACE_MARKET_CODE;
         const originalGatsbyMarketLocaleCode =
           process.env.GATSBY_MARKET_LOCALE_CODE;
         delete process.env.GATSBY_MARKET_LOCALE_CODE;
@@ -1177,17 +1177,17 @@ describe("fourOFour", () => {
         });
         // eslint-disable-next-line no-console
         expect(console.warn).toBeCalledWith(
-          "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
         );
 
-        process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+        process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
         process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
       });
     });
-    describe("when SPACE_MARKET_CODE is NOT set", () => {
+    describe("when GATSBY_SPACE_MARKET_CODE is NOT set", () => {
       it("should log warning", async () => {
-        const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-        delete process.env.SPACE_MARKET_CODE;
+        const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+        delete process.env.GATSBY_SPACE_MARKET_CODE;
         const originalGatsbyMarketLocaleCode =
           process.env.GATSBY_MARKET_LOCALE_CODE;
         process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
@@ -1201,17 +1201,17 @@ describe("fourOFour", () => {
         });
         // eslint-disable-next-line no-console
         expect(console.warn).toBeCalledWith(
-          "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
         );
 
-        process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+        process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
         process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
       });
     });
     describe("when GATSBY_MARKET_LOCALE_CODE is NOT set", () => {
       it("should log warning", async () => {
-        const originalSpaceMarketCode = process.env.SPACE_MARKET_CODE;
-        process.env.SPACE_MARKET_CODE = "fi";
+        const originalSpaceMarketCode = process.env.GATSBY_SPACE_MARKET_CODE;
+        process.env.GATSBY_SPACE_MARKET_CODE = "fi";
         const originalGatsbyMarketLocaleCode =
           process.env.GATSBY_MARKET_LOCALE_CODE;
         delete process.env.GATSBY_MARKET_LOCALE_CODE;
@@ -1226,16 +1226,16 @@ describe("fourOFour", () => {
         });
         // eslint-disable-next-line no-console
         expect(console.warn).toBeCalledWith(
-          "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
         );
 
-        process.env.SPACE_MARKET_CODE = originalSpaceMarketCode;
+        process.env.GATSBY_SPACE_MARKET_CODE = originalSpaceMarketCode;
         process.env.GATSBY_MARKET_LOCALE_CODE = originalGatsbyMarketLocaleCode;
       });
     });
     describe("when both environment variables are set", () => {
       it("should NOT log warning for environment variables", async () => {
-        process.env.SPACE_MARKET_CODE = "fi";
+        process.env.GATSBY_SPACE_MARKET_CODE = "fi";
         process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
         const args: ResolveArgs = {
           categoryCodes: [],
@@ -1247,13 +1247,13 @@ describe("fourOFour", () => {
         });
         // eslint-disable-next-line no-console
         expect(console.warn).not.toBeCalledWith(
-          "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          "Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
         );
       });
 
       describe("when contentful site is NOT found", () => {
         it("should log warning for contentful site", async () => {
-          process.env.SPACE_MARKET_CODE = "fi";
+          process.env.GATSBY_SPACE_MARKET_CODE = "fi";
           process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
           const args: ResolveArgs = {
             categoryCodes: [],
@@ -1266,7 +1266,7 @@ describe("fourOFour", () => {
           });
           // eslint-disable-next-line no-console
           expect(console.warn).toBeCalledWith(
-            `Site not found in contentful: for country code: '${process.env.SPACE_MARKET_CODE}' and locale: '${process.env.GATSBY_MARKET_LOCALE_CODE}'.`
+            `Site not found in contentful: for country code: '${process.env.GATSBY_SPACE_MARKET_CODE}' and locale: '${process.env.GATSBY_MARKET_LOCALE_CODE}'.`
           );
         });
       });
@@ -1274,7 +1274,7 @@ describe("fourOFour", () => {
         describe("And resource is queried", () => {
           describe("And resource is not found", () => {
             it("should log error message for Resource", async () => {
-              process.env.SPACE_MARKET_CODE = "fi";
+              process.env.GATSBY_SPACE_MARKET_CODE = "fi";
               process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
               const args: ResolveArgs = {
                 categoryCodes: [],
@@ -1302,7 +1302,7 @@ describe("fourOFour", () => {
           describe("And resource is found", () => {
             describe("And errorFourOFour object is NOT found", () => {
               it("should log error message for errorFourOFour", async () => {
-                process.env.SPACE_MARKET_CODE = "fi";
+                process.env.GATSBY_SPACE_MARKET_CODE = "fi";
                 process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
                 const args: ResolveArgs = {
                   categoryCodes: [],
@@ -1334,7 +1334,7 @@ describe("fourOFour", () => {
             });
             describe("And errorFourOFour object is found", () => {
               it("should return FourOFourResponse with site data and error data", async () => {
-                process.env.SPACE_MARKET_CODE = "fi";
+                process.env.GATSBY_SPACE_MARKET_CODE = "fi";
                 process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
                 const args: ResolveArgs = {
                   categoryCodes: [],
