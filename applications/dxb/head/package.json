@@ -97,7 +97,7 @@
     "gatsby-source-filesystem": "^5.13.0",
     "gatsby-transformer-json": "^5.13.0",
     "gatsby-transformer-sharp": "^5.13.0",
-    "googleapis": "^130.0.0",
+    "googleapis": "^131.0.0",
     "graphql": "^16.8.1",
     "https-browserify": "^1.0.0",
     "if-env": "^1.0.4",
