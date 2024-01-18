@@ -6,6 +6,7 @@ import {
   ToolCards
 } from "@bmi-digital/components";
 import { microCopy } from "@bmi/microcopies";
+import { Typography } from "@mui/material";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../../components/BackToResults";
@@ -32,6 +33,7 @@ type Props = {
 export type AccountPage = {
   featuredMedia: ContentfulImage | null;
   salutation: string;
+  roleDescription: string;
   description: string;
   titleForToolSection: string;
   titleForServiceSupportSection: string;
@@ -45,6 +47,7 @@ const MyAccountPage = ({ data }: Props) => {
   const {
     featuredMedia,
     salutation,
+    roleDescription,
     description,
     titleForToolSection,
     titleForServiceSupportSection,
@@ -53,8 +56,8 @@ const MyAccountPage = ({ data }: Props) => {
     allowTools
   } = data.contentfulSite.accountPage;
   const { getMicroCopy } = useSiteContext();
-  const transformHeroText: { salutation: string; description: string } =
-    profile && getUserInfo(profile, salutation, description);
+  const transformHeroText =
+    profile && getUserInfo(profile, salutation, roleDescription);
   const transformToolCardData: [ToolCardItemProps, ...ToolCardItemProps[]] =
     allowTools && transformToolCar(allowTools, getMicroCopy);
 
@@ -98,7 +101,10 @@ const MyAccountPage = ({ data }: Props) => {
             </BackToResults>
           }
         >
-          {transformHeroText && transformHeroText.description}
+          {transformHeroText && (
+            <Typography>{transformHeroText.roleDescription}</Typography>
+          )}
+          <Typography>{description}</Typography>
         </Hero>
         <Section backgroundColor="pearl">
           <Section.Title>{titleForToolSection}</Section.Title>
@@ -140,6 +146,7 @@ export const pageQuery = graphql`
           ...ImageDocumentFragment
         }
         salutation
+        roleDescription
         description
         titleForToolSection
         titleForServiceSupportSection

@@ -1419,6 +1419,7 @@ type ContentfulAccountPage implements Node @dontInfer {
   metadata: ContentfulMetadata!
   slug: String!
   salutation: String!
+  roleDescription: String!
   description: String!
   featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
   titleForToolSection: String!
