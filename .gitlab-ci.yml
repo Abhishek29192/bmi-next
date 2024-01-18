@@ -36,6 +36,7 @@ include:
   - local: "/applications/redirects-website-de-vivaline/.gitlab-ci.yml"
   - local: "/applications/redirects-website-de-wolfin-com/.gitlab-ci.yml"
   - local: "/applications/redirects-website-de-wolfin-de/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-be-universalpro/.gitlab-ci.yml"
 
 
 variables:
