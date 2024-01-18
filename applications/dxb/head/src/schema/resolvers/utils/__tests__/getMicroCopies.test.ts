@@ -1,5 +1,5 @@
-import { getMicroCopies } from "../getMicrocopies";
 import { Context } from "../../types/Gatsby";
+import { getMicroCopies } from "../getMicrocopies";
 
 const getNodesByIds = jest.fn();
 const findOne = jest.fn();
@@ -19,16 +19,16 @@ afterEach(() => {
 });
 
 describe("getMicroCopies", () => {
-  it("returns undefined if SPACE_MARKET_CODE does not exist", async () => {
-    const initial = process.env.SPACE_MARKET_CODE;
-    delete process.env.SPACE_MARKET_CODE;
+  it("returns undefined if GATSBY_SPACE_MARKET_CODE does not exist", async () => {
+    const initial = process.env.GATSBY_SPACE_MARKET_CODE;
+    delete process.env.GATSBY_SPACE_MARKET_CODE;
 
     const res = await getMicroCopies(context);
     expect(res).toBe(undefined);
     expect(context.nodeModel.findOne).not.toHaveBeenCalled();
     expect(context.nodeModel.getNodeById).not.toHaveBeenCalled();
     expect(context.nodeModel.getNodesByIds).not.toHaveBeenCalled();
-    process.env.SPACE_MARKET_CODE = initial;
+    process.env.GATSBY_SPACE_MARKET_CODE = initial;
   });
 
   it("returns undefined if GATSBY_MARKET_LOCALE_CODE does not exist", async () => {
@@ -53,7 +53,7 @@ describe("getMicroCopies", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -79,7 +79,7 @@ describe("getMicroCopies", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },
@@ -114,7 +114,7 @@ describe("getMicroCopies", () => {
       {
         query: {
           filter: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE },
+            countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
             node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
           }
         },

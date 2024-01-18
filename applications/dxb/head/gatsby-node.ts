@@ -175,7 +175,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 }) => {
   const { createRedirect, createPage } = actions;
   const redirectRegex = /\/?[a-zA-Z]{2}\//i;
-  const redirectsFileName = `redirects_${process.env.SPACE_MARKET_CODE.replace(
+  const redirectsFileName = `redirects_${process.env.GATSBY_SPACE_MARKET_CODE.replace(
     redirectRegex,
     ""
   )}.toml`; // be/
@@ -217,7 +217,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           }
         }
       }
-      allContentfulSite(filter: {countryCode: {eq: "${process.env.SPACE_MARKET_CODE}"}}) {
+      allContentfulSite(filter: {countryCode: {eq: "${process.env.GATSBY_SPACE_MARKET_CODE}"}}) {
         nodes {
           id
           countryCode
@@ -260,12 +260,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const contentfulRedirectsFileUrl = contentfulRedirects[0]?.file?.url;
 
   const site = sites.find(
-    (s) => s.countryCode === process.env.SPACE_MARKET_CODE
+    (s) => s.countryCode === process.env.GATSBY_SPACE_MARKET_CODE
   );
 
   if (!site) {
     throw new Error(
-      `No site found with space market code : ${process.env.SPACE_MARKET_CODE}`
+      `No site found with space market code : ${process.env.GATSBY_SPACE_MARKET_CODE}`
     );
   } else {
     // TODO: This is temporary until we'll have the path inside ES.

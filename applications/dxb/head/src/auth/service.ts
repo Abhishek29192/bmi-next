@@ -33,7 +33,7 @@ class Auth {
     localStorage.setItem("postLoginUrl", window.location.pathname);
     this.auth0 &&
       this.auth0.authorize({
-        market: process.env.SPACE_MARKET_CODE
+        market: process.env.GATSBY_SPACE_MARKET_CODE
       } as unknown as AuthorizeOptions);
   };
 
