@@ -2,12 +2,12 @@ import { generateHashFromString, isDefined } from "@bmi/utils";
 import type { Product } from "@bmi/firestore-types";
 import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
 import { getUrlFromPath, resolvePath } from "./utils/path";
-import type { Path } from "./utils/path";
+import type { Node as GatsbyNode } from "gatsby";
 import type { Data } from "../../components/Resources";
 import type { AssetType, ProductDocumentWithAssetType } from "../../types/pim";
 import type { Resource } from "./types/Contentful";
 import type { Context, Node, ResolveArgs } from "./types/Gatsby";
-import type { Node as GatsbyNode } from "gatsby";
+import type { Path } from "./utils/path";
 
 const getSlugAttributes = (source: Product) =>
   [source.colour, source.textureFamily].filter(isDefined);
@@ -346,7 +346,8 @@ export default {
         {
           query: {
             filter: {
-              categories: { elemMatch: { code: { eq: productFamilyCode } } }
+              categories: { elemMatch: { code: { eq: productFamilyCode } } },
+              approvalStatus: { eq: "approved" }
             }
           },
           type: "Product"
