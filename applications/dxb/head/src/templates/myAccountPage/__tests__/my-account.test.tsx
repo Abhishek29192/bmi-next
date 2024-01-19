@@ -1,15 +1,15 @@
-import UserIcon from "@bmi-digital/components/icon/User";
-import RoofMeasurement from "@bmi-digital/components/icon/RoofMeasurement";
 import OtherTraining from "@bmi-digital/components/icon/OtherTraining";
-import { Auth0UserProfile } from "auth0-js";
+import RoofMeasurement from "@bmi-digital/components/icon/RoofMeasurement";
+import UserIcon from "@bmi-digital/components/icon/User";
 import ThemeProvider from "@bmi-digital/components/theme-provider";
-import React, { ReactNode } from "react";
 import { screen } from "@testing-library/react";
-import { transformToolCar, getUserInfo } from "../utils";
+import { Auth0UserProfile } from "auth0-js";
+import React, { ReactNode } from "react";
+import createImageData from "../../../__tests__/helpers/ImageDataHelper";
+import { createMockSiteData } from "../../../test/mockSiteData";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import MyAccountPage from "../my-account";
-import { createMockSiteData } from "../../../test/mockSiteData";
-import createImageData from "../../../__tests__/helpers/ImageDataHelper";
+import { getUserInfo, transformToolCar } from "../utils";
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -31,6 +31,7 @@ describe("MyAccountPage", () => {
         slug: "account",
         featuredMedia: createImageData(),
         salutation: "salutation",
+        roleDescription: "roleDescription",
         description: "description",
         titleForToolSection: "titleForToolSection",
         titleForServiceSupportSection: "titleForServiceSupportSection",
@@ -100,17 +101,17 @@ describe("MyAccountPage", () => {
       "https://intouch/intouch_role": "Tester"
     };
     const salutationTemplate = "{{name}} is a great";
-    const descriptionTemplate = "Role: {{role}}";
+    const roleDescriptionTemplate = "Role: {{role}}";
 
     const result = getUserInfo(
       user as unknown as Auth0UserProfile,
       salutationTemplate,
-      descriptionTemplate
+      roleDescriptionTemplate
     );
 
     expect(result).toEqual({
       salutation: "John Doe is a great",
-      description: "Role: Tester"
+      roleDescription: "Role: Tester"
     });
   });
 });

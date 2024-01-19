@@ -1,8 +1,8 @@
-import { microCopy } from "@bmi/microcopies";
-import UserIcon from "@bmi-digital/components/icon/User";
+import { ToolCardItemProps } from "@bmi-digital/components";
 import OtherTraining from "@bmi-digital/components/icon/OtherTraining";
 import RoofMeasurement from "@bmi-digital/components/icon/RoofMeasurement";
-import { ToolCardItemProps } from "@bmi-digital/components";
+import UserIcon from "@bmi-digital/components/icon/User";
+import { microCopy } from "@bmi/microcopies";
 import { Auth0UserProfile } from "auth0-js";
 import { GetMicroCopy } from "../../components/MicroCopy";
 
@@ -12,11 +12,11 @@ const roleTemplate = "{{role}}";
 export const getUserInfo = (
   user: Auth0UserProfile | null,
   salutation: string,
-  description: string
-): { salutation: string; description: string } => {
-  const res = { salutation: "", description: "" };
+  roleDescription: string
+): { salutation: string; roleDescription: string } => {
+  const res = { salutation: "", roleDescription: "" };
   res.salutation = salutation.replace(nameTemplate, user["name"]);
-  res.description = description.replace(
+  res.roleDescription = roleDescription.replace(
     roleTemplate,
     user["https://intouch/intouch_role"]
   );
