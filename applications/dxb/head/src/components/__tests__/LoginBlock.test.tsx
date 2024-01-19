@@ -2,6 +2,7 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import AuthService from "../../auth/service";
+import createAuth0IdTokenPayload from "../../templates/myAccountPage/__tests__/helpers/Auth0IdTokenPayloadHelper";
 import LoginBlock from "../LoginBlock";
 import { SiteContextProvider } from "../Site";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
@@ -45,17 +46,7 @@ describe("LoginBlock Component", () => {
     mockUseAuth.mockReturnValue({
       isLoading: false,
       isLoggedIn: true,
-      profile: {
-        name: "User",
-        nickname: "",
-        picture: "",
-        user_id: "",
-        clientID: "",
-        identities: [],
-        created_at: "",
-        updated_at: "",
-        sub: ""
-      }
+      profile: createAuth0IdTokenPayload()
     });
     render(
       <ThemeProvider>
@@ -72,17 +63,7 @@ describe("LoginBlock Component", () => {
     mockUseAuth.mockReturnValue({
       isLoading: false,
       isLoggedIn: true,
-      profile: {
-        name: "User",
-        nickname: "",
-        picture: "",
-        user_id: "",
-        clientID: "",
-        identities: [],
-        created_at: "",
-        updated_at: "",
-        sub: ""
-      }
+      profile: createAuth0IdTokenPayload()
     });
     render(
       <ThemeProvider>
@@ -140,17 +121,7 @@ describe("LoginBlock Component", () => {
     mockUseAuth.mockReturnValue({
       isLoading: false,
       isLoggedIn: true,
-      profile: {
-        name: "User",
-        nickname: "",
-        picture: "",
-        user_id: "",
-        clientID: "",
-        identities: [],
-        created_at: "",
-        updated_at: "",
-        sub: ""
-      }
+      profile: createAuth0IdTokenPayload()
     });
     render(
       <ThemeProvider>
@@ -165,22 +136,11 @@ describe("LoginBlock Component", () => {
   });
 
   it("calls AuthService.login when Login button is clicked", () => {
-    process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT =
-      "https://dev-en.intouch.bmigroup.com/";
+    process.env.GATSBY_INTOUCH_ORIGIN = "https://dev-en.intouch.bmigroup.com/";
     mockUseAuth.mockReturnValue({
       isLoading: false,
       isLoggedIn: false,
-      profile: {
-        name: "User",
-        nickname: "",
-        picture: "",
-        user_id: "",
-        clientID: "",
-        identities: [],
-        created_at: "",
-        updated_at: "",
-        sub: ""
-      }
+      profile: createAuth0IdTokenPayload()
     });
     render(
       <ThemeProvider>
