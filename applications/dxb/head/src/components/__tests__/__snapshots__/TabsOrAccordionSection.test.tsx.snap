@@ -28,15 +28,18 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
           style="margin-top: 40px;"
         >
           <div
-            class=" css-1u48ai"
+            class=" css-makape"
+            data-testid="accordion"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+              data-testid="accordion-item"
             >
               <div
                 aria-expanded="false"
                 class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"name","action":"Selector – Accordion"}"
+                data-testid="accordion-summary"
                 role="button"
                 tabindex="0"
               >
@@ -81,7 +84,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root  css-188s0du-MuiAccordionDetails-root"
                       >
                         <div
                           class="RichText-root RichText-no-bottom-margin css-1u73y0t"
@@ -135,15 +138,18 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class=" css-1u48ai"
+            class=" css-makape"
+            data-testid="accordion"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+              data-testid="accordion-item"
             >
               <div
                 aria-expanded="false"
                 class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
+                data-testid="accordion-summary"
                 role="button"
                 tabindex="0"
               >
@@ -188,7 +194,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root  css-188s0du-MuiAccordionDetails-root"
                       >
                         <div
                           class="RichText-root RichText-no-bottom-margin css-1u73y0t"
@@ -242,12 +248,10 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class=" css-1y9y18v"
+            class=" css-kmsk3c"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -258,7 +262,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -279,7 +283,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                         />
                       </div>
                       <div
-                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                         style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                       />
                       <div
@@ -394,12 +398,10 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class=" css-1y9y18v"
+            class=" css-kmsk3c"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -410,7 +412,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -431,7 +433,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                         />
                       </div>
                       <div
-                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                         style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                       />
                       <div
@@ -546,12 +548,10 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
           style="margin-top: 40px;"
         >
           <div
-            class=" css-1y9y18v"
+            class=" css-kmsk3c"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -562,7 +562,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -583,7 +583,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                         />
                       </div>
                       <div
-                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                         style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                       />
                       <div
@@ -662,12 +662,10 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
           style="margin-top: 40px;"
         >
           <div
-            class=" css-1y9y18v"
+            class=" css-kmsk3c"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -678,7 +676,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -699,7 +697,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                         />
                       </div>
                       <div
-                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                        class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                         style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                       />
                       <div

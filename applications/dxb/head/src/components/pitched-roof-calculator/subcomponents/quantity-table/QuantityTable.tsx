@@ -1,17 +1,19 @@
-import { Icon, Table, Typography } from "@bmi-digital/components";
+import Icon from "@bmi-digital/components/icon";
 import Delete from "@bmi-digital/components/icon/Delete";
-import { useMediaQuery } from "@mui/material";
+import Table from "@bmi-digital/components/table";
+import Typography from "@bmi-digital/components/typography";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import classnames from "classnames";
 import React from "react";
 import { ResultsRow } from "../../types";
 import UpDownSimpleNumericInput from "../up-down-simple-numeric-input/UpDownSimpleNumericInput";
 import {
-  classes,
   StyledQuantityTable,
   StyledQuantityTableLarge,
   StyledQuantityTableMedium,
-  StyledQuantityTableSmall
+  StyledQuantityTableSmall,
+  classes
 } from "./styles";
 
 type BuildRowProps = {

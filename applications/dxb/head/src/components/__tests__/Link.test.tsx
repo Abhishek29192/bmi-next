@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import {
@@ -169,6 +169,41 @@ describe("Link component", () => {
       const closeDialogButton = screen.getByRole("button", { name: "Close" });
       fireEvent.click(closeDialogButton);
       expect(screen.getByText(/Test form/i)).not.toBeVisible();
+    });
+
+    it("renders a link with the primary brand colour", () => {
+      const cta: LinkData = {
+        __typename: "ContentfulLink",
+        id: "string",
+        label: "ImALink",
+        icon: null,
+        isLabelHidden: null,
+        url: "https://www.external.co.uk",
+        linkedPage: null,
+        type: DataTypeEnum.External,
+        parameters: null,
+        dialogContent: null,
+        hubSpotCTAID: null
+      };
+
+      render(
+        <ThemeProvider>
+          <Link
+            data={cta}
+            onClick={onClick}
+            data-testid="cta-primary"
+            hasBrandColours
+          >
+            {cta.label}
+          </Link>
+        </ThemeProvider>
+      );
+
+      const link = screen.getByTestId("cta-primary");
+
+      expect(link).toHaveStyle(
+        "background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255)"
+      );
     });
   });
 

@@ -1,16 +1,13 @@
-import {
-  Button,
-  ButtonProps,
-  Header as HeaderComponent,
-  HidePrint,
-  RegionCode,
-  TabProps
-} from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import HeaderComponent from "@bmi-digital/components/header";
+import HidePrint from "@bmi-digital/components/hide-print";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
+import { RegionCode } from "@bmi-digital/components/language-selection";
+import { TabProps } from "@bmi-digital/components/tabs";
+import { microCopy } from "@bmi/microcopies";
 import Tab from "@mui/material/Tab";
 import { Link, graphql, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
-import { microCopy } from "@bmi/microcopies";
 import Image from "../components/Image";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
@@ -24,11 +21,11 @@ import {
   NavigationItem,
   getCTA
 } from "./Link";
+import LoginBlock from "./LoginBlock";
 import { Data as PageInfoData } from "./PageInfo";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
 import { useSiteContext } from "./Site";
-import LoginBlock from "./LoginBlock";
 import type { GetMicroCopy } from "./MicroCopy";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
@@ -211,7 +208,6 @@ const Header = ({
 
   const { getMicroCopy } = useSiteContext();
   const {
-    isSpaEnabled,
     isGatsbyDisabledElasticSearch,
     isSampleOrderingEnabled,
     isLoginEnabled
@@ -247,7 +243,7 @@ const Header = ({
       component={() => (
         <HeaderComponent
           disableSearch={isGatsbyDisabledElasticSearch || disableSearch}
-          languages={isSpaEnabled ? [] : languages}
+          languages={languages}
           language={language}
           languageLabel={getMicroCopy(microCopy.MENU_LANGUAGE)}
           languageIntroduction={
@@ -256,8 +252,8 @@ const Header = ({
               document={countryNavigationIntroduction}
             />
           }
-          utilities={isSpaEnabled ? [] : utilities}
-          navigation={isSpaEnabled ? [] : navigation}
+          utilities={utilities}
+          navigation={navigation}
           logoAction={{
             model: "routerLink",
             linkComponent: Link,
@@ -284,9 +280,7 @@ const Header = ({
           shoppingCartCount={productsInBasket.length}
           basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
           sampleBasketDialog={
-            !isSpaEnabled &&
-            isSampleOrderingEnabled &&
-            sampleBasketLink?.sections?.[0]?.title
+            isSampleOrderingEnabled && sampleBasketLink?.sections?.[0]?.title
               ? (props: { toggleCart: () => void }) => (
                   <SampleBasketDialog
                     title={sampleBasketLink.sections[0].title}

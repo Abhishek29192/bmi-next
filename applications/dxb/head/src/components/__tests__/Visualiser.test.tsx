@@ -1,5 +1,5 @@
-import { Button, ThemeProvider } from "@bmi-digital/components";
-import React from "react";
+import Button from "@bmi-digital/components/button";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { createProduct, Product } from "@bmi/elasticsearch-types";
 import {
@@ -10,12 +10,13 @@ import {
 import { fireEvent, render as rtlRender, screen } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
 import * as Gatsby from "gatsby";
-import { SiteContextProvider } from "../Site";
-import { shareWidgetData } from "../../templates/simplePage/__mocks__/simplePage";
-import { Data as ShareWidgetSectionData } from "../ShareWidgetSection";
-import Visualiser, { VisualiserContext } from "../Visualiser";
+import React from "react";
 import { Config, ConfigProvider } from "../../contexts/ConfigProvider";
+import { shareWidgetData } from "../../templates/simplePage/__mocks__/simplePage";
 import { devLog } from "../../utils/devLog";
+import { Data as ShareWidgetSectionData } from "../ShareWidgetSection";
+import { SiteContextProvider } from "../Site";
+import Visualiser, { VisualiserContext } from "../Visualiser";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const navigateSpy = jest.spyOn(Gatsby, "navigate");

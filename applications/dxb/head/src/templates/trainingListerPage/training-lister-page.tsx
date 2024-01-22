@@ -1,18 +1,19 @@
+import Grid from "@bmi-digital/components/grid";
+import Hero from "@bmi-digital/components/hero";
+import Search from "@bmi-digital/components/search";
+import Section from "@bmi-digital/components/section";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
-import { Hero, Grid, Section } from "@bmi-digital/components";
-import { microCopy } from "@bmi/microcopies";
-import { Search } from "@bmi-digital/components";
-import Page from "../../components/Page";
-import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
-import Image from "../../components/Image";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import Filters from "../../components/FiltersSidebar";
+import Image from "../../components/Image";
+import { generateGetMicroCopy } from "../../components/MicroCopy";
+import Page from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import Scrim from "../../components/Scrim";
-import Filters from "../../components/FiltersSidebar";
-import { generateGetMicroCopy } from "../../components/MicroCopy";
-import { TrainingListerPageProps } from "./types";
+import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import TrainingCatalogue from "./components/training-catalogue";
 import TrainingNoResults from "./components/training-no-results";
 import { useTrainings } from "./hooks/useTrainings";
@@ -21,6 +22,7 @@ import {
   SearchWrapper,
   StyledSearchTitle
 } from "./styles";
+import { TrainingListerPageProps } from "./types";
 
 const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
   const {
@@ -85,7 +87,7 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
       <Hero
         level={1}
         title={title}
-        media={<Image {...featuredMedia} size="cover" />}
+        media={<Image {...featuredMedia} size="cover" loading="eager" />}
         breadcrumbs={
           <BackToResults isDarkThemed data-testid="breadcrumbs-hero-section">
             <Breadcrumbs

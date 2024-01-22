@@ -1,22 +1,20 @@
-import {
-  Container,
-  Hero,
-  Icon,
-  PLPFilterResponse,
-  QUERY_KEY,
-  Section,
-  Tabs,
-  Tile,
-  useIsClient
-} from "@bmi-digital/components";
+import Container from "@bmi-digital/components/container";
+import { PLPFilterResponse } from "@bmi-digital/components/filters";
+import Hero from "@bmi-digital/components/hero";
+import { useIsClient } from "@bmi-digital/components/hooks";
+import Icon from "@bmi-digital/components/icon";
 import Article from "@bmi-digital/components/icon/Article";
 import Folder from "@bmi-digital/components/icon/Folder";
-import { useMediaQuery } from "@mui/material";
+import Tile from "@bmi-digital/components/icon/Tile";
+import { QUERY_KEY } from "@bmi-digital/components/search";
+import Section from "@bmi-digital/components/section";
+import Tabs from "@bmi-digital/components/tabs";
+import { microCopy } from "@bmi/microcopies";
 import SvgIcon from "@mui/material/SvgIcon";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useState } from "react";
-import { microCopy } from "@bmi/microcopies";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";

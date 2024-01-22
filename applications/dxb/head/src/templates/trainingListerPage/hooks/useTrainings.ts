@@ -1,21 +1,22 @@
-import { useEffect, useMemo, useState } from "react";
+import { Filter } from "@bmi-digital/components/filters";
+import { useIsClient } from "@bmi-digital/components/hooks";
+import { QUERY_KEY } from "@bmi-digital/components/search";
 import { Training } from "@bmi/elasticsearch-types";
-import { Filter, useIsClient } from "@bmi-digital/components";
-import { QUERY_KEY } from "@bmi-digital/components";
 import queryString from "query-string";
+import { useEffect, useMemo, useState } from "react";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import {
   disableFiltersFromAggregations,
   queryElasticSearch
 } from "../../../utils/elasticSearch";
-import { CollapsedTrainingResponse, PaginatedTrainingResponse } from "../types";
+import { updateFilterValue } from "../../../utils/filters";
 import groupBy from "../../../utils/groupBy";
 import { SHOW_MORE_LIMIT } from "../constants";
-import { updateFilterValue } from "../../../utils/filters";
 import {
   constructFiltersQuery,
   constructSearchQuery
 } from "../helpers/constructEsQuery";
+import { CollapsedTrainingResponse, PaginatedTrainingResponse } from "../types";
 
 export type UseTrainings = (props: { defaultFilters: Filter[] }) => {
   initialLoading: boolean;

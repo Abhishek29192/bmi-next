@@ -1,33 +1,16 @@
-import {
-  Button,
-  ButtonProps,
-  replaceSpaces,
-  Typography
-} from "@bmi-digital/components";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Typography from "@bmi-digital/components/typography";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { devLog } from "../../utils/devLog";
+import withGTM from "../../utils/google-tag-manager";
 import { useIsMobileDevice } from "../../utils/useIsMobileDevice";
 import ProgressIndicator from "../ProgressIndicator";
 import RichText from "../RichText";
 import { useSiteContext } from "../Site";
 import { Data as TitleWithContentType } from "../TitleWithContent";
 import { SourceType } from "../types/FormSectionTypes";
-import withGTM from "../../utils/google-tag-manager";
-import { battenCalc } from "./calculation/calculate";
-import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
-import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
-import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
-import Alert from "./subcomponents/_Alert";
-import FieldContainer from "./subcomponents/_FieldContainer";
-import {
-  ResultsObject,
-  ResultsRow,
-  Tile,
-  TileOptionSelections,
-  Underlay
-} from "./types";
-import { Line, LinesMap, Measurements } from "./types/roof";
 import { GutteringSelections } from "./_Guttering";
 import { createPdf } from "./_PDF";
 import {
@@ -41,6 +24,20 @@ import {
   StyledSpinnerContainer,
   StyledTypographyHelp
 } from "./_Results.styles";
+import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
+import { battenCalc } from "./calculation/calculate";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
+import Alert from "./subcomponents/_Alert";
+import FieldContainer from "./subcomponents/_FieldContainer";
+import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
+import {
+  ResultsObject,
+  ResultsRow,
+  Tile,
+  TileOptionSelections,
+  Underlay
+} from "./types";
+import { Line, LinesMap, Measurements } from "./types/roof";
 
 const GTMButton = withGTM<ButtonProps>(Button);
 

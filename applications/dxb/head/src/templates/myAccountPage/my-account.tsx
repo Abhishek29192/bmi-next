@@ -1,144 +1,160 @@
+import {
+  Grid,
+  Hero,
+  Section,
+  ToolCardItemProps,
+  ToolCards
+} from "@bmi-digital/components";
+import { microCopy } from "@bmi/microcopies";
+import { Typography } from "@mui/material";
+import { graphql } from "gatsby";
 import React from "react";
-import { Button, RegionCode } from "@bmi-digital/components";
-import Link, { DataTypeEnum, NavigationData } from "../../components/Link";
+import BackToResults from "../../components/BackToResults";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import ContactDetails, {
+  Data as ContactDetailsData
+} from "../../components/ContactDetails";
+import Image, { type Data as ContentfulImage } from "../../components/Image";
+import Page from "../../components/Page";
+import { Data as SiteData, useSiteContext } from "../../components/Site";
+import useAuth from "../../hooks/useAuth";
 import Protected from "../../pages/protected";
-import { Data as SiteData } from "../../components/Site";
-import Page, { Data } from "../../components/Page";
+import { HelloText, ToolCardsBox, classes } from "./styles";
+import { getUserInfo, transformToolCar } from "./utils";
 
-// !!!!FOR DEMO PURPOSE!!!!!
-const mockNavigation: NavigationData = {
-  __typename: "ContentfulNavigation",
-  label: "Main navigation",
-  link: null,
-  links: [
-    {
-      __typename: "ContentfulLink",
-      id: "string",
-      label: "string",
-      icon: null,
-      isLabelHidden: false,
-      url: "link-to-page",
-      linkedPage: null,
-      type: DataTypeEnum.External,
-      parameters: null,
-      dialogContent: null,
-      hubSpotCTAID: null
-    }
-  ]
+type Props = {
+  data: {
+    contentfulSite: Omit<SiteData, "accountPage"> & {
+      accountPage: AccountPage;
+    };
+  };
 };
 
-const mockNestedNavigation: NavigationData = {
-  __typename: "ContentfulNavigation",
-  label: "Main navigation",
-  link: null,
-  links: [
-    {
-      __typename: "ContentfulNavigation",
-      label: "Get in touch",
-      link: null,
-      links: [
-        {
-          __typename: "ContentfulLink",
-          id: "",
-          label: "+44 (0) 1234567890",
-          url: "tel:+4401234567890",
-          isLabelHidden: null,
-          icon: "Phone",
-          linkedPage: null,
-          type: DataTypeEnum.External,
-          parameters: null,
-          dialogContent: null,
-          hubSpotCTAID: null
-        }
-      ]
-    },
-    {
-      __typename: "ContentfulNavigation",
-      label: "About BMI",
-      link: null,
-      links: [
-        {
-          __typename: "ContentfulLink",
-          id: "",
-          label: "Our story",
-          url: null,
-          isLabelHidden: null,
-          icon: null,
-          linkedPage: {
-            path: "landing-page"
-          },
-          type: DataTypeEnum.Internal,
-          parameters: null,
-          dialogContent: null,
-          hubSpotCTAID: null
-        }
-      ]
-    },
-    {
-      __typename: "ContentfulLink",
-      id: "string",
-      label: "string",
-      icon: null,
-      isLabelHidden: false,
-      url: "link-to-page",
-      linkedPage: null,
-      type: DataTypeEnum.External,
-      parameters: null,
-      dialogContent: null,
-      hubSpotCTAID: null
-    }
-  ]
+export type AccountPage = {
+  featuredMedia: ContentfulImage | null;
+  salutation: string;
+  roleDescription: string;
+  description: string;
+  titleForToolSection: string;
+  titleForServiceSupportSection: string;
+  serviceSupportCards: ContactDetailsData[];
+  slug: string;
+  allowTools: [string];
 };
 
-const siteData: SiteData = {
-  node_locale: "no-En",
-  homePage: {
-    title: "Home page title"
-  },
-  countryCode: "no",
-  footerMainNavigation: mockNavigation,
-  footerSecondaryNavigation: mockNavigation,
-  menuNavigation: mockNestedNavigation,
-  menuUtilities: mockNavigation,
-  resources: null,
-  headScripts: null,
-  pitchedRoofCalculatorConfig: null,
-  visualiserHouseTypes: [],
-  regions: [
-    {
-      label: "Europe",
-      regionCode: RegionCode.Europe,
-      menu: [
-        { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
-        { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
-        { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
-      ]
-    }
-  ]
-};
+const MyAccountPage = ({ data }: Props) => {
+  const { profile } = useAuth();
+  const {
+    featuredMedia,
+    salutation,
+    roleDescription,
+    description,
+    titleForToolSection,
+    titleForServiceSupportSection,
+    serviceSupportCards,
+    slug,
+    allowTools
+  } = data.contentfulSite.accountPage;
+  const { getMicroCopy } = useSiteContext();
+  const transformHeroText =
+    profile && getUserInfo(profile, salutation, roleDescription);
+  const transformToolCardData: [ToolCardItemProps, ...ToolCardItemProps[]] =
+    allowTools && transformToolCar(allowTools, getMicroCopy);
 
-const pageData: Data = {
-  breadcrumbs: null,
-  signupBlock: null,
-  seo: null,
-  path: "page/"
-};
-
-const MyAccountPage = () => {
   return (
     <Protected>
-      <Page title="My acc page" pageData={pageData} siteData={siteData}>
-        <Link href="https://dev-no.intouch.bmigroup.com/profile">
-          GO TO MY PROFILE
-        </Link>
-        <Button href="https://dev-no.intouch.bmigroup.com/roof-measurement">
-          GO TO MY ROOF MEASUREMENT
-        </Button>
-        <Button href="https://dev-no.intouch.bmigroup.com/training">
-          GO TO MY ROOF TRAINING
-        </Button>
+      <Page
+        title="My acc page"
+        pageData={{
+          breadcrumbs: null,
+          signupBlock: null,
+          seo: null,
+          path: ""
+        }}
+        siteData={data.contentfulSite}
+      >
+        <Hero
+          level={1}
+          title={
+            <HelloText>
+              {transformHeroText && transformHeroText.salutation}
+            </HelloText>
+          }
+          media={
+            featuredMedia ? (
+              <Image {...featuredMedia} size="cover" />
+            ) : undefined
+          }
+          breadcrumbs={
+            <BackToResults isDarkThemed data-testid="breadcrumbs-section-top">
+              <Breadcrumbs
+                data={[
+                  {
+                    id: "",
+                    label: getMicroCopy(microCopy.MY_ACCOUNT_LABEL),
+                    slug: slug
+                  }
+                ]}
+                isDarkThemed
+                data-testid="my-acc-page-breadcrumbs-top"
+              />
+            </BackToResults>
+          }
+        >
+          {transformHeroText && (
+            <Typography>{transformHeroText.roleDescription}</Typography>
+          )}
+          <Typography>{description}</Typography>
+        </Hero>
+        <Section backgroundColor="pearl">
+          <Section.Title>{titleForToolSection}</Section.Title>
+          <ToolCardsBox>
+            <ToolCards items={transformToolCardData} className={classes.box} />
+          </ToolCardsBox>
+        </Section>
+        <Section>
+          <Section.Title>{titleForServiceSupportSection}</Section.Title>
+          <Grid container={serviceSupportCards.length > 1} spacing={3}>
+            {serviceSupportCards.map((data) => {
+              const serviceSupportKey = `service-support-card-${data.title}`;
+              return (
+                <Grid
+                  key={serviceSupportKey}
+                  xs={12}
+                  lg={6}
+                  data-testid={serviceSupportKey}
+                >
+                  <ContactDetails data={data} gtmLabel={data.title} />
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Section>
       </Page>
     </Protected>
   );
 };
 export default MyAccountPage;
+
+export const pageQuery = graphql`
+  query AccountPage($siteId: String!) {
+    contentfulSite(id: { eq: $siteId }) {
+      ...SiteFragment
+      accountPage {
+        slug
+        featuredMedia {
+          ...ImageDocumentFragment
+        }
+        salutation
+        roleDescription
+        description
+        titleForToolSection
+        titleForServiceSupportSection
+        allowTools
+        serviceSupportCards {
+          ...ContactDetailsFragment
+        }
+      }
+    }
+  }
+`;

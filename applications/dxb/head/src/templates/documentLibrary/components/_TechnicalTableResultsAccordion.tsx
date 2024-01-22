@@ -1,16 +1,16 @@
-import {
-  Accordion,
-  AccordionSummaryProps,
-  DownloadList,
+import Accordion, {
+  AccordionSummaryProps
+} from "@bmi-digital/components/accordion";
+import DownloadList, {
   DownloadListContext
-} from "@bmi-digital/components";
+} from "@bmi-digital/components/download-list";
 import { PimProductDocument } from "@bmi/elasticsearch-types";
-import { Box } from "@mui/material";
+import { microCopy } from "@bmi/microcopies";
+import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { filesize } from "filesize";
 import React, { useContext, useEffect } from "react";
-import { microCopy } from "@bmi/microcopies";
 import {
   CopyToClipboard,
   DownloadDocumentButton

@@ -1,5 +1,5 @@
-import { ThemeProvider } from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { ProductCategory } from "../../../types";
@@ -49,9 +49,9 @@ const rowsTemplate = [
   }
 ];
 
-jest.mock("@mui/material", () => ({
-  ...(jest.requireActual("@mui/material") as any),
-  useMediaQuery: jest.fn()
+jest.mock("@mui/material/useMediaQuery", () => ({
+  __esModule: true,
+  default: jest.fn()
 }));
 
 const mockUseMediaQuery = useMediaQuery as jest.Mock<

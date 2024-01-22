@@ -1,4 +1,5 @@
-import { RegionCode, ThemeProvider } from "@bmi-digital/components";
+import { RegionCode } from "@bmi-digital/components/language-selection";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { screen } from "@testing-library/react";
 import React from "react";
 import { DataTypeEnum, Data as LinkData } from "../../components/Link";
@@ -114,7 +115,8 @@ describe("General Error", () => {
             { code: "no", label: "Norge", icon: "/icons/flags/no.svg" }
           ]
         }
-      ]
+      ],
+      accountPage: null
     }
   };
 

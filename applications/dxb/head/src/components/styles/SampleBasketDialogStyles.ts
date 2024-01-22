@@ -1,5 +1,6 @@
-import { Button, Typography } from "@bmi-digital/components";
-import { iconButtonClasses } from "@mui/material";
+import Button from "@bmi-digital/components/button";
+import Typography from "@bmi-digital/components/typography";
+import { iconButtonClasses } from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 
 export const StyledBasketDialogContainer = styled("div")(({ theme }) => ({

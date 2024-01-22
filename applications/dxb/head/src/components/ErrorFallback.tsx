@@ -1,4 +1,6 @@
-import { Button, PromoSection, Typography } from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import PromoSection from "@bmi-digital/components/promo-section";
+import Typography from "@bmi-digital/components/typography";
 import React from "react";
 import Image from "./Image";
 import { getClickableActionFromUrl } from "./Link";

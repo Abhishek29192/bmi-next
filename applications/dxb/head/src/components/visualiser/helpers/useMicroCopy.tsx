@@ -1,7 +1,7 @@
 import {
   getMicroCopy as getMicroCopyOld,
   MicroCopyContext
-} from "@bmi-digital/components";
+} from "@bmi-digital/components/micro-copy";
 import React from "react";
 import { useSiteContext } from "../../Site";
 

@@ -26,7 +26,7 @@ const bucket = jest.fn().mockImplementation(() => ({
   file: () => file()
 }));
 
-jest.mock("@google-cloud/storage/build/src/storage", () => {
+jest.mock("@google-cloud/storage", () => {
   const mStorage = jest.fn(() => ({
     bucket: (bucketName: string) => bucket(bucketName)
   }));
@@ -76,10 +76,10 @@ describe("When GCP_STORAGE_NAME is not provided", () => {
       );
     }
 
-    expect(file).toBeCalledTimes(0);
-    expect(fileExists).toBeCalledTimes(0);
-    expect(downloadFile).toBeCalledTimes(0);
-    expect(filterFunctionMetadata).toBeCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fileExists).toHaveBeenCalledTimes(0);
+    expect(downloadFile).toHaveBeenCalledTimes(0);
+    expect(filterFunctionMetadata).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     process.env.GCP_STORAGE_NAME = gcpStorageName;
   });
@@ -100,10 +100,10 @@ describe("When TRIGGER_CB_SECRET is not provided", () => {
       );
     }
 
-    expect(file).toBeCalledTimes(0);
-    expect(fileExists).toBeCalledTimes(0);
-    expect(downloadFile).toBeCalledTimes(0);
-    expect(filterFunctionMetadata).toBeCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fileExists).toHaveBeenCalledTimes(0);
+    expect(downloadFile).toHaveBeenCalledTimes(0);
+    expect(filterFunctionMetadata).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     process.env.TRIGGER_CB_SECRET = triggerApiSecret;
   });
@@ -124,10 +124,10 @@ describe("When TRIGGER_API_KEY is not provided", () => {
       );
     }
 
-    expect(file).toBeCalledTimes(0);
-    expect(fileExists).toBeCalledTimes(0);
-    expect(downloadFile).toBeCalledTimes(0);
-    expect(filterFunctionMetadata).toBeCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fileExists).toHaveBeenCalledTimes(0);
+    expect(downloadFile).toHaveBeenCalledTimes(0);
+    expect(filterFunctionMetadata).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     process.env.TRIGGER_API_KEY = triggerApiKeySecret;
   });
@@ -139,10 +139,10 @@ describe("When function is called for an invalid file", () => {
   it("Does not try to get metadata file", async () => {
     await deploy({ name: invalidFile });
 
-    expect(file).toBeCalledTimes(0);
-    expect(fileExists).toBeCalledTimes(0);
-    expect(downloadFile).toBeCalledTimes(0);
-    expect(filterFunctionMetadata).toBeCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(0);
+    expect(fileExists).toHaveBeenCalledTimes(0);
+    expect(downloadFile).toHaveBeenCalledTimes(0);
+    expect(filterFunctionMetadata).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 });
@@ -154,10 +154,10 @@ describe("When function is called with a valid file", () => {
 
     await deploy({ name: validFile });
 
-    expect(file).toBeCalledTimes(1);
-    expect(fileExists).toBeCalledTimes(1);
-    expect(downloadFile).toBeCalledTimes(0);
-    expect(filterFunctionMetadata).toBeCalledTimes(0);
+    expect(file).toHaveBeenCalledTimes(1);
+    expect(fileExists).toHaveBeenCalledTimes(1);
+    expect(downloadFile).toHaveBeenCalledTimes(0);
+    expect(filterFunctionMetadata).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 
@@ -169,9 +169,9 @@ describe("When function is called with a valid file", () => {
 
     await deploy({ name: validFile });
 
-    expect(file).toBeCalledTimes(1);
-    expect(fileExists).toBeCalledTimes(1);
-    expect(downloadFile).toBeCalledTimes(1);
+    expect(file).toHaveBeenCalledTimes(1);
+    expect(fileExists).toHaveBeenCalledTimes(1);
+    expect(downloadFile).toHaveBeenCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
@@ -187,9 +187,9 @@ describe("When function is called with a valid file", () => {
 
     await deploy({ name: validFile });
 
-    expect(file).toBeCalledTimes(1);
-    expect(fileExists).toBeCalledTimes(1);
-    expect(downloadFile).toBeCalledTimes(1);
+    expect(file).toHaveBeenCalledTimes(1);
+    expect(fileExists).toHaveBeenCalledTimes(1);
+    expect(downloadFile).toHaveBeenCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
@@ -205,9 +205,9 @@ describe("When function is called with a valid file", () => {
 
     await deploy({ name: validFile });
 
-    expect(file).toBeCalledTimes(1);
-    expect(fileExists).toBeCalledTimes(1);
-    expect(downloadFile).toBeCalledTimes(1);
+    expect(file).toHaveBeenCalledTimes(1);
+    expect(fileExists).toHaveBeenCalledTimes(1);
+    expect(downloadFile).toHaveBeenCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
@@ -232,9 +232,9 @@ describe("When function is called with a valid file", () => {
 
     await deploy({ name: validFile });
 
-    expect(file).toBeCalledTimes(1);
-    expect(fileExists).toBeCalledTimes(1);
-    expect(downloadFile).toBeCalledTimes(1);
+    expect(file).toHaveBeenCalledTimes(1);
+    expect(fileExists).toHaveBeenCalledTimes(1);
+    expect(downloadFile).toHaveBeenCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
     expect(fetchMock).toHaveFetchedTimes(
       1,
@@ -274,9 +274,9 @@ describe("When function is called with a valid file", () => {
 
     await deploy({ name: validFile });
 
-    expect(file).toBeCalledTimes(1);
-    expect(fileExists).toBeCalledTimes(1);
-    expect(downloadFile).toBeCalledTimes(1);
+    expect(file).toHaveBeenCalledTimes(1);
+    expect(fileExists).toHaveBeenCalledTimes(1);
+    expect(downloadFile).toHaveBeenCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
     expect(fetchMock).toHaveFetchedTimes(
       1,

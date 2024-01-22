@@ -40,7 +40,7 @@ describe("getEsClient with USE_LOCAL_ES as true", () => {
     await getEsClient();
     await getEsClient();
 
-    expect(mockClient).toBeCalledTimes(1);
+    expect(mockClient).toHaveBeenCalledTimes(1);
     expect(mockClient).toBeCalledWith({ node: "http://localhost:9200" });
   });
 });
@@ -95,7 +95,7 @@ describe("getEsClient without USE_LOCAL_ES", () => {
     await getEsClient();
     await getEsClient();
 
-    expect(mockClient).toBeCalledTimes(1);
+    expect(mockClient).toHaveBeenCalledTimes(1);
     expect(mockClient).toBeCalledWith({
       cloud: {
         id: process.env.ES_CLOUD_ID

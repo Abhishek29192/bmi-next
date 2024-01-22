@@ -1,10 +1,11 @@
-import { FormContext, ThemeProvider } from "@bmi-digital/components";
+import { FormContext } from "@bmi-digital/components/form";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { createProduct } from "@bmi/elasticsearch-types";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import UnderlaySelection from "../_UnderlaySelection";
 import { MicroCopy } from "../helpers/microCopy";
 import { Underlay } from "../types";
-import UnderlaySelection from "../_UnderlaySelection";
 import en from "./samples/copy/en.json";
 
 const pushEvent = jest.fn();

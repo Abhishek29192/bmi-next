@@ -1,9 +1,9 @@
-import React from "react";
+import Typography from "@bmi-digital/components/typography";
 import { microCopy } from "@bmi/microcopies";
-import { Typography } from "@bmi-digital/components";
+import React from "react";
+import RichText from "../../../components/RichText";
 import { useSiteContext } from "../../../components/Site";
 import { Data } from "../../../components/TitleWithContent";
-import RichText from "../../../components/RichText";
 import { Title } from "./training-catalogue-styles";
 
 type Props = {

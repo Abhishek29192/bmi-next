@@ -3,6 +3,7 @@ import React from "react";
 import { GoodBetterBest } from "@bmi/pim-types";
 import { GoodBetterBestIconsConfig } from "../types/GoodBetterBest";
 import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
+import type { AccountPage } from "../templates/myAccountPage/my-account";
 import type { Region } from "./Header";
 import type { NavigationData } from "./Link";
 import type { CalculatorConfig } from "./pitched-roof-calculator/types";
@@ -19,6 +20,9 @@ export type Context = {
   reCaptchaKey?: string;
   reCaptchaNet?: boolean;
   goodBetterBestIconsConfig: GoodBetterBestIconsConfig;
+  accountPage?: {
+    slug: string;
+  };
 };
 
 const SiteContext = React.createContext<Context>({
@@ -32,6 +36,9 @@ const SiteContext = React.createContext<Context>({
     [GoodBetterBest.good]: "Thumb Up",
     [GoodBetterBest.better]: "Heart",
     [GoodBetterBest.best]: "Star"
+  },
+  accountPage: {
+    slug: ""
   }
 });
 
@@ -56,6 +63,7 @@ export type Data = {
   regions: Region[] | null;
   pitchedRoofCalculatorConfig: CalculatorConfig | null;
   visualiserHouseTypes: HouseType[] | null;
+  accountPage: AccountPage | null;
 };
 
 export const query = graphql`
@@ -91,6 +99,9 @@ export const query = graphql`
     }
     visualiserHouseTypes {
       ...VisualiserHouseFragment
+    }
+    accountPage {
+      slug
     }
   }
 `;

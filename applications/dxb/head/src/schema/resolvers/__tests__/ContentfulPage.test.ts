@@ -39,7 +39,8 @@ describe("ContentfulPage resolver", () => {
       "ContentfulDocumentLibraryPage",
       "ContentfulBrandLandingPage",
       "ContentfulCookiePolicyPage",
-      "ContentfulTrainingListerPage"
+      "ContentfulTrainingListerPage",
+      "ContentfulTrainingRegistrationPage"
     ]);
   });
   it("should resolve path", async () => {

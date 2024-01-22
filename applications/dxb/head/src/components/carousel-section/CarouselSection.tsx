@@ -1,27 +1,26 @@
-import {
-  replaceSpaces,
-  transformHyphens,
-  TwoPaneCarousel,
-  TwoPaneCarouselSlide,
-  VerticalRoller,
-  VerticalRollerSlide
-} from "@bmi-digital/components";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
+import TwoPaneCarousel, {
+  Slide as TwoPaneCarouselSlide
+} from "@bmi-digital/components/two-pane-carousel";
+import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
+import VerticalRoller, {
+  Slide as VerticalRollerSlide
+} from "@bmi-digital/components/vertical-roller";
+import { microCopy } from "@bmi/microcopies";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import { microCopy } from "@bmi/microcopies";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
 import Image from "../Image";
-import { getClickableActionFromUrl, getCTA, Data as LinkData } from "../Link";
+import { Data as LinkData, getCTA, getClickableActionFromUrl } from "../Link";
 import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalcualtor";
 import { Data as PromoData } from "../Promo";
 import { useSiteContext } from "../Site";
-import { LinkElement, SectionElement } from "../styles/CarouselSectionStyles";
-import { VisualiserContext } from "../Visualiser";
 import Video from "../Video";
+import { VisualiserContext } from "../Visualiser";
+import { LinkElement, SectionElement } from "../styles/CarouselSectionStyles";
 
 type Slide = PromoData | PageInfoData;
 

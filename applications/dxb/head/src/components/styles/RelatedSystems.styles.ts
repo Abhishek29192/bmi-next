@@ -1,5 +1,6 @@
+import Button from "@bmi-digital/components/button";
+import Section from "@bmi-digital/components/section";
 import { styled } from "@mui/material/styles";
-import { Section, Button } from "@bmi-digital/components";
 
 export const StyledLoadMoreWrapper = styled("div")(() => ({
   display: "flex",

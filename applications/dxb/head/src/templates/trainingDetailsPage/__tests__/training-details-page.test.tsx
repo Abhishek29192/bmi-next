@@ -1,61 +1,62 @@
-import { ThemeProvider } from "@bmi-digital/components";
-import { LocationProvider } from "@reach/router";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { createSession } from "@bmi/docebo-types";
+import {
+  createHistory,
+  createMemorySource,
+  History,
+  LocationProvider
+} from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import {
-  createCourseWithSession,
-  createSession,
-  CourseWithSessions
-} from "@bmi/docebo-types";
-import { Data as SiteData } from "../../../components/Site";
+import { createTraining } from "../../../__tests__/helpers/TrainingHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import TrainingDetailsPage, {
   Props as TrainingProps
 } from "../training-details-page";
+import type { TrainingDetailsCourseType as Course } from "../types";
 
 const mockPageContext: TrainingProps["pageContext"] = {
-  productCode: "test-training-code",
-  siteId: "test-site-id",
-  countryCode: "test-country-code"
+  siteId: "site-id",
+  countryCode: "no",
+  courseId: 10
 };
 
-const mockResources = createMockSiteData();
-const mockCourse = createCourseWithSession();
-const mockSiteData = createMockSiteData({
-  resources: {
-    ...mockResources.resources!,
-    pdpShareWidget: {
-      email: null,
-      facebook: null,
-      copy: null,
-      __typename: "ShareWidgetSection",
-      title: "My Title",
-      message: null,
-      clipboardSuccessMessage: null,
-      clipboardErrorMessage: null,
-      twitter: null,
-      linkedin: null,
-      pinterest: null,
-      isLeftAligned: null
-    }
+const trainingRegistrationPageData = {
+  path: "training-registration-page/",
+  registrationCompletedDialogCloseButton: "Close",
+  successTitle: "Thank you for registration",
+  successDescription: {
+    successDescription:
+      "We have received your registration and we’ll get in touch with you shortly."
   }
-});
-const sessions = createSession();
+};
+
+jest.mock("../components/RegistrationCompletedDialog", () => ({
+  __esModule: true,
+  default: () => <>Success training registration modal</>
+}));
+
+window.history.replaceState = jest.fn();
 
 const renderTrainingDetailsPage = ({
-  course = mockCourse,
-  contentfulSite = mockSiteData
+  course,
+  history: customHistory
 }: {
-  course?: CourseWithSessions;
-  contentfulSite?: SiteData;
+  course: Course;
+  history?: History;
 }) => {
+  const history =
+    customHistory ||
+    createHistory(createMemorySource(`/no/t/${course.slug_name}`));
+
   return render(
     <ThemeProvider>
-      <LocationProvider>
+      <LocationProvider history={history}>
         <TrainingDetailsPage
           data={{
-            doceboCourses: { ...course },
-            contentfulSite
+            doceboCourses: course,
+            contentfulSite: createMockSiteData(),
+            contentfulTrainingRegistrationPage: trainingRegistrationPageData
           }}
           pageContext={mockPageContext}
         />
@@ -64,6 +65,10 @@ const renderTrainingDetailsPage = ({
   );
 };
 
+jest.mock("../../../utils/useHeaderHeight", () => ({
+  useHeaderHeight: jest.fn().mockReturnValue(100)
+}));
+
 beforeEach(() => {
   jest.resetModules();
   jest.clearAllMocks();
@@ -71,38 +76,46 @@ beforeEach(() => {
 
 describe("Training DetailsPage", () => {
   it("should render correctly", () => {
+    const course = createTraining();
     renderTrainingDetailsPage({
-      course: {
-        ...mockCourse,
-        code: "",
-        sessions: []
-      }
+      course
     });
+    expect(screen.getByTestId("training-id")).toBeInTheDocument();
+    expect(screen.getByTestId("breadcrumbs-section-top")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("breadcrumbs-section-bottom")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("training-card-sticky-container")
+    ).toBeInTheDocument();
     expect(screen.getByTestId("training-name")).toBeInTheDocument();
-    expect(screen.queryByTestId("training-id")).not.toBeInTheDocument();
     expect(screen.getByTestId("training-description")).toBeInTheDocument();
     expect(screen.getByTestId("sessions-title")).toBeInTheDocument();
     expect(screen.getByRole("banner")).toBeInTheDocument();
-    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(screen.getByText("MC: training.price.free")).toBeInTheDocument();
+    expect(
+      screen.getByText("Success training registration modal")
+    ).toBeInTheDocument();
   });
 
-  it("should render training id label if code exists for course", () => {
+  it("should render training id label if code does not exists for course", () => {
     renderTrainingDetailsPage({
-      course: { ...mockCourse, code: "DK_TEST_01", sessions: [] }
+      course: createTraining({ code: null })
     });
-    expect(screen.getByTestId("training-id")).toBeInTheDocument();
-    expect(screen.getByTestId("training-id")).toHaveTextContent("DK_TEST_01");
+    expect(screen.queryByTestId("training-id")).not.toBeInTheDocument();
   });
 
   it("should not render sessions if no sessions available for the course", () => {
-    renderTrainingDetailsPage({});
+    renderTrainingDetailsPage({
+      course: createTraining({ sessions: null })
+    });
     expect(screen.queryByTestId("sessions-container")).not.toBeInTheDocument();
     expect(screen.getByTestId("no-available-sessions")).toBeInTheDocument();
   });
 
   it("should render sessions if sessions are available for the course", () => {
     renderTrainingDetailsPage({
-      course: { ...mockCourse, sessions }
+      course: createTraining({ sessions: [createSession()] })
     });
 
     expect(screen.getByTestId("sessions-container")).toBeInTheDocument();
@@ -113,5 +126,26 @@ describe("Training DetailsPage", () => {
     );
     expect(screen.getByTestId("session-date")).toBeInTheDocument();
     expect(screen.getByTestId("session-cta-button")).toBeInTheDocument();
+  });
+
+  it("should render price if provided", () => {
+    renderTrainingDetailsPage({
+      course: createTraining({ price: "100" })
+    });
+    expect(screen.getByText("€100")).toBeInTheDocument();
+  });
+
+  it("replaces history state if 'showResultsModal' is set to true", () => {
+    const historyMemorySource = createMemorySource("/no/t/course-slug-name");
+    historyMemorySource.history.pushState({ showResultsModal: true }, "", "");
+    const history = createHistory(historyMemorySource);
+
+    renderTrainingDetailsPage({ history, course: createTraining() });
+    expect(window.history.replaceState).toHaveBeenCalledWith(
+      {
+        showResultsModal: false
+      },
+      ""
+    );
   });
 });

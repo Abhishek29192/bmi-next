@@ -1,13 +1,9 @@
-import {
-  Tabs,
-  tabsClasses,
-  Card,
-  CardContent,
-  Typography,
-  Button,
-  Grid
-} from "@bmi-digital/components";
-import { styled } from "@mui/material";
+import Button from "@bmi-digital/components/button";
+import Card, { CardContent } from "@bmi-digital/components/card";
+import Grid from "@bmi-digital/components/grid";
+import Tabs, { tabsClasses } from "@bmi-digital/components/tabs";
+import Typography from "@bmi-digital/components/typography";
+import { styled } from "@mui/material/styles";
 import Image from "../../Image";
 
 const PREFIX = "ServiceLocatorSection-module";

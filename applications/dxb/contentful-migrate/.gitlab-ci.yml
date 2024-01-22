@@ -47,9 +47,6 @@ test_contentful_migrate:
 .migrate_content:
   stage: pre deploy
   rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
-      changes:
-        - applications/dxb/contentful-migrate/src/**/*
     - if: !reference [.run_for_preprod_release, rules, if]
       variables:
         CONTENTFUL_ENVIRONMENT: master
@@ -181,33 +178,6 @@ deploy_gatsby_cloud_qa:
     - update_mc_qa
   variables:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
-    DXB_MARKET_ID: "NO"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
-migrate_content_one_page_qa:
-  extends: .migrate_content
-  rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
-      changes:
-        - applications/dxb/contentful-migrate/src/**/*
-    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
-  variables:
-    CONTENTFUL_ENVIRONMENT: one-page-qa
-    DXB_MARKET_ID: "NO"
-    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
-deploy_gatsby_cloud_one_page_qa:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
-      changes:
-        - applications/dxb/contentful-migrate/src/**/*
-    - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
-  needs:
-    - migrate_content_one_page_qa
-  variables:
-    DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_ONE_PAGE_QA
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 

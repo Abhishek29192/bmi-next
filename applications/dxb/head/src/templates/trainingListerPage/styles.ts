@@ -1,4 +1,5 @@
-import { Grid, Typography } from "@bmi-digital/components";
+import Grid from "@bmi-digital/components/grid";
+import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
 
 const PREFIX = "SearchBoxStyles";

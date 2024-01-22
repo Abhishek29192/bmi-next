@@ -234,15 +234,18 @@ exports[`Sections component renders correctly 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-1u48ai"
+              class=" css-makape"
+              data-testid="accordion"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+                data-testid="accordion-item"
               >
                 <div
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                   data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
+                  data-testid="accordion-summary"
                   role="button"
                   tabindex="0"
                 >
@@ -287,7 +290,7 @@ exports[`Sections component renders correctly 1`] = `
                         role="region"
                       >
                         <div
-                          class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
+                          class="MuiAccordionDetails-root  css-188s0du-MuiAccordionDetails-root"
                         >
                           <div
                             class="RichText-root RichText-no-bottom-margin css-1u73y0t"
@@ -341,12 +344,10 @@ exports[`Sections component renders correctly 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-1y9y18v"
+              class=" css-kmsk3c"
               data-testid="tabs"
             >
-              <div
-                class="css-k008qs"
-              >
+              <div>
                 <div
                   class="Tabs-tabsBar"
                 >
@@ -357,7 +358,7 @@ exports[`Sections component renders correctly 1`] = `
                       class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                     >
                       <div
-                        class="MuiTabs-root css-6wm242-MuiTabs-root"
+                        class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                       >
                         <div
                           class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -378,7 +379,7 @@ exports[`Sections component renders correctly 1`] = `
                           />
                         </div>
                         <div
-                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                           style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                         />
                         <div
@@ -1248,7 +1249,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1362,12 +1363,10 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg css-11rq2kv"
+            class="Tabs-secondary Tabs-visibleUntillg css-uj6ct4"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -1378,7 +1377,7 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -1534,7 +1533,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1663,7 +1662,7 @@ exports[`Sections component renders correctly 1`] = `
                     findARoofer.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Pitched Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Pitched-Roof"
                     role="button"
@@ -1679,7 +1678,7 @@ exports[`Sections component renders correctly 1`] = `
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tddn61-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{"id":"selector-cards1","label":"Flat Roof","action":"Selector - Cards Filter"}"
                     data-testid="service-locator-chip-Flat-Roof"
                     role="button"
@@ -1699,12 +1698,10 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg css-11rq2kv"
+            class="Tabs-secondary Tabs-visibleUntillg css-uj6ct4"
             data-testid="tabs"
           >
-            <div
-              class="css-k008qs"
-            >
+            <div>
               <div
                 class="Tabs-tabsBar"
               >
@@ -1715,7 +1712,7 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-6wm242-MuiTabs-root"
+                      class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                     >
                       <div
                         class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -2290,9 +2287,13 @@ exports[`Sections component renders correctly 1`] = `
               <div
                 style="opacity: 0; visibility: hidden; transition-delay: 500ms;"
               >
-                <div
+                <react-player
+                  config="[object Object]"
+                  controls="true"
                   data-testid="youtube-inline-react-player"
-                  style="width: 640px; height: 360px;"
+                  light="true"
+                  playing="false"
+                  url="https://www.youtube.com/watch?v=A-RfHC91Ewc"
                 />
               </div>
             </div>
@@ -2330,12 +2331,10 @@ exports[`Sections component renders correctly 1`] = `
                 Team Section - alabaster
               </h2>
               <div
-                class="TeamSection-tabs css-1y9y18v"
+                class="TeamSection-tabs css-kmsk3c"
                 data-testid="tabs"
               >
-                <div
-                  class="css-k008qs"
-                >
+                <div>
                   <div
                     class="Tabs-tabsBar"
                   >
@@ -2349,7 +2348,7 @@ exports[`Sections component renders correctly 1`] = `
                           class=" css-ze8cyt"
                         >
                           <div
-                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-4znb3b-MuiContainer-root-MuiTabs-root"
+                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-1essqfd-MuiContainer-root-MuiTabs-root"
                           >
                             <div
                               class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -2370,7 +2369,7 @@ exports[`Sections component renders correctly 1`] = `
                               />
                             </div>
                             <div
-                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                               style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                             />
                             <div
@@ -2481,6 +2480,7 @@ exports[`Sections component renders correctly 1`] = `
                                     >
                                       <img
                                         alt="alt text"
+                                        loading="lazy"
                                         src="https://testImage.jpg"
                                         style="object-fit: cover; object-position: center;"
                                       />
@@ -2555,12 +2555,10 @@ exports[`Sections component renders correctly 1`] = `
                 Team Section - undefined colour (2 categories)
               </h2>
               <div
-                class="TeamSection-tabs css-1y9y18v"
+                class="TeamSection-tabs css-kmsk3c"
                 data-testid="tabs"
               >
-                <div
-                  class="css-k008qs"
-                >
+                <div>
                   <div
                     class="Tabs-tabsBar"
                   >
@@ -2574,7 +2572,7 @@ exports[`Sections component renders correctly 1`] = `
                           class=" css-ze8cyt"
                         >
                           <div
-                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-4znb3b-MuiContainer-root-MuiTabs-root"
+                            class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-1essqfd-MuiContainer-root-MuiTabs-root"
                           >
                             <div
                               class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -2595,7 +2593,7 @@ exports[`Sections component renders correctly 1`] = `
                               />
                             </div>
                             <div
-                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                              class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                               style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                             />
                             <div
@@ -2722,6 +2720,7 @@ exports[`Sections component renders correctly 1`] = `
                                     >
                                       <img
                                         alt="alt text"
+                                        loading="lazy"
                                         src="https://testImage.jpg"
                                         style="object-fit: cover; object-position: center;"
                                       />
@@ -2801,6 +2800,7 @@ exports[`Sections component renders correctly 1`] = `
                                     >
                                       <img
                                         alt="alt text"
+                                        loading="lazy"
                                         src="https://testImage.jpg"
                                         style="object-fit: cover; object-position: center;"
                                       />
@@ -2908,7 +2908,7 @@ exports[`Sections component renders correctly 1`] = `
             Form section
           </h2>
           <form
-            class="Form-rightAlignButton css-yp4v13"
+            class="Form-rightAlignButton css-1p7e5tt"
             data-testid="section-Form-section"
           >
             <div
@@ -2924,7 +2924,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-first-name"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="first-name"
                     id="first-name-label"
@@ -2977,7 +2977,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-second-names"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="second-names"
                     id="second-names-label"
@@ -3030,7 +3030,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-email"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="email"
                     id="email-label"
@@ -3083,7 +3083,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-company"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="company"
                     id="company-label"
@@ -3126,7 +3126,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-telephone"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="telephone"
                     id="telephone-label"
@@ -3168,7 +3168,7 @@ exports[`Sections component renders correctly 1`] = `
                   class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                   >
                     Type of query
@@ -3184,12 +3184,13 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1tnxenj-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                   >
                     <div
+                      aria-controls=":r9:"
                       aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-labelledby="mui-component-select-recipients"
                       class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                       id="mui-component-select-recipients"
-                      role="button"
+                      role="combobox"
                       tabindex="0"
                     >
                       form.none.selection
@@ -3297,7 +3298,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="text-field-message"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="false"
                     for="message"
                     id="message-label"
@@ -3641,15 +3642,18 @@ exports[`Sections component renders correctly when incomplete 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-1u48ai"
+              class=" css-makape"
+              data-testid="accordion"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+                data-testid="accordion-item"
               >
                 <div
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                   data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
+                  data-testid="accordion-summary"
                   role="button"
                   tabindex="0"
                 >
@@ -3694,7 +3698,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                         role="region"
                       >
                         <div
-                          class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
+                          class="MuiAccordionDetails-root  css-188s0du-MuiAccordionDetails-root"
                         >
                           <div
                             class="RichText-root RichText-no-bottom-margin css-1u73y0t"
@@ -3748,12 +3752,10 @@ exports[`Sections component renders correctly when incomplete 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-1y9y18v"
+              class=" css-kmsk3c"
               data-testid="tabs"
             >
-              <div
-                class="css-k008qs"
-              >
+              <div>
                 <div
                   class="Tabs-tabsBar"
                 >
@@ -3764,7 +3766,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                       class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                     >
                       <div
-                        class="MuiTabs-root css-6wm242-MuiTabs-root"
+                        class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                       >
                         <div
                           class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -3785,7 +3787,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                           />
                         </div>
                         <div
-                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                           style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                         />
                         <div
@@ -3929,15 +3931,18 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-1u48ai"
+              class=" css-makape"
+              data-testid="accordion"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+                data-testid="accordion-item"
               >
                 <div
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                   data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
+                  data-testid="accordion-summary"
                   role="button"
                   tabindex="0"
                 >
@@ -3982,7 +3987,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                         role="region"
                       >
                         <div
-                          class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
+                          class="MuiAccordionDetails-root  css-188s0du-MuiAccordionDetails-root"
                         >
                           <div
                             class="RichText-root RichText-no-bottom-margin css-1u73y0t"
@@ -4036,12 +4041,10 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-1y9y18v"
+              class=" css-kmsk3c"
               data-testid="tabs"
             >
-              <div
-                class="css-k008qs"
-              >
+              <div>
                 <div
                   class="Tabs-tabsBar"
                 >
@@ -4052,7 +4055,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                       class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                     >
                       <div
-                        class="MuiTabs-root css-6wm242-MuiTabs-root"
+                        class="MuiTabs-root css-1e0aii6-MuiTabs-root"
                       >
                         <div
                           class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -4073,7 +4076,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                           />
                         </div>
                         <div
-                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                           style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                         />
                         <div

@@ -91,17 +91,21 @@ exports[`RichText component closes dialog 1`] = `
         </span>
       </a>
        
-      <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
-        tabindex="0"
-        type="button"
+      <div
+        class="css-1v5x0v5"
       >
-        Aerodek Robust Plus
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+          data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
+          tabindex="0"
+          type="button"
+        >
+          Aerodek Robust Plus
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </p>
     <ul>
       <li>
@@ -132,17 +136,21 @@ exports[`RichText component closes dialog 1`] = `
       </p>
     </blockquote>
     <hr />
-    <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-      data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
-      tabindex="0"
-      type="button"
+    <div
+      class="css-1v5x0v5"
     >
-      Support
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
+        tabindex="0"
+        type="button"
+      >
+        Support
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
     <picture>
       <source
         sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
@@ -290,17 +298,21 @@ exports[`RichText component renders correctly 1`] = `
         </span>
       </a>
        
-      <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
-        tabindex="0"
-        type="button"
+      <div
+        class="css-1v5x0v5"
       >
-        Aerodek Robust Plus
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+          data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
+          tabindex="0"
+          type="button"
+        >
+          Aerodek Robust Plus
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </p>
     <ul>
       <li>
@@ -331,17 +343,21 @@ exports[`RichText component renders correctly 1`] = `
       </p>
     </blockquote>
     <hr />
-    <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-      data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
-      tabindex="0"
-      type="button"
+    <div
+      class="css-1v5x0v5"
     >
-      Support
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
+        tabindex="0"
+        type="button"
+      >
+        Support
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
     <picture>
       <source
         sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"
@@ -478,17 +494,21 @@ exports[`RichText component renders when dialog clicked 1`] = `
         </span>
       </a>
        
-      <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
-        tabindex="0"
-        type="button"
+      <div
+        class="css-1v5x0v5"
       >
-        Aerodek Robust Plus
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+          data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
+          tabindex="0"
+          type="button"
+        >
+          Aerodek Robust Plus
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </p>
     <ul>
       <li>
@@ -519,17 +539,21 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </p>
     </blockquote>
     <hr />
-    <button
-      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-      data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
-      tabindex="0"
-      type="button"
+    <div
+      class="css-1v5x0v5"
     >
-      Support
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
+        tabindex="0"
+        type="button"
+      >
+        Support
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
     <picture>
       <source
         sizes="(max-width: 600px) 561px, (max-width: 720px) 665px, (max-width: 840px) 785px, (max-width: 1440px) 916px, 920px"

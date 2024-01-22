@@ -1,9 +1,10 @@
-import { replaceSpaces, Section } from "@bmi-digital/components";
+import Section from "@bmi-digital/components/section";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React from "react";
+import RichText from "./RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 import { GridContainer, classes } from "./styles/TitleWithContentSectionStyles";
-import RichText from "./RichText";
 
 export type Data = TitleWithContentData;
 

@@ -1,6 +1,6 @@
 import logger from "@bmi-digital/functions-logger";
-import { DownloadResponse } from "@google-cloud/storage/build/src/file";
-import { FunctionMetadata } from "./types";
+import type { DownloadResponse } from "@google-cloud/storage";
+import type { FunctionMetadata } from "./types";
 
 export function filterFunctionMetadata(
   content: DownloadResponse,

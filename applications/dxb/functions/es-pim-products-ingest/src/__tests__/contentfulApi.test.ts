@@ -107,7 +107,7 @@ describe("getAssetTypes", () => {
       }
     ]);
     expect(getContentfulClient).toBeCalled();
-    expect(getEntries).toBeCalledTimes(10);
+    expect(getEntries).toHaveBeenCalledTimes(10);
     expect(getEntries).toBeCalledWith({
       content_type: "assetType",
       locale,

@@ -65,14 +65,12 @@ export const swapReadWriteAliases = async (aliasPrefix: string) => {
   const readAlias = `${aliasPrefix.toLowerCase()}_read`;
   const writeAlias = `${aliasPrefix.toLowerCase()}_write`;
 
-  const indexesWithReadAlias: string[] = await findIndexNamesForAlias(
-    readAlias
-  );
+  const indexesWithReadAlias: string[] =
+    await findIndexNamesForAlias(readAlias);
 
   // only one index should have write alias
-  const indexesWithWriteAlias: string[] = await findIndexNamesForAlias(
-    writeAlias
-  );
+  const indexesWithWriteAlias: string[] =
+    await findIndexNamesForAlias(writeAlias);
 
   // full fetch co-ordinator had some problem
   //or someone has manually added `_write` alias on more than one

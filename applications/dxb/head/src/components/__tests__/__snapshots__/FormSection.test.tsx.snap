@@ -82,7 +82,7 @@ exports[`FormSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -98,7 +98,7 @@ exports[`FormSection component renders correctly 1`] = `
                 data-testid="text-field-text"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
                   for="text"
                   id="text-label"
@@ -141,7 +141,7 @@ exports[`FormSection component renders correctly 1`] = `
                 data-testid="text-field-textarea"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
                   for="textarea"
                   id="textarea-label"
@@ -191,7 +191,7 @@ exports[`FormSection component renders correctly 1`] = `
                 data-testid="text-field-email"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
                   for="email"
                   id="email-label"
@@ -504,7 +504,7 @@ exports[`FormSection component renders correctly 1`] = `
                 class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                 >
                   Select
@@ -513,12 +513,13 @@ exports[`FormSection component renders correctly 1`] = `
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1tnxenj-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                 >
                   <div
+                    aria-controls=":r3:"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-labelledby="mui-component-select-select"
                     class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                     id="mui-component-select-select"
-                    role="button"
+                    role="combobox"
                     tabindex="0"
                   >
                     MC: form.none.selection
@@ -847,7 +848,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -1047,7 +1048,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -1175,7 +1176,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -1191,7 +1192,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                 data-testid="text-field-email"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="email"
                   id="email-label"
@@ -1319,7 +1320,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -1335,7 +1336,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                 data-testid="text-field-email"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="email"
                   id="email-label"
@@ -1484,7 +1485,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="test-form"
         >
           <div
@@ -1701,7 +1702,7 @@ exports[`FormSection component test multiply options in a checkbox group without
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="test-form"
         >
           <div
@@ -1918,7 +1919,7 @@ exports[`FormSection component test upload input with large file 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -2118,7 +2119,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div
@@ -2263,7 +2264,7 @@ exports[`FormSection component test upload input with small file 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="form"
         >
           <div

@@ -79,3 +79,5 @@ yarn-error.log
 lighthouseci/
 
 zap_output.html
+
+static/brands/

@@ -1,9 +1,7 @@
-import { styled, css } from "@mui/material/styles";
-import {
-  CardRadioGroup,
-  ThemeOptions,
-  CardCheckboxGroup
-} from "@bmi-digital/components";
+import CardCheckboxGroup from "@bmi-digital/components/card-checkbox-group";
+import CardRadioGroup from "@bmi-digital/components/card-radio-group";
+import { ThemeOptions } from "@bmi-digital/components/theme-provider";
+import { css, styled } from "@mui/material/styles";
 
 const PREFIX = "CardGroup";
 

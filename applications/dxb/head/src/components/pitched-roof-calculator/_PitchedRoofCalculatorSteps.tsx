@@ -1,12 +1,22 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Typography from "@bmi-digital/components/typography";
 import { microCopy } from "@bmi/microcopies";
-import { Button, ButtonProps, Typography } from "@bmi-digital/components";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useConfig } from "../../contexts/ConfigProvider";
 import { devLog } from "../../utils/devLog";
 import { queryElasticSearch } from "../../utils/elasticSearch";
+import withGTM from "../../utils/google-tag-manager";
 import { shallowEqual } from "../../utils/isObjectEqual";
 import { useSiteContext } from "../Site";
-import withGTM from "../../utils/google-tag-manager";
+import Guttering, { GutteringSelections } from "./_Guttering";
+import { StyledResultsGrid } from "./_PitchedRoofCalculatorSteps.styles";
+import Results from "./_Results";
+import RoofDimensions from "./_RoofDimensions";
+import RoofSelection from "./_RoofSelection";
+import TileOptions from "./_TileOptions";
+import TileSelection from "./_TileSelection";
+import UnderlaySelection from "./_UnderlaySelection";
+import VariantSelection from "./_VariantSelection";
 import { calculateArea } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import protrusionTypes from "./calculation/protrusions";
@@ -28,13 +38,13 @@ import {
   CalculatorSteps,
   Data,
   GutteringFormSelection,
-  mainTileReferencesMapper,
   NestedProductReferences,
-  nestedProductReferencesMapper,
   ReferencedTileProducts,
   Tile,
   TileOptionSelections,
-  Underlay
+  Underlay,
+  mainTileReferencesMapper,
+  nestedProductReferencesMapper
 } from "./types";
 import {
   DimensionsValues,
@@ -43,15 +53,6 @@ import {
   Protrusion,
   RoofV2 as Roof
 } from "./types/roof";
-import Guttering, { GutteringSelections } from "./_Guttering";
-import Results from "./_Results";
-import RoofDimensions from "./_RoofDimensions";
-import RoofSelection from "./_RoofSelection";
-import TileOptions from "./_TileOptions";
-import TileSelection from "./_TileSelection";
-import UnderlaySelection from "./_UnderlaySelection";
-import VariantSelection from "./_VariantSelection";
-import { StyledResultsGrid } from "./_PitchedRoofCalculatorSteps.styles";
 
 const GTMButton = withGTM<ButtonProps>(Button);
 

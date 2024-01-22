@@ -1,15 +1,13 @@
-import {
-  Button,
-  ClickableAction,
-  Icon,
-  replaceSpaces,
-  Typography
-} from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import { ClickableAction } from "@bmi-digital/components/clickable";
+import Icon from "@bmi-digital/components/icon";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import Close from "@bmi-digital/components/icon/Close";
 import DeleteIcon from "@bmi-digital/components/icon/Delete";
-import React from "react";
+import Typography from "@bmi-digital/components/typography";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import {
   ACTION_TYPES,
   Sample,

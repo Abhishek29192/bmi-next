@@ -1,4 +1,6 @@
-import { ExploreBar, replaceSpaces, Section } from "@bmi-digital/components";
+import ExploreBar from "@bmi-digital/components/explore-bar";
+import Section from "@bmi-digital/components/section";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React from "react";
 import { devLog } from "../utils/devLog";

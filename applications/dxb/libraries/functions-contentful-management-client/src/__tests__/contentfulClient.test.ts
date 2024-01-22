@@ -52,7 +52,7 @@ describe("getContentfulClient", () => {
     await getContentfulClient();
     await getContentfulClient();
 
-    expect(mockClient).toBeCalledTimes(1);
+    expect(mockClient).toHaveBeenCalledTimes(1);
     expect(mockClient).toBeCalledWith({
       accessToken: process.env.MANAGEMENT_ACCESS_TOKEN!
     });

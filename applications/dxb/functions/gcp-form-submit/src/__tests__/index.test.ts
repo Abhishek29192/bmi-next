@@ -81,11 +81,11 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_MANAGEMENT_TOKEN =
@@ -103,11 +103,11 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_SPACE_ID = originalContentfulSpaceId;
@@ -124,11 +124,11 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_ENVIRONMENT = originalContentfulEnvironment;
@@ -145,11 +145,11 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.RECAPTCHA_KEY = originalRecaptchaSecretKey;
@@ -166,11 +166,11 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.SENDGRID_API_KEY = originalSendGridApiKeySecret;
@@ -187,11 +187,11 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.SENDGRID_FROM_EMAIL = originalSendGridFromEmail;
@@ -205,10 +205,10 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "POST");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Headers", [
@@ -234,13 +234,13 @@ describe("Making a POST request", () => {
     await submit(req, res);
 
     expect(fetchMock).toHaveBeenCalledTimes(0);
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(setApiKey).toBeCalledTimes(0);
-    expect(send).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(setApiKey).toHaveBeenCalledTimes(0);
+    expect(send).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_MANAGEMENT_TOKEN =
@@ -257,13 +257,13 @@ describe("Making a POST request", () => {
     await submit(req, res);
 
     expect(fetchMock).toHaveBeenCalledTimes(0);
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(setApiKey).toBeCalledTimes(0);
-    expect(send).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(setApiKey).toHaveBeenCalledTimes(0);
+    expect(send).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_SPACE_ID = originalContentfulSpaceId;
@@ -279,13 +279,13 @@ describe("Making a POST request", () => {
     await submit(req, res);
 
     expect(fetchMock).toHaveBeenCalledTimes(0);
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(setApiKey).toBeCalledTimes(0);
-    expect(send).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(setApiKey).toHaveBeenCalledTimes(0);
+    expect(send).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.CONTENTFUL_ENVIRONMENT = originalContentfulEnvironment;
@@ -301,13 +301,13 @@ describe("Making a POST request", () => {
     await submit(req, res);
 
     expect(fetchMock).toHaveBeenCalledTimes(0);
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(setApiKey).toBeCalledTimes(0);
-    expect(send).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(setApiKey).toHaveBeenCalledTimes(0);
+    expect(send).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.RECAPTCHA_KEY = originalRecaptchaSecretKey;
@@ -323,13 +323,13 @@ describe("Making a POST request", () => {
     await submit(req, res);
 
     expect(fetchMock).toHaveBeenCalledTimes(0);
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(setApiKey).toBeCalledTimes(0);
-    expect(send).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(setApiKey).toHaveBeenCalledTimes(0);
+    expect(send).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.SENDGRID_API_KEY = originalSendGridApiKeySecret;
@@ -345,13 +345,13 @@ describe("Making a POST request", () => {
     await submit(req, res);
 
     expect(fetchMock).toHaveBeenCalledTimes(0);
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
-    expect(setApiKey).toBeCalledTimes(0);
-    expect(send).toBeCalledTimes(0);
-    expect(res.set).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
+    expect(setApiKey).toHaveBeenCalledTimes(0);
+    expect(send).toHaveBeenCalledTimes(0);
+    expect(res.set).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.SENDGRID_FROM_EMAIL = originalSendGridFromEmail;
@@ -370,10 +370,10 @@ describe("Making a POST request", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Token not provided."));
@@ -388,10 +388,10 @@ describe("Making a POST request", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Invalid request."));
@@ -407,10 +407,10 @@ describe("Making a POST request", () => {
 
     await submit(req, res);
 
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Fields are empty."));
@@ -429,10 +429,10 @@ describe("Making a POST request", () => {
       recaptchaSecret,
       parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
@@ -456,10 +456,10 @@ describe("Making a POST request", () => {
     await submit(req, res);
 
     expect(verifyRecaptchaToken).not.toHaveBeenCalled();
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(getSpace).toHaveBeenCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("QaAuthToken failed."));
@@ -484,9 +484,9 @@ describe("Making a POST request", () => {
       parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(getEnvironment).toHaveBeenCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -510,8 +510,8 @@ describe("Making a POST request", () => {
     );
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -544,7 +544,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -577,7 +577,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -610,7 +610,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -648,7 +648,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -694,7 +694,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com", "email1@email.com", "email2@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -727,8 +727,8 @@ describe("Making a POST request", () => {
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
     expect(setApiKey).toBeCalledWith(sendGridSecret);
-    expect(createAsset).toBeCalledTimes(0);
-    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(createAsset).toHaveBeenCalledTimes(0);
+    expect(processForAllLocales).toHaveBeenCalledTimes(0);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -770,7 +770,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -820,7 +820,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -865,7 +865,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -906,7 +906,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(2);
+    expect(processForAllLocales).toHaveBeenCalledTimes(2);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -915,9 +915,9 @@ describe("Making a POST request", () => {
       html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: ["https://localhost"]</li></ul>'
     });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.set).toBeCalledTimes(2);
+    expect(res.set).toHaveBeenCalledTimes(2);
     expect(res.sendStatus).toBeCalledWith(200);
-    expect(res.sendStatus).toBeCalledTimes(2);
+    expect(res.sendStatus).toHaveBeenCalledTimes(2);
   });
 
   it("returns status 200 when successfully sends email and the email subject should fit to the emailSubjectFormat", async () => {
@@ -956,7 +956,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -1046,7 +1046,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -1097,7 +1097,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
@@ -1146,7 +1146,7 @@ describe("Making a POST request", () => {
         }
       }
     });
-    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(processForAllLocales).toHaveBeenCalledTimes(1);
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,

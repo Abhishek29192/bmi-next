@@ -1,4 +1,5 @@
-import { GoogleApi, ThemeProvider } from "@bmi-digital/components";
+import GoogleApi from "@bmi-digital/components/google-api";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { googleMock } from "../../../__mocks__/google";

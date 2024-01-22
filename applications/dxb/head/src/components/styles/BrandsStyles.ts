@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 
-import { Section } from "@bmi-digital/components";
+import Section from "@bmi-digital/components/section";
 
 export const SectionElement = styled(Section)(() => ({
   [":global(.MuiButton-root)"]: {

@@ -1,21 +1,17 @@
-import {
-  Card,
-  CardProps,
-  ExpandableCard,
-  Grid,
-  GridProps,
-  IconList,
-  Typography
-} from "@bmi-digital/components";
-import HelpIcon from "@bmi-digital/components/icon/QuestionMark";
+import Card, { CardProps } from "@bmi-digital/components/card";
+import ExpandableCard from "@bmi-digital/components/expandable-card";
+import Grid, { GridProps } from "@bmi-digital/components/grid";
+import IconList from "@bmi-digital/components/icon-list";
 import AddShoppingCartIcon from "@bmi-digital/components/icon/AddShoppingCart";
 import BuildIcon from "@bmi-digital/components/icon/Build";
 import EmojiObjectsOutlinedIcon from "@bmi-digital/components/icon/EmojiObjectsOutlined";
 import FindReplaceIcon from "@bmi-digital/components/icon/FindReplace";
 import InfoIcon from "@bmi-digital/components/icon/Info";
 import LocalShippingIcon from "@bmi-digital/components/icon/LocalShipping";
+import HelpIcon from "@bmi-digital/components/icon/QuestionMark";
 import ReportProblemIcon from "@bmi-digital/components/icon/ReportProblem";
 import VerifiedUserIcon from "@bmi-digital/components/icon/VerifiedUser";
+import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React from "react";

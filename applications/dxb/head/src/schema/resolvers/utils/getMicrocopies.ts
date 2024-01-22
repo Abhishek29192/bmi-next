@@ -1,15 +1,15 @@
-import type { Context, Node } from "../types/Gatsby";
 import type { ContentfulSite, MicroCopyNode } from "../types/Contentful";
+import type { Context, Node } from "../types/Gatsby";
 
 export const getMicroCopies = async (
   context: Context
 ): Promise<MicroCopyNode[] | undefined> => {
-  const marketCode = process.env.SPACE_MARKET_CODE;
+  const marketCode = process.env.GATSBY_SPACE_MARKET_CODE;
   const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
 
   if (!marketCode || !localeCode) {
     console.error(
-      `Please check environment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+      `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
     );
     return;
   }

@@ -1,14 +1,13 @@
-import {
-  AnchorLink,
-  AnchorLinkProps,
-  Button,
-  EqualHeights,
-  Grid,
-  ProfileCard
-} from "@bmi-digital/components";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
+import Button from "@bmi-digital/components/button";
+import EqualHeights from "@bmi-digital/components/equal-heights";
+import Grid from "@bmi-digital/components/grid";
+import ProfileCard from "@bmi-digital/components/profile-card";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import { microCopy } from "@bmi/microcopies";
 import withGTM from "../utils/google-tag-manager";
 import Icon from "./Icon";
 import Image, { Data as ImageData } from "./Image";

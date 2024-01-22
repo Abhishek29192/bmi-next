@@ -26,6 +26,7 @@ exports[`Brands component renders correctly 1`] = `
           <img
             alt="contentful image alt text"
             class="OverviewCard-headerPicture css-7mgsqw-Media"
+            loading="lazy"
             src="http://localhost:9000/image-filname.jpg"
             style="object-fit: cover; object-position: center;"
             title="contentful image title"
@@ -293,6 +294,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
           <img
             alt="contentful image alt text"
             class="OverviewCard-headerPicture css-7mgsqw-Media"
+            loading="lazy"
             src="http://localhost:9000/image-filname.jpg"
             style="object-fit: cover; object-position: center;"
             title="contentful image title"

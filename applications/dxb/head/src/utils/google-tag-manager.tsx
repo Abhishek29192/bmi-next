@@ -1,4 +1,4 @@
-import { ClickableAction } from "@bmi-digital/components";
+import { ClickableAction } from "@bmi-digital/components/clickable";
 import { ButtonBaseActions } from "@mui/material/ButtonBase";
 import React, { createContext, useContext } from "react";
 

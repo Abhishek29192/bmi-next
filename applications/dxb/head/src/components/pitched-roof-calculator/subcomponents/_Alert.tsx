@@ -1,4 +1,4 @@
-import { AlertBanner } from "@bmi-digital/components";
+import AlertBanner from "@bmi-digital/components/alert-banner";
 import classnames from "classnames";
 import React from "react";
 import { Root, classes } from "./_Alert.styles";

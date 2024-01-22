@@ -1,13 +1,13 @@
-import React from "react";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import Image from "../../components/Image";
 import { DataTypeEnum, Data as LinkData } from "../../components/Link";
 import { Data as SlideData } from "../../components/Promo";
 import { Context as SiteContext } from "../../components/Site";
 import Video, { ContentfulVideoData } from "../../components/Video";
-import { getHeroItemsWithContext } from "../helpers/getHeroItemsWithContext";
 import { getMockSiteContext } from "../../components/__tests__/utils/SiteContextProvider";
+import { getHeroItemsWithContext } from "../helpers/getHeroItemsWithContext";
 import type { Data as PageInfoData } from "../../components/PageInfo";
 
 const context: SiteContext = {
@@ -98,7 +98,12 @@ describe("getHeroItemsWithContext", () => {
     expect(result[0].title).toEqual(slide.title);
     expect(result[0].children).toEqual(slide.subtitle);
     expect(result[0].media).toEqual(
-      <Image {...slide.featuredMedia} size="cover" data-testid={"hero-image"} />
+      <Image
+        {...slide.featuredMedia}
+        size="cover"
+        data-testid={"hero-image"}
+        loading="eager"
+      />
     );
     expect(result[0].cta).toBeTruthy();
   });

@@ -1,12 +1,11 @@
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { render, waitFor } from "@testing-library/react";
 import React from "react";
-import { waitFor } from "@testing-library/react";
 import { MeshStandardMaterial, PerspectiveCamera, Scene, Texture } from "three";
-import { render } from "@testing-library/react";
-import { ThemeProvider } from "@bmi-digital/components";
-import TileViewer from "../TileViewer";
-import loadTexture from "../TextureCache";
-import { PIMTile } from "../Types";
 import loadModel from "../ModelCache";
+import loadTexture from "../TextureCache";
+import TileViewer from "../TileViewer";
+import { PIMTile } from "../Types";
 import sidingMock from "./__mocks__/siding";
 import tileMock from "./__mocks__/tile";
 import tileModelMock from "./__mocks__/tileModel";
@@ -67,6 +66,7 @@ jest.mock("../ModelCache", () => ({
 
 afterEach(() => {
   jest.clearAllMocks();
+  jest.restoreAllMocks();
 });
 
 describe("HouseViewer", () => {
@@ -141,8 +141,8 @@ describe("HouseViewer", () => {
       const tileViewer = new TileViewer(defaultProps);
       tileViewer.container = document.createElement("div");
       tileViewer.load();
-      tileViewer.controls!.dispatchEvent({ type: "change", target: <div /> });
-      //First time - on background load, second time - before loadModel method and third time on change event
+      tileViewer.controls!.dispatchEvent({ type: "change" });
+      //First time – on background load, second time – before loadModel method and third time on change event
       await waitFor(() => expect(renderFrameSpy).toHaveBeenCalledTimes(3));
     });
 

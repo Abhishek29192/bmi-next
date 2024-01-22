@@ -1,21 +1,20 @@
-import {
-  Grid,
-  OverviewCard,
-  OverviewCardProps,
-  Typography
-} from "@bmi-digital/components";
+import Grid from "@bmi-digital/components/grid";
+import OverviewCard, {
+  OverviewCardProps
+} from "@bmi-digital/components/overview-card";
+import Typography from "@bmi-digital/components/typography";
 import { Product as ESProduct } from "@bmi/elasticsearch-types";
+import { microCopy } from "@bmi/microcopies";
 import { Link } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import DefaultImage from "../images/DefaultImage.svg";
 import { useSearchParams } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import BrandLogo from "./BrandLogo";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 import { useSiteContext } from "./Site";
 import { FooterAnchorLink } from "./styles/ProductGridViewStyles";
-import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 export type Props = {
   products: ReadonlyArray<ESProduct>;

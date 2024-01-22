@@ -1,13 +1,18 @@
-import { FormContext } from "@bmi-digital/components";
-import React, { useContext, useEffect } from "react";
+import { FormContext } from "@bmi-digital/components/form";
 import { microCopy } from "@bmi/microcopies";
+import React, { useContext, useEffect } from "react";
 import { useSiteContext } from "../Site";
+import {
+  StyledCardCheckboxGroup,
+  StyledCardCheckboxNoneItem,
+  classes
+} from "./_TileOptions.styles";
 import { AnalyticsContext } from "./helpers/analytics";
+import FieldContainer from "./subcomponents/_FieldContainer";
 import {
   CardCheckboxGroup,
   CardRadioGroup
 } from "./subcomponents/card-group/CardGroup";
-import FieldContainer from "./subcomponents/_FieldContainer";
 import {
   RidgeOption,
   Tile,
@@ -15,11 +20,6 @@ import {
   VentilationHood,
   VergeOption
 } from "./types";
-import {
-  StyledCardCheckboxNoneItem,
-  StyledCardCheckboxGroup,
-  classes
-} from "./_TileOptions.styles";
 
 type VergeOptionsProps = {
   selected?: string;

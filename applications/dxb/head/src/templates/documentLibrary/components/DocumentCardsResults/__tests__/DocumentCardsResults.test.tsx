@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import {
   ContentfulDocument,
   createContentfulDocument,
@@ -24,8 +24,8 @@ describe("Brands component", () => {
   });
 
   it("renders correctly for mobile", () => {
-    jest.mock("@mui/material", () => ({
-      useMediaQuery: jest.fn().mockRejectedValue(true)
+    jest.mock("@mui/material/useMediaQuery", () => ({
+      default: jest.fn().mockRejectedValue(true)
     }));
     const { container } = render(
       <ThemeProvider>

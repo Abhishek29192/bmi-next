@@ -1,4 +1,4 @@
-import * as all from "@bmi-digital/components";
+import * as hooks from "@bmi-digital/components/hooks";
 import { CookieHookOptions } from "@lilib/hooks";
 import { renderHook } from "@testing-library/react-hooks";
 import { useHasOptanonBoxClosed } from "../../utils/useHasOptanonBoxClosed";
@@ -13,7 +13,7 @@ jest.mock("@lilib/hooks", () => ({
   ) => useCookie(name, options)
 }));
 
-const useClientSpy = jest.spyOn(all, "useIsClient");
+const useClientSpy = jest.spyOn(hooks, "useIsClient");
 useClientSpy.mockImplementation(() => ({ isClient: true, key: "" }));
 
 beforeEach(() => {

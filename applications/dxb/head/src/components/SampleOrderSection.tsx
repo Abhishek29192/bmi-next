@@ -1,9 +1,10 @@
-import { Button, ButtonProps, Section } from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
 import Add from "@bmi-digital/components/icon/Add";
 import Remove from "@bmi-digital/components/icon/Remove";
 import ShoppingCart from "@bmi-digital/components/icon/ShoppingCart";
-import React, { useEffect, useState } from "react";
+import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
+import React, { useEffect, useState } from "react";
 import {
   ACTION_TYPES,
   createSample,

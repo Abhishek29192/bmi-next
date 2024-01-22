@@ -1,0 +1,19 @@
+lint_redirects_website_bg-bmigroupbulgaria:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+  variables:
+    ROOT_DIR: "applications/dxb/redirects-website-bg-bmigroupbulgaria"
+    WORKSPACE: "@bmi/redirects-website-bg-bmigroupbulgaria"
+
+build_redirects_website_bg-bmigroupbulgaria:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+  variables:
+    ROOT_DIR: applications/redirects-website-bg-bmigroupbulgaria
+    WORKSPACE: "@bmi/redirects-website-bg-bmigroupbulgaria"

@@ -1,4 +1,4 @@
-import { DownloadListContext } from "@bmi-digital/components";
+import { DownloadListContext } from "@bmi-digital/components/download-list";
 import {
   createFullyPopulatedPimProductDocument,
   createPimProductDocument,
@@ -18,7 +18,7 @@ const createMatchMedia = (width: number) => {
       matches: mediaQuery.match(query, { width }),
       addListener: () => {},
       removeListener: () => {}
-    } as unknown as MediaQueryList);
+    }) as unknown as MediaQueryList;
 };
 
 describe("MobileDocumentTechnicalTableResults component", () => {

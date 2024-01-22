@@ -6,7 +6,7 @@ exports[`404 page tests When error page data is partially populated renders plac
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -205,6 +205,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -229,6 +230,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -253,6 +255,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -277,6 +280,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -338,7 +342,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -712,6 +716,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 <img
                   alt="alt-text-img"
                   class="PromoSection-image css-7mgsqw-Media"
+                  loading="lazy"
                   src="https://nowhere.com"
                   style="object-fit: cover; object-position: center;"
                 />
@@ -1118,7 +1123,7 @@ exports[`404 page tests When site data and error page data are fully populated r
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1317,6 +1322,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -1341,6 +1347,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -1365,6 +1372,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -1389,6 +1397,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -1450,7 +1459,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -1824,6 +1833,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 <img
                   alt="alt-text-img"
                   class="PromoSection-image css-7mgsqw-Media"
+                  loading="lazy"
                   src="https://nowhere.com"
                   style="object-fit: cover; object-position: center;"
                 />

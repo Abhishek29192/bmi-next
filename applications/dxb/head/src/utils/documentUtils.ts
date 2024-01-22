@@ -1,16 +1,16 @@
+import { TableSize } from "@bmi-digital/components/table";
 import logger from "@bmi-digital/functions-logger";
-import fetch, { Response } from "node-fetch";
-import { IGoogleReCaptchaConsumerProps } from "react-google-recaptcha-v3";
-import { useState, useEffect } from "react";
-import { TableSize } from "@bmi-digital/components";
-import { useTheme } from "@mui/material/styles";
-import { useMediaQuery } from "@mui/material";
-import { ApprovalStatus } from "@bmi/pim-types";
 import { microCopy } from "@bmi/microcopies";
+import { ApprovalStatus } from "@bmi/pim-types";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import fetch, { Response } from "node-fetch";
+import { useEffect, useState } from "react";
+import { IGoogleReCaptchaConsumerProps } from "react-google-recaptcha-v3";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
-  generateFilenameByRealFileName,
-  generateFileNamebyTitle
+  generateFileNamebyTitle,
+  generateFilenameByRealFileName
 } from "../components/DocumentFileUtils";
 import { GetMicroCopy } from "../components/MicroCopy";
 import { Document } from "../types/Document";

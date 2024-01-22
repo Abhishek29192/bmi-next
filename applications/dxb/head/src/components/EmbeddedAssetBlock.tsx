@@ -1,5 +1,5 @@
 import { Block } from "@contentful/rich-text-types";
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React from "react";
 

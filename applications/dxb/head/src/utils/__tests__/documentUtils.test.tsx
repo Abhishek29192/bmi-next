@@ -285,7 +285,7 @@ describe("useShowMobileTable", () => {
         matches: mediaQuery.match(query, { width }),
         addListener: () => {},
         removeListener: () => {}
-      } as unknown as MediaQueryList);
+      }) as unknown as MediaQueryList;
   };
 
   afterEach(() => {

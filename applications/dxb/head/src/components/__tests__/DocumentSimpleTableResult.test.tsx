@@ -1,35 +1,34 @@
+import DownloadList, {
+  DownloadListContext
+} from "@bmi-digital/components/download-list";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { ApprovalStatus } from "@bmi/pim-types";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import {
-  ThemeProvider,
-  DownloadListContext,
-  DownloadList
-} from "@bmi-digital/components";
-import { useMediaQuery } from "@mui/material";
-import {
+  fireEvent,
   render,
   screen,
-  fireEvent,
-  within,
-  waitFor
+  waitFor,
+  within
 } from "@testing-library/react";
 import React from "react";
-import { ApprovalStatus } from "@bmi/pim-types";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
 import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
+import { renderWithProviders } from "../../__tests__/renderWithProviders";
 import { ProductDocument as PIMDocument } from "../../types/pim";
+import { getUniqueId } from "../../utils/documentUtils";
 import DocumentSimpleTableResults, {
   Props,
   isPIMDocument
 } from "../DocumentSimpleTableResults";
-import { renderWithProviders } from "../../__tests__/renderWithProviders";
-import { getUniqueId } from "../../utils/documentUtils";
 
-jest.mock("@mui/material", () => ({
-  ...(jest.requireActual("@mui/material") as any),
-  useMediaQuery: jest.fn()
+jest.mock("@mui/material/useMediaQuery", () => ({
+  __esModule: true,
+  default: jest.fn()
 }));
 
 jest.mock("../DocumentSimpleTableResultsMobile", () => ({

@@ -1,10 +1,10 @@
-import { Button, ButtonProps } from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
 import classnames from "classnames";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";
-import { classes } from "./styles/EmbeddedLink.styles";
+import { StyledEmbeddedLink, classes } from "./styles/EmbeddedLink.styles";
 
 type Props = {
   fields: LinkData;
@@ -26,24 +26,26 @@ const EmbeddedLink = ({
     label: gtmLabel ? `${gtmLabel} - ${fields.label}` : fields.label
   };
   return (
-    <Link
-      component={(props: ButtonProps) => (
-        <GTMButton
-          gtm={{
-            id: "cta-click1",
-            action: fields.url || fields.linkedPage?.path,
-            label: transformedFields.label
-          }}
-          {...props}
-        />
-      )}
-      variant={theme === "primary" ? "contained" : "opaqueOutlined"}
-      hasDarkBackground={backgroundTheme === "dark"}
-      data={transformedFields}
-      className={classnames([classes.embeddedLink], "embeddedLink")}
-    >
-      {fields.label}
-    </Link>
+    <StyledEmbeddedLink>
+      <Link
+        component={(props: ButtonProps) => (
+          <GTMButton
+            gtm={{
+              id: "cta-click1",
+              action: fields.url || fields.linkedPage?.path,
+              label: transformedFields.label
+            }}
+            {...props}
+          />
+        )}
+        variant={theme === "primary" ? "contained" : "opaqueOutlined"}
+        hasDarkBackground={backgroundTheme === "dark"}
+        data={transformedFields}
+        className={classnames([classes.embeddedLink], "embeddedLink")}
+      >
+        {fields.label}
+      </Link>
+    </StyledEmbeddedLink>
   );
 };
 

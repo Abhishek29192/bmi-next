@@ -1,5 +1,8 @@
-import { Container, Grid, Section, Tabs } from "@bmi-digital/components";
-import { Tab, TabProps } from "@mui/material";
+import Container from "@bmi-digital/components/container";
+import Grid from "@bmi-digital/components/grid";
+import Section from "@bmi-digital/components/section";
+import Tabs from "@bmi-digital/components/tabs";
+import Tab, { TabProps } from "@mui/material/Tab";
 import classnames from "classnames";
 import { graphql } from "gatsby";
 import React from "react";

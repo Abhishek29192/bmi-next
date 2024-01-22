@@ -179,7 +179,7 @@ describe("tagAndUpdate", () => {
       skip: 4,
       "sys.archivedVersion[exists]": false
     });
-    expect(update).toBeCalledTimes(8);
+    expect(update).toHaveBeenCalledTimes(8);
   });
 
   it("handles API request limits", async () => {
@@ -252,7 +252,7 @@ describe("tagAndUpdate", () => {
     expect(diff).toBeGreaterThan(3000);
     expect(getEntries).toHaveBeenCalled();
     expect(getAssets).toHaveBeenCalled();
-    expect(update).toBeCalledTimes(16);
+    expect(update).toHaveBeenCalledTimes(16);
 
     process.env.API_RATE_LIMIT = originalApiRateLimit;
     process.env.WAIT_DURATION_MS = originalWaitDurationMs;
@@ -503,7 +503,7 @@ describe("publishAll", () => {
     expect(diff).toBeGreaterThan(2000);
     expect(getEntries).toHaveBeenCalled();
     expect(getAssets).toHaveBeenCalled();
-    expect(createPublishBulkAction).toBeCalledTimes(12);
+    expect(createPublishBulkAction).toHaveBeenCalledTimes(12);
 
     process.env.WAIT_DURATION_MS = originalWaitDurationMs;
   });
@@ -624,7 +624,7 @@ describe("fillDefaultValues", () => {
       skip: 4,
       "sys.archivedVersion[exists]": false
     });
-    expect(copyDefaultValues).toBeCalledTimes(8);
+    expect(copyDefaultValues).toHaveBeenCalledTimes(8);
   });
 
   it("handles API request limits", async () => {
@@ -704,7 +704,7 @@ describe("fillDefaultValues", () => {
     expect(findIrrelevantLocales).toHaveBeenCalled();
     expect(getEntries).toHaveBeenCalled();
     expect(getAssets).toHaveBeenCalled();
-    expect(copyDefaultValues).toBeCalledTimes(16);
+    expect(copyDefaultValues).toHaveBeenCalledTimes(16);
 
     process.env.API_RATE_LIMIT = originalApiRateLimit;
     process.env.WAIT_DURATION_MS = originalWaitDurationMs;

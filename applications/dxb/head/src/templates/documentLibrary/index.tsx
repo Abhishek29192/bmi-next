@@ -1,19 +1,20 @@
-import {
-  DownloadList,
-  DownloadListContext,
-  Filter,
-  Grid,
-  Hero,
-  Section
-} from "@bmi-digital/components";
+import DownloadList, {
+  DownloadListContext
+} from "@bmi-digital/components/download-list";
+import { Filter } from "@bmi-digital/components/filters";
+import Grid from "@bmi-digital/components/grid";
+import Hero from "@bmi-digital/components/hero";
+import Section from "@bmi-digital/components/section";
+import { microCopy } from "@bmi/microcopies";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { microCopy } from "@bmi/microcopies";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import DocumentResultsFooter from "../../components/DocumentResultsFooter";
+import FilterSection from "../../components/FiltersSidebar";
+import { generateGetMicroCopy } from "../../components/MicroCopy";
 import Page, { Data as PageData } from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import RichText from "../../components/RichText";
@@ -32,8 +33,6 @@ import {
   replaceDotFiltersParameter,
   updateFilterValue
 } from "../../utils/filters";
-import FilterSection from "../../components/FiltersSidebar";
-import { generateGetMicroCopy } from "../../components/MicroCopy";
 import { ResultsSection, classes } from "./DocumentLibraryStyles";
 import { Format } from "./components/DocumentResults";
 import { DownloadListAlertBanner } from "./components/DownloadListAlertBanner";

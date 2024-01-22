@@ -1,5 +1,5 @@
 /* eslint-disable prefer-spread */
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import {
   createContentfulDocument,
   createPimProductDocument
@@ -515,7 +515,7 @@ describe("Document Library page", () => {
       renderWithProviders({});
 
       fireEvent.click(screen.queryByText("BMI Components")!);
-      expect(mockQueryES).toBeCalledTimes(2);
+      expect(mockQueryES).toHaveBeenCalledTimes(2);
 
       await waitFor(() => {
         expect(window.history.replaceState).toBeCalledWith(

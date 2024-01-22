@@ -1,4 +1,5 @@
-import { Button, ButtonProps, ClickableAction } from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import { ClickableAction } from "@bmi-digital/components/clickable";
 import GetApp from "@bmi-digital/components/icon/GetApp";
 import fetch, { Response } from "node-fetch";
 import React from "react";

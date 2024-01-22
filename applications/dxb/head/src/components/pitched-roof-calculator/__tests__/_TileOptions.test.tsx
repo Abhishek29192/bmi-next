@@ -1,6 +1,8 @@
-import { FormContext, ThemeProvider } from "@bmi-digital/components";
+import { FormContext } from "@bmi-digital/components/form";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
+import TileOptions from "../_TileOptions";
 import { AnalyticsContext } from "../helpers/analytics";
 import { MicroCopy } from "../helpers/microCopy";
 import {
@@ -10,7 +12,6 @@ import {
   VergeOption,
   VergeVariant
 } from "../types";
-import TileOptions from "../_TileOptions";
 import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
 

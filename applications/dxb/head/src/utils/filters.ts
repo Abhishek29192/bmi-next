@@ -2,7 +2,7 @@ import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { getPathWithCountryCode } from "../utils/path";
 import { removePLPFilterPrefix } from "./product-filters";
-import type { Filter } from "@bmi-digital/components";
+import type { Filter } from "@bmi-digital/components/filters";
 
 export type URLFilter = {
   name: string;
@@ -137,9 +137,8 @@ export const setFiltersUrl = (newFilters: Filter[]): void => {
     const index: number = urlFilterValues.findIndex(
       (filter) => filter.name === name
     );
-    const value = newUrlFilterValues.find(
-      (value) => value.name === name
-    )?.value;
+    const value = newUrlFilterValues.find((value) => value.name === name)
+      ?.value;
 
     if (index === -1) {
       urlFilterValues.push({ name, value: value || [] });

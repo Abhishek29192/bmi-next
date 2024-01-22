@@ -1,8 +1,7 @@
-import {
-  DialogClassNameContext,
-  ThemeOptions,
-  ThemeProvider
-} from "@bmi-digital/components";
+import { DialogClassNameContext } from "@bmi-digital/components/dialog";
+import ThemeProvider, {
+  ThemeOptions
+} from "@bmi-digital/components/theme-provider";
 import React, { createContext } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
 

@@ -1,7 +1,7 @@
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import "cookieconsent";
 import "cookieconsent/build/cookieconsent.min.css";
 import React from "react";
-import { ThemeProvider } from "@bmi-digital/components";
 import type { GatsbyBrowser } from "gatsby";
 
 const GATSBY_FRC_GA_CODE = process.env.GATSBY_FRC_GA_CODE;

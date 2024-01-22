@@ -13,28 +13,28 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "^1.7.5",
+    "@bmi-digital/functions-logger": "^1.7.6",
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {
-    "@bmi-digital/fetch-mocks": "^1.7.5",
+    "@bmi-digital/fetch-mocks": "^1.7.6",
     "@bmi/pim-types": "workspace:*",
-    "@types/prettier": "^2.7.3",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "eslint": "^8.49.0",
+    "@types/prettier": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-jest": "^27.2.3",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^27.6.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-security": "^1.7.1",
+    "eslint-plugin-security": "^2.1.0",
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
-    "jest": "^29.6.4",
-    "prettier": "^2.8.8",
-    "typescript": "^5.2.2"
+    "jest": "^29.7.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   }
 }

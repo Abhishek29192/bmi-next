@@ -1,14 +1,11 @@
-import {
-  BrandIntroCard,
-  Button,
-  ButtonProps,
-  Grid,
-  replaceSpaces,
-  Section
-} from "@bmi-digital/components";
+import BrandIntroCard from "@bmi-digital/components/brand-intro-card";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Grid from "@bmi-digital/components/grid";
+import Section from "@bmi-digital/components/section";
+import { replaceSpaces } from "@bmi-digital/components/utils";
+import { microCopy } from "@bmi/microcopies";
 import { graphql, Link } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import withGTM from "../utils/google-tag-manager";
 import BrandLogo, { Logo } from "./BrandLogo";
 import { useSiteContext } from "./Site";

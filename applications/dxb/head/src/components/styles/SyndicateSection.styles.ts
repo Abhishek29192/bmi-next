@@ -1,5 +1,6 @@
+import Grid from "@bmi-digital/components/grid";
+import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
-import { Grid, Typography } from "@bmi-digital/components";
 
 export const DescriptionGrid = styled(Grid)(({ theme }) => ({
   margin: "0 0 48px",

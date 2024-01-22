@@ -1,13 +1,10 @@
-import { replaceSpaces, TableOfContent } from "@bmi-digital/components";
+import TableOfContent from "@bmi-digital/components/table-of-content";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React, { createContext, useMemo } from "react";
-import { useConfig } from "../contexts/ConfigProvider";
 import CardCollectionSection, {
   Data as CardCollectionSectionData
 } from "./CardCollectionSection";
-import CarouselSection, {
-  Data as CarouselSectionData
-} from "./carousel-section/CarouselSection";
 import DocumentDownloadSection, {
   Data as DocumentDownloadSectionData
 } from "./DocumentDownloadSection";
@@ -22,9 +19,6 @@ import ImageGallerySection, {
 } from "./MediaGallerySection";
 import PromoSection, { Data as PromoSectionData } from "./PromoSection";
 import SampleBasketSection from "./SampleBasketSection";
-import ServiceLocatorSection, {
-  Data as ServiceLocatorSectionData
-} from "./service-locator-section/index";
 import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
 import SyndicateSection, {
   Data as SyndicateSectionData
@@ -40,6 +34,12 @@ import TitleWithContentSection, {
   Data as TitleWithContentData
 } from "./TitleWithContentSection";
 import VideoSection, { Data as VideoSectionData } from "./VideoSection";
+import CarouselSection, {
+  Data as CarouselSectionData
+} from "./carousel-section/CarouselSection";
+import ServiceLocatorSection, {
+  Data as ServiceLocatorSectionData
+} from "./service-locator-section/index";
 
 export type SectionData =
   | ExploreBarSectionData
@@ -114,7 +114,6 @@ const Sections = ({
   startIndex?: number;
   pageTypename?: string;
 }) => {
-  const { isSpaEnabled } = useConfig();
   const themeMap = useMemo(
     () =>
       data.reduce<Context>((carry, section, index) => {
@@ -129,7 +128,7 @@ const Sections = ({
           return {
             ...carry,
             [id]: {
-              isReversed: !isSpaEnabled,
+              isReversed: true,
               backgroundColor: backgroundColor || "White"
             }
           };
@@ -151,7 +150,7 @@ const Sections = ({
           }
         };
       }, {}),
-    [data, isSpaEnabled]
+    [data]
   );
 
   return (

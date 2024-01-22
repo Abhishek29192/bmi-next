@@ -1,17 +1,18 @@
-import { ContainerDialog, useIsClient } from "@bmi-digital/components";
+import ContainerDialog from "@bmi-digital/components/container-dialog";
+import { useIsClient } from "@bmi-digital/components/hooks";
 import brandLogo from "@bmi-digital/components/logo/Bmi";
 import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import ProgressIndicator from "../ProgressIndicator";
+import {
+  StyledContainerDialog,
+  StyledLinearProgress,
+  StyledLogo,
+  StyledSpinner,
+  classes
+} from "./PitchedRoofCalculator.styles";
 import { AnalyticsContext, OnAnalyticsEvent } from "./helpers/analytics";
 import { CalculatorConfig, CalculatorSteps } from "./types";
-import {
-  StyledSpinner,
-  StyledContainerDialog,
-  classes,
-  StyledLogo,
-  StyledLinearProgress
-} from "./PitchedRoofCalculator.styles";
 
 const PitchedRoofCalculatorSteps = React.lazy(
   () => import("./_PitchedRoofCalculatorSteps")

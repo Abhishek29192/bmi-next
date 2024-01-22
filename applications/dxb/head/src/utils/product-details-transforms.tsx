@@ -1,4 +1,5 @@
-import { MediaData, ProductOverviewPaneProps } from "@bmi-digital/components";
+import { MediaData } from "@bmi-digital/components/media-gallery";
+import { ProductOverviewPaneProps } from "@bmi-digital/components/product-overview-pane";
 import { Link } from "gatsby";
 import React from "react";
 import { isDefined } from "../../../libraries/utils/src";

@@ -37,3 +37,14 @@ export type GetCourseByIdResponseType = {
   permissions: string[];
   _links: string[];
 };
+
+export type CurrencyFields = {
+  currency_currency: string;
+  currency_symbol: string;
+};
+
+export type GetCurrencyResponse = {
+  data: CurrencyFields;
+  version: "1.0.0";
+  _links: string[];
+};

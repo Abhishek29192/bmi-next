@@ -272,9 +272,8 @@ export const main = async (
   const marketTags = isConsolidated ? await getValidMarketTags() : [undefined];
   await Promise.all(
     marketTags.map(async (marketTag) => {
-      const allContentfulMicrocopies = await getContentfulMicroCopies(
-        marketTag
-      );
+      const allContentfulMicrocopies =
+        await getContentfulMicroCopies(marketTag);
 
       const microCopiesWithMultipleTags = allContentfulMicrocopies.filter(
         (mc) => mc.metadata && mc.metadata.tags.length > 1

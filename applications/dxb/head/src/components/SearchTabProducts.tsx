@@ -1,4 +1,5 @@
-import { Filter, FilterProps, Grid } from "@bmi-digital/components";
+import { Filter, FilterProps } from "@bmi-digital/components/filters";
+import Grid from "@bmi-digital/components/grid";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
@@ -12,16 +13,16 @@ import {
 } from "../utils/elasticSearch";
 import {
   clearFilterValues,
-  getUpdatedFilters,
   getURLFilterValues,
+  getUpdatedFilters,
   setFiltersUrl,
   updateFilterValue
 } from "../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import ResultsPagination from "./ResultsPagination";
 import {
-  ProductListWrapperGrid,
-  ProductListGrid
+  ProductListGrid,
+  ProductListWrapperGrid
 } from "./styles/SearchTabProductsStyles";
 
 const PAGE_SIZE = 24;

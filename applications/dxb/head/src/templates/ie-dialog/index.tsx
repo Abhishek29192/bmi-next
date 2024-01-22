@@ -1,4 +1,5 @@
-import { Button, Dialog } from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import Dialog from "@bmi-digital/components/dialog";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import ErrorOutlineOutlined from "@bmi-digital/components/icon/ErrorOutlineOutlined";
 import { graphql } from "gatsby";
@@ -6,6 +7,7 @@ import React from "react";
 import { Head } from "../../components/Head";
 import RichText, { RichTextData } from "../../components/RichText";
 import { Data as SiteData } from "../../components/Site";
+import { getPathWithCountryCode } from "../../utils/path";
 import {
   StyledIEDialog,
   StyledIEDialogWrapper,
@@ -34,7 +36,10 @@ const IEDialog = ({ data }: { data: { contentfulSite: SiteData } }) => {
       <Head
         title={ieDialogData.ieDialogTitle}
         seo={null}
-        path={null}
+        path={getPathWithCountryCode(
+          data.contentfulSite.countryCode,
+          "ie-dialog"
+        )}
         scripts={{
           headScripts: data.contentfulSite.headScripts
         }}

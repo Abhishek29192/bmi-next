@@ -7,16 +7,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
       class="css-1blc44m"
     >
       <div
-        class=" css-1u48ai"
+        class=" css-makape"
+        data-testid="accordion"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15cmdva-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ldqf96-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
+            data-testid="accordion-summary"
             role="button"
             tabindex="0"
           >
@@ -95,7 +97,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-1r7u8wy-MuiAccordionDetails-root"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
@@ -234,7 +236,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     </div>
                   </div>
                   <div
-                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-1r7u8wy-MuiAccordionDetails-root"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
@@ -390,16 +392,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
       class="css-1blc44m"
     >
       <div
-        class=" css-1u48ai"
+        class=" css-makape"
+        data-testid="accordion"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15cmdva-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ldqf96-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
+            data-testid="accordion-summary"
             role="button"
             tabindex="0"
           >
@@ -478,7 +482,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-1r7u8wy-MuiAccordionDetails-root"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
@@ -617,7 +621,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                     </div>
                   </div>
                   <div
-                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-1r7u8wy-MuiAccordionDetails-root"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
@@ -773,16 +777,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
       class="css-1blc44m"
     >
       <div
-        class=" css-1u48ai"
+        class=" css-makape"
+        data-testid="accordion"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15cmdva-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ldqf96-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
             class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
+            data-testid="accordion-summary"
             role="button"
             tabindex="0"
           >

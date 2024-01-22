@@ -1,5 +1,6 @@
 import type { Product } from "@bmi/firestore-types";
 import { getPlpFilters, transformFilterKeys } from "./utils/filters";
+import type { Node as GatsbyNode } from "gatsby";
 import type { PLPFilterResponse } from "../../types/pim";
 import type {
   ContentfulPromoCard,
@@ -7,7 +8,6 @@ import type {
   FourOFourResponse
 } from "./types/Contentful";
 import type { Context, MicroCopy, Node, ResolveArgs } from "./types/Gatsby";
-import type { Node as GatsbyNode } from "gatsby";
 
 export default {
   plpFilters: {
@@ -134,12 +134,12 @@ export default {
         }
       }
 
-      const marketCode = process.env.SPACE_MARKET_CODE;
+      const marketCode = process.env.GATSBY_SPACE_MARKET_CODE;
       const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
       if (!marketCode || !localeCode) {
         // eslint-disable-next-line no-console
         console.warn(
-          `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+          `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
         );
         return { filters: [], allowFilterBy: allowFilterBy };
       }
@@ -245,12 +245,12 @@ export default {
         return { filters: [], allowFilterBy: allowFilterBy };
       }
 
-      const marketCode = process.env.SPACE_MARKET_CODE;
+      const marketCode = process.env.GATSBY_SPACE_MARKET_CODE;
       const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
       if (!marketCode || !localeCode) {
         // eslint-disable-next-line no-console
         console.warn(
-          `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+          `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
         );
         return { filters: [], allowFilterBy: allowFilterBy };
       }
@@ -318,12 +318,12 @@ export default {
       args: ResolveArgs,
       context: Context
     ): Promise<FourOFourResponse> {
-      const marketCode = process.env.SPACE_MARKET_CODE;
+      const marketCode = process.env.GATSBY_SPACE_MARKET_CODE;
       const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
       if (!marketCode || !localeCode) {
         // eslint-disable-next-line no-console
         console.warn(
-          `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+          `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
         );
         return { errorPageData: undefined, siteData: undefined };
       }

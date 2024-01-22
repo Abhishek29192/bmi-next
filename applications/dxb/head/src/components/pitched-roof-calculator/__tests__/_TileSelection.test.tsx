@@ -1,10 +1,11 @@
-import { FormContext, ThemeProvider } from "@bmi-digital/components";
+import { FormContext } from "@bmi-digital/components/form";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
+import TileSelection, { TileSelectionProps } from "../_TileSelection";
 import { AnalyticsContext } from "../helpers/analytics";
 import { MicroCopy } from "../helpers/microCopy";
 import { GroupedTiles, Tile } from "../types";
-import TileSelection, { TileSelectionProps } from "../_TileSelection";
 import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
 
@@ -72,7 +73,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
     fireEvent.click(
       screen.getByText(tiles.zanda_minster_main_tile[0].baseProduct!.name!)
     );
-    await waitFor(() => expect(pushEvent).toBeCalledTimes(1));
+    await waitFor(() => expect(pushEvent).toHaveBeenCalledTimes(1));
   });
 
   it("renders with no tiles", () => {

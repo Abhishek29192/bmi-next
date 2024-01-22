@@ -1,5 +1,5 @@
 import React from "react";
-// import { Tooltip } from "@bmi-digital/components";
+// import Tooltip from "@bmi-digital/components/tooltip";
 import { TooltipProps } from "@bmi-digital/components/tooltip";
 import { styled } from "@mui/material/styles";
 import { tooltipClasses } from "@mui/material/Tooltip";

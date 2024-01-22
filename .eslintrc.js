@@ -15,6 +15,7 @@ module.exports = {
     "applications/dxb/libraries/gatsby-plugin-sitemap"
   ],
   rules: {
+    "@typescript-eslint/no-explicit-any": "warn",
     complexity: "warn",
     "max-depth": "warn",
     "max-len": "warn",
@@ -23,5 +24,17 @@ module.exports = {
     "max-nested-callbacks": "warn",
     "max-params": "warn",
     "max-statements": ["warn", { max: 25 }]
-  }
+  },
+  overrides: [
+    {
+      files: ["**/*.test.{ts,tsx}"],
+      rules: {
+        complexity: "off",
+        "max-lines": "off",
+        "max-lines-per-function": "off",
+        "max-params": "off",
+        "max-statements": "off"
+      }
+    }
+  ]
 };

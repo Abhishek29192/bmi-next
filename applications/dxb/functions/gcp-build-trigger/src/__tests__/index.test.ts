@@ -157,7 +157,7 @@ describe("Making a POST request", () => {
     });
     // `ES_INDEX_PREFIX` and `ES_INDEX_NAME_DOCUMENTS` are globally setup for testing
     // see `jest/src/setEnvVars.ts`
-    expect(swapReadWriteAliases).toBeCalledTimes(0);
+    expect(swapReadWriteAliases).toHaveBeenCalledTimes(0);
   });
   it("returns status code 200 when payload is null", async () => {
     const req = mockRequest();
@@ -178,7 +178,7 @@ describe("Making a POST request", () => {
     });
     // `ES_INDEX_PREFIX` and `ES_INDEX_NAME_DOCUMENTS` are globally setup for testing
     // see `jest/src/setEnvVars.ts`
-    expect(swapReadWriteAliases).toBeCalledTimes(0);
+    expect(swapReadWriteAliases).toHaveBeenCalledTimes(0);
   });
 
   it("returns status code 200 when build hook is triggered successfully", async () => {
@@ -200,7 +200,7 @@ describe("Making a POST request", () => {
     });
     // `ES_INDEX_PREFIX`, `ES_INDEX_NAME_DOCUMENTS` and `ES_INDEX_NAME_TRAININGS` are globally setup for testing
     // see `jest/src/setEnvVars.ts`
-    expect(swapReadWriteAliases).toBeCalledTimes(4);
+    expect(swapReadWriteAliases).toHaveBeenCalledTimes(4);
   });
 
   it("waits for the DELAY_MILLISECONDS milliseconds before making any requests", async () => {
@@ -235,7 +235,7 @@ describe("Making a POST request", () => {
 
     // `ES_INDEX_PREFIX`, `ES_INDEX_NAME_DOCUMENTS`, and ES_INDEX_NAME_TRAININGS are globally setup for testing
     // see `jest/src/setEnvVars.ts`
-    expect(swapReadWriteAliases).toBeCalledTimes(8);
+    expect(swapReadWriteAliases).toHaveBeenCalledTimes(8);
     delete process.env.METRIC_LATENCY_DELAY;
   });
 });

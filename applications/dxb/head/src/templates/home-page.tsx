@@ -1,13 +1,10 @@
-import {
-  Button,
-  ButtonProps,
-  CarouselHero,
-  Search,
-  useIsClient
-} from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import CarouselHero from "@bmi-digital/components/carousel-hero";
+import { useIsClient } from "@bmi-digital/components/hooks";
+import Search from "@bmi-digital/components/search";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import Brands, { Data as BrandData } from "../components/Brands";
 import OverlapCards, {
   Data as OverlapCardData
@@ -65,7 +62,7 @@ const HomePage = ({ data, pageContext }: Props) => {
     data.contentfulSite.resources || {};
 
   const GTMButton = withGTM<ButtonProps>(Button);
-  const { isSpaEnabled, isGatsbyDisabledElasticSearch } = useConfig();
+  const { isGatsbyDisabledElasticSearch } = useConfig();
   const { isClient } = useIsClient();
 
   return (
@@ -74,9 +71,7 @@ const HomePage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={
-        !isSpaEnabled ? slides?.[0]?.featuredMedia?.image?.file.url : ""
-      }
+      ogImageUrl={slides?.[0]?.featuredMedia?.image?.file.url}
       pageType="homePage"
     >
       {({ siteContext }) => {
