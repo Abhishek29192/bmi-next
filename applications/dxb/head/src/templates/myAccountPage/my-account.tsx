@@ -20,15 +20,19 @@ import { Data as SiteData, useSiteContext } from "../../components/Site";
 import useAuth from "../../hooks/useAuth";
 import Protected from "../../pages/protected";
 import { HelloText, ToolCardsBox, classes } from "./styles";
-import { getUserInfo, transformToolCar } from "./utils";
+import { getUserInfo, transformToolCard } from "./utils";
+
+export type SiteDataWithAccountPage = Omit<SiteData, "accountPage"> & {
+  accountPage: AccountPage;
+};
 
 type Props = {
   data: {
-    contentfulSite: Omit<SiteData, "accountPage"> & {
-      accountPage: AccountPage;
-    };
+    contentfulSite: SiteDataWithAccountPage;
   };
 };
+
+export type AllowTools = "My profile" | "Trainings" | "Roof measurement";
 
 export type AccountPage = {
   featuredMedia: ContentfulImage | null;
@@ -39,7 +43,7 @@ export type AccountPage = {
   titleForServiceSupportSection: string;
   serviceSupportCards: ContactDetailsData[];
   slug: string;
-  allowTools: [string];
+  allowTools: readonly [AllowTools, ...AllowTools[]];
 };
 
 const MyAccountPage = ({ data }: Props) => {
@@ -59,7 +63,7 @@ const MyAccountPage = ({ data }: Props) => {
   const transformHeroText =
     profile && getUserInfo(profile, salutation, roleDescription);
   const transformToolCardData: [ToolCardItemProps, ...ToolCardItemProps[]] =
-    allowTools && transformToolCar(allowTools, getMicroCopy);
+    transformToolCard(allowTools, getMicroCopy);
 
   return (
     <Protected>
