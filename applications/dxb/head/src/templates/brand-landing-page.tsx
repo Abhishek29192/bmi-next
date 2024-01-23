@@ -1,4 +1,4 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
+import { createEllipsis } from "@bmi-digital/components";
 import CarouselHero, {
   CarouselHeroItem
 } from "@bmi-digital/components/carousel-hero";
@@ -13,7 +13,6 @@ import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
 import Image from "../components/Image";
-import Link from "../components/Link";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -21,13 +20,13 @@ import Page, { Data as PageData } from "../components/Page";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Context as SiteContext } from "../components/Site";
 import Video from "../components/Video";
+import ButtonLink from "../components/link/ButtonLink";
+import { DataTypeEnum, type Data as LinkData } from "../components/link/types";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
-import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import type { Data as SiteData } from "../components/Site";
 import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
-import type { Data as LinkData } from "../components/Link";
 
 type BrandLandingPageData = Omit<PageInfoData, "sections" | "featuredVideo"> &
   Omit<PageData, "breadcrumbs"> & {
@@ -55,21 +54,25 @@ const getHeroItemsWithContext = (
 ): CarouselHeroItem[] => {
   const GetCTAButton = (cta: LinkData | null) => {
     return cta?.label ? (
-      <Link component={Button} data={cta} hasBrandColours>
+      <ButtonLink data={cta} hasBrandColours>
         {cta?.label}
-      </Link>
+      </ButtonLink>
     ) : null;
   };
 
   const GetCTALinkFromPath = (data: SlideData | PageInfoData) => {
     return "path" in data && data.path ? (
-      <Link
-        component={Button}
-        data={{ linkedPage: { path: data.path } }}
+      <ButtonLink
+        data={
+          {
+            type: DataTypeEnum.Internal,
+            linkedPage: { path: data.path }
+          } as LinkData
+        }
         hasBrandColours
       >
         {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
-      </Link>
+      </ButtonLink>
     ) : null;
   };
 
@@ -118,28 +121,22 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     path: data.contentfulBrandLandingPage.path
   };
 
-  const GTMButton = withGTM<ButtonProps>(Button);
   const firstSlide: CarouselHeroItem = {
-    title: <BrandLogo brandName={brandLogo} brandWhiteBox={true} />,
-    //DXB-2102 truncate description to 400 characters
-    children: description?.description
-      ? `${description?.description.substring(0, 400)}${
-          description?.description.length > 400 ? "..." : ""
-        }`
-      : null,
+    title: brandLogo ? (
+      <BrandLogo brandName={brandLogo} brandWhiteBox={true} />
+    ) : undefined,
+
+    children:
+      description?.description && createEllipsis(description.description, 400),
+
     media: featuredMedia ? (
       <Image {...featuredMedia} size="cover" loading="eager" />
     ) : undefined,
     hasUnderline: false,
     cta: cta ? (
-      <Link
-        component={Button}
-        data={cta}
-        data-testid="first-slide-cta"
-        hasBrandColours
-      >
+      <ButtonLink data={cta} data-testid="first-slide-cta" hasBrandColours>
         {cta.label}
-      </Link>
+      </ButtonLink>
     ) : undefined
   };
 
@@ -174,16 +171,11 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
               heroes={[firstSlide, ...heroItems]}
             >
               <Search
-                buttonComponent={(props) => (
-                  <GTMButton
-                    gtm={{
-                      id: "search2",
-                      label: getMicroCopy(microCopy.SEARCH_LABEL)
-                    }}
-                    {...props}
-                    data-testid={"brand-search-button"}
-                  />
-                )}
+                gtm={{
+                  id: "search2",
+                  label: getMicroCopy(microCopy.SEARCH_LABEL),
+                  action: getPathWithCountryCode(countryCode, "search")
+                }}
                 action={getPathWithCountryCode(countryCode, "search")}
                 label={getMicroCopy(microCopy.SEARCH_LABEL)}
                 placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}

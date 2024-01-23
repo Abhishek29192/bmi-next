@@ -1,4 +1,4 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Button from "@bmi-digital/components/button";
 import Typography from "@bmi-digital/components/typography";
 import { Product } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
@@ -8,7 +8,6 @@ import { useConfig } from "../../contexts/ConfigProvider";
 import { ESResponse } from "../../types/elasticsearch";
 import { devLog } from "../../utils/devLog";
 import { queryElasticSearch } from "../../utils/elasticSearch";
-import withGTM from "../../utils/google-tag-manager";
 import { shallowEqual } from "../../utils/isObjectEqual";
 import { useSiteContext } from "../Site";
 import TileCategory, {
@@ -60,8 +59,6 @@ import {
   Protrusion,
   RoofV2 as Roof
 } from "./types/roof";
-
-const GTMButton = withGTM<ButtonProps>(Button);
 
 export type PitchedRoofCalculatorStepsProps = {
   isDebugging?: boolean;
@@ -670,16 +667,16 @@ const PitchedRoofCalculatorSteps = ({
                 })}
               </Typography>
               {!isHubSpotFormAvailable && (
-                <GTMButton
+                <Button
                   gtm={{
                     id: "rc-solution",
                     action: "selected",
                     label: getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL)
                   }}
-                  action={{ href: "#print-calculations-report" }}
+                  href="#print-calculations-report"
                 >
                   {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL)}
-                </GTMButton>
+                </Button>
               )}
             </StyledResultsGrid>
           }

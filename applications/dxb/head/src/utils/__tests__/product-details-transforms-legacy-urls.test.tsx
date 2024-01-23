@@ -5,8 +5,8 @@ import createClassification, {
 import createMeasurements from "../../__tests__/helpers/MeasurementsHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
-import { getProductAttributes } from "../product-details-transforms";
 import { Product } from "../../types/pim";
+import { getProductAttributes } from "../product-details-transforms";
 
 describe("product-details-transforms tests", () => {
   describe("getProductAttributes with variantCodeToPathMap tests", () => {
@@ -47,7 +47,7 @@ describe("product-details-transforms tests", () => {
                   "variants": [
                     {
                       "action": {
-                        "linkComponent": [MockFunction],
+                        "component": [MockFunction],
                         "model": "routerLink",
                         "to": "/no/path-to-related-blue/",
                       },
@@ -170,7 +170,7 @@ describe("product-details-transforms tests", () => {
                       label: "label",
                       isSelected: false,
                       action: {
-                        linkComponent: Link,
+                        component: Link,
                         model: "routerLink",
                         to: "/no/p/name-hashed-related-code/"
                       }
@@ -179,7 +179,7 @@ describe("product-details-transforms tests", () => {
                       label: "5x3x4mm",
                       isSelected: false,
                       action: {
-                        linkComponent: Link,
+                        component: Link,
                         model: "routerLink",
                         to: "/no/path-to-related-measure-3/"
                       }
@@ -192,7 +192,7 @@ describe("product-details-transforms tests", () => {
                       label: "12x10x11mm",
                       isSelected: false,
                       action: {
-                        linkComponent: Link,
+                        component: Link,
                         model: "routerLink",
                         to: "/no/p/name-hashed-related-code/"
                       }
@@ -201,7 +201,7 @@ describe("product-details-transforms tests", () => {
                       label: "13x12x11mm",
                       isSelected: false,
                       action: {
-                        linkComponent: Link,
+                        component: Link,
                         model: "routerLink",
                         to: "/no/p/name-hashed-related-code/"
                       }
@@ -255,7 +255,7 @@ describe("product-details-transforms tests", () => {
                     "variants": [
                       {
                         "action": {
-                          "linkComponent": [MockFunction],
+                          "component": [MockFunction],
                           "model": "routerLink",
                           "to": "/no/path-to-related-texture-family-2/",
                         },
@@ -340,7 +340,7 @@ describe("product-details-transforms tests", () => {
                     "variants": [
                       {
                         "action": {
-                          "linkComponent": [MockFunction],
+                          "component": [MockFunction],
                           "model": "routerLink",
                           "to": "/no/p/name-hashed-related-code/",
                         },
@@ -349,7 +349,7 @@ describe("product-details-transforms tests", () => {
                       },
                       {
                         "action": {
-                          "linkComponent": [MockFunction],
+                          "component": [MockFunction],
                           "model": "routerLink",
                           "to": "/no/path-to-related-variant-attrib-1/",
                         },

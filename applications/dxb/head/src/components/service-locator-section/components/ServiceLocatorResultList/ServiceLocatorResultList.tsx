@@ -32,10 +32,7 @@ export interface Props {
   onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
   page: number;
   pageCount: number;
-  getCompanyDetails: (
-    service: Service,
-    isAddressHidden?: boolean
-  ) => CompanyDetailProps[];
+  getCompanyDetails: (service: Service) => CompanyDetailProps;
   selectedRoofer: Service;
   shouldListCertification: boolean;
 }
@@ -99,14 +96,12 @@ export const ServiceLocatorResultList = ({
               }
             >
               <CompanyDetails
-                details={getCompanyDetails(service, true)?.filter(
-                  (detail) => detail.type !== "roofProLevel"
-                )}
-              >
-                {service.summary ? (
-                  <Typography>{service.summary}</Typography>
-                ) : null}
-              </CompanyDetails>
+                {...{
+                  ...getCompanyDetails(service),
+                  address: undefined,
+                  roofProLevel: undefined
+                }}
+              />
             </GTMIntegratedLinkCard>
           ))}
       </List>

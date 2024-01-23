@@ -1,6 +1,7 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { GoodBetterBest } from "@bmi/pim-types";
 import createRelatedProduct from "../../__tests__/helpers/RelatedProductHelper";
 import { RelatedProduct } from "../../types/pim";
 import RelatedProducts from "../RelatedProducts";
@@ -70,8 +71,44 @@ describe("RelatedProducts component", () => {
       action: "/en/path/"
     });
 
-    expect(screen.getByRole("link").getAttribute("data-gtm")).toEqual(
-      expectedDataGtm
+    expect(
+      screen.getByTestId("tappable-card-main").getAttribute("data-gtm")
+    ).toEqual(expectedDataGtm);
+  });
+
+  it("should render the tag component if goodBetterBest is defined", () => {
+    const relatedProducts: RelatedProduct[] = [
+      createRelatedProduct({ goodBetterBest: GoodBetterBest.best })
+    ];
+
+    render(
+      <ThemeProvider>
+        <RelatedProducts countryCode="en" products={relatedProducts} />
+      </ThemeProvider>
     );
+
+    expect(screen.getByTestId("tag-indicator-best")).toBeInTheDocument();
+    expect(screen.getByTestId("tag-icon-best")).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: goodBetterBest.label.best")
+    ).toBeInTheDocument();
+  });
+
+  it("should not render the tag component if goodBetterBest is undefined", () => {
+    const relatedProducts: RelatedProduct[] = [
+      createRelatedProduct({ goodBetterBest: undefined })
+    ];
+
+    render(
+      <ThemeProvider>
+        <RelatedProducts countryCode="en" products={relatedProducts} />
+      </ThemeProvider>
+    );
+
+    expect(screen.queryByTestId("tag-indicator-best")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("tag-indicator-better")
+    ).not.toBeInTheDocument();
+    expect(screen.queryByTestId("tag-indicator-good")).not.toBeInTheDocument();
   });
 });

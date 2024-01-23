@@ -1,7 +1,6 @@
 import Section from "@bmi-digital/components/section";
 import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
-import GoodBetterBestIndicator from "../../../components/GoodBetterBestIndicator";
 
 const PREFIX = "SystemDetailsLeadBlockSectionStyles";
 
@@ -66,11 +65,6 @@ export const StyledTitle = styled(Typography)(({ theme }) => ({
     }
   }
 }));
-
-export const StyledGoodBetterBestIndicator = styled(GoodBetterBestIndicator)({
-  borderRadius: "3px",
-  width: "max-content"
-});
 
 export const Description = styled(Typography)({
   marginTop: "24px"

@@ -1,4 +1,4 @@
-import Button from "@bmi-digital/components/button";
+import IconButton from "@bmi-digital/components/icon-button";
 import classnames from "classnames";
 import React from "react";
 import {
@@ -24,15 +24,14 @@ const NavigationItem = ({ label, icon, isLabelHidden, action }: any) => {
   return (
     <StyledListItem className={classnames(isLabelHidden)}>
       {isLabelHidden ? (
-        <Button
-          isIconButton
+        <IconButton
           accessibilityLabel={label}
           variant="text"
           hasDarkBackground
           action={action}
         >
           <IconComponent />
-        </Button>
+        </IconButton>
       ) : (
         <StyledLink
           startIcon={icon ? <IconComponent /> : undefined}

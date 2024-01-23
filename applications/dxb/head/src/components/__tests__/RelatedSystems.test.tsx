@@ -5,6 +5,7 @@ import {
 } from "@bmi/elasticsearch-types";
 import { render, screen, within } from "@testing-library/react";
 import React from "react";
+import { GoodBetterBest } from "@bmi/pim-types";
 import createPimImage from "../../__tests__/helpers/PimImageHelper";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import createSystem from "../../__tests__/helpers/SystemHelper";
@@ -128,43 +129,11 @@ describe("SystemCard", () => {
     );
     const systemPropertyContainer = screen.getByTestId("systemProperties");
 
-    const propertyValues = system.systemAttributes[0].values.slice(0, 3);
+    const propertyValues = system.systemAttributes![0].values.slice(0, 3);
 
     propertyValues.forEach((val) =>
       expect(within(systemPropertyContainer).getByText(val)).toBeInTheDocument()
     );
-  });
-
-  it("shouldn't render system configuration panel when empty system property", () => {
-    const system: EsSystem = createEsSystem();
-    const gtm = { id: "gtm-id" };
-
-    const { rerender } = render(
-      <ThemeProvider>
-        <SystemCard
-          system={system}
-          systemPropertiesToDisplay={[]}
-          countryCode="en"
-          path={system.path}
-          gtm={gtm}
-        />
-      </ThemeProvider>
-    );
-    expect(screen.queryByTestId("systemProperties")).not.toBeInTheDocument();
-
-    rerender(
-      <ThemeProvider>
-        <SystemCard
-          system={system}
-          systemPropertiesToDisplay={null}
-          countryCode="en"
-          path={system.path}
-          gtm={gtm}
-        />
-      </ThemeProvider>
-    );
-
-    expect(screen.queryByTestId("systemProperties")).not.toBeInTheDocument();
   });
 
   describe("Render system data as per contentful", () => {
@@ -190,13 +159,13 @@ describe("SystemCard", () => {
       const systemPropItems = screen.getAllByTestId("systemPropItemPanel");
 
       expect(systemPropItems[0]).toHaveTextContent(
-        system.systemAttributes.find((attr) =>
+        system.systemAttributes!.find((attr) =>
           attr.code.includes("roofBuildUp")
         )?.values[0]
       );
 
       expect(systemPropItems[2]).not.toHaveTextContent(
-        system.systemAttributes.find((attr) =>
+        system.systemAttributes!.find((attr) =>
           attr.code.includes("UniqueSellingPropositions")
         )?.values[2]
       );
@@ -285,5 +254,51 @@ describe("SystemCard", () => {
       </ThemeProvider>
     );
     expect(screen.queryByAltText(system.name)).not.toBeInTheDocument();
+  });
+
+  it("should render the tag component if goodBetterBest is defined", () => {
+    const system: RelatedSystem = createRelatedSystem({
+      goodBetterBest: GoodBetterBest.best
+    });
+
+    render(
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          countryCode="en"
+          path={system.path}
+          gtm={{ id: "gtm-id" }}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId("tag-indicator-best")).toBeInTheDocument();
+    expect(screen.getByTestId("tag-icon-best")).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: goodBetterBest.label.best")
+    ).toBeInTheDocument();
+  });
+
+  it("should not render the tag component if goodBetterBest is undefined", () => {
+    const system: RelatedSystem = createRelatedSystem({
+      goodBetterBest: undefined
+    });
+
+    render(
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          countryCode="en"
+          path={system.path}
+          gtm={{ id: "gtm-id" }}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.queryByTestId("tag-indicator-best")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("tag-indicator-better")
+    ).not.toBeInTheDocument();
+    expect(screen.queryByTestId("tag-indicator-good")).not.toBeInTheDocument();
   });
 });

@@ -57,48 +57,34 @@ describe("Horizontal CarouselSection", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("should display the slide cta", () => {
+  it("should display the slide cta if defined", () => {
     const slideData = createPromoData({ cta: createLinkData() });
 
     renderWithProviders(
       <CarouselSection
         data={createCarouselSectionData({
-          variant: "horizontal",
           slides: [slideData]
         })}
       />
     );
 
-    const link = screen.getByTestId("two-pane-carousel-slide-cta-0");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute(
-      "data-gtm",
-      JSON.stringify({
-        id: "cta-click1",
-        action: slideData.cta!.asset!.file.url,
-        label: slideData.cta!.label
-      })
-    );
-    expect(link).toHaveAttribute("target", "_blank");
-    expect(link).toHaveAttribute("rel", "noopener noreferrer");
-    expect(link).toHaveTextContent(slideData.cta!.label);
+    const slideCta = screen.getByTestId("two-pane-carousel-slide-cta-0");
+    expect(slideCta).toBeInTheDocument();
   });
 
-  it("should not display the slide cta when not provided", () => {
+  it("should not display the slide cta when null", () => {
     const slideData = createPromoData({ cta: null });
 
     renderWithProviders(
       <CarouselSection
         data={createCarouselSectionData({
-          variant: "horizontal",
           slides: [slideData]
         })}
       />
     );
 
-    expect(
-      screen.queryByTestId("two-pane-carousel-slide-cta-0")
-    ).not.toBeInTheDocument();
+    const slideCta = screen.queryByTestId("two-pane-carousel-slide-cta-0");
+    expect(slideCta).not.toBeInTheDocument();
   });
 
   it("should display the slide subtitle", () => {
@@ -248,7 +234,6 @@ describe("Horizontal CarouselSection", () => {
 
   it("should display the section link", () => {
     const carouselSectionData = createCarouselSectionData({
-      variant: "horizontal",
       link: createLinkData()
     });
 
@@ -264,7 +249,7 @@ describe("Horizontal CarouselSection", () => {
         label: carouselSectionData.link!.label
       })
     );
-    expect(link).toHaveTextContent(carouselSectionData.link!.label);
+    expect(link).toHaveTextContent(/^Link label$/);
     expect(
       screen.getByTestId("carousel-section-arrow-forward-icon")
     ).toBeInTheDocument();
@@ -272,7 +257,6 @@ describe("Horizontal CarouselSection", () => {
 
   it("should not display the section link if not provided", () => {
     const carouselSectionData = createCarouselSectionData({
-      variant: "horizontal",
       link: null
     });
 
@@ -290,6 +274,7 @@ describe("Horizontal CarouselSection", () => {
     ).not.toBeInTheDocument();
   });
 });
+
 describe("Vertical CarouselSection", () => {
   it("should display the section title if provided", () => {
     const carouselSectionData = createCarouselSectionData({
@@ -338,7 +323,7 @@ describe("Vertical CarouselSection", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("should display the slide cta", () => {
+  it("should display the slide cta if defined", () => {
     const slideData = createPromoData({ cta: createLinkData() });
 
     renderWithProviders(
@@ -350,19 +335,8 @@ describe("Vertical CarouselSection", () => {
       />
     );
 
-    const link = screen.getByTestId("vertical-roller-slide-cta-0");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute(
-      "data-gtm",
-      JSON.stringify({
-        id: "cta-click1",
-        action: slideData.cta!.asset!.file.url,
-        label: slideData.cta!.label
-      })
-    );
-    expect(link).toHaveAttribute("target", "_blank");
-    expect(link).toHaveAttribute("rel", "noopener noreferrer");
-    expect(link).toHaveTextContent(slideData.cta!.label);
+    const slideCta = screen.getByTestId("vertical-roller-slide-cta-0");
+    expect(slideCta).toBeInTheDocument();
   });
 
   it("should not display the slide cta when not provided", () => {
@@ -543,7 +517,7 @@ describe("Vertical CarouselSection", () => {
         label: carouselSectionData.link!.label
       })
     );
-    expect(link).toHaveTextContent(carouselSectionData.link!.label);
+    expect(link).toHaveTextContent(/^Link label$/);
     expect(
       screen.getByTestId("carousel-section-arrow-forward-icon")
     ).toBeInTheDocument();

@@ -1,8 +1,8 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { DataTypeEnum } from "../Link";
 import TeamList, { Data } from "../TeamList";
+import { DataTypeEnum } from "../link/types";
 
 describe("TeamList component", () => {
   it("renders correctly", () => {

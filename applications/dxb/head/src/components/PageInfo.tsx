@@ -1,10 +1,10 @@
 import { graphql } from "gatsby";
-import { Data as LinkData } from "../components/Link";
 import { Logo } from "./BrandLogo";
 import { Data as ImageData } from "./Image";
 import { Data as SampleBasketSectionData } from "./SampleBasketBase";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
+import { Data as LinkData } from "./link/types";
 
 export type Data = {
   __typename:

@@ -12,11 +12,10 @@ import fetchMockJest from "fetch-mock-jest";
 import * as Gatsby from "gatsby";
 import React from "react";
 import { Config, ConfigProvider } from "../../contexts/ConfigProvider";
-import { shareWidgetData } from "../../templates/simplePage/__mocks__/simplePage";
 import { devLog } from "../../utils/devLog";
-import { Data as ShareWidgetSectionData } from "../ShareWidgetSection";
 import { SiteContextProvider } from "../Site";
 import Visualiser, { VisualiserContext } from "../Visualiser";
+import createShareWidgetData from "../../__tests__/helpers/ShareWidgetHelper";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const navigateSpy = jest.spyOn(Gatsby, "navigate");
@@ -164,7 +163,7 @@ describe("VisualiserProvider", () => {
           contentSource="https://mock_url"
           houseTypes={[]}
           variantCodeToPathMap={{}}
-          shareWidgetData={shareWidgetData as ShareWidgetSectionData}
+          shareWidgetData={createShareWidgetData()}
         >
           <div />
         </Visualiser>,
@@ -175,7 +174,7 @@ describe("VisualiserProvider", () => {
         "visualizer.sharePopover.accessibilityLabel"
       );
       fireEvent.click(sharePopover);
-      expect(screen.getByText(`${shareWidgetData.title}:`)).toBeInTheDocument();
+      expect(screen.getByText("Share Now:")).toBeInTheDocument();
     });
 
     it("removes visualiser-related parameters from thr URLS if the user closes visualiser", async () => {
@@ -249,7 +248,9 @@ describe("VisualiserContext", () => {
     rtlRender(
       <ThemeProvider>
         <VisualiserContext.Consumer>
-          {(ctx) => <Button onClick={ctx.open}>Open Visualiser</Button>}
+          {(ctx) => (
+            <Button onClick={() => ctx.open!()}>Open Visualiser</Button>
+          )}
         </VisualiserContext.Consumer>
       </ThemeProvider>
     );
@@ -266,7 +267,9 @@ describe("VisualiserContext", () => {
     rtlRender(
       <ThemeProvider>
         <VisualiserContext.Consumer>
-          {(ctx) => <Button onClick={ctx.open}>Open Visualiser</Button>}
+          {(ctx) => (
+            <Button onClick={() => ctx.open!()}>Open Visualiser</Button>
+          )}
         </VisualiserContext.Consumer>
       </ThemeProvider>
     );

@@ -1,7 +1,3 @@
-import { useIsClient } from "@bmi-digital/components";
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
 import Button from "@bmi-digital/components/button";
 import EqualHeights from "@bmi-digital/components/equal-heights";
 import Grid from "@bmi-digital/components/grid";
@@ -9,12 +5,10 @@ import ProfileCard from "@bmi-digital/components/profile-card";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import withGTM from "../utils/google-tag-manager";
-import memoize from "../utils/memoize";
 import Icon from "./Icon";
 import Image, { Data as ImageData } from "./Image";
-import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
+import { type Data as LinkData } from "./link/types";
 import { ProfileRow } from "./styles/TeamListStyles";
 
 export type Data = {
@@ -26,16 +20,10 @@ export type Data = {
 
 const TEAM_MEMBERS_PER_PAGE = 8;
 
-const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
-  action: "href"
-});
-
 const TeamList = ({ data }: { data: Data | null }) => {
-  const { countryCode, getMicroCopy } = useSiteContext();
+  const { getMicroCopy } = useSiteContext();
   const showMoreText = getMicroCopy(microCopy.GLOBAL_SHOW_MORE);
   const [numberVisible, setNumberVisible] = useState(TEAM_MEMBERS_PER_PAGE);
-  const { isClient } = useIsClient();
-  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   return (
     <div>
@@ -66,26 +54,16 @@ const TeamList = ({ data }: { data: Data | null }) => {
                   {(links || []).map((link, index) => (
                     <ProfileRow
                       key={`team-member-link-${index}`}
-                      action={memoizedGetClickableActionFromUrl(
-                        {
-                          isSSR: !isClient,
-                          linkedPage: link.linkedPage,
-                          url: link.url,
-                          countryCode,
-                          label: link.label
-                        },
-                        []
-                      )}
-                      anchorComponent={(props: AnchorLinkProps) => (
-                        <GTMAnchorLink
-                          gtm={{
-                            id: "cta-click1",
-                            label: `${name} - ${props.children}`
-                          }}
-                          {...props}
-                        />
-                      )}
-                      icon={<Icon name={link.icon || ""} />}
+                      link={{
+                        href: link.url,
+                        external: true,
+                        gtm: {
+                          id: "cta-click1",
+                          action: "href",
+                          label: `${name} - ${link.label}`
+                        }
+                      }}
+                      icon={link.icon && <Icon name={link.icon} />}
                     >
                       {link.label}
                     </ProfileRow>
@@ -117,6 +95,7 @@ export const query = graphql`
     name
     jobTitle
     profileImage {
+      altText
       image {
         gatsbyImageData(
           placeholder: DOMINANT_COLOR

@@ -1,10 +1,10 @@
 import { graphql } from "gatsby";
+import { Logo } from "./BrandLogo";
 import { Data as ImageData } from "./Image";
-import { Data as LinkData } from "./Link";
 import { RichTextData } from "./RichText";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
-import { Logo } from "./BrandLogo";
+import { Data as LinkData } from "./link/types";
 
 export type Data = {
   __typename: "ContentfulPromo";

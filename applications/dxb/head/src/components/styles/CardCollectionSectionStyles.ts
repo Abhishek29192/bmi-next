@@ -1,16 +1,13 @@
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import Button from "@bmi-digital/components/button";
 import Grid from "@bmi-digital/components/grid";
 import Typography from "@bmi-digital/components/typography";
-import ButtonBase from "@mui/material/ButtonBase";
 import { styled } from "@mui/material/styles";
 
 const PREFIX = "CardCollectionSectionStyles";
 
 export const classes = {
   link: `${PREFIX}-link`,
-  hidden: `${PREFIX}-hidden`,
-  cardButton: `${PREFIX}-cardButton`,
-  footerButton: `${PREFIX}-footerButton`
+  hidden: `${PREFIX}-hidden`
 };
 
 export const CardCollectionSectionContainer = styled("div")({
@@ -22,17 +19,7 @@ export const CardCollectionSectionContainer = styled("div")({
     position: "absolute",
     top: "-9999px",
     left: "-9999px"
-  },
-
-  [`& h4 .${classes.cardButton}`]: {
-    fontFamily: "Effra Bold",
-    fontSize: "1.35rem",
-    lineHeight: "1.2"
   }
-});
-
-export const StyledButtonBase = styled(ButtonBase)({
-  textAlign: "left"
 });
 
 export const StyledGroupChips = styled("div")(() => ({
@@ -48,7 +35,7 @@ export const StyledChips = styled("div")(() => ({
   marginBottom: "11px"
 }));
 
-export const StyledClearAllButton = styled(AnchorLink)(() => ({
+export const StyledClearAllButton = styled(Button)(() => ({
   height: "42px",
   fontSize: "16px",
   marginBottom: "11px",
@@ -62,9 +49,3 @@ export const StyledTitle = styled(Typography)(() => ({
 export const StyledShowMoreGrid = styled(Grid)(() => ({
   textAlign: "center"
 }));
-
-export const CardDate = styled(Typography)({
-  [`& + .${classes.footerButton}`]: {
-    marginTop: "24px"
-  }
-});

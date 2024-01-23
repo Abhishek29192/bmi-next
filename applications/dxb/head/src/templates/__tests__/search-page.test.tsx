@@ -4,6 +4,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { fireEvent, screen, waitFor, within } from "@testing-library/react";
 import { Data as Resources } from "applications/dxb/head/src/components/Resources";
 import React from "react";
+import createLinkData from "../../__tests__/helpers/LinkHelper";
 import * as SearchTabDocuments from "../../components/SearchTabDocuments";
 import * as SearchTabPages from "../../components/SearchTabPages";
 import * as SearchTabProducts from "../../components/SearchTabProducts";
@@ -12,6 +13,7 @@ import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import * as elasticSearch from "../../utils/elasticSearch";
 import SearchPage, { Props } from "../search-page";
+import createPromoNBA from "../../__tests__/helpers/NextBestActionsHelper";
 
 jest.mock("@mui/material/useMediaQuery", () => ({
   __esModule: true,
@@ -558,22 +560,7 @@ describe("Search Page Template", () => {
 
     const resources = {
       ...mockContentfulSite.resources,
-      searchPageNextBestActions: [
-        {
-          __typename: "ContentfulPromo",
-          id: "id",
-          title: "searchPageNextBestActionsTitle",
-          subtitle: null,
-          name: "name",
-          body: null,
-          brandLogo: null,
-          tags: null,
-          featuredMedia: null,
-          cta: null,
-          featuredVideo: null,
-          backgroundColor: null
-        }
-      ]
+      searchPageNextBestActions: [createPromoNBA()]
     } as Resources;
 
     const newData: Props["data"] = {
@@ -588,13 +575,14 @@ describe("Search Page Template", () => {
       ...window.location,
       search: "q="
     });
+
     renderWithRouter(
       <ThemeProvider>
         <SearchPage {...props} data={newData} />
       </ThemeProvider>
     );
 
-    await screen.findByText("searchPageNextBestActionsTitle");
+    expect(screen.getByTestId("next-best-actions-section")).toBeInTheDocument();
   });
 
   it("render searchPageExploreBar if searchPageExploreBar exists", async () => {
@@ -604,7 +592,7 @@ describe("Search Page Template", () => {
       ...mockContentfulSite.resources,
       searchPageExploreBar: {
         label: "searchPageExploreBarTitle",
-        links: []
+        links: [createLinkData()]
       }
     } as Resources;
 
@@ -629,6 +617,8 @@ describe("Search Page Template", () => {
       </ThemeProvider>
     );
 
-    await screen.findByText("searchPageExploreBarTitle");
+    expect(
+      screen.getByTestId("section-search-block-explorer-bar")
+    ).toBeInTheDocument();
   });
 });

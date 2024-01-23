@@ -1,4 +1,3 @@
-import { GoodBetterBest } from "@bmi/pim-types";
 import { Context as SiteContextType } from "../../Site";
 
 export const getMockSiteContext = (
@@ -10,10 +9,5 @@ export const getMockSiteContext = (
   node_locale: nodeLocale,
   homePage: {
     title: "Home page title"
-  },
-  goodBetterBestIconsConfig: {
-    [GoodBetterBest.good]: "Thumb Up",
-    [GoodBetterBest.better]: "Heart",
-    [GoodBetterBest.best]: "Star"
   }
 });

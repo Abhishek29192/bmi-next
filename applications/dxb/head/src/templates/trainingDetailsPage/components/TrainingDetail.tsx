@@ -1,7 +1,6 @@
 import { useIsClient } from "@bmi-digital/components";
 import Container from "@bmi-digital/components/container";
 import Grid from "@bmi-digital/components/grid";
-import Tooltip from "@bmi-digital/components/tooltip";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
@@ -10,6 +9,7 @@ import ProgressIndicator from "../../../components/ProgressIndicator";
 import Scrim from "../../../components/Scrim";
 import { useSiteContext } from "../../../components/Site";
 import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
+import getCategoryType from "../../../utils/getCategoryType";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { useHeaderHeight } from "../../../utils/useHeaderHeight";
 import {
@@ -24,8 +24,6 @@ import {
   StyledCardGrid,
   StyledTrainingCard,
   Title,
-  TooltipPopper,
-  TrainingCardFooterButton,
   TrainingInfoContainer,
   Wrapper
 } from "../trainingDetailsPageStyles";
@@ -88,7 +86,7 @@ const TrainingDetails = ({
         trainingRegistrationUrl={trainingRegistrationUrl}
       />
     ));
-  }, [sessions, isClient, courseCode, trainingRegistrationUrl]);
+  }, [sessions, isClient, courseCode, loading, trainingRegistrationUrl]);
 
   const availableSessionsContainerId = useMemo(
     () =>
@@ -134,54 +132,29 @@ const TrainingDetails = ({
             data-testid="training-card-sticky-container"
           >
             <StyledTrainingCard
-              clickableArea="none"
               title={name}
               subtitle={`${getMicroCopy(
                 microCopy.TRAINING_CODE_LABEL
               )} ${courseCode}`}
-              media={img_url ? <img src={img_url} alt={name} /> : undefined}
+              media={<img src={img_url} alt={name} />}
               price={
                 Number(price) > 0
                   ? `${currencySymbol}${price}`
                   : getMicroCopy(microCopy.TRAINING_PRICE_FREE)
               }
               category={{
-                type: categoryName,
-                label: getMicroCopy(
-                  trainingCategoryMicroCopies[categoryName.toUpperCase()]
-                )
+                type: getCategoryType(categoryName),
+                // eslint-disable-next-line security/detect-object-injection
+                label: getMicroCopy(trainingCategoryMicroCopies[categoryName])
               }}
               trainingType={{
                 type: course_type,
                 label: getMicroCopy(`trainingType.${course_type}`)
               }}
-              footerButtonLabel={getMicroCopy(
+              ctaLabel={getMicroCopy(
                 microCopy.TRAINING_DETAILS_SEE_AVAILABLE_SESSIONS_BUTTON
               )}
-              footerButtonComponent={(props) => (
-                <Tooltip
-                  title={getMicroCopy(
-                    microCopy.TRAINING_DETAILS_NO_SESSIONS_TOOLTIP_MESSAGE
-                  )}
-                  placement="top"
-                  enterTouchDelay={0}
-                  components={{
-                    Tooltip: TooltipPopper
-                  }}
-                  disableHoverListener={Boolean(runningSessions?.length)}
-                  disableTouchListener={Boolean(runningSessions?.length)}
-                >
-                  <div>
-                    <TrainingCardFooterButton
-                      {...props}
-                      disabled={!runningSessions?.length}
-                      variant="contained"
-                      size="large"
-                      href={`#${availableSessionsContainerId}`}
-                    />
-                  </div>
-                </Tooltip>
-              )}
+              href={`#${availableSessionsContainerId}`}
             />
           </StyledCardGrid>
         </TrainingInfoContainer>

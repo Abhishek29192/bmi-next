@@ -3,7 +3,7 @@
 exports[`DownloadListAlertBanner should render correctly 1`] = `
 <div>
   <div
-    class="ColorPair-alabaster css-18zndtv"
+    class="ColorPair-alabaster css-10qwebg"
     data-testid="alert-banner"
   >
     <div

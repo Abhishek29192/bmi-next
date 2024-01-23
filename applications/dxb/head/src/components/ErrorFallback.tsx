@@ -1,9 +1,10 @@
 import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
-import React, { useMemo } from "react";
+import { Link } from "gatsby";
+import React from "react";
+import { getPathWithCountryCode } from "../utils/path";
 import Image from "./Image";
-import { getClickableActionFromUrl } from "./Link";
 import { Data as PromoData } from "./Promo";
 import Video from "./Video";
 
@@ -19,24 +20,13 @@ const ErrorFallback = ({
     subtitle = "Error:General.subtitle",
     cta = {
       label: "Error:General.cta.label",
-      linkedPage: undefined,
-      url: undefined
+      linkedPage: undefined
     },
     featuredMedia = null,
     featuredVideo = null
   } = promo ?? {};
-
-  const memoizedGetClickableActionFromUrl = useMemo(
-    () =>
-      getClickableActionFromUrl({
-        linkedPage: cta?.linkedPage,
-        url: cta?.url,
-        countryCode,
-        label: cta?.label
-      }),
-    [cta, countryCode]
-  );
-
+  const to: string | undefined =
+    cta && getPathWithCountryCode(countryCode, cta.linkedPage?.path);
   return (
     <PromoSection
       title={title}
@@ -52,7 +42,13 @@ const ErrorFallback = ({
         {subtitle}
       </Typography>
       {cta && (
-        <Button action={memoizedGetClickableActionFromUrl}>{cta.label}</Button>
+        <Button
+          component={Link}
+          to={to}
+          gtm={{ id: "cta-click1", action: to, label: cta.label }}
+        >
+          {cta.label}
+        </Button>
       )}
     </PromoSection>
   );

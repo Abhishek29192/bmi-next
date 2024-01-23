@@ -4,13 +4,11 @@ import { graphql, navigate } from "gatsby";
 import React from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import { globalStyles } from "../../src/styles/globalStyles";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useConfig } from "../contexts/ConfigProvider";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import { Product } from "../types/pim";
-import { getGoodBetterBestIcons } from "../utils/getGoodBetterBestIcons";
 import { getPathWithCountryCode } from "../utils/path";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
@@ -102,7 +100,6 @@ const Page = ({
     getMicroCopy,
     gatsbyReCaptchaKey,
     reCaptchaNet,
-    goodBetterBestIconsConfig: getGoodBetterBestIcons(resources),
     accountPage
   };
 
@@ -118,7 +115,6 @@ const Page = ({
     variantProduct && variantProduct.seoTitle ? variantProduct.seoTitle : title;
   return (
     <div style={{ overflowX: "hidden", display: "contents" }}>
-      {globalStyles}
       <Head
         htmlAttributes={{ lang: node_locale }}
         title={seoTitle}

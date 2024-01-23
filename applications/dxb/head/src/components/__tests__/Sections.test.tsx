@@ -6,10 +6,10 @@ import createGallerySectionImage from "../../__tests__/helpers/GallerySectionIma
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import createService from "../../__tests__/helpers/ServiceHelper";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import { DataTypeEnum } from "../Link";
 import Sections, { Data } from "../Sections";
 import { EntryTypeEnum } from "../Service";
 import { SiteContextProvider } from "../Site";
+import { DataTypeEnum } from "../link/types";
 import { SourceType } from "../types/FormSectionTypes";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 

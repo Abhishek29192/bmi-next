@@ -1,7 +1,7 @@
 import React from "react";
 import { Data as ContentfulImageData } from "../../components/Image";
-import { DataTypeEnum, Data as LinkData } from "../../components/Link";
 import Video, { ContentfulVideoData } from "../../components/Video";
+import { DataTypeEnum, Data as LinkData } from "../../components/link/types";
 import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
 
 const mockBreadCrumbs = [

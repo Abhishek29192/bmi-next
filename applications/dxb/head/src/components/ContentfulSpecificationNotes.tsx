@@ -1,7 +1,7 @@
 // Todo: somehow get the fragments from inside RichText???
 import { graphql } from "gatsby";
 import { RichTextData } from "./RichText";
-import { Data as LinkData } from "./Link";
+import { Data as LinkData } from "./link/types";
 
 export type Data = {
   __typename: "ContentfulSpecificationNotesWithCta";

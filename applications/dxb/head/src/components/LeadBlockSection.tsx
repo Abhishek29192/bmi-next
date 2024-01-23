@@ -1,17 +1,17 @@
 import AnchorLink, {
   AnchorLinkProps
 } from "@bmi-digital/components/anchor-link";
-import Button from "@bmi-digital/components/button";
 import LeadBlock from "@bmi-digital/components/lead-block";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";
-import withGTM from "../utils/google-tag-manager";
-import Link, { Data as LinkData } from "./Link";
+import { replaceSpaces } from "@bmi-digital/components";
 import RichText, { RichTextData, parseReachDataRawFields } from "./RichText";
 import { useSiteContext } from "./Site";
+import ButtonLink from "./link/ButtonLink";
+import { Data as LinkData } from "./link/types";
 import {
   LeadBlockWrapper,
   LinkWrapper,
@@ -26,8 +26,6 @@ export type Data = {
   link: LinkData | null;
   postItCard: RichTextData | null;
 };
-
-const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const LeadBlockSection = ({
   data: { text, link, postItCard }
@@ -55,9 +53,13 @@ const LeadBlockSection = ({
           </Text>
           {link && (
             <LinkWrapper>
-              <Link component={Button} data={link} variant="opaqueOutlined">
+              <ButtonLink
+                data={link}
+                variant="opaqueOutlined"
+                data-testid={`anchor-link-${replaceSpaces(link.label)}`}
+              >
                 {link.label}
-              </Link>
+              </ButtonLink>
             </LinkWrapper>
           )}
         </LeadBlock.Content>
@@ -80,15 +82,18 @@ const LeadBlockSection = ({
                 <LeadBlock.Card.Content>
                   <LinksContainer
                     anchorLinkComponent={(props: AnchorLinkProps) => (
-                      <GTMAnchorLink
+                      <AnchorLink
+                        {...props}
                         gtm={{
                           id: "cta-click1",
                           label: `${getMicroCopy(
                             microCopy.PAGE_JUMP_TO_SECTION
                           )} - ${props.children}`,
-                          action: props.action?.href
+                          action: props.href
                         }}
-                        {...props}
+                        data-testid={`anchor-link-${replaceSpaces(
+                          getMicroCopy(microCopy.PAGE_JUMP_TO_SECTION)
+                        )}`}
                       />
                     )}
                   />

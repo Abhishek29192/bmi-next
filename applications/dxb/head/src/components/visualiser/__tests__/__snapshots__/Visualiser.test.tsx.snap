@@ -31,7 +31,7 @@ exports[`Visualiser component renders correctly 1`] = `
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1kq9uad-MuiButtonBase-root-MuiIconButton-root"
           data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"
@@ -126,11 +126,12 @@ exports[`Visualiser component renders correctly 1`] = `
         >
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+            data-testid="button"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+              class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
               <svg
                 aria-hidden="true"
@@ -159,13 +160,15 @@ exports[`Visualiser component renders correctly 1`] = `
             />
           </button>
           <button
+            aria-disabled="true"
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+            data-testid="button"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+              class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
               <svg
                 aria-hidden="true"
@@ -224,7 +227,7 @@ exports[`Visualiser component renders correctly when non-test asset url provided
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1kq9uad-MuiButtonBase-root-MuiIconButton-root"
           data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"
@@ -319,11 +322,12 @@ exports[`Visualiser component renders correctly when non-test asset url provided
         >
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+            data-testid="button"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+              class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
               <svg
                 aria-hidden="true"
@@ -352,13 +356,15 @@ exports[`Visualiser component renders correctly when non-test asset url provided
             />
           </button>
           <button
+            aria-disabled="true"
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+            data-testid="button"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+              class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
               <svg
                 aria-hidden="true"
@@ -417,7 +423,7 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1kq9uad-MuiButtonBase-root-MuiIconButton-root"
           data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"
@@ -512,11 +518,12 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
         >
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+            data-testid="button"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+              class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
               <svg
                 aria-hidden="true"
@@ -545,13 +552,15 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
             />
           </button>
           <button
+            aria-disabled="true"
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+            data-testid="button"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+              class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
               <svg
                 aria-hidden="true"

@@ -54,11 +54,10 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                 data-gtm="{"id":"cta-click1","label":"MC: sdp.leadBlock.backToYourSelection","action":"system-configurator-page?referer=sys_details"}"
                 data-testid="system-lead-block-prev-page"
                 href="system-configurator-page?referer=sys_details"
-                rel="noopener noreferrer"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeLarge css-htszrh-MuiButton-startIcon"
+                  class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeLarge css-htszrh-MuiButton-startIcon"
                 >
                   <svg
                     aria-hidden="true"
@@ -77,12 +76,15 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
-              <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"cta-click1","label":"cta label","action":"https://www.external.co.uk"}"
+              <a
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"cta label"}"
                 data-testid="system-lead-block-cta-action"
+                href="https://www.external.co.uk"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
-                type="button"
+                target="_blank"
               >
                 cta label
                 <span
@@ -103,7 +105,7 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -162,12 +164,15 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
             <div
               class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
-              <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"cta-click1","label":"cta label","action":"https://www.external.co.uk"}"
+              <a
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"cta label"}"
                 data-testid="system-lead-block-cta-action"
+                href="https://www.external.co.uk"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
-                type="button"
+                target="_blank"
               >
                 cta label
                 <span
@@ -188,7 +193,7 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -247,12 +252,15 @@ exports[`LeadBlockSection tests should render 1`] = `
             <div
               class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
-              <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"cta-click1","label":"cta label","action":"https://www.external.co.uk"}"
+              <a
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"cta label"}"
                 data-testid="system-lead-block-cta-action"
+                href="https://www.external.co.uk"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
-                type="button"
+                target="_blank"
               >
                 cta label
                 <span
@@ -273,7 +281,7 @@ exports[`LeadBlockSection tests should render 1`] = `
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -332,12 +340,15 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
             <div
               class="SystemDetailsLeadBlockSectionStyles-ctaContainer css-1yjvs5a"
             >
-              <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                data-gtm="{"id":"cta-click1","label":"cta label","action":"https://www.external.co.uk"}"
+              <a
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium SystemDetailsLeadBlockSectionStyles-quotationBtn css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"cta label"}"
                 data-testid="system-lead-block-cta-action"
+                href="https://www.external.co.uk"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
-                type="button"
+                target="_blank"
               >
                 cta label
                 <span
@@ -358,7 +369,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </div>
           </div>
           <div
@@ -366,7 +377,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
             data-testid="system-attributes-card"
           >
             <div
-              class="ColorPair-pearl css-1pt14k0"
+              class="ColorPair-pearl css-1d0x0e2"
             >
               <div
                 class="css-1qwqwtx"

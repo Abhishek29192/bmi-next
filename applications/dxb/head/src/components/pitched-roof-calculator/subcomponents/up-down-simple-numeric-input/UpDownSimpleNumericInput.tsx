@@ -60,7 +60,6 @@ const UpDownSimpleNumericInput = ({
 
   const UpButton = (
     <StyledUpButton
-      isIconButton
       className="button"
       onClick={handleIncrement}
       accessibilityLabel={"Up"}
@@ -71,7 +70,6 @@ const UpDownSimpleNumericInput = ({
 
   const DownButton = (
     <StyledDownButton
-      isIconButton
       className={`button-${buttonPlacement}`}
       onClick={handleDecrement}
       accessibilityLabel={"Down"}

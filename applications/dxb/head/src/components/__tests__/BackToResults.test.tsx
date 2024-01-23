@@ -69,11 +69,7 @@ describe("BackToResults component", () => {
     expect(cta).toHaveAttribute("href", "/en/pathname");
     expect(cta).toHaveAttribute(
       "data-gtm",
-      JSON.stringify({
-        id: "nav-breadcrumb-back-to-results",
-        label: "MC: searchPage.backToResults",
-        action: "/en/pathname"
-      })
+      '{"id":"nav-breadcrumb-back-to-results","action":"/en/pathname","label":"MC: searchPage.backToResults"}'
     );
   });
 

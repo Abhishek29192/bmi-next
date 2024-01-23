@@ -131,7 +131,7 @@ const Footer = ({
             return (
               <Grid key={key} {...gridItemProps}>
                 <BorderedItem />
-                <ContactDetails gtmLabel={gtmLabel} data={item} isFlat />
+                <ContactDetails gtmLabel={gtmLabel} data={item} />
               </Grid>
             );
           })}

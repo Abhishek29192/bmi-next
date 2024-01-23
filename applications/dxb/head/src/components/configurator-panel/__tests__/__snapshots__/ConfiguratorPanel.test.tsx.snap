@@ -11,7 +11,7 @@ exports[`ConfiguratorPanel component renders collapsed 1`] = `
     >
       <div
         aria-expanded="false"
-        class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-4kck3s-MuiButtonBase-root-MuiAccordionSummary-root"
         data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="0"
@@ -80,7 +80,7 @@ exports[`ConfiguratorPanel component renders correctly 1`] = `
     >
       <div
         aria-expanded="true"
-        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-4kck3s-MuiButtonBase-root-MuiAccordionSummary-root"
         data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="0"
@@ -150,7 +150,7 @@ exports[`ConfiguratorPanel component renders disabled 1`] = `
       <div
         aria-disabled="true"
         aria-expanded="true"
-        class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-4kck3s-MuiButtonBase-root-MuiAccordionSummary-root"
         data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="-1"
@@ -235,7 +235,7 @@ exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
     >
       <div
         aria-expanded="true"
-        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-4kck3s-MuiButtonBase-root-MuiAccordionSummary-root"
         data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="0"
@@ -311,7 +311,7 @@ exports[`ConfiguratorPanel component renders expanded with child content and opt
     >
       <div
         aria-expanded="true"
-        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-4kck3s-MuiButtonBase-root-MuiAccordionSummary-root"
         data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="0"
@@ -397,7 +397,7 @@ exports[`ConfiguratorPanel component renders with title with selected option tit
       <div
         aria-disabled="true"
         aria-expanded="true"
-        class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-4kck3s-MuiButtonBase-root-MuiAccordionSummary-root"
         data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="-1"

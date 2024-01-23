@@ -2,8 +2,8 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render } from "@testing-library/react";
 import React from "react";
 import Footer from "../Footer";
-import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
+import { DataTypeEnum } from "../link/types";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {

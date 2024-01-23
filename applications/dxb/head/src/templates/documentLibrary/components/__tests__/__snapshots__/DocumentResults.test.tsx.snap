@@ -14,7 +14,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
         data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
           data-testid="table-head"
         >
           <tr
@@ -94,7 +94,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
             data-testid="document-table-row-contentful-document-id"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
               data-testid="document-table-add-contentful-document-id"
             >
               <div
@@ -132,7 +132,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
               data-testid="document-table-title-contentful-document-id"
             >
               <abbr
@@ -146,16 +146,15 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               data-testid="document-table-title-contentful-document-id"
             >
               <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                 data-testid="document-table-download-image/jpeg-button"
+                download=""
                 href="http://localhost:9000/asset-filename.jpg"
-                rel="noopener noreferrer"
                 tabindex="0"
-                target="_blank"
               >
                 <span
-                  class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                  class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                 >
                   <svg
                     class="download-icon css-z6lod7"
@@ -186,7 +185,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   </svg>
                 </span>
                 <p
-                  class="css-1cigd93"
+                  class="css-1dqo7n"
                 >
                   contentful document title
                 </p>
@@ -196,64 +195,57 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
               data-testid="document-table-size-contentful-document-id"
             >
               1 B
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
               data-testid="document-table-actions-contentful-document-id"
             >
               <div
                 class="css-1kto1mf"
               >
-                <div
-                  aria-label="MC: document.library.download.tooltip.title"
-                  class=""
+                <a
+                  aria-label="MC: document.library.download.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                   data-mui-internal-clone-element="true"
-                  data-testid="tooltip"
+                  data-testid="download-document-button-contentful-document-id"
+                  download=""
+                  href="http://localhost:9000/asset-filename.jpg"
+                  tabindex="0"
                 >
-                  <a
-                    aria-label="Download contentful document title"
-                    class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                    data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
-                    data-testid="document-table-actions-download-contentful-document-id"
-                    href="http://localhost:9000/asset-filename.jpg"
-                    rel="noopener noreferrer"
-                    tabindex="0"
-                    target="_blank"
+                  <svg
+                    class="css-afm3c7"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      class="document-simple-table-results-actionIconSmall css-afm3c7"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <path
+                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                      fill="currentColor"
                     />
-                  </a>
-                </div>
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </a>
                 <div
                   aria-label="MC: document.library.copyLink.tooltip.title"
-                  class="MuiBox-root css-mvc5fa"
+                  class=" MuiBox-root css-2bzkxd"
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >
                   <button
-                    aria-label="Copy contentful document title"
-                    class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                    data-testid="document-table-actions-copy-url-contentful-document-id"
+                    aria-label="MC: document.library.copyLink.accessibility.label"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="copy-to-clipboard-button-contentful-document-id"
                     tabindex="0"
                     type="button"
                   >
                     <svg
-                      class="document-simple-table-results-actionIconSmall css-afm3c7"
+                      class="css-afm3c7"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -274,7 +266,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
             data-testid="document-table-row-pim-document-id"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
               data-testid="document-table-add-pim-document-id"
             >
               <div
@@ -312,7 +304,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
               data-testid="document-table-title-pim-document-id"
             >
               <abbr
@@ -326,16 +318,15 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               data-testid="document-table-title-pim-document-id"
             >
               <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                 data-testid="document-table-download-application/pdf-button"
+                download=""
                 href="http://localhost:9000/document.pdf"
-                rel="noopener noreferrer"
                 tabindex="0"
-                target="_blank"
               >
                 <span
-                  class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                  class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                 >
                   <svg
                     class="download-icon css-z6lod7"
@@ -366,7 +357,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   </svg>
                 </span>
                 <p
-                  class="css-1cigd93"
+                  class="css-1dqo7n"
                 >
                   pim document title
                 </p>
@@ -376,64 +367,57 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
               data-testid="document-table-size-pim-document-id"
             >
               1 B
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
               data-testid="document-table-actions-pim-document-id"
             >
               <div
                 class="css-1kto1mf"
               >
-                <div
-                  aria-label="MC: document.library.download.tooltip.title"
-                  class=""
+                <a
+                  aria-label="MC: document.library.download.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                   data-mui-internal-clone-element="true"
-                  data-testid="tooltip"
+                  data-testid="download-document-button-pim-document-id"
+                  download=""
+                  href="http://localhost:9000/document.pdf"
+                  tabindex="0"
                 >
-                  <a
-                    aria-label="Download pim document title"
-                    class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                    data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                    data-testid="document-table-actions-download-pim-document-id"
-                    href="http://localhost:9000/document.pdf"
-                    rel="noopener noreferrer"
-                    tabindex="0"
-                    target="_blank"
+                  <svg
+                    class="css-afm3c7"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      class="document-simple-table-results-actionIconSmall css-afm3c7"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    <path
+                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                      fill="currentColor"
                     />
-                  </a>
-                </div>
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </a>
                 <div
                   aria-label="MC: document.library.copyLink.tooltip.title"
-                  class="MuiBox-root css-mvc5fa"
+                  class=" MuiBox-root css-2bzkxd"
                   data-mui-internal-clone-element="true"
                   data-testid="tooltip"
                 >
                   <button
-                    aria-label="Copy pim document title"
-                    class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                    data-testid="document-table-actions-copy-url-pim-document-id"
+                    aria-label="MC: document.library.copyLink.accessibility.label"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="copy-to-clipboard-button-pim-document-id"
                     tabindex="0"
                     type="button"
                   >
                     <svg
-                      class="document-simple-table-results-actionIconSmall css-afm3c7"
+                      class="css-afm3c7"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -470,12 +454,12 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
         data-testid="accordion"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ldqf96-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15trjob-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-zdeuoz-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product-base-code","action":"Selector – Accordion"}"
             data-testid="accordion-summary"
             role="button"
@@ -559,16 +543,15 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                     class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1pvdcui-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                       data-testid="document-table-download-application/pdf-button"
+                      download=""
                       href="http://localhost:9000/document.pdf"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           class="download-icon css-z6lod7"
@@ -599,7 +582,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                         </svg>
                       </span>
                       <p
-                        class="css-1cigd93"
+                        class="css-1dqo7n"
                       >
                         asset type name
                       </p>
@@ -617,7 +600,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                         :
                       </span>
                       <span
-                        class="css-jcllbd"
+                        class="css-ackcrd"
                         data-testid="tech-results-accordion-size-pim-document-id"
                       >
                         1 B
@@ -629,56 +612,49 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       <div
                         class="MuiBox-root css-38zrbw"
                       >
-                        <div
-                          aria-label="MC: document.library.download.tooltip.title"
-                          class=""
+                        <a
+                          aria-label="MC: document.library.download.accessibility.label"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                          data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                           data-mui-internal-clone-element="true"
-                          data-testid="tooltip"
+                          data-testid="download-document-button-pim-document-id"
+                          download=""
+                          href="http://localhost:9000/document.pdf"
+                          tabindex="0"
                         >
-                          <a
-                            aria-label="Download pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                            data-testid="document-table-actions-download-pim-document-id"
-                            href="http://localhost:9000/document.pdf"
-                            rel="noopener noreferrer"
-                            tabindex="0"
-                            target="_blank"
+                          <svg
+                            class="css-afm3c7"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
                             />
-                          </a>
-                        </div>
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </a>
                       </div>
                       <div
                         class="MuiBox-root css-enhvy5"
                       >
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="MuiBox-root css-mvc5fa"
+                          class=" MuiBox-root css-2bzkxd"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
                           <button
-                            aria-label="Copy pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-testid="document-table-actions-copy-url-pim-document-id"
+                            aria-label="MC: document.library.copyLink.accessibility.label"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="copy-to-clipboard-button-pim-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >

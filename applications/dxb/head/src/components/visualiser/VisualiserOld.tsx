@@ -392,7 +392,6 @@ const SharePopover = ({ shareWidget }: { shareWidget: ReactNode }) => {
   return (
     <StyledSharePopover ref={shareAnchor}>
       <StyledShareButton
-        isIconButton
         variant="text"
         accessibilityLabel={getMicroCopy(
           microCopy.sharePopover.accessibilityLabel
@@ -478,10 +477,6 @@ const Visualiser = ({
     }
   }, [state, open]);
 
-  const handleOnClose = () => {
-    onClose();
-  };
-
   const handleOnClick = useCallback(
     ({
       type,
@@ -535,14 +530,17 @@ const Visualiser = ({
   return (
     <StyledContainerDialog
       open={open}
-      onCloseClick={handleOnClose}
-      onBackdropClick={handleOnClose}
+      onCloseClick={onClose}
+      onBackdropClick={onClose}
       maxWidth="xl"
       className={classes.root}
       containerClassName={classes.content}
     >
       {shareWidget && (
-        <ContainerDialog.Header className={classes.header}>
+        <ContainerDialog.Header
+          className={classes.header}
+          onCloseClick={onClose}
+        >
           <SharePopover shareWidget={shareWidget} />
         </ContainerDialog.Header>
       )}
@@ -586,7 +584,7 @@ const Visualiser = ({
                             productPath: activeColour.path
                           }
                         });
-                        handleOnClose();
+                        onClose();
                       }}
                     >
                       {getMicroCopy(microCopy.readMore)}

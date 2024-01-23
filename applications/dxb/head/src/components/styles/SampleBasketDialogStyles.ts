@@ -1,4 +1,4 @@
-import Button from "@bmi-digital/components/button";
+import IconButton from "@bmi-digital/components/icon-button";
 import Typography from "@bmi-digital/components/typography";
 import { iconButtonClasses } from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
@@ -35,7 +35,7 @@ export const TopContainer = styled("div")(({ theme }) => ({
   }
 }));
 
-export const CloseButton = styled(Button)(({ theme }) => ({
+export const CloseButton = styled(IconButton)(({ theme }) => ({
   backgroundColor: `${theme.colours.white} !important`,
   color: `${theme.colours.slate} !important`,
   position: "absolute",

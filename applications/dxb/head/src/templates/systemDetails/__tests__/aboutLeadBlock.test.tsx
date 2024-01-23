@@ -186,7 +186,7 @@ describe("AboutLeadBlock tests", () => {
         systemDetailsMockData.specification!.url
       );
       expect(specificationButton).toHaveAttribute("target", "_blank");
-      expect(specificationButton).toHaveAttribute("rel", "noopener noreferrer");
+      expect(specificationButton).toHaveAttribute("rel", "noreferrer");
     });
 
     it("move up if no guaranteesAndWarranties assets and awardsAndCertificates assets", () => {

@@ -1,6 +1,6 @@
-import Button from "@bmi-digital/components/button";
 import Container from "@bmi-digital/components/container";
 import { DialogClassNameContext } from "@bmi-digital/components/dialog";
+import IconButton from "@bmi-digital/components/icon-button";
 import CloseIcon from "@bmi-digital/components/icon/Close";
 import Logo from "@bmi-digital/components/logo";
 import brandLogo from "@bmi-digital/components/logo/Bmi";
@@ -68,15 +68,14 @@ const CalculatorModal = ({
                 className={classnames(classes.headerSide, classes.logo)}
               />
               <div className={classes.headerCentre}>{headerCentre}</div>
-              <Button
-                isIconButton
+              <IconButton
                 variant="text"
                 className={classnames(classes.headerSide, classes.iconButton)}
                 onClick={onCloseClick}
                 accessibilityLabel={"Close"}
               >
                 <CloseIcon />
-              </Button>
+              </IconButton>
             </Container>
           </div>
           <div className={classnames(classes.content, className)}>

@@ -16,6 +16,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
           class="css-179cxs2"
         >
           <button
+            aria-disabled="false"
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
             data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (4)","action":"[\\"http://doesnot-exist.com/fileName\\",\\"http://pimDocument\\",\\"http://pimDocument\\"]"}"
             data-testid="document-table-download-button"
@@ -28,6 +29,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
             />
           </button>
           <button
+            aria-disabled="false"
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
             data-testid="document-results-footer-reset-button"
             tabindex="0"
@@ -56,7 +58,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
             </span>
           </div>
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1jsvypt-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-53ynbr-MuiTypography-root"
             data-testid="document-results-footer-max-size-value"
           >
             MC: downloadList.maxSize
@@ -72,24 +74,22 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
-          rel="noreferrer noopener"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           target="_blank"
         >
-          <span>
-            Privacy Policy
-          </span>
+          Privacy Policy
         </a>
          and 
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
-          rel="noreferrer noopener"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           target="_blank"
         >
-          <span>
-            Terms of Service
-          </span>
+          Terms of Service
         </a>
          apply.
       </p>
@@ -114,6 +114,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
           class="css-179cxs2"
         >
           <button
+            aria-disabled="false"
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
             data-gtm="{"id":"download3-button1","label":"MC: downloadList.download (2)","action":"[\\"http://pimDocument\\",\\"http://pimDocument\\"]"}"
             data-testid="document-table-download-button"
@@ -126,6 +127,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
             />
           </button>
           <button
+            aria-disabled="false"
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
             data-testid="document-results-footer-reset-button"
             tabindex="0"
@@ -154,7 +156,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
             </span>
           </div>
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1jsvypt-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-53ynbr-MuiTypography-root"
             data-testid="document-results-footer-max-size-value"
           >
             MC: downloadList.maxSize
@@ -170,24 +172,22 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
-          rel="noreferrer noopener"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           target="_blank"
         >
-          <span>
-            Privacy Policy
-          </span>
+          Privacy Policy
         </a>
          and 
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
-          rel="noreferrer noopener"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           target="_blank"
         >
-          <span>
-            Terms of Service
-          </span>
+          Terms of Service
         </a>
          apply.
       </p>

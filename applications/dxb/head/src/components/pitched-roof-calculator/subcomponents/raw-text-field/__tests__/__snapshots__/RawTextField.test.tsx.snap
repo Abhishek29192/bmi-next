@@ -3,7 +3,7 @@
 exports[`RawTextField component does not display rightAdornment if provided and error is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -54,7 +54,7 @@ exports[`RawTextField component does not display rightAdornment if provided and 
 exports[`RawTextField component renders correctly 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -98,7 +98,7 @@ exports[`RawTextField component renders correctly 1`] = `
 exports[`RawTextField component renders correctly if error is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -142,7 +142,7 @@ exports[`RawTextField component renders correctly if error is true 1`] = `
 exports[`RawTextField component renders correctly if errorText is populated 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -193,7 +193,7 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
 exports[`RawTextField component renders correctly if helperText is populated 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -244,7 +244,7 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
 exports[`RawTextField component renders correctly if isRequired is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -288,7 +288,7 @@ exports[`RawTextField component renders correctly if isRequired is true 1`] = `
 exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -332,7 +332,7 @@ exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
 exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -364,7 +364,7 @@ exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
 exports[`RawTextField component renders correctly if variant === outlined 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -408,7 +408,7 @@ exports[`RawTextField component renders correctly if variant === outlined 1`] = 
 exports[`RawTextField component renders correctly with leftAdornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField-leftAdornment css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root TextField-leftAdornment css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
@@ -459,7 +459,7 @@ exports[`RawTextField component renders correctly with leftAdornment 1`] = `
 exports[`RawTextField component renders correctly with rightAdornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label

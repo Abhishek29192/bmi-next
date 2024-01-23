@@ -1,29 +1,32 @@
-import React, { useMemo, useState } from "react";
 import DefaultTextField from "@bmi-digital/components/text-field";
-import { StyledButton, StyledCancelIcon } from "./TextFieldStyles";
+import { microCopy } from "@bmi/microcopies";
+import React, { useMemo, useState } from "react";
+import { useSiteContext } from "../../../components/Site";
+import { StyledCancelIcon, StyledIconButton } from "./TextFieldStyles";
 import type { TextFieldProps } from "@bmi-digital/components/text-field";
 import type { WithFormControlProps } from "@bmi-digital/components/form";
 
 export type Props = TextFieldProps & WithFormControlProps<string>;
 
 const TextField = ({ defaultValue = "", isTextArea, ...props }: Props) => {
+  const { getMicroCopy } = useSiteContext();
   const [isActive, setIsActive] = useState(false);
   const [value, setValue] = useState<string>(defaultValue);
 
   const rightAdornment = useMemo(() => {
     if (!isActive && value && !isTextArea) {
       return (
-        <StyledButton
-          isIconButton
+        <StyledIconButton
           variant="text"
           data-testid="reset-input-value-icon-button"
           onClick={() => setValue(defaultValue)}
+          accessibilityLabel={getMicroCopy(microCopy.CLEAR_LABEL)}
         >
           <StyledCancelIcon />
-        </StyledButton>
+        </StyledIconButton>
       );
     }
-  }, [value, isActive, defaultValue, isTextArea]);
+  }, [value, isActive, defaultValue, isTextArea, getMicroCopy]);
 
   return (
     <DefaultTextField

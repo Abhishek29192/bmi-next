@@ -1,8 +1,7 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import { ClickableAction } from "@bmi-digital/components/clickable";
+import Button from "@bmi-digital/components/button";
 import GetApp from "@bmi-digital/components/icon/GetApp";
 import fetch, { Response } from "node-fetch";
-import React from "react";
+import React, { useCallback } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -10,19 +9,13 @@ import { KeyAssetDocument, ProductDocument } from "../types/pim";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
-import withGTM from "../utils/google-tag-manager";
 import Icon from "./Icon";
 import { StyledKeyAssetTypeSectionContainer } from "./styles/KeyAssetTypesDownloadSection.styles";
+import type { ButtonActionProps } from "@bmi-digital/components/button";
 
 type Props = {
   keyAssetDocuments: KeyAssetDocument[] | null;
 };
-
-const GTMButton = withGTM<
-  ButtonProps & {
-    action?: ClickableAction;
-  }
->(Button);
 
 const handleDownloadClick = async (
   list: readonly ProductDocument[],
@@ -63,70 +56,75 @@ const handleDownloadClick = async (
   }
 };
 
-const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
+const KeyAssetTypesDownloadSectionButton = ({
+  assetType,
+  documents
+}: {
+  assetType: string;
+  documents: ProductDocument[];
+}) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const config = useConfig();
-  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
+  const onClick = useCallback(async () => {
+    const { isPreviewMode, documentDownloadEndpoint } = config;
+    const qaAuthToken = getCookie(QA_AUTH_TOKEN);
+
+    if (isPreviewMode) {
+      alert("You cannot download documents on the preview environment.");
+      return;
+    }
+
+    if (!documentDownloadEndpoint) {
+      console.error(
+        "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
+      );
+      return;
+    }
+
+    const token = qaAuthToken ? undefined : await executeRecaptcha?.();
+    await handleDownloadClick(
+      documents,
+      documentDownloadEndpoint,
+      token,
+      qaAuthToken
+    );
+  }, [config, documents, executeRecaptcha]);
+
+  const actionProps: ButtonActionProps =
+    documents.length === 1
+      ? { href: getDownloadLink(documents[0].url), download: true }
+      : { onClick };
+
+  return (
+    <Button
+      gtm={{
+        id: "download1",
+        label: "Download",
+        action: JSON.stringify(documents.map((item) => item.url))
+      }}
+      variant="text"
+      startIcon={
+        documents.length === 1 ? <GetApp /> : <Icon name="FolderZip" />
+      }
+      data-testid={`${assetType}Download`}
+      {...actionProps}
+    >
+      {documents[0].assetType.name}
+    </Button>
+  );
+};
+
+const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
   return (
     <StyledKeyAssetTypeSectionContainer>
       {keyAssetDocuments?.map(({ assetType, documents }) => {
         return (
           <div key={assetType}>
-            <GTMButton
-              gtm={{
-                id: "download1",
-                label: "Download",
-                action: JSON.stringify(documents.map((item) => item.url))
-              }}
-              variant="text"
-              startIcon={
-                documents.length === 1 ? <GetApp /> : <Icon name="FolderZip" />
-              }
-              action={
-                documents.length === 1
-                  ? {
-                      model: "download",
-                      href: getDownloadLink(documents[0].url)
-                    }
-                  : undefined
-              }
-              onClick={
-                documents.length > 1
-                  ? async () => {
-                      const { isPreviewMode, documentDownloadEndpoint } =
-                        config;
-
-                      if (isPreviewMode) {
-                        alert(
-                          "You cannot download documents on the preview environment."
-                        );
-                        return;
-                      }
-
-                      if (!documentDownloadEndpoint) {
-                        console.error(
-                          "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
-                        );
-                        return;
-                      }
-
-                      const token = qaAuthToken
-                        ? undefined
-                        : await executeRecaptcha?.();
-                      await handleDownloadClick(
-                        documents,
-                        documentDownloadEndpoint,
-                        token,
-                        qaAuthToken
-                      );
-                    }
-                  : undefined
-              }
-              data-testid={`${assetType}Download`}
-            >
-              {documents[0].assetType.name}
-            </GTMButton>
+            <KeyAssetTypesDownloadSectionButton
+              assetType={assetType}
+              documents={documents}
+            />
           </div>
         );
       })}

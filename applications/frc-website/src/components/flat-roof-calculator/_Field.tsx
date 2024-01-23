@@ -1,6 +1,6 @@
-import Button from "@bmi-digital/components/button";
 import Dialog from "@bmi-digital/components/dialog";
 import Grid from "@bmi-digital/components/grid";
+import IconButton from "@bmi-digital/components/icon-button";
 import HelpIcon from "@bmi-digital/components/icon/QuestionMark";
 import Typography from "@bmi-digital/components/typography";
 import classnames from "classnames";
@@ -32,16 +32,16 @@ const Field = ({
         <Typography variant="h5">{label}</Typography>
         {helpContent ? (
           <>
-            <Button
-              isIconButton
+            <IconButton
               size="extra-small"
               variant="text"
               className="iconButton"
               onClick={openDialog}
-              tabIndex="-1"
+              tabIndex={-1}
+              accessibilityLabel="Help"
             >
               <HelpIcon />
-            </Button>
+            </IconButton>
             <Dialog
               maxWidth={"sm"}
               open={isDialogOpen}

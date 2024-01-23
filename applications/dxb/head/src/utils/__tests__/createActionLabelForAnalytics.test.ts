@@ -1,4 +1,7 @@
-import { createActionLabel } from "../createActionLabelForAnalytics";
+import {
+  createActionLabel,
+  stringifyToObject
+} from "../createActionLabelForAnalytics";
 import { createProduct } from "../../__tests__/helpers/ProductHelper";
 import createMeasurements from "../../__tests__/helpers/MeasurementsHelper";
 
@@ -52,5 +55,28 @@ describe("test createLabel functionality", () => {
     expect(res).toEqual(
       "product-name-180x10x10classification-feature-feature-unit-symbol"
     );
+  });
+});
+
+describe("stringifyToObject", () => {
+  it("should return undefined if to is undefined", () => {
+    const to = undefined;
+    const expectedResult = stringifyToObject(to);
+
+    expect(expectedResult).toBeUndefined();
+  });
+
+  it("should return the to string value if to is of type string", () => {
+    const to = "en/path";
+    const expectedResult = stringifyToObject(to);
+
+    expect(expectedResult).toBe(to);
+  });
+
+  it("should return a string value if to is of type object", () => {
+    const to = { path: "en/path" };
+    const expectedResult = stringifyToObject(to);
+
+    expect(expectedResult).toBe('{"path":"en/path"}');
   });
 });

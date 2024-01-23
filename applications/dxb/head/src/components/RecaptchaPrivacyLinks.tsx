@@ -25,24 +25,16 @@ const RecaptchaPrivacyLinks = (props: Props) => {
       >
         {recaptchaContent.startText}
         <AnchorLink
-          action={{
-            model: "htmlLink",
-            href: recaptchaContent.privacyPolicyUrl
-          }}
-          target="_blank"
-          rel="noreferrer noopener"
+          href={recaptchaContent.privacyPolicyUrl}
+          external
           data-testid={"recaptcha-privacy-policy-link"}
         >
           {recaptchaContent.privacyPloicyText}
         </AnchorLink>
         {recaptchaContent.andText}
         <AnchorLink
-          action={{
-            model: "htmlLink",
-            href: recaptchaContent.termsOfServiceUrl
-          }}
-          target="_blank"
-          rel="noreferrer noopener"
+          href={recaptchaContent.termsOfServiceUrl}
+          external
           data-testid={"recaptcha-terms-of-service-link"}
         >
           {recaptchaContent.termsOfServiceText}

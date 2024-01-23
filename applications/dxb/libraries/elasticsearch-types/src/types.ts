@@ -1,4 +1,4 @@
-import { CourseType } from "@bmi/docebo-types";
+import { CategoryType, CourseType } from "@bmi/docebo-types";
 import type {
   ApprovalStatus,
   Asset,
@@ -190,7 +190,7 @@ export type Training = {
   courseCode: string;
   courseType: CourseType;
   courseImg?: string;
-  category: string;
+  category: CategoryType;
   onSale: boolean;
   price: number;
   currency: string;

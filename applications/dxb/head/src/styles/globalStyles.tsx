@@ -11,15 +11,15 @@ export const globalStyles = (
         fontFamily: "Effra Regular",
         fontWeight: "400",
         lineHeight: "1.4",
-        backgroundColor: theme.colours.alabasterA
+        backgroundColor: theme.colours.white
       },
       "@media print": {
         body: {
-          backgroundColor: theme.colours.bodyBgBase
+          backgroundColor: theme.colours.white
         }
       },
       "body::backdrop": {
-        backgroundColor: theme.colours.alabasterA
+        backgroundColor: theme.colours.white
       }
     })}
   />

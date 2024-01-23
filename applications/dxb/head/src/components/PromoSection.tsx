@@ -1,15 +1,12 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import { ClickableAction } from "@bmi-digital/components/clickable";
 import PromoSection from "@bmi-digital/components/promo-section";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import withGTM from "../utils/google-tag-manager";
 import Image from "./Image";
-import Link from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { SectionsContext } from "./Sections";
 import Video from "./Video";
+import ButtonLink from "./link/ButtonLink";
 import { PromoSectionLink } from "./styles/PromoSectionStyles";
 
 export type Data = PromoData;
@@ -30,12 +27,6 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
     featuredVideo,
     backgroundColor
   } = data;
-
-  const GTMButton = withGTM<
-    ButtonProps & {
-      action?: ClickableAction;
-    }
-  >(Button);
 
   const { [id]: theme } = useContext(SectionsContext);
 
@@ -61,13 +52,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       {body ? <RichText document={body} hasNoBottomMargin /> : subtitle}
       {cta && (
         <PromoSectionLink>
-          <Link
-            component={GTMButton}
-            data={cta}
-            gtm={{ id: "cta-click1 ", label: cta.label, action: cta.url }}
-          >
-            {cta.label}
-          </Link>
+          <ButtonLink data={cta}>{cta.label}</ButtonLink>
         </PromoSectionLink>
       )}
     </PromoSection>

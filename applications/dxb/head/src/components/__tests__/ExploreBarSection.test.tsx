@@ -2,7 +2,7 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render } from "@testing-library/react";
 import React from "react";
 import ExploreBarSection, { Data } from "../ExploreBarSection";
-import { DataTypeEnum } from "../Link";
+import { DataTypeEnum } from "../link/types";
 
 describe("ExploreBarSection component", () => {
   it("renders correctly", () => {

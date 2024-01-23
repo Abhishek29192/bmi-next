@@ -1,31 +1,33 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Button from "@bmi-digital/components/button";
 import Carousel from "@bmi-digital/components/carousel";
 import Chip, { ChipProps } from "@bmi-digital/components/chip";
-import { withClickable } from "@bmi-digital/components/clickable";
 import Grid from "@bmi-digital/components/grid";
+import HighlightCard from "@bmi-digital/components/highlight-card";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
-import OverviewCard from "@bmi-digital/components/overview-card";
 import Section from "@bmi-digital/components/section";
+import StoryCard from "@bmi-digital/components/story-card";
+import TextCard from "@bmi-digital/components/text-card";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";
+import { isDefined } from "@bmi/utils";
 import withGTM from "../utils/google-tag-manager";
+import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
 import BrandLogo from "./BrandLogo";
 import Image from "./Image";
-import Link, { Data as LinkData } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import { TagData } from "./Tag";
 import Video from "./Video";
+import ButtonLink from "./link/ButtonLink";
+import { Data as LinkData } from "./link/types";
+import { getCTA } from "./link/utils";
 import {
   CardCollectionSectionContainer,
-  CardDate,
-  StyledButtonBase,
   StyledChips,
   StyledClearAllButton,
   StyledGroupChips,
@@ -42,7 +44,7 @@ export type Data = {
   description: RichTextData | null;
   cardType: "Highlight Card" | "Story Card" | "Text Card";
   cardLabel: string | null;
-  groupCards: boolean;
+  groupCards: boolean | null;
   cards: Card[];
   sortOrder:
     | "Default (Contentful)"
@@ -54,145 +56,16 @@ export type Data = {
   displaySingleRow: boolean | null;
 };
 
-const CardCollectionItem = ({
-  card,
-  label,
-  type
-}: {
+type CardCollectionItemProps = {
   card: Card;
-  label?: string;
+  label: string | null;
   type: Data["cardType"];
-}) => {
-  const {
-    name,
-    title,
-    subtitle,
-    link,
-    featuredMedia,
-    brandLogo,
-    featuredVideo
-  } = transformCard(card);
-
-  let transformedCardLabel = label
-    ? label.replace(/{{title}}/g, title || name)
-    : link?.label;
-  transformedCardLabel = transformHyphens(transformedCardLabel);
-  const GTMButton = withGTM<ButtonProps>(Button);
-  const GTMButtonBase = withGTM<ButtonBaseProps>(
-    withClickable(StyledButtonBase)
-  );
-
-  const date = "date" in card && card.date ? card.date : undefined;
-
-  const CardButton = (props) => (
-    <Link
-      component={(props: ButtonBaseProps) => (
-        <GTMButtonBase {...props} classes={{ root: classes.cardButton }} />
-      )}
-      data={link}
-      gtm={{
-        id: "cta-click1",
-        label: `${title || name}${
-          transformedCardLabel ? ` - ${transformedCardLabel}` : ""
-        }`
-      }}
-      {...props}
-    />
-  );
-
-  const isFlat = type === "Story Card";
-  return (
-    <OverviewCard
-      title={title || name}
-      media={
-        type !== "Text Card" ? (
-          featuredVideo ? (
-            <Video {...featuredVideo} />
-          ) : featuredMedia ? (
-            <Image {...featuredMedia} />
-          ) : undefined
-        ) : undefined
-      }
-      isFlat={isFlat}
-      brandImageSource={
-        type !== "Text Card" ? <BrandLogo brandName={brandLogo} /> : undefined
-      }
-      clickableArea={
-        link
-          ? type !== "Text Card" && featuredVideo
-            ? "body"
-            : "full"
-          : "none"
-      }
-      buttonComponent={link ? CardButton : "div"}
-      footer={
-        <>
-          {date ? <CardDate variant="h6">{date}</CardDate> : null}
-          {link && transformedCardLabel ? (
-            isFlat ? (
-              <CardButton
-                className={classes.footerButton}
-                data-testid={"card-link"}
-                component={GTMButton}
-                variant="outlined"
-                startIcon={<ArrowForwardIcon />}
-              >
-                {transformedCardLabel}
-              </CardButton>
-            ) : (
-              <Button
-                className={classes.footerButton}
-                data-testid={"card-link"}
-                component="span"
-                variant="outlined"
-              >
-                {transformedCardLabel}
-              </Button>
-            )
-          ) : undefined}
-        </>
-      }
-      data-testid={`card-collection-section-item-${replaceSpaces(
-        title || name
-      )}`}
-    >
-      {subtitle}
-    </OverviewCard>
-  );
 };
 
-const MemoedCardCollectionItem = memo(CardCollectionItem);
-
-// TODO: Reuse the getCTA function here.
-const transformCard = ({
-  title,
-  subtitle,
-  featuredMedia,
-  brandLogo,
-  featuredVideo,
-  ...rest
-}: Card) => {
-  let name = null;
-  let link = null;
-  let date = null;
-
-  if (rest.__typename === "ContentfulPromo") {
-    link = rest.cta;
-    name = rest.name;
-  } else {
-    link = {
-      linkedPage: {
-        path: rest.path
-      }
-    };
-  }
-
-  if (rest.__typename === "ContentfulSimplePage") {
-    date = rest.date;
-  }
-
-  return {
-    name,
+const CardCollectionItem = (props: CardCollectionItemProps) => {
+  const { card, label, type } = props;
+  const { countryCode } = useSiteContext();
+  const {
     title,
     subtitle,
     link,
@@ -200,11 +73,78 @@ const transformCard = ({
     brandLogo,
     featuredVideo,
     date
-  };
+  } = transformCard(card, countryCode);
+
+  let transformedCardLabel = label
+    ? label.replace(/{{title}}/g, title)
+    : card.cta?.label;
+  transformedCardLabel = transformHyphens(transformedCardLabel);
+
+  if (type === "Text Card") {
+    return (
+      <TextCard
+        {...link}
+        title={title}
+        description={subtitle}
+        ctaLabel={transformedCardLabel}
+        date={date}
+        data-testid={`card-collection-section-item-${replaceSpaces(title)}`}
+        gtm={{
+          id: "cta-click1",
+          label: `${title}${
+            transformedCardLabel ? ` - ${transformedCardLabel}` : ""
+          }`,
+          action: stringifyToObject(link?.to) || link?.href
+        }}
+      />
+    );
+  }
+
+  const Component = type === "Story Card" ? StoryCard : HighlightCard;
+  return (
+    <Component
+      {...link}
+      title={title}
+      description={subtitle}
+      media={
+        featuredVideo ? (
+          <Video {...featuredVideo} />
+        ) : featuredMedia ? (
+          <Image {...featuredMedia} />
+        ) : undefined
+      }
+      brandLogo={brandLogo ? <BrandLogo brandName={brandLogo} /> : undefined}
+      ctaLabel={transformedCardLabel}
+      date={date}
+      data-testid={`card-collection-section-item-${replaceSpaces(title)}`}
+      gtm={{
+        id: "cta-click1",
+        label: `${title}${
+          transformedCardLabel ? ` - ${transformedCardLabel}` : ""
+        }`,
+        action: stringifyToObject(link?.to) || link?.href
+      }}
+    />
+  );
 };
 
-const moveRestKeyLast = (arr) => {
-  return [...arr.sort((a, b) => (a === "undefined" ? 1 : -1))];
+const MemoedCardCollectionItem = memo(CardCollectionItem);
+
+const transformCard = (card: Card, countryCode: string) => ({
+  title: card.__typename === "ContentfulPromo" ? card.name : card.title,
+  subtitle: card.subtitle ? card.subtitle : undefined,
+  link: getCTA(card, countryCode),
+  featuredMedia: card.featuredMedia,
+  brandLogo: card.brandLogo,
+  featuredVideo: card.featuredVideo,
+  date:
+    card.__typename === "ContentfulSimplePage" && card.date
+      ? card.date
+      : undefined
+});
+
+const moveRestKeyLast = (arr: string[]) => {
+  return [...arr.sort((a) => (a === "undefined" ? 1 : -1))];
 };
 
 const CardCollectionSection = ({
@@ -228,12 +168,14 @@ const CardCollectionSection = ({
   };
 }) => {
   const allKeys = cards.flatMap((x) => x.tags);
-  const allKeysGrouped = [];
-  Array.from(allKeys.values()).forEach((x: TagData) => {
-    if (x && !allKeysGrouped.find((y) => y.title == x.title)) {
-      allKeysGrouped.push(x);
-    }
-  });
+  const allKeysGrouped: TagData[] = [];
+  Array.from(allKeys.values())
+    .filter(isDefined)
+    .forEach((x: TagData) => {
+      if (!allKeysGrouped.find((y) => y.title == x.title)) {
+        allKeysGrouped.push(x);
+      }
+    });
 
   const groupKeys = moveRestKeyLast(allKeysGrouped.map((c) => c.title));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
@@ -297,12 +239,12 @@ const CardCollectionSection = ({
 
   const activeGroupValues = Object.values(activeGroups);
   const sortedGroupKeys = groupKeys.sort((a, b) => {
-    if (isNaN(b)) {
+    if (isNaN(Number(b))) {
       return -1;
-    } else if (isNaN(a)) {
+    } else if (isNaN(Number(a))) {
       return 1;
     }
-    return a - b;
+    return Number(a) - Number(b);
   });
 
   return (
@@ -311,14 +253,22 @@ const CardCollectionSection = ({
     >
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
         {title && (
-          <StyledTitle variant="h2" hasUnderline>
+          <StyledTitle
+            variant="h2"
+            hasUnderline
+            data-testid="card-collection-section-title"
+          >
             {title}
           </StyledTitle>
         )}
         {description && <RichText document={description} />}
         {shouldDisplayGroups && (
           <>
-            <Typography variant="h4" component="h3">
+            <Typography
+              variant="h4"
+              component="h3"
+              data-testid="card-collection-section-card-group-title"
+            >
               {getMicroCopy(microCopy.CARD_COLLECTION_GROUP_TITLE)}
             </Typography>
             <StyledGroupChips>
@@ -355,11 +305,10 @@ const CardCollectionSection = ({
                 })}
               </StyledChips>
               <StyledClearAllButton
-                component="button"
                 onClick={() => {
                   setActiveGroups({});
                 }}
-                isDisabled={
+                disabled={
                   !activeGroupValues.length || !activeGroupValues.some(Boolean)
                 }
               >
@@ -432,14 +381,13 @@ const CardCollectionSection = ({
           </Grid>
         )}
         {link && (
-          <Link
-            component={Button}
+          <ButtonLink
             data={link}
             className={classes.link}
             endIcon={<ArrowForwardIcon />}
           >
             {link.label}
-          </Link>
+          </ButtonLink>
         )}
       </Section>
     </CardCollectionSectionContainer>

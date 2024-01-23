@@ -11,12 +11,12 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
         data-testid="accordion"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ldqf96-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15trjob-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-zdeuoz-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             data-testid="accordion-summary"
             role="button"
@@ -100,16 +100,15 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1pvdcui-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                       data-testid="document-table-download-application/pdf-button"
+                      download=""
                       href="http://localhost:9000/document.pdf"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           class="download-icon css-z6lod7"
@@ -140,7 +139,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         </svg>
                       </span>
                       <p
-                        class="css-1cigd93"
+                        class="css-1dqo7n"
                       >
                         pim-code
                       </p>
@@ -158,7 +157,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         :
                       </span>
                       <span
-                        class="css-jcllbd"
+                        class="css-ackcrd"
                         data-testid="tech-results-accordion-size-pim-document-id"
                       >
                         1 B
@@ -170,56 +169,49 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <div
                         class="MuiBox-root css-38zrbw"
                       >
-                        <div
-                          aria-label="MC: document.library.download.tooltip.title"
-                          class=""
+                        <a
+                          aria-label="MC: document.library.download.accessibility.label"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                          data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                           data-mui-internal-clone-element="true"
-                          data-testid="tooltip"
+                          data-testid="download-document-button-pim-document-id"
+                          download=""
+                          href="http://localhost:9000/document.pdf"
+                          tabindex="0"
                         >
-                          <a
-                            aria-label="Download pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                            data-testid="document-table-actions-download-pim-document-id"
-                            href="http://localhost:9000/document.pdf"
-                            rel="noopener noreferrer"
-                            tabindex="0"
-                            target="_blank"
+                          <svg
+                            class="css-afm3c7"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
                             />
-                          </a>
-                        </div>
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </a>
                       </div>
                       <div
                         class="MuiBox-root css-enhvy5"
                       >
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="MuiBox-root css-mvc5fa"
+                          class=" MuiBox-root css-2bzkxd"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
                           <button
-                            aria-label="Copy pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-testid="document-table-actions-copy-url-pim-document-id"
+                            aria-label="MC: document.library.copyLink.accessibility.label"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="copy-to-clipboard-button-pim-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -239,16 +231,15 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1pvdcui-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                       data-testid="document-table-download-application/pdf-button"
+                      download=""
                       href="http://localhost:9000/document.pdf"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           class="download-icon css-z6lod7"
@@ -279,7 +270,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         </svg>
                       </span>
                       <p
-                        class="css-1cigd93"
+                        class="css-1dqo7n"
                       >
                         pim-code
                       </p>
@@ -297,7 +288,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         :
                       </span>
                       <span
-                        class="css-jcllbd"
+                        class="css-ackcrd"
                         data-testid="tech-results-accordion-size-pim-document-id"
                       >
                         1 B
@@ -309,56 +300,49 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <div
                         class="MuiBox-root css-38zrbw"
                       >
-                        <div
-                          aria-label="MC: document.library.download.tooltip.title"
-                          class=""
+                        <a
+                          aria-label="MC: document.library.download.accessibility.label"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                          data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                           data-mui-internal-clone-element="true"
-                          data-testid="tooltip"
+                          data-testid="download-document-button-pim-document-id"
+                          download=""
+                          href="http://localhost:9000/document.pdf"
+                          tabindex="0"
                         >
-                          <a
-                            aria-label="Download pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                            data-testid="document-table-actions-download-pim-document-id"
-                            href="http://localhost:9000/document.pdf"
-                            rel="noopener noreferrer"
-                            tabindex="0"
-                            target="_blank"
+                          <svg
+                            class="css-afm3c7"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
                             />
-                          </a>
-                        </div>
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </a>
                       </div>
                       <div
                         class="MuiBox-root css-enhvy5"
                       >
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="MuiBox-root css-mvc5fa"
+                          class=" MuiBox-root css-2bzkxd"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
                           <button
-                            aria-label="Copy pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-testid="document-table-actions-copy-url-pim-document-id"
+                            aria-label="MC: document.library.copyLink.accessibility.label"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="copy-to-clipboard-button-pim-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -396,12 +380,12 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
         data-testid="accordion"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ldqf96-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15trjob-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-zdeuoz-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             data-testid="accordion-summary"
             role="button"
@@ -485,16 +469,15 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                     class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1pvdcui-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                       data-testid="document-table-download-application/pdf-button"
+                      download=""
                       href="http://localhost:9000/document.pdf"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           class="download-icon css-z6lod7"
@@ -525,7 +508,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         </svg>
                       </span>
                       <p
-                        class="css-1cigd93"
+                        class="css-1dqo7n"
                       >
                         asset-name
                       </p>
@@ -543,7 +526,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         :
                       </span>
                       <span
-                        class="css-jcllbd"
+                        class="css-ackcrd"
                         data-testid="tech-results-accordion-size-pim-document-id"
                       >
                         1 B
@@ -555,56 +538,49 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       <div
                         class="MuiBox-root css-38zrbw"
                       >
-                        <div
-                          aria-label="MC: document.library.download.tooltip.title"
-                          class=""
+                        <a
+                          aria-label="MC: document.library.download.accessibility.label"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                          data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                           data-mui-internal-clone-element="true"
-                          data-testid="tooltip"
+                          data-testid="download-document-button-pim-document-id"
+                          download=""
+                          href="http://localhost:9000/document.pdf"
+                          tabindex="0"
                         >
-                          <a
-                            aria-label="Download pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                            data-testid="document-table-actions-download-pim-document-id"
-                            href="http://localhost:9000/document.pdf"
-                            rel="noopener noreferrer"
-                            tabindex="0"
-                            target="_blank"
+                          <svg
+                            class="css-afm3c7"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
                             />
-                          </a>
-                        </div>
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </a>
                       </div>
                       <div
                         class="MuiBox-root css-enhvy5"
                       >
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="MuiBox-root css-mvc5fa"
+                          class=" MuiBox-root css-2bzkxd"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
                           <button
-                            aria-label="Copy pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-testid="document-table-actions-copy-url-pim-document-id"
+                            aria-label="MC: document.library.copyLink.accessibility.label"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="copy-to-clipboard-button-pim-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -624,16 +600,15 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                     class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1pvdcui-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                       data-testid="document-table-download-application/pdf-button"
+                      download=""
                       href="http://localhost:9000/document.pdf"
-                      rel="noopener noreferrer"
                       tabindex="0"
-                      target="_blank"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           class="download-icon css-z6lod7"
@@ -664,7 +639,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         </svg>
                       </span>
                       <p
-                        class="css-1cigd93"
+                        class="css-1dqo7n"
                       >
                         asset-name
                       </p>
@@ -682,7 +657,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         :
                       </span>
                       <span
-                        class="css-jcllbd"
+                        class="css-ackcrd"
                         data-testid="tech-results-accordion-size-pim-document-id"
                       >
                         1 B
@@ -694,56 +669,49 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       <div
                         class="MuiBox-root css-38zrbw"
                       >
-                        <div
-                          aria-label="MC: document.library.download.tooltip.title"
-                          class=""
+                        <a
+                          aria-label="MC: document.library.download.accessibility.label"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                          data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                           data-mui-internal-clone-element="true"
-                          data-testid="tooltip"
+                          data-testid="download-document-button-pim-document-id"
+                          download=""
+                          href="http://localhost:9000/document.pdf"
+                          tabindex="0"
                         >
-                          <a
-                            aria-label="Download pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                            data-testid="document-table-actions-download-pim-document-id"
-                            href="http://localhost:9000/document.pdf"
-                            rel="noopener noreferrer"
-                            tabindex="0"
-                            target="_blank"
+                          <svg
+                            class="css-afm3c7"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
                             />
-                          </a>
-                        </div>
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </a>
                       </div>
                       <div
                         class="MuiBox-root css-enhvy5"
                       >
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="MuiBox-root css-mvc5fa"
+                          class=" MuiBox-root css-2bzkxd"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
                           <button
-                            aria-label="Copy pim document title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-testid="document-table-actions-copy-url-pim-document-id"
+                            aria-label="MC: document.library.copyLink.accessibility.label"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="copy-to-clipboard-button-pim-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -781,12 +749,12 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
         data-testid="accordion"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ldqf96-MuiPaper-root-MuiAccordion-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15trjob-MuiPaper-root-MuiAccordion-root"
           data-testid="tech-table-accordion-item-product-base-code"
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-zdeuoz-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{"id":"selector-accordion1","label":"product1","action":"Selector – Accordion"}"
             data-testid="accordion-summary"
             role="button"

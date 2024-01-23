@@ -1,29 +1,33 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Button from "@bmi-digital/components/button";
 import IconList from "@bmi-digital/components/icon-list";
 import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import CheckIcon from "@bmi-digital/components/icon/Check";
 import LeadBlock from "@bmi-digital/components/lead-block";
+import Tag from "@bmi-digital/components/tag";
 import { microCopy } from "@bmi/microcopies";
 import { GoodBetterBest } from "@bmi/pim-types";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
-import Link, { Data as LinkData } from "../../components/Link";
 import { useSiteContext } from "../../components/Site";
+import ButtonLink from "../../components/link/ButtonLink";
 import {
   SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
   SYSTEM_CONFIG_QUERY_KEY_REFERER,
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
-import withGTM from "../../utils/google-tag-manager";
+import {
+  getLevel,
+  goodBetterBestLabels
+} from "../../utils/getGoodBetterBestLabel";
 import {
   Description,
-  StyledGoodBetterBestIndicator,
   StyledSystemDetailsLeadBlockSection,
   StyledTitle,
   classes
 } from "./styles/leadBlockSection.styles";
+import type { Data as LinkData } from "../../components/link/types";
 
 const BlueCheckIcon = () => {
   return <StyledBlueCheckIconInter source={CheckIcon} />;
@@ -52,18 +56,16 @@ const LeadBlockSection = ({
   const [referer, setReferer] = useState("");
   const location = useLocation();
 
-  const GTMButton = withGTM<ButtonProps>(Button);
-
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const systemId = params.get(SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM);
     const prevPagePath = params.get(SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE);
     const referer = params.get(SYSTEM_CONFIG_QUERY_KEY_REFERER);
 
-    setSelectedSystemId(systemId);
-    setPrevPagePath(prevPagePath);
-    setReferer(referer);
-  }, []);
+    systemId && setSelectedSystemId(systemId);
+    prevPagePath && setPrevPagePath(prevPagePath);
+    referer && setReferer(referer);
+  }, [location.search]);
 
   const backToYourSelectionText = getMicroCopy(
     microCopy.SDP_LEAD_BLOCK_BACK_TO_YOUR_SELECTION
@@ -95,7 +97,11 @@ const LeadBlockSection = ({
               {name}
             </StyledTitle>
             {goodBetterBest && (
-              <StyledGoodBetterBestIndicator indicatorType={goodBetterBest} />
+              <Tag
+                level={getLevel(goodBetterBest)}
+                // eslint-disable-next-line security/detect-object-injection
+                label={getMicroCopy(goodBetterBestLabels[goodBetterBest])}
+              />
             )}
             {promotionalContent && (
               <Description variant="body2" data-testid="system-lead-block-desc">
@@ -106,15 +112,11 @@ const LeadBlockSection = ({
 
           <LeadBlock.Content.Section className={classes.ctaContainer}>
             {selectedSystemId && prevPagePath && (
-              <GTMButton
+              <Button
                 variant="text"
                 size="large"
                 className={classes.backToYourSelectionBtn}
-                action={{
-                  model: "htmlLink",
-                  href: backToYourSelectionBtnHref,
-                  rel: "noopener noreferrer"
-                }}
+                href={backToYourSelectionBtnHref}
                 gtm={{
                   id: "cta-click1",
                   label: backToYourSelectionText,
@@ -124,32 +126,25 @@ const LeadBlockSection = ({
                 data-testid="system-lead-block-prev-page"
               >
                 {backToYourSelectionText}
-              </GTMButton>
+              </Button>
             )}
-            {Boolean(cta) && (
-              <Link
+            {cta && (
+              <ButtonLink
                 data={cta}
-                component={({ children, ...rest }) => (
-                  <GTMButton
-                    {...rest}
-                    className={classes.quotationBtn}
-                    endIcon={<ArrowForwardIcon />}
-                    gtm={{
-                      id: "cta-click1",
-                      label: cta?.label,
-                      action:
-                        cta?.type === "Dialog"
-                          ? "Form-modal" + cta?.dialogContent?.__typename
-                          : cta?.url
-                    }}
-                  >
-                    {children}
-                  </GTMButton>
-                )}
+                className={classes.quotationBtn}
+                endIcon={<ArrowForwardIcon />}
+                gtm={{
+                  id: "cta-click1",
+                  label: cta.label,
+                  action:
+                    cta.type === "Dialog"
+                      ? "Form-modal" + cta.dialogContent?.__typename
+                      : cta.url ?? undefined
+                }}
                 data-testid="system-lead-block-cta-action"
               >
-                {cta?.label}
-              </Link>
+                {cta.label}
+              </ButtonLink>
             )}
           </LeadBlock.Content.Section>
         </LeadBlock.Content>

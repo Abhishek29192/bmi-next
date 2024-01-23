@@ -35,7 +35,6 @@ const systemDetailsMockData = createSystem({
     })
   ]
 });
-jest.mock("gatsby");
 
 const withProviders = ({
   customConfig = { isBrandProviderEnabled: true },
@@ -69,7 +68,7 @@ describe("SystemDetailsPage template component", () => {
         callback(0);
         return 0;
       });
-    local.setItem("isAlreadyShownAlert", null);
+    local.setItem("isAlreadyShownAlert", "");
   });
 
   afterEach(() => {

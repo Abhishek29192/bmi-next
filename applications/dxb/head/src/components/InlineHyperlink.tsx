@@ -1,17 +1,10 @@
-import { useIsClient } from "@bmi-digital/components";
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
+import AnchorLink from "@bmi-digital/components/anchor-link";
 import { Inline } from "@contentful/rich-text-types";
-import { graphql, Link } from "gatsby";
-import React, { useCallback, useContext, useState } from "react";
-import withGTM from "../utils/google-tag-manager";
-import memoize from "../utils/memoize";
+import { Link as GatsbyLink, graphql } from "gatsby";
+import React from "react";
 import { getPathWithCountryCode } from "../utils/path";
-import { getClickableActionFromUrl, getLinkURL, renderDialog } from "./Link";
-import { CalculatorContext } from "./PitchedRoofCalcualtor";
 import { useSiteContext } from "./Site";
-import { VisualiserContext } from "./Visualiser";
+import Link from "./link/Link";
 
 const availableTypenames = [
   "ContentfulAsset",
@@ -26,12 +19,10 @@ const availableTypenames = [
 
 type Props = {
   node: Inline;
-  children: React.ReactNode;
+  children: string;
   gtmLabel?: React.ReactNode;
   "data-testid"?: string;
 };
-
-const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const InlineHyperlink = ({
   node,
@@ -40,17 +31,8 @@ const InlineHyperlink = ({
   "data-testid": dataTestId
 }: Props) => {
   const { countryCode } = useSiteContext();
-  const { open: openVisualiser } = useContext(VisualiserContext);
-  const { open: openCalculator } = useContext(CalculatorContext);
-  const [dialogIsOpen, setDialogIsOpen] = useState(false);
-  const { isClient } = useIsClient();
-  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   const fields = node.data.target;
-
-  const handleDialogCloseClick = useCallback(() => {
-    setDialogIsOpen(false);
-  }, []);
 
   // TODO: Handle ContentfulLink case.
   if (!(fields && availableTypenames.includes(fields.__typename))) {
@@ -60,74 +42,28 @@ const InlineHyperlink = ({
   const label = gtmLabel ? `${gtmLabel} - ${children[0][1]}` : children[0][1];
 
   if (fields.__typename === "ContentfulLink") {
-    const { linkedPage, url, asset, type, parameters } = fields;
-
     return (
-      <>
-        <GTMAnchorLink
-          action={memoizedGetClickableActionFromUrl(
-            {
-              isSSR: !isClient,
-              linkedPage,
-              url: getLinkURL(fields),
-              countryCode,
-              assetUrl: asset ? `https:${asset?.file?.url}` : undefined,
-              label: String(children),
-              type,
-              onClick: () => {
-                if (type === "Visualiser" && openVisualiser) {
-                  openVisualiser(parameters);
-                } else if (type === "Calculator" && openCalculator) {
-                  openCalculator(parameters);
-                } else if (type === "Dialog") {
-                  setDialogIsOpen(true);
-                }
-              }
-            },
-            []
-          )}
-          gtm={{
-            id: "cta-click1",
-            label,
-            action: url
-          }}
-          {...(type === "Visualiser" ||
-          type === "Calculator" ||
-          type === "Dialog"
-            ? { component: "button" }
-            : {})}
-          data-testid={dataTestId}
-        >
-          {children}
-        </GTMAnchorLink>
-        {type === "Dialog" &&
-          fields?.dialogContent &&
-          renderDialog(fields, dialogIsOpen, handleDialogCloseClick)}
-      </>
+      <Link data={fields} gtm={{ label }} data-testid={dataTestId}>
+        {children}
+      </Link>
     );
   }
 
   if (fields.__typename === "ContentfulAsset") {
     const { file } = fields;
     return (
-      <GTMAnchorLink
-        action={memoizedGetClickableActionFromUrl(
-          {
-            isSSR: !isClient,
-            countryCode,
-            assetUrl: `https:${file.url}`,
-            label: String(children)
-          },
-          []
-        )}
+      <AnchorLink
+        href={`https:${file.url}`}
         gtm={{
           id: "cta-click1",
           label,
           action: `https:${file.url}`
         }}
+        data-testid={dataTestId}
+        external
       >
         {children}
-      </GTMAnchorLink>
+      </AnchorLink>
     );
   }
   const action = getPathWithCountryCode(countryCode, fields.path).replace(
@@ -135,20 +71,18 @@ const InlineHyperlink = ({
     "/"
   );
   return (
-    <GTMAnchorLink
-      action={{
-        model: "routerLink",
-        to: action,
-        linkComponent: Link
-      }}
+    <AnchorLink
+      component={GatsbyLink}
+      to={action}
       gtm={{
         id: "cta-click1",
         label,
         action
       }}
+      data-testid={dataTestId}
     >
       {children}
-    </GTMAnchorLink>
+    </AnchorLink>
   );
 };
 

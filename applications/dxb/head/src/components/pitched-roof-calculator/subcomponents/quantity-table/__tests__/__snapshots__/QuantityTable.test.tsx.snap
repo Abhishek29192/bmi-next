@@ -13,7 +13,7 @@ exports[`QuantityTable component renders correctly 1`] = `
         data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
           data-testid="table-head"
         >
           <tr
@@ -105,7 +105,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                       >
                         <button
                           aria-label="Down"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -125,7 +126,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -144,7 +145,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </div>
                         <button
                           aria-label="Up"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -249,7 +251,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                       >
                         <button
                           aria-label="Down"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -269,7 +272,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -288,7 +291,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </div>
                         <button
                           aria-label="Up"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -393,7 +397,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                       >
                         <button
                           aria-label="Down"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -413,7 +418,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -432,7 +437,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </div>
                         <button
                           aria-label="Up"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -537,7 +543,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                       >
                         <button
                           aria-label="Down"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -557,7 +564,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -576,7 +583,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </div>
                         <button
                           aria-label="Up"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -681,7 +689,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                       >
                         <button
                           aria-label="Down"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -701,7 +710,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                           />
                         </button>
                         <div
-                          class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                          class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                           data-testid="up-down-simple-numeric-input-text-field"
                         >
                           <div
@@ -720,7 +729,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                         </div>
                         <button
                           aria-label="Up"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="icon-button"
                           tabindex="0"
                           type="button"
                         >
@@ -770,7 +780,7 @@ exports[`QuantityTable component renders correctly 1`] = `
         data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
           data-testid="table-head"
         >
           <tr
@@ -846,7 +856,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -866,7 +877,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -885,7 +896,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -969,7 +981,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -989,7 +1002,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1008,7 +1021,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1092,7 +1106,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1112,7 +1127,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1131,7 +1146,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1215,7 +1231,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1235,7 +1252,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1254,7 +1271,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1338,7 +1356,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1358,7 +1377,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1377,7 +1396,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1444,7 +1464,7 @@ exports[`QuantityTable component renders correctly 1`] = `
         data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
           data-testid="table-head"
         >
           <tr
@@ -1566,7 +1586,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1586,7 +1607,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1605,7 +1626,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1698,7 +1720,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1718,7 +1741,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1737,7 +1760,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1830,7 +1854,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1850,7 +1875,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -1869,7 +1894,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1962,7 +1988,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1982,7 +2009,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -2001,7 +2028,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -2094,7 +2122,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                   >
                     <button
                       aria-label="Down"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >
@@ -2114,7 +2143,7 @@ exports[`QuantityTable component renders correctly 1`] = `
                       />
                     </button>
                     <div
-                      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
                       data-testid="up-down-simple-numeric-input-text-field"
                     >
                       <div
@@ -2133,7 +2162,8 @@ exports[`QuantityTable component renders correctly 1`] = `
                     </div>
                     <button
                       aria-label="Up"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="icon-button"
                       tabindex="0"
                       type="button"
                     >

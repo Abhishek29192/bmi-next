@@ -2054,9 +2054,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bmi-digital/components@npm:^1.68.4":
-  version: 1.68.4
-  resolution: "@bmi-digital/components@npm:1.68.4"
+"@bmi-digital/components@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@bmi-digital/components@npm:2.2.3"
   dependencies:
     "@bmi-digital/use-dimensions": ^1.7.6
     "@emotion/react": ^11.11.3
@@ -2081,15 +2081,15 @@ __metadata:
     react-swipeable-views-core: ^0.14.0
     react-swipeable-views-utils: ^0.14.0
   peerDependencies:
-    "@emotion/react": ^11.10.8
-    "@emotion/styled": ^11.10.8
-    "@mui/icons-material": ^5.11.16
-    "@mui/lab": ^5.0.0-alpha.129
-    "@mui/material": ^5.12.3
-    "@mui/styles": ^5.12.3
+    "@emotion/react": ^11.11.3
+    "@emotion/styled": ^11.11.0
+    "@mui/icons-material": ^5.15.3
+    "@mui/lab": ^5.0.0-alpha.159
+    "@mui/material": ^5.15.3
+    "@mui/styles": ^5.15.3
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 6f09639e3861527728af14c0d673489884d643b38ab16078f0c66ba10bc23f523c855b24408724a7bad0b6dd515c5359930cd5f8c6ca1363f8ec494fe530c6a6
+  checksum: 7873728f0f1b6456cd7e11975f80672b0de73ab514eb030409363866903b743fc3e414606ed6c355f75ad71225321c3c41d516bc5b49f7334a8361fc6d8642e7
   languageName: node
   linkType: hard
 
@@ -2568,7 +2568,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.23.7
     "@babel/plugin-proposal-decorators": ^7.23.7
-    "@bmi-digital/components": ^1.68.4
+    "@bmi-digital/components": ^2.2.3
     "@bmi-digital/react-pdf-maker": ^1.7.6
     "@bmi-digital/styles": ^1.7.6
     "@bmi/gatsby-plugin-material-ui": "workspace:*"
@@ -2610,6 +2610,7 @@ __metadata:
     sass: ^1.69.7
     tsconfig-paths-webpack-plugin: ^4.1.0
     typescript: ^5.3.3
+    yalc: ^1.0.0-pre.53
   languageName: unknown
   linkType: soft
 
@@ -3689,7 +3690,7 @@ __metadata:
     "@auth0/auth0-react": ^2.2.4
     "@babel/core": ^7.23.7
     "@babel/plugin-proposal-decorators": ^7.23.7
-    "@bmi-digital/components": ^1.68.4
+    "@bmi-digital/components": ^2.2.3
     "@bmi-digital/react-pdf-maker": ^1.7.6
     "@bmi-digital/styles": ^1.7.6
     "@bmi-digital/svg-import": ^1.7.6
@@ -3838,6 +3839,7 @@ __metadata:
     "@testing-library/jest-dom": ^6.2.0
     "@testing-library/react": ^14.1.2
     "@testing-library/react-hooks": ^8.0.1
+    "@testing-library/user-event": ^14.5.2
     "@turf/helpers": ^6.5.0
     "@types/graphql": ^14.5.0
     "@types/jest": ^29.5.11
@@ -8715,6 +8717,15 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
   checksum: b5b0990d3aa0ea8b37c55804e0d5d584fc638a5c7d4df90da9a0fdb00bc981b27b6991468b2dc719982a5d0b0107a41596063ce51ad519eeab47b22bc04d6779
+  languageName: node
+  linkType: hard
+
+"@testing-library/user-event@npm:^14.5.2":
+  version: 14.5.2
+  resolution: "@testing-library/user-event@npm:14.5.2"
+  peerDependencies:
+    "@testing-library/dom": ">=7.21.4"
+  checksum: 68a0c2aa28a3c8e6eb05cafee29705438d7d8a9427423ce5064d44f19c29e89b5636de46dd2f28620fb10abba75c67130185bbc3aa23ac1163a227a5f36641e1
   languageName: node
   linkType: hard
 

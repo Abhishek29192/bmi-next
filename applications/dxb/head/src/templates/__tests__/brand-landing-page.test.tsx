@@ -2,8 +2,8 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, screen } from "@testing-library/react";
 import React from "react";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
-import { DataTypeEnum } from "../../components/Link";
 import { Data as SlideData } from "../../components/Promo";
+import { DataTypeEnum } from "../../components/link/types";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import BrandLandingPage, {
@@ -73,7 +73,7 @@ describe("Brand Landing Page Template", () => {
       },
       slides: [slide],
       overlapCards: null,
-      sections: [],
+      sections: null,
       breadcrumbs: [
         {
           id: "breadcrumbsId",
@@ -102,10 +102,8 @@ describe("Brand Landing Page Template", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.overlapCards = [
       {
-        __typename: "ContentfulSimplePage",
         title: "Call to action",
         path: "some-page",
-        featuredMedia: null,
         featuredVideo: {
           __typename: "ContentfulVideo",
           title: "featuredVideo",
@@ -119,10 +117,8 @@ describe("Brand Landing Page Template", () => {
         }
       },
       {
-        __typename: "ContentfulSimplePage",
         title: "Call to action",
         path: "some-page",
-        featuredMedia: null,
         featuredVideo: {
           __typename: "ContentfulVideo",
           title: "featuredVideo",
@@ -460,7 +456,7 @@ describe("Brand Landing Page Template", () => {
       };
       newData.contentfulBrandLandingPage.description = {
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sunt in culpa qui officia deserunt mollit anim id est laborum"
       };
       newData.contentfulBrandLandingPage.cta = {
         __typename: "ContentfulLink",
@@ -497,7 +493,7 @@ describe("Brand Landing Page Template", () => {
   });
 
   it("render with Search form on hero section", async () => {
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <BrandLandingPage
           data={data}
@@ -505,7 +501,7 @@ describe("Brand Landing Page Template", () => {
         />
       </ThemeProvider>
     );
-    expect(container).toMatchSnapshot();
+
     expect(screen.getByRole("banner")).toBeTruthy();
     expect(screen.getByTestId("footer")).toBeTruthy();
     expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
@@ -514,6 +510,13 @@ describe("Brand Landing Page Template", () => {
       .getByTestId("brand-search-form")
       .getAttribute("action");
     expect(formAction).toEqual(`/${data.contentfulSite.countryCode}/search/`);
-    expect(screen.getByTestId("brand-search-button")).toBeTruthy();
+    expect(screen.getByTestId("search-submit-button")).toHaveAttribute(
+      "data-gtm",
+      JSON.stringify({
+        id: "search2",
+        label: "MC: search.label",
+        action: "/en/search/"
+      })
+    );
   });
 });

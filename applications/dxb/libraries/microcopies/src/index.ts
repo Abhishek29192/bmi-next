@@ -4,6 +4,8 @@ export const microCopy = {
   DIALOG_CONFIRM: "dialog.confirm",
   DIALOG_RETRY: "dialog.retry",
 
+  CLEAR_LABEL: "clear.label",
+
   GLOBAL_TELEPHONE: "global.telephone",
   GLOBAL_EMAIL: "global.email",
   GLOBAL_WEBSITE: "global.website",
@@ -32,6 +34,9 @@ export const microCopy = {
   FIND_A_ROOFER_NO_RESULTS_SUBTITLE: "findARoofer.noResults.subtitle",
   FIND_A_ROOFER_MAP_LABEL: "findARoofer.mapLabel",
 
+  FIND_A_MERCHANT_WESBITE_LABEL: "findAMerchant.websiteLabel",
+  FIND_A_BRANCH_WESBITE_LABEL: "findABranch.websiteLabel",
+
   NBA_TITLE: "nba.title",
 
   DOCUMENT_LIBRARY_HEADERS_PRODUCT: "documentLibrary.headers.product",
@@ -49,8 +54,12 @@ export const microCopy = {
   DOCUMENT_LIBRARY_HEADERS_VALIDITY_DATE:
     "documentLibrary.headers.validityDate",
   DOCUMENT_LIBRARY_DOWNLOAD: "documentLibrary.download",
+  DOCUMENT_LIBRARY_DOWNLOAD_ACCESSIBILITY_LABEL:
+    "document.library.download.accessibility.label",
   DOCUMENT_LIBRARY_DOWNLOAD_TOOLTIP_TITLE:
     "document.library.download.tooltip.title",
+  DOCUMENT_LIBRARY_COPY_LINK_ACCESSIBILITY_LABEL:
+    "document.library.copyLink.accessibility.label",
   DOCUMENT_LIBRARY_COPY_LINK_TOOLTIP_TITLE:
     "document.library.copyLink.tooltip.title",
   DOCUMENT_LIBRARY_LINK_COPIED_TOOLTIP_TITLE:
@@ -59,6 +68,8 @@ export const microCopy = {
   DOCUMENT_LIBRARY_FILTERS_TITLE: "documentLibrary.filters.title",
   DOCUMENT_LIBRARY_FILTERS_CLEAR_ALL: "documentLibrary.filters.clearAll",
   DOCUMENT_LIBRARY_NO_RESULTS: "documentLibrary.noResults",
+
+  COPY_LINK_ERROR_MESSAGE: "copyLink.error.message",
 
   DOCUMENTS_DOWNLOAD_MAX_REACHED: "documents.download.maxReached",
   DOCUMENT_STATUS_AVAILABLE: "document.status.available",

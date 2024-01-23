@@ -105,7 +105,7 @@ const Typography = ({
 
 const Bullets = (props: ComponentProps) => <View {...props} />;
 
-const BulletText = styled(Text)({
+const BulletText = styled(Text as React.ComponentType)({
   fontSize: 10,
   lineHeight: 2,
   color: "#70706F"
@@ -187,7 +187,7 @@ const ResultsTable = ({
   );
 };
 
-const ResultsTableCellText = styled(Text)({
+const ResultsTableCellText = styled(Text as React.ComponentType)({
   fontSize: 10,
   color: "#70706F",
   bold: ({ header }: { header: any }) => Boolean(header)
@@ -288,7 +288,7 @@ const InputsTable = ({
   </ResultsTable>
 );
 
-const ShareableLink = styled(Link)({
+const ShareableLink = styled(Link as React.ComponentType)({
   fontSize: 10,
   lineHeight: 1.4,
   color: "#007BBD"
@@ -338,7 +338,7 @@ const shouldAddPageBreak = (
   return false;
 };
 
-const HeaderText = styled(Text)({
+const HeaderText = styled(Text as React.ComponentType)({
   fontSize: 14,
   lineHeight: 1.92 /* roughly 27pt */,
   color: "#007BBD",

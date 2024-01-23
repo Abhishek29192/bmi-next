@@ -19,11 +19,8 @@ const LoginBlock = () => {
           <Button
             variant="text"
             data-testid="my-acc"
-            action={{
-              model: "routerLink",
-              to: getPathWithCountryCode(countryCode, accountPage?.slug),
-              linkComponent: Link
-            }}
+            to={getPathWithCountryCode(countryCode, accountPage?.slug)}
+            component={Link}
           >
             {getMicroCopy(microCopy.MY_ACCOUNT_LABEL)}
           </Button>

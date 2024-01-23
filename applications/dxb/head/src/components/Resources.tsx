@@ -1,24 +1,26 @@
 import { graphql } from "gatsby";
-import { GoodBetterBestIcons } from "../types/GoodBetterBest";
-import type { Data as LinkData } from "../components/Link";
+import { CTACardPageInfoData, CTACardPromoData } from "./types/CTACardTypes";
 import type { Data as SDPSpecificationNotesData } from "./ContentfulSpecificationNotes";
 import type { Data as ExploreBarData } from "./ExploreBar";
 import type { Data as MicroCopyData } from "./MicroCopy";
-import type { Data as NextBestActionsData } from "./NextBestActions";
 import type { Data as PageInfoData } from "./PageInfo";
 import type { Data as PromoData } from "./Promo";
 import type { RichTextData } from "./RichText";
 import type { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
 import type { Data as SignupBlockData } from "./SignupBlock";
 import type { Data as TitleWithContentData } from "./TitleWithContent";
+import type { Data as LinkData } from "./link/types";
+import type { Data as NextBestActionsData } from "./next-best-actions/NextBestActions";
 
 export type DocumentDisplayFormatType = "Asset type" | "Asset name";
+
+export type GoodBetterBestIcons = "Thumb Up" | "Heart" | "Star";
 
 export type Data = {
   microCopy: MicroCopyData[] | null;
   pdpSidebarItems: TitleWithContentData[] | null;
   pdpCardsTitle: string | null;
-  pdpCards: (PromoData | PageInfoData)[] | null;
+  pdpCards: (CTACardPromoData | CTACardPageInfoData)[] | null;
   pdpExploreBar: ExploreBarData | null;
   pdpShareWidget: ShareWidgetSectionData | null;
   sdpShareWidget: ShareWidgetSectionData | null;

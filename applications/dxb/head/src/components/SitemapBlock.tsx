@@ -1,16 +1,9 @@
-import { useIsClient } from "@bmi-digital/components";
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { AnchorLink } from "@bmi-digital/components";
 import MasonryGrid from "@bmi-digital/components/masonry-grid";
 import classnames from "classnames";
 import React from "react";
-import memoize from "../utils/memoize";
-import {
-  Data as LinkData,
-  NavigationData,
-  NavigationItem,
-  getClickableActionFromUrl
-} from "./Link";
-import { useSiteContext } from "./Site";
+import { Data as LinkData, NavigationData, NavigationItem } from "./link/types";
+import { toAnchorLinkActionProps } from "./link/utils";
 import {
   StyledSitemapBlock,
   StyledSitemapItem,
@@ -58,10 +51,6 @@ const WrapperComponent = ({
 );
 
 const SitemapBlock = ({ links, label, level = 0 }: Props) => {
-  const { countryCode } = useSiteContext();
-  const { isClient } = useIsClient();
-  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
-
   const validSitemapLinks = links?.filter(isValidSitemapType);
 
   return (
@@ -70,28 +59,23 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
         const { __typename } = linkData;
 
         if (__typename === "ContentfulLink") {
-          const { label, linkedPage, url } = linkData as LinkData;
-
           return (
             <StyledSitemapItem
               variant={levelVariantMap[level.toString()].link}
               key={`${level}-${label}`}
             >
               <AnchorLink
-                action={memoizedGetClickableActionFromUrl(
-                  { isSSR: !isClient, linkedPage, url, countryCode, label },
-                  []
-                )}
+                {...toAnchorLinkActionProps(linkData)}
                 data-testid={"sitemap-link"}
               >
-                {label}
+                {linkData.label}
               </AnchorLink>
             </StyledSitemapItem>
           );
         }
 
         if (__typename === "ContentfulNavigation") {
-          const { links, label, link } = linkData as NavigationData;
+          const { links, label, link } = linkData;
 
           return (
             <div key={`${level}-${label}`}>
@@ -100,18 +84,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
                   variant={levelVariantMap[level.toString()].label}
                 >
                   {link ? (
-                    <AnchorLink
-                      action={memoizedGetClickableActionFromUrl(
-                        {
-                          isSSR: !isClient,
-                          linkedPage: link.linkedPage,
-                          url: link.url,
-                          countryCode,
-                          label: link.label
-                        },
-                        []
-                      )}
-                    >
+                    <AnchorLink {...toAnchorLinkActionProps(link)}>
                       {label}
                     </AnchorLink>
                   ) : (

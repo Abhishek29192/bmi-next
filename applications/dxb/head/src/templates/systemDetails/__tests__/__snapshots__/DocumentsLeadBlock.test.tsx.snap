@@ -3,7 +3,7 @@
 exports[`DocumentsLeadBlock tests should render correctly 1`] = `
 <div>
   <div
-    class="css-fh28tm"
+    class="css-5gjpj9"
   >
     <div
       class="css-eler5f"
@@ -24,7 +24,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                 data-testid="table"
               >
                 <thead
-                  class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+                  class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
                   data-testid="table-head"
                 >
                   <tr
@@ -104,7 +104,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                     data-testid="document-table-row-pim-link-document-id"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
                       data-testid="document-table-add-pim-link-document-id"
                     >
                       <div
@@ -142,7 +142,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       </div>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
                       data-testid="document-table-type-pim-link-document-id"
                     >
                       asset-name
@@ -152,18 +152,19 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       data-testid="document-table-title-pim-link-document-id"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
                         data-testid="document-table-external-link-button"
                         href="http://localhost/pim-link-document-id"
-                        rel="noopener noreferrer"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
                         target="_blank"
                       >
                         <span
-                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                          class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         />
                         <p
-                          class="css-1cigd93"
+                          class="css-1dqo7n"
                         >
                           pim-link-document-title
                         </p>
@@ -173,13 +174,13 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       </a>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
                       data-testid="document-table-size-pim-link-document-id"
                     >
                       -
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
                       data-testid="document-table-actions-pim-link-document-id"
                     >
                       <div
@@ -187,19 +188,19 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       >
                         <div
                           aria-label="MC: document.library.copyLink.tooltip.title"
-                          class="MuiBox-root css-mvc5fa"
+                          class=" MuiBox-root css-2bzkxd"
                           data-mui-internal-clone-element="true"
                           data-testid="tooltip"
                         >
                           <button
-                            aria-label="Copy pim-link-document-title"
-                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                            data-testid="document-table-actions-copy-url-pim-link-document-id"
+                            aria-label="MC: document.library.copyLink.accessibility.label"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="copy-to-clipboard-button-pim-link-document-id"
                             tabindex="0"
                             type="button"
                           >
                             <svg
-                              class="document-simple-table-results-actionIconSmall css-afm3c7"
+                              class="css-afm3c7"
                               viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -234,6 +235,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                 class="css-179cxs2"
               >
                 <button
+                  aria-disabled="true"
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"download3-button1","label":"MC: downloadList.download","action":"[]"}"
                   data-testid="document-table-download-button"
@@ -244,6 +246,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                   MC: downloadList.download
                 </button>
                 <button
+                  aria-disabled="true"
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-xc55i5-MuiButtonBase-root-MuiButton-root"
                   data-testid="document-results-footer-reset-button"
                   disabled=""
@@ -263,24 +266,22 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-privacy-policy-link"
                 href="https://policies.google.com/privacy"
-                rel="noreferrer noopener"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 target="_blank"
               >
-                <span>
-                  Privacy Policy
-                </span>
+                Privacy Policy
               </a>
                and 
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-terms-of-service-link"
                 href="https://policies.google.com/terms"
-                rel="noreferrer noopener"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 target="_blank"
               >
-                <span>
-                  Terms of Service
-                </span>
+                Terms of Service
               </a>
                apply.
             </p>

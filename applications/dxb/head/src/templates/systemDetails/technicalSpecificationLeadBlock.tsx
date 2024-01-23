@@ -1,7 +1,6 @@
 import Accordion, {
   AccordionSummaryProps
 } from "@bmi-digital/components/accordion";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
 import Grid from "@bmi-digital/components/grid";
 import LeadBlock from "@bmi-digital/components/lead-block";
 import PostItCard from "@bmi-digital/components/post-it-card";
@@ -9,9 +8,9 @@ import Table from "@bmi-digital/components/table";
 import Typography from "@bmi-digital/components/typography";
 import React from "react";
 import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
-import Link from "../../components/Link";
 import ProductFeaturesTable from "../../components/ProductFeaturesTable";
 import RichText from "../../components/RichText";
+import Link from "../../components/link/Link";
 import { Classification } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
 import { StyledAccordionDetails } from "./styles/technicalSpecificationLeadBlock.styles";
@@ -27,7 +26,6 @@ const TechnicalSpecificationLeadBlock = ({
   technicalSpecClassifications,
   specificationNotes
 }: Props) => {
-  const GTMButton = withGTM<ButtonProps>(Button);
   const technicalSpecification = () => {
     if (technicalSpecClassifications.length === 1) {
       const classification = technicalSpecClassifications[0];
@@ -115,25 +113,20 @@ const TechnicalSpecificationLeadBlock = ({
                 />
               </PostItCard.Content>
               <PostItCard.Action>
-                <Link
-                  data={specificationNotes.cta}
-                  component={({ children, ...rest }) => (
-                    <GTMButton
-                      {...rest}
-                      gtm={{
-                        id: "cta-click1",
-                        label:
-                          `${specificationNotes.title} - ${specificationNotes.cta?.label}` ||
-                          "",
-                        action: specificationNotes.cta?.url || ""
-                      }}
-                    >
-                      {children}
-                    </GTMButton>
-                  )}
-                >
-                  {specificationNotes.cta?.label}
-                </Link>
+                {specificationNotes.cta && (
+                  <Link
+                    data={specificationNotes.cta}
+                    gtm={{
+                      id: "cta-click1",
+                      label:
+                        `${specificationNotes.title} - ${specificationNotes.cta.label}` ||
+                        "",
+                      action: specificationNotes.cta.url || ""
+                    }}
+                  >
+                    {specificationNotes.cta.label}
+                  </Link>
+                )}
               </PostItCard.Action>
             </PostItCard.Section>
           </PostItCard>

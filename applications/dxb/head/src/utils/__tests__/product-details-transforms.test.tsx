@@ -199,7 +199,7 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "linkComponent": [MockFunction],
+                  "component": [MockFunction],
                   "model": "routerLink",
                   "to": "/no/p/name-hashed-related-code/",
                 },
@@ -280,7 +280,7 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "linkComponent": [MockFunction],
+                  "component": [MockFunction],
                   "model": "routerLink",
                   "to": "/no/p/name-hashed-related-code/",
                 },
@@ -360,7 +360,7 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "linkComponent": [MockFunction],
+                  "component": [MockFunction],
                   "model": "routerLink",
                   "to": "/no/p/name-hashed-related-code/",
                 },
@@ -419,7 +419,7 @@ describe("product-details-transforms tests", () => {
             "variants": [
               {
                 "action": {
-                  "linkComponent": [MockFunction],
+                  "component": [MockFunction],
                   "model": "routerLink",
                   "to": "/no/p/name-hashed-related-code/",
                 },
@@ -586,7 +586,7 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "linkComponent": [MockFunction],
+                  "component": [MockFunction],
                   "model": "routerLink",
                   "to": "/no/p/name-hashed-related-code/",
                 },

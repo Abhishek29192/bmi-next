@@ -145,7 +145,7 @@ const DocumentCells = ({
                   {document.__typename !== "PIMDocumentWithPseudoZip" && (
                     <CopyToClipboard
                       id={document.id}
-                      url={getFileUrlByDocumentType(document) || ""}
+                      href={getFileUrlByDocumentType(document) || ""}
                       title={document.title}
                     />
                   )}
