@@ -2,6 +2,7 @@
 
 import dotenv from "dotenv";
 import fs from "fs";
+import adapter from "gatsby-adapter-netlify";
 import path from "path";
 import process from "process";
 import getCredentialData from "./src/utils/get-credentials-data.mjs";
@@ -35,12 +36,12 @@ const pagePathsQuery = `{
 const queries = [
   process.env.GATSBY_ES_INDEX_NAME_PAGES && {
     query: pagePathsQuery,
-    transformer: ({data}) => {
+    transformer: ({ data }) => {
       if (!data) {
         throw new Error("No data");
       }
       return data.allSitePage.edges
-        .map(({node}) => {
+        .map(({ node }) => {
           const contentNodeFolderName = `${node.path}${
             node.path.endsWith("/") ? "" : "/"
           }`;
@@ -54,8 +55,8 @@ const queries = [
 
             // Ignore contentfulSite as it's global data
             // eslint-disable-next-line no-unused-vars
-            const {contentfulSite, ...pageData} =
-            (dataJSON && dataJSON.result && dataJSON.result.data) || {};
+            const { contentfulSite, ...pageData } =
+              (dataJSON && dataJSON.result && dataJSON.result.data) || {};
 
             // Get something that might be the page data.
             // Also acts to specify what pages are handled
@@ -82,7 +83,7 @@ const queries = [
                 path: page.path,
                 // only "Page type" tags are relevant to search
                 tags: (page.tags || []).filter(
-                  ({type}) => type === "Page type"
+                  ({ type }) => type === "Page type"
                 ),
                 pageData: JSON.stringify(pageData)
               };
@@ -117,16 +118,16 @@ const elasticSearchPlugin =
   process.env.GATSBY_DISABLE_SEARCH === "true"
     ? []
     : [
-      {
-        resolve: `@bmi/gatsby-plugin-elasticsearch`,
-        options: {
-          node: process.env.GATSBY_ES_ENDPOINT,
-          apiKey: process.env.ES_ADMIN_APIKEY,
-          queries,
-          chunkSize: process.env.ES_INDEXING_CHUNK_SIZE || 100
+        {
+          resolve: `@bmi/gatsby-plugin-elasticsearch`,
+          options: {
+            node: process.env.GATSBY_ES_ENDPOINT,
+            apiKey: process.env.ES_ADMIN_APIKEY,
+            queries,
+            chunkSize: process.env.ES_INDEXING_CHUNK_SIZE || 100
+          }
         }
-      }
-    ];
+      ];
 
 const ids = [
   process.env.GOOGLE_TAGMANAGER_ID,
@@ -136,23 +137,24 @@ const ids = [
 const googleTagManagerPlugin =
   !process.env.GATSBY_PREVIEW && ids.length
     ? [
-      {
-        resolve: "@bmi/gatsby-plugin-google-tagmanager",
-        options: {
-          ids,
-          includeInDevelopment: true,
-          defaultDataLayer: {
-            platform: "gatsby",
-            env: process.env.NODE_ENV
+        {
+          resolve: "@bmi/gatsby-plugin-google-tagmanager",
+          options: {
+            ids,
+            includeInDevelopment: true,
+            defaultDataLayer: {
+              platform: "gatsby",
+              env: process.env.NODE_ENV
+            }
           }
         }
-      }
-    ]
+      ]
     : [];
 
 /**
  * @type {GatsbyConfig}
  */
+
 const config = {
   siteMetadata: {
     title: `BMI dxb`,
@@ -160,6 +162,12 @@ const config = {
     author: `bmi`,
     siteUrl: process.env.GATSBY_SITE_URL
   },
+  ...(process.env.IS_NETLIFY && {
+    adapter: adapter.default({
+      excludeDatastoreFromEngineFunction: false,
+      imageCDN: false
+    })
+  }),
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
     `@bmi/gatsby-plugin-material-ui`,
@@ -317,20 +325,20 @@ const config = {
     },
     ...(process.env.GATSBY_ENABLE_TRAININGS === "true"
       ? [
-        {
-          resolve: "@bmi/gatsby-source-docebo",
-          options: {
-            apiUrl: process.env.DOCEBO_API_URL,
-            catalogueIds: process.env.DOCEBO_API_CATALOGUE_IDS,
-            clientId: process.env.DOCEBO_API_CLIENT_ID,
-            clientSecret: process.env.DOCEBO_API_CLIENT_SECRET,
-            username: process.env.DOCEBO_API_USERNAME,
-            password: process.env.DOCEBO_API_PASSWORD
+          {
+            resolve: "@bmi/gatsby-source-docebo",
+            options: {
+              apiUrl: process.env.DOCEBO_API_URL,
+              catalogueIds: process.env.DOCEBO_API_CATALOGUE_IDS,
+              clientId: process.env.DOCEBO_API_CLIENT_ID,
+              clientSecret: process.env.DOCEBO_API_CLIENT_SECRET,
+              username: process.env.DOCEBO_API_USERNAME,
+              password: process.env.DOCEBO_API_PASSWORD
+            }
           }
-        }
-      ]
+        ]
       : []),
-    ...contentfulCredentialData.map(({spaceId, accessToken, environment}) => {
+    ...contentfulCredentialData.map(({ spaceId, accessToken, environment }) => {
       let options = {
         spaceId,
         accessToken,
@@ -359,49 +367,49 @@ const config = {
     ...(process.env.DISABLE_PIM_DATA === "true"
       ? []
       : [
-        {
-          resolve: "@bmi/gatsby-source-firestore",
-          options: {
-            credential: {
-              type: "service_account",
-              project_id: process.env.GCP_PROJECT_ID,
-              private_key_id: process.env.FIRESTORE_PRIVATE_KEY_ID,
-              private_key: (process.env.FIRESTORE_PRIVATE_KEY || "").replace(
-                /\\n/gm,
-                "\n"
-              ),
-              client_email: process.env.FIRESTORE_CLIENT_EMAIL,
-              client_id: process.env.FIRESTORE_CLIENT_ID,
-              auth_uri: process.env.FIRESTORE_AUTH_URI,
-              token_uri: process.env.FIRESTORE_TOKEN_URI,
-              auth_provider_x509_cert_url:
-              process.env.FIRESTORE_AUTH_PROVIDER_X509_CERT_URL,
-              client_x509_cert_url: process.env.FIRESTORE_CLIENT_X509_CERT_URL
-            },
-            // TODO: Can we type these better?
-            types: [
-              {
-                type: "Product",
-                collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/products`,
-                map: (doc) => ({
-                  // TODO: More explicit data mapping? Any data mapping at all? This is a big complex document.
-                  // Certain things (the arrays) should be split into collections?
-                  ...doc
-                })
+          {
+            resolve: "@bmi/gatsby-source-firestore",
+            options: {
+              credential: {
+                type: "service_account",
+                project_id: process.env.GCP_PROJECT_ID,
+                private_key_id: process.env.FIRESTORE_PRIVATE_KEY_ID,
+                private_key: (process.env.FIRESTORE_PRIVATE_KEY || "").replace(
+                  /\\n/gm,
+                  "\n"
+                ),
+                client_email: process.env.FIRESTORE_CLIENT_EMAIL,
+                client_id: process.env.FIRESTORE_CLIENT_ID,
+                auth_uri: process.env.FIRESTORE_AUTH_URI,
+                token_uri: process.env.FIRESTORE_TOKEN_URI,
+                auth_provider_x509_cert_url:
+                  process.env.FIRESTORE_AUTH_PROVIDER_X509_CERT_URL,
+                client_x509_cert_url: process.env.FIRESTORE_CLIENT_X509_CERT_URL
               },
-              {
-                type: "System",
-                collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
-                map: (doc) => {
-                  return {
+              // TODO: Can we type these better?
+              types: [
+                {
+                  type: "Product",
+                  collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/products`,
+                  map: (doc) => ({
+                    // TODO: More explicit data mapping? Any data mapping at all? This is a big complex document.
+                    // Certain things (the arrays) should be split into collections?
                     ...doc
-                  };
+                  })
+                },
+                {
+                  type: "System",
+                  collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
+                  map: (doc) => {
+                    return {
+                      ...doc
+                    };
+                  }
                 }
-              }
-            ]
+              ]
+            }
           }
-        }
-      ]),
+        ]),
     ...elasticSearchPlugin,
     `gatsby-plugin-image`,
     // `gatsby-plugin-offline`,
@@ -412,29 +420,31 @@ const config = {
         disable: process.env.CI === "true"
       }
     },
-    ...(process.env.GATSBY_SPACE_MARKET_CODE && process.env.GATSBY_PREVIEW !== "true"
+    ...(process.env.GATSBY_SPACE_MARKET_CODE &&
+    process.env.GATSBY_PREVIEW !== "true"
       ? [
-        {
-          resolve: "@bmi/gatsby-plugin-sitemap",
-          options: {
-            output: useCountryCode
-              ? `/${process.env.GATSBY_SPACE_MARKET_CODE}`
-              : "/",
-            ignoreSitemapPathPrefix: true
+          {
+            resolve: "@bmi/gatsby-plugin-sitemap",
+            options: {
+              output: useCountryCode
+                ? `/${process.env.GATSBY_SPACE_MARKET_CODE}`
+                : "/",
+              ignoreSitemapPathPrefix: true
+            }
           }
-        }
-      ]
+        ]
       : []),
-    ...(process.env.GATSBY_SPACE_MARKET_CODE && process.env.GATSBY_PREVIEW !== "true"
+    ...(process.env.GATSBY_SPACE_MARKET_CODE &&
+    process.env.GATSBY_PREVIEW !== "true"
       ? [
-        {
-          resolve: "@bmi/gatsby-plugin-sitemap",
-          options: {
-            output: useCountryCode
-              ? `/${process.env.GATSBY_SPACE_MARKET_CODE}/images`
-              : `/images`,
-            entryLimit: 50000,
-            query: `
+          {
+            resolve: "@bmi/gatsby-plugin-sitemap",
+            options: {
+              output: useCountryCode
+                ? `/${process.env.GATSBY_SPACE_MARKET_CODE}/images`
+                : `/images`,
+              entryLimit: 50000,
+              query: `
                 {
                   site {
                     siteMetadata {
@@ -454,37 +464,37 @@ const config = {
                     }
                   }
                 }`,
-            resolveSiteUrl: ({site}) => site.siteMetadata.siteUrl,
-            serialize: ({allContentfulAsset}) => {
-              if (!allContentfulAsset) {
-                return [];
-              }
-              return allContentfulAsset.nodes.map((node) => ({
-                url:
-                  node && node.file && node.file.url
-                    ? `https:${node.file.url}`
-                    : "",
-                changefreq: "daily",
-                priority: 0.7
-              }));
-            },
-            ignoreSitemapPathPrefix: true
+              resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+              serialize: ({ allContentfulAsset }) => {
+                if (!allContentfulAsset) {
+                  return [];
+                }
+                return allContentfulAsset.nodes.map((node) => ({
+                  url:
+                    node && node.file && node.file.url
+                      ? `https:${node.file.url}`
+                      : "",
+                  changefreq: "daily",
+                  priority: 0.7
+                }));
+              },
+              ignoreSitemapPathPrefix: true
+            }
           }
-        }
-      ]
+        ]
       : []),
     ...googleTagManagerPlugin,
     ...(process.env.GATSBY_HUBSPOT_ID && !process.env.GATSBY_PREVIEW
       ? [
-        {
-          resolve: "gatsby-plugin-hubspot",
-          options: {
-            trackingCode: process.env.GATSBY_HUBSPOT_ID,
-            respectDNT: true,
-            productionOnly: false
+          {
+            resolve: "gatsby-plugin-hubspot",
+            options: {
+              trackingCode: process.env.GATSBY_HUBSPOT_ID,
+              respectDNT: true,
+              productionOnly: false
+            }
           }
-        }
-      ]
+        ]
       : []),
     // TODO: This uses dependencies that aren't declared by it, so Yarn isn't happy
     // ...(process.env.HUBSPOT_API_KEY
@@ -499,65 +509,69 @@ const config = {
     //   : []),
     ...(process.env.GATSBY_LEADOO_ID && !process.env.GATSBY_PREVIEW
       ? [
-        {
-          resolve: "@bmi/gatsby-plugin-leadoo",
-          options: {
-            companyCode: process.env.GATSBY_LEADOO_ID,
-            productionOnly: false
+          {
+            resolve: "@bmi/gatsby-plugin-leadoo",
+            options: {
+              companyCode: process.env.GATSBY_LEADOO_ID,
+              productionOnly: false
+            }
           }
-        }
-      ]
+        ]
       : []),
-    {
-      resolve: `gatsby-plugin-gatsby-cloud`,
-      options: {
-        headers: {
-          "/*": [
-            `Content-Security-Policy: ${process.env.CONTENT_SECURITY_POLICY}`,
-            "X-Frame-Options: DENY",
-            `X-Robots-Tag: ${process.env.X_ROBOTS_TAG}`,
-            "X-XSS-Protection: 1; mode=block",
-            "X-Content-Type-Options: nosniff",
-            "Referrer-Policy: strict-origin-when-cross-origin",
-            `Access-Control-Allow-Origin: ${process.env.ACCESS_CONTROL_ALLOW_ORIGIN}`
-          ]
-        }, // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
-        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-        // eslint-disable-next-line no-unused-vars
-        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-        generateMatchPathRewrites: true // boolean to turn off automatic creation of redirect rules for client only paths
-      }
-    },
+    ...(!process.env.IS_NETLIFY
+      ? [
+          {
+            resolve: `gatsby-plugin-gatsby-cloud`,
+            options: {
+              headers: {
+                "/*": [
+                  `Content-Security-Policy: ${process.env.CONTENT_SECURITY_POLICY}`,
+                  "X-Frame-Options: DENY",
+                  `X-Robots-Tag: ${process.env.X_ROBOTS_TAG}`,
+                  "X-XSS-Protection: 1; mode=block",
+                  "X-Content-Type-Options: nosniff",
+                  "Referrer-Policy: strict-origin-when-cross-origin",
+                  `Access-Control-Allow-Origin: ${process.env.ACCESS_CONTROL_ALLOW_ORIGIN}`
+                ]
+              }, // option to add more headers. `Link` headers are transformed by the below criteria
+              allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+              mergeSecurityHeaders: true, // boolean to turn off the default security headers
+              mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+              mergeCachingHeaders: true, // boolean to turn off the default caching headers
+              // eslint-disable-next-line no-unused-vars
+              transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
+              generateMatchPathRewrites: true // boolean to turn off automatic creation of redirect rules for client only paths
+            }
+          }
+        ]
+      : []),
     ...(process.env.PERFORMANCE_ANALYTICS === "true" &&
     process.env.CI !== "true"
       ? [`gatsby-plugin-perf-budgets`]
       : []),
     ...(process.env.PERFORMANCE_ANALYTICS === "true"
       ? [
-        {
-          resolve: "gatsby-build-newrelic",
-          options: {
-            NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY,
-            NR_ACCOUNT_ID: process.env.NEW_RELIC_ACCOUNT_ID,
-            SITE_NAME: process.env.NEW_RELIC_SITE_NAME,
-            collectTraces: true,
-            collectLogs: true,
-            collectMetrics: true,
-            customTags: {}
+          {
+            resolve: "gatsby-build-newrelic",
+            options: {
+              NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY,
+              NR_ACCOUNT_ID: process.env.NEW_RELIC_ACCOUNT_ID,
+              SITE_NAME: process.env.NEW_RELIC_SITE_NAME,
+              collectTraces: true,
+              collectLogs: true,
+              collectMetrics: true,
+              customTags: {}
+            }
           }
-        }
-      ]
+        ]
       : []),
     // Avoid extra memory consumption as these shouldn't be needed on prod
     ...(process.env.NODE_ENV === "production"
       ? [
-        {
-          resolve: "gatsby-plugin-no-sourcemaps"
-        }
-      ]
+          {
+            resolve: "gatsby-plugin-no-sourcemaps"
+          }
+        ]
       : [])
   ],
   flags: {
@@ -566,7 +580,43 @@ const config = {
     PARALLEL_SOURCING: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_QUERY_RUNNING: true
-  }
+  },
+  // The `headers` section is used by gatsbyjs adapters
+  headers: [
+    {
+      source: "/*",
+      headers: [
+        {
+          key: "Content-Security-Policy",
+          value: process.env.CONTENT_SECURITY_POLICY
+        },
+        {
+          key: "X-Frame-Options",
+          value: "DENY"
+        },
+        {
+          key: "X-Robots-Tag",
+          value: process.env.X_ROBOTS_TAG
+        },
+        {
+          key: "x-xss-protection", // use lowercase key here to silence the netllify warning
+          value: " 1; mode=block"
+        },
+        {
+          key: "X-Content-Type-Options",
+          value: "nosniff"
+        },
+        {
+          key: "Referrer-Policy",
+          value: "strict-origin-when-cross-origin"
+        },
+        {
+          key: "Access-Control-Allow-Origin",
+          value: process.env.ACCESS_CONTROL_ALLOW_ORIGIN
+        }
+      ]
+    }
+  ]
 };
 
 export default config;
