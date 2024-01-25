@@ -4907,7 +4907,12 @@
  to="https://www.bmigroup.com/uk/about-us/?utm_source=icopal.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
+ [[redirects]]
+ from="/About_Icopal_UK.aspx"
+ to="https://www.bmigroup.com/uk/about-us/?utm_source=icopal.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
 [[redirects]]
- from="/"
- to="https://www.bmigroup.com/uk/icopal-flat-roofing/?utm_source=icopal.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ from="/icopal-flat-roofing/"
+ to="https://www.bmigroup.com/uk/icopal-flat-roofing-systems-and-services/?utm_source=icopal.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
