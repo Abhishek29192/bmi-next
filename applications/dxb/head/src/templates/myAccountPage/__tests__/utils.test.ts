@@ -8,7 +8,7 @@ import { getUserInfo, transformToolCard } from "../utils";
 import createAuth0IdTokenPayload from "./helpers/Auth0IdTokenPayloadHelper";
 
 describe("getUserInfo", () => {
-  it("should replace the name template", () => {
+  it("should replace the name template with the user's first name", () => {
     const user = createAuth0IdTokenPayload();
 
     const userInfo = getUserInfo(
@@ -18,7 +18,7 @@ describe("getUserInfo", () => {
     );
 
     expect(userInfo.salutation).toEqual(
-      `Hi ${user["https://intouch/first_name"]} ${user["https://intouch/last_name"]}.`
+      `Hi ${user["https://intouch/first_name"]}.`
     );
     expect(userInfo.roleDescription).toEqual(
       `You have the role ${user["https://intouch/intouch_role"]}.`
