@@ -18,7 +18,7 @@ export const getUserInfo = (
 ): { salutation: string; roleDescription: string } => ({
   salutation: salutation.replace(
     nameTemplate,
-    `${user["https://intouch/first_name"]} ${user["https://intouch/last_name"]}`
+    `${user["https://intouch/first_name"]}`
   ),
   roleDescription: roleDescription.replace(
     roleTemplate,
