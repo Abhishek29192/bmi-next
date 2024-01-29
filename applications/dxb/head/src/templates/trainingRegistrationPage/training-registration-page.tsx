@@ -87,6 +87,7 @@ const TrainingRegistrationPage = ({
             contentfulSite.countryCode,
             `/t/${training?.slug}`
           )}
+          courseId={training?.courseId}
         />
       )}
       <Section backgroundColor="white" data-testid="breadcrumbs-section-bottom">
@@ -126,6 +127,8 @@ export const pageQuery = graphql`
       postalCode
       phoneNumber
       competentChamber
+      recipient
+      emailSubject
       competentChamberLabel {
         competentChamberLabel
       }
