@@ -1,6 +1,8 @@
-import { styled } from "@mui/material/styles";
-import { Button, Form, Typography } from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import Form from "@bmi-digital/components/form";
+import Typography from "@bmi-digital/components/typography";
 import Divider from "@mui/material/Divider";
+import { styled } from "@mui/material/styles";
 
 const PREFIX = "CalculatorStepper";
 

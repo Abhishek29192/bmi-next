@@ -1,33 +1,33 @@
-import {
-  Button,
-  Grid,
-  OverviewCard,
-  OverviewCardProps,
-  replaceSpaces,
-  Section,
-  SectionBackgroundColor
-} from "@bmi-digital/components";
-import CheckMarkIcon from "@bmi-digital/components/icon/Check";
-import uniqueId from "lodash-es/uniqueId";
-import { System as EsSystem } from "@bmi/elasticsearch-types";
+import Button from "@bmi-digital/components/button";
+import Grid from "@bmi-digital/components/grid";
 import AddIcon from "@bmi-digital/components/icon/Add";
-import { graphql, Link } from "gatsby";
-import React, { useState } from "react";
+import CheckMarkIcon from "@bmi-digital/components/icon/Check";
+import OverviewCard, {
+  OverviewCardProps
+} from "@bmi-digital/components/overview-card";
+import Section, {
+  BackgroundColor as SectionBackgroundColor
+} from "@bmi-digital/components/section";
+import { replaceSpaces } from "@bmi-digital/components/utils";
+import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
+import { graphql, Link } from "gatsby";
+import uniqueId from "lodash-es/uniqueId";
+import React, { useState } from "react";
 import { RelatedSystem } from "../types/pim";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { renderMedia } from "../utils/renderMedia";
 import BrandLogo from "./BrandLogo";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 import { useSiteContext } from "./Site";
 import {
   StyledLoadMoreWrapper,
   StyledReadMoreButton,
-  StyledTitle,
   StyledSystemPropertyContainer,
-  StyledSystemPropertyItem
+  StyledSystemPropertyItem,
+  StyledTitle
 } from "./styles/RelatedSystems.styles";
-import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 export type SystemCardProps = {
   system: RelatedSystem | EsSystem;

@@ -33,11 +33,13 @@ jest.mock("@bmi/functions-es-client", () => ({
 
 const fetchCataloguesMock = jest.fn();
 const getCourseByIdMock = jest.fn();
+const getCurrencyMock = jest.fn();
 jest.mock("@bmi/docebo-api", () => ({
   ...jest.requireActual("@bmi/docebo-api"),
   getCachedDoceboApi: () => ({
     fetchCatalogues: fetchCataloguesMock,
-    getCourseById: getCourseByIdMock
+    getCourseById: getCourseByIdMock,
+    getCurrency: getCurrencyMock
   })
 }));
 
@@ -74,6 +76,10 @@ beforeEach(() => {
     deleteByQuery: deleteByQueryMock
   });
   getIndexOperationMock.mockImplementation(() => []);
+  getCurrencyMock.mockResolvedValue({
+    currency_currency: "EUR",
+    currency_symbol: "€"
+  });
 });
 
 const handleRequest = async (request: Request, response: Response) =>
@@ -963,6 +969,7 @@ describe("handleRequest", () => {
         status: MessageStatus.Failed
       }
     );
+    expect(getCurrencyMock).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(fetchCataloguesMock).not.toHaveBeenCalled();
@@ -1000,6 +1007,7 @@ describe("handleRequest", () => {
         status: MessageStatus.Failed
       }
     );
+    expect(getCurrencyMock).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(fetchCataloguesMock).not.toHaveBeenCalled();
@@ -1040,6 +1048,7 @@ describe("handleRequest", () => {
         status: MessageStatus.Failed
       }
     );
+    expect(getCurrencyMock).not.toHaveBeenCalled();
     expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(performBulkOperationsMock).not.toHaveBeenCalled();
@@ -1090,7 +1099,53 @@ describe("handleRequest", () => {
     );
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
-    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(getCurrencyMock).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(deleteByQueryMock).not.toHaveBeenCalled();
+    expect(performBulkOperationsMock).not.toHaveBeenCalled();
+  });
+
+  it("returns 500 if event==='course.updated' and 'getCurrency' throws an error", async () => {
+    const error = new Error("An error occured in 'getCurrency'");
+    const course = createExtendedCourse({ id: 1 });
+    getCourseByIdMock.mockResolvedValue(course);
+    fetchCataloguesMock.mockResolvedValue([
+      createCatalogue({
+        sub_items: [createCatalogueSubItem({ item_id: "1" })]
+      })
+    ]);
+    getCurrencyMock.mockRejectedValue(error);
+    const event = createCourseUpdatedEvent({ course_id: course.id });
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: event,
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
+    expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
+    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
+    expect(res.send).toHaveBeenCalledWith({
+      message: `Something went wrong: ${error.message}`
+    });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
+    expect(fetchMock).not.toHaveBeenCalled();
     expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(performBulkOperationsMock).not.toHaveBeenCalled();
   });
@@ -1129,6 +1184,7 @@ describe("handleRequest", () => {
     });
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
+    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
     expect(getIndexOperationMock).toHaveBeenCalled();
     expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
       process.env.FIRESTORE_ROOT_COLLECTION,
@@ -1184,6 +1240,7 @@ describe("handleRequest", () => {
     });
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
+    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
     expect(getIndexOperationMock).toHaveBeenCalled();
     expect(performBulkOperationsMock).toHaveBeenCalled();
 
@@ -1231,6 +1288,7 @@ describe("handleRequest", () => {
     expect(res.sendStatus).toHaveBeenCalledWith(200);
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
+    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
     expect(getIndexOperationMock).toHaveBeenCalled();
     expect(performBulkOperationsMock).toHaveBeenCalled();
     expect(fetchMock).toHaveBeenCalledTimes(2);

@@ -1,6 +1,6 @@
-import { Typography } from "@bmi-digital/components";
 import ExpandMoreIcon from "@bmi-digital/components/icon/ExpandMore";
-import { AccordionProps } from "@mui/material";
+import Typography from "@bmi-digital/components/typography";
+import { AccordionProps } from "@mui/material/Accordion";
 import React, { ReactNode } from "react";
 import {
   classes,

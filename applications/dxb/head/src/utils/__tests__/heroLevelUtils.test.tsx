@@ -94,7 +94,11 @@ describe("generateHeroProps test", () => {
       })
     );
 
-    expect(result.media!.props).toEqual({ ...featuredMedia, size: "cover" });
+    expect(result.media!.props).toEqual({
+      ...featuredMedia,
+      size: "cover",
+      loading: "eager"
+    });
 
     expect((result.cta as React.ReactElement).props).toEqual(
       expect.objectContaining({

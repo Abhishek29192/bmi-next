@@ -1,16 +1,17 @@
-import { BackToTop, MicroCopy } from "@bmi-digital/components";
+import BackToTop from "@bmi-digital/components/back-to-top";
+import MicroCopy from "@bmi-digital/components/micro-copy";
 import { graphql, navigate } from "gatsby";
 import React from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { globalStyles } from "../../src/styles/globalStyles";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useConfig } from "../contexts/ConfigProvider";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import { Product } from "../types/pim";
-import { getPathWithCountryCode } from "../utils/path";
-import { globalStyles } from "../../src/styles/globalStyles";
 import { getGoodBetterBestIcons } from "../utils/getGoodBetterBestIcons";
+import { getPathWithCountryCode } from "../utils/path";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";
@@ -32,7 +33,7 @@ export type Data = {
   breadcrumbs: BreadcrumbsData | null;
   signupBlock: SignupBlockData | null;
   seo: SEOContentData | null;
-  path: string | null;
+  path: string;
 };
 
 type Context = {
@@ -85,16 +86,12 @@ const Page = ({
     headScripts,
     regions,
     pitchedRoofCalculatorConfig,
-    visualiserHouseTypes
+    visualiserHouseTypes,
+    accountPage
   } = siteData;
-
   const { breadcrumbs, signupBlock, seo, path } = pageData;
-  const {
-    gatsbyReCaptchaKey,
-    gatsbyReCaptchaNet,
-    visualizerAssetUrl,
-    isSpaEnabled
-  } = useConfig();
+  const { gatsbyReCaptchaKey, gatsbyReCaptchaNet, visualizerAssetUrl } =
+    useConfig();
   const reCaptchaNet = gatsbyReCaptchaNet === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
@@ -106,7 +103,8 @@ const Page = ({
     getMicroCopy,
     gatsbyReCaptchaKey,
     reCaptchaNet,
-    goodBetterBestIconsConfig: getGoodBetterBestIcons(resources)
+    goodBetterBestIconsConfig: getGoodBetterBestIcons(resources),
+    accountPage
   };
 
   const microCopyContext = resources?.microCopy?.reduce(
@@ -118,9 +116,7 @@ const Page = ({
   );
 
   const seoTitle =
-    variantProduct && variantProduct.seoTitle
-      ? variantProduct.seoTitle
-      : title || "";
+    variantProduct && variantProduct.seoTitle ? variantProduct.seoTitle : title;
   return (
     <div style={{ overflowX: "hidden", display: "contents" }}>
       {globalStyles}
@@ -194,9 +190,7 @@ const Page = ({
                       <Content>{children}</Content>
                     </BrandProvider>
                   </CalculatorProvider>
-                  {signupBlock && !isSpaEnabled ? (
-                    <SignupBlock data={signupBlock} />
-                  ) : null}
+                  {signupBlock ? <SignupBlock data={signupBlock} /> : null}
                   <Footer
                     mainNavigation={footerMainNavigation}
                     secondaryNavigation={footerSecondaryNavigation}

@@ -101,9 +101,9 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(set).toBeCalledTimes(1);
+    expect(set).toHaveBeenCalledTimes(1);
     expect(set).toBeCalledWith(documentRef, transformedProduct);
-    expect(commit).toBeCalledTimes(1);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should execute correctly if type is UPDATED and itemType is SYSTEMS", async () => {
@@ -124,9 +124,9 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(set).toBeCalledTimes(1);
+    expect(set).toHaveBeenCalledTimes(1);
     expect(set).toBeCalledWith(documentRef, transformedSystem);
-    expect(commit).toBeCalledTimes(1);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should execute correctly if type is UPDATED and system do not have layers", async () => {
@@ -147,9 +147,9 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(set).toBeCalledTimes(1);
+    expect(set).toHaveBeenCalledTimes(1);
     expect(set).toBeCalledWith(documentRef, transformedSystem);
-    expect(commit).toBeCalledTimes(1);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should execute correctly if type is UPDATED and itemType is CATEGORIES", async () => {
@@ -183,9 +183,9 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(deleteFunc).toBeCalledTimes(1);
+    expect(deleteFunc).toHaveBeenCalledTimes(1);
     expect(deleteFunc).toHaveBeenCalledWith(doc1.ref);
-    expect(commit).toBeCalledTimes(1);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should NOT delete 'base_product' if it is not exists in firestore", async () => {
@@ -203,8 +203,8 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(deleteFunc).toBeCalledTimes(0);
-    expect(commit).toBeCalledTimes(1);
+    expect(deleteFunc).toHaveBeenCalledTimes(0);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should execute correctly if type is DELETED and objType is 'system'", async () => {
@@ -221,9 +221,9 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(deleteFunc).toBeCalledTimes(1);
+    expect(deleteFunc).toHaveBeenCalledTimes(1);
     expect(deleteFunc).toHaveBeenCalledWith(docRef1);
-    expect(commit).toBeCalledTimes(1);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should delete variant if objType is 'variant'", async () => {
@@ -250,10 +250,10 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(deleteFunc).toBeCalledTimes(1);
+    expect(deleteFunc).toHaveBeenCalledTimes(1);
     expect(deleteFunc).toBeCalledWith(docRef1);
-    expect(updateFunc).toBeCalledTimes(1);
-    expect(commit).toBeCalledTimes(1);
+    expect(updateFunc).toHaveBeenCalledTimes(1);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should delete system layer if objType is 'layer'", async () => {
@@ -296,9 +296,9 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(set).toBeCalledTimes(1);
+    expect(set).toHaveBeenCalledTimes(1);
     expect(set).toBeCalledWith(documentRef, updatedDocument);
-    expect(commit).toBeCalledTimes(1);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should delete base product if only one variant is present", async () => {
@@ -326,9 +326,9 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(deleteFunc).toBeCalledTimes(1);
+    expect(deleteFunc).toHaveBeenCalledTimes(1);
     expect(deleteFunc).toBeCalledWith(documentRef);
-    expect(commit).toBeCalledTimes(1);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should NOT delete system if only one layer is present", async () => {
@@ -357,14 +357,14 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(deleteFunc).toBeCalledTimes(0);
-    expect(set).toBeCalledTimes(1);
+    expect(deleteFunc).toHaveBeenCalledTimes(0);
+    expect(set).toHaveBeenCalledTimes(1);
     expect(set).toBeCalledWith(documentRef, {
       code: "System_code",
       systemLayers: [],
       layerCodes: []
     });
-    expect(commit).toBeCalledTimes(1);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should NOT update system if only data layer to delete does not exist", async () => {
@@ -385,9 +385,9 @@ describe("handleMessage", () => {
 
     await handleMessage(data, {});
 
-    expect(deleteFunc).toBeCalledTimes(0);
-    expect(set).toBeCalledTimes(0);
-    expect(commit).toBeCalledTimes(1);
+    expect(deleteFunc).toHaveBeenCalledTimes(0);
+    expect(set).toHaveBeenCalledTimes(0);
+    expect(commit).toHaveBeenCalledTimes(1);
   });
 
   it("should throw error if type is unrecognised", async () => {

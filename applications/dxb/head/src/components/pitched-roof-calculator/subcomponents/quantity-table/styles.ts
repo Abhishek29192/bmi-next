@@ -1,5 +1,6 @@
+import { tableClasses } from "@mui/material/Table";
+import { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
-import { tableCellClasses, tableClasses } from "@mui/material";
 
 const PREFIX = "quantityTableStyles";
 export const classes = {

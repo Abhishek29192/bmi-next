@@ -1,4 +1,6 @@
-import { Filter, RegionCode, ThemeProvider } from "@bmi-digital/components";
+import { Filter } from "@bmi-digital/components/filters";
+import { RegionCode } from "@bmi-digital/components/language-selection";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import * as all from "@bmi-digital/use-dimensions";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import {
@@ -15,10 +17,10 @@ import {
 } from "@testing-library/react";
 import React from "react";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
+import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
 import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
 import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
-import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
 import ProductListerPage, {
   Data as PlpPageInfoData,
   PageContextType,
@@ -104,7 +106,8 @@ const siteData: SiteData = {
         { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
       ]
     }
-  ]
+  ],
+  accountPage: null
 };
 
 const pageData: Props["data"] = {
@@ -194,6 +197,7 @@ afterEach(() => {
 });
 
 beforeEach(() => {
+  jest.clearAllMocks();
   jest.resetModules();
   mockUseDimensions({
     containerWidth: 400,
@@ -502,7 +506,7 @@ describe("ProductListerPage template", () => {
       pageContext
     );
     fireEvent.click(screen.getByLabelText("Go to next page"));
-    expect(mockQueryES).toBeCalledTimes(1);
+    expect(mockQueryES).toHaveBeenCalledTimes(1);
     expect(baseElement).toMatchSnapshot();
   });
 
@@ -532,7 +536,7 @@ describe("ProductListerPage template", () => {
       pageContext
     );
     fireEvent.click(screen.getByLabelText("Go to next page"));
-    expect(mockQueryES).toBeCalledTimes(1);
+    expect(mockQueryES).toHaveBeenCalledTimes(1);
     expect(baseElement).toMatchSnapshot();
   });
 

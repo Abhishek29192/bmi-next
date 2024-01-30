@@ -1,23 +1,22 @@
-import {
-  Filter,
-  Grid,
-  OverviewCard,
+import { Filter } from "@bmi-digital/components/filters";
+import Grid from "@bmi-digital/components/grid";
+import OverviewCard, {
   OverviewCardProps
-} from "@bmi-digital/components";
+} from "@bmi-digital/components/overview-card";
+import { microCopy } from "@bmi/microcopies";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import BrandLogo from "../../../components/BrandLogo";
+import GoodBetterBestIndicator from "../../../components/GoodBetterBestIndicator";
 import DefaultImage from "../../../images/DefaultImage.svg";
 import { getSearchParams } from "../../../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import withGTM from "../../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { FooterAnchorLink } from "../styles";
-import GoodBetterBestIndicator from "../../../components/GoodBetterBestIndicator";
-import type { PageContextType } from "../components/product-lister-page";
 import type { Context as SiteContext } from "../../../components/Site";
+import type { PageContextType } from "../components/product-lister-page";
 
 //TODO: remove filter.name === "colour" condition when feature flag 'GATSBY_USE_LEGACY_FILTERS' is removed
 // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789

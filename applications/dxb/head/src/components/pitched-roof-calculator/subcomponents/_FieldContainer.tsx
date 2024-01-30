@@ -1,4 +1,4 @@
-import { Typography } from "@bmi-digital/components";
+import Typography from "@bmi-digital/components/typography";
 import React from "react";
 import { Root, StyledHead, StyledHelp } from "./_FieldContainer.styles";
 

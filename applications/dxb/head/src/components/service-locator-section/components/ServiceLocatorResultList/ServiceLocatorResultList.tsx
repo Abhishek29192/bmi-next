@@ -1,15 +1,14 @@
-import {
+import CompanyDetails, {
   CompanyDetailProps,
-  CompanyDetails,
-  RoofProElite,
-  RoofProExpert,
-  RoofProLevel,
-  RoofProPartnerSmall,
-  Typography
-} from "@bmi-digital/components";
+  RoofProLevel
+} from "@bmi-digital/components/company-details";
+import RoofProElite from "@bmi-digital/components/logo/RoofProElite";
+import RoofProExpert from "@bmi-digital/components/logo/RoofProExpert";
+import RoofProPartnerSmall from "@bmi-digital/components/logo/RoofProPartnerSmall";
+import Typography from "@bmi-digital/components/typography";
 import { SVGImport } from "@bmi-digital/svg-import";
-import React from "react";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import { useSiteContext } from "../../../Site";
 import { getResultDataGtm } from "../../helpers";
 import { Service } from "../../index";

@@ -350,6 +350,8 @@ const updateCourse = async (
     return res.sendStatus(200);
   }
 
+  const currency = await doceboApi.getCurrency();
+
   // The same course with the same ID can be in multiple catalogues
   const transformedCourses = courseCatalogues.map<Training>((catalogue) => ({
     id: `${course.id}-${catalogue.catalogue_id}`,
@@ -362,7 +364,12 @@ const updateCourse = async (
     category: transformCourseCategory(course.category),
     catalogueId: `${catalogue.catalogue_id}`,
     catalogueName: catalogue.catalogue_name,
-    catalogueDescription: catalogue.catalogue_description
+    catalogueDescription: catalogue.catalogue_description,
+    onSale: course.on_sale,
+    startDate: course.course_date_start,
+    price: course.price,
+    currency: currency.currency_currency,
+    currencySymbol: currency.currency_symbol
   }));
   logger.info({
     message: `Courses to be updated - ${JSON.stringify(transformedCourses)}`

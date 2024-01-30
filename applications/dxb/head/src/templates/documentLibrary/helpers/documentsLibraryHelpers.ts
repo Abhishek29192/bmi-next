@@ -1,4 +1,4 @@
-import { Filter } from "@bmi-digital/components";
+import { Filter } from "@bmi-digital/components/filters";
 import { ApprovalStatus } from "@bmi/pim-types";
 import { ResultType, Source } from "../../../utils/filters";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
@@ -122,7 +122,10 @@ export const compileESQuery = (
       ...generateFiltersAggs(filters),
       unique_documents_count: {
         cardinality: {
-          field: "titleAndSize.keyword"
+          field:
+            resultType === "Technical"
+              ? "productBaseCode.keyword"
+              : "titleAndSize.keyword"
         }
       }
     },

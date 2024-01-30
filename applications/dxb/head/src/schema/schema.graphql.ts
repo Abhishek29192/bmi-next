@@ -103,7 +103,7 @@ type ContentfulCookiePolicyPage implements ContentfulObject & ContentfulPage & N
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
-  title: String
+  title: String!
   slug: String!
   path: String!
   heroType: String
@@ -125,6 +125,7 @@ type ContentfulSimplePage implements ContentfulObject & ContentfulPage & Node @d
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
   title: String
   slug: String!
   path: String!
@@ -155,6 +156,7 @@ type ContentfulContactUsPage implements ContentfulObject & ContentfulPage & Node
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
   title: String
   slug: String!
   path: String!
@@ -182,7 +184,7 @@ type ContentfulHomePage implements ContentfulObject & Node @dontInfer {
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
-  title: String
+  title: String!
   slug: String!
   path: String!
   breadcrumbs: [BreadcrumbItem]
@@ -200,6 +202,7 @@ type ContentfulProductListerPage implements ContentfulObject & ContentfulPage & 
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
   title: String
   slug: String!
   path: String!
@@ -226,7 +229,8 @@ type ContentfulTrainingListerPage implements ContentfulObject & ContentfulPage &
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
-  title: String!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
+  title: String
   subtitle: String
   slug: String!
   path: String!
@@ -242,6 +246,88 @@ type ContentfulTrainingListerPage implements ContentfulObject & ContentfulPage &
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
   tags: [ContentfulCategory] @link(from: "tags___NODE")
+}
+
+type contentfulTrainingRegistrationPageCompetentChamberLabelTextNode implements Node @dontInfer {
+  id: ID!
+  competentChamberLabel: String!
+}
+
+type contentfulTrainingRegistrationPageConsentTextTextNode implements Node @dontInfer {
+  id: ID!
+  consentText: String!
+}
+
+type contentfulTrainingRegistrationPageTermsOfUseTextNode implements Node @dontInfer {
+  id: ID!
+  termsOfUse: String!
+}
+
+type contentfulTrainingRegistrationPageSuccessDescriptionTextNode implements Node @dontInfer {
+  id: ID!
+  successDescription: String!
+}
+
+type ContentfulTrainingRegistrationPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
+  id: ID!
+  contentful_id: String!
+  metadata: ContentfulMetadata!
+  title: String!
+  subtitle: String
+  slug: String!
+  path: String!
+  breadcrumbTitle: String
+  breadcrumbs: [BreadcrumbItem]
+  brandLogo: String
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
+  featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  salutationTitle: String!
+  salutationMale: String!
+  salutationFemale: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  companyName: String!
+  position: String!
+  customerNumber: String!
+  city: String!
+  street: String!
+  postalCode: String!
+  phoneNumber: String!
+  competentChamberLabel: contentfulTrainingRegistrationPageCompetentChamberLabelTextNode! @link(from: "competentChamberLabel___NODE")
+  competentChamber: String!
+  bmiSystemPartnerClubTitle: String!
+  isMemberOfBmiLabel: String!
+  isNotMemberOfBmiLabel: String!
+  discoverySourceTitle: String!
+  discoverySourceBrochure: String!
+  discoverySourceFieldService: String!
+  discoverySourceWebsite: String!
+  discoverySourceFacebook: String!
+  discoverySourceInstagram: String!
+  discoverySourceXing: String!
+  discoverySourceLinkedin: String!
+  discoverySourceOther: String!
+  discoverySourceSpecifyOther: String!
+  comment: String!
+  extraParticipantTitle: String!
+  extraParticipantSubtitle: String!
+  addParticipantsButton: String!
+  newParticipantTitle: String!
+  removeParticipantButton: String!
+  newParticipantFirstName: String!
+  newParticipantLastName: String!
+  consentText: contentfulTrainingRegistrationPageConsentTextTextNode! @link(from: "consentText___NODE")
+  termsOfUse: contentfulTrainingRegistrationPageTermsOfUseTextNode! @link(from: "termsOfUse___NODE")
+  registerButton: String!
+  successTitle: String!
+  successDescription: contentfulTrainingRegistrationPageSuccessDescriptionTextNode! @link(from: "successDescription___NODE")
+  registrationCompletedDialogCloseButton:  String!
 }
 
 type ContentfulPromo implements ContentfulObject & Node @dontInfer {
@@ -631,6 +717,7 @@ type ContentfulSite implements ContentfulObject & Node @dontInfer {
   regions: [RegionJson]! @link(from: "regions___NODE")
   pitchedRoofCalculatorConfig: ContentfulWebToolCalculator @link(from: "pitchedRoofCalculatorConfig___NODE")
   visualiserHouseTypes: [ContentfulVisualiserHouseType!] @link(from: "visualiserHouseTypes___NODE")
+  accountPage: ContentfulAccountPage @link(from: "accountPage___NODE")
 }
 
 # Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
@@ -725,6 +812,7 @@ type ContentfulDocumentLibraryPage implements ContentfulObject & ContentfulPage 
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
   title: String
   slug: String!
   categoryCodes: [String!]
@@ -1070,7 +1158,8 @@ type ContentfulBrandLandingPage implements ContentfulObject & ContentfulPage & N
   id: ID!
   metadata: ContentfulMetadata!
   contentful_id: String!
-  title: String
+  # title is mandatory, but clashes with the use of ContentfulPromoOrPage
+  title: String!
   cta: ContentfulLink @link(from: "cta___NODE")
   slug: String!
   path: String!
@@ -1313,7 +1402,29 @@ type DoceboCourses implements Node @dontInfer {
   slug_name: String!
   name: String!
   description: String!
+  currency: String!
+  currencySymbol: String!
   code: String
   sessions: [Session]
+  categoryName: String!
+  price: String
+  course_type: String!
+  img_url: String
+  breadcrumbs: [BreadcrumbItem!]!
+}
+
+type ContentfulAccountPage implements Node @dontInfer {
+  id: ID!
+  contentful_id: String!
+  metadata: ContentfulMetadata!
+  slug: String!
+  salutation: String!
+  roleDescription: String!
+  description: String!
+  featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
+  titleForToolSection: String!
+  titleForServiceSupportSection: String!
+  allowTools: [String]
+  serviceSupportCards: [ContentfulContactDetails] @link(from: "serviceSupportCards___NODE")
 }
 `;

@@ -94,7 +94,7 @@ process.env.LOCALE = "en-US";
 
 process.env.BEARER_TOKEN_SECRET = "bearerToken";
 
-process.env.SPACE_MARKET_CODE = "no";
+process.env.GATSBY_SPACE_MARKET_CODE = "no";
 process.env.GATSBY_MARKET_LOCALE_CODE = "nb-NO";
 
 process.env.DOCEBO_API_URL = "https://docebo-fake-api-url";

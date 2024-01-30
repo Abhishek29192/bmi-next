@@ -1,9 +1,7 @@
-import {
-  HeroProps,
-  Section,
-  SpotlightHeroProps,
-  TableOfContent
-} from "@bmi-digital/components";
+import { HeroProps } from "@bmi-digital/components/hero";
+import Section from "@bmi-digital/components/section";
+import { SpotlightHeroProps } from "@bmi-digital/components/spotlight-hero";
+import TableOfContent from "@bmi-digital/components/table-of-content";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../../../components/BackToResults";

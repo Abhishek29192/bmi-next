@@ -1,4 +1,5 @@
-import { ThemeProvider, YoutubeVideo } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import YoutubeVideo from "@bmi-digital/components/youtube-video";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import ProductOverview from "../ProductOverview";

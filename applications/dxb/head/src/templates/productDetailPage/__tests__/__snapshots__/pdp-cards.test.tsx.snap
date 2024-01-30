@@ -28,7 +28,7 @@ exports[`PdpCardsSection should render CTACard with video 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="css-rf8wnt"
+                class="css-jt6ttj"
                 data-test-class-name="card"
               >
                 <div
@@ -151,7 +151,7 @@ exports[`PdpCardsSection should render correctly 1`] = `
               data-testid="grid-item"
             >
               <a
-                class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
+                class="MuiButtonBase-root css-1flrhdr-MuiButtonBase-root"
                 data-gtm="{"id":"cta-click1","action":"/en/zanda-arktis/","label":"Zanda Arktis "}"
                 data-testid="cta-card-wrapper"
                 href="/en/zanda-arktis/"

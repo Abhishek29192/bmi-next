@@ -1,9 +1,9 @@
+import Typography from "@bmi-digital/components/typography";
 import React from "react";
-import { Typography } from "@bmi-digital/components";
 import {
+  StyledDescription,
   StyledDescriptionCard,
-  StyledHeader,
-  StyledDescription
+  StyledHeader
 } from "./styles/DescriptionCardStyles";
 
 const DescriptionCard = ({ title, icon: StyledIcon, children }: any) => (

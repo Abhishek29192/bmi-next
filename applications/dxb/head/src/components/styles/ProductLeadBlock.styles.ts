@@ -1,5 +1,6 @@
+import Tabs from "@bmi-digital/components/tabs";
+import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
-import { Tabs, Typography } from "@bmi-digital/components";
 import AssetsIframe from "../AssetsIframe";
 
 const PREFIX = "ProductLeadBlockStyles";

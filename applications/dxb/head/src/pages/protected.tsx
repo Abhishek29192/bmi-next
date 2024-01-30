@@ -1,22 +1,20 @@
-import * as React from "react";
-import { WindowLocation } from "@reach/router";
-import { AuthService, useAuth } from "@bmi/gatsby-theme-auth0";
+import React from "react";
+import AuthService from "../auth/service";
+import useAuth from "../hooks/useAuth";
 
 interface Props {
-  location?: WindowLocation;
   children?: React.ReactNode;
 }
 
 const ProtectedPage: React.FunctionComponent<Props> = ({ children }) => {
-  const { isLoggedIn, profile } = useAuth();
-
+  const { isLoggedIn, profile, isLoading } = useAuth();
   React.useEffect(() => {
-    if (!isLoggedIn) {
+    if (!isLoggedIn && !isLoading && !profile) {
       AuthService.login();
     }
-  }, [isLoggedIn]);
+  }, [isLoading, isLoggedIn, profile]);
 
-  return !isLoggedIn || !profile ? null : <>{children}</>;
+  return profile && <>{children}</>;
 };
 
 export default ProtectedPage;

@@ -1,8 +1,8 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { MicroCopy } from "../helpers/microCopy";
 import PitchedRoofCalculator from "../PitchedRoofCalculator";
+import { MicroCopy } from "../helpers/microCopy";
 import en from "./samples/copy/en.json";
 import no from "./samples/copy/no.json";
 

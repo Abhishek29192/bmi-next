@@ -6,7 +6,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -91,7 +91,20 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               <li
                 class="Header-navItem"
                 data-testid="utilities-link-Contact-Us"
-              />
+              >
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"nav-top-utilities-bar","label":"Contact Us","action":"/en/kontakt-oss/"}"
+                  href="/en/kontakt-oss/"
+                  tabindex="0"
+                  target="_blank"
+                >
+                  Contact Us
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </a>
+              </li>
               <li
                 class="Header-navItem"
               >
@@ -192,6 +205,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -216,6 +230,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -240,6 +255,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -264,6 +280,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -293,6 +310,29 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             <div
               class="Header-navigationBarContent"
             >
+              <a
+                aria-label="MC: global.logoLabel"
+                class="Header-logoLink"
+                href="/en/"
+              >
+                <svg
+                  class="Header-logo css-87lb9q"
+                  viewBox="0 0 250 250"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h250v250H0z"
+                    fill="#009fe3"
+                  />
+                  <g
+                    fill="#fff"
+                  >
+                    <path
+                      d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
+                    />
+                  </g>
+                </svg>
+              </a>
               <nav
                 aria-label="Navigation"
                 class="Header-navigation"
@@ -302,7 +342,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -642,7 +682,39 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   >
                     <li
                       class="MuiBreadcrumbs-li"
-                    />
+                    >
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
                     <li
                       aria-hidden="true"
                       class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
@@ -695,7 +767,39 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   >
                     <li
                       class="MuiBreadcrumbs-li"
-                    />
+                    >
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                        data-testid="bread-crumb-Home"
+                        href="/en/"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            data-testid="ArrowBackIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="Breadcrumbs-label"
+                        >
+                          Home
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
                   </ol>
                 </nav>
               </div>
@@ -928,7 +1032,39 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 >
                   <li
                     class="MuiBreadcrumbs-li"
-                  />
+                  >
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                      data-testid="bread-crumb-Home"
+                      href="/en/"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                          data-testid="ArrowBackIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="Breadcrumbs-label"
+                      >
+                        Home
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
+                  </li>
                   <li
                     aria-hidden="true"
                     class="MuiBreadcrumbs-separator Breadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
@@ -981,7 +1117,39 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 >
                   <li
                     class="MuiBreadcrumbs-li"
-                  />
+                  >
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
+                      data-testid="bread-crumb-Home"
+                      href="/en/"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                          data-testid="ArrowBackIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="Breadcrumbs-label"
+                      >
+                        Home
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
+                  </li>
                 </ol>
               </nav>
             </div>
@@ -1282,7 +1450,19 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   >
                     <li
                       class="Footer-listItem"
-                    />
+                    >
+                      <a
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"nav-footer1","label":"Diversity","action":"/en/mangfold/"}"
+                        href="/en/mangfold/"
+                        tabindex="0"
+                      >
+                        Diversity
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
+                    </li>
                     <li
                       class="Footer-listItem"
                     >
@@ -1333,7 +1513,19 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               >
                 <li
                   class="Footer-listItem"
-                />
+                >
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-footer1","label":"Cookies","action":"/en/bruk-av-informasjonskapsler/"}"
+                    href="/en/bruk-av-informasjonskapsler/"
+                    tabindex="0"
+                  >
+                    Cookies
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
                 <li
                   class="Footer-listItem"
                 >
@@ -1351,7 +1543,19 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 </li>
                 <li
                   class="Footer-listItem"
-                />
+                >
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"nav-footer1","label":"MC: global.sitemap","action":"/en/sitemap/"}"
+                    href="/en/sitemap/"
+                    tabindex="0"
+                  >
+                    MC: global.sitemap
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
               </ul>
               <div
                 class="css-prasn8"
@@ -1445,7 +1649,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1644,6 +1848,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -1668,6 +1873,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -1692,6 +1898,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -1716,6 +1923,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -1777,7 +1985,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -2295,21 +2503,21 @@ exports[`Simple page renders correctly with full data 1`] = `
         />
         <picture>
           <source
-            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
             sizes="(min-width: 948px) 948px, 100vw"
+            srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
             type="image/webp"
           />
           <img
             alt="Image alt text"
             data-gatsby-image-ssr=""
             data-main-image=""
-            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
             data-testid="hero-image"
             decoding="async"
             draggable="false"
-            loading="lazy"
+            loading="eager"
             sizes="(min-width: 948px) 948px, 100vw"
+            src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+            srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
             style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: 0% 0%; opacity: 0;"
           />
         </picture>

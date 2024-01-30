@@ -443,7 +443,7 @@ describe("swapReadWriteAliases", () => {
         expect(getEsClient).toHaveBeenCalledTimes(3);
         expect(catAliases).toHaveBeenCalledTimes(2);
 
-        expect(esDeleteAlias).toBeCalledTimes(2);
+        expect(esDeleteAlias).toHaveBeenCalledTimes(2);
         expect(esDeleteAlias).toHaveBeenNthCalledWith(1, {
           index: indexWithReadAlias,
           name: `${aliasPrefix}_read`
@@ -453,13 +453,13 @@ describe("swapReadWriteAliases", () => {
           name: `${aliasPrefix}_read`
         });
 
-        expect(esPutAlias).toBeCalledTimes(1);
+        expect(esPutAlias).toHaveBeenCalledTimes(1);
         expect(esPutAlias).toHaveBeenCalledWith({
           index: indexWithWriteAlias,
           name: `${aliasPrefix}_read`
         });
 
-        expect(esDelete).toBeCalledTimes(2);
+        expect(esDelete).toHaveBeenCalledTimes(2);
         expect(esDelete).toHaveBeenNthCalledWith(1, {
           index: indexWithReadAlias
         });

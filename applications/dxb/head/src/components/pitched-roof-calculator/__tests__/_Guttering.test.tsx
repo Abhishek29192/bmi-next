@@ -1,9 +1,10 @@
-import { Form, FormContext, ThemeProvider } from "@bmi-digital/components";
+import Form, { FormContext } from "@bmi-digital/components/form";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import Guttering from "../_Guttering";
 import { MicroCopy } from "../helpers/microCopy";
 import { GroupedGutters, GutterHook, GutterVariant } from "../types";
-import Guttering from "../_Guttering";
 import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
 

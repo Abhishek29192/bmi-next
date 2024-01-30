@@ -473,8 +473,8 @@ const getClassification = (
             return String(a?.name) > String(b?.name)
               ? 1
               : String(a?.name) < String(b?.name)
-              ? -1
-              : 0;
+                ? -1
+                : 0;
           });
         }
       });

@@ -1,6 +1,5 @@
+import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
-
-import { Typography } from "@bmi-digital/components";
 
 export const CheckboxGroupComponent = styled(Typography)(() => ({
   position: "relative",

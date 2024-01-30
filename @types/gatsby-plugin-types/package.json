@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "types": "index.d.ts",
   "devDependencies": {
-    "gatsby": "^5.12.4"
+    "gatsby": "^5.13.1"
   }
 }

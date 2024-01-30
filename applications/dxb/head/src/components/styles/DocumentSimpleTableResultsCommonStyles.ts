@@ -1,4 +1,4 @@
-import { Button, IconButtonProps } from "@bmi-digital/components";
+import Button, { IconButtonProps } from "@bmi-digital/components/button";
 import { ApprovalStatus } from "@bmi/pim-types";
 import { buttonClasses } from "@mui/material/Button";
 import { styled } from "@mui/material/styles";

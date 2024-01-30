@@ -6,7 +6,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-13yuzwk-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -109,7 +109,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 class="Header-navItem"
               >
                 <div
-                  class="css-1vxhkfv"
+                  class="css-12vfv7w"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -224,6 +224,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           alt="Albania flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/al.svg"
                           width="20px"
                         />
@@ -248,6 +249,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           alt="Österreich flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/at.svg"
                           width="20px"
                         />
@@ -272,6 +274,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           alt="United Kingdom flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -296,6 +299,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           alt="English flag"
                           class="LanguageSelection-languageIcon"
                           height="16px"
+                          loading="lazy"
                           src="/icons/flags/uk.svg"
                           width="20px"
                         />
@@ -357,7 +361,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                   class="MuiTabs-root css-1ujnqem-MuiTabs-root"
                 >
                   <div
-                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                    class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                     style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
                   <div
@@ -673,7 +677,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
       data-testid="brand-colors-provider"
     >
       <div
-        class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-prja05"
+        class="CarouselHero-slim CarouselHero-carousel CarouselHero-spaceBottom css-1oycno8"
         data-test-class-name="hero"
         data-testid="hero"
       >
@@ -681,7 +685,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
           class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl css-3hqf54-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-1tk6lda-MuiContainer-root"
           >
             <div
               class="CarouselHero-wrapper"
@@ -723,21 +727,22 @@ exports[`Home Page Template render correctly with all data 1`] = `
                               class="CarouselHero-content"
                             >
                               <h1
-                                class="MuiTypography-root MuiTypography-h1 Typography-underline Typography-darkBg css-1a28zd1-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1wfxafx-MuiTypography-root"
                                 data-testid="hero-title"
                               >
                                 homePageSlideTitle
                               </h1>
                               <p
-                                class="MuiTypography-root MuiTypography-body1 css-twvsld-MuiTypography-root"
+                                class="MuiTypography-root MuiTypography-body1 css-1e8c7eb-MuiTypography-root"
                                 data-test-class-name="text"
                                 data-testid="hero-content-slide-text"
                               />
                               <a
-                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CarouselHero-cta cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                 data-gtm="{"id":"cta-click1","action":"/en/roof-tiles/","label":"slideCTA"}"
                                 data-testid="hero-cta"
                                 href="/en/roof-tiles/"
+                                style="background: rgb(0, 114, 176); border-color: #0072b0; color: rgb(255, 255, 255);"
                                 tabindex="0"
                               >
                                 slideCTA
@@ -754,7 +759,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </div>
               </div>
               <div
-                class="SlideControls-mobileFullSize SlideControls-light SlideControls-hide CarouselHero-controls css-9wcz94"
+                class="SlideControls-mobileFullSize SlideControls-hide CarouselHero-controls css-9wcz94"
               >
                 <span
                   class="SlideControls-middleContainer"
@@ -785,7 +790,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               >
                 <form
                   action="/en/search/"
-                  class="css-1mhzmpj"
+                  class="css-1hsggty"
                   data-testid="search-form"
                 >
                   <div
@@ -796,7 +801,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -804,7 +809,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -847,86 +852,91 @@ exports[`Home Page Template render correctly with all data 1`] = `
           </div>
         </div>
         <div
-          class="css-vbg3mr"
-          data-testid="carousel-hero-image-carousel"
+          class="css-fra6c2"
+          data-testid="horizon-wrapper"
         >
           <div
-            class=" css-xi64lz"
+            class="css-1hpze53"
+            data-testid="carousel-hero-image-carousel"
           >
             <div
-              class="Carousel-swipeable css-1s5ge7u"
-              data-testid="carousel"
+              class=" css-xi64lz"
             >
               <div
-                data-testid="carousel-swipable-slide"
-                style="overflow-x: hidden;"
+                class="Carousel-swipeable css-1s5ge7u"
+                data-testid="carousel"
               >
                 <div
-                  class="react-swipeable-view-container"
-                  style="flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
+                  data-testid="carousel-swipable-slide"
+                  style="overflow-x: hidden;"
                 >
                   <div
-                    aria-hidden="false"
-                    class="Carousel-swipeableSlide"
-                    data-swipeable="true"
-                    style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    class="react-swipeable-view-container"
+                    style="flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
                   >
                     <div
-                      class="Carousel-page"
+                      aria-hidden="false"
+                      class="Carousel-swipeableSlide"
+                      data-swipeable="true"
+                      style="width: 100%; flex-shrink: 0; overflow: auto;"
                     >
                       <div
-                        class="Carousel-slide"
-                        data-test-class-name="slide"
-                        data-testid="hero-image-carousel-0"
-                        style="width: 100%;"
+                        class="Carousel-page"
                       >
                         <div
-                          class="CarouselHero-image css-1moer0t-Media"
-                          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                          data-testid="hero-video"
+                          class="Carousel-slide"
+                          data-test-class-name="slide"
+                          data-testid="hero-image-carousel-0"
+                          style="width: 100%;"
                         >
                           <div
-                            aria-label="label"
-                            class="YoutubeVideo-thumbnail css-14jkchm"
-                            classes="[object Object]"
-                            component="button"
-                            data-testid="thumbnail"
-                            type="button"
-                            variant="contained"
+                            class="CarouselHero-image css-1moer0t-Media"
+                            data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
+                            data-testid="hero-video"
                           >
-                            <img
-                              alt="label"
-                              class="YoutubeVideo-previewImage"
-                              data-testid="youtube-preview-image"
-                              src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                            />
-                            <span
-                              class="css-1ptr1nd"
-                            >
-                              label
-                            </span>
                             <div
                               aria-label="label"
-                              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="thumbnail-button"
-                              role="button"
-                              tabindex="0"
+                              class="YoutubeVideo-thumbnail css-14jkchm"
+                              classes="[object Object]"
+                              component="button"
+                              data-testid="thumbnail"
                               type="button"
+                              variant="contained"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                data-testid="PlayArrowIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M8 5v14l11-7z"
-                                />
-                              </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              <img
+                                alt="label"
+                                class="YoutubeVideo-previewImage"
+                                data-testid="youtube-preview-image"
+                                src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
                               />
+                              <span
+                                class="css-1ptr1nd"
+                              >
+                                label
+                              </span>
+                              <div
+                                aria-label="label"
+                                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                                data-testid="thumbnail-button"
+                                role="button"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                  data-testid="PlayArrowIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M8 5v14l11-7z"
+                                  />
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -937,10 +947,21 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </div>
             </div>
           </div>
+          <div
+            class="css-3bnn1v"
+            data-testid="horizon-container"
+          >
+            <div
+              class="CarouselHero-left css-1or315q"
+            />
+            <div
+              class="CarouselHero-right css-1or315q"
+            />
+          </div>
         </div>
       </div>
       <div
-        class="css-19sh6o8"
+        class="css-k868dp"
         data-testid="overlap-cards-wrapper"
       >
         <div
@@ -954,11 +975,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
+                  class="MuiButtonBase-root css-1flrhdr-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                   data-testid="overlap-card"
                   href="/en/some-page/"
@@ -1043,11 +1064,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <a
-                  class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
+                  class="MuiButtonBase-root css-1flrhdr-MuiButtonBase-root"
                   data-gtm="{"id":"cta-click1","label":"Call to action","action":"/en/some-page/"}"
                   data-testid="overlap-card"
                   href="/en/some-page/"
@@ -1132,11 +1153,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 Grid-item css-1ge0qzo-MuiGrid2-root"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-5 MuiGrid2-grid-lg-3 css-1lyo7qz-MuiGrid2-root"
                 data-testid="grid-item"
               >
                 <div
-                  class="css-rf8wnt"
+                  class="css-jt6ttj"
                   data-test-class-name="card"
                 >
                   <div
@@ -1392,15 +1413,18 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 style="margin-top: 40px;"
               >
                 <div
-                  class=" css-1u48ai"
+                  class=" css-makape"
+                  data-testid="accordion"
                 >
                   <div
-                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-xaj05m-MuiPaper-root-MuiAccordion-root"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+                    data-testid="accordion-item"
                   >
                     <div
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1bwzdu4-MuiButtonBase-root-MuiAccordionSummary-root"
                       data-gtm="{"id":"selector-accordion1","label":"hello","action":"Selector – Accordion"}"
+                      data-testid="accordion-summary"
                       role="button"
                       tabindex="0"
                     >
@@ -1445,7 +1469,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                             role="region"
                           >
                             <div
-                              class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
+                              class="MuiAccordionDetails-root  css-188s0du-MuiAccordionDetails-root"
                             >
                               <div
                                 class="RichText-root RichText-no-bottom-margin css-1u73y0t"

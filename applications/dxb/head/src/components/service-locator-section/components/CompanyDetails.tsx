@@ -1,4 +1,7 @@
-import { CompanyDetailProps, RoofProLevel } from "@bmi-digital/components";
+import {
+  CompanyDetailProps,
+  RoofProLevel
+} from "@bmi-digital/components/company-details";
 import React from "react";
 import { Service } from "..";
 import { devLog } from "../../../utils/devLog";

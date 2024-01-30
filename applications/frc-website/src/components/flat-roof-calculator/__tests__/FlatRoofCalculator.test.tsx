@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render } from "@testing-library/react";
 import React from "react";
 import FlatRoofCalculator from "../";

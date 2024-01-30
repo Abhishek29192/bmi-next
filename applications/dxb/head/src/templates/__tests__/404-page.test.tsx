@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { LocationProvider } from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";

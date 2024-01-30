@@ -1,4 +1,6 @@
-import { CTACard, Grid, GridSize, Section } from "@bmi-digital/components";
+import CTACard from "@bmi-digital/components/cta-card";
+import Grid, { GridSize } from "@bmi-digital/components/grid";
+import Section from "@bmi-digital/components/section";
 import React from "react";
 import Image from "../../../components/Image";
 import { getCTA } from "../../../components/Link";

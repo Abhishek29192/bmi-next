@@ -1,16 +1,15 @@
-import {
-  Button,
-  Grid,
-  OverviewCard,
-  OverviewCardProps,
-  Section,
-  Tabs
-} from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import Grid from "@bmi-digital/components/grid";
 import AddIcon from "@bmi-digital/components/icon/Add";
+import OverviewCard, {
+  OverviewCardProps
+} from "@bmi-digital/components/overview-card";
+import Section from "@bmi-digital/components/section";
+import Tabs from "@bmi-digital/components/tabs";
+import { microCopy } from "@bmi/microcopies";
 import Tab, { TabProps } from "@mui/material/Tab";
 import { graphql, Link } from "gatsby";
 import React, { useMemo, useState } from "react";
-import { microCopy } from "@bmi/microcopies";
 import DefaultImage from "../images/DefaultImage.svg";
 import { RelatedProduct } from "../types/pim";
 import withGTM from "../utils/google-tag-manager";
@@ -18,12 +17,12 @@ import { getPathWithCountryCode } from "../utils/path";
 import { mapClassificationValues } from "../utils/product-details-transforms";
 import { renderMedia } from "../utils/renderMedia";
 import BrandLogo from "./BrandLogo";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 import { useSiteContext } from "./Site";
 import {
   StyledLoadMoreWrapper,
   StyledReadMoreAnchor
 } from "./styles/RelatedProducts.styles";
-import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 
 /**
  * Groups resolved product category paths by the 2nd last category in the path

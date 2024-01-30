@@ -1,4 +1,6 @@
-import { DownloadList, Section, replaceSpaces } from "@bmi-digital/components";
+import DownloadList from "@bmi-digital/components/download-list";
+import Section from "@bmi-digital/components/section";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React, { useRef, useState } from "react";
 import { useConfig } from "../contexts/ConfigProvider";

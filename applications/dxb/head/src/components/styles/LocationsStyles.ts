@@ -1,5 +1,5 @@
+import Button from "@bmi-digital/components/button";
 import { styled } from "@mui/material/styles";
-import { Button } from "@bmi-digital/components";
 
 export const LocationsSection = styled("div")(({ theme }) => ({
   display: "flex",

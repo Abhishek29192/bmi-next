@@ -1,4 +1,5 @@
-import { RegionCode, ThemeProvider } from "@bmi-digital/components";
+import { RegionCode } from "@bmi-digital/components/language-selection";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { LocationProvider } from "@reach/router";
 import { render } from "@testing-library/react";
 import React from "react";
@@ -119,7 +120,8 @@ const siteData: SiteData = {
         { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
       ]
     }
-  ]
+  ],
+  accountPage: null
 };
 
 const pageData: Data = {

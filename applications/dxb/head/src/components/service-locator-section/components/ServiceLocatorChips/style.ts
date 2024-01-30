@@ -1,5 +1,5 @@
-import { Typography } from "@bmi-digital/components";
-import { styled } from "@mui/material";
+import Typography from "@bmi-digital/components/typography";
+import { styled } from "@mui/material/styles";
 
 export const Filters = styled("div")(({ theme }) => ({
   display: "flex",

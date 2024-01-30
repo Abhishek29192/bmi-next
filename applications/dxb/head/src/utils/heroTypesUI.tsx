@@ -1,9 +1,7 @@
-import {
-  Hero,
-  HeroProps,
-  SpotlightHero,
+import Hero, { HeroProps } from "@bmi-digital/components/hero";
+import SpotlightHero, {
   SpotlightHeroProps
-} from "@bmi-digital/components";
+} from "@bmi-digital/components/spotlight-hero";
 import React from "react";
 
 export const renderHero = (

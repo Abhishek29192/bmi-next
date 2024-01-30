@@ -1,10 +1,10 @@
 import { HubspotProvider } from "@aaronhayes/react-use-hubspot-form";
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import React from "react";
 import { ConfigProvider } from "./src/contexts/ConfigProvider";
+import "./src/styles/global.css";
 import { modifyTheme } from "./src/styles/modifyTheme";
 import type { GatsbyBrowser } from "gatsby";
-import "./src/styles/global.css";
 
 export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
   element

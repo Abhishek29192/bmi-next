@@ -1,5 +1,5 @@
+import Pagination from "@bmi-digital/components/pagination";
 import { styled } from "@mui/material/styles";
-import { Pagination } from "@bmi-digital/components";
 
 const PREFIX = "resultsPaginationStyles";
 export const classes = {

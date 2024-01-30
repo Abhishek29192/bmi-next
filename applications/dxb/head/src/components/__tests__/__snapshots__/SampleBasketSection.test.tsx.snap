@@ -38,6 +38,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
               <img
                 alt="sample-1"
                 class="SampleBasketSectionProducts-product-image OverviewCard-headerPicture css-7mgsqw-Media"
+                loading="lazy"
                 src="http://localhost:8000/image-real-file-name.jpg"
                 style="object-fit: contain; object-position: center;"
               />
@@ -193,6 +194,7 @@ exports[`SampleBasketSection component should render form after complete button 
               <img
                 alt="sample-1"
                 class="SampleBasketSectionProducts-product-image OverviewCard-headerPicture css-7mgsqw-Media"
+                loading="lazy"
                 src="http://localhost:8000/image-real-file-name.jpg"
                 style="object-fit: contain; object-position: center;"
               />
@@ -294,7 +296,7 @@ exports[`SampleBasketSection component should render form after complete button 
           Complete form
         </h2>
         <form
-          class="Form-rightAlignButton css-yp4v13"
+          class="Form-rightAlignButton css-1p7e5tt"
           data-testid="sample-basket-section-checkout-form"
         >
           <div
@@ -310,7 +312,7 @@ exports[`SampleBasketSection component should render form after complete button 
                 data-testid="text-field-text"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
                   for="text"
                   id="text-label"

@@ -1,12 +1,12 @@
-import { Typography } from "@bmi-digital/components";
-import React from "react";
+import Typography from "@bmi-digital/components/typography";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import { useSiteContext } from "../Site";
-import { useAnalyticsContext } from "./helpers/analytics";
-import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
-import FieldContainer from "./subcomponents/_FieldContainer";
-import { Underlay } from "./types";
 import { StyledCardRadioItemParagraph } from "./_UnderlaySelection.styles";
+import { useAnalyticsContext } from "./helpers/analytics";
+import FieldContainer from "./subcomponents/_FieldContainer";
+import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
+import { Underlay } from "./types";
 
 type UnderlaySelectionRowProps = {
   // TODO: Type when importing from Contentful

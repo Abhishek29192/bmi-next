@@ -1,5 +1,6 @@
+import Icon from "@bmi-digital/components/icon";
+import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
-import { Typography, Icon } from "@bmi-digital/components";
 
 export const StyledDescriptionCard = styled("div")(() => ({
   marginBottom: "24px"

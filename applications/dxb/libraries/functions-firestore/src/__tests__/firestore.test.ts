@@ -39,8 +39,8 @@ describe("getFirestore", () => {
       );
     }
 
-    expect(mockInitializeApp).toBeCalledTimes(0);
-    expect(mockGetFirestore).toBeCalledTimes(0);
+    expect(mockInitializeApp).toHaveBeenCalledTimes(0);
+    expect(mockGetFirestore).toHaveBeenCalledTimes(0);
   });
 
   it("should return the Firestore instance", async () => {
@@ -67,12 +67,12 @@ describe("getFirestore", () => {
     await getFirestore();
     await getFirestore();
 
-    expect(mockInitializeApp).toBeCalledTimes(1);
+    expect(mockInitializeApp).toHaveBeenCalledTimes(1);
     expect(mockInitializeApp).toBeCalledWith({
       databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`,
       projectId: process.env.GCP_PROJECT_ID
     });
-    expect(mockGetFirestore).toBeCalledTimes(1);
+    expect(mockGetFirestore).toHaveBeenCalledTimes(1);
     expect(mockGetFirestore).toBeCalledWith(app);
   });
 });

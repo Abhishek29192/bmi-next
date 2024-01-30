@@ -108,7 +108,7 @@ describe("deleteESItemByCode", () => {
         }
       }
     });
-    expect(deleteByQuery).toBeCalledTimes(1);
+    expect(deleteByQuery).toHaveBeenCalledTimes(1);
   });
 
   it("should perform delete operation for systems and related documents on delete message ", async () => {
@@ -156,7 +156,7 @@ describe("deleteESItemByCode", () => {
     const logMessage = JSON.parse(logData[logData.length - 1][0]).message;
 
     expect(getEsClient).not.toBeCalled();
-    expect(deleteByQuery).toBeCalledTimes(0);
+    expect(deleteByQuery).toHaveBeenCalledTimes(0);
     expect(logMessage).toEqual("'Layer' is not indexed into ES");
   });
 
@@ -178,7 +178,7 @@ describe("deleteESItemByCode", () => {
         }
 
         expect(getEsClient).toBeCalled();
-        expect(deleteByQuery).toBeCalledTimes(callTimes);
+        expect(deleteByQuery).toHaveBeenCalledTimes(callTimes);
       });
 
       it(`should perform a delete operation for documents if an unknown error occurs when deleting the ${objType} and not propagate the error`, async () => {
@@ -193,7 +193,7 @@ describe("deleteESItemByCode", () => {
         }
 
         expect(getEsClient).toBeCalled();
-        expect(deleteByQuery).toBeCalledTimes(callTimes);
+        expect(deleteByQuery).toHaveBeenCalledTimes(callTimes);
       });
 
       it(`should not propagate the error when deleting the ${objType} product documents`, async () => {
@@ -208,7 +208,7 @@ describe("deleteESItemByCode", () => {
         }
 
         expect(getEsClient).toBeCalled();
-        expect(deleteByQuery).toBeCalledTimes(callTimes);
+        expect(deleteByQuery).toHaveBeenCalledTimes(callTimes);
       });
     });
   });

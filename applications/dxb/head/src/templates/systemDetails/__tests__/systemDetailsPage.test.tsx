@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { History } from "@reach/router";
 import { screen, waitFor } from "@testing-library/react";
 import React from "react";
@@ -9,8 +9,8 @@ import createSystemLayer from "../../../__tests__/helpers/SystemLayerHelper";
 import { Config, ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { renderWithRouter } from "../../../test/renderWithRouter";
-import SystemDetailsPage from "../systemDetailsPage";
 import { local } from "../../../utils/storage";
+import SystemDetailsPage from "../systemDetailsPage";
 
 const systemCode = "1234";
 const siteId = "1234";

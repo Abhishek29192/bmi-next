@@ -1,12 +1,12 @@
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { fireEvent, screen } from "@testing-library/react";
 import React from "react";
-import { useMediaQuery } from "@mui/material";
-import FilterSection, { Props } from "../FiltersSidebar";
 import { renderWithProviders } from "../../__tests__/renderWithProviders";
+import FilterSection, { Props } from "../FiltersSidebar";
 
-jest.mock("@mui/material", () => ({
-  ...jest.requireActual("@mui/material"),
-  useMediaQuery: jest.fn()
+jest.mock("@mui/material/useMediaQuery", () => ({
+  __esModule: true,
+  default: jest.fn()
 }));
 
 const mockUseMediaQuery = useMediaQuery as jest.Mock<

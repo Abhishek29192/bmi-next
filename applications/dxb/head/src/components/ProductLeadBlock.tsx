@@ -1,22 +1,21 @@
-import {
-  AnchorLink,
-  AnchorLinkProps,
-  Button,
-  DownloadList,
-  Icon,
-  IconList,
-  LeadBlock,
-  MediaGallery,
-  replaceSpaces,
-  Tabs,
-  useIsClient
-} from "@bmi-digital/components";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
+import Button from "@bmi-digital/components/button";
+import DownloadList from "@bmi-digital/components/download-list";
+import { useIsClient } from "@bmi-digital/components/hooks";
+import Icon from "@bmi-digital/components/icon";
+import IconList from "@bmi-digital/components/icon-list";
 import CheckIcon from "@bmi-digital/components/icon/Check";
 import Launch from "@bmi-digital/components/icon/ExternalLink";
-import { styled } from "@mui/material/styles";
-import Tab, { TabProps } from "@mui/material/Tab";
-import React, { useRef, useState } from "react";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import MediaGallery from "@bmi-digital/components/media-gallery";
+import Tabs from "@bmi-digital/components/tabs";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
+import Tab, { TabProps } from "@mui/material/Tab";
+import { styled } from "@mui/material/styles";
+import React, { useRef, useState } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
 import { Product } from "../types/pim";
 import withGTM from "../utils/google-tag-manager";
@@ -30,16 +29,16 @@ import { DocumentDisplayFormatType } from "./Resources";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import {
-  classes,
   StyledDocumentLibrary,
   StyledDocumentSpan,
   StyledImage,
   StyledImagesContainer,
-  StyledProductLeadBlockTitle,
   StyledProductDescription,
   StyledProductLeadBlock,
+  StyledProductLeadBlockTitle,
   StyledProductLeadTabIFrame,
-  StyledTabPanel
+  StyledTabPanel,
+  classes
 } from "./styles/ProductLeadBlock.styles";
 
 const StyledBlueCheckIcon = styled(Icon)(({ theme }) => ({

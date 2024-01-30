@@ -1,15 +1,12 @@
-import {
-  Grid,
-  MediaGallery,
-  replaceSpaces,
-  Section,
-  Thumbnail,
-  ThumbnailProps,
-  Typography
-} from "@bmi-digital/components";
+import Grid from "@bmi-digital/components/grid";
+import MediaGallery from "@bmi-digital/components/media-gallery";
+import Section from "@bmi-digital/components/section";
+import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
+import Typography from "@bmi-digital/components/typography";
+import { replaceSpaces } from "@bmi-digital/components/utils";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import withGTM from "../utils/google-tag-manager";
 import { GallerySectionMedias, transformMediaSrc } from "../utils/media";
 import RichText, { RichTextData } from "./RichText";

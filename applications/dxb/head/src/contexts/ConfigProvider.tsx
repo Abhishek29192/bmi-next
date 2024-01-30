@@ -30,13 +30,14 @@ export interface Config {
   spaceMarketCode?: string;
   isV2WebToolsCalculatorEnabled: boolean;
   isV2VisualiserEnabled: boolean;
-  isSpaEnabled: boolean;
   isGatsbyDisabledElasticSearch: boolean;
   oneTrustId?: string;
   isSampleOrderingEnabled: boolean;
   renderTeamCategoriesAsRows: boolean;
   enableProductClassificationAttributeOrdering: boolean;
   isLoginEnabled: boolean;
+  excludeLocalisedAlternate: boolean;
+  marketLocaleCode?: string;
 }
 
 const envConfig = (): Config => ({
@@ -82,7 +83,6 @@ const envConfig = (): Config => ({
   gcpSystemConfiguratorEndpoint:
     process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
   isLegacyFiltersUsing: convertStrToBool(process.env.GATSBY_USE_LEGACY_FILTERS),
-  isSpaEnabled: convertStrToBool(process.env.GATSBY_IS_SPA_ENABLED),
   isGatsbyDisabledElasticSearch: convertStrToBool(
     process.env.GATSBY_DISABLE_SEARCH
   ),
@@ -96,7 +96,11 @@ const envConfig = (): Config => ({
   enableProductClassificationAttributeOrdering: convertStrToBool(
     process.env.GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING
   ),
-  isLoginEnabled: convertStrToBool(process.env.GATSBY_IS_LOGIN_ENABLED)
+  isLoginEnabled: convertStrToBool(process.env.GATSBY_IS_LOGIN_ENABLED),
+  marketLocaleCode: process.env.GATSBY_MARKET_LOCALE_CODE,
+  excludeLocalisedAlternate: convertStrToBool(
+    process.env.GATSBY_EXCLUDE_LOCALISED_ALTERNATE
+  )
 });
 
 const ConfigContext = createContext<Config>({

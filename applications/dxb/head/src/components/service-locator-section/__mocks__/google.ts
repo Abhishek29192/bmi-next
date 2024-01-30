@@ -1,4 +1,4 @@
-import { Google } from "@bmi-digital/components";
+import { Google } from "@bmi-digital/components/google-api";
 
 const options = [
   {

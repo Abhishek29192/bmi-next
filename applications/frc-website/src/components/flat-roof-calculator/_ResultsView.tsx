@@ -1,13 +1,11 @@
-import {
-  AnchorLink,
-  Bullets,
-  Button,
-  Grid,
-  Typography
-} from "@bmi-digital/components";
+import AnchorLink from "@bmi-digital/components/anchor-link";
+import Bullets from "@bmi-digital/components/bullets";
+import Button from "@bmi-digital/components/button";
+import Grid from "@bmi-digital/components/grid";
 import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
 import EditOutlinedIcon from "@bmi-digital/components/icon/EditOutlined";
 import SaveAltIcon from "@bmi-digital/components/icon/SaveAlt";
+import Typography from "@bmi-digital/components/typography";
 import Divider from "@mui/material/Divider";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -17,13 +15,13 @@ import TableRow from "@mui/material/TableRow";
 import classnames from "classnames";
 import React, { useState } from "react";
 import { fieldLabels } from "./FlatRoofCalculator";
+import InputTable from "./_InputTable";
+import Section from "./_Section";
+import { StyledTable } from "./styles/FlatRoofCalculatorStyles";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import { FormValues } from "./types/FormValues";
 import { ResultProduct } from "./types/ResultProduct";
 import { ResultsContent } from "./types/ResultsContent";
-import InputTable from "./_InputTable";
-import Section from "./_Section";
-import { StyledTable } from "./styles/FlatRoofCalculatorStyles";
 
 type Props = {
   resultsContent: ResultsContent;

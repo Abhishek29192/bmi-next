@@ -1,27 +1,24 @@
-import {
-  Grid,
-  MediaData,
-  MediaGallery,
-  ProductOverviewPane,
-  ProductOverviewPaneProps,
-  Thumbnail,
-  ThumbnailProps
-} from "@bmi-digital/components";
-import React, { useContext } from "react";
-import { GoodBetterBest } from "@bmi/pim-types";
+import Grid from "@bmi-digital/components/grid";
+import MediaGallery, { MediaData } from "@bmi-digital/components/media-gallery";
+import ProductOverviewPane, {
+  ProductOverviewPaneProps
+} from "@bmi-digital/components/product-overview-pane";
+import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
 import { microCopy } from "@bmi/microcopies";
+import { GoodBetterBest } from "@bmi/pim-types";
+import React, { useContext } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
 import DefaultImage from "../images/DefaultImage.svg";
 import withGTM from "../utils/google-tag-manager";
 import BrandLogo from "./BrandLogo";
+import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
-import tilesSetData from "./visualiser/data/tiles.json";
 import {
   StyledProductOverview,
   StyledRecaptchaPrivacyLinks
 } from "./styles/ProductOverview.styles";
-import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
+import tilesSetData from "./visualiser/data/tiles.json";
 
 export type Data = {
   name: string;

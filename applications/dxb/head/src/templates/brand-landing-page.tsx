@@ -1,14 +1,12 @@
-import {
-  Button,
-  ButtonProps,
-  CarouselHero,
-  CarouselHeroItem,
-  Search,
-  Section
-} from "@bmi-digital/components";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import CarouselHero, {
+  CarouselHeroItem
+} from "@bmi-digital/components/carousel-hero";
+import Search from "@bmi-digital/components/search";
+import Section from "@bmi-digital/components/section";
+import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
-import { microCopy } from "@bmi/microcopies";
 import BackToResults from "../components/BackToResults";
 import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
@@ -23,7 +21,6 @@ import Page, { Data as PageData } from "../components/Page";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Context as SiteContext } from "../components/Site";
 import Video from "../components/Video";
-import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
@@ -58,7 +55,7 @@ const getHeroItemsWithContext = (
 ): CarouselHeroItem[] => {
   const GetCTAButton = (cta: LinkData | null) => {
     return cta?.label ? (
-      <Link component={Button} data={cta}>
+      <Link component={Button} data={cta} hasBrandColours>
         {cta?.label}
       </Link>
     ) : null;
@@ -66,7 +63,11 @@ const getHeroItemsWithContext = (
 
   const GetCTALinkFromPath = (data: SlideData | PageInfoData) => {
     return "path" in data && data.path ? (
-      <Link component={Button} data={{ linkedPage: { path: data.path } }}>
+      <Link
+        component={Button}
+        data={{ linkedPage: { path: data.path } }}
+        hasBrandColours
+      >
         {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
       </Link>
     ) : null;
@@ -116,7 +117,6 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     seo,
     path: data.contentfulBrandLandingPage.path
   };
-  const { isBrandProviderEnabled } = useConfig();
 
   const GTMButton = withGTM<ButtonProps>(Button);
   const firstSlide: CarouselHeroItem = {
@@ -128,11 +128,16 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
         }`
       : null,
     media: featuredMedia ? (
-      <Image {...featuredMedia} size="cover" />
+      <Image {...featuredMedia} size="cover" loading="eager" />
     ) : undefined,
     hasUnderline: false,
     cta: cta ? (
-      <Link component={Button} data={cta} data-testid="first-slide-cta">
+      <Link
+        component={Button}
+        data={cta}
+        data-testid="first-slide-cta"
+        hasBrandColours
+      >
         {cta.label}
       </Link>
     ) : undefined
@@ -162,14 +167,11 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
                 >
                   <Breadcrumbs
                     data={enhancedBreadcrumbs}
-                    isDarkThemed
                     data-testid="brand-landing-page-breadcrumbs-top"
                   />
                 </BackToResults>
               }
               heroes={[firstSlide, ...heroItems]}
-              hasSpaceBottomLarge
-              isHeroKeyLine={Boolean(isBrandProviderEnabled && brandLogo)}
             >
               <Search
                 buttonComponent={(props) => (

@@ -1,16 +1,17 @@
 import path from "path";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
-import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { ApprovalStatus } from "@bmi/pim-types";
-import { Course as DoceboCourse } from "@bmi/docebo-types";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import type { Course as DoceboCourse } from "@bmi/docebo-types";
+import createSvgs from "./src/gatsby/createSvgs";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
+import { Product } from "./src/types/pim";
+import { convertStrToBool } from "./src/utils/convertStrToBool";
 import { getRedirects, Redirect } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
-import { convertStrToBool } from "./src/utils/convertStrToBool";
-import { Product } from "./src/types/pim";
 import type {
   CreateBabelConfigArgs,
   CreatePagesArgs,
@@ -42,16 +43,16 @@ const createProductPages = async (
   const result = await graphql<{
     allProduct: { nodes: Pick<Product, "code" | "path" | "oldPath">[] };
   }>(`
-    {
-      allProduct(filter: { approvalStatus: { eq: "${ApprovalStatus.Approved}" } }) {
-        nodes {
-          __typename
-          code
-          path
-          oldPath
-        }
+      {
+          allProduct(filter: { approvalStatus: { eq: "${ApprovalStatus.Approved}" } }) {
+              nodes {
+                  __typename
+                  code
+                  path
+                  oldPath
+              }
+          }
       }
-    }
   `);
 
   if (result.errors) {
@@ -153,7 +154,16 @@ const createTrainingPages = async (
       context: {
         siteId: siteId,
         countryCode,
-        courseId: course.id_course
+        courseId: course.id_course,
+        tagFilter: process.env.MARKET_TAG_NAME
+          ? {
+              tags: {
+                elemMatch: {
+                  contentful_id: { eq: process.env.MARKET_TAG_NAME }
+                }
+              }
+            }
+          : {}
       }
     });
   });
@@ -164,41 +174,39 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions
 }) => {
   const { createRedirect, createPage } = actions;
-  const isOnePageMarket = process.env.GATSBY_IS_SPA_ENABLED === "true";
   const redirectRegex = /\/?[a-zA-Z]{2}\//i;
-  const redirectsFileName = `redirects_${process.env.SPACE_MARKET_CODE.replace(
+  const redirectsFileName = `redirects_${process.env.GATSBY_SPACE_MARKET_CODE.replace(
     redirectRegex,
     ""
   )}.toml`; // be/
 
-  const componentMap = isOnePageMarket
-    ? {
-        ContentfulHomePage: path.resolve("./src/templates/home-page.tsx")
-      }
-    : {
-        ContentfulSimplePage: path.resolve(
-          "./src/templates/simplePage/components/simple-page.tsx"
-        ),
-        ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
-        ContentfulContactUsPage: path.resolve(
-          "./src/templates/contact-us-page.tsx"
-        ),
-        ContentfulProductListerPage: path.resolve(
-          "./src/templates/productListerPage/components/product-lister-page.tsx"
-        ),
-        ContentfulDocumentLibraryPage: path.resolve(
-          "./src/templates/documentLibrary/index.tsx"
-        ),
-        ContentfulBrandLandingPage: path.resolve(
-          "./src/templates/brand-landing-page.tsx"
-        ),
-        ContentfulCookiePolicyPage: path.resolve(
-          "./src/templates/cookiePolicy/components/cookie-policy-page.tsx"
-        ),
-        ContentfulTrainingListerPage: path.resolve(
-          "./src/templates/trainingListerPage/training-lister-page.tsx"
-        )
-      };
+  const componentMap = {
+    ContentfulSimplePage: path.resolve(
+      "./src/templates/simplePage/components/simple-page.tsx"
+    ),
+    ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
+    ContentfulContactUsPage: path.resolve(
+      "./src/templates/contact-us-page.tsx"
+    ),
+    ContentfulProductListerPage: path.resolve(
+      "./src/templates/productListerPage/components/product-lister-page.tsx"
+    ),
+    ContentfulDocumentLibraryPage: path.resolve(
+      "./src/templates/documentLibrary/index.tsx"
+    ),
+    ContentfulBrandLandingPage: path.resolve(
+      "./src/templates/brand-landing-page.tsx"
+    ),
+    ContentfulCookiePolicyPage: path.resolve(
+      "./src/templates/cookiePolicy/components/cookie-policy-page.tsx"
+    ),
+    ContentfulTrainingListerPage: path.resolve(
+      "./src/templates/trainingListerPage/training-lister-page.tsx"
+    ),
+    ContentfulTrainingRegistrationPage: path.resolve(
+      "./src/templates/trainingRegistrationPage/training-registration-page.tsx"
+    )
+  };
 
   const result = await graphql<any, any>(`
     {
@@ -209,7 +217,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           }
         }
       }
-      allContentfulSite(filter: {countryCode: {eq: "${process.env.SPACE_MARKET_CODE}"}}) {
+      allContentfulSite(filter: {countryCode: {eq: "${process.env.GATSBY_SPACE_MARKET_CODE}"}}) {
         nodes {
           id
           countryCode
@@ -230,6 +238,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
               }
             }
           }
+         accountPage {
+           slug
+         }
         }
       }
     }
@@ -249,12 +260,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const contentfulRedirectsFileUrl = contentfulRedirects[0]?.file?.url;
 
   const site = sites.find(
-    (s) => s.countryCode === process.env.SPACE_MARKET_CODE
+    (s) => s.countryCode === process.env.GATSBY_SPACE_MARKET_CODE
   );
 
   if (!site) {
     throw new Error(
-      `No site found with space market code : ${process.env.SPACE_MARKET_CODE}`
+      `No site found with space market code : ${process.env.GATSBY_SPACE_MARKET_CODE}`
     );
   } else {
     // TODO: This is temporary until we'll have the path inside ES.
@@ -263,7 +274,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         ? {}
         : undefined;
 
-    if (!process.env.GATSBY_PREVIEW && !isOnePageMarket) {
+    if (!process.env.GATSBY_PREVIEW) {
       await createProductPages(
         site.id,
         site.countryCode,
@@ -306,67 +317,76 @@ export const createPages: GatsbyNode["createPages"] = async ({
           siteId: site.id,
           categoryCodes: page.categoryCodes,
           allowFilterBy: page.allowFilterBy,
-          variantCodeToPathMap
-        }
-      });
-    });
-    if (!isOnePageMarket) {
-      createPage({
-        path: getPathWithCountryCode(site.countryCode, `search`),
-        component: path.resolve("./src/templates/search-page.tsx"),
-        context: {
-          siteId: site.id,
-          countryCode: site.countryCode,
           variantCodeToPathMap,
-          assetTypeFilter: process.env.MARKET_TAG_NAME
+          tagFilter: process.env.MARKET_TAG_NAME
             ? {
-                metadata: {
-                  tags: {
-                    elemMatch: {
-                      contentful_id: { eq: process.env.MARKET_TAG_NAME }
-                    }
+                tags: {
+                  elemMatch: {
+                    contentful_id: { eq: process.env.MARKET_TAG_NAME }
                   }
                 }
               }
-            : null
+            : {}
         }
       });
+    });
 
-      createPage({
-        path: getPathWithCountryCode(site.countryCode, `422/`),
-        component: path.resolve("./src/templates/general-error.tsx"),
-        context: {
-          siteId: site.id
-        }
-      });
-
-      if (process.env.GATSBY_PREVIEW) {
-        createPage({
-          path: `/previewer/`,
-          component: path.resolve("./src/templates/previewer.tsx"),
-          context: {
-            siteId: site.id
-          }
-        });
+    createPage({
+      path: getPathWithCountryCode(site.countryCode, `search`),
+      component: path.resolve("./src/templates/search-page.tsx"),
+      context: {
+        siteId: site.id,
+        countryCode: site.countryCode,
+        variantCodeToPathMap,
+        assetTypeFilter: process.env.MARKET_TAG_NAME
+          ? {
+              metadata: {
+                tags: {
+                  elemMatch: {
+                    contentful_id: { eq: process.env.MARKET_TAG_NAME }
+                  }
+                }
+              }
+            }
+          : null
       }
+    });
 
-      if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
-        createSystemPages({
-          siteId: site.id,
-          countryCode: site.countryCode,
-          createPage: actions.createPage,
-          graphql
-        });
+    createPage({
+      path: getPathWithCountryCode(site.countryCode, `422/`),
+      component: path.resolve("./src/templates/general-error.tsx"),
+      context: {
+        siteId: site.id
       }
+    });
 
+    if (process.env.GATSBY_PREVIEW) {
       createPage({
-        path: getPathWithCountryCode(site.countryCode, `ie-dialog/`),
-        component: path.resolve("./src/templates/ie-dialog/index.tsx"),
+        path: `/previewer/`,
+        component: path.resolve("./src/templates/previewer.tsx"),
         context: {
           siteId: site.id
         }
       });
     }
+
+    if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
+      createSystemPages({
+        siteId: site.id,
+        countryCode: site.countryCode,
+        createPage: actions.createPage,
+        graphql
+      });
+    }
+
+    createPage({
+      path: getPathWithCountryCode(site.countryCode, `ie-dialog/`),
+      component: path.resolve("./src/templates/ie-dialog/index.tsx"),
+      context: {
+        siteId: site.id
+      }
+    });
+
     if (!process.env.GATSBY_PREVIEW) {
       createPage({
         path: getPathWithCountryCode(site.countryCode, `sitemap/`),
@@ -377,9 +397,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
       });
     }
 
-    if (process.env.GATSBY_IS_LOGIN_ENABLED === "true") {
+    if (process.env.GATSBY_IS_LOGIN_ENABLED === "true" && site.accountPage) {
       createPage({
-        path: getPathWithCountryCode(site.countryCode, `my-account/`),
+        path: getPathWithCountryCode(site.countryCode, site.accountPage.slug),
         component: path.resolve("./src/templates/myAccountPage/my-account.tsx"),
         context: {
           siteId: site.id,
@@ -520,6 +540,8 @@ export const onCreateBabelConfig = ({ actions }: CreateBabelConfigArgs) => {
 };
 
 export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async () => {
+  createSvgs();
+
   const isMergeRequestPreviewBuild = getIsMergeRequestPreviewBuild();
 
   if (isMergeRequestPreviewBuild) {

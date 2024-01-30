@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { BLOCKS } from "@contentful/rich-text-types";
 import * as ReactRouter from "@reach/router";
 import {
@@ -281,7 +281,7 @@ describe("SystemConfiguratorSection component", () => {
     await screen.findByText(pimSystem._source.name);
     await screen.findByText(pimSystem._source.shortDescription);
 
-    expect(mockQueryES).toBeCalledTimes(1);
+    expect(mockQueryES).toHaveBeenCalledTimes(1);
   });
 
   it("renders a no result section when answer clicked", async () => {
@@ -541,7 +541,7 @@ describe("SystemConfiguratorSection component", () => {
     await screen.findByText(question.title);
 
     expect(container).toMatchSnapshot();
-    expect(fetchMock).toBeCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
     expect(mockPushToDataLayer).toHaveBeenCalledTimes(2);
   });
 
@@ -733,7 +733,7 @@ describe("SystemConfiguratorSection component", () => {
     await screen.findByText("ijkl name");
 
     expect(container).toMatchSnapshot();
-    expect(mockQueryES).toBeCalledTimes(1);
+    expect(mockQueryES).toHaveBeenCalledTimes(1);
 
     expect(screen.getByTestId("ijkl")).not.toBeNull();
     expect(screen.getByTestId("efgh")).not.toBeNull();
@@ -801,7 +801,7 @@ describe("SystemConfiguratorSection component", () => {
     await screen.findByText("Result Title");
 
     expect(container).toMatchSnapshot();
-    expect(mockQueryES).toBeCalledTimes(1);
+    expect(mockQueryES).toHaveBeenCalledTimes(1);
 
     expect(screen.getByTestId("ijkl")).not.toBeNull();
     expect(screen.getByTestId("efgh")).not.toBeNull();
@@ -844,7 +844,7 @@ describe("SystemConfiguratorSection component", () => {
     await screen.findByText("Result Title");
 
     expect(container).toMatchSnapshot();
-    expect(mockQueryES).toBeCalledTimes(1);
+    expect(mockQueryES).toHaveBeenCalledTimes(1);
     expect(redirection).toHaveBeenCalledWith("/no/422/");
   });
 });

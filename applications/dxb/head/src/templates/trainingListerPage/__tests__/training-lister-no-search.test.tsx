@@ -1,8 +1,8 @@
-import React from "react";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "@bmi-digital/components";
-import TrainingNoResults from "../components/training-no-results";
+import React from "react";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
+import TrainingNoResults from "../components/training-no-results";
 
 const searchTips: TitleWithContentData = {
   __typename: "ContentfulTitleWithContent",

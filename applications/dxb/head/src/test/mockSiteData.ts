@@ -1,4 +1,4 @@
-import { RegionCode } from "@bmi-digital/components";
+import { RegionCode } from "@bmi-digital/components/language-selection";
 import createImageData from "../__tests__/helpers/ImageDataHelper";
 import { DataTypeEnum } from "../components/Link";
 import { Data as SiteData } from "../components/Site";
@@ -1235,5 +1235,6 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
   ],
   pitchedRoofCalculatorConfig: null,
   visualiserHouseTypes: null,
+  accountPage: null,
   ...siteData
 });

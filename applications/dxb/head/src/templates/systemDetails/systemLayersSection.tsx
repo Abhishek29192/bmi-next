@@ -1,12 +1,11 @@
-import {
-  Accordion,
-  AnchorLink,
-  AnchorLinkProps,
-  Grid,
-  Typography
-} from "@bmi-digital/components";
-import React from "react";
+import Accordion from "@bmi-digital/components/accordion";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
+import Grid from "@bmi-digital/components/grid";
+import Typography from "@bmi-digital/components/typography";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import { useSiteContext } from "../../components/Site";
 import { Product, SystemLayer } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";

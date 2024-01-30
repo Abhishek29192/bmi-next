@@ -1,6 +1,7 @@
-import { Button, Icon } from "@bmi-digital/components";
-import { Drawer } from "@mui/material";
-import { styled, alpha } from "@mui/material/styles";
+import Button from "@bmi-digital/components/button";
+import Icon from "@bmi-digital/components/icon";
+import Drawer from "@mui/material/Drawer";
+import { alpha, styled } from "@mui/material/styles";
 
 const PREFIX = "FilterMobileStyles";
 export const classes = {

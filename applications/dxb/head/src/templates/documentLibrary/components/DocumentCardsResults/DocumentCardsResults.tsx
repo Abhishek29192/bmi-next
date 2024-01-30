@@ -1,7 +1,10 @@
-import { Grid, OverviewCard, OverviewCardProps } from "@bmi-digital/components";
+import Grid from "@bmi-digital/components/grid";
+import OverviewCard, {
+  OverviewCardProps
+} from "@bmi-digital/components/overview-card";
 import { ContentfulDocument } from "@bmi/elasticsearch-types";
-import React from "react";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import BrandLogo from "../../../../components/BrandLogo";
 import {
   CopyToClipboard,

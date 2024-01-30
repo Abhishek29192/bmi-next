@@ -3,7 +3,7 @@
 exports[`Header component renders correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-13yuzwk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-s8wkol-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -38,7 +38,7 @@ exports[`Header component renders correctly 1`] = `
               class="Header-navItem"
             >
               <div
-                class="css-1vxhkfv"
+                class="css-12vfv7w"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -153,6 +153,7 @@ exports[`Header component renders correctly 1`] = `
                         alt="Albania flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/al.svg"
                         width="20px"
                       />
@@ -177,6 +178,7 @@ exports[`Header component renders correctly 1`] = `
                         alt="Österreich flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/at.svg"
                         width="20px"
                       />
@@ -201,6 +203,7 @@ exports[`Header component renders correctly 1`] = `
                         alt="United Kingdom flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/uk.svg"
                         width="20px"
                       />
@@ -262,7 +265,7 @@ exports[`Header component renders correctly 1`] = `
                 class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -456,7 +459,7 @@ exports[`Header component renders correctly 1`] = `
 exports[`Header component renders correctly when flag doesn't exist 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-13yuzwk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-s8wkol-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -491,7 +494,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               class="Header-navItem"
             >
               <div
-                class="css-1vxhkfv"
+                class="css-12vfv7w"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -606,6 +609,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                         alt="Albania flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/al.svg"
                         width="20px"
                       />
@@ -630,6 +634,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                         alt="Österreich flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/at.svg"
                         width="20px"
                       />
@@ -654,6 +659,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                         alt="United Kingdom flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/uk.svg"
                         width="20px"
                       />
@@ -715,7 +721,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -909,7 +915,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
 exports[`Header component shows sample basket icon 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-13yuzwk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-s8wkol-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -944,7 +950,7 @@ exports[`Header component shows sample basket icon 1`] = `
               class="Header-navItem"
             >
               <div
-                class="css-1vxhkfv"
+                class="css-12vfv7w"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -1059,6 +1065,7 @@ exports[`Header component shows sample basket icon 1`] = `
                         alt="Albania flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/al.svg"
                         width="20px"
                       />
@@ -1083,6 +1090,7 @@ exports[`Header component shows sample basket icon 1`] = `
                         alt="Österreich flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/at.svg"
                         width="20px"
                       />
@@ -1107,6 +1115,7 @@ exports[`Header component shows sample basket icon 1`] = `
                         alt="United Kingdom flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/uk.svg"
                         width="20px"
                       />
@@ -1168,7 +1177,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -1282,7 +1291,7 @@ exports[`Header component shows sample basket icon 1`] = `
                     />
                   </svg>
                   <span
-                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError css-12zkn4t-MuiBadge-badge"
+                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError css-1gzqy2d-MuiBadge-badge"
                     data-testid="shopping-cart-button-badge-slot"
                   >
                     1
@@ -1555,7 +1564,7 @@ exports[`Header component shows sample basket icon 1`] = `
 exports[`Header component toggles search 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-13yuzwk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-s8wkol-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -1590,7 +1599,7 @@ exports[`Header component toggles search 1`] = `
               class="Header-navItem"
             >
               <div
-                class="css-1vxhkfv"
+                class="css-12vfv7w"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -1705,6 +1714,7 @@ exports[`Header component toggles search 1`] = `
                         alt="Albania flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/al.svg"
                         width="20px"
                       />
@@ -1729,6 +1739,7 @@ exports[`Header component toggles search 1`] = `
                         alt="Österreich flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/at.svg"
                         width="20px"
                       />
@@ -1753,6 +1764,7 @@ exports[`Header component toggles search 1`] = `
                         alt="United Kingdom flag"
                         class="LanguageSelection-languageIcon"
                         height="16px"
+                        loading="lazy"
                         src="/icons/flags/uk.svg"
                         width="20px"
                       />
@@ -1814,7 +1826,7 @@ exports[`Header component toggles search 1`] = `
                 class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-oqr85h"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
@@ -2001,7 +2013,7 @@ exports[`Header component toggles search 1`] = `
         </h4>
         <form
           action="/gb/search/"
-          class="css-1mhzmpj"
+          class="css-1hsggty"
           data-testid="search-form"
         >
           <div
@@ -2012,7 +2024,7 @@ exports[`Header component toggles search 1`] = `
               data-testid="search-input-text"
             >
               <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="false"
                 for="search-input-text"
                 id="search-input-text-label"
@@ -2020,7 +2032,7 @@ exports[`Header component toggles search 1`] = `
                 MC: search.placeholder.header
               </label>
               <div
-                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
+                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
               >
                 <input
                   aria-invalid="false"

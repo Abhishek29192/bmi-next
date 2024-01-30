@@ -1,4 +1,5 @@
-import { Grid, AnchorLink } from "@bmi-digital/components";
+import AnchorLink from "@bmi-digital/components/anchor-link";
+import Grid from "@bmi-digital/components/grid";
 import { styled } from "@mui/material/styles";
 
 export const ProductListWrapperGrid = styled(Grid)({

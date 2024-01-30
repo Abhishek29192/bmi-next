@@ -1,5 +1,5 @@
+import { buttonClasses } from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
-import { buttonClasses } from "@mui/material";
 
 export const LoginBlockStyles = styled("div")(({ theme }) => ({
   display: "flex",
@@ -9,13 +9,18 @@ export const LoginBlockStyles = styled("div")(({ theme }) => ({
     textAlign: "end"
   },
   [`& .account`]: {
+    marginRight: "14px",
+    position: "relative",
     "&::after": {
       content: '""',
-      display: "block",
       backgroundColor: theme.colours.storm,
+      display: "block",
       height: "24px",
-      margin: "0 7px",
-      width: "1px"
+      right: "-7px",
+      width: "1px",
+      position: "absolute",
+      top: "50%",
+      marginTop: "-12px"
     }
   }
 }));

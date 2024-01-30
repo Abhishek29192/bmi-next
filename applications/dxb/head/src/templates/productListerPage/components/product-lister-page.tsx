@@ -1,36 +1,34 @@
-import {
-  AnchorLinkProps,
-  Grid,
-  HeroProps,
-  IconList,
-  LeadBlock,
-  PLPFilterResponse,
-  replaceSpaces,
-  Section,
-  SpotlightHeroProps,
-  Typography
-} from "@bmi-digital/components";
+import { AnchorLinkProps } from "@bmi-digital/components/anchor-link";
+import { PLPFilterResponse } from "@bmi-digital/components/filters";
+import Grid from "@bmi-digital/components/grid";
+import { HeroProps } from "@bmi-digital/components/hero";
+import IconList from "@bmi-digital/components/icon-list";
 import CheckIcon from "@bmi-digital/components/icon/Check";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import Section from "@bmi-digital/components/section";
+import { SpotlightHeroProps } from "@bmi-digital/components/spotlight-hero";
+import Typography from "@bmi-digital/components/typography";
+import { replaceSpaces } from "@bmi-digital/components/utils";
+import { microCopy } from "@bmi/microcopies";
 import { styled } from "@mui/material/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
 import React, {
+  useCallback,
   useEffect,
   useMemo,
   useRef,
-  useState,
-  useCallback
+  useState
 } from "react";
-import { microCopy } from "@bmi/microcopies";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";
 import FiltersSidebar from "../../../components/FiltersSidebar";
 import {
-  getClickableActionFromUrl,
-  Data as LinkData
+  Data as LinkData,
+  getClickableActionFromUrl
 } from "../../../components/Link";
 import Page, { Data as PageData } from "../../../components/Page";
 import { Data as PageInfoData } from "../../../components/PageInfo";
@@ -50,11 +48,11 @@ import {
 } from "../../../utils/elasticSearch";
 import { xferFilterValue } from "../../../utils/elasticSearchPLP";
 import {
+  URLProductFilter,
   clearFilterValues,
   convertToURLFilters,
   replaceDotFiltersParameter,
-  updateFilterValue,
-  URLProductFilter
+  updateFilterValue
 } from "../../../utils/filters";
 import withGTM from "../../../utils/google-tag-manager";
 import {
@@ -65,8 +63,8 @@ import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
 import {
   FeaturesLink,
-  ProductListWrapperGrid,
-  ProductListGrid
+  ProductListGrid,
+  ProductListWrapperGrid
 } from "../styles";
 import {
   renderProducts,

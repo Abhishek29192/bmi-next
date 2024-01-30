@@ -1,14 +1,12 @@
-import {
-  Accordion,
-  AccordionSummaryProps,
-  Button,
-  ButtonProps,
-  Grid,
-  LeadBlock,
-  PostItCard,
-  Table,
-  Typography
-} from "@bmi-digital/components";
+import Accordion, {
+  AccordionSummaryProps
+} from "@bmi-digital/components/accordion";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Grid from "@bmi-digital/components/grid";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import PostItCard from "@bmi-digital/components/post-it-card";
+import Table from "@bmi-digital/components/table";
+import Typography from "@bmi-digital/components/typography";
 import React from "react";
 import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
 import Link from "../../components/Link";

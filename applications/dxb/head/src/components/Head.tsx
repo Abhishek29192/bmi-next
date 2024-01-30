@@ -1,6 +1,6 @@
-import { transformHyphens } from "@bmi-digital/components";
+import { transformHyphens } from "@bmi-digital/components/utils";
 import React from "react";
-import { Helmet, HelmetProps } from "react-helmet";
+import { Helmet } from "react-helmet";
 import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
 import EffraHeavy from "../../static/fonts/Effra_W_Heavy.woff2";
 import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
@@ -9,19 +9,19 @@ import { useConfig } from "../contexts/ConfigProvider";
 import { Product } from "../types/pim";
 import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
-import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { createSchemaOrgForHomeAndBrandPage } from "../utils/schemaOrgHomeAndBrandPage";
+import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { Data as SEOContentData } from "./SEOContent";
 import { Data as SiteData } from "./Site";
 
 interface HeadProps {
-  htmlAttributes: HelmetProps["htmlAttributes"];
-  title?: string | null;
+  htmlAttributes: { lang: string };
+  title: string;
   defer?: boolean;
   ogImageUrl?: string;
   scripts?: Pick<SiteData, "headScripts">;
   seo: SEOContentData | null;
-  path: string | null;
+  path: string;
   variantProduct?: Product;
   countryCode?: string;
   pageType?: string;
@@ -41,9 +41,13 @@ export const Head = ({
   pageType,
   brandLogo
 }: HeadProps) => {
-  const { headScripts } = scripts;
-  const { isPreviewMode, hubSpotId, isSchemaORGActivated, oneTrustId } =
-    useConfig();
+  const {
+    excludeLocalisedAlternate,
+    isPreviewMode,
+    hubSpotId,
+    isSchemaORGActivated,
+    oneTrustId
+  } = useConfig();
   const imageUrl = getJpgImage(ogImageUrl);
 
   const isScriptOnetrustEnabled = Boolean(oneTrustId);
@@ -57,9 +61,11 @@ export const Head = ({
       (variantProduct.seoDescription || variantProduct.description)) ||
     (seo && seo.metaDescription);
 
-  const correctGatsbySiteUrl: string = process.env.GATSBY_SITE_URL.endsWith("/")
-    ? process.env.GATSBY_SITE_URL.slice(0, -1)
-    : process.env.GATSBY_SITE_URL;
+  const correctGatsbySiteUrl: string = process.env.GATSBY_SITE_URL!.endsWith(
+    "/"
+  )
+    ? process.env.GATSBY_SITE_URL!.slice(0, -1)
+    : process.env.GATSBY_SITE_URL!;
   return (
     <Helmet
       htmlAttributes={htmlAttributes}
@@ -86,7 +92,7 @@ export const Head = ({
           )}"
         }
       `}</script>
-      {htmlAttributes?.lang && (
+      {!excludeLocalisedAlternate && htmlAttributes.lang && (
         <link
           rel="alternate"
           href={`${correctGatsbySiteUrl}${getPathWithCountryCode(
@@ -189,7 +195,9 @@ export const Head = ({
           `}
       </script>
 
-      {headScripts && <script>{headScripts.headScripts}</script>}
+      {scripts?.headScripts && (
+        <script>{scripts.headScripts.headScripts}</script>
+      )}
 
       {schemaOrgActivated && (
         <script type="application/ld+json">
@@ -208,12 +216,13 @@ export const Head = ({
             createSchemaOrgForHomeAndBrandPage(
               correctGatsbySiteUrl,
               pageType,
-              countryCode,
+              htmlAttributes.lang,
               path,
-              (seo && seo.metaDescription) || null,
-              brandLogo || null,
-              title || null,
-              (seo && seo.sameAs) || null
+              title,
+              countryCode,
+              seo?.metaDescription || undefined,
+              brandLogo || undefined,
+              seo?.sameAs || undefined
             )
           )}
         </script>

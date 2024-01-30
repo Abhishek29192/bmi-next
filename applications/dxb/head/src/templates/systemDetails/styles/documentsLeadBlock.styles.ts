@@ -1,4 +1,4 @@
-import { LeadBlock } from "@bmi-digital/components";
+import LeadBlock from "@bmi-digital/components/lead-block";
 import { styled } from "@mui/material/styles";
 
 const PREFIX = "SystemDetailsLeadDocumentsBlockSectionStyles";

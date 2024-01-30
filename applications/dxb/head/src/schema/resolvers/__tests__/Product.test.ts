@@ -763,7 +763,8 @@ describe("resolve related products", () => {
     expect(findAll).toHaveBeenCalledWith({
       query: {
         filter: {
-          categories: { elemMatch: { code: { eq: productFamily.code } } }
+          categories: { elemMatch: { code: { eq: productFamily.code } } },
+          approvalStatus: { eq: "approved" }
         }
       },
       type: "Product"
@@ -796,7 +797,8 @@ describe("resolve related products", () => {
     expect(findAll).toHaveBeenCalledWith({
       query: {
         filter: {
-          categories: { elemMatch: { code: { eq: productFamily.code } } }
+          categories: { elemMatch: { code: { eq: productFamily.code } } },
+          approvalStatus: { eq: "approved" }
         }
       },
       type: "Product"
@@ -842,7 +844,8 @@ describe("resolve related products", () => {
     expect(findAll).toHaveBeenCalledWith({
       query: {
         filter: {
-          categories: { elemMatch: { code: { eq: productFamily.code } } }
+          categories: { elemMatch: { code: { eq: productFamily.code } } },
+          approvalStatus: { eq: "approved" }
         }
       },
       type: "Product"
@@ -888,7 +891,8 @@ describe("resolve related products", () => {
     expect(findAll).toHaveBeenCalledWith({
       query: {
         filter: {
-          categories: { elemMatch: { code: { eq: productFamily.code } } }
+          categories: { elemMatch: { code: { eq: productFamily.code } } },
+          approvalStatus: { eq: "approved" }
         }
       },
       type: "Product"

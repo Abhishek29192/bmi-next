@@ -1,5 +1,8 @@
-import { Button, Dialog, Grid, Typography } from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import Dialog from "@bmi-digital/components/dialog";
+import Grid from "@bmi-digital/components/grid";
 import HelpIcon from "@bmi-digital/components/icon/QuestionMark";
+import Typography from "@bmi-digital/components/typography";
 import classnames from "classnames";
 import React, { useState } from "react";
 

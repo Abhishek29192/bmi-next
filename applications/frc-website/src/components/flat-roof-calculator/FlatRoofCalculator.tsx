@@ -1,8 +1,11 @@
-import { FormProps } from "@bmi-digital/components";
+import { FormProps } from "@bmi-digital/components/form";
 import queryString from "query-string";
 import React, { useMemo, useState } from "react";
+import InputView from "./_InputView";
+import ResultsView from "./_ResultsView";
 import { calculateQuantities } from "./calculations/calculateQuantities";
 import { getSystem } from "./calculations/getSystem";
+import StyledFlatRoofCalculator from "./styles/FlatRoofCalculatorStyles";
 import {
   CalculatorData,
   CalculatorDataProduct,
@@ -12,9 +15,6 @@ import {
 import { FieldLabels } from "./types/FieldLabels";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import { FormValues } from "./types/FormValues";
-import InputView from "./_InputView";
-import ResultsView from "./_ResultsView";
-import StyledFlatRoofCalculator from "./styles/FlatRoofCalculatorStyles";
 
 export const getProduct = (
   productReference: ProductReference,

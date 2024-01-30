@@ -1,5 +1,5 @@
+import Accordion from "@bmi-digital/components/accordion";
 import { styled } from "@mui/material/styles";
-import { Accordion } from "@bmi-digital/components";
 
 export const StyledAccordionDetails = styled(Accordion.Details)(
   ({ theme }) => ({

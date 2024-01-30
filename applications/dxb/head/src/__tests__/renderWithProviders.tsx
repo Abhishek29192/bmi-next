@@ -1,5 +1,5 @@
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render } from "@testing-library/react";
-import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { fallbackGetMicroCopy } from "../components/MicroCopy";
 import {

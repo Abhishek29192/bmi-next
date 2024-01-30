@@ -1,5 +1,6 @@
-import { createCatalogue, createCourse } from "@bmi/docebo-types";
+import { createCatalogue } from "@bmi/docebo-types";
 import { microCopy } from "@bmi/microcopies";
+import { createCourse } from "@bmi/gatsby-source-docebo";
 import { getMicroCopies } from "../utils/getMicrocopies";
 import ContentfulTrainingListerPage from "../ContentfulTrainingListerPage";
 import type { Context } from "../types/Gatsby";
@@ -47,7 +48,12 @@ const contentfulTrainingListerPage: TrainingListerPage = {
   contentful_id: "contentful-id",
   createdAt: "Sun Oct 22 2023 17:30:24 GMT+0300 (Eastern European Summer Time)",
   updatedAt: "Sun Oct 22 2023 17:30:24 GMT+0300 (Eastern European Summer Time)",
-  children: []
+  children: [],
+  internal: {
+    type: "type",
+    contentDigest: "contentDigest",
+    owner: "owner"
+  }
 };
 
 describe("ContentfulTrainingListerPage resolver", () => {
@@ -72,7 +78,7 @@ describe("ContentfulTrainingListerPage resolver", () => {
       catalogue_id: 2,
       catalogue_name: "Catalogue 2"
     });
-    const course = createCourse({ category: { name: "Pitched", id: 1 } });
+    const course = createCourse({ categoryName: "Pitched" });
 
     findAllMock
       .mockResolvedValueOnce({ entries: [catalogue1, catalogue2] })
@@ -141,7 +147,7 @@ describe("ContentfulTrainingListerPage resolver", () => {
       catalogue_id: 2,
       catalogue_name: "Catalogue 2"
     });
-    const course = createCourse({ category: { name: "Pitched", id: 1 } });
+    const course = createCourse({ categoryName: "Pitched" });
 
     findAllMock
       .mockResolvedValueOnce({ entries: [catalogue1, catalogue2] })
@@ -206,7 +212,7 @@ describe("ContentfulTrainingListerPage resolver", () => {
   });
 
   it("returns filters correctly if a course with 'Flat' category provided", async () => {
-    const course = createCourse({ category: { name: "Flat", id: 1 } });
+    const course = createCourse({ categoryName: "Flat" });
 
     findAllMock
       .mockResolvedValueOnce({ entries: [] })
@@ -229,37 +235,6 @@ describe("ContentfulTrainingListerPage resolver", () => {
             {
               value: "Flat",
               label: `MC: ${microCopy.TRAINING_CATEGORY_FLAT}`
-            }
-          ]
-        }
-      ])
-    );
-  });
-
-  it("returns filters correctly if a course with 'non-allowed' category provided", async () => {
-    const course = createCourse({ category: { name: "Fake category", id: 1 } });
-
-    findAllMock
-      .mockResolvedValueOnce({ entries: [] })
-      .mockResolvedValueOnce({ entries: [course] });
-
-    const res = await ContentfulTrainingListerPage.filters.resolve(
-      contentfulTrainingListerPage,
-      {},
-      context
-    );
-
-    expect(res).toEqual(
-      expect.arrayContaining([
-        {
-          filterCode: "category",
-          name: "category",
-          label: `MC: ${microCopy.TRAINING_FILTER_LABEL_CATEGORY}`,
-          value: [],
-          options: [
-            {
-              value: "Other",
-              label: `MC: ${microCopy.TRAINING_CATEGORY_OTHER}`
             }
           ]
         }

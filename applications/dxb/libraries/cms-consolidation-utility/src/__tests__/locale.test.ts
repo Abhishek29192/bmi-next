@@ -129,7 +129,7 @@ describe("copyDefaultValues", () => {
       sourceLocaleCode
     );
 
-    expect(update).toBeCalledTimes(1);
+    expect(update).toHaveBeenCalledTimes(1);
   });
 
   it("Does not fill in the default values for a field whose source locale value is undefined", async () => {
@@ -164,7 +164,7 @@ describe("copyDefaultValues", () => {
       sourceLocaleCode
     );
 
-    expect(update).toBeCalledTimes(0);
+    expect(update).toHaveBeenCalledTimes(0);
   });
 
   it("Return false promise if update failes", async () => {

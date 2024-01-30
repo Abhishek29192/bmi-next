@@ -1,6 +1,7 @@
-import { Filter, Grid } from "@bmi-digital/components";
-import React, { useEffect, useRef, useState } from "react";
+import { Filter } from "@bmi-digital/components/filters";
+import Grid from "@bmi-digital/components/grid";
 import { microCopy } from "@bmi/microcopies";
+import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { devLog } from "../utils/devLog";
 import {
@@ -12,8 +13,8 @@ import {
 } from "../utils/elasticSearch";
 import {
   clearFilterValues,
-  getUpdatedFilters,
   getURLFilterValues,
+  getUpdatedFilters,
   setFiltersUrl,
   sortAlphabeticallyBy,
   updateFilterValue,

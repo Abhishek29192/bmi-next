@@ -1,11 +1,9 @@
-import {
-  AnchorLink,
-  AnchorLinkProps,
-  Button,
-  ButtonProps,
-  PostItCard,
-  Typography
-} from "@bmi-digital/components";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import PostItCard from "@bmi-digital/components/post-it-card";
+import Typography from "@bmi-digital/components/typography";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";

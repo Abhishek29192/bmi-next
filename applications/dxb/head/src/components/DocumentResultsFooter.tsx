@@ -1,49 +1,49 @@
-import {
-  Button,
-  ButtonProps,
-  Container,
-  DownloadList,
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Container from "@bmi-digital/components/container";
+import DownloadList, {
   DownloadListContext,
-  DownloadListContextType,
-  Grid
-} from "@bmi-digital/components";
-import { Box } from "@mui/material";
+  DownloadListContextType
+} from "@bmi-digital/components/download-list";
+import Grid from "@bmi-digital/components/grid";
+import { microCopy } from "@bmi/microcopies";
+import Box from "@mui/material/Box";
 import classnames from "classnames";
 import { filesize } from "filesize";
 import fetch, { Response } from "node-fetch";
 import React, { useContext, useMemo, useRef } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { microCopy } from "@bmi/microcopies";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { Config, useConfig } from "../contexts/ConfigProvider";
-import { DocumentResultData } from "../templates/documentLibrary/components/DocumentResults";
+import {
+  DocumentResultData,
+  Format
+} from "../templates/documentLibrary/components/DocumentResults";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
-import getCookie from "../utils/getCookie";
-import withGTM from "../utils/google-tag-manager";
-import useHasScrollbar from "../utils/useHasScrollbar";
 import {
   getFileUrlByDocumentType,
   useShowMobileTable
 } from "../utils/documentUtils";
-import { Format } from "../templates/documentLibrary/components/DocumentResults";
+import getCookie from "../utils/getCookie";
+import withGTM from "../utils/google-tag-manager";
+import useHasScrollbar from "../utils/useHasScrollbar";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFileNamebyTitle
 } from "./DocumentFileUtils";
 import { useSiteContext } from "./Site";
 import {
-  ContentWrapper,
-  ButtonsWrapper,
-  FooterBottomWrapper,
   ButtonsSelectAllPanel,
-  SelectAllCheckboxWrapper,
-  SelectAllCheckboxLabel,
+  ButtonsWrapper,
+  ContentWrapper,
   DocumentResultsFooterContainer,
   ErrorMessage,
   FilesSizeInfoSection,
+  FooterBottomWrapper,
   MaxSizeLabel,
   ResetSelectionBtn,
+  SelectAllCheckboxLabel,
+  SelectAllCheckboxWrapper,
   StickyContainer,
   StyledErrorIcon,
   StyledPagination,

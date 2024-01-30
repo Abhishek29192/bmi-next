@@ -8,18 +8,24 @@ lint_contentful-upload:
     ROOT_DIR: "applications/dxb/libraries/contentful-upload"
     WORKSPACE: "@bmi/contentful-upload"
 
+build_contentful-upload:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+  variables:
+    WORKSPACE: "@bmi/contentful-upload"
+    ROOT_DIR: "applications/dxb/libraries/contentful-upload"
+
 test_contentful-upload:
   extends: .test_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - yarn.lock
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+  needs:
+    - build_contentful-upload
   variables:
     WORKSPACE: "@bmi/contentful-upload"
     ROOT_DIR: "applications/dxb/libraries/contentful-upload"

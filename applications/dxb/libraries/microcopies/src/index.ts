@@ -148,6 +148,7 @@ export const microCopy = {
   FORM_UPLOAD_MAX_SIZE: "form.upload.maxSize",
   FORM_SUBMIT: "form.submit",
   FORM_NONE_SELECTION: "form.none.selection",
+  FORM_SUBMIT_BUTTON_HELP_TEXT: "form.submitButton.helpText",
 
   MENU_LANGUAGE: "menu.language",
   MENU_OPEN: "menu.open",
@@ -372,10 +373,15 @@ export const microCopy = {
   TRAINING_CATEGORY_OTHER: "trainingCategory.other",
   TRAINING_CATALOGUE_SHOW_MORE: "trainingCatalogue.showMore",
   TRAINING_CATALOGUE_SHOW_LESS: "trainingCatalogue.showLess",
+  TRAINING_PRICE_FREE: "training.price.free",
 
   TRAINING_ID_LABEL: "training.courseIdLabel",
   TRAINING_DETAILS_SESSIONS_LABEL: "trainingDetails.sessionsLabel",
   TRAINING_DETAILS_SESSION_ENROLL_LABEL: "trainingDetails.session.enrollLabel",
+  TRAINING_DETAILS_NO_SESSIONS_TOOLTIP_MESSAGE:
+    "trainingDetails.no.sessions.tooltip.message",
+  TRAINING_DETAILS_SEE_AVAILABLE_SESSIONS_BUTTON:
+    "trainingDetails.see.available.sessions.button",
 
   TRAINING_LISTING_SEARCH_LABEL: "trainingListerPage.search.label",
   TRAINING_LISTING_SEARCH_PLACEHOLDER: "trainingListerPage.search.placeholder",
@@ -394,7 +400,15 @@ export const microCopy = {
 
   LOG_IN_LABEL_BTN: "login.label.btn",
   LOG_OUT_LABEL_BTN: "logout.label.btn",
-  MY_ACCOUNT_LABEL: "my.account.label"
+  MY_ACCOUNT_LABEL: "my.account.label",
+  PROFILE_LABEL: "profile.label",
+  ROOF_MEASUREMENT_LABEL: "roof.measurement.label",
+  TRAINING_LABEL: "training.label",
+
+  TRAINING_REGISTRATION_COST: "training.registration.cost",
+  TRAINING_REGISTRATION_DATE: "training.registration.date",
+  TRAINING_REGISTRATION_TYPE: "training.registration.type",
+  TRAINING_REGISTRATION: "training.registration"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

@@ -1,14 +1,15 @@
-import React from "react";
 import {
+  fireEvent,
   render,
   screen,
-  fireEvent,
   waitForElementToBeRemoved
 } from "@testing-library/react";
+import React from "react";
 import LoginAlert from "../LoginAlert";
 
-jest.mock("@bmi/gatsby-theme-auth0", () => ({
-  useAuth: () => ({ isLoggedIn: false })
+jest.mock("../../hooks/useAuth", () => ({
+  __esModule: true,
+  default: () => ({ isLoggedIn: false })
 }));
 
 beforeEach(() => {

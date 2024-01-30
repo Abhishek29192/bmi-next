@@ -1,4 +1,4 @@
-import { ProfileCard } from "@bmi-digital/components";
+import ProfileCard from "@bmi-digital/components/profile-card";
 import { styled } from "@mui/material/styles";
 
 export const ProfileRow = styled(ProfileCard.Row)({

@@ -1,10 +1,9 @@
 /* eslint-disable react/display-name */
-import {
-  AnchorLink,
-  AnchorLinkProps,
-  transformHyphens,
-  Typography
-} from "@bmi-digital/components";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
+import Typography from "@bmi-digital/components/typography";
+import { transformHyphens } from "@bmi-digital/components/utils";
 import { Options } from "@contentful/rich-text-react-renderer";
 import {
   Block,

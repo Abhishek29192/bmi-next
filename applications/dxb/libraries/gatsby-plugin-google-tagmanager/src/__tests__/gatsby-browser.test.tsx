@@ -2,21 +2,21 @@
  * @jest-environment jsdom
  */
 
-import { getLCP, getFID, getCLS } from "web-vitals/base";
+import { onCLS, onFID, onLCP } from "web-vitals";
 
-jest.mock("web-vitals/base", () => {
+jest.mock("web-vitals", () => {
   const createEntry = (type: string, id: string, value: string) => {
     return { name: type, id, value };
   };
 
   return {
-    getLCP: jest.fn((report) => {
+    onLCP: jest.fn((report) => {
       report(createEntry("LCP", "1", "300"));
     }),
-    getFID: jest.fn((report) => {
+    onFID: jest.fn((report) => {
       report(createEntry("FID", "2", "150"));
     }),
-    getCLS: jest.fn((report) => {
+    onCLS: jest.fn((report) => {
       report(createEntry("CLS", "3", "0.10"));
     })
   };
@@ -195,8 +195,8 @@ describe("onRouteUpdate", () => {
 
     jest.runAllTimers();
 
-    expect(getLCP).not.toBeCalled();
-    expect(getFID).not.toBeCalled();
-    expect(getCLS).not.toBeCalled();
+    expect(onLCP).not.toBeCalled();
+    expect(onFID).not.toBeCalled();
+    expect(onCLS).not.toBeCalled();
   });
 });

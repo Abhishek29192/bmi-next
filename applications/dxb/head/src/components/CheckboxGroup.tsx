@@ -1,11 +1,8 @@
-import { withFormControl } from "@bmi-digital/components";
-import {
-  CheckboxProps,
-  FormControl,
-  FormControlLabel,
-  FormHelperText,
-  Checkbox as MuiCheckbox
-} from "@mui/material";
+import { withFormControl } from "@bmi-digital/components/form";
+import MuiCheckbox, { CheckboxProps } from "@mui/material/Checkbox";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormHelperText from "@mui/material/FormHelperText";
 import React, { useState } from "react";
 import { convertMarkdownLinksToAnchorLinks } from "./FormSection";
 import { CheckboxGroupComponent } from "./styles/CheckboxGroupStyles";

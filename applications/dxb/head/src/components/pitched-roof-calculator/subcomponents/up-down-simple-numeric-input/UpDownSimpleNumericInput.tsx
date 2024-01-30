@@ -1,4 +1,5 @@
-import { Icon, withFormControl } from "@bmi-digital/components";
+import { withFormControl } from "@bmi-digital/components/form";
+import Icon from "@bmi-digital/components/icon";
 import AddIcon from "@bmi-digital/components/icon/Add";
 import RemoveIcon from "@bmi-digital/components/icon/Remove";
 import classnames from "classnames";

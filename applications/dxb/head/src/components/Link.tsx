@@ -1,9 +1,8 @@
-import {
-  Button,
-  ClickableAction,
-  Dialog,
-  transformHyphens
-} from "@bmi-digital/components";
+import Button from "@bmi-digital/components/button";
+import { ClickableAction } from "@bmi-digital/components/clickable";
+import Dialog from "@bmi-digital/components/dialog";
+import { transformHyphens } from "@bmi-digital/components/utils";
+import { useTheme } from "@mui/material";
 import { Link as GatsbyLink, graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
 import React, { useCallback, useContext, useMemo, useState } from "react";
@@ -262,17 +261,21 @@ export const Link = ({
   component: Component = Button,
   data,
   onClick,
+  hasBrandColours,
   ...rest
 }: typeof Component & {
   children: React.ReactNode;
   component?: React.ElementType;
   data: Data;
   onClick?: (...args: unknown[]) => void;
+  hasBrandColours?: boolean;
 }) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const { countryCode } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
+
+  const theme = useTheme();
 
   const handleOnClick = useCallback(
     (...args: unknown[]) => {
@@ -314,7 +317,16 @@ export const Link = ({
 
   return (
     <>
-      <Component action={action} onClick={handleOnClick} {...rest}>
+      <Component
+        action={action}
+        onClick={handleOnClick}
+        style={{
+          background: hasBrandColours && theme.colours.inter,
+          borderColor: hasBrandColours && theme.colours.inter,
+          color: hasBrandColours && theme.colours.white
+        }}
+        {...rest}
+      >
         {transformHyphens(children)}
       </Component>
       {data?.type === "Dialog" && data?.dialogContent && memoedRenderDialog}

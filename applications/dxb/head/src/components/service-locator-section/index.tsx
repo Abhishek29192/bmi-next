@@ -1,17 +1,16 @@
-import {
-  CompanyDetailProps,
+import { CompanyDetailProps } from "@bmi-digital/components/company-details";
+import GoogleApi, {
   Google,
-  GoogleApi,
   GeocoderResult as GoogleGeocoderResult,
   LatLngLiteral as GoogleLatLngLiteral,
-  Section,
-  loadGoogleApi,
-  replaceSpaces
-} from "@bmi-digital/components";
+  loadGoogleApi
+} from "@bmi-digital/components/google-api";
+import Section from "@bmi-digital/components/section";
+import { replaceSpaces } from "@bmi-digital/components/utils";
+import { microCopy } from "@bmi/microcopies";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
-import { microCopy } from "@bmi/microcopies";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
 import { Data as ContentfulImageData } from "../Image";
 import RichText, { RichTextData } from "../RichText";
@@ -46,12 +45,12 @@ import {
 } from "./helpers";
 
 import {
-  classes,
   Body,
   Controls,
   MapTabPanel,
   ResultListTabPanel,
-  StyledTabs
+  StyledTabs,
+  classes
 } from "./styles/styles";
 
 export type Service = Omit<ServiceData, "companyLogo"> & {
