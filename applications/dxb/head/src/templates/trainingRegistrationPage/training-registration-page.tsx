@@ -87,7 +87,7 @@ const TrainingRegistrationPage = ({
             contentfulSite.countryCode,
             `/t/${training?.slug}`
           )}
-          courseId={training?.courseId}
+          courseCode={training?.code}
         />
       )}
       <Section backgroundColor="white" data-testid="breadcrumbs-section-bottom">

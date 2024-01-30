@@ -32,7 +32,7 @@ import type { TrainingRegistrationPageData } from "../types";
 const TrainingRegistrationForm = (
   props: TrainingRegistrationPageData & {
     trainingDetailsPageUrl: string;
-    courseId?: number;
+    courseCode?: string;
   }
 ) => {
   const { getMicroCopy, node_locale } = useSiteContext();
@@ -58,6 +58,23 @@ const TrainingRegistrationForm = (
         },
         {}
       );
+      const sanitizedValues = {};
+
+      for (const key of Object.keys(valuesToSend)) {
+        if (key === "consent") {
+          continue;
+        }
+        if (key === "terms-of-use") {
+          continue;
+        }
+
+        // eslint-disable-next-line security/detect-object-injection
+        const trimmedValue = valuesToSend[key].trim();
+        if (trimmedValue !== "") {
+          // eslint-disable-next-line security/detect-object-injection
+          sanitizedValues[key] = trimmedValue;
+        }
+      }
 
       let headers: HeadersInit = {
         "Content-Type": "application/json",
@@ -71,8 +88,8 @@ const TrainingRegistrationForm = (
         locale: node_locale,
         title: "",
         recipients: props.recipient,
-        values: valuesToSend,
-        emailSubjectFormat: `${props.emailSubject} ${props.courseId}`
+        values: sanitizedValues,
+        emailSubjectFormat: `${props.emailSubject} ${props.courseCode}`
       });
 
       const response = await fetch(gcpFormSubmitEndpoint, {

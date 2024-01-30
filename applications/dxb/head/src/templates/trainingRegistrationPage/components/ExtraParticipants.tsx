@@ -123,8 +123,8 @@ const ParticipantFields = (props: ParticipantFieldsType) => {
       <Grid container>
         <Grid xs={12} lg={6}>
           <TextField
-            id={`${replaceSpaces(props.firstNameLabel)}-${props.index}`}
-            name={`${props.firstNameLabel}-${props.index}`}
+            id={`${replaceSpaces(props.firstNameLabel)} ${props.index}`}
+            name={`${props.firstNameLabel} ${props.index}`}
             variant="outlined"
             label={props.firstNameLabel}
             fullWidth
@@ -132,8 +132,8 @@ const ParticipantFields = (props: ParticipantFieldsType) => {
         </Grid>
         <StyledGrid xs={12} lg={6}>
           <TextField
-            id={`${replaceSpaces(props.lastNameLabel)}-${props.index}`}
-            name={`${props.lastNameLabel}-${props.index}`}
+            id={`${replaceSpaces(props.lastNameLabel)} ${props.index}`}
+            name={`${props.lastNameLabel} ${props.index}`}
             variant="outlined"
             label={props.lastNameLabel}
             fullWidth

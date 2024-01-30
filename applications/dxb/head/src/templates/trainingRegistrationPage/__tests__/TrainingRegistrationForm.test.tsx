@@ -78,7 +78,7 @@ const renderTrainingRegistrationPage = () =>
             <TrainingRegistrationForm
               {...trainingRegistrationPageData}
               trainingDetailsPageUrl="/no/t/training-details-page-utl"
-              courseId={295}
+              courseCode={"IT-TEST08"}
             />
           </LocationProvider>
         </ThemeProvider>
@@ -161,11 +161,9 @@ describe("TrainingRegistrationForm", () => {
               "Postal code": "Postal code",
               "Are you a member of the [BMI SystemPartner Club](https://fake-url.com/) (subject to a fee)?":
                 "Yes",
-              "How did you find out about this event": "Brochure",
-              consent: true,
-              "terms-of-use": true
+              "How did you find out about this event": "Brochure"
             },
-            emailSubjectFormat: "Sample subject 295"
+            emailSubjectFormat: "Sample subject IT-TEST08"
           }),
           headers: {
             "X-Recaptcha-Token": undefined,
