@@ -39,10 +39,6 @@ const markets = [
     spaceId: "u6rfet9uekn5"
   },
   {
-    name: "Blueprint",
-    spaceId: "x47somwauesy"
-  },
-  {
     name: "Bosnia and Herzegovinia",
     countryCode: "ba"
   },
