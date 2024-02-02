@@ -1,28 +1,17 @@
-import React from "react";
-import { renderHook } from "@testing-library/react-hooks";
-import { waitFor } from "@testing-library/react";
 import { createTraining } from "@bmi/elasticsearch-types";
+import { waitFor } from "@testing-library/react";
+import { renderHook } from "@testing-library/react-hooks";
 import mockConsole from "jest-mock-console";
-import { useRegistration } from "../useRegistration";
+import React from "react";
 import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
 import { queryElasticSearch } from "../../../../utils/elasticSearch";
+import { useRegistration } from "../useRegistration";
 
 const esIndexNameTrainings = "dxb-all-trainings_read";
 
 const training = createTraining({
-  id: "295-24",
-  courseId: 295,
-  name: "Italian Sales Training Webinar",
-  code: "IT_TEST_08",
-  slug: "italian-sales-training-webinar",
-  courseType: "classroom",
-  imgUrl:
-    "https://cdn5.dcbstatic.com/files/b/m/bmisandbox_docebosaas_com/assets/courselogo/original/null-2021-07-27-11-14-06.jpeg",
-  category: "Other",
-  catalogueId: "24",
-  catalogueName: "IT Custom Catalogue",
-  catalogueDescription: "",
-  onSale: false
+  sessionId: 65,
+  courseCode: "IT_TEST_08"
 });
 
 const queryElasticsearchMock = jest.fn();
@@ -82,10 +71,9 @@ beforeEach(() => {
 describe("useRegistration", () => {
   it("pulls training on page mount", async () => {
     queryElasticsearchMock.mockResolvedValue(trainingResponse);
-
     Object.defineProperty(window, "location", {
       value: {
-        search: "?trainingCode=IT_TEST_08"
+        search: `?trainingCode=${training.courseCode}&session=${training.sessionId}`
       },
       writable: true
     });
@@ -96,8 +84,19 @@ describe("useRegistration", () => {
       {
         size: 1,
         query: {
-          match: {
-            "code.keyword": "IT_TEST_08"
+          bool: {
+            must: [
+              {
+                match: {
+                  "courseCode.keyword": training.courseCode
+                }
+              },
+              {
+                match: {
+                  sessionId: training.sessionId.toString()
+                }
+              }
+            ]
           }
         }
       },
@@ -108,10 +107,10 @@ describe("useRegistration", () => {
     );
   });
 
-  it("should not call 'queryElasticsearchMock' if 'esIndexNameTrainings' does not exist", async () => {
+  it("should not call 'queryElasticsearchMock' if 'esIndexNameTrainings' does not exist", () => {
     Object.defineProperty(window, "location", {
       value: {
-        search: "?trainingCode=IT_TEST_08"
+        search: `?trainingCode=${training.courseCode}&session=${training.sessionId}`
       },
       writable: true
     });
@@ -121,15 +120,26 @@ describe("useRegistration", () => {
     });
 
     expect(queryElasticsearchMock).not.toHaveBeenCalled();
-    await waitFor(() =>
-      expect(result.current).toEqual({ training: undefined, loading: false })
-    );
+    expect(result.current).toEqual({ training: undefined, loading: false });
   });
 
-  it("should not call 'queryElasticsearchMock' if trainingCode does not exist", async () => {
+  it("should not call 'queryElasticsearchMock' if trainingCode does not exist", () => {
     Object.defineProperty(window, "location", {
       value: {
-        search: ""
+        search: `?session=${training.sessionId}`
+      },
+      writable: true
+    });
+    const { result } = render();
+
+    expect(queryElasticsearchMock).not.toHaveBeenCalled();
+    expect(result.current).toEqual({ training: undefined, loading: false });
+  });
+
+  it("should not call 'queryElasticsearchMock' if session parameter does not exist", () => {
+    Object.defineProperty(window, "location", {
+      value: {
+        search: `?trainingCode=${training.courseCode}`
       },
       writable: true
     });
@@ -137,6 +147,7 @@ describe("useRegistration", () => {
 
     expect(queryElasticsearchMock).not.toHaveBeenCalled();
     expect(result.current.training).toEqual(undefined);
+    expect(result.current).toEqual({ training: undefined, loading: false });
   });
 
   it("works correctly if 'queryElasticSearch' throws an error", async () => {
@@ -145,7 +156,7 @@ describe("useRegistration", () => {
 
     Object.defineProperty(window, "location", {
       value: {
-        search: "?trainingCode=IT_TEST_08"
+        search: `?trainingCode=${training.courseCode}&session=${training.sessionId}`
       },
       writable: true
     });
@@ -155,8 +166,19 @@ describe("useRegistration", () => {
       {
         size: 1,
         query: {
-          match: {
-            "code.keyword": "IT_TEST_08"
+          bool: {
+            must: [
+              {
+                match: {
+                  "courseCode.keyword": training.courseCode
+                }
+              },
+              {
+                match: {
+                  sessionId: training.sessionId.toString()
+                }
+              }
+            ]
           }
         }
       },

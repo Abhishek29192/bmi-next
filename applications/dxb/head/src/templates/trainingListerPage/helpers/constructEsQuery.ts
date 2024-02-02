@@ -18,6 +18,6 @@ export const constructFiltersQuery = (filters: Filter[]) => {
 export const constructSearchQuery = (searchQuery: string) => ({
   query_string: {
     query: searchQuery ? `*${sanitiseQueryString(searchQuery)}*` : "*",
-    fields: ["code", "name"]
+    fields: ["courseCode", "courseName"]
   }
 });

@@ -1,23 +1,23 @@
-import React from "react";
-import { microCopy, MicroCopyValues } from "@bmi/microcopies";
+import { Calender, Price } from "@bmi-digital/components/icon";
+import Section from "@bmi-digital/components/section";
 import {
   trainingCategoriesIcon,
   trainingTypeIcon
 } from "@bmi-digital/components/training-card";
-import Section from "@bmi-digital/components/section";
-import { Price, Calender } from "@bmi-digital/components/icon";
 import { Training } from "@bmi/elasticsearch-types";
+import { microCopy, MicroCopyValues } from "@bmi/microcopies";
+import React from "react";
 import { useSiteContext } from "../../../components/Site";
-import {
-  TrainingDataContainer,
-  TrainingLabel,
-  TrainingDesc,
-  TrainingDetailContainer,
-  TrainingSeparation,
-  StyledIcon
-} from "../trainingRegistrationPageStyles";
 import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
 import { useConfig } from "../../../contexts/ConfigProvider";
+import {
+  StyledIcon,
+  TrainingDataContainer,
+  TrainingDesc,
+  TrainingDetailContainer,
+  TrainingLabel,
+  TrainingSeparation
+} from "../trainingRegistrationPageStyles";
 
 type Props = {
   training: Training;
@@ -25,7 +25,7 @@ type Props = {
 
 const TrainingRegistrationHeader = ({ training }: Props) => {
   const {
-    name,
+    courseName,
     courseId,
     courseType,
     category,
@@ -50,7 +50,7 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
         variant="h1"
         data-testid="training-registration-page-header-title"
       >
-        {`${name} ${getMicroCopy(microCopy.TRAINING_REGISTRATION)}`}
+        {`${courseName} ${getMicroCopy(microCopy.TRAINING_REGISTRATION)}`}
       </Section.Title>
 
       <TrainingDataContainer>
