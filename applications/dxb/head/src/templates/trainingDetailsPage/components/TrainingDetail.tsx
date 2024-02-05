@@ -58,7 +58,7 @@ const TrainingDetails = ({
   );
 
   const runningSessions = useMemo(
-    () => sessions?.filter((e) => new Date() < new Date(e.date_end)),
+    () => sessions?.filter((e) => new Date() < new Date(e.date_start)),
     [sessions]
   );
 
