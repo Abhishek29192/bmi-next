@@ -25,6 +25,7 @@ export class DoceboApiService {
   username: StringOrUndefined = undefined;
   password: StringOrUndefined = undefined;
   accessToken: StringOrUndefined = undefined;
+  tokenExpirationTime: Date | undefined = undefined;
 
   constructor(params: DoceboApiServiceParams) {
     this.apiUrl = params.apiUrl;
@@ -35,7 +36,12 @@ export class DoceboApiService {
   }
 
   async getAccessToken(): Promise<string> {
-    if (this.accessToken) {
+    const currentDate = new Date();
+    const isTokenActive = this.tokenExpirationTime
+      ? currentDate.getTime() < this.tokenExpirationTime.getTime()
+      : false;
+
+    if (this.accessToken && isTokenActive) {
       return this.accessToken;
     }
 
@@ -54,6 +60,9 @@ export class DoceboApiService {
 
     const data: Auth = await response.json();
     this.accessToken = data.access_token;
+    const expirationTime = new Date();
+    expirationTime.setSeconds(expirationTime.getSeconds() + data.expires_in);
+    this.tokenExpirationTime = expirationTime;
     return data.access_token;
   }
 
@@ -106,7 +115,14 @@ export class DoceboApiService {
 
     //prevents other pages from being fetched if "page" property has been passed
     return !ignoreNextPage && data.has_more_data
-      ? [...data.items, ...(await this.fetchCourses({ page: page + 1 }))]
+      ? [
+          ...data.items,
+          ...(await this.fetchCourses({
+            page: page + 1,
+            ignoreNextPage,
+            pageSize
+          }))
+        ]
       : data.items;
   }
 
@@ -169,7 +185,7 @@ export class DoceboApiService {
       : data.items;
   }
 
-  async getCourseById(courseId: number): Promise<ExtendedCourse> {
+  async getCourseById(courseId: number | string): Promise<ExtendedCourse> {
     const accessToken = await this.getAccessToken();
     const response = await fetch(`${this.apiUrl}learn/v1/courses/${courseId}`, {
       headers: { Authorization: `Bearer ${accessToken}` }

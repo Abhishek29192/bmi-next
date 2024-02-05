@@ -1,4 +1,4 @@
-import { ExtendedCourse } from "./types";
+import { CourseSession, ExtendedCourse } from "./types";
 
 export const createExtendedCourse = (
   courseData: Partial<ExtendedCourse> = {}
@@ -110,4 +110,32 @@ export const createExtendedCourse = (
   is_affiliate: false,
   max_attempts_reached: false,
   ...courseData
+});
+
+export const createCourseSession = (
+  session: Partial<CourseSession>
+): CourseSession => ({
+  id_session: 1,
+  attendance_type: "online",
+  migrated_webinar_session_id: 1,
+  uid_session: "dsxy12cx32",
+  name: "Session name",
+  slug_name: "session_slug_name",
+  description: "description",
+  start_date: "2023-09-13 23:59:59",
+  end_date: "2023-10-15 23:59:59",
+  last_subscription_date: null,
+  min_enroll: 0,
+  max_enroll: 10,
+  is_instructor: false,
+  is_session_instructor: false,
+  is_event_instructor: false,
+  enrolled: [],
+  instructors: [],
+  dates: [],
+  locations: [],
+  additional_fields: [],
+  evaluation_type: "3",
+  webinar_session_id: null,
+  ...session
 });

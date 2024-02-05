@@ -175,8 +175,8 @@ const TrainingDetails = ({
           </Title>
           {runningSessions && runningSessions.length > 0 ? (
             <div data-testid="sessions-container">
-              {runningSessions?.map(
-                ({ name, code, date_start, date_end }, index) => {
+              {runningSessions.map(
+                ({ id, name, code, date_start, date_end }, index) => {
                   return (
                     <SessionDataContainer
                       index={index}
@@ -195,7 +195,7 @@ const TrainingDetails = ({
                           <EnrollButton
                             href={getPathWithCountryCode(
                               countryCode,
-                              `${trainingRegistrationUrl}?trainingCode=${courseCode}`
+                              `${trainingRegistrationUrl}?trainingCode=${courseCode}&session=${id}`
                             )}
                             data-testid={"session-cta-button"}
                             disabled={!trainingRegistrationUrl}

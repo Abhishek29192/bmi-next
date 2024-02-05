@@ -3,21 +3,22 @@ import {
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
-import { Request, Response } from "@google-cloud/functions-framework";
-import fetchMockJest from "fetch-mock-jest";
 import {
   createCatalogue,
   createCatalogueSubItem,
+  createCourseSession,
   createExtendedCourse
 } from "@bmi/docebo-types";
-import { saveById, getMessageStatus } from "../firestore";
+import { Request, Response } from "@google-cloud/functions-framework";
+import fetchMockJest from "fetch-mock-jest";
+import { getMessageStatus, saveById } from "../firestore";
 import { MessageStatus } from "../types";
 import {
-  createCourseUpdatedEvent,
-  createCourseDeletedFromCatalogueEvent,
   createCourseDeletedEvent,
-  createMultipleCoursesDeletedEvent,
-  createCourseDeletedPayload
+  createCourseDeletedFromCatalogueEvent,
+  createCourseDeletedPayload,
+  createCourseUpdatedEvent,
+  createMultipleCoursesDeletedEvent
 } from "./helpers/createEvent";
 
 const deleteByQueryMock = jest.fn();
@@ -905,8 +906,19 @@ describe("handleRequest", () => {
       index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
       body: {
         query: {
-          match: {
-            "id.keyword": `${req.body.payload.course_id}-${req.body.payload.catalog_id}`
+          bool: {
+            must: [
+              {
+                match: {
+                  courseId: req.body.payload.course_id
+                }
+              },
+              {
+                match: {
+                  "catalogueId.keyword": req.body.payload.catalog_id
+                }
+              }
+            ]
           }
         }
       }
@@ -1155,7 +1167,12 @@ describe("handleRequest", () => {
     getIndexOperationMock.mockImplementation(() => {
       throw new Error("Expected error from getIndexOperationMock");
     });
-    const course = createExtendedCourse({ id: 1 });
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
+    const session = createCourseSession({
+      start_date: sessionStartDate.toString()
+    });
+    const course = createExtendedCourse({ id: 1, sessions: [session] });
     getCourseByIdMock.mockResolvedValue(course);
     fetchCataloguesMock.mockResolvedValue([
       createCatalogue({
@@ -1203,7 +1220,12 @@ describe("handleRequest", () => {
     performBulkOperationsMock.mockImplementation(() => {
       throw new Error("Expected error from performBulkOperationsMock");
     });
-    const course = createExtendedCourse({ id: 1 });
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
+    const session = createCourseSession({
+      start_date: sessionStartDate.toString()
+    });
+    const course = createExtendedCourse({ id: 1, sessions: [session] });
     getCourseByIdMock.mockResolvedValue(course);
     fetchCataloguesMock.mockResolvedValue([
       createCatalogue({
@@ -1248,21 +1270,8 @@ describe("handleRequest", () => {
     expect(deleteByQueryMock).not.toHaveBeenCalled();
   });
 
-  it("updates training and returns 200 if event==='course.updated'", async () => {
-    mockResponses(
-      fetchMock,
-      {
-        url: metadataUrl,
-        method: "GET",
-        headers: { "Metadata-Flavor": "Google" },
-        body: gcpAuthToken
-      },
-      {
-        url: process.env.BUILD_TRIGGER_ENDPOINT,
-        method: "POST"
-      }
-    );
-    const course = createExtendedCourse({ id: 1 });
+  it("returns 200 if event==='course.updated' and course does not have sessions", async () => {
+    const course = createExtendedCourse({ id: 1, sessions: undefined });
     getCourseByIdMock.mockResolvedValue(course);
     fetchCataloguesMock.mockResolvedValue([
       createCatalogue({
@@ -1289,7 +1298,97 @@ describe("handleRequest", () => {
     expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
     expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
     expect(getCurrencyMock).toHaveBeenCalledTimes(1);
-    expect(getIndexOperationMock).toHaveBeenCalled();
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(deleteByQueryMock).not.toHaveBeenCalled();
+    expect(performBulkOperationsMock).not.toHaveBeenCalled();
+  });
+
+  it("updates training and returns 200 if event==='course.updated' if session start date is in the future", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
+    const session1 = createCourseSession({
+      start_date: sessionStartDate.toString()
+    });
+    const session2 = createCourseSession({
+      id_session: 2,
+      start_date: "2022-09-13 23:59:59"
+    });
+    const course = createExtendedCourse({
+      id: 1,
+      sessions: [session1, session2]
+    });
+    getCourseByIdMock.mockResolvedValue(course);
+    const catalogue = createCatalogue({
+      sub_items: [createCatalogueSubItem({ item_id: "1" })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    const event = createCourseUpdatedEvent({ course_id: course.id });
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: event,
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.InProgress
+      }
+    );
+    expect(res.sendStatus).toHaveBeenCalledWith(200);
+    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
+    expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
+    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
+    expect(getIndexOperationMock).toHaveBeenCalledTimes(1);
+    expect(getIndexOperationMock).toHaveBeenCalledWith(
+      `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
+      {
+        id: `${catalogue.catalogue_id}-${course.id}-${session1.id_session}`,
+        sessionId: session1.id_session,
+        sessionName: session1.name,
+        sessionSlug: session1.slug_name,
+        startDate: session1.start_date,
+        endDate: session1.end_date,
+        courseId: course.id,
+        courseName: course.name,
+        courseSlug: course.slug_name,
+        courseCode: course.code,
+        courseType: course.type,
+        courseImg: course.thumbnail,
+        category: "Flat",
+        onSale: course.on_sale,
+        price: course.price,
+        currency: "EUR",
+        currencySymbol: "€",
+        catalogueId: catalogue.catalogue_id.toString(),
+        catalogueName: catalogue.catalogue_name,
+        catalogueDescription: catalogue.catalogue_description
+      },
+      `${catalogue.catalogue_id}-${course.id}-${session1.id_session}`
+    );
     expect(performBulkOperationsMock).toHaveBeenCalled();
     expect(fetchMock).toHaveBeenCalledTimes(2);
     expect(fetchMock).toHaveFetched(metadataUrl, {

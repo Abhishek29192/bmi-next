@@ -1,8 +1,8 @@
-import React from "react";
-import { screen, fireEvent } from "@testing-library/react";
 import { createTraining } from "@bmi/elasticsearch-types";
-import TrainingCatalogue, { Props } from "../components/training-catalogue";
+import { fireEvent, screen } from "@testing-library/react";
+import React from "react";
 import { renderWithProviders } from "../../../__tests__/renderWithProviders";
+import TrainingCatalogue, { Props } from "../components/training-catalogue";
 
 const countryCode = "no";
 const defaultImage = "https://fake-default-image";
@@ -110,12 +110,12 @@ describe("Training Catalogue component", () => {
   });
 
   it("renders with the default image if not provided", () => {
-    const training = createTraining({ imgUrl: undefined });
+    const training = createTraining({ courseImg: undefined });
 
     renderWithProviders(
       <TrainingCatalogue {...defaultProps} courses={[training]} />
     );
-    expect(screen.getByAltText(training.name).getAttribute("src")).toBe(
+    expect(screen.getByAltText(training.courseName).getAttribute("src")).toBe(
       defaultImage
     );
   });

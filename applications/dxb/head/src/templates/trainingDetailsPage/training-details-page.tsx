@@ -114,6 +114,7 @@ export const pageQuery = graphql`
       course_type
       img_url
       sessions {
+        id
         code
         name
         date_start

@@ -25,29 +25,29 @@ const training1 = createTraining({
 });
 const training2 = createTraining({
   id: "2-1",
-  code: "uk-catalog",
-  name: "uk-catalog",
+  courseCode: "uk-catalog",
+  courseName: "uk-catalog",
   catalogueId: "1",
   courseId: 2
 });
 const training3 = createTraining({
   id: "3-2",
-  code: "no-catalog",
-  name: "no-catalog",
+  courseCode: "no-catalog",
+  courseName: "no-catalog",
   catalogueId: "2",
   courseId: 3
 });
 const training4 = createTraining({
   id: "4-1",
-  code: "IT-catalog",
-  name: "IT-catalog",
+  courseCode: "IT-catalog",
+  courseName: "IT-catalog",
   catalogueId: "1",
   courseId: 4
 });
 const training5 = createTraining({
   id: "5-1",
-  code: "uk-catalog",
-  name: "uk-catalog",
+  courseCode: "uk-catalog",
+  courseName: "uk-catalog",
   catalogueId: "1",
   courseId: 5
 });
@@ -106,7 +106,14 @@ const collapsedTrainingsResponse: CollapsedTrainingResponse = {
       }
     ]
   },
-  aggregations: {}
+  aggregations: {
+    catalogueId: {
+      buckets: [
+        { key: "1", doc_count: 2, uniqueItemsCount: { value: 2 } },
+        { key: "2", doc_count: 1, uniqueItemsCount: { value: 1 } }
+      ]
+    }
+  }
 };
 
 const paginatedEsResponse: PaginatedTrainingResponse = {
@@ -208,7 +215,7 @@ describe("useTrainings", () => {
                 {
                   query_string: {
                     query: "*",
-                    fields: ["code", "name"]
+                    fields: ["courseCode", "courseName"]
                   }
                 }
               ]
@@ -218,7 +225,8 @@ describe("useTrainings", () => {
             field: "catalogueId.keyword",
             inner_hits: {
               name: "inner_hits",
-              size: SHOW_MORE_LIMIT
+              size: SHOW_MORE_LIMIT,
+              collapse: { field: "courseId" }
             }
           },
           aggs: {
@@ -226,6 +234,13 @@ describe("useTrainings", () => {
               terms: {
                 size: "10",
                 field: "catalogueId.keyword"
+              },
+              aggs: {
+                uniqueItemsCount: {
+                  cardinality: {
+                    field: "courseId"
+                  }
+                }
               }
             },
             category: {
@@ -262,7 +277,7 @@ describe("useTrainings", () => {
                 {
                   query_string: {
                     query: "*",
-                    fields: ["code", "name"]
+                    fields: ["courseCode", "courseName"]
                   }
                 }
               ]
@@ -272,7 +287,8 @@ describe("useTrainings", () => {
             field: "catalogueId.keyword",
             inner_hits: {
               name: "inner_hits",
-              size: SHOW_MORE_LIMIT
+              size: SHOW_MORE_LIMIT,
+              collapse: { field: "courseId" }
             }
           },
           aggs: {
@@ -280,6 +296,13 @@ describe("useTrainings", () => {
               terms: {
                 size: "10",
                 field: "catalogueId.keyword"
+              },
+              aggs: {
+                uniqueItemsCount: {
+                  cardinality: {
+                    field: "courseId"
+                  }
+                }
               }
             },
             category: {
@@ -345,7 +368,7 @@ describe("useTrainings", () => {
                 {
                   query_string: {
                     query: "*",
-                    fields: ["code", "name"]
+                    fields: ["courseCode", "courseName"]
                   }
                 }
               ]
@@ -355,7 +378,8 @@ describe("useTrainings", () => {
             field: "catalogueId.keyword",
             inner_hits: {
               name: "inner_hits",
-              size: SHOW_MORE_LIMIT
+              size: SHOW_MORE_LIMIT,
+              collapse: { field: "courseId" }
             }
           },
           aggs: {
@@ -363,6 +387,13 @@ describe("useTrainings", () => {
               terms: {
                 size: "10",
                 field: "catalogueId.keyword"
+              },
+              aggs: {
+                uniqueItemsCount: {
+                  cardinality: {
+                    field: "courseId"
+                  }
+                }
               }
             },
             category: {
@@ -394,11 +425,14 @@ describe("useTrainings", () => {
                 {
                   query_string: {
                     query: "*",
-                    fields: ["code", "name"]
+                    fields: ["courseCode", "courseName"]
                   }
                 }
               ]
             }
+          },
+          collapse: {
+            field: "courseId"
           }
         },
         esIndexNameTrainings
@@ -433,7 +467,7 @@ describe("useTrainings", () => {
                 {
                   query_string: {
                     query: "*",
-                    fields: ["code", "name"]
+                    fields: ["courseCode", "courseName"]
                   }
                 }
               ]
@@ -443,7 +477,8 @@ describe("useTrainings", () => {
             field: "catalogueId.keyword",
             inner_hits: {
               name: "inner_hits",
-              size: SHOW_MORE_LIMIT
+              size: SHOW_MORE_LIMIT,
+              collapse: { field: "courseId" }
             }
           },
           aggs: {
@@ -451,6 +486,13 @@ describe("useTrainings", () => {
               terms: {
                 size: "10",
                 field: "catalogueId.keyword"
+              },
+              aggs: {
+                uniqueItemsCount: {
+                  cardinality: {
+                    field: "courseId"
+                  }
+                }
               }
             },
             category: {
@@ -482,11 +524,14 @@ describe("useTrainings", () => {
                 {
                   query_string: {
                     query: "*",
-                    fields: ["code", "name"]
+                    fields: ["courseCode", "courseName"]
                   }
                 }
               ]
             }
+          },
+          collapse: {
+            field: "courseId"
           }
         },
         esIndexNameTrainings
@@ -549,7 +594,14 @@ describe("useTrainings", () => {
             }
           ]
         },
-        aggregations: {}
+        aggregations: {
+          catalogueId: {
+            buckets: [
+              { key: "1", doc_count: 2, uniqueItemsCount: { value: 10 } },
+              { key: "2", doc_count: 1, uniqueItemsCount: { value: 1 } }
+            ]
+          }
+        }
       };
       queryElasticsearchMock.mockResolvedValue(collapsedTrainingsResponse);
 
@@ -595,7 +647,7 @@ describe("useTrainings", () => {
                   {
                     query_string: {
                       query: "*uk*",
-                      fields: ["code", "name"]
+                      fields: ["courseCode", "courseName"]
                     }
                   }
                 ]
@@ -605,7 +657,8 @@ describe("useTrainings", () => {
               field: "catalogueId.keyword",
               inner_hits: {
                 name: "inner_hits",
-                size: SHOW_MORE_LIMIT
+                size: SHOW_MORE_LIMIT,
+                collapse: { field: "courseId" }
               }
             },
             aggs: {
@@ -613,6 +666,13 @@ describe("useTrainings", () => {
                 terms: {
                   size: "10",
                   field: "catalogueId.keyword"
+                },
+                aggs: {
+                  uniqueItemsCount: {
+                    cardinality: {
+                      field: "courseId"
+                    }
+                  }
                 }
               },
               category: {
@@ -667,7 +727,7 @@ describe("useTrainings", () => {
                 {
                   query_string: {
                     query: "*uk*",
-                    fields: ["code", "name"]
+                    fields: ["courseCode", "courseName"]
                   }
                 }
               ]
@@ -677,7 +737,8 @@ describe("useTrainings", () => {
             field: "catalogueId.keyword",
             inner_hits: {
               name: "inner_hits",
-              size: SHOW_MORE_LIMIT
+              size: SHOW_MORE_LIMIT,
+              collapse: { field: "courseId" }
             }
           },
           aggs: {
@@ -685,6 +746,13 @@ describe("useTrainings", () => {
               terms: {
                 size: "10",
                 field: "catalogueId.keyword"
+              },
+              aggs: {
+                uniqueItemsCount: {
+                  cardinality: {
+                    field: "courseId"
+                  }
+                }
               }
             },
             category: {
@@ -716,12 +784,13 @@ describe("useTrainings", () => {
                 {
                   query_string: {
                     query: "*uk*",
-                    fields: ["code", "name"]
+                    fields: ["courseCode", "courseName"]
                   }
                 }
               ]
             }
-          }
+          },
+          collapse: { field: "courseId" }
         },
         esIndexNameTrainings
       );
@@ -760,7 +829,7 @@ describe("useTrainings", () => {
                 {
                   query_string: {
                     query: "*",
-                    fields: ["code", "name"]
+                    fields: ["courseCode", "courseName"]
                   }
                 }
               ]
@@ -770,7 +839,8 @@ describe("useTrainings", () => {
             field: "catalogueId.keyword",
             inner_hits: {
               name: "inner_hits",
-              size: SHOW_MORE_LIMIT
+              size: SHOW_MORE_LIMIT,
+              collapse: { field: "courseId" }
             }
           },
           aggs: {
@@ -778,6 +848,13 @@ describe("useTrainings", () => {
               terms: {
                 size: "10",
                 field: "catalogueId.keyword"
+              },
+              aggs: {
+                uniqueItemsCount: {
+                  cardinality: {
+                    field: "courseId"
+                  }
+                }
               }
             },
             category: {

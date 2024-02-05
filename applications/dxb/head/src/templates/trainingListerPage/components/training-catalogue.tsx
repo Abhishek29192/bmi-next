@@ -7,10 +7,10 @@ import { MicroCopyValues, microCopy } from "@bmi/microcopies";
 import ButtonBase from "@mui/material/ButtonBase";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useSiteContext } from "../../../components/Site";
-import { getPathWithCountryCode } from "../../../utils/path";
-import { SHOW_MORE_LIMIT } from "../constants";
 import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
 import { getSearchParams } from "../../../utils/filters";
+import { getPathWithCountryCode } from "../../../utils/path";
+import { SHOW_MORE_LIMIT } from "../constants";
 import {
   Description,
   ItemsCount,
@@ -119,7 +119,7 @@ const TrainingCatalogue = ({
             xs={12}
             md={6}
             lg={4}
-            key={`${catalogueData.id}-${training.slug}`}
+            key={`${catalogueData.id}-${training.courseSlug}`}
           >
             <TrainingCard
               buttonComponent={(props) => (
@@ -128,7 +128,7 @@ const TrainingCatalogue = ({
                   data-testid="training-card"
                   href={`${getPathWithCountryCode(
                     countryCode,
-                    `/t/${training.slug}`
+                    `/t/${training.courseSlug}`
                   )}${getSearchParams()}`}
                 />
               )}
@@ -138,9 +138,9 @@ const TrainingCatalogue = ({
                   trainingCategoryMicroCopies[training.category.toUpperCase()]
                 )
               }}
-              title={training.name}
+              title={training.courseName}
               subtitle={`${getMicroCopy(microCopy.TRAINING_ID_LABEL)} ${
-                training.code
+                training.courseCode
               }`}
               trainingType={{
                 type: training.courseType,
@@ -151,8 +151,8 @@ const TrainingCatalogue = ({
               media={
                 <img
                   data-testid="training-preview-image"
-                  src={training.imgUrl || defaultImageUrl}
-                  alt={training.name}
+                  src={training.courseImg || defaultImageUrl}
+                  alt={training.courseName}
                 />
               }
               footerButtonLabel={getMicroCopy(

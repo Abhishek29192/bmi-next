@@ -1,9 +1,9 @@
+import { ThemeProvider } from "@bmi-digital/components";
+import { createTraining } from "@bmi/elasticsearch-types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { createTraining } from "@bmi/elasticsearch-types";
-import { ThemeProvider } from "@bmi-digital/components";
-import TrainingRegistrationHeader from "../components/TrainingRegistrationHeader";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
+import TrainingRegistrationHeader from "../components/TrainingRegistrationHeader";
 
 const esIndexNameTrainings = "dxb-all-trainings_read";
 
@@ -11,7 +11,7 @@ describe("Training Registration Header component", () => {
   it("should render correctly if all data is available", async () => {
     const training = createTraining({
       onSale: true,
-      price: "1000",
+      price: 1000,
       startDate: "2023-12-29 00:00:00"
     });
     render(
@@ -27,7 +27,7 @@ describe("Training Registration Header component", () => {
     );
 
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      `${training.name} MC: training.registration`
+      `${training.courseName} MC: training.registration`
     );
     expect(screen.getByTestId("training-id")).toBeInTheDocument();
     expect(screen.getByTestId("training-category")).toBeInTheDocument();

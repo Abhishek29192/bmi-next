@@ -33,9 +33,9 @@ const TrainingRegistrationPage = ({
     ].pop();
 
     const trainingPageBreadcrumb = training && {
-      id: training.id,
-      label: training.name,
-      slug: `/t/${training.slug}`
+      id: training.courseId.toString(),
+      label: training.courseName,
+      slug: `/t/${training.courseSlug}`
     };
 
     const trainingListerPageBreadcrumb = contentfulTrainingListerPage && {
@@ -85,7 +85,7 @@ const TrainingRegistrationPage = ({
           {...contentfulTrainingRegistrationPage}
           trainingDetailsPageUrl={getPathWithCountryCode(
             contentfulSite.countryCode,
-            `/t/${training?.slug}`
+            `/t/${training?.courseSlug}`
           )}
           courseCode={training?.code}
         />

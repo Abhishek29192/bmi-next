@@ -7,7 +7,7 @@ export type ESResponse<T> = {
       _id: string;
       _score: number;
       _source: T;
-    };
+    }[];
     total: {
       value: number;
       relation: string;
