@@ -113,9 +113,13 @@ describe("Training DetailsPage", () => {
     expect(screen.getByTestId("no-available-sessions")).toBeInTheDocument();
   });
 
-  it("should render sessions if sessions are available for the course", () => {
+  it("should render sessions if sessions are planned for the future", () => {
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
     renderTrainingDetailsPage({
-      course: createTraining({ sessions: [createSession()] })
+      course: createTraining({
+        sessions: [createSession({ date_start: sessionStartDate.toString() })]
+      })
     });
 
     expect(screen.getByTestId("sessions-container")).toBeInTheDocument();
@@ -126,6 +130,19 @@ describe("Training DetailsPage", () => {
     );
     expect(screen.getByTestId("session-date")).toBeInTheDocument();
     expect(screen.getByTestId("session-cta-button")).toBeInTheDocument();
+  });
+
+  it("should not render sessions planned for the past", () => {
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() - 3600);
+    renderTrainingDetailsPage({
+      course: createTraining({
+        sessions: [createSession({ date_start: sessionStartDate.toString() })]
+      })
+    });
+
+    expect(screen.queryByTestId("sessions-container")).not.toBeInTheDocument();
+    expect(screen.getByTestId("no-available-sessions")).toBeInTheDocument();
   });
 
   it("should render price if provided", () => {
