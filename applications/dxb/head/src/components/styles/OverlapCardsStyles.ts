@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 
 export const OverlapCardsSection = styled("div")(({ theme }) => ({
   marginTop: "-70px",
-
+  backgroundColor: `${theme.colours.white} !important`,
   [theme.breakpoints.up("md")]: {
     marginTop: "-35px"
   },

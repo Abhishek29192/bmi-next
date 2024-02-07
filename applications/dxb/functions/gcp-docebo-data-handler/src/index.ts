@@ -1,18 +1,18 @@
 import logger from "@bmi-digital/functions-logger";
-import { HttpFunction, Response } from "@google-cloud/functions-framework";
-import { Client } from "@elastic/elasticsearch";
+import { getCachedDoceboApi, transformCourseCategory } from "@bmi/docebo-api";
+import { Training } from "@bmi/elasticsearch-types";
+import fetchRetry from "@bmi/fetch-retry";
 import {
   IndexOperation,
   getEsClient,
   getIndexOperation,
   performBulkOperations
 } from "@bmi/functions-es-client";
-import { Training } from "@bmi/elasticsearch-types";
-import fetchRetry from "@bmi/fetch-retry";
 import { isDefined } from "@bmi/utils";
-import { getCachedDoceboApi, transformCourseCategory } from "@bmi/docebo-api";
-import { EventType, MessageStatus, MultipleCoursesDeletedEvent } from "./types";
+import { Client } from "@elastic/elasticsearch";
+import { HttpFunction, Response } from "@google-cloud/functions-framework";
 import { getMessageStatus, saveById } from "./firestore";
+import { EventType, MessageStatus, MultipleCoursesDeletedEvent } from "./types";
 
 const {
   BUILD_TRIGGER_ENDPOINT,
@@ -221,8 +221,19 @@ export const handleRequest: HttpFunction = async (req, res) => {
       }
 
       await deleteCourseByQuery(esClient, {
-        match: {
-          "id.keyword": `${req.body.payload.course_id}-${req.body.payload.catalog_id}`
+        bool: {
+          must: [
+            {
+              match: {
+                courseId: req.body.payload.course_id
+              }
+            },
+            {
+              match: {
+                "catalogueId.keyword": req.body.payload.catalog_id
+              }
+            }
+          ]
         }
       });
 
@@ -353,26 +364,56 @@ const updateCourse = async (
   const currency = await doceboApi.getCurrency();
 
   // The same course with the same ID can be in multiple catalogues
-  const transformedCourses = courseCatalogues.map<Training>((catalogue) => ({
-    id: `${course.id}-${catalogue.catalogue_id}`,
-    courseId: course.id,
-    code: course.code,
-    name: course.name,
-    slug: course.slug_name,
-    courseType: course.type,
-    imgUrl: course.thumbnail,
-    category: transformCourseCategory(course.category),
-    catalogueId: `${catalogue.catalogue_id}`,
-    catalogueName: catalogue.catalogue_name,
-    catalogueDescription: catalogue.catalogue_description,
-    onSale: course.on_sale,
-    startDate: course.course_date_start,
-    price: course.price,
-    currency: currency.currency_currency,
-    currencySymbol: currency.currency_symbol
-  }));
+  const transformedCourses: Training[] = courseCatalogues.flatMap((catalogue) =>
+    (course.sessions || [])
+      .map((session) => {
+        const sessionStartTime = new Date(session.start_date).getTime();
+        const currentTime = new Date().getTime();
+
+        if (sessionStartTime <= currentTime) {
+          //if the condition above passes, it means that session is not active anymore
+          return;
+        }
+
+        return {
+          id: `${catalogue.catalogue_id}-${course.id}-${session.id_session}`,
+          sessionId: session.id_session,
+          sessionName: session.name,
+          sessionSlug: session.slug_name,
+          startDate: session.start_date,
+          endDate: session.end_date,
+          courseId: course.id,
+          courseName: course.name,
+          courseSlug: course.slug_name,
+          courseCode: course.code,
+          courseType: course.type,
+          courseImg: course.thumbnail,
+          category: transformCourseCategory(course.category),
+          onSale: course.on_sale,
+          price: course.price,
+          currency: currency.currency_currency,
+          currencySymbol: currency.currency_symbol,
+          catalogueId: catalogue.catalogue_id.toString(),
+          catalogueName: catalogue.catalogue_name,
+          catalogueDescription: catalogue.catalogue_description
+        };
+      })
+      .filter(isDefined)
+  );
+
+  if (!transformedCourses.length) {
+    logger.info({
+      message: "There are no sessions to update"
+    });
+    await saveById(FIRESTORE_ROOT_COLLECTION!, {
+      id: messageId,
+      status: MessageStatus.Succeeded
+    });
+    return res.sendStatus(200);
+  }
+
   logger.info({
-    message: `Courses to be updated - ${JSON.stringify(transformedCourses)}`
+    message: `Sessions to be updated - ${JSON.stringify(transformedCourses)}`
   });
 
   const bulkOperations = transformedCourses.reduce<

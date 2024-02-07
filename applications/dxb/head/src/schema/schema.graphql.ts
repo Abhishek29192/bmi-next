@@ -328,6 +328,8 @@ type ContentfulTrainingRegistrationPage implements ContentfulObject & Contentful
   successTitle: String!
   successDescription: contentfulTrainingRegistrationPageSuccessDescriptionTextNode! @link(from: "successDescription___NODE")
   registrationCompletedDialogCloseButton:  String!
+  recipient: String!
+  emailSubject: String!
 }
 
 type ContentfulPromo implements ContentfulObject & Node @dontInfer {
@@ -1424,7 +1426,7 @@ type ContentfulAccountPage implements Node @dontInfer {
   featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
   titleForToolSection: String!
   titleForServiceSupportSection: String!
-  allowTools: [String]
+  allowTools: [String!]!
   serviceSupportCards: [ContentfulContactDetails] @link(from: "serviceSupportCards___NODE")
 }
 `;

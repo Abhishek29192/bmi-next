@@ -1,15 +1,16 @@
-import { testPluginOptionsSchema } from "gatsby-plugin-utils";
 import {
   CourseCategory,
   createCatalogue,
+  createCatalogueSubItem,
   createCategory,
   createCertification,
   createCourse,
   createSession
 } from "@bmi/docebo-types";
-import { sourceNodes, pluginOptionsSchema } from "../gatsby-node";
-import { nodeBuilder, transformCourse } from "../utils";
+import { testPluginOptionsSchema } from "gatsby-plugin-utils";
+import { pluginOptionsSchema, sourceNodes } from "../gatsby-node";
 import { NODE_TYPES } from "../types";
+import { nodeBuilder, transformCourse } from "../utils";
 import type { PluginOptions, SourceNodesArgs } from "gatsby";
 
 jest.mock("../utils", () => ({
@@ -103,28 +104,6 @@ describe("source-nodes", () => {
     });
   });
 
-  it("should write courses", async () => {
-    const course = createCourse();
-    const session = createSession();
-
-    fetchCoursesMock.mockReturnValue([course]);
-    fetchSessionMock.mockReturnValue([session]);
-
-    await sourceNodes!(mockGatsbyApi, mockConfigOptions, mockCallback);
-    expect(nodeBuilder).toHaveBeenCalledWith({
-      gatsbyApi: mockGatsbyApi,
-      input: {
-        type: NODE_TYPES.Courses,
-        data: transformCourse({
-          ...course,
-          ...currencyMock,
-          sessions: [session]
-        })
-      },
-      itemId: course.id_course
-    });
-  });
-
   it("should fetch only needed catalogs", async () => {
     const catalogue = createCatalogue();
     fetchCatalogueMock.mockResolvedValue([catalogue]);
@@ -165,6 +144,103 @@ describe("source-nodes", () => {
     expect(mockGatsbyApi.reporter.error).toHaveBeenCalledWith(
       `Did not manage to pull Docebo data. ${JSON.stringify(error)}`
     );
+  });
+
+  it("should skip courses with no active sessions", async () => {
+    const course1 = createCourse({ id_course: 1 });
+    const course2 = createCourse({ id_course: 2 });
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
+    const activeSession = createSession({
+      date_start: sessionStartDate.toString()
+    });
+    const outdatedSession = createSession({
+      date_start: "2022-04-24 07:00:00"
+    });
+
+    fetchCoursesMock.mockResolvedValue([course1, course2]);
+    const catalogue = createCatalogue({
+      sub_items: [
+        createCatalogueSubItem({ item_id: course1.id_course.toString() }),
+        createCatalogueSubItem({ item_id: course2.id_course.toString() })
+      ]
+    });
+    fetchCatalogueMock.mockResolvedValue([catalogue]);
+    fetchSessionMock
+      .mockResolvedValueOnce([activeSession])
+      .mockResolvedValueOnce([outdatedSession]);
+
+    await sourceNodes!(mockGatsbyApi, mockConfigOptions, mockCallback);
+    // First call to save a course, second call to save a catalogue
+    expect(nodeBuilder).toHaveBeenCalledTimes(2);
+    expect(nodeBuilder).toHaveBeenCalledWith({
+      gatsbyApi: mockGatsbyApi,
+      input: {
+        type: NODE_TYPES.Courses,
+        data: transformCourse({
+          ...course1,
+          ...currencyMock,
+          sessions: [activeSession]
+        })
+      },
+      itemId: course1.id_course
+    });
+    expect(nodeBuilder).toHaveBeenCalledWith({
+      gatsbyApi: mockGatsbyApi,
+      input: {
+        type: NODE_TYPES.Catalogues,
+        data: catalogue
+      },
+      itemId: catalogue.catalogue_id
+    });
+  });
+
+  it("should filter out courses if they do not belong to any catalogue", async () => {
+    const course1 = createCourse({ id_course: 1 });
+    const course2 = createCourse({ id_course: 2 });
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
+    const session1 = createSession({
+      date_start: sessionStartDate.toString()
+    });
+    const session2 = createSession({
+      date_start: sessionStartDate.toString()
+    });
+
+    fetchCoursesMock.mockResolvedValue([course1, course2]);
+    const catalogue = createCatalogue({
+      sub_items: [
+        createCatalogueSubItem({ item_id: course1.id_course.toString() })
+      ]
+    });
+    fetchCatalogueMock.mockResolvedValue([catalogue]);
+    fetchSessionMock
+      .mockResolvedValueOnce([session1])
+      .mockResolvedValueOnce([session2]);
+
+    await sourceNodes!(mockGatsbyApi, mockConfigOptions, mockCallback);
+    // First call to save a course, second call to save a catalogue
+    expect(nodeBuilder).toHaveBeenCalledTimes(2);
+    expect(nodeBuilder).toHaveBeenCalledWith({
+      gatsbyApi: mockGatsbyApi,
+      input: {
+        type: NODE_TYPES.Courses,
+        data: transformCourse({
+          ...course1,
+          ...currencyMock,
+          sessions: [session1]
+        })
+      },
+      itemId: course1.id_course
+    });
+    expect(nodeBuilder).toHaveBeenCalledWith({
+      gatsbyApi: mockGatsbyApi,
+      input: {
+        type: NODE_TYPES.Catalogues,
+        data: catalogue
+      },
+      itemId: catalogue.catalogue_id
+    });
   });
 });
 

@@ -87,12 +87,12 @@ describe("constructFiltersQuery", () => {
 });
 
 describe("constructSearchQuery", () => {
-  it("returns correct query if searchQuery === null", () => {
-    const query = constructSearchQuery(null);
+  it("returns correct query if searchQuery is an empty string", () => {
+    const query = constructSearchQuery("");
     expect(query).toEqual({
       query_string: {
         query: "*",
-        fields: ["code", "name"]
+        fields: ["courseCode", "courseName"]
       }
     });
   });
@@ -102,7 +102,7 @@ describe("constructSearchQuery", () => {
     expect(query).toEqual({
       query_string: {
         query: "*fake query*",
-        fields: ["code", "name"]
+        fields: ["courseCode", "courseName"]
       }
     });
   });

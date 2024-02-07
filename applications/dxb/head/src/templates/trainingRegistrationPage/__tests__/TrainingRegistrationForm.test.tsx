@@ -1,18 +1,28 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { LocationProvider } from "@reach/router";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
+import fetchMockJest = require("fetch-mock-jest");
+import { SiteContextProvider } from "../../../components/Site";
+import { getMockSiteContext } from "../../../components/__tests__/utils/SiteContextProvider";
+import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { trainingRegistrationPageData } from "../__mocks__/trainingRegistrationPage";
 import TrainingRegistrationForm from "../components/TrainingRegistrationForm";
 import type { NavigateFn } from "@reach/router";
 
 const navigateMock = jest.fn();
+
+const fetchMock = fetchMockJest.sandbox();
+global.fetch = fetchMock;
+
 jest.mock("gatsby", () => ({
   graphql: jest.fn(),
   navigate: (...args: Parameters<NavigateFn>) => navigateMock(...args)
 }));
 
 const getCookieMock = jest.fn();
+
 jest.mock("../../../utils/getCookie", () => ({
   __esModule: true,
   default: (cookieName: string) => getCookieMock(cookieName)
@@ -30,24 +40,140 @@ jest.mock("../components/ExtraParticipants", () => ({
   default: () => <>Extra participants section</>
 }));
 
+beforeEach(() => {
+  fetchMock.reset();
+});
+
 afterEach(() => {
   jest.clearAllMocks();
   jest.resetAllMocks();
 });
 
+const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeProvider>
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          reCaptchaKey: "1234",
+          reCaptchaNet: false
+        }}
+      >
+        {children}
+      </SiteContextProvider>
+    </ThemeProvider>
+  );
+};
+
 const renderTrainingRegistrationPage = () =>
   render(
-    <ThemeProvider>
-      <LocationProvider>
-        <TrainingRegistrationForm
-          {...trainingRegistrationPageData}
-          trainingDetailsPageUrl="/no/t/training-details-page-utl"
-        />
-      </LocationProvider>
-    </ThemeProvider>
+    <ConfigProvider
+      configOverride={{
+        gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+      }}
+    >
+      <MockSiteContext>
+        <ThemeProvider>
+          <LocationProvider>
+            <TrainingRegistrationForm
+              {...trainingRegistrationPageData}
+              trainingDetailsPageUrl="/no/t/training-details-page-utl"
+              courseCode={"IT-TEST08"}
+            />
+          </LocationProvider>
+        </ThemeProvider>
+      </MockSiteContext>
+    </ConfigProvider>
   );
 
 describe("TrainingRegistrationForm", () => {
+  it("submits the form and trigger the email", async () => {
+    renderTrainingRegistrationPage();
+
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.firstName, {
+        exact: false
+      }),
+      { target: { value: "First name" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.lastName, {
+        exact: false
+      }),
+      { target: { value: "Last name" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.email, {
+        exact: false
+      }),
+      { target: { value: "test@bmigroup.com" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.position, {
+        exact: false
+      }),
+      { target: { value: "Developer" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.street, {
+        exact: false
+      }),
+      { target: { value: "Street name" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.postalCode, {
+        exact: false
+      }),
+      { target: { value: "Postal code" } }
+    );
+    fireEvent.click(screen.getByTestId("terms-of-use-checkbox"));
+    fireEvent.click(screen.getByTestId("consent-text-checkbox"));
+
+    const submitButton = screen.getByRole("button", {
+      name: trainingRegistrationPageData.registerButton
+    });
+
+    fireEvent.click(submitButton);
+
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: "OK"
+    });
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "",
+            recipients: "test@bmigroup.com",
+            values: {
+              Salutation: "Mr",
+              "First name": "First name",
+              "Last name": "Last name",
+              Email: "test@bmigroup.com",
+              Position: "Developer",
+              Street: "Street name",
+              "Postal code": "Postal code",
+              "Are you a member of the [BMI SystemPartner Club](https://fake-url.com/) (subject to a fee)?":
+                "Yes",
+              "How did you find out about this event": "Brochure"
+            },
+            emailSubjectFormat: "Sample subject IT-TEST08"
+          }),
+          headers: {
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json"
+          }
+        }
+      )
+    );
+  });
+
   (
     [
       "firstName",
@@ -205,12 +331,14 @@ describe("TrainingRegistrationForm", () => {
     });
     expect(submitButton).not.toBeDisabled();
     fireEvent.click(submitButton);
-    expect(navigateMock).toHaveBeenCalledWith(
-      "/no/t/training-details-page-utl",
-      {
-        state: { showResultsModal: true },
-        replace: true
-      }
+    await waitFor(() =>
+      expect(navigateMock).toHaveBeenCalledWith(
+        "/no/t/training-details-page-utl",
+        {
+          state: { showResultsModal: true },
+          replace: true
+        }
+      )
     );
     expect(executeRecaptchaMock).not.toHaveBeenCalled();
   });

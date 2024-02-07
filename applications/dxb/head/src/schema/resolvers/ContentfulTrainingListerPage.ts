@@ -1,6 +1,8 @@
 import { microCopy } from "@bmi/microcopies";
+import { GatsbyIterable } from "gatsby/dist/datastore/common/iterable";
 import type { Catalogue } from "@bmi/docebo-types";
 import type { Course } from "@bmi/gatsby-source-docebo";
+import { GatsbyTrainingNode } from "./types/Docebo";
 import { getMicroCopies } from "./utils/getMicrocopies";
 import type { Filter } from "@bmi-digital/components/filters";
 import type { Node as GatsbyNode } from "gatsby";
@@ -10,6 +12,7 @@ import type { Context } from "./types/Gatsby";
 
 const getCatalogueFilters = async (
   context: Context,
+  courses: GatsbyIterable<Course>,
   microCopies: MicroCopyNode[]
 ): Promise<Filter> => {
   const microCopyKey = microCopy.TRAINING_FILTER_LABEL_CATALOGUE;
@@ -24,6 +27,15 @@ const getCatalogueFilters = async (
     { connectionType: "DoceboCatalogues" }
   );
 
+  const cataloguesWithActiveSessions = catalogues.filter((catalogue) =>
+    catalogue.sub_items.some((catalogueCourse) =>
+      //[...courses] - converts GatsbyIterable type into a simple array
+      [...courses].find(
+        ({ id_course }) => id_course.toString() === catalogueCourse.item_id
+      )
+    )
+  );
+
   return {
     filterCode: "catalogueId",
     name: "catalogue",
@@ -33,7 +45,7 @@ const getCatalogueFilters = async (
     value: [],
     /** findAll returns GatsbyIterable type.
     Spread operator allows to convert GatsbyIterable into simple array */
-    options: [...catalogues].map((catalogue) => ({
+    options: [...cataloguesWithActiveSessions].map((catalogue) => ({
       label: catalogue.catalogue_name,
       value: `${catalogue.catalogue_id}`
     }))
@@ -41,20 +53,10 @@ const getCatalogueFilters = async (
 };
 
 const getCategoryFilters = async (
-  context: Context,
+  courses: GatsbyIterable<Course>,
   microCopies: MicroCopyNode[]
 ): Promise<Filter> => {
   const microCopyKey = microCopy.TRAINING_FILTER_LABEL_CATEGORY;
-
-  const { entries: courses } = await context.nodeModel.findAll<
-    Course & GatsbyNode
-  >(
-    {
-      query: {},
-      type: "DoceboCourses"
-    },
-    { connectionType: "DoceboCourses" }
-  );
 
   return {
     filterCode: "category",
@@ -132,8 +134,28 @@ export default {
         return [];
       }
 
-      const catalogueFilter = await getCatalogueFilters(context, microCopies);
-      const categoryFilters = await getCategoryFilters(context, microCopies);
+      const { entries: courses } =
+        await context.nodeModel.findAll<GatsbyTrainingNode>(
+          {
+            query: {},
+            type: "DoceboCourses"
+          },
+          { connectionType: "DoceboCourses" }
+        );
+
+      /** [...courses] - converts GatsbyIterable type into a simple array.
+      The length property is not available on GatsbyIterable type */
+      if (![...courses].length) {
+        console.error("Did not manage to get courses");
+        return [];
+      }
+
+      const catalogueFilter = await getCatalogueFilters(
+        context,
+        courses,
+        microCopies
+      );
+      const categoryFilters = await getCategoryFilters(courses, microCopies);
 
       return [catalogueFilter, categoryFilters];
     }

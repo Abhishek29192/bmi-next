@@ -1,14 +1,15 @@
 import logger from "@bmi-digital/functions-logger";
+import { getCachedDoceboApi } from "@bmi/docebo-api";
 import fetchRetry from "@bmi/fetch-retry";
+import { getChunks } from "@bmi/functions-es-client";
 import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
 import { Response } from "node-fetch";
-import { getCachedDoceboApi } from "@bmi/docebo-api";
 import { getNumberOfDocuments } from "./contentful";
 import {
+  ElasticsearchIndexes,
   createElasticSearchIndex,
-  createIndexAlias,
-  ElasticsearchIndexes
+  createIndexAlias
 } from "./elasticsearch";
 import { deleteFirestoreCollection } from "./firestore";
 import { FirestoreCollections } from "./firestoreCollections";
@@ -39,12 +40,13 @@ const {
 // The API will throw a BadRequestError for values higher than 1000 and values other than an integer.
 // The default number of entries returned by the API is 100.
 const MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE = 1000;
-const MAX_NUMBER_OF_COURSES_PER_RESPONSE = 10;
+const MAX_NUMBER_OF_COURSES_PER_REQUEST = 10;
 
 const triggerFullFetch = async (
   type: PimTypes | "documents" | "trainings",
   lastStartPage: number,
-  numberOfPages: number
+  numberOfPages: number,
+  trainingData?: { catalogueId: number; itemIds: string[] }
 ): Promise<Response> => {
   logger.info({
     message: `Triggering fetch for pages ${lastStartPage} to ${
@@ -62,14 +64,15 @@ const triggerFullFetch = async (
     body: JSON.stringify({
       type: type,
       startPage: lastStartPage,
-      numberOfPages: numberOfPages
+      numberOfPages: numberOfPages,
+      ...(trainingData || {})
     })
   });
   logger.info({ message: `Success triggerFullFetch: ${response.status}.` });
   return response;
 };
 
-const triggerFullFetchBatch = async (type: PimTypes) => {
+const triggerPimFullFetchBatch = async (type: PimTypes) => {
   logger.info({ message: `Batching ${type}.` });
 
   let response;
@@ -124,24 +127,42 @@ const triggerDocumentsFullFetchBatch = async () => {
 
 const triggerTrainingsFullFetchBatch = async () => {
   logger.info({ message: "Batching trainings" });
+  const catalogueIds = process.env.DOCEBO_API_CATALOGUE_IDS?.split(",")
+    ?.map((catalogueId) => Number(catalogueId))
+    .filter(Boolean);
 
-  const doceboApi = getCachedDoceboApi();
-  const trainings = await doceboApi.fetchCourses({ ignoreNextPage: false });
-  if (!trainings?.length) {
+  if (!Array.isArray(catalogueIds) || !catalogueIds.length) {
+    logger.error({ message: "Catalogue IDs are not correct" });
     return;
   }
 
-  const numberOfRequests = Math.ceil(
-    trainings.length / MAX_NUMBER_OF_COURSES_PER_RESPONSE
-  );
-  const promises: Promise<Response>[] = [];
-  for (let i = 0; i < numberOfRequests; i++) {
-    const batchResponse = triggerFullFetch("trainings", i + 1, 1);
-    promises.push(batchResponse);
+  const doceboApi = getCachedDoceboApi();
+  const catalogues = await doceboApi.fetchCatalogues({ catalogueIds });
+
+  if (!catalogues?.length) {
+    logger.error({ message: "Did not manage to pull catalogues" });
+    return;
   }
+
+  const promises = catalogues.flatMap(({ sub_items, catalogue_id }) => {
+    const courseIds = sub_items.map(({ item_id }) => item_id);
+    const batches = getChunks(courseIds, MAX_NUMBER_OF_COURSES_PER_REQUEST);
+
+    logger.info({
+      message: `Fetching courses for catalogue with id: ${catalogue_id}`
+    });
+
+    return batches.map((batch, index) =>
+      triggerFullFetch("trainings", index + 1, 1, {
+        itemIds: batch,
+        catalogueId: catalogue_id
+      })
+    );
+  });
+
   await Promise.all(promises);
   logger.info({
-    message: `Success for triggerFullFetchBatch type: trainings.`
+    message: "Success for triggerFullFetchBatch type: trainings."
   });
 };
 
@@ -265,8 +286,8 @@ const handleRequest: HttpFunction = async (req, res) => {
   await deleteFirestoreCollection(FirestoreCollections.Products);
   await deleteFirestoreCollection(FirestoreCollections.Systems);
 
-  await triggerFullFetchBatch(PimTypes.Products);
-  await triggerFullFetchBatch(PimTypes.Systems);
+  await triggerPimFullFetchBatch(PimTypes.Products);
+  await triggerPimFullFetchBatch(PimTypes.Systems);
   await triggerDocumentsFullFetchBatch();
   if (pullDoceboData) {
     await triggerTrainingsFullFetchBatch();

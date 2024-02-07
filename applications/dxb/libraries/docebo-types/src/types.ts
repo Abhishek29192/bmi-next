@@ -276,6 +276,37 @@ export type FlatLos = {
   items_count: number;
 };
 
+export type CourseSession = {
+  id_session: number;
+  attendance_type: CourseSessionAttendanceType;
+  migrated_webinar_session_id: number;
+  uid_session: string;
+  name: string;
+  slug_name: string;
+  description: string;
+  start_date: string;
+  end_date: string;
+  last_subscription_date: string | null;
+  min_enroll: number;
+  max_enroll: number;
+  is_instructor: boolean;
+  is_session_instructor: boolean;
+  is_event_instructor: boolean;
+  enrolled: Enrolled[];
+  instructors: Instructors[];
+  dates: CourseDates[];
+  locations: Locations[];
+  additional_fields: CourseAdditionalFields[];
+  evaluation_type: "3";
+  webinar_session_id: string | null;
+};
+
+export type CourseSessionAttendanceType =
+  | "onsite"
+  | "online"
+  | "flexible"
+  | "blended";
+
 export type ExtendedCourse = {
   id: number;
   name: string;
@@ -380,5 +411,5 @@ export type ExtendedCourse = {
   };
   is_affiliate: boolean;
   max_attempts_reached: boolean;
-  sessions?: Session[];
+  sessions?: CourseSession[];
 };

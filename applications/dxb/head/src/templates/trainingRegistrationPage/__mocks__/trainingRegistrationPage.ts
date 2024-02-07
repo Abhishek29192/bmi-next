@@ -59,5 +59,7 @@ export const trainingRegistrationPageData: TrainingRegistrationPageData = {
   termsOfUse: {
     termsOfUse: "Terms of use"
   },
-  registerButton: "Submit"
+  registerButton: "Submit",
+  recipient: "test@bmigroup.com",
+  emailSubject: "Sample subject"
 };

@@ -3,6 +3,7 @@ import {
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
+import { createCatalogue, createCatalogueSubItem } from "@bmi/docebo-types";
 import {
   createProductsApiResponse,
   createSystemsApiResponse
@@ -10,7 +11,6 @@ import {
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import { createCourse } from "@bmi/docebo-types";
 import { ElasticsearchIndexes } from "../elasticsearch";
 import { FirestoreCollections } from "../firestoreCollections";
 
@@ -78,10 +78,10 @@ jest.mock("../gcpAuth", () => {
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-const fetchCoursesMock = jest.fn();
+const fetchCataloguesMock = jest.fn();
 jest.mock("@bmi/docebo-api", () => ({
   getCachedDoceboApi: () => ({
-    fetchCourses: fetchCoursesMock
+    fetchCatalogues: fetchCataloguesMock
   })
 }));
 
@@ -3140,7 +3140,10 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createProductsApiResponse({ totalPageCount: 10 }))
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
-    fetchCoursesMock.mockReturnValue([createCourse()]);
+    const catalogue = createCatalogue({
+      sub_items: [createCatalogueSubItem()]
+    });
+    fetchCataloguesMock.mockReturnValue([catalogue]);
 
     mockResponses(
       fetchMock,
@@ -3177,7 +3180,9 @@ describe("handleRequest", () => {
         requestBody: {
           type: "trainings",
           startPage: 1,
-          numberOfPages: 1
+          numberOfPages: 1,
+          catalogueId: catalogue.catalogue_id,
+          itemIds: catalogue.sub_items.map((item) => item.item_id)
         }
       },
       {
@@ -3269,7 +3274,9 @@ describe("handleRequest", () => {
       body: {
         type: "trainings",
         startPage: 1,
-        numberOfPages: 1
+        numberOfPages: 1,
+        catalogueId: catalogue.catalogue_id,
+        itemIds: catalogue.sub_items.map((item) => item.item_id)
       }
     });
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
@@ -3285,6 +3292,61 @@ describe("handleRequest", () => {
     process.env.PULL_DOCEBO_DATA = initialPullDoceboData;
   });
 
+  it("should not fetch Docebo data if DOCEBO_API_CATALOGUE_IDS is not correct", async () => {
+    const initialPullDoceboData = process.env.PULL_DOCEBO_DATA;
+    const initialCatalogues = process.env.DOCEBO_API_CATALOGUE_IDS;
+    process.env.PULL_DOCEBO_DATA = "true";
+    process.env.DOCEBO_API_CATALOGUE_IDS = "fake value";
+    fetchData
+      .mockResolvedValueOnce(createProductsApiResponse({ totalPageCount: 10 }))
+      .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
+
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "documents",
+          startPage: 0,
+          numberOfPages: 1
+        }
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+
+    const request = mockRequest({ method: "GET" });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchCataloguesMock).not.toHaveBeenCalled();
+    expect(response.status).toHaveBeenCalledWith(200);
+    process.env.PULL_DOCEBO_DATA = initialPullDoceboData;
+    process.env.DOCEBO_API_CATALOGUE_IDS = initialCatalogues;
+  });
+
   it("should send multiple requests for multiple pages of trainings", async () => {
     const initialPullDoceboData = process.env.PULL_DOCEBO_DATA;
     process.env.PULL_DOCEBO_DATA = "true";
@@ -3292,9 +3354,11 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createProductsApiResponse({ totalPageCount: 10 }))
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
-    const courses = new Array(30);
-    courses.fill(createCourse());
-    fetchCoursesMock.mockReturnValue(courses);
+    const catalogueCourses = new Array(20)
+      .fill(null)
+      .map((_, index) => createCatalogueSubItem({ item_id: index.toString() }));
+    const catalogue = createCatalogue({ sub_items: catalogueCourses });
+    fetchCataloguesMock.mockReturnValue([catalogue]);
 
     mockResponses(
       fetchMock,
@@ -3331,7 +3395,9 @@ describe("handleRequest", () => {
         requestBody: {
           type: "trainings",
           startPage: 1,
-          numberOfPages: 1
+          numberOfPages: 1,
+          catalogueId: catalogue.catalogue_id,
+          itemIds: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         }
       },
       {
@@ -3340,16 +3406,9 @@ describe("handleRequest", () => {
         requestBody: {
           type: "trainings",
           startPage: 2,
-          numberOfPages: 1
-        }
-      },
-      {
-        url: process.env.FULL_FETCH_ENDPOINT,
-        method: "POST",
-        requestBody: {
-          type: "trainings",
-          startPage: 3,
-          numberOfPages: 1
+          numberOfPages: 1,
+          catalogueId: catalogue.catalogue_id,
+          itemIds: ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19"]
         }
       },
       {
@@ -3441,7 +3500,9 @@ describe("handleRequest", () => {
       body: {
         type: "trainings",
         startPage: 1,
-        numberOfPages: 1
+        numberOfPages: 1,
+        catalogueId: catalogue.catalogue_id,
+        itemIds: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
       }
     });
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
@@ -3452,18 +3513,9 @@ describe("handleRequest", () => {
       body: {
         type: "trainings",
         startPage: 2,
-        numberOfPages: 1
-      }
-    });
-    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: {
-        type: "trainings",
-        startPage: 3,
-        numberOfPages: 1
+        numberOfPages: 1,
+        catalogueId: catalogue.catalogue_id,
+        itemIds: ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19"]
       }
     });
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
@@ -3479,14 +3531,14 @@ describe("handleRequest", () => {
     process.env.PULL_DOCEBO_DATA = initialPullDoceboData;
   });
 
-  it("works correctly if there are no courses and PULL_DOCEBO_DATA===true", async () => {
+  it("works correctly if there are no catalogues and PULL_DOCEBO_DATA===true", async () => {
     const initialPullDoceboData = process.env.PULL_DOCEBO_DATA;
     process.env.PULL_DOCEBO_DATA = "true";
     fetchData
       .mockResolvedValueOnce(createProductsApiResponse({ totalPageCount: 10 }))
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
-    fetchCoursesMock.mockReturnValue(undefined);
+    fetchCataloguesMock.mockReturnValue(undefined);
 
     mockResponses(
       fetchMock,
@@ -3603,11 +3655,10 @@ describe("handleRequest", () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: {
+      body: expect.objectContaining({
         type: "trainings",
-        startPage: 1,
-        numberOfPages: 1
-      }
+        startPage: 1
+      })
     });
     expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
       method: "POST",
@@ -3629,7 +3680,10 @@ describe("handleRequest", () => {
       .mockResolvedValueOnce(createProductsApiResponse({ totalPageCount: 10 }))
       .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
     getNumberOfDocuments.mockResolvedValueOnce(1000);
-    fetchCoursesMock.mockReturnValue([createCourse()]);
+    const catalogue = createCatalogue({
+      sub_items: [createCatalogueSubItem()]
+    });
+    fetchCataloguesMock.mockReturnValue([catalogue]);
 
     mockResponses(
       fetchMock,
@@ -3666,7 +3720,9 @@ describe("handleRequest", () => {
         requestBody: {
           type: "trainings",
           startPage: 1,
-          numberOfPages: 1
+          numberOfPages: 1,
+          catalogueId: catalogue.catalogue_id,
+          itemIds: catalogue.sub_items.map((item) => item.item_id)
         },
         status: 429
       }
@@ -3753,7 +3809,9 @@ describe("handleRequest", () => {
       body: {
         type: "trainings",
         startPage: 1,
-        numberOfPages: 1
+        numberOfPages: 1,
+        catalogueId: catalogue.catalogue_id,
+        itemIds: catalogue.sub_items.map((item) => item.item_id)
       }
     });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);

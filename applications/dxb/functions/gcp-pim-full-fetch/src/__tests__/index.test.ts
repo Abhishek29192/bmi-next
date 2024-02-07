@@ -1,24 +1,24 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import {
-  createDocument as createContentfulDocument,
-  TypeDocument as ContentfulDocument
+  TypeDocument as ContentfulDocument,
+  createDocument as createContentfulDocument
 } from "@bmi/contentful-types";
 import {
-  ContentfulDocument as EsContentfulDocument,
   Training as ESTraining,
+  ContentfulDocument as EsContentfulDocument,
   createContentfulDocument as createEsContentfulDocument,
   createTraining as createEsTraining
 } from "@bmi/elasticsearch-types";
+import { fetchData as originalFetchData } from "@bmi/pim-api";
 import {
+  PimTypes,
   createProduct,
   createProductsApiResponse,
   createSystem,
-  createSystemsApiResponse,
-  PimTypes
+  createSystemsApiResponse
 } from "@bmi/pim-types";
-import { Request, Response } from "express";
-import { fetchData as originalFetchData } from "@bmi/pim-api";
 import { Topic } from "@google-cloud/pubsub";
+import { Request, Response } from "express";
 import { fetchDoceboData as originalFetchDoceboData } from "../doceboDataHandler";
 import { createFullFetchRequest } from "./helpers/fullFetchHelper";
 
@@ -361,24 +361,6 @@ describe("handleRequest", () => {
     process.env.DOCEBO_API_USERNAME = inintialDoceboApiUsername;
   });
 
-  it("should return 500 if type===trainings and DOCEBO_API_CATALOGUE_IDS is not set", async () => {
-    const inintialDoceboApiCatalogIds = process.env.DOCEBO_API_CATALOGUE_IDS;
-    delete process.env.DOCEBO_API_CATALOGUE_IDS;
-    const request = mockRequest({
-      method: "POST",
-      headers: {},
-      url: "",
-      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
-    });
-    const response = mockResponse();
-
-    await handleRequest(request, response);
-    expect(response.sendStatus).toHaveBeenCalledWith(500);
-    expect(fetchDoceboData).not.toHaveBeenCalled();
-    expect(indexIntoES).not.toHaveBeenCalled();
-    process.env.DOCEBO_API_CATALOGUE_IDS = inintialDoceboApiCatalogIds;
-  });
-
   it("should return 500 if type===trainings and ES_INDEX_NAME_TRAININGS is not set", async () => {
     const inintialEsIndexNameTrainings = process.env.ES_INDEX_NAME_TRAININGS;
     delete process.env.ES_INDEX_NAME_TRAININGS;
@@ -397,6 +379,97 @@ describe("handleRequest", () => {
     process.env.ES_INDEX_NAME_TRAININGS = inintialEsIndexNameTrainings;
   });
 
+  it("should return 400 if type===trainings and catalogueId is not provided", async () => {
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        type: "trainings",
+        startPage: 1,
+        numberOfPages: 1,
+        catalogueId: undefined
+      }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.status).toHaveBeenCalledWith(400);
+    expect(response.send).toHaveBeenCalledWith("catalogueId was not provided");
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+  });
+
+  it("should return 400 if type===trainings and itemIds is not provided", async () => {
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        type: "trainings",
+        startPage: 1,
+        numberOfPages: 1,
+        catalogueId: 10,
+        itemIds: undefined
+      }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.status).toHaveBeenCalledWith(400);
+    expect(response.send).toHaveBeenCalledWith(
+      "itemIds field was not provided"
+    );
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+  });
+
+  it("should return 400 if type===trainings and itemIds is not array", async () => {
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        type: "trainings",
+        startPage: 1,
+        numberOfPages: 1,
+        catalogueId: 10,
+        itemIds: "fake value"
+      }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.status).toHaveBeenCalledWith(400);
+    expect(response.send).toHaveBeenCalledWith("itemIds should be an array");
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+  });
+
+  it("should return 400 if type===trainings and itemIds is an empty array", async () => {
+    const request = mockRequest({
+      method: "POST",
+      headers: {},
+      url: "",
+      body: {
+        type: "trainings",
+        startPage: 1,
+        numberOfPages: 1,
+        catalogueId: 10,
+        itemIds: []
+      }
+    });
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+    expect(response.status).toHaveBeenCalledWith(400);
+    expect(response.send).toHaveBeenCalledWith(
+      "training IDs were not provided"
+    );
+    expect(fetchDoceboData).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+  });
+
   it("inserts trainings into ES index", async () => {
     const training = createEsTraining();
     fetchDoceboData.mockResolvedValue([training]);
@@ -404,13 +477,22 @@ describe("handleRequest", () => {
       method: "POST",
       headers: {},
       url: "",
-      body: { type: "trainings", startPage: 1, numberOfPages: 1 }
+      body: {
+        type: "trainings",
+        startPage: 1,
+        numberOfPages: 1,
+        catalogueId: 1,
+        itemIds: [1]
+      }
     });
     const response = mockResponse();
 
     await handleRequest(request, response);
     expect(response.sendStatus).toHaveBeenCalledWith(200);
-    expect(fetchDoceboData).toHaveBeenCalledTimes(1);
+    expect(fetchDoceboData).toHaveBeenCalledWith(
+      request.body.catalogueId,
+      request.body.itemIds
+    );
     expect(indexIntoES).toHaveBeenCalledWith(
       [training],
       process.env.ES_INDEX_NAME_TRAININGS

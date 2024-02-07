@@ -18,7 +18,7 @@
     "@bmi-digital/functions-logger": "^1.7.6",
     "@bmi/functions-firestore": "workspace:*",
     "@google-cloud/functions-framework": "^3.3.0",
-    "googleapis": "^130.0.0",
+    "googleapis": "^131.0.0",
     "node-fetch": "^2.7.0",
     "simple-http-status": "^1.1.0"
   },

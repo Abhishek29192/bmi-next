@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
 import { useIsClient } from "@bmi-digital/components/hooks";
+import { useEffect, useMemo, useState } from "react";
 import type { Training } from "@bmi/elasticsearch-types";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { queryElasticSearch } from "../../../utils/elasticSearch";
 import type { ESTrainingDetails } from "../types";
 
-export const URL_PARAM_KEY = "trainingCode";
+const TRAINING_CODE_PARAM = "trainingCode";
+const SESSION_ID_PARAM = "session";
 
 export type UseRegistration = () => {
   training?: Training;
@@ -14,19 +15,27 @@ export type UseRegistration = () => {
 
 const getTraining = async (
   trainingCode: string,
+  sessionId: string,
   esIndexNameTrainings: string
 ): Promise<Training | undefined> => {
-  if (!esIndexNameTrainings) {
-    return;
-  }
-
   try {
     const res: ESTrainingDetails = await queryElasticSearch(
       {
         size: 1,
         query: {
-          match: {
-            "code.keyword": trainingCode
+          bool: {
+            must: [
+              {
+                match: {
+                  "courseCode.keyword": trainingCode
+                }
+              },
+              {
+                match: {
+                  sessionId
+                }
+              }
+            ]
           }
         }
       },
@@ -44,24 +53,32 @@ export const useRegistration: UseRegistration = () => {
   const { isClient } = useIsClient();
   const { esIndexNameTrainings } = useConfig();
 
-  const trainingCode = useMemo(() => {
+  const { trainingCode, session } = useMemo(() => {
     const params = new URLSearchParams(isClient ? window.location.search : {});
-    return params.get(URL_PARAM_KEY);
+    return {
+      trainingCode: params.get(TRAINING_CODE_PARAM),
+      session: params.get(SESSION_ID_PARAM)
+    };
   }, [isClient]);
 
   useEffect(() => {
-    if (!trainingCode) {
+    if (!trainingCode || !session || !esIndexNameTrainings) {
+      setLoading(false);
       return;
     }
 
     const setData = async () => {
       setLoading(true);
-      const training = await getTraining(trainingCode, esIndexNameTrainings);
+      const training = await getTraining(
+        trainingCode,
+        session,
+        esIndexNameTrainings
+      );
       setTraining(training);
       setLoading(false);
     };
     setData();
-  }, [trainingCode]);
+  }, [trainingCode, session]);
 
   return {
     training,
