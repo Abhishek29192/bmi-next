@@ -430,7 +430,7 @@ const getRedirectConfig = (
 
   //If we use wildcard redirects on production users will be redirected to gatsby domain
   //Such approach allows us to prevent users from being redirected to Gatsby domain.
-  // This issue not applicable to Netlify.
+  // This issue is not applicable to Netlify.
   if (!redirect.to.startsWith("https://") && !process.env.IS_NETLIFY) {
     toPath = `${process.env.GATSBY_SITE_URL}${toPath}`;
   }
