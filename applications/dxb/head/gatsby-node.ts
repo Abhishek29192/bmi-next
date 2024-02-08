@@ -446,7 +446,9 @@ const getRedirectConfig = (
 
   return {
     isPermanent,
-    fromPath: addSplatToUrl(redirect.from),
+    fromPath: process.env.IS_NETLIFY
+      ? redirect.from // Netlify automatically passes on all querystring parameters to the destination
+      : addSplatToUrl(redirect.from),
     toPath: toPath,
     statusCode: redirect.status
   };
