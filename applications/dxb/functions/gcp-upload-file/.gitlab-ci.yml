@@ -14,7 +14,7 @@ test_gcp-upload-file:
   extends: .test_function
   variables:
     WORKSPACE: "@bmi/gcp-upload-file"
-    ROOT_DIR: "applications/functions/gcp-upload-file"
+    ROOT_DIR: "applications/dxb/functions/gcp-upload-file"
   needs:
     - build_gcp-upload-file
 
