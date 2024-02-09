@@ -14,7 +14,7 @@ test_gcp-form-submit:
   extends: .test_function
   variables:
     WORKSPACE: "@bmi/gcp-form-submit"
-    ROOT_DIR: "applications/functions/gcp-form-submit"
+    ROOT_DIR: "applications/dxb/functions/gcp-form-submit"
   needs:
     - build_gcp-form-submit
 
