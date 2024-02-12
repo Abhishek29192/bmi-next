@@ -35,7 +35,6 @@ export interface TypeSiteFields {
   footerMainNavigation?: EntryFieldTypes.EntryLink<TypeNavigationSkeleton>;
   footerSecondaryNavigation?: EntryFieldTypes.EntryLink<TypeNavigationSkeleton>;
   resources?: EntryFieldTypes.EntryLink<TypeResourcesSkeleton>;
-  headScripts?: EntryFieldTypes.Text;
   pitchedRoofCalculatorConfig?: EntryFieldTypes.EntryLink<TypeWebToolCalculatorSkeleton>;
   visualiserHouseTypes?: EntryFieldTypes.Array<
     EntryFieldTypes.EntryLink<TypeVisualiserHouseTypeSkeleton>

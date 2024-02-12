@@ -22,8 +22,8 @@ import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
 import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
 import ProductListerPage, {
-  Data as PlpPageInfoData,
   PageContextType,
+  Data as PlpPageInfoData,
   Props
 } from "../product-lister-page";
 
@@ -93,7 +93,6 @@ const siteData: SiteData = {
   menuNavigation: mockNavigation,
   menuUtilities: mockNavigation,
   resources: null,
-  headScripts: null,
   pitchedRoofCalculatorConfig: null,
   visualiserHouseTypes: null,
   regions: [

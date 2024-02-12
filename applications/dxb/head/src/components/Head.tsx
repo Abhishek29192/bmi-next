@@ -12,14 +12,12 @@ import { getPathWithCountryCode } from "../utils/path";
 import { createSchemaOrgForHomeAndBrandPage } from "../utils/schemaOrgHomeAndBrandPage";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { Data as SEOContentData } from "./SEOContent";
-import { Data as SiteData } from "./Site";
 
 interface HeadProps {
   htmlAttributes: { lang: string };
   title: string;
   defer?: boolean;
   ogImageUrl?: string;
-  scripts?: Pick<SiteData, "headScripts">;
   seo: SEOContentData | null;
   path: string;
   variantProduct?: Product;
@@ -33,7 +31,6 @@ export const Head = ({
   title,
   defer = false,
   ogImageUrl,
-  scripts,
   seo,
   path,
   variantProduct,
@@ -194,10 +191,6 @@ export const Head = ({
             }
           `}
       </script>
-
-      {scripts?.headScripts && (
-        <script>{scripts.headScripts.headScripts}</script>
-      )}
 
       {schemaOrgActivated && (
         <script type="application/ld+json">

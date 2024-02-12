@@ -5,16 +5,16 @@
  * fields.
  */
 import type { MicroCopyValues } from "@bmi/microcopies";
+import type { Node as GatsbyNode } from "gatsby";
 import type { Region } from "../../../components/Header";
 import type { Data as ContentfulImage } from "../../../components/Image";
-import type { CalculatorConfig } from "../../../components/pitched-roof-calculator/types";
 import type { RichTextData } from "../../../components/RichText";
 import type { Data as ContentfulVideo } from "../../../components/Video";
+import type { CalculatorConfig } from "../../../components/pitched-roof-calculator/types";
 import type { HouseType } from "../../../components/visualiser/Types";
-import type { Node } from "./Gatsby";
-import type { TrainingListerPageData as TrainingListerPageProps } from "../../../templates/trainingListerPage/types";
-import type { Node as GatsbyNode } from "gatsby";
 import type { AccountPage } from "../../../templates/myAccountPage/my-account";
+import type { TrainingListerPageData as TrainingListerPageProps } from "../../../templates/trainingListerPage/types";
+import type { Node } from "./Gatsby";
 
 export type Resource = Node & {
   keyAssetTypes: string[] | null;
@@ -86,7 +86,6 @@ export type ContentfulSite = Node & {
   footerSecondaryNavigation: null;
   menuNavigation: null;
   menuUtilities: null;
-  headScripts: null;
   resources: null;
   regions: Region[] | null;
   pitchedRoofCalculatorConfig: CalculatorConfig | null;

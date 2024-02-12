@@ -107,7 +107,6 @@ const siteData: SiteData = {
   menuNavigation: mockNestedNavigation,
   menuUtilities: mockNavigation,
   resources: null,
-  headScripts: null,
   pitchedRoofCalculatorConfig: null,
   visualiserHouseTypes: [],
   regions: [

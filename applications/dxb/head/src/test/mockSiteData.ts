@@ -1220,7 +1220,6 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
     sdpSpecificationNotesCta: null,
     documentDisplayFormat: null
   },
-  headScripts: null,
   regions: [
     {
       label: "Europe",
