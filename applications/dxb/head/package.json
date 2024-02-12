@@ -131,6 +131,7 @@
     "@bmi/elasticsearch-types": "workspace:*",
     "@bmi/firestore-types": "workspace:*",
     "@lhci/cli": "^0.12.0",
+    "@netlify/edge-functions": "^2.3.1",
     "@types/auth0-js": "^9.21.5",
     "@types/css-mediaquery": "^0.1.4",
     "@types/file-saver": "^2.0.7",

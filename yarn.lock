@@ -3686,6 +3686,7 @@ __metadata:
     "@mui/lab": ^5.0.0-alpha.159
     "@mui/material": ^5.15.3
     "@mui/styles": ^5.15.3
+    "@netlify/edge-functions": ^2.3.1
     "@reach/router": ^1.3.4
     "@turf/helpers": ^6.5.0
     "@types/auth0-js": ^9.21.5
@@ -6936,6 +6937,13 @@ __metadata:
   bin:
     netlify-config: bin.js
   checksum: 9b96402bacc0817b54f005100ecd2a6771d93dfbbc00efea96d726cbb51b9092b24d4c5f53eae1cfdb7dfb59bc420d59992c274754290af57d146bf620a0278b
+  languageName: node
+  linkType: hard
+
+"@netlify/edge-functions@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "@netlify/edge-functions@npm:2.3.1"
+  checksum: b7cd7dcbef0464b6687d345df5a3f8c3714e43b08b7ba44c6c1f7a8f18494a3713b7930d42f4413efc8d2d2df5a44d4651dc065eee21f965992a5ea38a8c2146
   languageName: node
   linkType: hard
 
