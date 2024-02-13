@@ -1,10 +1,10 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
+import { createProduct as createFirestoreProduct } from "@bmi/firestore-types";
 import {
   ApprovalStatus,
   createFullyPopulatedProduct,
   createVariantOption
 } from "@bmi/pim-types";
-import { createProduct as createFirestoreProduct } from "@bmi/firestore-types";
 import { handlePreviewProducts } from "../index";
 
 const setItemsInFirestoreMock = jest.fn();
@@ -63,16 +63,16 @@ describe("handlePreviewProducts", () => {
     process.env.LOCALE = originalValue;
   });
 
-  it("should return 500 if PIM_HOST is not set", async () => {
-    const originalValue = process.env.PIM_HOST;
-    delete process.env.PIM_HOST;
+  it("should return 500 if PIM_OAUTH_TOKEN_URL is not set", async () => {
+    const originalValue = process.env.PIM_OAUTH_TOKEN_URL;
+    delete process.env.PIM_OAUTH_TOKEN_URL;
 
     const req = mockRequest({ method: "GET", headers: {}, url: "/" });
     const res = mockResponse();
 
     await handlePreviewProducts(req, res);
     expect(res.sendStatus).toHaveBeenCalledWith(500);
-    process.env.PIM_HOST = originalValue;
+    process.env.PIM_OAUTH_TOKEN_URL = originalValue;
   });
 
   it("should return 500 if PIM_CLIENT_ID is not set", async () => {
@@ -99,16 +99,16 @@ describe("handlePreviewProducts", () => {
     process.env.PIM_OAUTH_CLIENT_SECRET = originalValue;
   });
 
-  it("should return 500 if PIM_CATALOG_NAME is not set", async () => {
-    const originalValue = process.env.PIM_CATALOG_NAME;
-    delete process.env.PIM_CATALOG_NAME;
+  it("should return 500 if PIM_CATALOG_API_URL is not set", async () => {
+    const originalValue = process.env.PIM_CATALOG_API_URL;
+    delete process.env.PIM_CATALOG_API_URL;
 
     const req = mockRequest({ method: "GET", headers: {}, url: "/" });
     const res = mockResponse();
 
     await handlePreviewProducts(req, res);
     expect(res.sendStatus).toHaveBeenCalledWith(500);
-    process.env.PIM_CATALOG_NAME = originalValue;
+    process.env.PIM_CATALOG_API_URL = originalValue;
   });
 
   it("should return 204 if method is OPTIONS", async () => {

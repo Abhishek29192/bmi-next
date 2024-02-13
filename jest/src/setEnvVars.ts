@@ -60,6 +60,8 @@ process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
 process.env.BUILD_TRIGGER_ENDPOINT = "http://localhost:9057";
 process.env.PIM_HOST = "http://localhost:9090";
 process.env.PIM_CATALOG_NAME = "pim-catalog-name";
+process.env.PIM_OAUTH_TOKEN_URL = `${process.env.PIM_HOST}/authorizationserver/oauth/token`;
+process.env.PIM_CATALOG_API_URL = `${process.env.PIM_HOST}/occ/v2/${process.env.PIM_CATALOG_NAME}/export`;
 
 process.env.GCP_PROJECT_ID = "gcp-project-id";
 process.env.FIRESTORE_ROOT_COLLECTION = "firestore-root-collection";
