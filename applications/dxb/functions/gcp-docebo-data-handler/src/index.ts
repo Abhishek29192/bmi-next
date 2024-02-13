@@ -138,10 +138,7 @@ export const handleRequest: HttpFunction = async (req, res) => {
       req.body.message_id
     );
 
-    if (
-      messageStatus === MessageStatus.InProgress ||
-      messageStatus === MessageStatus.Succeeded
-    ) {
+    if (messageStatus) {
       logger.info({ message: "This event has been already handled" });
       return res
         .status(200)
