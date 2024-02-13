@@ -51,17 +51,15 @@ afterEach(() => {
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider>
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          reCaptchaKey: "1234",
-          reCaptchaNet: false
-        }}
-      >
-        {children}
-      </SiteContextProvider>
-    </ThemeProvider>
+    <SiteContextProvider
+      value={{
+        ...getMockSiteContext("no"),
+        reCaptchaKey: "1234",
+        reCaptchaNet: false
+      }}
+    >
+      {children}
+    </SiteContextProvider>
   );
 };
 
