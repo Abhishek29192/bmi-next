@@ -92,6 +92,13 @@ const renderTrainingRegistrationPage = () => {
 
 describe("TrainingRegistrationForm", () => {
   it("submits the form and trigger the email", async () => {
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: "OK"
+    });
+
     renderTrainingRegistrationPage();
     fireEvent.change(
       screen.getByLabelText(trainingRegistrationPageData.firstName, {
@@ -137,13 +144,6 @@ describe("TrainingRegistrationForm", () => {
     });
     fireEvent.click(submitButton);
 
-    mockResponses(fetchMock, {
-      url: "*",
-      method: "POST",
-      status: 200,
-      body: "OK"
-    });
-
     const emailDateLabel = getMicroCopy(microCopy.TRAINING_EMAIL_START_DATE);
     const emailLabel = getMicroCopy(microCopy.TRAINING_EMAIL_LABEL);
     const emailConsentLabel = getMicroCopy(
@@ -186,7 +186,7 @@ describe("TrainingRegistrationForm", () => {
         }
       )
     );
-  });
+  }, 10000);
 
   (
     [

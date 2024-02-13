@@ -31,7 +31,8 @@ const createMockSiteDataWithAccountPage = (): SiteDataWithAccountPage => ({
         }
       }
     ],
-    allowTools: ["My profile"]
+    allowTools: ["My profile"],
+    path: "/my-account"
   }
 });
 

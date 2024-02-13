@@ -120,11 +120,12 @@ const TrainingRegistrationForm = (
     } catch (error) {
       logger.error({ message: (error as Error).message });
     }
+
+    setIsSubmitting(false);
     navigate(props.trainingDetailsPageUrl, {
       state: { showResultsModal: true },
       replace: true
     });
-    setIsSubmitting(false);
   };
 
   const discoverySourceOptions = [
