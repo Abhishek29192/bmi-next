@@ -1,7 +1,7 @@
 import logger from "@bmi-digital/functions-logger";
-import { transformProduct } from "@bmi/pim-transformation";
 import { fetchDataByCode } from "@bmi/pim-api";
-import { PimTypes, Product as PimProduct } from "@bmi/pim-types";
+import { transformProduct } from "@bmi/pim-transformation";
+import { Product as PimProduct, PimTypes } from "@bmi/pim-types";
 import { setItemsInFirestore } from "./db";
 import type { HttpFunction } from "@google-cloud/functions-framework";
 
@@ -35,9 +35,9 @@ export const handlePreviewProducts: HttpFunction = async (req, res) => {
     return res.sendStatus(500);
   }
 
-  if (!process.env.PIM_HOST) {
+  if (!process.env.PIM_OAUTH_TOKEN_URL) {
     logger.error({
-      message: "PIM_HOST has not been set"
+      message: "PIM_OAUTH_TOKEN_URL has not been set"
     });
     return res.sendStatus(500);
   }
@@ -56,9 +56,9 @@ export const handlePreviewProducts: HttpFunction = async (req, res) => {
     return res.sendStatus(500);
   }
 
-  if (!process.env.PIM_CATALOG_NAME) {
+  if (!process.env.PIM_CATALOG_API_URL) {
     logger.error({
-      message: "PIM_CATALOG_NAME has not been set"
+      message: "PIM_CATALOG_API_URL has not been set"
     });
     return res.sendStatus(500);
   }

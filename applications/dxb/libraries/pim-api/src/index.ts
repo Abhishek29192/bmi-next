@@ -1,19 +1,23 @@
 import { URLSearchParams } from "url";
+import logger from "@bmi-digital/functions-logger";
 import {
   AuthResponse,
   CatalogVersion,
   ErrorResponse,
   PimTypes,
-  ProductsApiResponse,
-  SystemsApiResponse,
   Product,
-  System
+  ProductsApiResponse,
+  System,
+  SystemsApiResponse
 } from "@bmi/pim-types";
 import fetch, { RequestRedirect, Response } from "node-fetch";
-import logger from "@bmi-digital/functions-logger";
 
-const { PIM_CLIENT_ID, PIM_OAUTH_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
-  process.env;
+const {
+  PIM_CLIENT_ID,
+  PIM_OAUTH_CLIENT_SECRET,
+  PIM_OAUTH_TOKEN_URL,
+  PIM_CATALOG_API_URL
+} = process.env;
 
 // TODO: NOPE HACK!
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -43,10 +47,8 @@ const getAuthToken = async (): Promise<AuthResponse> => {
     redirect: redirect
   };
 
-  const response = await fetch(
-    `${PIM_HOST}/authorizationserver/oauth/token`,
-    requestOptions
-  );
+  // All environment variables should be validated in the implementing function
+  const response = await fetch(PIM_OAUTH_TOKEN_URL!, requestOptions);
 
   if (!response.ok) {
     logger.error({
@@ -109,7 +111,7 @@ export const fetchDataByCode = async (
           allowPreviewProducts ? ",preview" : ""
         }`;
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}/${code}${itemStatus}&version=${version}&lang=${locale}`;
+  const fullPath = `${PIM_CATALOG_API_URL}/${type}/${code}${itemStatus}&version=${version}&lang=${locale}`;
   logger.info({ message: `FETCH: ${fullPath}` });
 
   const response = await fetch(fullPath, options);
@@ -138,7 +140,7 @@ export const fetchData = async (
     type === PimTypes.Systems
       ? `&status=approved`
       : `&status=approved,discontinued`;
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}${statusOfPimType}&lang=${locale}`;
+  const fullPath = `${PIM_CATALOG_API_URL}/${type}?currentPage=${currentPage}${statusOfPimType}&lang=${locale}`;
 
   logger.info({ message: `FETCH: ${fullPath}` });
   const response = await fetch(fullPath, options);
@@ -165,7 +167,7 @@ const fetchDataByMessageId = async (
     redirect
   };
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${locale}`;
+  const fullPath = `${PIM_CATALOG_API_URL}/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${locale}`;
 
   logger.info({ message: `FETCH: ${fullPath}` });
   const response = await fetch(fullPath, options);
