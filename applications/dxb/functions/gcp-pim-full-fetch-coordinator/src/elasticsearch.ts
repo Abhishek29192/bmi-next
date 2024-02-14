@@ -26,7 +26,7 @@ export const createElasticSearchIndex = async (index: string) => {
   const response = await client.indices.create({
     index
   });
-  logger.debug({ message: `received response: ${response}` });
+  logger.debug({ message: `received response: ${JSON.stringify(response)}` });
 
   logger.info({
     message: `Success creating index: ${index}`
