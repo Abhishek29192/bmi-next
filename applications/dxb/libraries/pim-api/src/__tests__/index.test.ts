@@ -534,7 +534,7 @@ describe("fetchDataByCode", () => {
   it("should error if authorization request returns a non-ok response", async () => {
     mockResponses(fetchMock, {
       method: "POST",
-      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      url: process.env.PIM_OAUTH_TOKEN_URL,
       status: 401
     });
 
@@ -791,7 +791,7 @@ describe("getProductsByMessageId", () => {
   it("should error if authorization request returns a non-ok response", async () => {
     mockResponses(fetchMock, {
       method: "POST",
-      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      url: process.env.PIM_OAUTH_TOKEN_URL,
       status: 401
     });
 
@@ -809,18 +809,13 @@ describe("getProductsByMessageId", () => {
       );
     }
 
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
@@ -837,7 +832,7 @@ describe("getProductsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -874,18 +869,13 @@ describe("getProductsByMessageId", () => {
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
@@ -912,7 +902,7 @@ describe("getProductsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -949,18 +939,13 @@ describe("getProductsByMessageId", () => {
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
@@ -988,7 +973,7 @@ describe("getProductsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -1009,18 +994,13 @@ describe("getProductsByMessageId", () => {
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
@@ -1043,7 +1023,7 @@ describe("getSystemsByMessageId", () => {
   it("should error if authorization request returns a non-ok response", async () => {
     mockResponses(fetchMock, {
       method: "POST",
-      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      url: process.env.PIM_OAUTH_TOKEN_URL,
       status: 401
     });
 
@@ -1071,7 +1051,7 @@ describe("getSystemsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -1108,18 +1088,13 @@ describe("getSystemsByMessageId", () => {
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
@@ -1146,7 +1121,7 @@ describe("getSystemsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -1183,18 +1158,13 @@ describe("getSystemsByMessageId", () => {
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
@@ -1222,7 +1192,7 @@ describe("getSystemsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -1243,18 +1213,13 @@ describe("getSystemsByMessageId", () => {
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
