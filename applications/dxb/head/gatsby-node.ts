@@ -426,7 +426,11 @@ const getRedirectConfig = (
   statusCode: number;
 } => {
   const isPermanent = redirect.status === 301;
-  let toPath = redirect.to.endsWith("/") ? redirect.to : `${redirect.to}/`;
+  let toPath = redirect.to.endsWith("/")
+    ? redirect.to
+    : process.env.IS_NETLIFY && redirect.status === 200 // Do not add trailing slash to Netlify rewrites.
+      ? redirect.to
+      : `${redirect.to}/`;
 
   //If we use wildcard redirects on production users will be redirected to gatsby domain
   //Such approach allows us to prevent users from being redirected to Gatsby domain.
