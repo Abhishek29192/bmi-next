@@ -4,6 +4,7 @@ import Grid from "@bmi-digital/components/grid";
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import logger from "@bmi-digital/functions-logger";
+import { Training } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import { navigate } from "gatsby";
 import React, { useState } from "react";
@@ -33,6 +34,7 @@ const TrainingRegistrationForm = (
   props: TrainingRegistrationPageData & {
     trainingDetailsPageUrl: string;
     courseCode?: string;
+    training?: Training;
   }
 ) => {
   const { getMicroCopy, node_locale } = useSiteContext();
@@ -59,6 +61,20 @@ const TrainingRegistrationForm = (
         {}
       );
       const sanitizedValues = {};
+
+      sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_LABEL)] =
+        `${props.training?.courseCode} - ${props.training?.courseName}, ${props.training?.sessionName}`;
+
+      sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_START_DATE)] =
+        props.training?.startDate;
+
+      sanitizedValues[
+        getMicroCopy(microCopy.TRAINING_EMAIL_TERM_OF_USE_LABEL)
+      ] = props.termsOfUse.termsOfUse;
+
+      sanitizedValues[
+        getMicroCopy(microCopy.TRAINING_EMAIL_DATA_CONSENT_LABEL)
+      ] = props.consentText.consentText;
 
       for (const key of Object.keys(valuesToSend)) {
         if (key === "consent") {
@@ -89,7 +105,7 @@ const TrainingRegistrationForm = (
         title: "",
         recipients: props.recipient,
         values: sanitizedValues,
-        emailSubjectFormat: `${props.emailSubject} ${props.courseCode}`
+        emailSubjectFormat: `${props.emailSubject} ${props?.courseCode}`
       });
 
       const response = await fetch(gcpFormSubmitEndpoint, {
@@ -104,7 +120,6 @@ const TrainingRegistrationForm = (
     } catch (error) {
       logger.error({ message: (error as Error).message });
     }
-
     navigate(props.trainingDetailsPageUrl, {
       state: { showResultsModal: true },
       replace: true
