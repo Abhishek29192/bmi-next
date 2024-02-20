@@ -5,6 +5,7 @@ include:
   - local: "/applications/dxb/functions/gcp-build-status-logger/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-build-trigger/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-contentful-documents-ingest/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-docebo-data-filter/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-docebo-data-handler/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-download-zip/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-es-proxy/.gitlab-ci.yml"

@@ -3061,6 +3061,37 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/gcp-docebo-data-filter@workspace:applications/dxb/functions/gcp-docebo-data-filter":
+  version: 0.0.0-use.local
+  resolution: "@bmi/gcp-docebo-data-filter@workspace:applications/dxb/functions/gcp-docebo-data-filter"
+  dependencies:
+    "@bmi-digital/functions-logger": ^1.7.6
+    "@bmi/elasticsearch-types": "workspace:*"
+    "@bmi/fetch-retry": "workspace:*"
+    "@bmi/functions-es-client": "workspace:*"
+    "@google-cloud/functions-framework": ^3.3.0
+    "@types/prettier": ^3.0.0
+    "@typescript-eslint/eslint-plugin": ^6.17.0
+    "@typescript-eslint/parser": ^6.17.0
+    env-cmd: ^10.1.0
+    eslint: ^8.56.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-prettier: ^9.1.0
+    eslint-plugin-import: ^2.29.1
+    eslint-plugin-jest: ^27.6.1
+    eslint-plugin-prettier: ^5.1.2
+    eslint-plugin-security: ^2.1.0
+    fetch-mock-jest: ^1.5.1
+    jest: ^29.7.0
+    prettier: ^3.1.1
+    process-top: ^1.2.0
+    typescript: ^5.3.3
+    webpack: ^5.89.0
+    webpack-bundle-analyzer: ^4.10.1
+    webpack-cli: ^5.1.4
+  languageName: unknown
+  linkType: soft
+
 "@bmi/gcp-docebo-data-handler@workspace:applications/dxb/functions/gcp-docebo-data-handler":
   version: 0.0.0-use.local
   resolution: "@bmi/gcp-docebo-data-handler@workspace:applications/dxb/functions/gcp-docebo-data-handler"
