@@ -113,6 +113,7 @@ export const query = graphql`
   fragment FooterMainNavigationFragment on ContentfulNavigation {
     label
     links {
+      __typename
       ... on ContentfulLink {
         ...LinkFragment
       }
