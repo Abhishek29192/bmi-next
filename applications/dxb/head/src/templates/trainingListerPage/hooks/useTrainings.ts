@@ -40,6 +40,7 @@ export const useTrainings: UseTrainings = (props) => {
   const [total, setTotal] = useState<{ [catalogueId: string]: number }>({});
   const { esIndexNameTrainings } = useConfig();
   const [filters, setFilters] = useState<Filter[]>(props.defaultFilters);
+  const [currentTime] = useState<number>(new Date().getTime());
 
   const { isClient } = useIsClient();
 
@@ -71,7 +72,14 @@ export const useTrainings: UseTrainings = (props) => {
                   }
                 },
                 ...constructFiltersQuery(filters),
-                constructSearchQuery(searchQuery)
+                constructSearchQuery(searchQuery),
+                {
+                  range: {
+                    startDate: {
+                      gt: currentTime
+                    }
+                  }
+                }
               ]
             }
           },
@@ -103,7 +111,14 @@ export const useTrainings: UseTrainings = (props) => {
             bool: {
               must: [
                 ...constructFiltersQuery(filters),
-                constructSearchQuery(searchQuery)
+                constructSearchQuery(searchQuery),
+                {
+                  range: {
+                    startDate: {
+                      gt: currentTime
+                    }
+                  }
+                }
               ]
             }
           },
@@ -150,7 +165,7 @@ export const useTrainings: UseTrainings = (props) => {
           const catalogueId = bucket.key;
           return {
             ...acc,
-            [catalogueId]: bucket.uniqueItemsCount.value
+            [catalogueId]: bucket.uniqueItemsCount?.value
           };
         },
         {}

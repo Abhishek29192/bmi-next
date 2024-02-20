@@ -182,8 +182,8 @@ export type Training = {
   sessionId: number;
   sessionName: string;
   sessionSlug: string;
-  startDate: string;
-  endDate: string;
+  startDate: number;
+  endDate: number;
   courseId: number;
   courseName: string;
   courseSlug: string;

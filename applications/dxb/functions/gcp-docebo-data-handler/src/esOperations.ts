@@ -14,7 +14,7 @@ import type { Catalogue, ExtendedCourse } from "@bmi/docebo-types";
 import type { Training } from "@bmi/elasticsearch-types";
 import type { IndexOperation } from "@bmi/functions-es-client";
 import { getUnique, isMultipleEventsPayload } from "./utils";
-import type { Client } from "@elastic/elasticsearch";
+import type { ApiResponse, Client } from "@elastic/elasticsearch";
 import type { Request } from "express";
 import type { ParamsDictionary } from "express-serve-static-core";
 import type {
@@ -29,9 +29,9 @@ import type {
 const deleteItemByQuery = async (
   esClient: Client,
   query: Record<string, unknown>
-): Promise<void> => {
+): Promise<ApiResponse> => {
   const index = `${process.env.ES_INDEX_NAME_TRAININGS}_write`;
-  esClient.deleteByQuery({
+  return esClient.deleteByQuery({
     index: index,
     body: {
       query
@@ -48,9 +48,16 @@ export const deleteCourses = async ({
   doceboMessageId: string;
   esClient: Client;
 }) => {
-  await deleteItemByQuery(esClient, {
+  const coursesDeletedResult = await deleteItemByQuery(esClient, {
     terms: { courseId: courseIds }
   });
+
+  if (!coursesDeletedResult.body.deleted) {
+    return {
+      errorCode: 400,
+      errorMessage: "Given courses do not exist in ES"
+    };
+  }
 
   logger.info({
     message: `Courses with course_id: ${courseIds.join()} have been successfully deleted`
@@ -83,7 +90,7 @@ export const deleteCoursesFromCatalogue = async ({
     };
   }
 
-  await deleteItemByQuery(esClient, {
+  const coursesDeletedResult = await deleteItemByQuery(esClient, {
     bool: {
       must: [
         {
@@ -99,6 +106,13 @@ export const deleteCoursesFromCatalogue = async ({
       ]
     }
   });
+
+  if (!coursesDeletedResult.body.deleted) {
+    return {
+      errorCode: 400,
+      errorMessage: "Given courses do not exist in ES"
+    };
+  }
 
   logger.info({
     message: `Courses with ID ${courseIds.join(
@@ -120,11 +134,19 @@ export const deleteSessions = async ({
 }) => {
   const sessionIds = getSessionIds(req);
 
-  await deleteItemByQuery(esClient, {
+  const sessionsDeletedResults = await deleteItemByQuery(esClient, {
     terms: {
       sessionId: sessionIds
     }
   });
+
+  if (!sessionsDeletedResults.body.deleted) {
+    return {
+      errorCode: 400,
+      errorMessage: "Given sessions do not exist in ES"
+    };
+  }
+
   logger.info({
     message: `Sessions with session_id: ${sessionIds.join(
       ", "
@@ -342,8 +364,8 @@ const transformSessions = ({
             sessionId: session.id_session,
             sessionName: session.name,
             sessionSlug: session.slug_name,
-            startDate: session.start_date,
-            endDate: session.end_date,
+            startDate: sessionStartTime,
+            endDate: new Date(session.end_date).getTime(),
             courseId: course.id,
             courseName: course.name,
             courseSlug: course.slug_name,
