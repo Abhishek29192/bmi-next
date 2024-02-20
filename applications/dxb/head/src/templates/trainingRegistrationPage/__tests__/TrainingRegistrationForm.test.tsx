@@ -163,7 +163,7 @@ describe("TrainingRegistrationForm", () => {
             recipients: "test@bmigroup.com",
             values: {
               [emailLabel]: "training code - training name, session name",
-              [emailDateLabel]: "2023-12-29 00:00:00",
+              [emailDateLabel]: "28/12/2023, 22:00:00",
               [emailTermsOfUseLabel]: "Terms of use",
               [emailConsentLabel]: "Consent text",
               Salutation: "Mr",
