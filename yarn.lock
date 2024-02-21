@@ -4232,6 +4232,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/redirects-website-dt-siplast-fr@workspace:applications/redirects-website-dt-siplast-fr":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-dt-siplast-fr@workspace:applications/redirects-website-dt-siplast-fr"
+  dependencies:
+    eslint: ^8.56.0
+    gatsby: ^5.13.1
+    gatsby-plugin-gatsby-cloud: ^5.13.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.89.0
+  languageName: unknown
+  linkType: soft
+
 "@bmi/redirects-website-ee@workspace:applications/redirects-website-ee":
   version: 0.0.0-use.local
   resolution: "@bmi/redirects-website-ee@workspace:applications/redirects-website-ee"
