@@ -1,17 +1,17 @@
 import CommonHero from "@bmi-digital/components/hero";
 import Typography from "@bmi-digital/components/typography";
-import { microCopy } from "@bmi/microcopies";
 import React from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Image from "../../components/Image";
-import { useSiteContext } from "../../components/Site";
 import useAuth from "../../hooks/useAuth";
 import { HelloText } from "./styles";
 import { getUserInfo } from "./utils";
 import type { Data as ContentfulImage } from "../../components/Image";
+import type { Data as BreadcrumbData } from "../../components/Breadcrumbs";
 
 export type HeroProps = {
+  breadcrumbs: BreadcrumbData;
   salutation: string;
   roleDescription: string;
   featuredMedia: ContentfulImage | null;
@@ -20,13 +20,12 @@ export type HeroProps = {
 };
 
 const Hero = ({
+  breadcrumbs,
   salutation,
   roleDescription,
   featuredMedia,
-  slug,
   description
 }: HeroProps) => {
-  const { getMicroCopy } = useSiteContext();
   const { profile } = useAuth();
 
   const transformHeroText =
@@ -46,13 +45,7 @@ const Hero = ({
       breadcrumbs={
         <BackToResults isDarkThemed data-testid="breadcrumbs-section-top">
           <Breadcrumbs
-            data={[
-              {
-                id: "",
-                label: getMicroCopy(microCopy.MY_ACCOUNT_LABEL),
-                slug: slug
-              }
-            ]}
+            data={breadcrumbs}
             isDarkThemed
             data-testid="my-acc-page-breadcrumbs-top"
           />

@@ -34,9 +34,7 @@ const {
  * exported for SystemLayer.
  */
 export default {
-  ContentfulAccountPage: {
-    path: ContentfulAccountPage.path
-  },
+  ContentfulAccountPage,
   ContentfulBrandLandingPage,
   ContentfulContactUsPage,
   ContentfulDocumentDownloadSection,

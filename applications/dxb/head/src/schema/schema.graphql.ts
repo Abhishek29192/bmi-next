@@ -1415,6 +1415,7 @@ type ContentfulAccountPage implements Node @dontInfer {
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  title: String!
   slug: String!
   salutation: String!
   roleDescription: String!
@@ -1424,6 +1425,8 @@ type ContentfulAccountPage implements Node @dontInfer {
   titleForServiceSupportSection: String!
   allowTools: [String!]!
   serviceSupportCards: [ContentfulContactDetails] @link(from: "serviceSupportCards___NODE")
+  breadcrumbTitle: String
   path: String!
+  breadcrumbs: [BreadcrumbItem!]!
 }
 `;

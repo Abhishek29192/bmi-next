@@ -2,14 +2,20 @@ import { graphql } from "gatsby";
 import React from "react";
 import Page from "../../components/Page";
 import Protected from "../../pages/protected";
+import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import Hero, { HeroProps } from "./Hero";
 import ServiceSupportSection from "./ServiceSupportSection";
 import ToolSection from "./ToolSection";
 import type { ServiceSupportSectionProps } from "./ServiceSupportSection";
 import type { ToolSectionProps } from "./ToolSection";
 import type { Data as SiteData } from "../../components/Site";
+import type { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 
-export type AccountPage = ToolSectionProps &
+export type AccountPage = {
+  title: string;
+  breadcrumbTitle: string | null;
+  breadcrumbs: BreadcrumbsData;
+} & ToolSectionProps &
   ServiceSupportSectionProps &
   HeroProps & {
     path: string;
@@ -27,6 +33,9 @@ type Props = {
 
 const MyAccountPage = ({ data }: Props) => {
   const {
+    title,
+    breadcrumbTitle,
+    breadcrumbs,
     featuredMedia,
     salutation,
     roleDescription,
@@ -39,12 +48,16 @@ const MyAccountPage = ({ data }: Props) => {
     path
   } = data.contentfulSite.accountPage;
 
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
+    breadcrumbs,
+    breadcrumbTitle
+  );
   return (
     <Protected>
       <Page
-        title="My acc page"
+        title={title}
         pageData={{
-          breadcrumbs: null,
+          breadcrumbs: enhancedBreadcrumbs,
           signupBlock: null,
           seo: null,
           path
@@ -52,6 +65,7 @@ const MyAccountPage = ({ data }: Props) => {
         siteData={data.contentfulSite}
       >
         <Hero
+          breadcrumbs={enhancedBreadcrumbs}
           salutation={salutation}
           roleDescription={roleDescription}
           featuredMedia={featuredMedia}
@@ -77,6 +91,7 @@ export const pageQuery = graphql`
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
       accountPage {
+        title
         slug
         featuredMedia {
           ...ImageDocumentFragment
@@ -90,7 +105,13 @@ export const pageQuery = graphql`
         serviceSupportCards {
           ...ContactDetailsFragment
         }
+        breadcrumbTitle
         path
+        breadcrumbs {
+          id
+          label
+          slug
+        }
       }
     }
   }
