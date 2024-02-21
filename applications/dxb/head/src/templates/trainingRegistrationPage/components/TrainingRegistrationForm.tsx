@@ -17,7 +17,6 @@ import { handleEmailValidation } from "../../../utils/emailUtils";
 import getCookie from "../../../utils/getCookie";
 import ExtraParticipants from "./ExtraParticipants";
 import CustomTextField from "./TextField";
-
 import {
   CompetentChamberLabel,
   OtherOptionField,
@@ -66,7 +65,8 @@ const TrainingRegistrationForm = (
         `${props.training?.courseCode} - ${props.training?.courseName}, ${props.training?.sessionName}`;
 
       sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_START_DATE)] =
-        props.training?.startDate;
+        props.training?.startDate &&
+        new Date(props.training.startDate).toLocaleString(node_locale);
 
       sanitizedValues[
         getMicroCopy(microCopy.TRAINING_EMAIL_TERM_OF_USE_LABEL)
@@ -120,11 +120,12 @@ const TrainingRegistrationForm = (
     } catch (error) {
       logger.error({ message: (error as Error).message });
     }
+
+    setIsSubmitting(false);
     navigate(props.trainingDetailsPageUrl, {
       state: { showResultsModal: true },
       replace: true
     });
-    setIsSubmitting(false);
   };
 
   const discoverySourceOptions = [

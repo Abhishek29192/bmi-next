@@ -24,7 +24,8 @@ const {
   ContentfulSimplePage: ContentfulSimplePageCommon,
   ContentfulCookiePolicyPage,
   ContentfulTrainingListerPage: ContentfulTrainingListerPageCommon,
-  ContentfulTrainingRegistrationPage
+  ContentfulTrainingRegistrationPage,
+  ContentfulAccountPage
 } = ContentfulPage;
 
 /**
@@ -33,6 +34,9 @@ const {
  * exported for SystemLayer.
  */
 export default {
+  ContentfulAccountPage: {
+    path: ContentfulAccountPage.path
+  },
   ContentfulBrandLandingPage,
   ContentfulContactUsPage,
   ContentfulDocumentDownloadSection,

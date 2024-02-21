@@ -1,12 +1,12 @@
-import { ToolCardItemProps } from "@bmi-digital/components";
 import OtherTraining from "@bmi-digital/components/icon/OtherTraining";
 import RoofMeasurement from "@bmi-digital/components/icon/RoofMeasurement";
 import UserIcon from "@bmi-digital/components/icon/User";
 import { microCopy } from "@bmi/microcopies";
 import { isDefined } from "@bmi/utils";
-import { GetMicroCopy } from "../../components/MicroCopy";
-import { Auth0IdTokenPayload } from "../../types/auth0";
-import { AllowTools } from "./my-account";
+import type { ToolCardItemProps } from "@bmi-digital/components/tool-cards";
+import type { GetMicroCopy } from "../../components/MicroCopy";
+import type { Auth0IdTokenPayload } from "../../types/auth0";
+import type { AllowTools } from "./ToolSection";
 
 const nameTemplate = "{{name}}";
 const roleTemplate = "{{role}}";

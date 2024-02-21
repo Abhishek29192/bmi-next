@@ -1424,5 +1424,6 @@ type ContentfulAccountPage implements Node @dontInfer {
   titleForServiceSupportSection: String!
   allowTools: [String!]!
   serviceSupportCards: [ContentfulContactDetails] @link(from: "serviceSupportCards___NODE")
+  path: String!
 }
 `;

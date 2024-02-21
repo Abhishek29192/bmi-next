@@ -37,12 +37,12 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const { marketLocaleCode } = useConfig();
 
-  const formatDate = (inputDateString: number) =>
+  const formatDate = (inputDate: number) =>
     new Intl.DateTimeFormat(marketLocaleCode, {
       year: "numeric",
       month: "long",
       day: "numeric"
-    }).format(new Date(inputDateString));
+    }).format(new Date(inputDate));
 
   return (
     <Section backgroundColor="pearl">
