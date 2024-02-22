@@ -237,7 +237,8 @@ const Header = ({
           action: {
             model: "routerLink",
             to: getPathWithCountryCode(countryCode, accountPage?.slug),
-            linkComponent: Link
+            linkComponent: Link,
+            "data-testid": "my-acc"
           }
         },
         {
@@ -246,7 +247,8 @@ const Header = ({
             model: "default",
             onClick: () => {
               AuthService.logout();
-            }
+            },
+            "data-testid": "logout"
           }
         }
       );
@@ -257,7 +259,8 @@ const Header = ({
           model: "default",
           onClick: () => {
             AuthService.login();
-          }
+          },
+          "data-testid": "login"
         }
       });
     }

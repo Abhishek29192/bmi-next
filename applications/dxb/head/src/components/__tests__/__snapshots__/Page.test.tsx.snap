@@ -44,6 +44,7 @@ exports[`Page component renders correctly 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
+                  data-testid="login"
                   tabindex="0"
                   target="_blank"
                   type="button"
