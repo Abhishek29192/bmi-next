@@ -8,9 +8,11 @@ import { microCopy } from "@bmi/microcopies";
 import Tab from "@mui/material/Tab";
 import { Link, graphql, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
+import AuthService from "../auth/service";
 import Image from "../components/Image";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
+import useAuth from "../hooks/useAuth";
 import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
@@ -21,7 +23,6 @@ import {
   NavigationItem,
   getCTA
 } from "./Link";
-import LoginBlock from "./LoginBlock";
 import { Data as PageInfoData } from "./PageInfo";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
@@ -206,7 +207,7 @@ const Header = ({
     [languages, countryCode]
   );
 
-  const { getMicroCopy } = useSiteContext();
+  const { getMicroCopy, accountPage } = useSiteContext();
   const {
     isGatsbyDisabledElasticSearch,
     isSampleOrderingEnabled,
@@ -215,6 +216,8 @@ const Header = ({
   const {
     basketState: { products: productsInBasket }
   } = useBasketContext();
+
+  const { isLoggedIn, profile } = useAuth();
 
   if (!navigationData || !utilitiesData) {
     return null;
@@ -225,6 +228,41 @@ const Header = ({
     countryCode,
     getMicroCopy
   );
+
+  if (isLoginEnabled) {
+    if (isLoggedIn && profile) {
+      utilities.push(
+        {
+          label: getMicroCopy(microCopy.MY_ACCOUNT_LABEL),
+          action: {
+            model: "routerLink",
+            to: getPathWithCountryCode(countryCode, accountPage?.slug),
+            linkComponent: Link
+          }
+        },
+        {
+          label: getMicroCopy(microCopy.LOG_OUT_LABEL_BTN),
+          action: {
+            model: "default",
+            onClick: () => {
+              AuthService.logout();
+            }
+          }
+        }
+      );
+    } else {
+      utilities.push({
+        label: getMicroCopy(microCopy.LOG_IN_LABEL_BTN),
+        action: {
+          model: "default",
+          onClick: () => {
+            AuthService.login();
+          }
+        }
+      });
+    }
+  }
+
   const navigation = parseNavigation(
     navigationData.links,
     countryCode,
@@ -332,7 +370,6 @@ const Header = ({
           openLabel={getMicroCopy(microCopy.MENU_OPEN)}
           mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
           mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
-          loginButtonComponent={isLoginEnabled ? <LoginBlock /> : null}
         />
       )}
     />

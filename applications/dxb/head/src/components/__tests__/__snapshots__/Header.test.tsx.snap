@@ -36,22 +36,20 @@ exports[`Header component renders correctly 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-MC:-login.label.btn"
             >
-              <div
-                class="css-12vfv7w"
+              <button
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
+                tabindex="0"
+                target="_blank"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-testid="login"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: login.label.btn
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
+                MC: login.label.btn
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
             </li>
             <li
               class="Header-navItem"
@@ -492,22 +490,20 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-MC:-login.label.btn"
             >
-              <div
-                class="css-12vfv7w"
+              <button
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
+                tabindex="0"
+                target="_blank"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-testid="login"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: login.label.btn
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
+                MC: login.label.btn
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
             </li>
             <li
               class="Header-navItem"
@@ -948,22 +944,20 @@ exports[`Header component shows sample basket icon 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-MC:-login.label.btn"
             >
-              <div
-                class="css-12vfv7w"
+              <button
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
+                tabindex="0"
+                target="_blank"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-testid="login"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: login.label.btn
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
+                MC: login.label.btn
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
             </li>
             <li
               class="Header-navItem"
@@ -1597,22 +1591,20 @@ exports[`Header component toggles search 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-MC:-login.label.btn"
             >
-              <div
-                class="css-12vfv7w"
+              <button
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
+                tabindex="0"
+                target="_blank"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-testid="login"
-                  tabindex="0"
-                  type="button"
-                >
-                  MC: login.label.btn
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
+                MC: login.label.btn
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
             </li>
             <li
               class="Header-navItem"
