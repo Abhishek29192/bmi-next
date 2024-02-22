@@ -209,11 +209,11 @@ describe("Link component", () => {
 
   describe("getClickableActionFromUrl function", () => {
     it("returns a Link router to page path", () => {
-      const res = getClickableActionFromUrl(
-        { path: "some-page" },
-        undefined,
-        "en"
-      );
+      const res = getClickableActionFromUrl({
+        isSSR: false,
+        linkedPage: { path: "some-page" },
+        countryCode: "en"
+      });
       expect(res).toEqual(
         expect.objectContaining({
           model: "routerLink",
@@ -225,11 +225,11 @@ describe("Link component", () => {
       );
     });
     it("returns a url", () => {
-      const res = getClickableActionFromUrl(
-        undefined,
-        "http://example.com",
-        "en"
-      );
+      const res = getClickableActionFromUrl({
+        isSSR: false,
+        url: "http://example.com",
+        countryCode: "en"
+      });
       expect(res).toEqual(
         expect.objectContaining({
           href: "http://example.com",
@@ -243,17 +243,15 @@ describe("Link component", () => {
       );
     });
     it("returns undefined", () => {
-      expect(
-        getClickableActionFromUrl(undefined, undefined, "en")
-      ).toBeUndefined();
+      expect(getClickableActionFromUrl({ countryCode: "en" })).toBeUndefined();
     });
 
     it("internal urls doesn't open in a new window", () => {
-      const res = getClickableActionFromUrl(
-        undefined,
-        "http://www.bmigroup.com",
-        "en"
-      );
+      const res = getClickableActionFromUrl({
+        isSSR: false,
+        url: "http://www.bmigroup.com",
+        countryCode: "en"
+      });
       expect(res).toEqual(
         expect.objectContaining({
           href: "http://www.bmigroup.com",
@@ -266,14 +264,13 @@ describe("Link component", () => {
     });
 
     it("returns external returns correctly", () => {
-      const clickableAction = getClickableActionFromUrl(
-        { path: "some-page" },
-        undefined,
-        "en",
-        undefined,
-        "ImALabel",
-        DataTypeEnum.External
-      );
+      const clickableAction = getClickableActionFromUrl({
+        isSSR: false,
+        linkedPage: { path: "some-page" },
+        countryCode: "en",
+        label: "ImALabel",
+        type: DataTypeEnum.External
+      });
       expect(clickableAction).toEqual(
         expect.objectContaining({
           model: "routerLink",
@@ -290,14 +287,14 @@ describe("Link component", () => {
     });
 
     it("returns asset returns correctly", () => {
-      const clickableAction = getClickableActionFromUrl(
-        { path: "some-page" },
-        undefined,
-        "en",
-        "assetUrl",
-        "ImALabel",
-        DataTypeEnum.Asset
-      );
+      const clickableAction = getClickableActionFromUrl({
+        isSSR: false,
+        linkedPage: { path: "some-page" },
+        countryCode: "en",
+        assetUrl: "assetUrl",
+        label: "ImALabel",
+        type: DataTypeEnum.Asset
+      });
       expect(clickableAction).toEqual(
         expect.objectContaining({
           href: "assetUrl",
@@ -314,16 +311,13 @@ describe("Link component", () => {
     });
 
     it("override gtm correctly", () => {
-      const clickableAction = getClickableActionFromUrl(
-        null,
-        "foo.com",
-        "en",
-        undefined,
-        "ImALabel",
-        undefined,
-        undefined,
-        { id: "foo1", label: "foo", action: "foo.com" }
-      );
+      const clickableAction = getClickableActionFromUrl({
+        isSSR: false,
+        url: "foo.com",
+        countryCode: "en",
+        label: "ImALabel",
+        gtmData: { id: "foo1", label: "foo", action: "foo.com" }
+      });
       expect(clickableAction!["data-gtm"]).toBe(
         JSON.stringify({ id: "foo1", label: "foo", action: "foo.com" })
       );
@@ -333,6 +327,81 @@ describe("Link component", () => {
           model: "htmlLink"
         })
       );
+    });
+
+    it("appends 'prev_page' parameter into the URL if InTouch URL provided and isSSR = false", () => {
+      const originalInTouchUrl = process.env.GATSBY_INTOUCH_ORIGIN;
+      process.env.GATSBY_INTOUCH_ORIGIN = "https://intouch.com";
+
+      const originalLocation = window.location;
+      window.location = {
+        host: "https://localhost:8000",
+        pathname: "/training-lister-page"
+      } as Location;
+
+      const clickableAction = getClickableActionFromUrl({
+        isSSR: false,
+        url: "https://intouch.com/profile",
+        countryCode: "en",
+        label: "ImALabel",
+        type: DataTypeEnum.External
+      });
+      expect(clickableAction).toEqual(
+        expect.objectContaining({
+          model: "htmlLink",
+          href: "https://intouch.com/profile?prev_page=http%3A%2F%2Flocalhost%2F",
+          target: "_blank",
+          rel: "noopener noreferrer"
+        })
+      );
+      expect(clickableAction!["data-gtm"]).toEqual(
+        JSON.stringify({
+          id: "cta-click1",
+          action:
+            "https://intouch.com/profile?prev_page=http%3A%2F%2Flocalhost%2F",
+          label: "ImALabel"
+        })
+      );
+
+      process.env.GATSBY_INTOUCH_ORIGIN = originalInTouchUrl;
+      window.location = originalLocation;
+    });
+
+    it("should not append 'prev_page' parameter into the URL if InTouch URL provided and isSSR = true", () => {
+      const originalInTouchUrl = process.env.GATSBY_INTOUCH_ORIGIN;
+      process.env.GATSBY_INTOUCH_ORIGIN = "https://intouch.com";
+
+      const originalLocation = window.location;
+      window.location = {
+        host: "https://localhost:8000",
+        pathname: "/training-lister-page"
+      } as Location;
+
+      const clickableAction = getClickableActionFromUrl({
+        isSSR: true,
+        url: "https://intouch.com/profile",
+        countryCode: "en",
+        label: "ImALabel",
+        type: DataTypeEnum.External
+      });
+      expect(clickableAction).toEqual(
+        expect.objectContaining({
+          model: "htmlLink",
+          href: "https://intouch.com/profile",
+          target: "_blank",
+          rel: "noopener noreferrer"
+        })
+      );
+      expect(clickableAction!["data-gtm"]).toEqual(
+        JSON.stringify({
+          id: "cta-click1",
+          action: "https://intouch.com/profile",
+          label: "ImALabel"
+        })
+      );
+
+      process.env.GATSBY_INTOUCH_ORIGIN = originalInTouchUrl;
+      window.location = originalLocation;
     });
   });
 

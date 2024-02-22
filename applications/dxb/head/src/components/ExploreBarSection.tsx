@@ -1,10 +1,12 @@
+import { useIsClient } from "@bmi-digital/components";
 import ExploreBar from "@bmi-digital/components/explore-bar";
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React from "react";
 import { devLog } from "../utils/devLog";
-import { getClickableActionFromUrl, Data as LinkData } from "./Link";
+import memoize from "../utils/memoize";
+import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
 
 export type Data = {
@@ -15,7 +17,9 @@ export type Data = {
 
 const ExploreBarSection = ({ data }: { data: Data }) => {
   const { countryCode } = useSiteContext();
+  const { isClient } = useIsClient();
   const { label } = data;
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
   // Navigation is being used as the explore bar so bad values need filtering out.
   const links = data.links.filter((link) => {
     if (Object.keys(link).length) {
@@ -32,12 +36,16 @@ const ExploreBarSection = ({ data }: { data: Data }) => {
         heading={label}
         links={links.map(({ label, linkedPage, url, asset }) => ({
           label,
-          action: getClickableActionFromUrl(
-            linkedPage,
-            url,
-            countryCode,
-            asset?.file?.url,
-            label
+          action: memoizedGetClickableActionFromUrl(
+            {
+              isSSR: !isClient,
+              linkedPage,
+              url,
+              countryCode,
+              assetUrl: asset?.file?.url,
+              label
+            },
+            []
           )
         }))}
       />

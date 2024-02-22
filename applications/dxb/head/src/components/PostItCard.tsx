@@ -1,3 +1,4 @@
+import { useIsClient } from "@bmi-digital/components";
 import AnchorLink, {
   AnchorLinkProps
 } from "@bmi-digital/components/anchor-link";
@@ -7,6 +8,7 @@ import Typography from "@bmi-digital/components/typography";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
+import memoize from "../utils/memoize";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
 
@@ -36,6 +38,8 @@ const IntegratedPostItCard = ({
   Component = PostItCard
 }: Props) => {
   const { countryCode } = useSiteContext();
+  const { isClient } = useIsClient();
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   return (
     <Component color={cardTheme}>
@@ -65,12 +69,15 @@ const IntegratedPostItCard = ({
                     {...(cardTheme === "blue900"
                       ? { hasDarkBackground: true, variant: "outlined" }
                       : {})}
-                    action={getClickableActionFromUrl(
-                      link.linkedPage,
-                      link.url,
-                      countryCode,
-                      undefined,
-                      link.label
+                    action={memoizedGetClickableActionFromUrl(
+                      {
+                        isSSR: !isClient,
+                        linkedPage: link.linkedPage,
+                        url: link.url,
+                        countryCode,
+                        label: link.label
+                      },
+                      []
                     )}
                     gtm={{
                       id: "cta-click1",
@@ -81,12 +88,15 @@ const IntegratedPostItCard = ({
                   </GTMButton>
                 ) : (
                   <GTMAnchorLink
-                    action={getClickableActionFromUrl(
-                      link.linkedPage,
-                      link.url,
-                      countryCode,
-                      undefined,
-                      link.label
+                    action={memoizedGetClickableActionFromUrl(
+                      {
+                        isSSR: !isClient,
+                        linkedPage: link.linkedPage,
+                        url: link.url,
+                        countryCode,
+                        label: link.label
+                      },
+                      []
                     )}
                     gtm={{
                       id: "cta-click1",

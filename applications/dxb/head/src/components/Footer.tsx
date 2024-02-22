@@ -1,3 +1,4 @@
+import { useIsClient } from "@bmi-digital/components";
 import Button, { ButtonProps } from "@bmi-digital/components/button";
 import Footer, {
   MenuItem as FooterMenuItem
@@ -8,6 +9,7 @@ import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
+import memoize from "../utils/memoize";
 import Icon from "./Icon";
 import {
   Data as LinkData,
@@ -17,6 +19,10 @@ import {
 import { useSiteContext } from "./Site";
 
 const parseNavigation = (
+  getClickableAction: (
+    ...args: [...Parameters<typeof getClickableActionFromUrl>, []]
+  ) => ReturnType<typeof getClickableActionFromUrl>,
+  isClient: boolean,
   navigationItems: NavigationData["links"],
   countryCode: string
 ): FooterMenuItem[] => {
@@ -28,7 +34,7 @@ const parseNavigation = (
       const { links, label } = navigationItem as NavigationData;
       return {
         label,
-        menu: parseNavigation(links, countryCode)
+        menu: parseNavigation(getClickableAction, isClient, links, countryCode)
       };
     }
 
@@ -44,12 +50,9 @@ const parseNavigation = (
       label,
       icon: iconName && <Icon name={iconName} />,
       isLabelHidden,
-      action: getClickableActionFromUrl(
-        linkedPage,
-        url,
-        countryCode,
-        undefined,
-        label
+      action: getClickableAction(
+        { isSSR: !isClient, linkedPage, url, countryCode, label },
+        []
       )
     };
   });
@@ -62,8 +65,17 @@ type Props = {
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const main = parseNavigation(mainNavigation?.links || [], countryCode);
+  const { isClient } = useIsClient();
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
+  const main = parseNavigation(
+    memoizedGetClickableActionFromUrl,
+    isClient,
+    mainNavigation?.links || [],
+    countryCode
+  );
   const secondary = parseNavigation(
+    memoizedGetClickableActionFromUrl,
+    isClient,
     secondaryNavigation?.links || [],
     countryCode
   );
@@ -71,12 +83,14 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
     ...secondary,
     {
       label: getMicroCopy(microCopy.GLOBAL_SITEMAP),
-      action: getClickableActionFromUrl(
-        { path: "sitemap" },
-        null,
-        countryCode,
-        undefined,
-        getMicroCopy(microCopy.GLOBAL_SITEMAP)
+      action: memoizedGetClickableActionFromUrl(
+        {
+          isSSR: !isClient,
+          linkedPage: { path: "sitemap" },
+          countryCode,
+          label: getMicroCopy(microCopy.GLOBAL_SITEMAP)
+        },
+        []
       )
     }
   ];

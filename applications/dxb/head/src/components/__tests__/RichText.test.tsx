@@ -3,9 +3,19 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
 import React from "react";
+import memoize from "../../utils/memoize";
 import RichText, { RichTextData } from "../RichText";
 
+jest.mock("../../utils/memoize", () => {
+  return jest.fn((func) => func);
+});
+
 describe("RichText component", () => {
+  beforeEach(() => {
+    // Clear memoization cache before each test
+    (memoize as jest.Mock).mockClear();
+  });
+
   const raw = {
     nodeType: BLOCKS.DOCUMENT,
     data: {},

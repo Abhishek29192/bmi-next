@@ -19,6 +19,7 @@ import React, { useRef, useState } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
 import { Product } from "../types/pim";
 import withGTM from "../utils/google-tag-manager";
+import memoize from "../utils/memoize";
 import { transformImages } from "../utils/product-details-transforms";
 import AssetsIframe from "./AssetsIframe";
 import DocumentResultsFooter from "./DocumentResultsFooter";
@@ -89,6 +90,7 @@ const ProductLeadBlock = ({
     product.productDocuments.slice(0, 24)
   );
   const resultsElement = useRef<HTMLDivElement>(null);
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   const count = Math.ceil(product.productDocuments.length / DOCUMENTS_PER_PAGE);
   const handlePageChange = (_: React.ChangeEvent<unknown>, page: number) => {
@@ -155,12 +157,14 @@ const ProductLeadBlock = ({
                     product.guaranteesAndWarrantiesLinks.map((item, i) => (
                       <div key={`link-${i}`}>
                         <GTMAnchorLink
-                          action={getClickableActionFromUrl(
-                            null,
-                            item.url,
-                            countryCode,
-                            undefined,
-                            item.name
+                          action={memoizedGetClickableActionFromUrl(
+                            {
+                              isSSR: !isClient,
+                              url: item.url,
+                              countryCode,
+                              label: item.name
+                            },
+                            []
                           )}
                           gtm={{
                             id: "cta-click1",
