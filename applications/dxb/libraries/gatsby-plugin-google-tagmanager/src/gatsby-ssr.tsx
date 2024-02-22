@@ -1,19 +1,7 @@
-import React from "react";
 import { oneLine, stripIndent } from "common-tags";
+import React from "react";
 import type { GatsbySSR } from "gatsby";
 import type { Options } from "./types";
-
-const generateGTM = (
-  id: string,
-  environmentParamStr: string,
-  dataLayerName: string,
-  selfHostedOrigin: string
-) => stripIndent`
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  '${selfHostedOrigin}/gtm.js?id='+i+dl+'${environmentParamStr}';f.parentNode.insertBefore(j,f);
-  })(window,document,'script','${dataLayerName}', '${id}');`;
 
 const generateGTMIframe = (
   id: string,
@@ -21,32 +9,6 @@ const generateGTMIframe = (
   selfHostedOrigin: string
 ) =>
   oneLine`<iframe src="${selfHostedOrigin}/ns.html?id=${id}${environmentParamStr}" height="0" width="0" style="display: none; visibility: hidden" aria-hidden="true"></iframe>`;
-
-const generateDefaultDataLayer = (
-  defaultDataLayer: NonNullable<Options["defaultDataLayer"]>,
-  dataLayerName: string
-) => {
-  let result = `window.${dataLayerName} = window.${dataLayerName} || [];`;
-
-  if (defaultDataLayer.type === "function") {
-    result += `window.${dataLayerName}.push((${defaultDataLayer.value})());`;
-  } else {
-    if (
-      defaultDataLayer.type !== "object" ||
-      defaultDataLayer.value.constructor !== Object
-    ) {
-      throw new Error(
-        `Oops the plugin option "defaultDataLayer" should be a plain object. "${defaultDataLayer}" is not valid.`
-      );
-    }
-
-    result += `window.${dataLayerName}.push(${JSON.stringify(
-      defaultDataLayer.value
-    )});`;
-  }
-
-  return stripIndent`${result}`;
-};
 
 export const onRenderBody: NonNullable<GatsbySSR["onRenderBody"]> = (
   { setHeadComponents, setPreBodyComponents },
@@ -68,14 +30,6 @@ export const onRenderBody: NonNullable<GatsbySSR["onRenderBody"]> = (
       &gtm_auth=${gtmAuth}&gtm_preview=${gtmPreview}&gtm_cookies_win=x
     `
         : "";
-
-    let defaultDataLayerCode = "";
-    if (defaultDataLayer) {
-      defaultDataLayerCode = generateDefaultDataLayer(
-        defaultDataLayer,
-        dataLayerName
-      );
-    }
 
     selfHostedOrigin = selfHostedOrigin.replace(/\/$/, "");
 
@@ -102,16 +56,10 @@ export const onRenderBody: NonNullable<GatsbySSR["onRenderBody"]> = (
       inlineScripts.push(
         <script
           key="plugin-google-tagmanager"
-          dangerouslySetInnerHTML={{
-            __html: oneLine`
-          ${defaultDataLayerCode}
-          ${generateGTM(
-            id,
-            environmentParamStr,
-            dataLayerName,
-            selfHostedOrigin
-          )}`
-          }}
+          async
+          src={`${selfHostedOrigin}/gtm.js?id=${id}${
+            dataLayerName !== "dataLayer" ? `&l=${dataLayerName}` : ""
+          }${environmentParamStr}`}
         />
       );
 
@@ -125,7 +73,61 @@ export const onRenderBody: NonNullable<GatsbySSR["onRenderBody"]> = (
       );
     });
 
+    inlineScripts.push(
+      <script
+        key="plugin-google-tagmanager"
+        dangerouslySetInnerHTML={{
+          __html: stripIndent`
+      window.${dataLayerName} = window.${dataLayerName} || [];
+      function gtag(){dataLayer.push(arguments);} 
+      
+      gtag('consent', 'default', { 
+        'ad_storage': 'denied', 
+        'analytics_storage': 'denied', 
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500 
+      }); 
+ 
+      window.${dataLayerName}.push(${JSON.stringify(defaultDataLayer)});
+      gtag('js', new Date().getTime());
+      [${ids.map((id) => "'" + id + "'")}].forEach((id) => gtag("config", id))
+    `
+        }}
+      />
+    );
+
     setHeadComponents(inlineScripts);
     setPreBodyComponents(preBodyComponents);
   }
+};
+
+export const onPreRenderHTML: NonNullable<GatsbySSR["onPreRenderHTML"]> = ({
+  getHeadComponents,
+  replaceHeadComponents
+}) => {
+  const headComponents = getHeadComponents() as React.ReactElement[];
+  //Needed to make sure that gtag scripts are being loaded at the very beginning
+  //In order setup default consent rules
+  headComponents.sort((a, b) => {
+    if (
+      a.key !== "plugin-google-tagmanager" &&
+      b.key === "plugin-google-tagmanager"
+    ) {
+      return 1;
+    }
+
+    if (
+      a.key === "plugin-google-tagmanager" &&
+      b.key !== "plugin-google-tagmanager"
+    ) {
+      return -1;
+    }
+
+    return 0;
+  });
+  replaceHeadComponents(headComponents);
 };

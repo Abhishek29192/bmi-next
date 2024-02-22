@@ -2,8 +2,8 @@ lint_gatsby-plugin-google-tagmanager:
   extends: .lint_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     ROOT_DIR: "applications/dxb/libraries/gatsby-plugin-google-tagmanager"
     WORKSPACE: "@bmi/gatsby-plugin-google-tagmanager"
@@ -12,8 +12,8 @@ build_gatsby-plugin-google-tagmanager:
   extends: .build_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     WORKSPACE: "@bmi/gatsby-plugin-google-tagmanager"
     ROOT_DIR: "applications/dxb/libraries/gatsby-plugin-google-tagmanager"
@@ -22,8 +22,8 @@ test_gatsby-plugin-google-tagmanager:
   extends: .test_yarn_workspace
   rules:
     - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
-    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     WORKSPACE: "@bmi/gatsby-plugin-google-tagmanager"
     ROOT_DIR: "applications/dxb/libraries/gatsby-plugin-google-tagmanager"
