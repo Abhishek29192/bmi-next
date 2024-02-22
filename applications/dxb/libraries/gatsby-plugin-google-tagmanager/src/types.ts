@@ -3,9 +3,7 @@ import type { PluginOptions } from "gatsby";
 export type Options = PluginOptions & {
   ids: string[];
   includeInDevelopment: boolean;
-  defaultDataLayer?:
-    | { type: "object"; value: object }
-    | { type: "function"; value: string };
+  defaultDataLayer: { platform: "gatsby"; env: string };
   gtmAuth?: string;
   gtmPreview?: string;
   dataLayerName?: string;
