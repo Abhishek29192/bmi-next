@@ -16,7 +16,7 @@ gtag('consent', 'default', {
 }); 
  
 window.dataLayer.push({"platform":"gatsby","env":"production"});
-gtag('js', new Date().getTime());
+gtag('js', new Date());
 ['123'].forEach((id) => gtag("config", id))"
 `;
 
