@@ -93,7 +93,7 @@ export const onRenderBody: NonNullable<GatsbySSR["onRenderBody"]> = (
       }); 
  
       window.${dataLayerName}.push(${JSON.stringify(defaultDataLayer)});
-      gtag('js', new Date().getTime());
+      gtag('js', new Date());
       [${ids.map((id) => "'" + id + "'")}].forEach((id) => gtag("config", id))
     `
         }}
