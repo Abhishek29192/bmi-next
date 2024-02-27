@@ -3,44 +3,43 @@ import {
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
-import {
-  createCatalogue,
-  createCatalogueSubItem,
-  createCourseSession,
-  createExtendedCourse
-} from "@bmi/docebo-types";
+import { createCatalogue, createCatalogueSubItem } from "@bmi/docebo-types";
 import { Request, Response } from "@google-cloud/functions-framework";
 import fetchMockJest from "fetch-mock-jest";
+import {
+  deleteCourses,
+  deleteCoursesFromCatalogue,
+  deleteSessions,
+  updateCourses,
+  updateSessions
+} from "../esOperations";
 import { getMessageStatus, saveById } from "../firestore";
-import { MessageStatus } from "../types";
+import { EventType, MessageStatus } from "../types";
 import {
   createCourseDeletedEvent,
   createCourseDeletedFromCatalogueEvent,
-  createCourseDeletedPayload,
   createCourseUpdatedEvent,
-  createMultipleCoursesDeletedEvent
+  createMultipleCoursesDeletedEvent,
+  createMultipleCoursesDeletedFromCatalogueEvent,
+  createMultipleCoursesUpdatedEvent,
+  createMultipleSessionsDeletedEvent,
+  createMultipleSessionsUpdatedEvent,
+  createSessionDeletedEvent,
+  createSessionUpdatedEvent
 } from "./helpers/createEvent";
 
-const deleteByQueryMock = jest.fn();
 const getEsClientMock = jest.fn();
-const getIndexOperationMock = jest.fn();
-const performBulkOperationsMock = jest.fn();
-
 jest.mock("@bmi/functions-es-client", () => ({
-  getEsClient: () => getEsClientMock(),
-  getIndexOperation: getIndexOperationMock,
-  performBulkOperations: performBulkOperationsMock
+  getEsClient: () => getEsClientMock()
 }));
 
 const fetchCataloguesMock = jest.fn();
 const getCourseByIdMock = jest.fn();
-const getCurrencyMock = jest.fn();
 jest.mock("@bmi/docebo-api", () => ({
   ...jest.requireActual("@bmi/docebo-api"),
   getCachedDoceboApi: () => ({
     fetchCatalogues: fetchCataloguesMock,
-    getCourseById: getCourseByIdMock,
-    getCurrency: getCurrencyMock
+    getCourseById: getCourseByIdMock
   })
 }));
 
@@ -51,6 +50,25 @@ jest.mock("../firestore", () => ({
     saveDoceboWebhookMessageMock(...args),
   getMessageStatus: (...args: Parameters<typeof getMessageStatus>) =>
     getDoceboWebhookMessageStatus(...args)
+}));
+
+const deleteCoursesMock = jest.fn();
+const deleteCoursesFromCatalogueMock = jest.fn();
+const deleteSessionsMock = jest.fn();
+const updateCoursesMock = jest.fn();
+const updateSessionsMock = jest.fn();
+jest.mock("../esOperations", () => ({
+  deleteCourses: (...args: Parameters<typeof deleteCourses>) =>
+    deleteCoursesMock(...args),
+  deleteCoursesFromCatalogue: (
+    ...args: Parameters<typeof deleteCoursesFromCatalogue>
+  ) => deleteCoursesFromCatalogueMock(...args),
+  deleteSessions: (...args: Parameters<typeof deleteSessions>) =>
+    deleteSessionsMock(...args),
+  updateCourses: (...args: Parameters<typeof updateCourses>) =>
+    updateCoursesMock(...args),
+  updateSessions: (...args: Parameters<typeof updateSessions>) =>
+    updateSessionsMock(...args)
 }));
 
 const fetchMock = fetchMockJest.sandbox();
@@ -73,14 +91,6 @@ beforeEach(() => {
   jest.resetAllMocks();
   jest.resetModules();
   fetchMock.reset();
-  getEsClientMock.mockResolvedValue({
-    deleteByQuery: deleteByQueryMock
-  });
-  getIndexOperationMock.mockImplementation(() => []);
-  getCurrencyMock.mockResolvedValue({
-    currency_currency: "EUR",
-    currency_symbol: "€"
-  });
 });
 
 const handleRequest = async (request: Request, response: Response) =>
@@ -258,6 +268,25 @@ describe("handleRequest", () => {
     process.env.DOCEBO_API_CATALOGUE_IDS = originDoceboApiCatalogIds;
   });
 
+  it("returns 500 if DOCEBO_API_CATALOGUE_IDS contains unexpected values", async () => {
+    const originDoceboApiCatalogIds = process.env.DOCEBO_API_CATALOGUE_IDS;
+    process.env.DOCEBO_API_CATALOGUE_IDS = "fake-value1,fake-value-2";
+
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createCourseUpdatedEvent(),
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
+    expect(getEsClientMock).not.toHaveBeenCalled();
+    process.env.DOCEBO_API_CATALOGUE_IDS = originDoceboApiCatalogIds;
+  });
+
   it("returns 500 if ES_APIKEY is not provided", async () => {
     const originEsApiKey = process.env.ES_APIKEY;
     delete process.env.ES_APIKEY;
@@ -313,6 +342,28 @@ describe("handleRequest", () => {
     expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
     expect(getEsClientMock).not.toHaveBeenCalled();
     process.env.ES_INDEX_NAME_TRAININGS = originEsIndexNameTrainings;
+  });
+
+  it("returns 400 if request body does not have payload nor payloads", async () => {
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: {
+        event: EventType.courseUpdated,
+        fired_by_batch_action: false,
+        message_id: "wh-20230921-133538-552060e3-33fe-429f-8c37-d5ba896a8303"
+      },
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.send).toHaveBeenCalledWith({
+      message: "payload was not provided"
+    });
+    expect(getDoceboWebhookMessageStatus).not.toHaveBeenCalled();
+    expect(saveDoceboWebhookMessageMock).not.toHaveBeenCalled();
+    expect(getEsClientMock).not.toHaveBeenCalled();
   });
 
   it("returns 400 if message_id field does not exist", async () => {
@@ -436,23 +487,23 @@ describe("handleRequest", () => {
     expect(getEsClientMock).not.toHaveBeenCalled();
   });
 
-  it("returns 400 if event==='course.updated' and 'course_id' field does not exist", async () => {
+  it("returns 400 if eventType === 'course.updated' and course does not belong to the allowed catalogues", async () => {
+    fetchCataloguesMock.mockResolvedValue([
+      createCatalogue({ catalogue_id: catalogueIds?.[0], sub_items: [] })
+    ]);
     const res = mockResponse();
     const req = mockRequest({
       method: "POST",
-      body: createCourseUpdatedEvent({ course_id: undefined }),
+      body: createCourseUpdatedEvent({ course_id: 1 }),
       headers: defaultHeaders
     });
     await handleRequest(req, res);
 
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
     expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Courses with ID 1 do not belong to allowed catalogues"
+    });
+    expect(updateCoursesMock).not.toHaveBeenCalled();
     expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
       process.env.FIRESTORE_ROOT_COLLECTION,
       {
@@ -460,59 +511,37 @@ describe("handleRequest", () => {
         status: MessageStatus.Failed
       }
     );
-    expect(res.send).toHaveBeenCalledWith({
-      message: "course_id was not provided"
-    });
+    expect(getEsClientMock).not.toHaveBeenCalled();
   });
 
-  it("returns 400 if event==='catalog.course.deleted' and 'catalog_id' field does not exist", async () => {
+  it("returns error if 'updateCourses' function returns an error", async () => {
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    updateCoursesMock.mockResolvedValue({
+      errorCode: 400,
+      errorMessage: "Provided course can not be updated"
+    });
     const res = mockResponse();
     const req = mockRequest({
       method: "POST",
-      body: createCourseDeletedFromCatalogueEvent({ catalog_id: undefined }),
+      body: createCourseUpdatedEvent({ course_id: courseId }),
       headers: defaultHeaders
     });
     await handleRequest(req, res);
 
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
     expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.send).toHaveBeenCalledWith({
-      message: "catalog_id or course_id was not provided"
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Provided course can not be updated"
     });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Failed
-      }
-    );
-  });
-
-  it("returns 400 if event==='catalog.course.deleted' and 'course_id' field does not exist", async () => {
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: createCourseDeletedFromCatalogueEvent({ course_id: undefined }),
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.send).toHaveBeenCalledWith({
-      message: "catalog_id or course_id was not provided"
+    expect(updateCoursesMock).toHaveBeenCalledWith({
+      catalogues: [catalogue],
+      courseIds: [courseId],
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock()
     });
     expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
       process.env.FIRESTORE_ROOT_COLLECTION,
@@ -523,29 +552,190 @@ describe("handleRequest", () => {
     );
   });
 
-  it("returns 400 if event==='course.deleted' and both 'payload' and 'payloads field do not exist", async () => {
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: {
-        ...createCourseDeletedEvent(),
-        payload: undefined,
-        payloads: undefined
+  it("returns 200 if courses have been updated successfully", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
       },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    updateCoursesMock.mockResolvedValue(undefined);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createCourseUpdatedEvent({ course_id: courseId }),
       headers: defaultHeaders
     });
+
     await handleRequest(req, res);
 
+    expect(res.sendStatus).toHaveBeenCalledWith(200);
+    expect(updateCoursesMock).toHaveBeenCalledWith({
+      catalogues: [catalogue],
+      courseIds: [courseId],
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock()
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveFetched(metadataUrl, {
+      method: "GET",
+      headers: {
+        "Metadata-Flavor": "Google"
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: { isFullFetch: false }
+    });
     expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
       process.env.FIRESTORE_ROOT_COLLECTION,
       {
         id: req.body.message_id,
-        status: MessageStatus.InProgress
+        status: MessageStatus.Succeeded
       }
     );
+  });
+
+  it("calls 'updateCourses' correctly if multiple courses have been updated", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const course1Id = 1;
+    const course2Id = 2;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [
+        createCatalogueSubItem({ item_id: course1Id.toString() }),
+        createCatalogueSubItem({ item_id: course2Id.toString() })
+      ]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    updateCoursesMock.mockResolvedValue(undefined);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createMultipleCoursesUpdatedEvent([
+        {
+          fired_at: "2023-09-21 13:35:33",
+          course_id: course1Id,
+          name: "Course name",
+          code: "course-code",
+          type: "elearning",
+          update_date: "2023-09-21 13:35:33",
+          language: "english_uk",
+          duration: 0,
+          start_date: "2023-09-21",
+          end_date: "2030-10-24"
+        },
+        {
+          fired_at: "2023-09-21 13:35:33",
+          course_id: course2Id,
+          name: "Course name",
+          code: "course-code",
+          type: "elearning",
+          update_date: "2023-09-21 13:35:33",
+          language: "english_uk",
+          duration: 0,
+          start_date: "2023-09-21",
+          end_date: "2030-10-24"
+        }
+      ]),
+      headers: defaultHeaders
+    });
+
+    await handleRequest(req, res);
+
+    expect(updateCoursesMock).toHaveBeenCalledWith({
+      catalogues: [catalogue],
+      courseIds: [course1Id, course2Id],
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock()
+    });
+  });
+
+  it("returns 400 if eventType === 'session.updated' and course does not belong to the allowed catalogues", async () => {
+    fetchCataloguesMock.mockResolvedValue([
+      createCatalogue({ catalogue_id: catalogueIds?.[0], sub_items: [] })
+    ]);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createSessionUpdatedEvent({ course_id: 1 }),
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
     expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.send).toHaveBeenCalledWith({
-      message: "payload was not provided"
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Courses with ID 1 do not belong to allowed catalogues"
+    });
+    expect(updateSessionsMock).not.toHaveBeenCalled();
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
+    expect(getEsClientMock).not.toHaveBeenCalled();
+  });
+
+  it("returns error if 'updateSessions' function returns an error", async () => {
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    updateSessionsMock.mockResolvedValue({
+      errorCode: 400,
+      errorMessage: "Provided sessions can not be updated"
+    });
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createSessionUpdatedEvent({ course_id: courseId }),
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Provided sessions can not be updated"
+    });
+    expect(updateSessionsMock).toHaveBeenCalledWith({
+      catalogues: [catalogue],
+      courseId,
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock(),
+      req
     });
     expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
       process.env.FIRESTORE_ROOT_COLLECTION,
@@ -554,6 +744,543 @@ describe("handleRequest", () => {
         status: MessageStatus.Failed
       }
     );
+  });
+
+  it("returns 200 if sessions have been updated successfully", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    updateSessionsMock.mockResolvedValue(undefined);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createSessionUpdatedEvent({ course_id: courseId }),
+      headers: defaultHeaders
+    });
+
+    await handleRequest(req, res);
+
+    expect(res.sendStatus).toHaveBeenCalledWith(200);
+    expect(updateSessionsMock).toHaveBeenCalledWith({
+      catalogues: [catalogue],
+      courseId,
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock(),
+      req
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveFetched(metadataUrl, {
+      method: "GET",
+      headers: {
+        "Metadata-Flavor": "Google"
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: { isFullFetch: false }
+    });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
+  });
+
+  it("calls 'updateSessions' correctly if multiple sessions have been updated", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    updateSessionsMock.mockResolvedValue(undefined);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createMultipleSessionsUpdatedEvent([
+        {
+          fired_at: "2024-02-07 11:42:12",
+          course_id: 1,
+          course_code: "course code",
+          session_id: 1,
+          session_code: "session 1 code",
+          session_name: "session 1 name",
+          migrated_webinar_session_id: null
+        },
+        {
+          fired_at: "2024-02-07 11:42:12",
+          course_id: 1,
+          course_code: "course code",
+          session_id: 2,
+          session_code: "session 1 code",
+          session_name: "session 1 name",
+          migrated_webinar_session_id: null
+        }
+      ]),
+      headers: defaultHeaders
+    });
+
+    await handleRequest(req, res);
+
+    expect(updateSessionsMock).toHaveBeenCalledWith({
+      catalogues: [catalogue],
+      courseId,
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock(),
+      req
+    });
+  });
+
+  it("returns 400 if eventType === 'session.deleted' and course does not belong to the allowed catalogues", async () => {
+    fetchCataloguesMock.mockResolvedValue([
+      createCatalogue({ catalogue_id: catalogueIds?.[0], sub_items: [] })
+    ]);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createSessionDeletedEvent({ course_id: 1 }),
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Courses with ID 1 do not belong to allowed catalogues"
+    });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
+    expect(getEsClientMock).not.toHaveBeenCalled();
+  });
+
+  it("returns error if 'deleteSessions' function returns an error", async () => {
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    deleteSessionsMock.mockResolvedValue({
+      errorCode: 400,
+      errorMessage: "Provided sessions can not be deleted"
+    });
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createSessionDeletedEvent({ course_id: courseId }),
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Provided sessions can not be deleted"
+    });
+    expect(deleteSessionsMock).toHaveBeenCalledWith({
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock(),
+      req
+    });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      }
+    );
+  });
+
+  it("returns 200 if sessions have been deleted successfully", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    deleteSessionsMock.mockResolvedValue(undefined);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createSessionDeletedEvent({ course_id: courseId }),
+      headers: defaultHeaders
+    });
+
+    await handleRequest(req, res);
+
+    expect(res.sendStatus).toHaveBeenCalledWith(200);
+    expect(deleteSessionsMock).toHaveBeenCalledWith({
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock(),
+      req
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveFetched(metadataUrl, {
+      method: "GET",
+      headers: {
+        "Metadata-Flavor": "Google"
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: { isFullFetch: false }
+    });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
+  });
+
+  it("calls 'deleteSessions' correctly if multiple sessions have been deleted", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    updateSessionsMock.mockResolvedValue(undefined);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createMultipleSessionsDeletedEvent([
+        {
+          fired_at: "2024-02-07 11:42:12",
+          course_id: 1,
+          course_code: "course code",
+          session_id: 1,
+          session_code: "session 1 code",
+          session_name: "session 1 name",
+          migrated_webinar_session_id: null
+        },
+        {
+          fired_at: "2024-02-07 11:42:12",
+          course_id: 1,
+          course_code: "course code",
+          session_id: 2,
+          session_code: "session 1 code",
+          session_name: "session 1 name",
+          migrated_webinar_session_id: null
+        }
+      ]),
+      headers: defaultHeaders
+    });
+
+    await handleRequest(req, res);
+
+    expect(deleteSessionsMock).toHaveBeenCalledWith({
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock(),
+      req
+    });
+  });
+
+  it("returns 200 if courses have been deleted successfully", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createCourseDeletedEvent({ course_id: courseId }),
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.sendStatus).toHaveBeenCalledWith(200);
+    expect(deleteCoursesMock).toHaveBeenCalledWith({
+      courseIds: [courseId],
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock()
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveFetched(metadataUrl, {
+      method: "GET",
+      headers: {
+        "Metadata-Flavor": "Google"
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: { isFullFetch: false }
+    });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
+  });
+
+  it("calls 'deleteCourses' correctly if multiple courses have been deleted", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const course1Id = 1;
+    const course2Id = 2;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [
+        createCatalogueSubItem({ item_id: course1Id.toString() }),
+        createCatalogueSubItem({ item_id: course2Id.toString() })
+      ]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    updateSessionsMock.mockResolvedValue(undefined);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createMultipleCoursesDeletedEvent([
+        {
+          fired_at: "2023-09-21 13:35:33",
+          course_id: course1Id,
+          name: "Course name",
+          code: "course-code",
+          type: "elearning",
+          deletion_date: "2023-09-21 13:35:33",
+          language: "english_uk",
+          duration: 0,
+          start_date: "2023-09-21",
+          end_date: "2030-10-24"
+        },
+        {
+          fired_at: "2023-09-21 13:35:33",
+          course_id: course2Id,
+          name: "Course name",
+          code: "course-code",
+          type: "elearning",
+          deletion_date: "2023-09-21 13:35:33",
+          language: "english_uk",
+          duration: 0,
+          start_date: "2023-09-21",
+          end_date: "2030-10-24"
+        }
+      ]),
+      headers: defaultHeaders
+    });
+
+    await handleRequest(req, res);
+
+    expect(deleteCoursesMock).toHaveBeenCalledWith({
+      courseIds: [course1Id, course2Id],
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock()
+    });
+  });
+
+  it("returns 200 if courses have been deleted from catalogue successfully", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const courseId = 1;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [createCatalogueSubItem({ item_id: courseId.toString() })]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createCourseDeletedFromCatalogueEvent({ course_id: courseId }),
+      headers: defaultHeaders
+    });
+    await handleRequest(req, res);
+
+    expect(res.sendStatus).toHaveBeenCalledWith(200);
+    expect(deleteCoursesFromCatalogueMock).toHaveBeenCalledWith({
+      allowedCatalogueIds: catalogueIds,
+      courseIds: [courseId],
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock(),
+      req
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveFetched(metadataUrl, {
+      method: "GET",
+      headers: {
+        "Metadata-Flavor": "Google"
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${gcpAuthToken}`
+      },
+      body: { isFullFetch: false }
+    });
+    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
+      process.env.FIRESTORE_ROOT_COLLECTION,
+      {
+        id: req.body.message_id,
+        status: MessageStatus.Succeeded
+      }
+    );
+  });
+
+  it("calls 'deleteCoursesFromCatalogue' correctly if multiple courses have been deleted", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: metadataUrl,
+        method: "GET",
+        headers: { "Metadata-Flavor": "Google" },
+        body: gcpAuthToken
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const course1Id = 1;
+    const course2Id = 2;
+    const catalogue = createCatalogue({
+      catalogue_id: catalogueIds?.[0],
+      sub_items: [
+        createCatalogueSubItem({ item_id: course1Id.toString() }),
+        createCatalogueSubItem({ item_id: course2Id.toString() })
+      ]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    updateSessionsMock.mockResolvedValue(undefined);
+    const res = mockResponse();
+    const req = mockRequest({
+      method: "POST",
+      body: createMultipleCoursesDeletedFromCatalogueEvent([
+        {
+          fired_at: "2023-09-22 08:46:42",
+          catalog_id: 1,
+          course_id: course1Id
+        },
+        {
+          fired_at: "2023-09-22 08:46:42",
+          catalog_id: 1,
+          course_id: course2Id
+        }
+      ]),
+      headers: defaultHeaders
+    });
+
+    await handleRequest(req, res);
+
+    expect(deleteCoursesFromCatalogueMock).toHaveBeenCalledWith({
+      allowedCatalogueIds: catalogueIds,
+      courseIds: [course1Id, course2Id],
+      doceboMessageId: req.body.message_id,
+      esClient: getEsClientMock(),
+      req
+    });
   });
 
   it("returns 500 if getEsClient function throws an error", async () => {
@@ -586,833 +1313,6 @@ describe("handleRequest", () => {
       }
     );
     expect(getEsClientMock).toHaveBeenCalledTimes(1);
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(getCourseByIdMock).not.toHaveBeenCalled();
-    expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 400 if event==='course.deleted' with single payload and if there is no 'course_id' field", async () => {
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: createCourseDeletedEvent({ course_id: undefined }),
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.send).toHaveBeenCalledWith({ message: "No courses to delete" });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Failed
-      }
-    );
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(getCourseByIdMock).not.toHaveBeenCalled();
-    expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 400 if event==='course.deleted' with multiple payloads and if there is no 'course_id' field in all courses", async () => {
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: {
-        ...createMultipleCoursesDeletedEvent(),
-        payloads: [
-          createCourseDeletedPayload({ course_id: undefined }),
-          createCourseDeletedPayload({ course_id: undefined })
-        ]
-      },
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.send).toHaveBeenCalledWith({
-      message: "No courses to delete"
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Failed
-      }
-    );
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(getCourseByIdMock).not.toHaveBeenCalled();
-    expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("deletes course and returns 200 if event==='course.deleted' with single payload", async () => {
-    mockResponses(
-      fetchMock,
-      {
-        url: metadataUrl,
-        method: "GET",
-        headers: { "Metadata-Flavor": "Google" },
-        body: gcpAuthToken
-      },
-      {
-        url: process.env.BUILD_TRIGGER_ENDPOINT,
-        method: "POST"
-      }
-    );
-
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: createCourseDeletedEvent(),
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(deleteByQueryMock).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
-      body: {
-        query: {
-          terms: { courseId: [req.body.payload.course_id] }
-        }
-      }
-    });
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-    expect(fetchMock).toHaveFetched(metadataUrl, {
-      method: "GET",
-      headers: {
-        "Metadata-Flavor": "Google"
-      }
-    });
-    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `bearer ${gcpAuthToken}`
-      },
-      body: { isFullFetch: false }
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Succeeded
-      }
-    );
-    expect(res.sendStatus).toHaveBeenCalledWith(200);
-    expect(getCourseByIdMock).not.toHaveBeenCalled();
-    expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("deletes course and returns 200 if event==='course.deleted' with multiple payload", async () => {
-    mockResponses(
-      fetchMock,
-      {
-        url: metadataUrl,
-        method: "GET",
-        headers: { "Metadata-Flavor": "Google" },
-        body: gcpAuthToken
-      },
-      {
-        url: process.env.BUILD_TRIGGER_ENDPOINT,
-        method: "POST"
-      }
-    );
-
-    const event = createMultipleCoursesDeletedEvent();
-    const idsToDelete = event.payloads.map(({ course_id }) => course_id);
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: createMultipleCoursesDeletedEvent(),
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(deleteByQueryMock).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
-      body: {
-        query: {
-          terms: { courseId: idsToDelete }
-        }
-      }
-    });
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-    expect(fetchMock).toHaveFetched(metadataUrl, {
-      method: "GET",
-      headers: {
-        "Metadata-Flavor": "Google"
-      }
-    });
-    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `bearer ${gcpAuthToken}`
-      },
-      body: { isFullFetch: false }
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Succeeded
-      }
-    );
-    expect(res.sendStatus).toHaveBeenCalledWith(200);
-    expect(getCourseByIdMock).not.toHaveBeenCalled();
-    expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("filters out payloads with 'course_id: undefined' if event==='course.deleted'", async () => {
-    mockResponses(
-      fetchMock,
-      {
-        url: metadataUrl,
-        method: "GET",
-        headers: { "Metadata-Flavor": "Google" },
-        body: gcpAuthToken
-      },
-      {
-        url: process.env.BUILD_TRIGGER_ENDPOINT,
-        method: "POST"
-      }
-    );
-
-    const event = createMultipleCoursesDeletedEvent([
-      createCourseDeletedPayload({ course_id: undefined }),
-      createCourseDeletedPayload({ course_id: undefined })
-    ]);
-    const idsToDelete = event.payloads
-      .map(({ course_id }) => course_id)
-      .filter(Boolean);
-
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: createMultipleCoursesDeletedEvent(),
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(deleteByQueryMock).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
-      body: {
-        query: {
-          terms: { courseId: idsToDelete }
-        }
-      }
-    });
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-    expect(fetchMock).toHaveFetched(metadataUrl, {
-      method: "GET",
-      headers: {
-        "Metadata-Flavor": "Google"
-      }
-    });
-    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `bearer ${gcpAuthToken}`
-      },
-      body: { isFullFetch: false }
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Succeeded
-      }
-    );
-    expect(res.sendStatus).toHaveBeenCalledWith(200);
-    expect(getCourseByIdMock).not.toHaveBeenCalled();
-    expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("deletes course and returns 200 if event==='catalog.course.deleted'", async () => {
-    mockResponses(
-      fetchMock,
-      {
-        url: metadataUrl,
-        method: "GET",
-        headers: { "Metadata-Flavor": "Google" },
-        body: gcpAuthToken
-      },
-      {
-        url: process.env.BUILD_TRIGGER_ENDPOINT,
-        method: "POST"
-      }
-    );
-
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: createCourseDeletedFromCatalogueEvent(),
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(deleteByQueryMock).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
-      body: {
-        query: {
-          bool: {
-            must: [
-              {
-                match: {
-                  courseId: req.body.payload.course_id
-                }
-              },
-              {
-                match: {
-                  "catalogueId.keyword": req.body.payload.catalog_id
-                }
-              }
-            ]
-          }
-        }
-      }
-    });
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-    expect(fetchMock).toHaveFetched(metadataUrl, {
-      method: "GET",
-      headers: {
-        "Metadata-Flavor": "Google"
-      }
-    });
-    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `bearer ${gcpAuthToken}`
-      },
-      body: { isFullFetch: false }
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Succeeded
-      }
-    );
-    expect(res.sendStatus).toHaveBeenCalledWith(200);
-    expect(getCourseByIdMock).not.toHaveBeenCalled();
-    expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 400 if event==='course.updated' and 'getCourseById' does not return any course", async () => {
-    getCourseByIdMock.mockResolvedValue(undefined);
-    const event = createCourseUpdatedEvent();
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: createCourseUpdatedEvent(),
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.json).toHaveBeenCalledWith({
-      message: `Course with "course_id: ${event.payload.course_id}" does not exist`
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Failed
-      }
-    );
-    expect(getCurrencyMock).not.toHaveBeenCalled();
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 500 if event==='course.updated' and 'getCourseById' throws an error", async () => {
-    const error = new Error("expected error");
-    getCourseByIdMock.mockRejectedValue(error);
-    const event = createCourseUpdatedEvent();
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: event,
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.send).toHaveBeenCalledWith({
-      message: `Something went wrong: ${error.message}`
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Failed
-      }
-    );
-    expect(getCurrencyMock).not.toHaveBeenCalled();
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 500 if event==='course.updated' and 'fetchCatalogues' throws an error", async () => {
-    const error = new Error("expected error");
-    const course = createExtendedCourse({ id: 1 });
-    getCourseByIdMock.mockResolvedValue(course);
-    fetchCataloguesMock.mockRejectedValue(error);
-    const event = createCourseUpdatedEvent({ course_id: course.id });
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: event,
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
-    expect(res.send).toHaveBeenCalledWith({
-      message: `Something went wrong: ${error.message}`
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Failed
-      }
-    );
-    expect(getCurrencyMock).not.toHaveBeenCalled();
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("works correctly if course does not belong to any catalogue", async () => {
-    mockResponses(
-      fetchMock,
-      {
-        url: metadataUrl,
-        method: "GET",
-        headers: { "Metadata-Flavor": "Google" },
-        body: gcpAuthToken
-      },
-      {
-        url: process.env.BUILD_TRIGGER_ENDPOINT,
-        method: "POST"
-      }
-    );
-    const course = createExtendedCourse({ id: 1 });
-    getCourseByIdMock.mockResolvedValue(course);
-    fetchCataloguesMock.mockResolvedValue([
-      createCatalogue({ sub_items: [createCatalogueSubItem({ item_id: "2" })] })
-    ]);
-    const event = createCourseUpdatedEvent({ course_id: course.id });
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: event,
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(res.sendStatus).toHaveBeenCalledWith(200);
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Succeeded
-      }
-    );
-    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
-    expect(getCurrencyMock).not.toHaveBeenCalled();
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 500 if event==='course.updated' and 'getCurrency' throws an error", async () => {
-    const error = new Error("An error occured in 'getCurrency'");
-    const course = createExtendedCourse({ id: 1 });
-    getCourseByIdMock.mockResolvedValue(course);
-    fetchCataloguesMock.mockResolvedValue([
-      createCatalogue({
-        sub_items: [createCatalogueSubItem({ item_id: "1" })]
-      })
-    ]);
-    getCurrencyMock.mockRejectedValue(error);
-    const event = createCourseUpdatedEvent({ course_id: course.id });
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: event,
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
-    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
-    expect(res.send).toHaveBeenCalledWith({
-      message: `Something went wrong: ${error.message}`
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Failed
-      }
-    );
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 500 if getIndexOperation throws an error", async () => {
-    getIndexOperationMock.mockRestore();
-    getIndexOperationMock.mockImplementation(() => {
-      throw new Error("Expected error from getIndexOperationMock");
-    });
-    const sessionStartDate = new Date();
-    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
-    const session = createCourseSession({
-      start_date: sessionStartDate.toString()
-    });
-    const course = createExtendedCourse({ id: 1, sessions: [session] });
-    getCourseByIdMock.mockResolvedValue(course);
-    fetchCataloguesMock.mockResolvedValue([
-      createCatalogue({
-        sub_items: [createCatalogueSubItem({ item_id: "1" })]
-      })
-    ]);
-    const event = createCourseUpdatedEvent({ course_id: course.id });
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: event,
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.send).toHaveBeenCalledWith({
-      message: "Something went wrong: Expected error from getIndexOperationMock"
-    });
-    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
-    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
-    expect(getIndexOperationMock).toHaveBeenCalled();
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Failed
-      }
-    );
-
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 500 if performBulkOperationsMock throws an error", async () => {
-    performBulkOperationsMock.mockImplementation(() => {
-      throw new Error("Expected error from performBulkOperationsMock");
-    });
-    const sessionStartDate = new Date();
-    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
-    const session = createCourseSession({
-      start_date: sessionStartDate.toString()
-    });
-    const course = createExtendedCourse({ id: 1, sessions: [session] });
-    getCourseByIdMock.mockResolvedValue(course);
-    fetchCataloguesMock.mockResolvedValue([
-      createCatalogue({
-        sub_items: [createCatalogueSubItem({ item_id: "1" })]
-      })
-    ]);
-    const event = createCourseUpdatedEvent({ course_id: course.id });
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: event,
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Failed
-      }
-    );
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.send).toHaveBeenCalledWith({
-      message:
-        "Something went wrong: Expected error from performBulkOperationsMock"
-    });
-    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
-    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
-    expect(getIndexOperationMock).toHaveBeenCalled();
-    expect(performBulkOperationsMock).toHaveBeenCalled();
-
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-  });
-
-  it("returns 200 if event==='course.updated' and course does not have sessions", async () => {
-    const course = createExtendedCourse({ id: 1, sessions: undefined });
-    getCourseByIdMock.mockResolvedValue(course);
-    fetchCataloguesMock.mockResolvedValue([
-      createCatalogue({
-        sub_items: [createCatalogueSubItem({ item_id: "1" })]
-      })
-    ]);
-    const event = createCourseUpdatedEvent({ course_id: course.id });
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: event,
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(res.sendStatus).toHaveBeenCalledWith(200);
-    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
-    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Succeeded
-      }
-    );
-    expect(fetchMock).not.toHaveBeenCalled();
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
-  });
-
-  it("updates training and returns 200 if event==='course.updated' if session start date is in the future", async () => {
-    mockResponses(
-      fetchMock,
-      {
-        url: metadataUrl,
-        method: "GET",
-        headers: { "Metadata-Flavor": "Google" },
-        body: gcpAuthToken
-      },
-      {
-        url: process.env.BUILD_TRIGGER_ENDPOINT,
-        method: "POST"
-      }
-    );
-    const sessionStartDate = new Date();
-    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
-    const session1 = createCourseSession({
-      start_date: sessionStartDate.toString()
-    });
-    const session2 = createCourseSession({
-      id_session: 2,
-      start_date: "2022-09-13 23:59:59"
-    });
-    const course = createExtendedCourse({
-      id: 1,
-      sessions: [session1, session2]
-    });
-    getCourseByIdMock.mockResolvedValue(course);
-    const catalogue = createCatalogue({
-      sub_items: [createCatalogueSubItem({ item_id: "1" })]
-    });
-    fetchCataloguesMock.mockResolvedValue([catalogue]);
-    const event = createCourseUpdatedEvent({ course_id: course.id });
-    const res = mockResponse();
-    const req = mockRequest({
-      method: "POST",
-      body: event,
-      headers: defaultHeaders
-    });
-    await handleRequest(req, res);
-
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.InProgress
-      }
-    );
-    expect(res.sendStatus).toHaveBeenCalledWith(200);
-    expect(getCourseByIdMock).toHaveBeenCalledWith(event.payload.course_id);
-    expect(fetchCataloguesMock).toHaveBeenCalledWith({ catalogueIds });
-    expect(getCurrencyMock).toHaveBeenCalledTimes(1);
-    expect(getIndexOperationMock).toHaveBeenCalledTimes(1);
-    expect(getIndexOperationMock).toHaveBeenCalledWith(
-      `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
-      {
-        id: `${catalogue.catalogue_id}-${course.id}-${session1.id_session}`,
-        sessionId: session1.id_session,
-        sessionName: session1.name,
-        sessionSlug: session1.slug_name,
-        startDate: session1.start_date,
-        endDate: session1.end_date,
-        courseId: course.id,
-        courseName: course.name,
-        courseSlug: course.slug_name,
-        courseCode: course.code,
-        courseType: course.type,
-        courseImg: course.thumbnail,
-        category: "Flat",
-        onSale: course.on_sale,
-        price: course.price,
-        currency: "EUR",
-        currencySymbol: "€",
-        catalogueId: catalogue.catalogue_id.toString(),
-        catalogueName: catalogue.catalogue_name,
-        catalogueDescription: catalogue.catalogue_description
-      },
-      `${catalogue.catalogue_id}-${course.id}-${session1.id_session}`
-    );
-    expect(performBulkOperationsMock).toHaveBeenCalled();
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-    expect(fetchMock).toHaveFetched(metadataUrl, {
-      method: "GET",
-      headers: {
-        "Metadata-Flavor": "Google"
-      }
-    });
-    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `bearer ${gcpAuthToken}`
-      },
-      body: { isFullFetch: false }
-    });
-    expect(saveDoceboWebhookMessageMock).toHaveBeenCalledWith(
-      process.env.FIRESTORE_ROOT_COLLECTION,
-      {
-        id: req.body.message_id,
-        status: MessageStatus.Succeeded
-      }
-    );
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
   });
 
   it("returns 400 if unexpected event received", async () => {
@@ -1443,9 +1343,7 @@ describe("handleRequest", () => {
       }
     );
     expect(getEsClientMock).not.toHaveBeenCalledTimes(1);
-    expect(deleteByQueryMock).not.toHaveBeenCalled();
     expect(getCourseByIdMock).not.toHaveBeenCalled();
     expect(fetchCataloguesMock).not.toHaveBeenCalled();
-    expect(performBulkOperationsMock).not.toHaveBeenCalled();
   });
 });

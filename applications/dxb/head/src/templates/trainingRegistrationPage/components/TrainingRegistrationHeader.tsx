@@ -5,7 +5,7 @@ import {
   trainingTypeIcon
 } from "@bmi-digital/components/training-card";
 import { Training } from "@bmi/elasticsearch-types";
-import { microCopy, MicroCopyValues } from "@bmi/microcopies";
+import { MicroCopyValues, microCopy } from "@bmi/microcopies";
 import React from "react";
 import { useSiteContext } from "../../../components/Site";
 import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
@@ -37,12 +37,12 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const { marketLocaleCode } = useConfig();
 
-  const formatDate = (inputDateString: string) =>
+  const formatDate = (inputDate: number) =>
     new Intl.DateTimeFormat(marketLocaleCode, {
       year: "numeric",
       month: "long",
       day: "numeric"
-    }).format(new Date(inputDateString));
+    }).format(new Date(inputDate));
 
   return (
     <Section backgroundColor="pearl">
@@ -94,20 +94,16 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
               : getMicroCopy(microCopy.TRAINING_PRICE_FREE)}
           </TrainingDesc>
         </TrainingDetailContainer>
-        {startDate && (
-          <>
-            <TrainingSeparation />
-            <TrainingDetailContainer>
-              <TrainingLabel>
-                {getMicroCopy(microCopy.TRAINING_REGISTRATION_DATE)}
-              </TrainingLabel>
-              <TrainingDesc data-testid="training-start-date">
-                <StyledIcon source={Calender} />
-                {formatDate(startDate)}
-              </TrainingDesc>
-            </TrainingDetailContainer>
-          </>
-        )}
+        <TrainingSeparation />
+        <TrainingDetailContainer>
+          <TrainingLabel>
+            {getMicroCopy(microCopy.TRAINING_REGISTRATION_DATE)}
+          </TrainingLabel>
+          <TrainingDesc data-testid="training-start-date">
+            <StyledIcon source={Calender} />
+            {formatDate(startDate)}
+          </TrainingDesc>
+        </TrainingDetailContainer>
       </TrainingDataContainer>
     </Section>
   );

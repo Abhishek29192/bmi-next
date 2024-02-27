@@ -14,7 +14,7 @@ test_gcp-apsis-integration:
   extends: .test_function
   variables:
     WORKSPACE: "@bmi/gcp-apsis-integration"
-    ROOT_DIR: "applications/functions/gcp-apsis-integration"
+    ROOT_DIR: "applications/dxb/functions/gcp-apsis-integration"
   needs:
     - build_gcp-apsis-integration
 

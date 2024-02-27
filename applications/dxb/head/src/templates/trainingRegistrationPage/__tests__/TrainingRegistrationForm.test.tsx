@@ -1,14 +1,18 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
+import { createTraining } from "@bmi/elasticsearch-types";
+import { microCopy } from "@bmi/microcopies";
 import { LocationProvider } from "@reach/router";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import fetchMockJest = require("fetch-mock-jest");
+import { fallbackGetMicroCopy as getMicroCopy } from "../../../components/MicroCopy";
 import { SiteContextProvider } from "../../../components/Site";
 import { getMockSiteContext } from "../../../components/__tests__/utils/SiteContextProvider";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { trainingRegistrationPageData } from "../__mocks__/trainingRegistrationPage";
 import TrainingRegistrationForm from "../components/TrainingRegistrationForm";
+
 import type { NavigateFn } from "@reach/router";
 
 const navigateMock = jest.fn();
@@ -51,21 +55,19 @@ afterEach(() => {
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider>
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          reCaptchaKey: "1234",
-          reCaptchaNet: false
-        }}
-      >
-        {children}
-      </SiteContextProvider>
-    </ThemeProvider>
+    <SiteContextProvider
+      value={{
+        ...getMockSiteContext("no"),
+        reCaptchaKey: "1234",
+        reCaptchaNet: false
+      }}
+    >
+      {children}
+    </SiteContextProvider>
   );
 };
 
-const renderTrainingRegistrationPage = () =>
+const renderTrainingRegistrationPage = () => {
   render(
     <ConfigProvider
       configOverride={{
@@ -79,17 +81,25 @@ const renderTrainingRegistrationPage = () =>
               {...trainingRegistrationPageData}
               trainingDetailsPageUrl="/no/t/training-details-page-utl"
               courseCode={"IT-TEST08"}
+              training={createTraining()}
             />
           </LocationProvider>
         </ThemeProvider>
       </MockSiteContext>
     </ConfigProvider>
   );
+};
 
 describe("TrainingRegistrationForm", () => {
   it("submits the form and trigger the email", async () => {
-    renderTrainingRegistrationPage();
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: "OK"
+    });
 
+    renderTrainingRegistrationPage();
     fireEvent.change(
       screen.getByLabelText(trainingRegistrationPageData.firstName, {
         exact: false
@@ -132,16 +142,16 @@ describe("TrainingRegistrationForm", () => {
     const submitButton = screen.getByRole("button", {
       name: trainingRegistrationPageData.registerButton
     });
-
     fireEvent.click(submitButton);
 
-    mockResponses(fetchMock, {
-      url: "*",
-      method: "POST",
-      status: 200,
-      body: "OK"
-    });
-
+    const emailDateLabel = getMicroCopy(microCopy.TRAINING_EMAIL_START_DATE);
+    const emailLabel = getMicroCopy(microCopy.TRAINING_EMAIL_LABEL);
+    const emailConsentLabel = getMicroCopy(
+      microCopy.TRAINING_EMAIL_DATA_CONSENT_LABEL
+    );
+    const emailTermsOfUseLabel = getMicroCopy(
+      microCopy.TRAINING_EMAIL_TERM_OF_USE_LABEL
+    );
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
@@ -152,6 +162,10 @@ describe("TrainingRegistrationForm", () => {
             title: "",
             recipients: "test@bmigroup.com",
             values: {
+              [emailLabel]: "training code - training name, session name",
+              [emailDateLabel]: "28/12/2023, 22:00:00",
+              [emailTermsOfUseLabel]: "Terms of use",
+              [emailConsentLabel]: "Consent text",
               Salutation: "Mr",
               "First name": "First name",
               "Last name": "Last name",
@@ -172,7 +186,7 @@ describe("TrainingRegistrationForm", () => {
         }
       )
     );
-  });
+  }, 10000);
 
   (
     [

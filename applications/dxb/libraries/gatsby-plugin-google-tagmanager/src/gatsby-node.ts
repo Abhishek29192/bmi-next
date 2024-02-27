@@ -1,29 +1,4 @@
 import type { GatsbyNode } from "gatsby";
-import type { Options } from "./types";
-
-export const onPreInit: GatsbyNode["onPreInit"] = (
-  args,
-  options: Omit<Options, "defaultDataLayer"> & {
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    defaultDataLayer?: object | Function;
-  }
-) => {
-  if (!options.defaultDataLayer) {
-    return;
-  }
-
-  if (typeof options.defaultDataLayer === "function") {
-    options.defaultDataLayer = {
-      type: "function",
-      value: options.defaultDataLayer.toString()
-    };
-  } else {
-    options.defaultDataLayer = {
-      type: "object",
-      value: options.defaultDataLayer
-    };
-  }
-};
 
 export const pluginOptionsSchema: NonNullable<
   GatsbyNode["pluginOptionsSchema"]
@@ -40,11 +15,11 @@ export const pluginOptionsSchema: NonNullable<
       .description(
         "Include Google Tag Manager when running in development mode."
       ),
-    defaultDataLayer: Joi.alternatives()
-      .try(Joi.object(), Joi.function())
+    defaultDataLayer: Joi.object()
       .description(
-        "Data layer to be set before Google Tag Manager is loaded. Should be an object or a function."
-      ),
+        "Data layer to be set before Google Tag Manager is loaded. Should be an object."
+      )
+      .required(),
     gtmAuth: Joi.string().description(
       "Google Tag Manager environment auth string."
     ),

@@ -14,7 +14,7 @@ test_gatsby-cloud-build-proxy:
   extends: .test_function
   variables:
     WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
-    ROOT_DIR: "applications/functions/gatsby-cloud-build-proxy"
+    ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"
   needs:
     - build_gatsby-cloud-build-proxy
 

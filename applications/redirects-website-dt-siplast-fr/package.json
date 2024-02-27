@@ -1,0 +1,32 @@
+{
+  "name": "@bmi/redirects-website-dt-siplast-fr",
+  "private": true,
+  "description": "BMI dxb FR redirects - dt-siplast-fr",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "debug": "node --nolazy --inspect node_modules/.bin/gatsby develop",
+    "dev": "gatsby clean && gatsby develop",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "start": "gatsby build && gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^5.13.1",
+    "gatsby-plugin-gatsby-cloud": "^5.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "toml": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "webpack": "^5.89.0"
+  }
+}

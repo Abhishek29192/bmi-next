@@ -1,0 +1,4 @@
+[[edge_functions]]
+function = "add-trailing-slash"
+path = "/*"
+excludedPath = ["/*.css", "/*.js", "/*json", "/*.png", "/*.jpg", "/*.webp", "/*.svg", "/static/*", "/manifest.webmanifest"]

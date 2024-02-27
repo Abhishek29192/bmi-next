@@ -24,6 +24,7 @@ const TrainingRegistrationPage = ({
   const { path } = contentfulTrainingRegistrationPage;
 
   const { training, loading } = useRegistration();
+
   const breadcrumbs: BreadcrumbItem[] = useMemo(() => {
     const currentPageBreadcrumb = [
       ...updateBreadcrumbTitleFromContentful(
@@ -88,6 +89,7 @@ const TrainingRegistrationPage = ({
             `/t/${training?.courseSlug}`
           )}
           courseCode={training?.courseCode}
+          training={training}
         />
       )}
       <Section backgroundColor="white" data-testid="breadcrumbs-section-bottom">

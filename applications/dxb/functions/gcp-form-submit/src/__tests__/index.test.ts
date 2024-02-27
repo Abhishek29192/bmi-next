@@ -733,8 +733,8 @@ describe("Making a POST request", () => {
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Form title",
-      text: JSON.stringify({ a: "b", uploadedAssets: [] }),
-      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: []</li></ul>'
+      text: JSON.stringify({ a: "b" }),
+      html: '<ul><li><b>a</b>: "b"</li></ul>'
     });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
@@ -775,8 +775,8 @@ describe("Making a POST request", () => {
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Form title",
-      text: JSON.stringify({ a: "b", uploadedAssets: [] }),
-      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: []</li></ul>'
+      text: JSON.stringify({ a: "b" }),
+      html: '<ul><li><b>a</b>: "b"</li></ul>'
     });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
@@ -825,8 +825,8 @@ describe("Making a POST request", () => {
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Form title",
-      text: JSON.stringify({ a: "b", uploadedAssets: [] }),
-      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: []</li></ul>'
+      text: JSON.stringify({ a: "b" }),
+      html: '<ul><li><b>a</b>: "b"</li></ul>'
     });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
@@ -870,8 +870,8 @@ describe("Making a POST request", () => {
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Form title",
-      text: JSON.stringify({ a: "b", uploadedAssets: [] }),
-      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: []</li></ul>'
+      text: JSON.stringify({ a: "b" }),
+      html: '<ul><li><b>a</b>: "b"</li></ul>'
     });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
@@ -1002,10 +1002,9 @@ describe("Making a POST request", () => {
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Form title",
       text: JSON.stringify({
-        a: "",
-        uploadedAssets: []
+        a: ""
       }),
-      html: '<ul><li><b>a</b>: ""</li><li><b>uploadedAssets</b>: []</li></ul>'
+      html: '<ul><li><b>a</b>: ""</li></ul>'
     });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
@@ -1151,8 +1150,8 @@ describe("Making a POST request", () => {
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Form title",
-      text: JSON.stringify({ a: "b", uploadedAssets: [] }),
-      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: []</li></ul>'
+      text: JSON.stringify({ a: "b" }),
+      html: '<ul><li><b>a</b>: "b"</li></ul>'
     });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);

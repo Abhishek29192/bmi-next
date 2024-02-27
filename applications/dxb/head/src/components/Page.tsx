@@ -83,7 +83,6 @@ const Page = ({
     menuNavigation,
     menuUtilities,
     resources,
-    headScripts,
     regions,
     pitchedRoofCalculatorConfig,
     visualiserHouseTypes,
@@ -125,9 +124,6 @@ const Page = ({
         title={seoTitle}
         defer={false}
         ogImageUrl={ogImageUrl}
-        scripts={{
-          headScripts
-        }}
         path={path}
         seo={seo}
         variantProduct={variantProduct}

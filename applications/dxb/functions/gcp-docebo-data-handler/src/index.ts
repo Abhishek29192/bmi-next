@@ -1,18 +1,18 @@
 import logger from "@bmi-digital/functions-logger";
-import { getCachedDoceboApi, transformCourseCategory } from "@bmi/docebo-api";
-import { Training } from "@bmi/elasticsearch-types";
+import { getCachedDoceboApi } from "@bmi/docebo-api";
 import fetchRetry from "@bmi/fetch-retry";
+import { getEsClient } from "@bmi/functions-es-client";
+import { HttpFunction } from "@google-cloud/functions-framework";
 import {
-  IndexOperation,
-  getEsClient,
-  getIndexOperation,
-  performBulkOperations
-} from "@bmi/functions-es-client";
-import { isDefined } from "@bmi/utils";
-import { Client } from "@elastic/elasticsearch";
-import { HttpFunction, Response } from "@google-cloud/functions-framework";
+  deleteCourses,
+  deleteCoursesFromCatalogue,
+  deleteSessions,
+  updateCourses,
+  updateSessions
+} from "./esOperations";
 import { getMessageStatus, saveById } from "./firestore";
-import { EventType, MessageStatus, MultipleCoursesDeletedEvent } from "./types";
+import { EventType, MessageStatus } from "./types";
+import { getUnique, isMultipleEventsPayload } from "./utils";
 
 const {
   BUILD_TRIGGER_ENDPOINT,
@@ -108,7 +108,24 @@ export const handleRequest: HttpFunction = async (req, res) => {
       .send({ message: "ES_INDEX_NAME_TRAININGS was not provided" });
   }
 
+  const catalogueIds = DOCEBO_API_CATALOGUE_IDS?.split(",")
+    ?.map(Number)
+    .filter(Boolean);
+  if (!catalogueIds.length) {
+    logger.error({
+      message: "Please provide correct catalogue IDs. E.g. 1,2,3,..."
+    });
+    return res.status(500).send({
+      message: "Please provide correct catalogue IDs. E.g. 1,2,3,..."
+    });
+  }
+
   logger.info({ message: `Received data: ${JSON.stringify(req.body)}` });
+
+  if (!req.body.payload && !req.body.payloads) {
+    logger.error({ message: "payload was not provided" });
+    return res.status(400).send({ message: "payload was not provided" });
+  }
 
   if (!req.body.message_id) {
     logger.error({ message: "message_id was not provided" });
@@ -121,10 +138,7 @@ export const handleRequest: HttpFunction = async (req, res) => {
       req.body.message_id
     );
 
-    if (
-      messageStatus === MessageStatus.InProgress ||
-      messageStatus === MessageStatus.Succeeded
-    ) {
+    if (messageStatus) {
       logger.info({ message: "This event has been already handled" });
       return res
         .status(200)
@@ -170,104 +184,99 @@ export const handleRequest: HttpFunction = async (req, res) => {
       });
     }
 
-    const esClient = await getEsClient();
+    const courseIds: number[] = (
+      isMultipleEventsPayload(req.body)
+        ? req.body.payloads.map(({ course_id }) => course_id)
+        : [req.body.payload.course_id]
+    ).filter(Boolean);
 
-    if (req.body.event === EventType.courseDeleted) {
-      if (!req.body.payload && !req.body.payloads) {
-        logger.error({ message: "payload was not provided" });
-        await saveById(FIRESTORE_ROOT_COLLECTION, {
-          id: req.body.message_id,
-          status: MessageStatus.Failed
-        });
-        return res.status(400).send({ message: "payload was not provided" });
-      }
+    const doceboApi = getCachedDoceboApi();
+    const catalogues = await doceboApi.fetchCatalogues({ catalogueIds });
 
-      const idsToDelete = req.body.payload
-        ? [req.body.payload.course_id]
-        : (req.body.payloads as MultipleCoursesDeletedEvent["payloads"]).map(
-            ({ course_id }) => course_id
+    /**
+     * Takes courses that belong to allowed catalogues only
+     * Does not do "filtering" for "Course deleted" and "Course deleted from catalogue" events because for such events courses have been already deleted
+     * and they will not be found in catalogues
+     */
+    const filteredCourseIds =
+      req.body.event === EventType.courseDeleted ||
+      req.body.event === EventType.catalogueCourseDeleted
+        ? courseIds
+        : courseIds.filter((courseId) =>
+            catalogues.find((catalogue) =>
+              catalogue.sub_items.find(
+                (subItem) => subItem.item_id === courseId.toString()
+              )
+            )
           );
+    const uniqueCourseIds = getUnique(filteredCourseIds);
 
-      const filteredIds = idsToDelete.filter(isDefined);
-      if (!filteredIds.length) {
-        logger.error({ message: "No courses to delete" });
-        await saveById(FIRESTORE_ROOT_COLLECTION, {
-          id: req.body.message_id,
-          status: MessageStatus.Failed
-        });
-        return res.status(400).send({ message: "No courses to delete" });
-      }
-
-      await deleteCourseByQuery(esClient, {
-        terms: { courseId: filteredIds }
-      });
-
+    if (!uniqueCourseIds.length) {
       logger.info({
-        message: `Courses with course_id: ${filteredIds.join()} have been successfully deleted`
+        message: `Courses with ID ${courseIds.join(
+          ", "
+        )} do not belong to allowed catalogues`
+      });
+      await saveById(FIRESTORE_ROOT_COLLECTION, {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
+      });
+      return res.status(400).json({
+        message: `Courses with ID ${courseIds.join(
+          ", "
+        )} do not belong to allowed catalogues`
       });
     }
 
-    if (req.body.event === EventType.catalogueCourseDeleted) {
-      if (!req.body.payload?.catalog_id || !req.body.payload?.course_id) {
-        logger.error({ message: "catalog_id or course_id was not provided" });
-        await saveById(FIRESTORE_ROOT_COLLECTION, {
-          id: req.body.message_id,
-          status: MessageStatus.Failed
-        });
-
-        return res
-          .status(400)
-          .send({ message: "catalog_id or course_id was not provided" });
-      }
-
-      await deleteCourseByQuery(esClient, {
-        bool: {
-          must: [
-            {
-              match: {
-                courseId: req.body.payload.course_id
-              }
-            },
-            {
-              match: {
-                "catalogueId.keyword": req.body.payload.catalog_id
-              }
-            }
-          ]
-        }
+    const esClient = await getEsClient();
+    let result;
+    if (req.body.event === EventType.courseDeleted) {
+      result = await deleteCourses({
+        courseIds: uniqueCourseIds,
+        doceboMessageId: req.body.message_id,
+        esClient
       });
-
-      logger.info({
-        message: `Course with id ${req.body.payload.course_id} from catalog_id ${req.body.payload.catalog_id} has been successfully deleted`
+    } else if (req.body.event === EventType.sessionDeleted) {
+      result = await deleteSessions({
+        doceboMessageId: req.body.message_id,
+        esClient,
+        req
+      });
+    } else if (req.body.event === EventType.catalogueCourseDeleted) {
+      result = await deleteCoursesFromCatalogue({
+        allowedCatalogueIds: catalogueIds,
+        courseIds: uniqueCourseIds,
+        doceboMessageId: req.body.message_id,
+        esClient,
+        req
+      });
+    } else if (req.body.event === EventType.courseUpdated) {
+      result = await updateCourses({
+        catalogues,
+        courseIds: uniqueCourseIds,
+        doceboMessageId: req.body.message_id,
+        esClient
+      });
+    } else if (req.body.event === EventType.sessionUpdated) {
+      result = await updateSessions({
+        catalogues,
+        //For this event only one course will be always passed in, so we can use the first item
+        courseId: uniqueCourseIds[0],
+        doceboMessageId: req.body.message_id,
+        esClient,
+        req
       });
     }
 
-    if (req.body.event === EventType.courseUpdated) {
-      if (!req.body.payload?.course_id) {
-        logger.error({ message: "course_id was not provided" });
-        await saveById(FIRESTORE_ROOT_COLLECTION, {
-          id: req.body.message_id,
-          status: MessageStatus.Failed
-        });
-        return res.status(400).send({ message: "course_id was not provided" });
-      }
-
-      const courseCanNotBeUpdated = Boolean(
-        await updateCourse(
-          res,
-          req.body.message_id,
-          esClient,
-          req.body.payload.course_id
-        )
-      );
-
-      if (courseCanNotBeUpdated) {
-        return;
-      }
-
-      logger.info({
-        message: `Course with id ${req.body.payload.course_id} has been successfully updated`
+    if (result?.errorCode) {
+      await saveById(FIRESTORE_ROOT_COLLECTION, {
+        id: req.body.message_id,
+        status: MessageStatus.Failed
       });
+      logger.error({ message: result.errorMessage });
+      return res
+        .status(result.errorCode)
+        .json({ message: result.errorMessage });
     }
 
     // Constants for setting up metadata server request
@@ -306,124 +315,4 @@ export const handleRequest: HttpFunction = async (req, res) => {
       message: `Something went wrong: ${(err as Error).message}`
     });
   }
-};
-
-const deleteCourseByQuery = async (
-  client: Client,
-  query: Record<string, unknown>
-): Promise<void> => {
-  const index = `${ES_INDEX_NAME_TRAININGS}_write`;
-  client.deleteByQuery({
-    index: index,
-    body: {
-      query
-    }
-  });
-};
-
-const updateCourse = async (
-  res: Response,
-  messageId: string,
-  esClient: Client,
-  courseId: number
-) => {
-  const doceboApi = getCachedDoceboApi();
-  const indexName = `${ES_INDEX_NAME_TRAININGS}_write`;
-  const course = await doceboApi.getCourseById(courseId);
-  if (!course) {
-    logger.info({
-      message: `Course with "course_id: ${courseId}" does not exist`
-    });
-    await saveById(FIRESTORE_ROOT_COLLECTION!, {
-      id: messageId,
-      status: MessageStatus.Failed
-    });
-    return res
-      .status(400)
-      .json({ message: `Course with "course_id: ${courseId}" does not exist` });
-  }
-
-  const catalogueIds = DOCEBO_API_CATALOGUE_IDS?.split(",")?.map(Number);
-  const catalogues = await doceboApi.fetchCatalogues({ catalogueIds });
-
-  const courseCatalogues = catalogues?.filter((catalogue) =>
-    catalogue.sub_items.find(({ item_id }) => Number(item_id) === course.id)
-  );
-
-  if (!courseCatalogues?.length) {
-    logger.info({
-      message: `Course with "course_id: ${courseId}" does not belong to any catalog`
-    });
-    await saveById(FIRESTORE_ROOT_COLLECTION!, {
-      id: messageId,
-      status: MessageStatus.Succeeded
-    });
-    return res.sendStatus(200);
-  }
-
-  const currency = await doceboApi.getCurrency();
-
-  // The same course with the same ID can be in multiple catalogues
-  const transformedCourses: Training[] = courseCatalogues.flatMap((catalogue) =>
-    (course.sessions || [])
-      .map((session) => {
-        const sessionStartTime = new Date(session.start_date).getTime();
-        const currentTime = new Date().getTime();
-
-        if (sessionStartTime <= currentTime) {
-          //if the condition above passes, it means that session is not active anymore
-          return;
-        }
-
-        return {
-          id: `${catalogue.catalogue_id}-${course.id}-${session.id_session}`,
-          sessionId: session.id_session,
-          sessionName: session.name,
-          sessionSlug: session.slug_name,
-          startDate: session.start_date,
-          endDate: session.end_date,
-          courseId: course.id,
-          courseName: course.name,
-          courseSlug: course.slug_name,
-          courseCode: course.code,
-          courseType: course.type,
-          courseImg: course.thumbnail,
-          category: transformCourseCategory(course.category),
-          onSale: course.on_sale,
-          price: course.price,
-          currency: currency.currency_currency,
-          currencySymbol: currency.currency_symbol,
-          catalogueId: catalogue.catalogue_id.toString(),
-          catalogueName: catalogue.catalogue_name,
-          catalogueDescription: catalogue.catalogue_description
-        };
-      })
-      .filter(isDefined)
-  );
-
-  if (!transformedCourses.length) {
-    logger.info({
-      message: "There are no sessions to update"
-    });
-    await saveById(FIRESTORE_ROOT_COLLECTION!, {
-      id: messageId,
-      status: MessageStatus.Succeeded
-    });
-    return res.sendStatus(200);
-  }
-
-  logger.info({
-    message: `Sessions to be updated - ${JSON.stringify(transformedCourses)}`
-  });
-
-  const bulkOperations = transformedCourses.reduce<
-    (IndexOperation | Training)[]
-  >(
-    (allOperations, training) => [
-      ...allOperations,
-      ...getIndexOperation<Training>(indexName, training, training.id)
-    ],
-    []
-  );
-  await performBulkOperations(esClient, [bulkOperations], indexName);
 };

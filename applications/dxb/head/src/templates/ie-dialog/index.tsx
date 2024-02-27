@@ -40,9 +40,6 @@ const IEDialog = ({ data }: { data: { contentfulSite: SiteData } }) => {
           data.contentfulSite.countryCode,
           "ie-dialog"
         )}
-        scripts={{
-          headScripts: data.contentfulSite.headScripts
-        }}
         htmlAttributes={{ lang: data.contentfulSite.node_locale }}
         countryCode={data.contentfulSite.countryCode}
       />

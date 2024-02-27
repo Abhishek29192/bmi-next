@@ -207,7 +207,6 @@ const siteData: SiteData = {
   resources: null,
   pitchedRoofCalculatorConfig: null,
   visualiserHouseTypes: null,
-  headScripts: null,
   regions: [
     {
       label: "Europe",

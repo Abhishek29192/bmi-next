@@ -33,6 +33,8 @@ export class DoceboApiService {
     this.clientSecret = params.clientSecret;
     this.username = params.username;
     this.password = params.password;
+
+    this.getCourseById = this.getCourseById.bind(this);
   }
 
   async getAccessToken(): Promise<string> {
