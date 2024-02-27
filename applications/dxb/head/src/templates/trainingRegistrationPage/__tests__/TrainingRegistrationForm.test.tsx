@@ -4,8 +4,8 @@ import { createTraining } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import { LocationProvider } from "@reach/router";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import fetchMockJest from "fetch-mock-jest";
 import React from "react";
+import fetchMockJest = require("fetch-mock-jest");
 import { fallbackGetMicroCopy as getMicroCopy } from "../../../components/MicroCopy";
 import { SiteContextProvider } from "../../../components/Site";
 import { getMockSiteContext } from "../../../components/__tests__/utils/SiteContextProvider";
@@ -164,8 +164,8 @@ describe("TrainingRegistrationForm", () => {
             values: {
               [emailLabel]: "training code - training name, session name",
               [emailDateLabel]: "28/12/2023, 22:00:00",
-              [emailTermsOfUseLabel]: String.fromCodePoint(0x2713),
-              [emailConsentLabel]: String.fromCodePoint(0x2713),
+              [emailTermsOfUseLabel]: "Terms of use",
+              [emailConsentLabel]: "Consent text",
               Salutation: "Mr",
               "First name": "First name",
               "Last name": "Last name",
