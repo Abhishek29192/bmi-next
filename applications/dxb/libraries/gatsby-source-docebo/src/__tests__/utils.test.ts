@@ -1,12 +1,18 @@
+import { transformCourseCategory } from "@bmi/docebo-api";
 import {
   CourseCategory,
   createCertification,
   createCourse,
-  createSession
+  createSession as createDoceboSession
 } from "@bmi/docebo-types";
-import { transformCourseCategory } from "@bmi/docebo-api";
-import { nodeBuilder, Props, transformCourse } from "../utils";
 import { NODE_TYPES } from "../types/index";
+import {
+  Props,
+  nodeBuilder,
+  transformCourse,
+  transformSessions
+} from "../utils";
+import { createSession } from "./helpers/createSession";
 import type { SourceNodesArgs } from "gatsby";
 
 const mockGatsbyApi = {
@@ -97,15 +103,7 @@ describe("transformCourse", () => {
       selling: false,
       sessions: [
         {
-          additional_fields: [
-            {
-              id: "5",
-              mandatory: false,
-              name: "Description for Certificate",
-              type: "textarea",
-              value: ""
-            }
-          ],
+          additional_fields: [],
           attendance_details: {
             flexible: 0,
             online: 0,
@@ -114,8 +112,8 @@ describe("transformCourse", () => {
           attendance_type: "onsite",
           code: "Test code",
           created_by: "13194",
-          date_end: "2025-10-10 16:00:00",
-          date_start: "2023-10-10 07:00:00",
+          date_end: session.date_end,
+          date_start: session.date_start,
           enrolled: "2",
           events: "1",
           events_with_sync_failed: "0",
@@ -142,5 +140,59 @@ describe("transformCourse", () => {
       currency: "EUR",
       currencySymbol: "€"
     });
+  });
+});
+
+describe("transformSessions", () => {
+  it("transforms sessions correctly", () => {
+    const upcomingDate = new Date();
+    upcomingDate.setSeconds(upcomingDate.getSeconds() + 3600);
+
+    const session = createDoceboSession({
+      date_start: upcomingDate.toString(),
+      date_end: upcomingDate.toString()
+    });
+    const transformedSessions = transformSessions([session]);
+    const currentDate = new Date();
+
+    const expectedSessionStartDate = new Date(session.date_start);
+    expectedSessionStartDate.setTime(
+      expectedSessionStartDate.getTime() -
+        currentDate.getTimezoneOffset() * 60000
+    );
+
+    const expectedSessionEndDate = new Date(session.date_end);
+    expectedSessionEndDate.setTime(
+      expectedSessionEndDate.getTime() - currentDate.getTimezoneOffset() * 60000
+    );
+
+    expect(transformedSessions).toEqual([
+      {
+        ...session,
+        date_start: expectedSessionStartDate.getTime(),
+        date_end: expectedSessionEndDate.getTime()
+      }
+    ]);
+  });
+
+  it("filters out sessions planned for the past", () => {
+    const sessionStartDate = new Date();
+    sessionStartDate.setDate(sessionStartDate.getDate() - 1);
+
+    const session = createDoceboSession({
+      date_start: sessionStartDate.toString()
+    });
+    const transformedSessions = transformSessions([session]);
+    expect(transformedSessions).toEqual([]);
+  });
+
+  it("skips sessions with no dates", () => {
+    const session = createDoceboSession({
+      date_start: undefined,
+      date_end: undefined
+    });
+    const transformedSessions = transformSessions([session]);
+
+    expect(transformedSessions).toEqual([]);
   });
 });

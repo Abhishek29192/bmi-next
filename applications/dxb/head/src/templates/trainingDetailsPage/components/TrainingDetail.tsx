@@ -1,10 +1,13 @@
+import { useIsClient } from "@bmi-digital/components";
 import Container from "@bmi-digital/components/container";
 import Grid from "@bmi-digital/components/grid";
 import Tooltip from "@bmi-digital/components/tooltip";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
+import ProgressIndicator from "../../../components/ProgressIndicator";
+import Scrim from "../../../components/Scrim";
 import { useSiteContext } from "../../../components/Site";
 import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
 import { getPathWithCountryCode } from "../../../utils/path";
@@ -30,7 +33,7 @@ import type { TrainingDetailsCourseType as Course } from "../types";
 
 interface Props {
   course: Omit<Course, "breadcrumbs">;
-  trainingRegistrationUrl: string | null;
+  trainingRegistrationUrl?: string;
 }
 
 const NO_AVAILABLE_SESSIONS_MESSAGE = "There are no available sessions yet";
@@ -49,18 +52,43 @@ const TrainingDetails = ({
   },
   trainingRegistrationUrl
 }: Props) => {
-  const { countryCode, getMicroCopy } = useSiteContext();
+  const { getMicroCopy } = useSiteContext();
   const headerHeight = useHeaderHeight();
+  const { isClient } = useIsClient();
+  const [loading, setLoading] = useState<boolean>(true);
 
   const trainingCardTopOffset = useMemo(
     () => `${headerHeight + 18}px`,
     [headerHeight]
   );
 
-  const runningSessions = useMemo(
-    () => sessions?.filter((e) => new Date() < new Date(e.date_start)),
-    [sessions]
-  );
+  const runningSessions = useMemo(() => {
+    if (!isClient) {
+      return;
+    }
+
+    const activeSessions = sessions.filter(
+      (session) => new Date().getTime() < new Date(session.date_start).getTime()
+    );
+
+    if (loading) {
+      setLoading(false);
+    }
+
+    return activeSessions.map((session, index) => (
+      <Session
+        key={session.id}
+        index={index}
+        id={session.id}
+        sessionsLength={activeSessions.length}
+        name={session.name}
+        date_start={session.date_start}
+        date_end={session.date_end}
+        courseCode={courseCode}
+        trainingRegistrationUrl={trainingRegistrationUrl}
+      />
+    ));
+  }, [sessions, isClient, courseCode, trainingRegistrationUrl]);
 
   const availableSessionsContainerId = useMemo(
     () =>
@@ -70,18 +98,13 @@ const TrainingDetails = ({
     [getMicroCopy]
   );
 
-  function formatDate(inputDateString: string) {
-    const inputDate = new Date(inputDateString);
-    const day = inputDate.getDate();
-    const month = inputDate.getMonth() + 1;
-    const year = inputDate.getFullYear();
-
-    const formattedDate = `${day}.${month}.${year}`;
-    return formattedDate;
-  }
-
   return (
     <Wrapper>
+      {loading && (
+        <Scrim theme="light">
+          <ProgressIndicator theme="light" />
+        </Scrim>
+      )}
       <Container>
         <TrainingInfoContainer container spacing={3}>
           <Grid xs={12} md={12} lg={8}>
@@ -173,44 +196,8 @@ const TrainingDetails = ({
           >
             {getMicroCopy(microCopy.TRAINING_DETAILS_SESSIONS_LABEL)}
           </Title>
-          {runningSessions && runningSessions.length > 0 ? (
-            <div data-testid="sessions-container">
-              {runningSessions.map(
-                ({ id, name, code, date_start, date_end }, index) => {
-                  return (
-                    <SessionDataContainer
-                      index={index}
-                      dataLength={runningSessions.length}
-                      key={code}
-                      data-testid={"available-session"}
-                    >
-                      <SessionDetailContainer>
-                        <SessionName data-testid={"session-name"}>
-                          {name}
-                        </SessionName>
-                        <SessionInterval data-testid={"session-date"}>
-                          {formatDate(date_start)} - {formatDate(date_end)}
-                        </SessionInterval>
-                        <EnrollButtonContainer>
-                          <EnrollButton
-                            href={getPathWithCountryCode(
-                              countryCode,
-                              `${trainingRegistrationUrl}?trainingCode=${courseCode}&session=${id}`
-                            )}
-                            data-testid={"session-cta-button"}
-                            disabled={!trainingRegistrationUrl}
-                          >
-                            {getMicroCopy(
-                              microCopy.TRAINING_DETAILS_SESSION_ENROLL_LABEL
-                            )}
-                          </EnrollButton>
-                        </EnrollButtonContainer>
-                      </SessionDetailContainer>
-                    </SessionDataContainer>
-                  );
-                }
-              )}
-            </div>
+          {runningSessions?.length ? (
+            <div data-testid="sessions-container">{runningSessions}</div>
           ) : (
             <Typography data-testid={"no-available-sessions"}>
               {NO_AVAILABLE_SESSIONS_MESSAGE}
@@ -220,6 +207,66 @@ const TrainingDetails = ({
       </SessionContainer>
     </Wrapper>
   );
+};
+
+const Session = ({
+  index,
+  id,
+  sessionsLength,
+  date_end,
+  date_start,
+  courseCode,
+  name,
+  trainingRegistrationUrl
+}: {
+  index: number;
+  id: number;
+  sessionsLength: number;
+  date_start: number;
+  date_end: number;
+  courseCode: string;
+  name: string;
+  trainingRegistrationUrl?: string;
+}) => {
+  const { countryCode, getMicroCopy } = useSiteContext();
+
+  return (
+    <SessionDataContainer
+      index={index}
+      dataLength={sessionsLength}
+      key={id}
+      data-testid="available-session"
+    >
+      <SessionDetailContainer>
+        <SessionName data-testid="session-name">{name}</SessionName>
+        <SessionInterval data-testid="session-date">
+          {formatDate(date_start)} - {formatDate(date_end)}
+        </SessionInterval>
+        <EnrollButtonContainer>
+          <EnrollButton
+            href={getPathWithCountryCode(
+              countryCode,
+              `${trainingRegistrationUrl}?trainingCode=${courseCode}&session=${id}`
+            )}
+            data-testid={"session-cta-button"}
+            disabled={!trainingRegistrationUrl}
+          >
+            {getMicroCopy(microCopy.TRAINING_DETAILS_SESSION_ENROLL_LABEL)}
+          </EnrollButton>
+        </EnrollButtonContainer>
+      </SessionDetailContainer>
+    </SessionDataContainer>
+  );
+};
+
+const formatDate = (date: number) => {
+  const inputDate = new Date(date);
+  const day = inputDate.getDate();
+  const month = inputDate.getMonth() + 1;
+  const year = inputDate.getFullYear();
+
+  const formattedDate = `${day}.${month}.${year}`;
+  return formattedDate;
 };
 
 export default TrainingDetails;
