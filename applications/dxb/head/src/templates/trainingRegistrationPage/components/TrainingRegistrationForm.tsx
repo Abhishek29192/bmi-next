@@ -1,8 +1,10 @@
 import Checkbox from "@bmi-digital/components/checkbox";
-import Form from "@bmi-digital/components/form";
+import Form, { InputValue } from "@bmi-digital/components/form";
 import Grid from "@bmi-digital/components/grid";
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
+import logger from "@bmi-digital/functions-logger";
+import { Training } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import { navigate } from "gatsby";
 import React, { useState } from "react";
@@ -10,6 +12,7 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { convertMarkdownLinksToAnchorLinks } from "../../../components/FormSection";
 import { useSiteContext } from "../../../components/Site";
 import { QA_AUTH_TOKEN } from "../../../constants/cookieConstants";
+import { useConfig } from "../../../contexts/ConfigProvider";
 import { handleEmailValidation } from "../../../utils/emailUtils";
 import getCookie from "../../../utils/getCookie";
 import ExtraParticipants from "./ExtraParticipants";
@@ -27,27 +30,102 @@ import {
 import type { TrainingRegistrationPageData } from "../types";
 
 const TrainingRegistrationForm = (
-  props: TrainingRegistrationPageData & { trainingDetailsPageUrl: string }
+  props: TrainingRegistrationPageData & {
+    trainingDetailsPageUrl: string;
+    courseCode?: string;
+    training?: Training;
+  }
 ) => {
-  const { getMicroCopy } = useSiteContext();
+  const { getMicroCopy, node_locale } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
+  const { gcpFormSubmitEndpoint } = useConfig();
 
-  const handleFormSubmit = async (event: React.FormEvent) => {
-    setIsSubmitting(true);
-    //prevents the page from being reloaded
+  const handleFormSubmit = async (
+    event: React.FormEvent,
+    values: Record<string, InputValue>
+  ) => {
     event.preventDefault();
 
-    if (!qaAuthToken) {
-      await executeRecaptcha?.();
+    setIsSubmitting(true);
+
+    try {
+      const token = qaAuthToken ? undefined : await executeRecaptcha?.();
+
+      const valuesToSend = Object.entries(values).reduce(
+        (acc, [key, value]) => {
+          return value ? ((acc[`${key}`] = value), acc) : acc;
+        },
+        {}
+      );
+      const sanitizedValues = {};
+
+      sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_LABEL)] =
+        `${props.training?.courseCode} - ${props.training?.courseName}, ${props.training?.sessionName}`;
+
+      sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_START_DATE)] =
+        props.training?.startDate &&
+        new Date(props.training.startDate).toLocaleString(node_locale);
+
+      sanitizedValues[
+        getMicroCopy(microCopy.TRAINING_EMAIL_TERM_OF_USE_LABEL)
+      ] = props.termsOfUse.termsOfUse;
+
+      sanitizedValues[
+        getMicroCopy(microCopy.TRAINING_EMAIL_DATA_CONSENT_LABEL)
+      ] = props.consentText.consentText;
+
+      for (const key of Object.keys(valuesToSend)) {
+        if (key === "consent") {
+          continue;
+        }
+        if (key === "terms-of-use") {
+          continue;
+        }
+
+        // eslint-disable-next-line security/detect-object-injection
+        const trimmedValue = valuesToSend[key].trim();
+        if (trimmedValue !== "") {
+          // eslint-disable-next-line security/detect-object-injection
+          sanitizedValues[key] = trimmedValue;
+        }
+      }
+
+      let headers: HeadersInit = {
+        "Content-Type": "application/json",
+        "X-Recaptcha-Token": token
+      };
+      if (qaAuthToken) {
+        headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+      }
+
+      const body = JSON.stringify({
+        locale: node_locale,
+        title: "",
+        recipients: props.recipient,
+        values: sanitizedValues,
+        emailSubjectFormat: `${props.emailSubject} ${props?.courseCode}`
+      });
+
+      const response = await fetch(gcpFormSubmitEndpoint, {
+        method: "POST",
+        body,
+        headers
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+    } catch (error) {
+      logger.error({ message: (error as Error).message });
     }
 
+    setIsSubmitting(false);
     navigate(props.trainingDetailsPageUrl, {
       state: { showResultsModal: true },
       replace: true
     });
-    setIsSubmitting(false);
   };
 
   const discoverySourceOptions = [

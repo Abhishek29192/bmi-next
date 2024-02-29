@@ -4,4 +4,6 @@ export type FullFetchRequest = {
   type: PimTypes | "documents" | "trainings";
   startPage: number;
   numberOfPages: number;
+  catalogueId?: number;
+  itemIds?: string[];
 };

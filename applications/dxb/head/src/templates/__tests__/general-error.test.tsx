@@ -102,7 +102,6 @@ describe("General Error", () => {
         pdpSpecificationDescription: null,
         sdpSpecificationNotesCta: null
       },
-      headScripts: null,
       pitchedRoofCalculatorConfig: null,
       visualiserHouseTypes: null,
       regions: [

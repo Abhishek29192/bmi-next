@@ -1,10 +1,10 @@
-import { createCatalogue } from "@bmi/docebo-types";
-import { microCopy } from "@bmi/microcopies";
+import { createCatalogue, createCatalogueSubItem } from "@bmi/docebo-types";
 import { createCourse } from "@bmi/gatsby-source-docebo";
-import { getMicroCopies } from "../utils/getMicrocopies";
+import { microCopy } from "@bmi/microcopies";
 import ContentfulTrainingListerPage from "../ContentfulTrainingListerPage";
-import type { Context } from "../types/Gatsby";
+import { getMicroCopies } from "../utils/getMicrocopies";
 import type { TrainingListerPage } from "../types/Contentful";
+import type { Context } from "../types/Gatsby";
 
 const findAllMock = jest.fn();
 const context: Context = {
@@ -69,20 +69,22 @@ describe("ContentfulTrainingListerPage resolver", () => {
     expect(context.nodeModel.findAll).not.toHaveBeenCalled();
   });
 
-  it("returns filters correctly if getMicroCopies returns an empty array", async () => {
-    const catalogue1 = createCatalogue({
-      catalogue_id: 1,
-      catalogue_name: "Catalogue 1"
-    });
-    const catalogue2 = createCatalogue({
-      catalogue_id: 2,
-      catalogue_name: "Catalogue 2"
-    });
-    const course = createCourse({ categoryName: "Pitched" });
+  it("returns an empty array if there are no courses", async () => {
+    getMicroCopiesMock.mockResolvedValue(undefined);
+    const res = await ContentfulTrainingListerPage.filters.resolve(
+      contentfulTrainingListerPage,
+      {},
+      context
+    );
 
-    findAllMock
-      .mockResolvedValueOnce({ entries: [catalogue1, catalogue2] })
-      .mockResolvedValueOnce({ entries: [course] });
+    expect(res).toEqual([]);
+    expect(context.nodeModel.findAll).not.toHaveBeenCalled();
+  });
+
+  it("returns filters correctly if getMicroCopies returns an empty array", async () => {
+    getMicroCopiesMock.mockResolvedValue([]);
+
+    findAllMock.mockResolvedValueOnce({ entries: [] });
     getMicroCopiesMock.mockResolvedValue([]);
 
     const res = await ContentfulTrainingListerPage.filters.resolve(
@@ -90,15 +92,8 @@ describe("ContentfulTrainingListerPage resolver", () => {
       {},
       context
     );
-
-    expect(context.nodeModel.findAll).toHaveBeenCalledTimes(2);
-    expect(context.nodeModel.findAll).toHaveBeenCalledWith(
-      {
-        query: {},
-        type: "DoceboCatalogues"
-      },
-      { connectionType: "DoceboCatalogues" }
-    );
+    expect(res).toEqual([]);
+    expect(context.nodeModel.findAll).toHaveBeenCalledTimes(1);
     expect(context.nodeModel.findAll).toHaveBeenCalledWith(
       {
         query: {},
@@ -106,52 +101,27 @@ describe("ContentfulTrainingListerPage resolver", () => {
       },
       { connectionType: "DoceboCourses" }
     );
-    expect(res).toEqual([
-      {
-        filterCode: "catalogueId",
-        name: "catalogue",
-        label: `MC: ${microCopy.TRAINING_FILTER_LABEL_CATALOGUE}`,
-        value: [],
-        options: [
-          {
-            value: `${catalogue1.catalogue_id}`,
-            label: catalogue1.catalogue_name
-          },
-          {
-            value: `${catalogue2.catalogue_id}`,
-            label: catalogue2.catalogue_name
-          }
-        ]
-      },
-      {
-        filterCode: "category",
-        name: "category",
-        label: `MC: ${microCopy.TRAINING_FILTER_LABEL_CATEGORY}`,
-        value: [],
-        options: [
-          {
-            value: "Pitched",
-            label: `MC: ${microCopy.TRAINING_CATEGORY_PITCHED}`
-          }
-        ]
-      }
-    ]);
   });
 
-  it("returns filters correctly if corresponding microcopy provided", async () => {
+  it("filters out catalogues with no courses", async () => {
+    const course = createCourse();
     const catalogue1 = createCatalogue({
       catalogue_id: 1,
-      catalogue_name: "Catalogue 1"
+      catalogue_name: "Catalogue 1",
+      sub_items: [
+        createCatalogueSubItem({ item_id: course.id_course.toString() })
+      ]
     });
     const catalogue2 = createCatalogue({
       catalogue_id: 2,
-      catalogue_name: "Catalogue 2"
+      catalogue_name: "catalogue 2",
+      sub_items: []
     });
-    const course = createCourse({ categoryName: "Pitched" });
 
     findAllMock
-      .mockResolvedValueOnce({ entries: [catalogue1, catalogue2] })
-      .mockResolvedValueOnce({ entries: [course] });
+      .mockResolvedValueOnce({ entries: [course] })
+      .mockResolvedValueOnce({ entries: [catalogue1, catalogue2] });
+
     getMicroCopiesMock.mockResolvedValue([
       { key: microCopy.TRAINING_FILTER_LABEL_CATALOGUE, value: "Catalogues" },
       { key: microCopy.TRAINING_FILTER_LABEL_CATEGORY, value: "Categories" },
@@ -189,10 +159,149 @@ describe("ContentfulTrainingListerPage resolver", () => {
           {
             value: `${catalogue1.catalogue_id}`,
             label: catalogue1.catalogue_name
-          },
+          }
+        ]
+      },
+      {
+        filterCode: "category",
+        name: "category",
+        label: "Categories",
+        value: [],
+        options: [
           {
-            value: `${catalogue2.catalogue_id}`,
-            label: catalogue2.catalogue_name
+            value: "Pitched",
+            label: "Pitched"
+          }
+        ]
+      }
+    ]);
+  });
+
+  it("filters out catalogues with no active courses", async () => {
+    const course = createCourse();
+    const catalogue1 = createCatalogue({
+      catalogue_id: 1,
+      catalogue_name: "Catalogue 1",
+      sub_items: [
+        createCatalogueSubItem({ item_id: course.id_course.toString() })
+      ]
+    });
+    const catalogue2 = createCatalogue({
+      catalogue_id: 2,
+      catalogue_name: "catalogue 2",
+      sub_items: [createCatalogueSubItem({ item_id: "fake-id" })]
+    });
+
+    findAllMock
+      .mockResolvedValueOnce({ entries: [course] })
+      .mockResolvedValueOnce({ entries: [catalogue1, catalogue2] });
+
+    getMicroCopiesMock.mockResolvedValue([
+      { key: microCopy.TRAINING_FILTER_LABEL_CATALOGUE, value: "Catalogues" },
+      { key: microCopy.TRAINING_FILTER_LABEL_CATEGORY, value: "Categories" },
+      { key: microCopy.TRAINING_CATEGORY_PITCHED, value: "Pitched" }
+    ]);
+
+    const res = await ContentfulTrainingListerPage.filters.resolve(
+      contentfulTrainingListerPage,
+      {},
+      context
+    );
+
+    expect(context.nodeModel.findAll).toHaveBeenCalledTimes(2);
+    expect(context.nodeModel.findAll).toHaveBeenCalledWith(
+      {
+        query: {},
+        type: "DoceboCatalogues"
+      },
+      { connectionType: "DoceboCatalogues" }
+    );
+    expect(context.nodeModel.findAll).toHaveBeenCalledWith(
+      {
+        query: {},
+        type: "DoceboCourses"
+      },
+      { connectionType: "DoceboCourses" }
+    );
+    expect(res).toEqual([
+      {
+        filterCode: "catalogueId",
+        name: "catalogue",
+        label: "Catalogues",
+        value: [],
+        options: [
+          {
+            value: `${catalogue1.catalogue_id}`,
+            label: catalogue1.catalogue_name
+          }
+        ]
+      },
+      {
+        filterCode: "category",
+        name: "category",
+        label: "Categories",
+        value: [],
+        options: [
+          {
+            value: "Pitched",
+            label: "Pitched"
+          }
+        ]
+      }
+    ]);
+  });
+
+  it("returns filters correctly if corresponding microcopy provided", async () => {
+    const course = createCourse();
+    const catalogue = createCatalogue({
+      catalogue_id: 1,
+      catalogue_name: "Catalogue 1",
+      sub_items: [
+        createCatalogueSubItem({ item_id: course.id_course.toString() })
+      ]
+    });
+
+    findAllMock
+      .mockResolvedValueOnce({ entries: [course] })
+      .mockResolvedValueOnce({ entries: [catalogue] });
+
+    getMicroCopiesMock.mockResolvedValue([
+      { key: microCopy.TRAINING_FILTER_LABEL_CATALOGUE, value: "Catalogues" },
+      { key: microCopy.TRAINING_FILTER_LABEL_CATEGORY, value: "Categories" },
+      { key: microCopy.TRAINING_CATEGORY_PITCHED, value: "Pitched" }
+    ]);
+
+    const res = await ContentfulTrainingListerPage.filters.resolve(
+      contentfulTrainingListerPage,
+      {},
+      context
+    );
+
+    expect(context.nodeModel.findAll).toHaveBeenCalledTimes(2);
+    expect(context.nodeModel.findAll).toHaveBeenCalledWith(
+      {
+        query: {},
+        type: "DoceboCatalogues"
+      },
+      { connectionType: "DoceboCatalogues" }
+    );
+    expect(context.nodeModel.findAll).toHaveBeenCalledWith(
+      {
+        query: {},
+        type: "DoceboCourses"
+      },
+      { connectionType: "DoceboCourses" }
+    );
+    expect(res).toEqual([
+      {
+        filterCode: "catalogueId",
+        name: "catalogue",
+        label: "Catalogues",
+        value: [],
+        options: [
+          {
+            value: `${catalogue.catalogue_id}`,
+            label: catalogue.catalogue_name
           }
         ]
       },
@@ -215,8 +324,8 @@ describe("ContentfulTrainingListerPage resolver", () => {
     const course = createCourse({ categoryName: "Flat" });
 
     findAllMock
-      .mockResolvedValueOnce({ entries: [] })
-      .mockResolvedValueOnce({ entries: [course] });
+      .mockResolvedValueOnce({ entries: [course] })
+      .mockResolvedValueOnce({ entries: [] });
 
     const res = await ContentfulTrainingListerPage.filters.resolve(
       contentfulTrainingListerPage,
@@ -235,6 +344,37 @@ describe("ContentfulTrainingListerPage resolver", () => {
             {
               value: "Flat",
               label: `MC: ${microCopy.TRAINING_CATEGORY_FLAT}`
+            }
+          ]
+        }
+      ])
+    );
+  });
+
+  it("returns filters correctly if a course with 'Other' category provided", async () => {
+    const course = createCourse({ categoryName: "Other" });
+
+    findAllMock
+      .mockResolvedValueOnce({ entries: [course] })
+      .mockResolvedValueOnce({ entries: [] });
+
+    const res = await ContentfulTrainingListerPage.filters.resolve(
+      contentfulTrainingListerPage,
+      {},
+      context
+    );
+
+    expect(res).toEqual(
+      expect.arrayContaining([
+        {
+          filterCode: "category",
+          name: "category",
+          label: `MC: ${microCopy.TRAINING_FILTER_LABEL_CATEGORY}`,
+          value: [],
+          options: [
+            {
+              value: "Other",
+              label: `MC: ${microCopy.TRAINING_CATEGORY_OTHER}`
             }
           ]
         }

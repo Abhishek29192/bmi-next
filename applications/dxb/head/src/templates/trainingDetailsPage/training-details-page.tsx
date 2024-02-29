@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { graphql } from "gatsby";
 import Section from "@bmi-digital/components/section";
 import { WindowLocation, useLocation } from "@reach/router";
-import Page, { Data as PageData } from "../../components/Page";
-import { Data as SiteData } from "../../components/Site";
+import { graphql } from "gatsby";
+import React, { useEffect } from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import Page, { Data as PageData } from "../../components/Page";
+import { Data as SiteData } from "../../components/Site";
+import RegistrationCompletedDialog from "./components/RegistrationCompletedDialog";
 import TrainingDetail from "./components/TrainingDetail";
 import { StyledTopBreadcrumbsSection } from "./trainingDetailsPageStyles";
-import RegistrationCompletedDialog from "./components/RegistrationCompletedDialog";
 import type { TrainingDetailsCourseType as Course } from "./types";
 
 export type Props = {
@@ -114,6 +114,7 @@ export const pageQuery = graphql`
       course_type
       img_url
       sessions {
+        id
         code
         name
         date_start

@@ -1,23 +1,23 @@
-import React from "react";
-import { microCopy, MicroCopyValues } from "@bmi/microcopies";
+import { Calender, Price } from "@bmi-digital/components/icon";
+import Section from "@bmi-digital/components/section";
 import {
   trainingCategoriesIcon,
   trainingTypeIcon
 } from "@bmi-digital/components/training-card";
-import Section from "@bmi-digital/components/section";
-import { Price, Calender } from "@bmi-digital/components/icon";
 import { Training } from "@bmi/elasticsearch-types";
+import { MicroCopyValues, microCopy } from "@bmi/microcopies";
+import React from "react";
 import { useSiteContext } from "../../../components/Site";
-import {
-  TrainingDataContainer,
-  TrainingLabel,
-  TrainingDesc,
-  TrainingDetailContainer,
-  TrainingSeparation,
-  StyledIcon
-} from "../trainingRegistrationPageStyles";
 import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
 import { useConfig } from "../../../contexts/ConfigProvider";
+import {
+  StyledIcon,
+  TrainingDataContainer,
+  TrainingDesc,
+  TrainingDetailContainer,
+  TrainingLabel,
+  TrainingSeparation
+} from "../trainingRegistrationPageStyles";
 
 type Props = {
   training: Training;
@@ -25,7 +25,7 @@ type Props = {
 
 const TrainingRegistrationHeader = ({ training }: Props) => {
   const {
-    name,
+    courseName,
     courseId,
     courseType,
     category,
@@ -37,12 +37,12 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const { marketLocaleCode } = useConfig();
 
-  const formatDate = (inputDateString: string) =>
+  const formatDate = (inputDate: number) =>
     new Intl.DateTimeFormat(marketLocaleCode, {
       year: "numeric",
       month: "long",
       day: "numeric"
-    }).format(new Date(inputDateString));
+    }).format(new Date(inputDate));
 
   return (
     <Section backgroundColor="pearl">
@@ -50,7 +50,7 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
         variant="h1"
         data-testid="training-registration-page-header-title"
       >
-        {`${name} ${getMicroCopy(microCopy.TRAINING_REGISTRATION)}`}
+        {`${courseName} ${getMicroCopy(microCopy.TRAINING_REGISTRATION)}`}
       </Section.Title>
 
       <TrainingDataContainer>
@@ -94,20 +94,16 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
               : getMicroCopy(microCopy.TRAINING_PRICE_FREE)}
           </TrainingDesc>
         </TrainingDetailContainer>
-        {startDate && (
-          <>
-            <TrainingSeparation />
-            <TrainingDetailContainer>
-              <TrainingLabel>
-                {getMicroCopy(microCopy.TRAINING_REGISTRATION_DATE)}
-              </TrainingLabel>
-              <TrainingDesc data-testid="training-start-date">
-                <StyledIcon source={Calender} />
-                {formatDate(startDate)}
-              </TrainingDesc>
-            </TrainingDetailContainer>
-          </>
-        )}
+        <TrainingSeparation />
+        <TrainingDetailContainer>
+          <TrainingLabel>
+            {getMicroCopy(microCopy.TRAINING_REGISTRATION_DATE)}
+          </TrainingLabel>
+          <TrainingDesc data-testid="training-start-date">
+            <StyledIcon source={Calender} />
+            {formatDate(startDate)}
+          </TrainingDesc>
+        </TrainingDetailContainer>
       </TrainingDataContainer>
     </Section>
   );

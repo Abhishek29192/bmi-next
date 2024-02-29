@@ -5,14 +5,14 @@ import {
   ProductsApiResponse,
   SystemsApiResponse
 } from "@bmi/pim-types";
+import { isDefined } from "@bmi/utils";
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import { Request, Response } from "express";
-import { isDefined } from "@bmi/utils";
 import { getDocuments } from "./contentful";
+import { fetchDoceboData } from "./doceboDataHandler";
 import { transformDocuments } from "./documentTransformer";
 import { indexIntoES } from "./elasticsearch";
 import { FullFetchRequest } from "./types";
-import { fetchDoceboData } from "./doceboDataHandler";
 
 const {
   TRANSITIONAL_TOPIC_NAME,
@@ -26,7 +26,6 @@ const {
   DOCEBO_API_CLIENT_SECRET,
   DOCEBO_API_USERNAME,
   DOCEBO_API_PASSWORD,
-  DOCEBO_API_CATALOGUE_IDS,
   ES_INDEX_NAME_TRAININGS
 } = process.env;
 
@@ -91,7 +90,11 @@ const handleDocuments = async (
   await indexIntoES(transformedDocuments, indexName);
 };
 
-const handleTrainings = async (res: Response, page: number) => {
+const handleTrainings = async (
+  res: Response,
+  catalogueId?: number,
+  itemIds?: string[]
+) => {
   if (!DOCEBO_API_URL) {
     logger.error({ message: "DOCEBO_API_URL has not been set." });
     return res.sendStatus(500);
@@ -119,11 +122,6 @@ const handleTrainings = async (res: Response, page: number) => {
     return res.sendStatus(500);
   }
 
-  if (!DOCEBO_API_CATALOGUE_IDS) {
-    logger.error({ message: "DOCEBO_API_CATALOGUE_IDS has not been set." });
-    return res.sendStatus(500);
-  }
-
   if (!ES_INDEX_NAME_TRAININGS) {
     logger.error({
       message: "ES_INDEX_NAME_TRAININGS has not been set."
@@ -131,13 +129,48 @@ const handleTrainings = async (res: Response, page: number) => {
     return res.sendStatus(500);
   }
 
-  const courses = await fetchDoceboData(page);
+  if (!catalogueId) {
+    logger.error({
+      message: "catalogueId was not provided"
+    });
+    return res.status(400).send("catalogueId was not provided");
+  }
+
+  if (!itemIds) {
+    logger.error({
+      message: "itemIds field was not provided"
+    });
+    return res.status(400).send("itemIds field was not provided");
+  }
+
+  if (!Array.isArray(itemIds)) {
+    logger.error({
+      message: "itemIds should be an array"
+    });
+    return res.status(400).send("itemIds should be an array");
+  }
+
+  if (!itemIds.length) {
+    logger.error({
+      message: "training IDs were not provided"
+    });
+    return res.status(400).send("training IDs were not provided");
+  }
+
+  const sessions = await fetchDoceboData(catalogueId, itemIds);
 
   logger.info({
-    message: `Transformed trainings: ${JSON.stringify(courses)}`
+    message: `Transformed sessions: ${JSON.stringify(sessions)}`
   });
 
-  await indexIntoES(courses, ES_INDEX_NAME_TRAININGS);
+  await indexIntoES(sessions, ES_INDEX_NAME_TRAININGS);
+
+  logger.info({
+    message: `Docebo sessions for courses ${itemIds.join(
+      ", "
+    )} have been successfully indexed`
+  });
+  return res.sendStatus(200);
 };
 
 /**
@@ -212,23 +245,26 @@ const handleRequest = async (
     return;
   }
 
-  const promises = [];
-  for (let i = body.startPage; i < body.startPage + body.numberOfPages; i++) {
-    if (body.type === PimTypes.Products || body.type === PimTypes.Systems) {
-      promises.push(handlePimData(body.type, LOCALE, i));
-    } else if (body.type === "documents") {
-      promises.push(
-        handleDocuments(MARKET_LOCALE, i, ES_INDEX_NAME_DOCUMENTS, TAG)
-      );
-    } else {
-      promises.push(handleTrainings(res, i));
+  if (body.type === "trainings") {
+    return handleTrainings(res, body.catalogueId, body.itemIds);
+  } else {
+    const promises = [];
+    for (let i = body.startPage; i < body.startPage + body.numberOfPages; i++) {
+      if (body.type === PimTypes.Products || body.type === PimTypes.Systems) {
+        promises.push(handlePimData(body.type, LOCALE, i));
+      } else {
+        promises.push(
+          handleDocuments(MARKET_LOCALE, i, ES_INDEX_NAME_DOCUMENTS, TAG)
+        );
+      }
     }
+
+    await Promise.all(promises);
+    logger.info({
+      message: `All PROMISES WITH PUBLISHED MESSAGES:  ${promises}`
+    });
+    res.sendStatus(200);
   }
-  await Promise.all(promises);
-  logger.info({
-    message: `All PROMISES WITH PUBLISHED MESSAGES:  ${promises}`
-  });
-  res.sendStatus(200);
 };
 
 // NOTE: GCP likes the export this way 🤷‍♂️

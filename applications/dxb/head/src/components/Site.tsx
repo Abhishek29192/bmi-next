@@ -1,6 +1,6 @@
+import { GoodBetterBest } from "@bmi/pim-types";
 import { graphql } from "gatsby";
 import React from "react";
-import { GoodBetterBest } from "@bmi/pim-types";
 import { GoodBetterBestIconsConfig } from "../types/GoodBetterBest";
 import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
 import type { AccountPage } from "../templates/myAccountPage/my-account";
@@ -57,9 +57,6 @@ export type Data = {
   menuNavigation: NavigationData | null;
   menuUtilities: NavigationData | null;
   resources: ResourcesData | null;
-  headScripts: {
-    headScripts: string;
-  } | null;
   regions: Region[] | null;
   pitchedRoofCalculatorConfig: CalculatorConfig | null;
   visualiserHouseTypes: HouseType[] | null;
@@ -87,9 +84,6 @@ export const query = graphql`
     }
     resources {
       ...ResourcesFragment
-    }
-    headScripts {
-      headScripts
     }
     regions {
       ...RegionFragment

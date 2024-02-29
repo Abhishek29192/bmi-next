@@ -1,50 +1,71 @@
+import logger from "@bmi-digital/functions-logger";
 import { getCachedDoceboApi, transformCourseCategory } from "@bmi/docebo-api";
 import { isDefined } from "@bmi/utils";
-import { Training as ESTraining } from "@bmi/elasticsearch-types";
+import type { Training } from "@bmi/elasticsearch-types";
 
-export const fetchDoceboData = async (page: number) => {
+export const fetchDoceboData = async (
+  catalogueId: number,
+  itemIds: string[]
+): Promise<Training[]> => {
   const doceboApi = getCachedDoceboApi();
 
-  const catalogueIds = process.env.DOCEBO_API_CATALOGUE_IDS?.split(",")?.map(
-    (catalogueId) => Number(catalogueId)
-  );
   try {
-    const catalogues = await doceboApi.fetchCatalogues({ catalogueIds });
-    const courses = await doceboApi.fetchCourses({ page, pageSize: 10 });
+    const catalogues = await doceboApi.fetchCatalogues({
+      catalogueIds: [catalogueId]
+    });
+
+    if (!catalogues?.length) {
+      logger.error({ message: "Did not manage to get catalogue data" });
+      return [];
+    }
+    const catalogue = catalogues[0];
+
     const currency = await doceboApi.getCurrency();
+    if (!currency) {
+      logger.error({ message: "Did not manage to get currency" });
+      return [];
+    }
 
-    return catalogues.flatMap<ESTraining>((catalogue) =>
-      catalogue.sub_items
-        .map((item) => {
-          const course = courses.find(
-            ({ id_course }) => id_course.toString() === item.item_id
-          );
+    const promises = itemIds.map((itemId) => doceboApi.getCourseById(itemId));
+    const courses = await Promise.all(promises);
 
-          if (!course) {
-            return;
-          }
+    const sessions = courses.flatMap((course) =>
+      (course.sessions || []).map((session) => {
+        const sessionStartTime = new Date(session.start_date).getTime();
+        const currentTime = new Date().getTime();
 
-          return {
-            id: `${course.id_course}-${catalogue.catalogue_id}`,
-            courseId: course.id_course,
-            code: course.code,
-            name: course.name,
-            slug: course.slug_name,
-            courseType: course.course_type,
-            imgUrl: course.img_url,
-            category: transformCourseCategory(course.category),
-            catalogueId: `${catalogue.catalogue_id}`,
-            catalogueName: catalogue.catalogue_name,
-            catalogueDescription: catalogue.catalogue_description,
-            onSale: course.selling,
-            startDate: course.start_date,
-            price: course.price,
-            currency: currency.currency_currency,
-            currencySymbol: currency.currency_symbol
-          };
-        })
-        .filter(isDefined)
+        if (sessionStartTime <= currentTime) {
+          //if the condition above passes, it means that session is not active anymore
+          return;
+        }
+
+        return {
+          id: `${catalogueId}-${course.id}-${session.id_session}`,
+          sessionId: session.id_session,
+          sessionName: session.name,
+          sessionSlug: session.slug_name,
+          startDate: sessionStartTime,
+          endDate: new Date(session.end_date).getTime(),
+          courseId: course.id,
+          courseName: course.name,
+          courseSlug: course.slug_name,
+          courseCode: course.code,
+          courseType: course.type,
+          courseImg: course.thumbnail,
+          category: transformCourseCategory(course.category),
+          onSale: course.on_sale,
+          price: course.price,
+          currency: currency.currency_currency,
+          currencySymbol: currency.currency_symbol,
+          // If we want to use catalogue as a number, it will require some additional logic in the ES queries on Frontend side
+          catalogueId: catalogueId.toString(),
+          catalogueName: catalogue.catalogue_name,
+          catalogueDescription: catalogue.catalogue_description
+        };
+      })
     );
+
+    return sessions.filter(isDefined);
   } catch (err) {
     throw new Error(
       `Did not manage to pull Docebo data: ${JSON.stringify(err)}`

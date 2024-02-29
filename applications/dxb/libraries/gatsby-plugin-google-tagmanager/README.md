@@ -46,28 +46,6 @@ plugins: [
 ];
 ```
 
-If you like to use data at runtime for your defaultDataLayer you can do that by defining it as a function.
-
-```javascript
-// In your gatsby-config.js
-plugins: [
-  {
-    resolve: "gatsby-plugin-google-tagmanager",
-    options: {
-      // datalayer to be set before GTM is loaded
-      // should be a stringified object or object
-      //
-      // Defaults to null
-      defaultDataLayer: function () {
-        return {
-          pageType: window.pageType
-        };
-      }
-    }
-  }
-];
-```
-
 This plugin only initiates the tag manager _container_. If you want to use Google Analytics, please also add `gatsby-plugin-google-analytics`.
 
 If you want to link analytics use with anything inside the container (for example, a cookie consent manager such as OneTrust), you will need to ensure that the tag manager script comes _before_ the analytics script in your `gatsby-config.js`.

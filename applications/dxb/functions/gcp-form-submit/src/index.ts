@@ -212,9 +212,12 @@ export const submit: HttpFunction = async (request, response) => {
       logger.info({ message: `Uploaded ${uploadedAssets.length} assets` });
 
       const formResponse = {
-        ...fields,
-        uploadedAssets
+        ...fields
       };
+
+      if (uploadedAssets?.length > 0) {
+        formResponse.uploadedAssets = uploadedAssets;
+      }
 
       const html = `<ul>${Object.entries(formResponse)
         .map(

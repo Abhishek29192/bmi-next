@@ -24,6 +24,7 @@ const TrainingRegistrationPage = ({
   const { path } = contentfulTrainingRegistrationPage;
 
   const { training, loading } = useRegistration();
+
   const breadcrumbs: BreadcrumbItem[] = useMemo(() => {
     const currentPageBreadcrumb = [
       ...updateBreadcrumbTitleFromContentful(
@@ -33,9 +34,9 @@ const TrainingRegistrationPage = ({
     ].pop();
 
     const trainingPageBreadcrumb = training && {
-      id: training.id,
-      label: training.name,
-      slug: `/t/${training.slug}`
+      id: training.courseId.toString(),
+      label: training.courseName,
+      slug: `/t/${training.courseSlug}`
     };
 
     const trainingListerPageBreadcrumb = contentfulTrainingListerPage && {
@@ -85,8 +86,10 @@ const TrainingRegistrationPage = ({
           {...contentfulTrainingRegistrationPage}
           trainingDetailsPageUrl={getPathWithCountryCode(
             contentfulSite.countryCode,
-            `/t/${training?.slug}`
+            `/t/${training?.courseSlug}`
           )}
+          courseCode={training?.courseCode}
+          training={training}
         />
       )}
       <Section backgroundColor="white" data-testid="breadcrumbs-section-bottom">
@@ -126,6 +129,8 @@ export const pageQuery = graphql`
       postalCode
       phoneNumber
       competentChamber
+      recipient
+      emailSubject
       competentChamberLabel {
         competentChamberLabel
       }

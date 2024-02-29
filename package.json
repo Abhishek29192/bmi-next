@@ -19,7 +19,9 @@
     "build:head": "yarn workspace @bmi/head run build",
     "build:frc-website": "yarn workspace @bmi/frc-website run build",
     "updateReferences": "workspaces-to-typescript-project-references --includesRoot",
-    "postinstall": "husky install"
+    "prepack": "pinst --disable",
+    "postinstall": "husky",
+    "postpack": "pinst --enable"
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",
@@ -76,6 +78,7 @@
     "jest-mock-console": "^2.0.0",
     "lint-staged": "^15.2.0",
     "mockdate": "^3.0.5",
+    "pinst": "^3.0.0",
     "prettier": "^3.1.1",
     "process-top": "^1.2.0",
     "react": "^18.2.0",

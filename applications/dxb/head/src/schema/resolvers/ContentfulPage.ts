@@ -9,7 +9,8 @@ const pages = [
   "ContentfulBrandLandingPage",
   "ContentfulCookiePolicyPage",
   "ContentfulTrainingListerPage",
-  "ContentfulTrainingRegistrationPage"
+  "ContentfulTrainingRegistrationPage",
+  "ContentfulAccountPage"
 ] as const;
 
 type ResolveArgsArray = [Node, ResolveArgs, Context];
@@ -21,6 +22,7 @@ export default pages.reduce(
     ...resolvers,
     [pageName]: {
       path: {
+        type: "String!",
         async resolve(...args: ResolveArgsArray) {
           const path = await resolvePath(...args);
 
@@ -28,11 +30,13 @@ export default pages.reduce(
         }
       },
       breadcrumbs: {
+        type: ["BreadcrumbItem!"],
         resolve(...args: ResolveArgsArray) {
           return resolvePath(...args);
         }
       },
       subtitle: {
+        type: "String",
         async resolve(source: Node, args: ResolveArgs, context: Context) {
           if (pageName !== "ContentfulSimplePage") {
             return source.subtitle;

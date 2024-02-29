@@ -419,13 +419,23 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
 const getRedirectConfig = (
   redirect: Redirect
-): { fromPath: string; toPath: string; isPermanent: boolean } => {
+): {
+  fromPath: string;
+  toPath: string;
+  isPermanent: boolean;
+  statusCode: number;
+} => {
   const isPermanent = redirect.status === 301;
-  let toPath = redirect.to.endsWith("/") ? redirect.to : `${redirect.to}/`;
+  let toPath = redirect.to.endsWith("/")
+    ? redirect.to
+    : process.env.IS_NETLIFY && redirect.status === 200 // Do not add trailing slash to Netlify rewrites.
+      ? redirect.to
+      : `${redirect.to}/`;
 
   //If we use wildcard redirects on production users will be redirected to gatsby domain
-  //Such approach allows us to prevent users from being redirected to Gatsby domain
-  if (!redirect.to.startsWith("https://")) {
+  //Such approach allows us to prevent users from being redirected to Gatsby domain.
+  // This issue is not applicable to Netlify.
+  if (!redirect.to.startsWith("https://") && !process.env.IS_NETLIFY) {
     toPath = `${process.env.GATSBY_SITE_URL}${toPath}`;
   }
 
@@ -433,14 +443,18 @@ const getRedirectConfig = (
     return {
       fromPath: redirect.from,
       toPath,
-      isPermanent
+      isPermanent,
+      statusCode: redirect.status
     };
   }
 
   return {
     isPermanent,
-    fromPath: addSplatToUrl(redirect.from),
-    toPath: toPath
+    fromPath: process.env.IS_NETLIFY
+      ? redirect.from // Netlify automatically passes on all querystring parameters to the destination
+      : addSplatToUrl(redirect.from),
+    toPath: toPath,
+    statusCode: redirect.status
   };
 };
 

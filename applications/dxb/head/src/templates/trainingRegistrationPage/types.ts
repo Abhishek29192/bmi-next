@@ -5,6 +5,8 @@ import type { ESResponse } from "../../types/elasticsearch";
 
 export type TrainingRegistrationPageData = {
   __typename: "ContentfulTrainingRegistrationPage";
+  recipient: string;
+  emailSubject: string;
   breadcrumbs: BreadcrumbsData;
   breadcrumbTitle: string | null;
   path: string;

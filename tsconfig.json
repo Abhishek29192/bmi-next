@@ -33,6 +33,9 @@
       "path": "applications/dxb/functions/gcp-contentful-documents-ingest"
     },
     {
+      "path": "applications/dxb/functions/gcp-docebo-data-filter"
+    },
+    {
       "path": "applications/dxb/functions/gcp-docebo-data-handler"
     },
     {

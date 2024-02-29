@@ -44,10 +44,6 @@ const markets = [
     region: "eu-west"
   },
   {
-    name: "Blueprint",
-    production: "939b526c-084b-4dd8-9b6b-14626189cf69"
-  },
-  {
     name: "Bosnia and Herzegovinia",
     countryCode: "ba",
     preProduction: "c3d8a5e4-e4b0-49db-8dc0-f5bd403114d9",

@@ -1,63 +1,66 @@
-import { ToolCardItemProps } from "@bmi-digital/components";
 import OtherTraining from "@bmi-digital/components/icon/OtherTraining";
 import RoofMeasurement from "@bmi-digital/components/icon/RoofMeasurement";
 import UserIcon from "@bmi-digital/components/icon/User";
 import { microCopy } from "@bmi/microcopies";
-import { Auth0UserProfile } from "auth0-js";
-import { GetMicroCopy } from "../../components/MicroCopy";
+import { isDefined } from "@bmi/utils";
+import type { ToolCardItemProps } from "@bmi-digital/components/tool-cards";
+import type { GetMicroCopy } from "../../components/MicroCopy";
+import type { Auth0IdTokenPayload } from "../../types/auth0";
+import type { AllowTools } from "./ToolSection";
 
 const nameTemplate = "{{name}}";
 const roleTemplate = "{{role}}";
 
 export const getUserInfo = (
-  user: Auth0UserProfile | null,
+  user: Auth0IdTokenPayload,
   salutation: string,
   roleDescription: string
-): { salutation: string; roleDescription: string } => {
-  const res = { salutation: "", roleDescription: "" };
-  res.salutation = salutation.replace(nameTemplate, user["name"]);
-  res.roleDescription = roleDescription.replace(
+): { salutation: string; roleDescription: string } => ({
+  salutation: salutation.replace(
+    nameTemplate,
+    `${user["https://intouch/first_name"]}`
+  ),
+  roleDescription: roleDescription.replace(
     roleTemplate,
     user["https://intouch/intouch_role"]
-  );
-  return res;
-};
+  )
+});
 
-export const transformToolCar = (
-  tools: string[],
+export const transformToolCard = (
+  tools: readonly [AllowTools, ...AllowTools[]],
   getMicroCopy: GetMicroCopy
 ): [ToolCardItemProps, ...ToolCardItemProps[]] => {
-  const transformTools: ToolCardItemProps[] = [];
-  tools.forEach((tool: string) => {
+  const sortedTools: [
+    ToolCardItemProps | undefined,
+    ToolCardItemProps | undefined,
+    ToolCardItemProps | undefined
+  ] = [undefined, undefined, undefined];
+  tools.forEach((tool: AllowTools): void => {
     switch (tool) {
       case "My profile":
-        return transformTools.splice(0, 0, {
+        sortedTools[0] = {
           title: getMicroCopy(microCopy.PROFILE_LABEL),
           icon: UserIcon,
-          url: `${process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT}${process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT}`
-        });
-
+          url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT}`
+        };
+        break;
       case "Trainings":
-        return transformTools.splice(1, 0, {
+        sortedTools[1] = {
           title: getMicroCopy(microCopy.TRAINING_LABEL),
           icon: OtherTraining,
-          url: `${process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT}${process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT}`
-        });
-
+          url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT}`
+        };
+        break;
       case "Roof measurement":
-        return transformTools.splice(2, 0, {
+        sortedTools[2] = {
           title: getMicroCopy(microCopy.ROOF_MEASUREMENT_LABEL),
           icon: RoofMeasurement,
-          url: `${process.env.GATSBY_INTOUCH_LOGIN_ENDPOINT}${process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT}`
-        });
-
-      default:
-        return transformTools.push({
-          title: "",
-          icon: null,
-          url: ""
-        });
+          url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT}`
+        };
     }
   });
-  return [transformTools[0], ...transformTools.slice(1)];
+  return sortedTools.filter(isDefined) as [
+    ToolCardItemProps,
+    ...ToolCardItemProps[]
+  ];
 };

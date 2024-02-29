@@ -60,6 +60,8 @@ process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
 process.env.BUILD_TRIGGER_ENDPOINT = "http://localhost:9057";
 process.env.PIM_HOST = "http://localhost:9090";
 process.env.PIM_CATALOG_NAME = "pim-catalog-name";
+process.env.PIM_OAUTH_TOKEN_URL = `${process.env.PIM_HOST}/authorizationserver/oauth/token`;
+process.env.PIM_CATALOG_API_URL = `${process.env.PIM_HOST}/occ/v2/${process.env.PIM_CATALOG_NAME}/export`;
 
 process.env.GCP_PROJECT_ID = "gcp-project-id";
 process.env.FIRESTORE_ROOT_COLLECTION = "firestore-root-collection";
@@ -105,3 +107,12 @@ process.env.DOCEBO_API_PASSWORD = "docebo-api-password";
 process.env.DOCEBO_API_CATALOGUE_IDS = "1,2,3,4";
 process.env.ES_INDEX_NAME_TRAININGS = "dxb_no_trainings";
 process.env.PULL_DOCEBO_DATA = "false";
+
+process.env.CONTENT_SECURITY_POLICY = "group content security policy";
+process.env.X_ROBOTS_TAG = "group x robots tag";
+process.env.ACCESS_CONTROL_ALLOW_ORIGIN = "group access control allow origin";
+
+process.env.DXB_CONTENT_SECURITY_POLICY_NO = "norway content security policy";
+process.env.DXB_X_ROBOTS_TAG_NO = "norway x robots tag";
+process.env.DXB_ACCESS_CONTROL_ALLOW_ORIGIN_NO =
+  "norway access control allow origin";

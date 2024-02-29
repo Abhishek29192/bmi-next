@@ -40,6 +40,7 @@ export const useTrainings: UseTrainings = (props) => {
   const [total, setTotal] = useState<{ [catalogueId: string]: number }>({});
   const { esIndexNameTrainings } = useConfig();
   const [filters, setFilters] = useState<Filter[]>(props.defaultFilters);
+  const [currentTime] = useState<number>(new Date().getTime());
 
   const { isClient } = useIsClient();
 
@@ -71,9 +72,19 @@ export const useTrainings: UseTrainings = (props) => {
                   }
                 },
                 ...constructFiltersQuery(filters),
-                constructSearchQuery(searchQuery)
+                constructSearchQuery(searchQuery),
+                {
+                  range: {
+                    startDate: {
+                      gt: currentTime
+                    }
+                  }
+                }
               ]
             }
+          },
+          collapse: {
+            field: "courseId"
           }
         },
         esIndexNameTrainings
@@ -100,7 +111,14 @@ export const useTrainings: UseTrainings = (props) => {
             bool: {
               must: [
                 ...constructFiltersQuery(filters),
-                constructSearchQuery(searchQuery)
+                constructSearchQuery(searchQuery),
+                {
+                  range: {
+                    startDate: {
+                      gt: currentTime
+                    }
+                  }
+                }
               ]
             }
           },
@@ -108,7 +126,8 @@ export const useTrainings: UseTrainings = (props) => {
             field: "catalogueId.keyword",
             inner_hits: {
               name: "inner_hits",
-              size: SHOW_MORE_LIMIT
+              size: SHOW_MORE_LIMIT,
+              collapse: { field: "courseId" }
             }
           },
           aggs: {
@@ -116,6 +135,13 @@ export const useTrainings: UseTrainings = (props) => {
               terms: {
                 size: "10",
                 field: "catalogueId.keyword"
+              },
+              aggs: {
+                uniqueItemsCount: {
+                  cardinality: {
+                    field: "courseId"
+                  }
+                }
               }
             },
             category: {
@@ -134,13 +160,16 @@ export const useTrainings: UseTrainings = (props) => {
         return hits.map((training) => training._source);
       });
 
-      const total = response.hits.hits.reduce((acc, hit) => {
-        const catalogueId = hit._source.catalogueId;
-        return {
-          ...acc,
-          [catalogueId]: hit.inner_hits.inner_hits.hits.total.value
-        };
-      }, {});
+      const total = response.aggregations.catalogueId.buckets.reduce(
+        (acc, bucket) => {
+          const catalogueId = bucket.key;
+          return {
+            ...acc,
+            [catalogueId]: bucket.uniqueItemsCount?.value
+          };
+        },
+        {}
+      );
 
       const updatedFilters = disableFiltersFromAggregations(
         filters,

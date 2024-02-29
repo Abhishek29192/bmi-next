@@ -4,13 +4,13 @@ import type {
   Asset,
   BaseProduct,
   Classification,
+  GoodBetterBest,
   Mime,
   Category as PimCategory,
   Image as PimImage,
   System as PimSystem,
   ProductReferenceType,
-  ReferenceTarget,
-  GoodBetterBest
+  ReferenceTarget
 } from "@bmi/pim-types";
 
 export type Category = {
@@ -179,19 +179,23 @@ export type ClassificationField = {
 
 export type Training = {
   id: string;
+  sessionId: number;
+  sessionName: string;
+  sessionSlug: string;
+  startDate: number;
+  endDate: number;
   courseId: number;
-  code: string;
-  name: string;
-  slug: string;
+  courseName: string;
+  courseSlug: string;
+  courseCode?: string;
   courseType: CourseType;
-  imgUrl: string;
+  courseImg?: string;
   category: string;
+  onSale: boolean;
+  price: number;
+  currency: string;
+  currencySymbol: string;
   catalogueId: string;
   catalogueName: string;
   catalogueDescription: string;
-  onSale: boolean;
-  startDate: string | null;
-  price: string | number;
-  currency: string;
-  currencySymbol: string;
 };

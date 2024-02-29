@@ -1,11 +1,12 @@
 import auth0 from "auth0-js";
 import { navigate } from "gatsby";
 import { config } from "./config";
+import type { Auth0IdTokenPayload } from "../types/auth0";
 import type { AuthorizeOptions } from "auth0-js";
 
 export interface SessionState {
   isLoggedIn: boolean;
-  userProfile?: auth0.Auth0UserProfile;
+  userProfile?: Auth0IdTokenPayload;
   accessToken?: string;
   idToken?: string;
 }
@@ -13,7 +14,7 @@ export interface SessionState {
 class Auth {
   private accessToken?: string;
   private idToken?: string;
-  private userProfile?: auth0.Auth0UserProfile;
+  private userProfile?: Auth0IdTokenPayload;
 
   public sessionStateCallback = (_state: SessionState) => {};
 
@@ -61,7 +62,8 @@ class Auth {
 
   public getIdToken = () => this.idToken;
 
-  public getUserProfile = () => this.userProfile;
+  public getUserProfile = (): Auth0IdTokenPayload | undefined =>
+    this.userProfile;
 
   private setSession(authResult: auth0.Auth0DecodedHash) {
     if (!this.isBrowser) {

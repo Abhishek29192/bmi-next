@@ -1,0 +1,47 @@
+lint_gcp-docebo-data-filter:
+  extends: .lint_function
+  variables:
+    ROOT_DIR: "applications/dxb/functions/gcp-docebo-data-filter"
+    WORKSPACE: "@bmi/gcp-docebo-data-filter"
+
+build_gcp-docebo-data-filter:
+  extends: .build_function
+  variables:
+    WORKSPACE: "@bmi/gcp-docebo-data-filter"
+    ROOT_DIR: "applications/dxb/functions/gcp-docebo-data-filter"
+
+test_gcp-docebo-data-filter:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-docebo-data-filter"
+    ROOT_DIR: "applications/dxb/functions/gcp-docebo-data-filter"
+  needs:
+    - build_gcp-docebo-data-filter
+
+package_gcp-docebo-data-filter:
+  extends: .package_function
+  needs:
+    - job: build_gcp-docebo-data-filter
+      artifacts: true
+  variables:
+    FUNCTION_NAME: gcp-docebo-data-filter
+    ROOT_DIR: applications/dxb/functions/gcp-docebo-data-filter
+
+deploy_gcp-docebo-data-filter:
+  extends: .deploy_function
+  needs:
+    - job: package_gcp-docebo-data-filter
+      artifacts: true
+  variables:
+    FUNCTION_NAME: gcp-docebo-data-filter
+    ROOT_DIR: applications/dxb/functions/gcp-docebo-data-filter
+
+trigger_gcp-docebo-data-filter:
+  stage: post deploy
+  image: !reference [.curl, image]
+  rules:
+    - if: "$WHICH_SCHEDULE == 'trigger_gcp-docebo-data-filter'"
+  needs: []
+  cache: {}
+  script:
+    - "curl -H 'Authorization: Bearer $BEARER_TOKEN' $GCP_DOCEBO_DATA_FILTER_ENDPOINT"

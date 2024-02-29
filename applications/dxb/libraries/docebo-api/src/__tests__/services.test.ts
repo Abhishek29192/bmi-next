@@ -1,5 +1,4 @@
 import { mockResponses } from "@bmi-digital/fetch-mocks";
-import fetchMockJest from "fetch-mock-jest";
 import {
   Catalogue,
   Category,
@@ -13,6 +12,7 @@ import {
   createExtendedCourse,
   createSession
 } from "@bmi/docebo-types";
+import fetchMockJest from "fetch-mock-jest";
 import { DoceboApiService, PAGE_SIZE } from "../services";
 import { DoceboApiServiceParams, DoceboData } from "../types";
 
@@ -532,16 +532,19 @@ describe("services", () => {
   });
 
   describe("getAccessToken", () => {
-    it("should return already existing access token", async () => {
+    it("should return already existing access token if provided and token has not expired", async () => {
       const docepoApi = new DoceboApiService(defaultParams);
       docepoApi.accessToken = accessToken;
+      const expirationTime = new Date();
+      expirationTime.setSeconds(expirationTime.getSeconds() + 3600);
+      docepoApi.tokenExpirationTime = expirationTime;
       const result = await docepoApi.getAccessToken();
 
       expect(fetchMock).toHaveBeenCalledTimes(0);
       expect(result).toBe(accessToken);
     });
 
-    it("should send a request for a new token if token does not exist", async () => {
+    it("should send a request for a new token if token and does not exist", async () => {
       const newToken = "new-access-token";
       mockResponses(fetchMock, {
         url: "*",
@@ -558,6 +561,46 @@ describe("services", () => {
 
       const docepoApi = new DoceboApiService(defaultParams);
       docepoApi.accessToken = undefined;
+      const result = await docepoApi.getAccessToken();
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      expect(fetchMock).toHaveBeenCalledWith(
+        `${defaultParams.apiUrl}oauth2/token`,
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            client_id: defaultParams.clientId,
+            client_secret: defaultParams.clientSecret,
+            grant_type: "password",
+            scope: "api",
+            username: defaultParams.username,
+            password: defaultParams.password
+          })
+        }
+      );
+      expect(result).toBe(newToken);
+    });
+
+    it("should send a request for a new token if token expired", async () => {
+      const newToken = "new-access-token";
+      mockResponses(fetchMock, {
+        url: "*",
+        method: "POST",
+        status: 200,
+        body: {
+          access_token: newToken,
+          expires_in: 5,
+          token_type: "token_type",
+          scope: "scope",
+          refresh_token: "refresh_token"
+        }
+      });
+
+      const docepoApi = new DoceboApiService(defaultParams);
+      docepoApi.accessToken = accessToken;
+      const expirationTime = new Date();
+      expirationTime.setSeconds(expirationTime.getSeconds() - 3600);
+      docepoApi.tokenExpirationTime = expirationTime;
       const result = await docepoApi.getAccessToken();
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith(

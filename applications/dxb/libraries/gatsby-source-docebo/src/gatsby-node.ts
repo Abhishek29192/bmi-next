@@ -1,6 +1,6 @@
 import { DoceboApiService } from "@bmi/docebo-api";
+import { Course, NODE_TYPES } from "./types";
 import { nodeBuilder, transformCourse } from "./utils";
-import { NODE_TYPES, Course } from "./types";
 import type { GatsbyNode } from "gatsby";
 
 export type ConfigOptions = {
@@ -58,9 +58,16 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async (
     );
 
     const currency = await apiService.getCurrency();
+    const expectedCourseIds = catalogues.flatMap((catalogue) =>
+      catalogue.sub_items.map((course) => Number(course.item_id))
+    );
+    const catalogueCourses = courses.filter((course) =>
+      expectedCourseIds.includes(course.id_course)
+    );
+
     const coursesWithSessions: Course[] = [];
 
-    for (const course of courses) {
+    for (const course of catalogueCourses) {
       const { id_course: course_id } = course;
       const sessions = await apiService.fetchSessions({ page: 1, course_id });
       coursesWithSessions.push(
@@ -72,8 +79,16 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async (
       );
     }
 
+    const currentTime = new Date().getTime();
+    const coursesWithActiveSessions = coursesWithSessions.filter((course) =>
+      course.sessions.some((session) => {
+        const sessionStartTime = new Date(session.date_start).getTime();
+        return sessionStartTime > currentTime;
+      })
+    );
+
     gatsbyApi.reporter.info(
-      `Docebo courses nodes created: ${coursesWithSessions.length}`
+      `Docebo courses nodes created: ${coursesWithActiveSessions.length}`
     );
     gatsbyApi.reporter.info(
       `Docebo Category nodes created: ${categories.length}`
@@ -85,7 +100,7 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async (
       `Docebo Certification nodes created: ${certifications.length}`
     );
 
-    coursesWithSessions?.forEach((course) =>
+    coursesWithActiveSessions.forEach((course) =>
       nodeBuilder({
         gatsbyApi,
         input: { type: NODE_TYPES.Courses, data: course },

@@ -328,6 +328,8 @@ type ContentfulTrainingRegistrationPage implements ContentfulObject & Contentful
   successTitle: String!
   successDescription: contentfulTrainingRegistrationPageSuccessDescriptionTextNode! @link(from: "successDescription___NODE")
   registrationCompletedDialogCloseButton:  String!
+  recipient: String!
+  emailSubject: String!
 }
 
 type ContentfulPromo implements ContentfulObject & Node @dontInfer {
@@ -713,7 +715,6 @@ type ContentfulSite implements ContentfulObject & Node @dontInfer {
   footerMainNavigation: ContentfulNavigation @link(from: "footerMainNavigation___NODE")
   footerSecondaryNavigation: ContentfulNavigation @link(from: "footerSecondaryNavigation___NODE")
   resources: ContentfulResources @link(from: "resources___NODE")
-  headScripts: contentfulSiteHeadScriptsTextNode @link(from: "headScripts___NODE")
   regions: [RegionJson]! @link(from: "regions___NODE")
   pitchedRoofCalculatorConfig: ContentfulWebToolCalculator @link(from: "pitchedRoofCalculatorConfig___NODE")
   visualiserHouseTypes: [ContentfulVisualiserHouseType!] @link(from: "visualiserHouseTypes___NODE")
@@ -723,10 +724,7 @@ type ContentfulSite implements ContentfulObject & Node @dontInfer {
 # Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
 # This type isn't actually needed, but it is here to make it obvious what it contains.
 # Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
-type contentfulSiteHeadScriptsTextNode implements Node @dontInfer {
-  id: ID!
-  headScripts: String
-}
+
 
 union LinkedPage =
   ContentfulContactUsPage
@@ -1417,6 +1415,7 @@ type ContentfulAccountPage implements Node @dontInfer {
   id: ID!
   contentful_id: String!
   metadata: ContentfulMetadata!
+  title: String!
   slug: String!
   salutation: String!
   roleDescription: String!
@@ -1424,7 +1423,10 @@ type ContentfulAccountPage implements Node @dontInfer {
   featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
   titleForToolSection: String!
   titleForServiceSupportSection: String!
-  allowTools: [String]
+  allowTools: [String!]!
   serviceSupportCards: [ContentfulContactDetails] @link(from: "serviceSupportCards___NODE")
+  breadcrumbTitle: String
+  path: String!
+  breadcrumbs: [BreadcrumbItem!]!
 }
 `;

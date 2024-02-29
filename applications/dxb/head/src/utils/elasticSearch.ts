@@ -13,7 +13,13 @@ import { removePLPFilterPrefix } from "./product-filters";
 
 export type Aggregations = Record<
   string,
-  { buckets: { key: string; doc_count: number }[] }
+  {
+    buckets: {
+      key: string;
+      doc_count: number;
+      uniqueItemsCount?: { value: number };
+    }[];
+  }
 >;
 
 export const removeIrrelevantFilters = (

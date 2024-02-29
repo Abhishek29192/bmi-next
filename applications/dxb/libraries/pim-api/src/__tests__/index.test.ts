@@ -6,9 +6,9 @@ import {
   createSystemsApiResponse
 } from "./helpers/pimHelper";
 
-const pimAuthTokenUrl = `${process.env.PIM_HOST}/authorizationserver/oauth/token`;
-const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&status=approved,discontinued&lang=${process.env.LOCALE}`;
-const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&status=approved&lang=${process.env.LOCALE}`;
+const pimAuthTokenUrl = process.env.PIM_OAUTH_TOKEN_URL;
+const pimProductsUrl = `${process.env.PIM_CATALOG_API_URL}/products?currentPage=0&status=approved,discontinued&lang=${process.env.LOCALE}`;
+const pimSystemsUrl = `${process.env.PIM_CATALOG_API_URL}/systems?currentPage=0&status=approved&lang=${process.env.LOCALE}`;
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -485,7 +485,7 @@ describe("fetchData", () => {
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved,discontinued&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_CATALOG_API_URL}/products?currentPage=18&status=approved,discontinued&lang=${process.env.LOCALE}`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -517,7 +517,7 @@ describe("fetchData", () => {
       }
     });
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved,discontinued&lang=${process.env.LOCALE}`,
+      `${process.env.PIM_CATALOG_API_URL}/products?currentPage=18&status=approved,discontinued&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -534,7 +534,7 @@ describe("fetchDataByCode", () => {
   it("should error if authorization request returns a non-ok response", async () => {
     mockResponses(fetchMock, {
       method: "POST",
-      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      url: process.env.PIM_OAUTH_TOKEN_URL,
       status: 401
     });
 
@@ -552,7 +552,7 @@ describe("fetchDataByCode", () => {
 
   it("constructs url correctly if itemType === 'systems'", async () => {
     const apiResponse = createSystemsApiResponse();
-    const expectedUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems/system_code?status=approved&version=Staged&lang=${process.env.LOCALE}`;
+    const expectedUrl = `${process.env.PIM_CATALOG_API_URL}/systems/system_code?status=approved&version=Staged&lang=${process.env.LOCALE}`;
     mockResponses(
       fetchMock,
       {
@@ -591,7 +591,7 @@ describe("fetchDataByCode", () => {
 
   it("constructs url correctly if itemType === 'product'", async () => {
     const apiResponse = createProductsApiResponse();
-    const expectedUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products/product_code?status=approved,discontinued&version=Staged&lang=${process.env.LOCALE}`;
+    const expectedUrl = `${process.env.PIM_CATALOG_API_URL}/products/product_code?status=approved,discontinued&version=Staged&lang=${process.env.LOCALE}`;
     mockResponses(
       fetchMock,
       {
@@ -630,7 +630,7 @@ describe("fetchDataByCode", () => {
 
   it("constructs url correctly if itemType === 'product' and allowPreviewProducts === true", async () => {
     const apiResponse = createProductsApiResponse();
-    const expectedUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products/preview_product_code?status=approved,discontinued,preview&version=Staged&lang=${process.env.LOCALE}`;
+    const expectedUrl = `${process.env.PIM_CATALOG_API_URL}/products/preview_product_code?status=approved,discontinued,preview&version=Staged&lang=${process.env.LOCALE}`;
     mockResponses(
       fetchMock,
       {
@@ -679,7 +679,7 @@ describe("fetchDataByCode", () => {
         }
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems/system_code?status=approved&version=Staged&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_CATALOG_API_URL}/systems/system_code?status=approved&version=Staged&lang=${process.env.LOCALE}`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -719,7 +719,7 @@ describe("fetchDataByCode", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems/system_code?status=approved&version=Online&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_CATALOG_API_URL}/systems/system_code?status=approved&version=Online&lang=${process.env.LOCALE}`,
         status: 400,
         body: {
           errors: [
@@ -791,7 +791,7 @@ describe("getProductsByMessageId", () => {
   it("should error if authorization request returns a non-ok response", async () => {
     mockResponses(fetchMock, {
       method: "POST",
-      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      url: process.env.PIM_OAUTH_TOKEN_URL,
       status: 401
     });
 
@@ -809,18 +809,13 @@ describe("getProductsByMessageId", () => {
       );
     }
 
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
@@ -837,7 +832,7 @@ describe("getProductsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -845,7 +840,7 @@ describe("getProductsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_CATALOG_API_URL}/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         status: 500,
         body: {
           errors: [
@@ -874,25 +869,20 @@ describe("getProductsByMessageId", () => {
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+      `${process.env.PIM_CATALOG_API_URL}/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -912,7 +902,7 @@ describe("getProductsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -920,7 +910,7 @@ describe("getProductsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_CATALOG_API_URL}/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         status: 400,
         body: {
           errors: [
@@ -949,25 +939,20 @@ describe("getProductsByMessageId", () => {
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+      `${process.env.PIM_CATALOG_API_URL}/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -988,7 +973,7 @@ describe("getProductsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -996,7 +981,7 @@ describe("getProductsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_CATALOG_API_URL}/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         body: expectedProducts
       }
     );
@@ -1009,25 +994,20 @@ describe("getProductsByMessageId", () => {
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+      `${process.env.PIM_CATALOG_API_URL}/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -1043,7 +1023,7 @@ describe("getSystemsByMessageId", () => {
   it("should error if authorization request returns a non-ok response", async () => {
     mockResponses(fetchMock, {
       method: "POST",
-      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      url: process.env.PIM_OAUTH_TOKEN_URL,
       status: 401
     });
 
@@ -1071,7 +1051,7 @@ describe("getSystemsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -1079,7 +1059,7 @@ describe("getSystemsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_CATALOG_API_URL}/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         status: 500,
         body: {
           errors: [
@@ -1108,25 +1088,20 @@ describe("getSystemsByMessageId", () => {
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+      `${process.env.PIM_CATALOG_API_URL}/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -1146,7 +1121,7 @@ describe("getSystemsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -1154,7 +1129,7 @@ describe("getSystemsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_CATALOG_API_URL}/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         status: 400,
         body: {
           errors: [
@@ -1183,25 +1158,20 @@ describe("getSystemsByMessageId", () => {
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+      `${process.env.PIM_CATALOG_API_URL}/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -1222,7 +1192,7 @@ describe("getSystemsByMessageId", () => {
       fetchMock,
       {
         method: "POST",
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: process.env.PIM_OAUTH_TOKEN_URL,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -1230,7 +1200,7 @@ describe("getSystemsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+        url: `${process.env.PIM_CATALOG_API_URL}/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         body: expectedProducts
       }
     );
@@ -1243,25 +1213,20 @@ describe("getSystemsByMessageId", () => {
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(process.env.PIM_OAUTH_TOKEN_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    });
+    const body = fetchMock.lastOptions(process.env.PIM_OAUTH_TOKEN_URL)!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
+      `${process.env.PIM_CATALOG_API_URL}/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {

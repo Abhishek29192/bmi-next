@@ -408,7 +408,12 @@ export const microCopy = {
   TRAINING_REGISTRATION_COST: "training.registration.cost",
   TRAINING_REGISTRATION_DATE: "training.registration.date",
   TRAINING_REGISTRATION_TYPE: "training.registration.type",
-  TRAINING_REGISTRATION: "training.registration"
+  TRAINING_REGISTRATION: "training.registration",
+
+  TRAINING_EMAIL_START_DATE: "training.emailStartDateLabel",
+  TRAINING_EMAIL_LABEL: "training.emailTrainingLabel",
+  TRAINING_EMAIL_DATA_CONSENT_LABEL: "training.emailDataConsentLabel",
+  TRAINING_EMAIL_TERM_OF_USE_LABEL: "training.emailTermsOfUseLabel"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

@@ -1,23 +1,20 @@
 import {
   createCatalogue,
-  createCatalogueSubItem,
-  createCourse
+  createCourseSession,
+  createExtendedCourse
 } from "@bmi/docebo-types";
 import { fetchDoceboData } from "../doceboDataHandler";
 
 const fetchCataloguesMock = jest.fn();
-const fetchCoursesMock = jest.fn();
+const getCourseByIdMock = jest.fn();
 const getCurrencyMock = jest.fn();
 
 jest.mock("@bmi/docebo-api", () => ({
   ...jest.requireActual("@bmi/docebo-api"),
   getCachedDoceboApi: () => ({
     fetchCatalogues: fetchCataloguesMock,
-    fetchCourses: fetchCoursesMock,
-    getCurrency: getCurrencyMock.mockResolvedValue({
-      currency_currency: "EUR",
-      currency_symbol: "€"
-    })
+    getCourseById: getCourseByIdMock,
+    getCurrency: getCurrencyMock
   })
 }));
 
@@ -25,118 +22,50 @@ afterEach(() => {
   jest.resetAllMocks();
 });
 
+const catalogue = createCatalogue();
+beforeEach(() => {
+  fetchCataloguesMock.mockResolvedValue([catalogue]);
+  getCurrencyMock.mockResolvedValue({
+    currency_currency: "EUR",
+    currency_symbol: "€"
+  });
+});
+
 describe("fetchDoceboData", () => {
-  it("throws an error correctly", async () => {
+  it("throws an error if 'fetchCatalogues' request fails", async () => {
     const error = new Error("An error occurred");
     fetchCataloguesMock.mockRejectedValue(error);
-    await expect(fetchDoceboData(1)).rejects.toThrow(
+    await expect(fetchDoceboData(1, [])).rejects.toThrow(
       `Did not manage to pull Docebo data: ${JSON.stringify(error)}`
     );
   });
 
-  it("calls 'fetchCatalogues' correctly if process.env.DOCEBO_API_CATALOGUE_IDS exists", async () => {
-    const initial = process.env.DOCEBO_API_CATALOGUE_IDS;
-    process.env.DOCEBO_API_CATALOGUE_IDS = "1,2,3";
+  it("returns an empty array if 'fetchCatalogues' returns undefined", async () => {
+    fetchCataloguesMock.mockResolvedValue(undefined);
+    const res = await fetchDoceboData(1, ["1", "2"]);
+    expect(res).toEqual([]);
+  });
+
+  it("returns an empty array if 'fetchCatalogues' returns an empty array", async () => {
     fetchCataloguesMock.mockResolvedValue([]);
-
-    await fetchDoceboData(1);
-    expect(fetchCataloguesMock).toHaveBeenCalledWith({
-      catalogueIds: [1, 2, 3]
-    });
-    process.env.DOCEBO_API_CATALOGUE_IDS = initial;
+    const res = await fetchDoceboData(1, ["1", "2"]);
+    expect(res).toEqual([]);
   });
 
-  it("returns correct data", async () => {
-    const catalogue = createCatalogue({
-      sub_items: [
-        createCatalogueSubItem({ item_id: "11" }),
-        createCatalogueSubItem({ item_id: "22" })
-      ]
-    });
-    const course1 = createCourse({ id_course: 11 });
-    const course2 = createCourse({ id_course: 22 });
-    fetchCataloguesMock.mockResolvedValue([catalogue]);
-    fetchCoursesMock.mockResolvedValue([course1, course2]);
-
-    const res = await fetchDoceboData(1);
-    expect(res).toEqual([
-      {
-        id: `${course1.id_course}-${catalogue.catalogue_id}`,
-        courseId: course1.id_course,
-        code: course1.code,
-        name: course1.name,
-        slug: course1.slug_name,
-        courseType: course1.course_type,
-        imgUrl: course1.img_url,
-        category: "Pitched",
-        catalogueId: `${catalogue.catalogue_id}`,
-        catalogueName: catalogue.catalogue_name,
-        catalogueDescription: catalogue.catalogue_description,
-        onSale: false,
-        startDate: "1693586500594",
-        price: "0",
-        currency: "EUR",
-        currencySymbol: "€"
-      },
-      {
-        id: `${course2.id_course}-${catalogue.catalogue_id}`,
-        courseId: course2.id_course,
-        code: course2.code,
-        name: course2.name,
-        slug: course2.slug_name,
-        courseType: course2.course_type,
-        imgUrl: course2.img_url,
-        category: "Pitched",
-        catalogueId: `${catalogue.catalogue_id}`,
-        catalogueName: catalogue.catalogue_name,
-        catalogueDescription: catalogue.catalogue_description,
-        onSale: false,
-        startDate: "1693586500594",
-        price: "0",
-        currency: "EUR",
-        currencySymbol: "€"
-      }
-    ]);
+  it("throws an error if getCourseById request fails", async () => {
+    const error = new Error("Expected error");
+    getCourseByIdMock.mockRejectedValue(error);
+    await expect(fetchDoceboData(1, ["1", "2"])).rejects.toThrow(
+      `Did not manage to pull Docebo data: ${JSON.stringify(error)}`
+    );
   });
 
-  it("should filter out courses that do not belong to any catalogue", async () => {
-    const catalogue = createCatalogue({
-      sub_items: [createCatalogueSubItem({ item_id: "11" })]
-    });
-    const course1 = createCourse({ id_course: 11 });
-    const course2 = createCourse({ id_course: 22 });
-    fetchCataloguesMock.mockResolvedValue([catalogue]);
-    fetchCoursesMock.mockResolvedValue([course1, course2]);
+  it("returns an empty array if course does not have sessions", async () => {
+    getCourseByIdMock.mockResolvedValue(
+      createExtendedCourse({ sessions: undefined })
+    );
 
-    const res = await fetchDoceboData(1);
-    expect(res).toEqual([
-      {
-        id: `${course1.id_course}-${catalogue.catalogue_id}`,
-        courseId: course1.id_course,
-        code: course1.code,
-        name: course1.name,
-        slug: course1.slug_name,
-        courseType: course1.course_type,
-        imgUrl: course1.img_url,
-        category: "Pitched",
-        catalogueId: `${catalogue.catalogue_id}`,
-        catalogueName: catalogue.catalogue_name,
-        catalogueDescription: catalogue.catalogue_description,
-        onSale: false,
-        startDate: "1693586500594",
-        price: "0",
-        currency: "EUR",
-        currencySymbol: "€"
-      }
-    ]);
-  });
-
-  it("works correctly if 'fetchCourses' returns an empty array", async () => {
-    const catalogue = createCatalogue();
-    fetchCataloguesMock.mockResolvedValue([catalogue]);
-    fetchCoursesMock.mockResolvedValue([]);
-
-    const res = await fetchDoceboData(1);
+    const res = await fetchDoceboData(1, ["1"]);
     expect(res).toEqual([]);
   });
 
@@ -144,8 +73,59 @@ describe("fetchDoceboData", () => {
     const error = new Error("Currency does not exist");
     getCurrencyMock.mockRejectedValue(error);
 
-    await expect(fetchDoceboData(1)).rejects.toThrowError(
+    await expect(fetchDoceboData(1, ["1", "2"])).rejects.toThrow(
       `Did not manage to pull Docebo data: ${JSON.stringify(error)}`
     );
+  });
+
+  it("returns an empty array if getCurrency request returns undefined", async () => {
+    getCurrencyMock.mockResolvedValue(undefined);
+    const res = await fetchDoceboData(1, ["1", "2"]);
+    expect(res).toEqual([]);
+  });
+
+  it("filters out outdated sessions", async () => {
+    const upcomingDate = new Date();
+    upcomingDate.setSeconds(upcomingDate.getSeconds() + 3600);
+    const session1 = createCourseSession({
+      id_session: 1,
+      start_date: upcomingDate.toString()
+    });
+    const session2 = createCourseSession({
+      id_session: 2,
+      start_date: "2022-09-13 23:59:59"
+    });
+    const course = createExtendedCourse({
+      id: 1,
+      sessions: [session1, session2]
+    });
+    fetchCataloguesMock.mockResolvedValue([catalogue]);
+    getCourseByIdMock.mockResolvedValue(course);
+
+    const res = await fetchDoceboData(1, ["1"]);
+    expect(res).toEqual([
+      {
+        id: `${catalogue.catalogue_id}-${course.id}-${session1.id_session}`,
+        sessionId: session1.id_session,
+        sessionName: session1.name,
+        sessionSlug: session1.slug_name,
+        startDate: new Date(session1.start_date).getTime(),
+        endDate: new Date(session1.end_date).getTime(),
+        courseId: course.id,
+        courseName: course.name,
+        courseSlug: course.slug_name,
+        courseCode: course.code,
+        courseType: course.type,
+        courseImg: course.thumbnail,
+        category: "Flat",
+        onSale: course.on_sale,
+        price: course.price,
+        currency: "EUR",
+        currencySymbol: "€",
+        catalogueId: catalogue.catalogue_id.toString(),
+        catalogueName: catalogue.catalogue_name,
+        catalogueDescription: catalogue.catalogue_description
+      }
+    ]);
   });
 });
