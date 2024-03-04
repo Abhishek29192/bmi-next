@@ -1375,8 +1375,8 @@ type Session @dontInfer {
   id: Int!
   code: String!
   name: String!
-  date_start: String!
-  date_end: String!
+  date_start: BigInt!
+  date_end: BigInt!
   hours: String!
   events: String!
   events_with_sync_failed: String!
@@ -1403,7 +1403,7 @@ type DoceboCourses implements Node @dontInfer {
   currency: String!
   currencySymbol: String!
   code: String
-  sessions: [Session]
+  sessions: [Session!]!
   categoryName: String!
   price: String
   course_type: String!

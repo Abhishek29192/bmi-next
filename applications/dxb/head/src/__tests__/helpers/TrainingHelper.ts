@@ -1,5 +1,8 @@
 import createBreadcrumbItem from "./BreadcrumbItemHelper";
-import type { TrainingDetailsCourseType as Course } from "../../templates/trainingDetailsPage/types";
+import type {
+  TrainingDetailsCourseType as Course,
+  Session
+} from "../../templates/trainingDetailsPage/types";
 
 export const createTraining = (trainingData: Partial<Course> = {}): Course => ({
   id_course: 1,
@@ -15,4 +18,13 @@ export const createTraining = (trainingData: Partial<Course> = {}): Course => ({
   currencySymbol: "€",
   breadcrumbs: [createBreadcrumbItem()],
   ...trainingData
+});
+
+export const createSession = (session: Partial<Session> = {}): Session => ({
+  id: 1,
+  code: "code",
+  name: "Test course session",
+  date_start: 1709132786572,
+  date_end: 1709132786572,
+  ...session
 });

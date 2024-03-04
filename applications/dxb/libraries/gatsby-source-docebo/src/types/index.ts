@@ -3,8 +3,13 @@ import type {
   Category,
   Certification,
   Course as DoceboCourse,
-  Session
+  Session as DoceboSession
 } from "@bmi/docebo-types";
+
+export type Session = Omit<DoceboSession, "date_start" | "date_end"> & {
+  date_start?: number;
+  date_end?: number;
+};
 
 export type Course = Omit<DoceboCourse, "category"> & {
   categoryName: string;
