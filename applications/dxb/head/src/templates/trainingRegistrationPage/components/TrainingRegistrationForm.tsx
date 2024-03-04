@@ -60,6 +60,7 @@ const TrainingRegistrationForm = (
         {}
       );
       const sanitizedValues = {};
+      const checkmark = String.fromCodePoint(0x2713);
 
       sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_LABEL)] =
         `${props.training?.courseCode} - ${props.training?.courseName}, ${props.training?.sessionName}`;
@@ -70,11 +71,11 @@ const TrainingRegistrationForm = (
 
       sanitizedValues[
         getMicroCopy(microCopy.TRAINING_EMAIL_TERM_OF_USE_LABEL)
-      ] = props.termsOfUse.termsOfUse;
+      ] = checkmark;
 
       sanitizedValues[
         getMicroCopy(microCopy.TRAINING_EMAIL_DATA_CONSENT_LABEL)
-      ] = props.consentText.consentText;
+      ] = checkmark;
 
       for (const key of Object.keys(valuesToSend)) {
         if (key === "consent") {
