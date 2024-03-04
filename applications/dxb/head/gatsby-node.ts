@@ -7,6 +7,7 @@ import type { Course as DoceboCourse } from "@bmi/docebo-types";
 import createSvgs from "./src/gatsby/createSvgs";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
+import BigIntScalar from "./src/schema/scalars/BigInt";
 import typeDefs from "./src/schema/schema.graphql";
 import { Product } from "./src/types/pim";
 import { convertStrToBool } from "./src/utils/convertStrToBool";
@@ -426,7 +427,11 @@ const getRedirectConfig = (
   statusCode: number;
 } => {
   const isPermanent = redirect.status === 301;
-  let toPath = redirect.to.endsWith("/") ? redirect.to : `${redirect.to}/`;
+  let toPath = redirect.to.endsWith("/")
+    ? redirect.to
+    : process.env.IS_NETLIFY && redirect.status === 200 // Do not add trailing slash to Netlify rewrites.
+      ? redirect.to
+      : `${redirect.to}/`;
 
   //If we use wildcard redirects on production users will be redirected to gatsby domain
   //Such approach allows us to prevent users from being redirected to Gatsby domain.
@@ -529,7 +534,7 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
   ({ actions }) => {
     const { createTypes } = actions;
-    createTypes(typeDefs);
+    createTypes([BigIntScalar, typeDefs]);
   };
 
 export const createResolvers: GatsbyNode["createResolvers"] = ({

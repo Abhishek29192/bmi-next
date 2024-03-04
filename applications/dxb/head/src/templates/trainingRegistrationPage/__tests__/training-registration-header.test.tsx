@@ -12,7 +12,7 @@ describe("Training Registration Header component", () => {
     const training = createTraining({
       onSale: true,
       price: 1000,
-      startDate: "2023-12-29 00:00:00"
+      startDate: new Date("2023-12-29 00:00:00").getTime()
     });
     render(
       <ThemeProvider>
@@ -52,22 +52,5 @@ describe("Training Registration Header component", () => {
     );
 
     expect(screen.getByText("MC: training.price.free")).toBeInTheDocument();
-  });
-
-  it("should not render startDate container if startDate property is not provided", async () => {
-    const training = createTraining({ startDate: null });
-    render(
-      <ThemeProvider>
-        <ConfigProvider
-          configOverride={{
-            esIndexNameTrainings: esIndexNameTrainings
-          }}
-        >
-          <TrainingRegistrationHeader training={training} />
-        </ConfigProvider>
-      </ThemeProvider>
-    );
-
-    expect(screen.queryByTestId("training-start-date")).not.toBeInTheDocument();
   });
 });

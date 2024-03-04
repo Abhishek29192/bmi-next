@@ -2,20 +2,25 @@ import { testPluginOptionsSchema } from "gatsby-plugin-utils";
 import { pluginOptionsSchema } from "../gatsby-node";
 
 describe("pluginOptionsSchema", () => {
+  const defaultOptions = {
+    ids: ["YOUR_GOOGLE_TAGMANAGER_ID"],
+    includeInDevelopment: false,
+    defaultDataLayer: {
+      type: "object",
+      value: { platform: "gatsby", env: "production" }
+    },
+    gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
+    gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
+    dataLayerName: "YOUR_DATA_LAYER_NAME",
+    routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
+    enableWebVitalsTracking: true,
+    selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN"
+  };
+
   it("should validate valid options", async () => {
     const { isValid, errors } = await testPluginOptionsSchema(
       pluginOptionsSchema,
-      {
-        ids: ["YOUR_GOOGLE_TAGMANAGER_ID"],
-        includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
-        gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
-        gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
-        dataLayerName: "YOUR_DATA_LAYER_NAME",
-        routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
-        enableWebVitalsTracking: true,
-        selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN"
-      }
+      defaultOptions
     );
 
     expect(isValid).toEqual(true);
@@ -26,6 +31,7 @@ describe("pluginOptionsSchema", () => {
     const { isValid, errors } = await testPluginOptionsSchema(
       pluginOptionsSchema,
       {
+        ...defaultOptions,
         ids: undefined
       }
     );
@@ -34,25 +40,16 @@ describe("pluginOptionsSchema", () => {
     expect(errors).toEqual(['"ids" is required']);
   });
 
-  it("should support defaultDataLayer as a function", async () => {
+  it("should require defaultDataLayer", async () => {
     const { isValid, errors } = await testPluginOptionsSchema(
       pluginOptionsSchema,
       {
-        ids: ["YOUR_GOOGLE_TAGMANAGER_ID"],
-        defaultDataLayer: () => {
-          return {
-            originalLocation:
-              document.location.protocol +
-              "//" +
-              document.location.hostname +
-              document.location.pathname +
-              document.location.search
-          };
-        }
+        ...defaultOptions,
+        defaultDataLayer: undefined
       }
     );
 
-    expect(isValid).toEqual(true);
-    expect(errors).toEqual([]);
+    expect(isValid).toEqual(false);
+    expect(errors).toEqual(['"defaultDataLayer" is required']);
   });
 });

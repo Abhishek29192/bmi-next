@@ -107,22 +107,21 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </li>
               <li
                 class="Header-navItem"
+                data-testid="utilities-link-MC:-login.label.btn"
               >
-                <div
-                  class="css-12vfv7w"
+                <button
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
+                  data-testid="login"
+                  tabindex="0"
+                  target="_blank"
+                  type="button"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-testid="login"
-                    tabindex="0"
-                    type="button"
-                  >
-                    MC: login.label.btn
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
+                  MC: login.label.btn
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
               </li>
               <li
                 class="Header-navItem"

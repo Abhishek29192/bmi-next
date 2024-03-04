@@ -28,8 +28,9 @@ import {
 import type { Client } from "@elastic/elasticsearch";
 
 const esSearchMock = jest.fn();
+const deleteByQueryMock = jest.fn();
 const esClientMock = {
-  deleteByQuery: jest.fn(),
+  deleteByQuery: deleteByQueryMock,
   search: esSearchMock
 } as unknown as Client;
 
@@ -68,6 +69,7 @@ const webhookMessageId = "dc158028-e6ce-4f9f-a076-aa436a913eee";
 describe("esOperations", () => {
   describe("deleteCourses", () => {
     it("deletes courses based on passed IDs", async () => {
+      deleteByQueryMock.mockResolvedValue({ body: { deleted: 1 } });
       const courseIds = [1, 2, 3];
       await deleteCourses({
         courseIds,
@@ -75,6 +77,30 @@ describe("esOperations", () => {
         esClient: esClientMock
       });
 
+      expect(esClientMock.deleteByQuery).toHaveBeenCalledTimes(1);
+      expect(esClientMock.deleteByQuery).toHaveBeenCalledWith({
+        index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
+        body: {
+          query: {
+            terms: { courseId: courseIds }
+          }
+        }
+      });
+    });
+
+    it("returns an error if provided courses do not exist in Elasticsearch", async () => {
+      deleteByQueryMock.mockResolvedValue({ body: { deleted: 0 } });
+      const courseIds = [1, 2, 3];
+      const res = await deleteCourses({
+        courseIds,
+        doceboMessageId: webhookMessageId,
+        esClient: esClientMock
+      });
+
+      expect(res).toEqual({
+        errorCode: 400,
+        errorMessage: "Given courses do not exist in ES"
+      });
       expect(esClientMock.deleteByQuery).toHaveBeenCalledTimes(1);
       expect(esClientMock.deleteByQuery).toHaveBeenCalledWith({
         index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
@@ -107,7 +133,48 @@ describe("esOperations", () => {
       expect(esClientMock.deleteByQuery).not.toHaveBeenCalled();
     });
 
+    it("returns an error if given courses do not exist in Elasticsearch", async () => {
+      deleteByQueryMock.mockResolvedValue({ body: { deleted: 0 } });
+      const catalogueId = 1;
+      const courseIds = [1, 2];
+      const req = mockRequest({
+        body: createCourseDeletedFromCatalogueEvent({
+          catalog_id: catalogueId
+        })
+      });
+      const res = await deleteCoursesFromCatalogue({
+        allowedCatalogueIds: [catalogueId],
+        courseIds: courseIds,
+        doceboMessageId: webhookMessageId,
+        esClient: esClientMock,
+        req
+      });
+
+      expect(res).toEqual({
+        errorCode: 400,
+        errorMessage: "Given courses do not exist in ES"
+      });
+      expect(esClientMock.deleteByQuery).toHaveBeenCalledWith({
+        index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
+        body: {
+          query: {
+            bool: {
+              must: [
+                { terms: { courseId: courseIds } },
+                {
+                  terms: {
+                    "catalogueId.keyword": [catalogueId]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      });
+    });
+
     it("deletes courses if single-payload event provided", async () => {
+      deleteByQueryMock.mockResolvedValue({ body: { deleted: 1 } });
       const catalogueId = 1;
       const courseIds = [1, 2];
       const req = mockRequest({
@@ -143,6 +210,7 @@ describe("esOperations", () => {
     });
 
     it("deletes courses if multiple payloads provided", async () => {
+      deleteByQueryMock.mockResolvedValue({ body: { deleted: 1 } });
       const courseId = 1;
       const req = mockRequest({
         body: createMultipleCoursesDeletedFromCatalogueEvent([
@@ -188,6 +256,7 @@ describe("esOperations", () => {
 
   describe("deleteSessions", () => {
     it("deletes a session if a single-payload event provided", async () => {
+      deleteByQueryMock.mockResolvedValue({ body: { deleted: 1 } });
       const req = mockRequest({
         body: createSessionDeletedEvent({ session_id: 1 })
       });
@@ -208,6 +277,7 @@ describe("esOperations", () => {
     });
 
     it("deletes a session if multiple payloads provided", async () => {
+      deleteByQueryMock.mockResolvedValue({ body: { deleted: 1 } });
       const req = mockRequest({
         body: createMultipleSessionsDeletedEvent([
           {
@@ -241,6 +311,31 @@ describe("esOperations", () => {
         body: {
           query: {
             terms: { sessionId: [1, 2] }
+          }
+        }
+      });
+    });
+
+    it("returns an error if given session does not exist in Elasticsearch", async () => {
+      deleteByQueryMock.mockResolvedValue({ body: { deleted: 0 } });
+      const req = mockRequest({
+        body: createSessionDeletedEvent({ session_id: 1 })
+      });
+
+      const res = await deleteSessions({
+        doceboMessageId: webhookMessageId,
+        esClient: esClientMock,
+        req
+      });
+      expect(res).toEqual({
+        errorCode: 400,
+        errorMessage: "Given sessions do not exist in ES"
+      });
+      expect(esClientMock.deleteByQuery).toHaveBeenCalledWith({
+        index: `${process.env.ES_INDEX_NAME_TRAININGS}_write`,
+        body: {
+          query: {
+            terms: { sessionId: [1] }
           }
         }
       });
@@ -366,8 +461,8 @@ describe("esOperations", () => {
           sessionId: session.id_session,
           sessionName: session.name,
           sessionSlug: session.slug_name,
-          startDate: session.start_date,
-          endDate: session.end_date,
+          startDate: new Date(session.start_date).getTime(),
+          endDate: new Date(session.end_date).getTime(),
           courseId: course.id,
           courseName: course.name,
           courseSlug: course.slug_name,
@@ -431,8 +526,8 @@ describe("esOperations", () => {
           sessionId: session1.id_session,
           sessionName: session1.name,
           sessionSlug: session1.slug_name,
-          startDate: session1.start_date,
-          endDate: session1.end_date,
+          startDate: new Date(session1.start_date).getTime(),
+          endDate: new Date(session1.end_date).getTime(),
           courseId: course1.id,
           courseName: course1.name,
           courseSlug: course1.slug_name,
@@ -457,8 +552,8 @@ describe("esOperations", () => {
           sessionId: session2.id_session,
           sessionName: session2.name,
           sessionSlug: session2.slug_name,
-          startDate: session2.start_date,
-          endDate: session2.end_date,
+          startDate: new Date(session2.start_date).getTime(),
+          endDate: new Date(session2.end_date).getTime(),
           courseId: course2.id,
           courseName: course2.name,
           courseSlug: course2.slug_name,
@@ -674,8 +769,8 @@ describe("esOperations", () => {
           sessionId: session.id_session,
           sessionName: session.name,
           sessionSlug: session.slug_name,
-          startDate: session.start_date,
-          endDate: session.end_date,
+          startDate: new Date(session.start_date).getTime(),
+          endDate: new Date(session.end_date).getTime(),
           courseId: course.id,
           courseName: course.name,
           courseSlug: course.slug_name,
@@ -750,8 +845,8 @@ describe("esOperations", () => {
           sessionId: session1.id_session,
           sessionName: session1.name,
           sessionSlug: session1.slug_name,
-          startDate: session1.start_date,
-          endDate: session1.end_date,
+          startDate: new Date(session1.start_date).getTime(),
+          endDate: new Date(session1.end_date).getTime(),
           courseId: course.id,
           courseName: course.name,
           courseSlug: course.slug_name,
@@ -776,8 +871,8 @@ describe("esOperations", () => {
           sessionId: session2.id_session,
           sessionName: session2.name,
           sessionSlug: session2.slug_name,
-          startDate: session2.start_date,
-          endDate: session2.end_date,
+          startDate: new Date(session2.start_date).getTime(),
+          endDate: new Date(session2.end_date).getTime(),
           courseId: course.id,
           courseName: course.name,
           courseSlug: course.slug_name,
@@ -843,8 +938,8 @@ describe("esOperations", () => {
           sessionId: session1.id_session,
           sessionName: session1.name,
           sessionSlug: session1.slug_name,
-          startDate: session1.start_date,
-          endDate: session1.end_date,
+          startDate: new Date(session1.start_date).getTime(),
+          endDate: new Date(session1.end_date).getTime(),
           courseId: course.id,
           courseName: course.name,
           courseSlug: course.slug_name,

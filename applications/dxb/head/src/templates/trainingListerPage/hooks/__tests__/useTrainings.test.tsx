@@ -196,7 +196,10 @@ afterEach(() => {
   });
 });
 
+const systemTime = new Date("2024-02-15T10:45:52.840Z");
 beforeEach(() => {
+  jest.useFakeTimers();
+  jest.setSystemTime(systemTime);
   mockConsole();
 });
 
@@ -216,6 +219,13 @@ describe("useTrainings", () => {
                   query_string: {
                     query: "*",
                     fields: ["courseCode", "courseName"]
+                  }
+                },
+                {
+                  range: {
+                    startDate: {
+                      gt: systemTime.getTime()
+                    }
                   }
                 }
               ]
@@ -278,6 +288,13 @@ describe("useTrainings", () => {
                   query_string: {
                     query: "*",
                     fields: ["courseCode", "courseName"]
+                  }
+                },
+                {
+                  range: {
+                    startDate: {
+                      gt: systemTime.getTime()
+                    }
                   }
                 }
               ]
@@ -370,6 +387,13 @@ describe("useTrainings", () => {
                     query: "*",
                     fields: ["courseCode", "courseName"]
                   }
+                },
+                {
+                  range: {
+                    startDate: {
+                      gt: systemTime.getTime()
+                    }
+                  }
                 }
               ]
             }
@@ -427,6 +451,13 @@ describe("useTrainings", () => {
                     query: "*",
                     fields: ["courseCode", "courseName"]
                   }
+                },
+                {
+                  range: {
+                    startDate: {
+                      gt: systemTime.getTime()
+                    }
+                  }
                 }
               ]
             }
@@ -468,6 +499,13 @@ describe("useTrainings", () => {
                   query_string: {
                     query: "*",
                     fields: ["courseCode", "courseName"]
+                  }
+                },
+                {
+                  range: {
+                    startDate: {
+                      gt: systemTime.getTime()
+                    }
                   }
                 }
               ]
@@ -525,6 +563,13 @@ describe("useTrainings", () => {
                   query_string: {
                     query: "*",
                     fields: ["courseCode", "courseName"]
+                  }
+                },
+                {
+                  range: {
+                    startDate: {
+                      gt: systemTime.getTime()
+                    }
                   }
                 }
               ]
@@ -649,6 +694,13 @@ describe("useTrainings", () => {
                       query: "*uk*",
                       fields: ["courseCode", "courseName"]
                     }
+                  },
+                  {
+                    range: {
+                      startDate: {
+                        gt: systemTime.getTime()
+                      }
+                    }
                   }
                 ]
               }
@@ -729,6 +781,13 @@ describe("useTrainings", () => {
                     query: "*uk*",
                     fields: ["courseCode", "courseName"]
                   }
+                },
+                {
+                  range: {
+                    startDate: {
+                      gt: systemTime.getTime()
+                    }
+                  }
                 }
               ]
             }
@@ -786,6 +845,13 @@ describe("useTrainings", () => {
                     query: "*uk*",
                     fields: ["courseCode", "courseName"]
                   }
+                },
+                {
+                  range: {
+                    startDate: {
+                      gt: systemTime.getTime()
+                    }
+                  }
                 }
               ]
             }
@@ -830,6 +896,13 @@ describe("useTrainings", () => {
                   query_string: {
                     query: "*",
                     fields: ["courseCode", "courseName"]
+                  }
+                },
+                {
+                  range: {
+                    startDate: {
+                      gt: systemTime.getTime()
+                    }
                   }
                 }
               ]

@@ -1,5 +1,4 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
-import { createSession } from "@bmi/docebo-types";
 import {
   createHistory,
   createMemorySource,
@@ -8,7 +7,10 @@ import {
 } from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { createTraining } from "../../../__tests__/helpers/TrainingHelper";
+import {
+  createSession,
+  createTraining
+} from "../../../__tests__/helpers/TrainingHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import TrainingDetailsPage, {
   Props as TrainingProps
@@ -34,6 +36,13 @@ const trainingRegistrationPageData = {
 jest.mock("../components/RegistrationCompletedDialog", () => ({
   __esModule: true,
   default: () => <>Success training registration modal</>
+}));
+
+const useIsClientMock = jest.fn();
+
+jest.mock("@bmi-digital/components", () => ({
+  ...jest.requireActual("@bmi-digital/components"),
+  useIsClient: () => useIsClientMock()
 }));
 
 window.history.replaceState = jest.fn();
@@ -72,6 +81,8 @@ jest.mock("../../../utils/useHeaderHeight", () => ({
 beforeEach(() => {
   jest.resetModules();
   jest.clearAllMocks();
+
+  useIsClientMock.mockReturnValue({ isClient: true });
 });
 
 describe("Training DetailsPage", () => {
@@ -100,14 +111,14 @@ describe("Training DetailsPage", () => {
 
   it("should render training id label if code does not exists for course", () => {
     renderTrainingDetailsPage({
-      course: createTraining({ code: null })
+      course: createTraining({ code: undefined })
     });
     expect(screen.queryByTestId("training-id")).not.toBeInTheDocument();
   });
 
   it("should not render sessions if no sessions available for the course", () => {
     renderTrainingDetailsPage({
-      course: createTraining({ sessions: null })
+      course: createTraining({ sessions: [] })
     });
     expect(screen.queryByTestId("sessions-container")).not.toBeInTheDocument();
     expect(screen.getByTestId("no-available-sessions")).toBeInTheDocument();
@@ -118,7 +129,11 @@ describe("Training DetailsPage", () => {
     sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
     renderTrainingDetailsPage({
       course: createTraining({
-        sessions: [createSession({ date_start: sessionStartDate.toString() })]
+        sessions: [
+          createSession({
+            date_start: sessionStartDate.getTime()
+          })
+        ]
       })
     });
 
@@ -130,6 +145,7 @@ describe("Training DetailsPage", () => {
     );
     expect(screen.getByTestId("session-date")).toBeInTheDocument();
     expect(screen.getByTestId("session-cta-button")).toBeInTheDocument();
+    expect(screen.queryByTestId("progress-indicator")).not.toBeInTheDocument();
   });
 
   it("should not render sessions planned for the past", () => {
@@ -137,7 +153,7 @@ describe("Training DetailsPage", () => {
     sessionStartDate.setSeconds(sessionStartDate.getSeconds() - 3600);
     renderTrainingDetailsPage({
       course: createTraining({
-        sessions: [createSession({ date_start: sessionStartDate.toString() })]
+        sessions: [createSession({ date_start: sessionStartDate.getTime() })]
       })
     });
 
@@ -164,5 +180,24 @@ describe("Training DetailsPage", () => {
       },
       ""
     );
+  });
+
+  it("should not render sessions on server side", () => {
+    useIsClientMock.mockReturnValue({ isClient: false });
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
+    renderTrainingDetailsPage({
+      course: createTraining({
+        sessions: [
+          createSession({
+            date_start: sessionStartDate.getTime()
+          })
+        ]
+      })
+    });
+
+    expect(screen.getByTestId("progress-indicator")).toBeInTheDocument();
+    expect(screen.queryByTestId("sessions-container")).not.toBeInTheDocument();
+    expect(screen.getByTestId("no-available-sessions")).toBeInTheDocument();
   });
 });

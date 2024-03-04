@@ -4,6 +4,7 @@ import Grid from "@bmi-digital/components/grid";
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import logger from "@bmi-digital/functions-logger";
+import { Training } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import { navigate } from "gatsby";
 import React, { useState } from "react";
@@ -16,7 +17,6 @@ import { handleEmailValidation } from "../../../utils/emailUtils";
 import getCookie from "../../../utils/getCookie";
 import ExtraParticipants from "./ExtraParticipants";
 import CustomTextField from "./TextField";
-
 import {
   CompetentChamberLabel,
   OtherOptionField,
@@ -33,6 +33,7 @@ const TrainingRegistrationForm = (
   props: TrainingRegistrationPageData & {
     trainingDetailsPageUrl: string;
     courseCode?: string;
+    training?: Training;
   }
 ) => {
   const { getMicroCopy, node_locale } = useSiteContext();
@@ -59,6 +60,22 @@ const TrainingRegistrationForm = (
         {}
       );
       const sanitizedValues = {};
+      const checkmark = String.fromCodePoint(0x2713);
+
+      sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_LABEL)] =
+        `${props.training?.courseCode} - ${props.training?.courseName}, ${props.training?.sessionName}`;
+
+      sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_START_DATE)] =
+        props.training?.startDate &&
+        new Date(props.training.startDate).toLocaleString(node_locale);
+
+      sanitizedValues[
+        getMicroCopy(microCopy.TRAINING_EMAIL_TERM_OF_USE_LABEL)
+      ] = checkmark;
+
+      sanitizedValues[
+        getMicroCopy(microCopy.TRAINING_EMAIL_DATA_CONSENT_LABEL)
+      ] = checkmark;
 
       for (const key of Object.keys(valuesToSend)) {
         if (key === "consent") {
@@ -89,7 +106,7 @@ const TrainingRegistrationForm = (
         title: "",
         recipients: props.recipient,
         values: sanitizedValues,
-        emailSubjectFormat: `${props.emailSubject} ${props.courseCode}`
+        emailSubjectFormat: `${props.emailSubject} ${props?.courseCode}`
       });
 
       const response = await fetch(gcpFormSubmitEndpoint, {
@@ -105,11 +122,11 @@ const TrainingRegistrationForm = (
       logger.error({ message: (error as Error).message });
     }
 
+    setIsSubmitting(false);
     navigate(props.trainingDetailsPageUrl, {
       state: { showResultsModal: true },
       replace: true
     });
-    setIsSubmitting(false);
   };
 
   const discoverySourceOptions = [

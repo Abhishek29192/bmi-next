@@ -7,7 +7,6 @@
  to="https://www.bmigroup.com/de/planmaster/"
  status = 301
 
-
  [[redirects]]
  from="/*"
  to="https://www.bmigroup.com/de/"
