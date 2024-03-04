@@ -2,6 +2,11 @@
 # unless otherwise overridden by more specific contexts.
 
 # General Germany bmigroup.de redirect
+[[redirects]]
+ from="/planmaster"
+ to="https://www.bmigroup.com/de/planmaster/"
+ status = 301
+
 
  [[redirects]]
  from="/*"
