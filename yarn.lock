@@ -4134,6 +4134,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/redirects-website-de-bmigroup-de@workspace:applications/redirects-website-de-bmigroup-de":
+  version: 0.0.0-use.local
+  resolution: "@bmi/redirects-website-de-bmigroup-de@workspace:applications/redirects-website-de-bmigroup-de"
+  dependencies:
+    eslint: ^8.56.0
+    gatsby: ^5.13.1
+    gatsby-plugin-gatsby-cloud: ^5.13.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    toml: ^3.0.0
+    webpack: ^5.89.0
+  languageName: unknown
+  linkType: soft
+
 "@bmi/redirects-website-de-monier@workspace:applications/redirects-website-de-monier":
   version: 0.0.0-use.local
   resolution: "@bmi/redirects-website-de-monier@workspace:applications/redirects-website-de-monier"
