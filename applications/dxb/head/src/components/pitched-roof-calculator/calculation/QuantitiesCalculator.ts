@@ -58,25 +58,22 @@ export const calculateBattensForFaces = (
     battens: battenCalc(face.vertices, mainTileVariant)
   }));
 
-export const convertProductRowToResultsRow = (
-  {
-    name,
-    packSize = 1, // No packs by default
-    baseQuantity,
-    category,
-    externalProductCode,
-    image,
-    withContingency
-  }: ProductRow,
-  contingency = 0
-): ResultsRow => ({
+export const convertProductRowToResultsRow = ({
+  name,
+  packSize = 1, // No packs by default
+  baseQuantity,
+  category,
+  externalProductCode,
+  image,
+  withContingency
+}: ProductRow): ResultsRow => ({
   category,
   image,
   description: name,
   externalProductCode,
   packSize: packSize === 1 ? "-" : packSize.toString(),
   quantity: Math.ceil(
-    Math.ceil(baseQuantity / packSize) * (withContingency ? 1 + contingency : 1)
+    Math.ceil(baseQuantity / packSize) * (withContingency ? 1 + CONTINGENCY : 1)
   )
 });
 
@@ -187,7 +184,8 @@ class QuantitiesCalculator {
       this.addProduct(
         ProductCategory.Tiles,
         mainTileVariant,
-        faceTiles.quantity
+        faceTiles.quantity,
+        true
       );
 
       if (mainTileVariant.halfTile && faceTiles.half.quantity) {
@@ -334,7 +332,7 @@ class QuantitiesCalculator {
 
   addVentilationHoods(ventilationHoods: VentilationHood[]) {
     ventilationHoods.forEach((item) =>
-      this.addProduct(ProductCategory.Ventilation, item, 1, false)
+      this.addProduct(ProductCategory.Ventilation, item, 1)
     );
   }
 
@@ -459,12 +457,7 @@ class QuantitiesCalculator {
     }
 
     if (mainTileVariant.finishingKit) {
-      this.addProduct(
-        ProductCategory.Fixings,
-        mainTileVariant.finishingKit,
-        1,
-        false
-      );
+      this.addProduct(ProductCategory.Fixings, mainTileVariant.finishingKit, 1);
     }
 
     lines.eave.forEach(({ length }) =>
@@ -500,7 +493,7 @@ class QuantitiesCalculator {
     category: ProductCategory,
     product: Products,
     baseQuantity: number,
-    withContingency = true
+    withContingency?: boolean
   ) {
     const productFromMap = this.results.get(product.code);
 
@@ -538,11 +531,9 @@ class QuantitiesCalculator {
       accessories: []
     };
 
-    this.results.forEach((product) =>
-      result[product.category].push(
-        convertProductRowToResultsRow(product, CONTINGENCY)
-      )
-    );
+    this.results.forEach((product) => {
+      result[product.category].push(convertProductRowToResultsRow(product));
+    });
 
     return result;
   }
