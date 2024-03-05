@@ -1,3 +1,4 @@
+import { useIsClient } from "@bmi-digital/components";
 import Button from "@bmi-digital/components/button";
 import { ClickableAction } from "@bmi-digital/components/clickable";
 import Dialog from "@bmi-digital/components/dialog";
@@ -7,6 +8,7 @@ import { Link as GatsbyLink, graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";
+import memoize from "../utils/memoize";
 import { getPathWithCountryCode } from "../utils/path";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
@@ -46,20 +48,31 @@ export const isExternalUrl = (url: string): boolean => {
 };
 
 // TODO: This whole function needs refactoring
-export const getClickableActionFromUrl = (
-  linkedPage?: Data["linkedPage"],
-  url?: Data["url"],
-  countryCode?: string,
-  assetUrl?: string | null,
-  label?: string,
-  type?: Data["type"],
-  onClick?: (...args: unknown[]) => void,
+export const getClickableActionFromUrl = ({
+  isSSR,
+  linkedPage,
+  url,
+  countryCode,
+  assetUrl,
+  label,
+  type,
+  onClick,
+  gtmData
+}: {
+  isSSR?: boolean;
+  linkedPage?: Data["linkedPage"];
+  url?: Data["url"];
+  countryCode?: string;
+  assetUrl?: string | null;
+  label?: string;
+  type?: Data["type"];
+  onClick?: (...args: unknown[]) => void;
   gtmData?: {
     id: string;
     label: string;
     action: string;
-  }
-): (ClickableAction & { "data-gtm"?: string }) | undefined => {
+  };
+}): (ClickableAction & { "data-gtm"?: string }) | undefined => {
   if (type === DataTypeEnum.Visualiser) {
     const dataGtm = gtmData || {
       id: "cta-visualiser1",
@@ -130,17 +143,30 @@ export const getClickableActionFromUrl = (
   }
 
   if (url) {
+    const isIntouchLink =
+      process.env.GATSBY_INTOUCH_ORIGIN &&
+      url.includes(process.env.GATSBY_INTOUCH_ORIGIN);
     const externalLinkProps = {
       // NOTE: External links should always open in a new tab.
       target: "_blank",
       rel: "noopener noreferrer"
     };
-    const dataGtm = gtmData || { id: "cta-click1", action: url, label };
+
+    const href =
+      !isSSR && isIntouchLink
+        ? `${url}?prev_page=${encodeURIComponent(
+            window.location.origin + window.location.pathname
+          )}`
+        : url;
+
+    const dataGtm = gtmData || { id: "cta-click1", action: href, label };
 
     return {
       model: "htmlLink",
-      href: url,
-      ...(checkUrlAction(url) || !isExternalUrl(url) ? {} : externalLinkProps),
+      href,
+      ...(!checkUrlAction(url) && (isIntouchLink || isExternalUrl(url))
+        ? externalLinkProps
+        : {}),
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -154,6 +180,7 @@ export const getCTA = (
   countryCode: string,
   linkLabel?: string
 ) => {
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
   if ("cta" in data) {
     if (!data.cta) {
       return null;
@@ -162,12 +189,16 @@ export const getCTA = (
     const { label, linkedPage, url, asset } = data.cta;
 
     return {
-      action: getClickableActionFromUrl(
-        linkedPage,
-        url,
-        countryCode,
-        asset?.file?.url,
-        label
+      action: memoizedGetClickableActionFromUrl(
+        {
+          isSSR: typeof window === "undefined",
+          linkedPage,
+          url,
+          countryCode,
+          assetUrl: asset?.file?.url,
+          label
+        },
+        []
       ),
       label: label
     };
@@ -179,13 +210,11 @@ export const getCTA = (
   }
 
   return {
-    action: getClickableActionFromUrl(
-      { path },
-      null,
+    action: getClickableActionFromUrl({
+      linkedPage: { path },
       countryCode,
-      undefined,
-      linkLabel
-    ),
+      label: linkLabel
+    }),
     label: linkLabel
   };
 };
@@ -270,6 +299,7 @@ export const Link = ({
   onClick?: (...args: unknown[]) => void;
   hasBrandColours?: boolean;
 }) => {
+  const { isClient } = useIsClient();
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const { countryCode } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
@@ -294,16 +324,24 @@ export const Link = ({
 
   const action = useMemo(
     () =>
-      getClickableActionFromUrl(
-        data?.linkedPage,
-        getLinkURL(data),
+      getClickableActionFromUrl({
+        isSSR: !isClient,
+        linkedPage: data?.linkedPage,
+        url: getLinkURL(data),
         countryCode,
-        data?.asset?.file?.url,
-        data?.label,
-        data?.type,
-        handleOnClick
-      ),
-    [data, countryCode, handleOnClick]
+        assetUrl: data?.asset?.file?.url,
+        label: data?.label,
+        type: data?.type,
+        onClick: handleOnClick
+      }),
+    [
+      openCalculator,
+      openVisualiser,
+      setDialogIsOpen,
+      data,
+      countryCode,
+      isClient
+    ]
   );
 
   const handleDialogCloseClick = useCallback(() => {

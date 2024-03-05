@@ -1,3 +1,4 @@
+import { useIsClient } from "@bmi-digital/components";
 import AnchorLink, {
   AnchorLinkProps
 } from "@bmi-digital/components/anchor-link";
@@ -12,6 +13,7 @@ import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
+import memoize from "../utils/memoize";
 import {
   Data as LinkData,
   NavigationData,
@@ -30,7 +32,9 @@ const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const LinkColumnsSection = ({ data }: { data: Data }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
+  const { isClient } = useIsClient();
   const { title, columns } = data;
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   const renderOpenButton = (title: string) => (
     <GTMButton
@@ -76,12 +80,18 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
                   action: ClickableAction | undefined;
                   label: string;
                 } => {
-                  const action = getClickableActionFromUrl(
-                    link.linkedPage,
-                    link.url,
-                    countryCode,
-                    link.asset ? `https:${link.asset?.file?.url}` : undefined,
-                    link.label
+                  const action = memoizedGetClickableActionFromUrl(
+                    {
+                      isSSR: !isClient,
+                      linkedPage: link.linkedPage,
+                      url: link.url,
+                      countryCode,
+                      assetUrl: link.asset
+                        ? `https:${link.asset?.file?.url}`
+                        : undefined,
+                      label: link.label
+                    },
+                    []
                   );
 
                   return {

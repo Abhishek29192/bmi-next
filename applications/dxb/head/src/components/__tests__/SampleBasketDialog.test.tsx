@@ -115,12 +115,9 @@ describe("SampleBasketDialog component", () => {
   });
 
   it("should navigate to sample order section", () => {
-    const basketAction = getClickableActionFromUrl(
-      null,
-      null,
-      undefined,
-      `/no/sample-basket/`
-    );
+    const basketAction = getClickableActionFromUrl({
+      assetUrl: "/no/sample-basket/"
+    });
 
     render(
       <ThemeProvider>

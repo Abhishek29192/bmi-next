@@ -1,7 +1,7 @@
 import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "./Image";
 import { getClickableActionFromUrl } from "./Link";
 import { Data as PromoData } from "./Promo";
@@ -25,6 +25,18 @@ const ErrorFallback = ({
     featuredMedia = null,
     featuredVideo = null
   } = promo ?? {};
+
+  const memoizedGetClickableActionFromUrl = useMemo(
+    () =>
+      getClickableActionFromUrl({
+        linkedPage: cta?.linkedPage,
+        url: cta?.url,
+        countryCode,
+        label: cta?.label
+      }),
+    [cta, countryCode]
+  );
+
   return (
     <PromoSection
       title={title}
@@ -40,17 +52,7 @@ const ErrorFallback = ({
         {subtitle}
       </Typography>
       {cta && (
-        <Button
-          action={getClickableActionFromUrl(
-            cta?.linkedPage,
-            cta?.url,
-            countryCode,
-            undefined,
-            cta.label
-          )}
-        >
-          {cta.label}
-        </Button>
+        <Button action={memoizedGetClickableActionFromUrl}>{cta.label}</Button>
       )}
     </PromoSection>
   );

@@ -1,7 +1,9 @@
+import { useIsClient } from "@bmi-digital/components";
 import AnchorLink from "@bmi-digital/components/anchor-link";
 import MasonryGrid from "@bmi-digital/components/masonry-grid";
 import classnames from "classnames";
 import React from "react";
+import memoize from "../utils/memoize";
 import {
   Data as LinkData,
   NavigationData,
@@ -57,6 +59,8 @@ const WrapperComponent = ({
 
 const SitemapBlock = ({ links, label, level = 0 }: Props) => {
   const { countryCode } = useSiteContext();
+  const { isClient } = useIsClient();
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   const validSitemapLinks = links?.filter(isValidSitemapType);
 
@@ -74,12 +78,9 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
               key={`${level}-${label}`}
             >
               <AnchorLink
-                action={getClickableActionFromUrl(
-                  linkedPage,
-                  url,
-                  countryCode,
-                  undefined,
-                  label
+                action={memoizedGetClickableActionFromUrl(
+                  { isSSR: !isClient, linkedPage, url, countryCode, label },
+                  []
                 )}
                 data-testid={"sitemap-link"}
               >
@@ -100,12 +101,15 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
                 >
                   {link ? (
                     <AnchorLink
-                      action={getClickableActionFromUrl(
-                        link.linkedPage,
-                        link.url,
-                        countryCode,
-                        undefined,
-                        link.label
+                      action={memoizedGetClickableActionFromUrl(
+                        {
+                          isSSR: !isClient,
+                          linkedPage: link.linkedPage,
+                          url: link.url,
+                          countryCode,
+                          label: link.label
+                        },
+                        []
                       )}
                     >
                       {label}
