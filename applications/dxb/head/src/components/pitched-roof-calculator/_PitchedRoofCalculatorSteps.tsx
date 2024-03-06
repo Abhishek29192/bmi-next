@@ -217,15 +217,7 @@ const PitchedRoofCalculatorSteps = ({
           mainTileReferencesMapper
         );
 
-      const {
-        left,
-        right,
-        leftStart,
-        rightStart,
-        halfLeft,
-        halfRight,
-        ...rest
-      } = productReferences;
+      const { left, right, halfLeft, halfRight, ...rest } = productReferences;
 
       setVariant({
         ...newVariant,
@@ -233,8 +225,6 @@ const PitchedRoofCalculatorSteps = ({
         vergeOption: getVergeOption({
           left,
           right,
-          leftStart,
-          rightStart,
           halfLeft,
           halfRight
         })

@@ -1,10 +1,11 @@
-import { createProduct, ProductReference } from "@bmi/elasticsearch-types";
+import { ProductReference } from "@bmi/elasticsearch-types";
+import { createProduct } from "../../__tests__/helpers/createProduct";
 import {
   mainTileReferencesMapper,
   ProductCategory,
   ProductType,
   ReferencedTileProducts,
-  VergeVariant
+  WidthBasedProduct
 } from "../../types";
 import {
   convertToCentimeters,
@@ -17,10 +18,11 @@ describe("prepareProducts", () => {
   const tileClassificationAttributes = {
     APPEARANCEATTRIBUTES$COLOUR: [{ code: "black", name: "black" }],
     GENERALINFORMATION$CLASSIFICATION: [{ code: "clay", name: "clay" }],
-    MEASUREMENTS$WIDTH: [{ value: "300", code: "300mm" }],
     MEASUREMENTS$LENGTH: [{ value: "30", code: "30cm" }],
     TILESATTRIBUTES$MINIMUMBATTENSPACING: [{ value: "10", code: "30cm" }],
     TILESATTRIBUTES$RIDGESPACE: [{ value: "30", code: "30cm" }],
+    TILESATTRIBUTES$AVERAGEDECKWIDTH: [{ value: "300", code: "300mm" }],
+    TILESATTRIBUTES$AVERAGEDECKLENGTH: [{ value: "270", code: "270mm" }],
     GENERALINFORMATION$PRODUCTTYPE: [{ code: ProductType.tile }],
     battenSpacings: [
       {
@@ -55,7 +57,7 @@ describe("prepareProducts", () => {
         .base_product_code[0];
       expect(tile.color).toBe("black");
       expect(tile.category).toBe("clay");
-      expect(tile.width).toBe(30);
+      expect(tile.coverWidth).toBe(30);
       expect(tile.length).toBe(30);
       expect(tile.minBattenSpacing).toBe(10);
       expect(tile.maxBattenSpacing).toBe(33);
@@ -81,7 +83,7 @@ describe("prepareProducts", () => {
     it("ignores product if measurements are wrong", () => {
       const product = createProduct({
         ...tileClassificationAttributes,
-        MEASUREMENTS$WIDTH: [{ value: "mock", code: "mock" }],
+        TILESATTRIBUTES$AVERAGEDECKWIDTH: [{ value: "mock", code: "mock" }],
         baseProduct: {
           code: "base_product_code",
           name: "base product"
@@ -203,13 +205,13 @@ describe("convertToCentimeters", () => {
     ).toThrow();
   });
 
-  it("return null", () => {
+  it("returns undefined", () => {
     expect(
       convertToCentimeters(
         { value: "str", name: "str cm", code: "strcm" },
         false
       )
-    ).toBe(null);
+    ).toBeUndefined();
   });
 });
 
@@ -222,7 +224,7 @@ describe("transformProductReferences", () => {
 
   const hip = createProduct({
     code: "hip_product",
-    MEASUREMENTS$LENGTH: [{ value: "35", code: "35cm" }]
+    TILESATTRIBUTES$AVERAGEDECKLENGTH: [{ value: "35", code: "35cm" }]
   });
   const firstAccessory = createProduct({
     code: "accessory",
@@ -233,7 +235,7 @@ describe("transformProductReferences", () => {
 
   const halfTile = createProduct({
     code: "half_tile",
-    MEASUREMENTS$WIDTH: [{ value: "30", code: "30cm" }]
+    TILESATTRIBUTES$AVERAGEDECKWIDTH: [{ value: "30", code: "30cm" }]
   });
 
   it("groups products product references correctly", () => {
@@ -243,15 +245,15 @@ describe("transformProductReferences", () => {
       mainTileReferencesMapper
     );
 
-    expect(res.hip.code).toBe(hip.code);
-    expect(res.halfTile.code).toBe(halfTile.code);
-    expect(res.accessories.length).toBe(1);
+    expect(res.hip!.code).toBe(hip.code);
+    expect(res.halfTile!.code).toBe(halfTile.code);
+    expect(res.accessories!.length).toBe(1);
   });
 
-  it("returns null if length based product doesn't have 'length' field", () => {
+  it("returns null if length based product doesn't have 'coverLength' field", () => {
     const product = {
       ...hip,
-      MEASUREMENTS$LENGTH: undefined
+      TILESATTRIBUTES$AVERAGEDECKLENGTH: undefined
     };
     const res = transformProductReferences<ReferencedTileProducts>(
       productReferences,
@@ -262,10 +264,10 @@ describe("transformProductReferences", () => {
     expect(res.hip).toBe(undefined);
   });
 
-  it("returns null if width based product doesn't have 'width' field", () => {
+  it("returns null if width based product doesn't have 'coverWidth' field", () => {
     const product = {
       ...halfTile,
-      MEASUREMENTS$WIDTH: undefined
+      TILESATTRIBUTES$AVERAGEDECKWIDTH: undefined
     };
     const res = transformProductReferences<ReferencedTileProducts>(
       productReferences,
@@ -278,8 +280,14 @@ describe("transformProductReferences", () => {
 });
 
 describe("getVergeOption", () => {
-  const leftVerge = createProduct({ name: "left verge" }) as VergeVariant;
-  const rightVerge = createProduct({ name: "right verge" }) as VergeVariant;
+  const leftVerge = createProduct<WidthBasedProduct>({
+    name: "left verge",
+    coverWidth: 10
+  });
+  const rightVerge = createProduct<WidthBasedProduct>({
+    name: "right verge",
+    coverWidth: 10
+  });
 
   it("returns undefined", () => {
     const verge = getVergeOption({ right: undefined, left: undefined });
@@ -294,8 +302,6 @@ describe("getVergeOption", () => {
     expect(verge).toStrictEqual({
       left: leftVerge,
       right: rightVerge,
-      rightStart: undefined,
-      leftStart: undefined,
       halfLeft: undefined,
       halfRight: undefined
     });

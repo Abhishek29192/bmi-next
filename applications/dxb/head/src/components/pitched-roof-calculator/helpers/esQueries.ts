@@ -21,10 +21,10 @@ export const getProductsQuery = (pitches: number[]) => ({
                   "GENERALINFORMATION$PRODUCTTYPE.code": ProductType.tile
                 }
               },
-              { exists: { field: "MEASUREMENTS$WIDTH" } },
               { exists: { field: "MEASUREMENTS$LENGTH" } },
               { exists: { field: "TILESATTRIBUTES$MINIMUMBATTENSPACING" } },
               { exists: { field: "TILESATTRIBUTES$RIDGESPACE" } },
+              { exists: { field: "TILESATTRIBUTES$AVERAGEDECKWIDTH" } },
               { exists: { field: "GENERALINFORMATION$CLASSIFICATION" } },
               { exists: { field: "APPEARANCEATTRIBUTES$COLOUR" } }
             ],

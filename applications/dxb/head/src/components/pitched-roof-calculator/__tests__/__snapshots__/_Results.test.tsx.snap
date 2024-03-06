@@ -24,7 +24,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           <div
             aria-label="Quantity for Zanda Protector main tile black"
           >
-            1418
+            1386
           </div>
           <button
             aria-label="Remove Zanda Protector main tile black"
@@ -63,6 +63,56 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           </button>
           <button
             aria-label="Decrease quantity of Zanda Protector half tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black left
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black left"
+          >
+            17
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black left"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black right
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black right"
+          >
+            15
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black right"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right"
           >
             -
           </button>
@@ -331,106 +381,6 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         </h6>
       </div>
       <div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black left start
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black left start"
-          >
-            3
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black left start"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left start"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left start"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black left
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black left"
-          >
-            105
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black left"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black right start
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black right start"
-          >
-            3
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black right start"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right start"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right start"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black right
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black right"
-          >
-            105
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black right"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right"
-          >
-            -
-          </button>
-        </div>
         <div>
           <div>
             Fuglelist ventilert
@@ -715,7 +665,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           <div
             aria-label="Quantity for Zanda Protector main tile black"
           >
-            1418
+            1386
           </div>
           <button
             aria-label="Remove Zanda Protector main tile black"
@@ -754,6 +704,56 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           </button>
           <button
             aria-label="Decrease quantity of Zanda Protector half tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black left
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black left"
+          >
+            17
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black left"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black right
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black right"
+          >
+            15
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black right"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right"
           >
             -
           </button>
@@ -1022,106 +1022,6 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </h6>
       </div>
       <div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black left start
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black left start"
-          >
-            3
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black left start"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left start"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left start"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black left
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black left"
-          >
-            105
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black left"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black right start
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black right start"
-          >
-            3
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black right start"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right start"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right start"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black right
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black right"
-          >
-            105
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black right"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right"
-          >
-            -
-          </button>
-        </div>
         <div>
           <div>
             Fuglelist ventilert
@@ -2664,7 +2564,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           <div
             aria-label="Quantity for Zanda Protector main tile black"
           >
-            1418
+            1386
           </div>
           <button
             aria-label="Remove Zanda Protector main tile black"
@@ -2703,6 +2603,56 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           </button>
           <button
             aria-label="Decrease quantity of Zanda Protector half tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black left
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black left"
+          >
+            17
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black left"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black right
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black right"
+          >
+            15
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black right"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right"
           >
             -
           </button>
@@ -2971,106 +2921,6 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         </h6>
       </div>
       <div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black left start
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black left start"
-          >
-            3
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black left start"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left start"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left start"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black left
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black left"
-          >
-            105
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black left"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black right start
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black right start"
-          >
-            3
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black right start"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right start"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right start"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Zanda_Protector_verge metal flush black right
-          </div>
-          <div
-            aria-label="Quantity for Zanda_Protector_verge metal flush black right"
-          >
-            105
-          </div>
-          <button
-            aria-label="Remove Zanda_Protector_verge metal flush black right"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right"
-          >
-            -
-          </button>
-        </div>
         <div>
           <div>
             Fuglelist ventilert

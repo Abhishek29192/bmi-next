@@ -13,42 +13,41 @@ import {
   Tile,
   Underlay,
   VentilationHood,
-  VergeVariant,
   WidthBasedProduct
 } from "../types";
 import { Measurements } from "../types/roof";
 import { createProduct } from "./helpers/createProduct";
 
-const vergeHalfLeftTile = createProduct<VergeVariant>({
+const vergeHalfLeftTile = createProduct<WidthBasedProduct>({
   code: "849702122_Zanda_Protector_verge_half_tile_black_left",
   name: "Zanda_Protector_verge half tile black left",
   externalProductCode: "87035763",
   mainImage: "",
-  width: 15
+  coverWidth: 15
 });
 
-const vergeHalfRightTile = createProduct<VergeVariant>({
+const vergeHalfRightTile = createProduct<WidthBasedProduct>({
   code: "849702122_Zanda_Protector_verge_half_tile_black_right",
   name: "Zanda_Protector_verge half tile black right",
   externalProductCode: "87035764",
   mainImage: "",
-  width: 15
+  coverWidth: 15
 });
 
-const vergeLeftTile = createProduct<VergeVariant>({
+const vergeLeftTile = createProduct<WidthBasedProduct>({
   code: "849702122_Zanda_Protector_verge_tile_black_left",
   name: "Zanda_Protector_verge tile black left",
   externalProductCode: "87035761",
   mainImage: "",
-  width: 30
+  coverWidth: 30
 });
 
-const vergeRightTile = createProduct<VergeVariant>({
+const vergeRightTile = createProduct<WidthBasedProduct>({
   code: "849702122_Zanda_Protector_verge_tile_black_right",
   name: "Zanda_Protector_verge tile black right",
   externalProductCode: "87035762",
   mainImage: "",
-  width: 30
+  coverWidth: 30
 });
 
 const input: QuantitiesCalculatorProps = {
@@ -155,7 +154,7 @@ const input: QuantitiesCalculatorProps = {
       externalProductCode: "46035795",
       mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      width: 18
+      coverWidth: 18
     }),
     hip: createProduct<LengthBasedProduct>({
       code: "249702122_Zanda_Protector_ridge_tile_black",
@@ -163,7 +162,7 @@ const input: QuantitiesCalculatorProps = {
       externalProductCode: "46035761",
       mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 33.33
+      coverLength: 33.33
     }),
     ridgeOptions: [
       createProduct<RidgeOption>({
@@ -172,7 +171,7 @@ const input: QuantitiesCalculatorProps = {
         externalProductCode: "46035761",
         mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        length: 33.33
+        coverLength: 33.33
       }),
       createProduct<RidgeOption>({
         code: "249702122_Zanda_Protector_SAMPLE_RIDGE_METAL_FLUSH",
@@ -180,41 +179,25 @@ const input: QuantitiesCalculatorProps = {
         externalProductCode: "46035001",
         mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        length: 33.33
+        coverLength: 33.33
       })
     ],
     vergeOption: {
-      left: createProduct<VergeVariant>({
+      left: createProduct<WidthBasedProduct>({
         code: "849702122_Zanda_Protector_verge_metal_flush_black_left",
         name: "Zanda_Protector_verge metal flush black left",
         externalProductCode: "86035761",
         mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        length: 10
+        coverWidth: 10
       }),
-      right: createProduct<VergeVariant>({
+      right: createProduct<WidthBasedProduct>({
         code: "849702122_Zanda_Protector_verge_metal_flush_black_right",
         name: "Zanda_Protector_verge metal flush black right",
         externalProductCode: "86035762",
         mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        length: 10
-      }),
-      leftStart: createProduct<VergeVariant>({
-        code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
-        name: "Zanda_Protector_verge metal flush black left start",
-        externalProductCode: "86035763",
-        mainImage:
-          "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        length: 10
-      }),
-      rightStart: createProduct<VergeVariant>({
-        code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
-        name: "Zanda_Protector_verge metal flush black right start",
-        externalProductCode: "86035764",
-        mainImage:
-          "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        length: 10
+        coverWidth: 10
       })
     },
     valleyMetalFlushStart: createProduct<LengthBasedProduct>({
@@ -223,7 +206,7 @@ const input: QuantitiesCalculatorProps = {
       externalProductCode: "66035761",
       mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 19
+      coverLength: 19
     }),
     valleyMetalFlush: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black",
@@ -231,7 +214,7 @@ const input: QuantitiesCalculatorProps = {
       externalProductCode: "66035762",
       mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 19
+      coverLength: 19
     }),
     valleyMetalFlushEnd: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_end",
@@ -239,7 +222,7 @@ const input: QuantitiesCalculatorProps = {
       externalProductCode: "66035763",
       mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 19
+      coverLength: 19
     }),
     valleyMetalFlushTop: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_top",
@@ -247,7 +230,7 @@ const input: QuantitiesCalculatorProps = {
       externalProductCode: "66035764",
       mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 19
+      coverLength: 19
     }),
     valleyMetalFlushDormerStart: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_dormer_start",
@@ -255,7 +238,7 @@ const input: QuantitiesCalculatorProps = {
       externalProductCode: "66035765",
       mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 19
+      coverLength: 19
     }),
     accessories: [
       createProduct<Accessory>({
@@ -348,42 +331,26 @@ const input: QuantitiesCalculatorProps = {
     maxBattenSpacing: 31,
     eaveGauge: 38,
     ridgeSpacing: 5,
-    width: 33.2,
+    coverWidth: 33.2,
     length: 42,
     brokenBond: true
   },
   vergeOption: {
-    left: createProduct<VergeVariant>({
+    left: createProduct<WidthBasedProduct>({
       code: "849702122_Zanda_Protector_verge_metal_flush_black_left",
       name: "Zanda_Protector_verge metal flush black left",
       externalProductCode: "86035761",
       mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 10
+      coverWidth: 10
     }),
-    right: createProduct<VergeVariant>({
+    right: createProduct<WidthBasedProduct>({
       code: "849702122_Zanda_Protector_verge_metal_flush_black_right",
       name: "Zanda_Protector_verge metal flush black right",
       externalProductCode: "86035762",
       mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 10
-    }),
-    leftStart: createProduct<VergeVariant>({
-      code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
-      name: "Zanda_Protector_verge metal flush black left start",
-      externalProductCode: "86035763",
-      mainImage:
-        "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 10
-    }),
-    rightStart: createProduct<VergeVariant>({
-      code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
-      name: "Zanda_Protector_verge metal flush black right start",
-      externalProductCode: "86035764",
-      mainImage:
-        "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-      length: 10
+      coverWidth: 10
     })
   },
   ridge: createProduct<RidgeOption>({
@@ -392,7 +359,7 @@ const input: QuantitiesCalculatorProps = {
     externalProductCode: "46035761",
     mainImage:
       "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-    length: 33.33
+    coverLength: 33.33
   }),
   ventilationHoods: [
     createProduct<VentilationHood>({
@@ -980,13 +947,6 @@ const roof6: Measurements = {
 };
 
 describe("PitchedRoofCalculator QuantitiesCalculator", () => {
-  it("calculates with metal flush verge", () => {
-    const calculator = new QuantitiesCalculator(input);
-    const results = calculator.getResultsRowsByCategory();
-
-    expect(results).toMatchSnapshot();
-  });
-
   it("calculates without half tile", () => {
     const calculator = new QuantitiesCalculator({
       ...input,
@@ -1012,7 +972,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(results).toMatchSnapshot();
   });
 
-  it("calculates with metal flush verge and valley", () => {
+  it("calculates with valley", () => {
     const calculator = new QuantitiesCalculator({
       ...input,
       measurements: roof3
@@ -1022,25 +982,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(results).toMatchSnapshot();
   });
 
-  it("calculates with metal flush verge and valley with no valley metal flush", () => {
-    const calculator = new QuantitiesCalculator({
-      ...input,
-      measurements: roof3,
-      mainTileVariant: {
-        ...input.mainTileVariant,
-        valleyMetalFlush: undefined,
-        valleyMetalFlushDormerStart: undefined,
-        valleyMetalFlushEnd: undefined,
-        valleyMetalFlushStart: undefined,
-        valleyMetalFlushTop: undefined
-      }
-    });
-    const results = calculator.getResultsRowsByCategory();
-
-    expect(results).toMatchSnapshot();
-  });
-
-  it("calculates with metal flush verge and valley with no calcualted accessories", () => {
+  it("calculates with valley with фтв no calcualted accessories", () => {
     const calculator = new QuantitiesCalculator({
       ...input,
       measurements: roof3,
@@ -1059,7 +1001,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(results).toMatchSnapshot();
   });
 
-  it("calculates with metal flush verge and valley with top", () => {
+  it("calculates with start and top valleys", () => {
     const calculator = new QuantitiesCalculator({
       ...input,
       measurements: roof2
@@ -1069,7 +1011,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(results).toMatchSnapshot();
   });
 
-  it("calculates with metal flush verge and valley with dormer start", () => {
+  it("calculates with end and dormerStart valleys", () => {
     const calculator = new QuantitiesCalculator({
       ...input,
       measurements: roof6
@@ -1177,7 +1119,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       externalProductCode: "46035833",
       mainImage:
         "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h93/h6b/9003661230110/Product-Color-Selector-Mobile-Zanda-Protector-T-monejpg",
-      length: 35
+      coverLength: 35
     });
     const yRidge = createProduct<LengthBasedProduct>({
       code: "275215122_Zanda_Protector_Y_ridge_black",
@@ -1185,7 +1127,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       externalProductCode: "46035897",
       mainImage:
         "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he1/hcd/9003550212126/Product-Color-Selector-Mobile-275215122-Concrete-Y-Ridge-Protector20-Blackjpg",
-      length: 25
+      coverLength: 25
     });
     const ridgeEnd = createProduct<LengthBasedProduct>({
       code: "275216122_Zanda_Protector_ridge_end_black",
@@ -1193,7 +1135,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       externalProductCode: "46035920",
       mainImage:
         "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb2/h24/9003659788318/Product-Color-Selector-Mobile-Zanda-Protector-moneavslutningjpg",
-      length: 25
+      coverLength: 25
     });
 
     const calculator = new QuantitiesCalculator({
@@ -1279,7 +1221,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       mainTileVariant: {
         ...input.mainTileVariant,
         brokenBond: true,
-        width: 42
+        coverWidth: 42
       },
       vergeOption: {
         left: vergeLeftTile,
@@ -1300,7 +1242,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       mainTileVariant: {
         ...input.mainTileVariant,
         brokenBond: true,
-        width: 40
+        coverWidth: 40
       },
       vergeOption: {
         left: vergeLeftTile,
@@ -1321,7 +1263,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       mainTileVariant: {
         ...input.mainTileVariant,
         brokenBond: true,
-        width: 42
+        coverWidth: 42
       },
       measurements: {
         ...input.measurements,

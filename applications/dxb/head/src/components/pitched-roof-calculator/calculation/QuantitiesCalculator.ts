@@ -12,7 +12,6 @@ import {
   Underlay,
   VentilationHood,
   VergeOption,
-  VergeVariant,
   WidthBasedProduct
 } from "../types";
 import {
@@ -31,7 +30,6 @@ type Products =
   | GutterVariant
   | GutterHook
   | Underlay
-  | VergeVariant
   | LengthBasedProduct
   | WidthBasedProduct
   | VentilationHood;
@@ -118,22 +116,13 @@ class QuantitiesCalculator {
     downPipeConnectors
   }: QuantitiesCalculatorProps) {
     const { faces, lines } = measurements;
-    const isMetalFlushVerge = this.isMetalFlushVerge(vergeOption);
 
     if (mainTileVariant) {
       this.facesBattens = calculateBattensForFaces(faces, mainTileVariant);
-      this.addSurfaceCoveringProducts(
-        mainTileVariant,
-        vergeOption && !isMetalFlushVerge ? vergeOption : undefined
-      );
+      this.addSurfaceCoveringProducts(mainTileVariant, vergeOption);
 
       this.lines = lines;
-      this.addLineProducts(
-        mainTileVariant,
-        ridge,
-        mainTileVariant.hip,
-        vergeOption && isMetalFlushVerge ? vergeOption : undefined
-      );
+      this.addLineProducts(mainTileVariant, ridge, mainTileVariant.hip);
 
       this.addVentilationHoods(ventilationHoods);
 
@@ -245,15 +234,10 @@ class QuantitiesCalculator {
   addLineProducts(
     mainTileVariant: Tile,
     ridge?: RidgeOption,
-    hip?: LengthBasedProduct,
-    vergeOption?: VergeOption
+    hip?: LengthBasedProduct
   ) {
     if (!this.lines) {
       throw new Error(`"lines" must be assigned before calling this function`);
-    }
-
-    if (vergeOption) {
-      this.addVergeMetalFlush(vergeOption);
     }
 
     this.addValleyMetalFlush(mainTileVariant);
@@ -277,43 +261,6 @@ class QuantitiesCalculator {
     }
   }
 
-  isMetalFlushVerge(vergeOption?: VergeOption) {
-    return Boolean(vergeOption?.leftStart && vergeOption?.rightStart);
-  }
-
-  addVergeMetalFlush(vergeOption: VergeOption) {
-    this.lines?.leftVerge?.forEach(({ length }) =>
-      this.addVergeMetalFlushForLength(
-        length,
-        vergeOption.left,
-        vergeOption.leftStart
-      )
-    );
-
-    this.lines?.rightVerge?.forEach(({ length }) =>
-      this.addVergeMetalFlushForLength(
-        length,
-        vergeOption.right,
-        vergeOption.rightStart
-      )
-    );
-  }
-
-  addVergeMetalFlushForLength(
-    length: number,
-    metalFlush: VergeVariant,
-    metalFlushStart: VergeVariant
-  ) {
-    length -= metalFlushStart.length;
-    this.addProduct(ProductCategory.Accessories, metalFlushStart, 1);
-
-    this.addProduct(
-      ProductCategory.Accessories,
-      metalFlush,
-      Math.ceil(length / metalFlush.length)
-    );
-  }
-
   addValleyMetalFlush(mainTileVariant: Tile) {
     let valleyTopMetalFlushQuantity = 0;
     this.lines?.valley?.forEach(({ length, start, end, top, dormerStart }) => {
@@ -331,7 +278,7 @@ class QuantitiesCalculator {
 
       if (top && mainTileVariant.valleyMetalFlushTop) {
         // Count double the needed quantity of top metal flush then divide later
-        length -= mainTileVariant.valleyMetalFlushTop.length;
+        length -= mainTileVariant.valleyMetalFlushTop.coverLength;
         valleyTopMetalFlushQuantity++;
       }
 
@@ -345,7 +292,7 @@ class QuantitiesCalculator {
         this.addProduct(
           ProductCategory.Accessories,
           mainTileVariant.valleyMetalFlush,
-          Math.ceil(length / mainTileVariant.valleyMetalFlush.length)
+          Math.ceil(length / mainTileVariant.valleyMetalFlush.coverLength)
         );
       }
     });
@@ -368,7 +315,7 @@ class QuantitiesCalculator {
   // Returns how much to subtrat from length
   addSingleAccessoryWithSubtraction(accessory: LengthBasedProduct) {
     this.addProduct(ProductCategory.Accessories, accessory, 1);
-    return accessory.length;
+    return accessory.coverLength;
   }
 
   addLineTilesForLine(line: Line[], tileProduct: LengthBasedProduct) {
@@ -382,7 +329,7 @@ class QuantitiesCalculator {
     product: LengthBasedProduct,
     length: number
   ) {
-    this.addProduct(category, product, Math.ceil(length / product.length));
+    this.addProduct(category, product, Math.ceil(length / product.coverLength));
   }
 
   addVentilationHoods(ventilationHoods: VentilationHood[]) {
@@ -400,18 +347,18 @@ class QuantitiesCalculator {
   ) {
     eave.forEach(({ length }) => {
       if (gutteringVariant) {
-        this.addLengthBasedProduct(
+        this.addProduct(
           ProductCategory.Accessories,
           gutteringVariant,
-          length
+          Math.ceil(length / gutteringVariant.length)
         );
       }
 
       if (gutteringHook) {
-        this.addLengthBasedProduct(
+        this.addProduct(
           ProductCategory.Accessories,
           gutteringHook,
-          length
+          Math.ceil(length / gutteringHook.length)
         );
       }
     });
