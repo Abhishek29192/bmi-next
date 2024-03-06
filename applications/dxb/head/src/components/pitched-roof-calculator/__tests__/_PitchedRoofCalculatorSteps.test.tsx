@@ -2,6 +2,15 @@ import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import { act, render, waitFor } from "@testing-library/react";
 import React from "react";
 import * as elasticSearch from "../../../utils/elasticSearch";
+import { GutteringProps } from "../_Guttering";
+import PitchedRoofCalculatorSteps from "../_PitchedRoofCalculatorSteps";
+import { ResultProps } from "../_Results";
+import { RoofDimensionsProps } from "../_RoofDimensions";
+import { RoofSelectionProps } from "../_RoofSelection";
+import { TileOptionsProps } from "../_TileOptions";
+import { TileSelectionProps } from "../_TileSelection";
+import { UnderlaySelectionProps } from "../_UnderlaySelection";
+import { VariantSelectionProps } from "../_VariantSelection";
 import roofs from "../calculation/roofs";
 import { MicroCopy } from "../helpers/microCopy";
 import { transformClassificationAttributes } from "../helpers/products";
@@ -15,15 +24,6 @@ import {
   RidgeOption,
   VentilationHood
 } from "../types";
-import { GutteringProps } from "../_Guttering";
-import PitchedRoofCalculatorSteps from "../_PitchedRoofCalculatorSteps";
-import { ResultProps } from "../_Results";
-import { RoofDimensionsProps } from "../_RoofDimensions";
-import { RoofSelectionProps } from "../_RoofSelection";
-import { TileOptionsProps } from "../_TileOptions";
-import { TileSelectionProps } from "../_TileSelection";
-import { UnderlaySelectionProps } from "../_UnderlaySelection";
-import { VariantSelectionProps } from "../_VariantSelection";
 import en from "./samples/copy/en.json";
 
 const dimensions = {
@@ -37,7 +37,7 @@ const tRidge = createESProduct({
   code: "t-ridge",
   name: "T-ridge",
   externalProductCode: "43232132",
-  MEASUREMENTS$LENGTH: [
+  TILESATTRIBUTES$AVERAGEDECKLENGTH: [
     {
       code: "30cm",
       name: "30 cm",
@@ -50,7 +50,7 @@ const ridgeTile = createESProduct({
   code: "Ridge_tile",
   name: "Ridge tile",
   externalProductCode: "46035761",
-  MEASUREMENTS$LENGTH: [
+  TILESATTRIBUTES$AVERAGEDECKLENGTH: [
     {
       code: "30cm",
       name: "30 cm",
@@ -91,7 +91,7 @@ const tile = createESProduct({
   APPEARANCEATTRIBUTES$COLOUR: [{ name: "Red", code: "Red" }],
   GENERALINFORMATION$CLASSIFICATION: [{ name: "metal", code: "metal" }],
   TILESATTRIBUTES$BROKENBOND: [{ name: false, code: false }],
-  MEASUREMENTS$WIDTH: [
+  TILESATTRIBUTES$AVERAGEDECKWIDTH: [
     {
       code: "330mm",
       name: "330 mm",

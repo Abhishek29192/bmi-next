@@ -10,7 +10,7 @@ import {
   Tile,
   VentilationHood,
   VergeOption,
-  VergeVariant
+  WidthBasedProduct
 } from "../types";
 import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
@@ -18,7 +18,7 @@ import en from "./samples/copy/en.json";
 const tileVariant = createProduct<Tile>({
   color: "red",
   category: "category",
-  width: 20,
+  coverWidth: 20,
   brokenBond: false,
   maxBattenSpacing: 35,
   eaveGauge: 23,
@@ -31,20 +31,20 @@ const tileVariant = createProduct<Tile>({
 const ridgeTile = createProduct<RidgeOption>({
   name: "Ridge tile",
   externalProductCode: "ridge_tile",
-  length: 30
+  coverLength: 30
 });
 
-const leftVergeTile = createProduct<VergeVariant>({
+const leftVergeTile = createProduct<WidthBasedProduct>({
   name: "left verge",
   externalProductCode: "left_verge",
-  width: 10,
+  coverWidth: 10,
   code: "left_verge"
 });
 
-const rightVergeTile = createProduct<VergeVariant>({
+const rightVergeTile = createProduct<WidthBasedProduct>({
   name: "right verge",
   externalProductCode: "right_verge",
-  width: 10,
+  coverWidth: 10,
   code: "right_verge"
 });
 
@@ -190,7 +190,7 @@ describe("PitchedRoofCalculator TileOptions component", () => {
                     {
                       ...createProduct<RidgeOption>({
                         name: "Second ridge",
-                        length: 25
+                        coverLength: 25
                       })
                     }
                   ],

@@ -374,6 +374,14 @@ describe("CLONE tests", () => {
               featureValues: [createFeatureValue({ value: "1" })]
             }),
             createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.averageDeckWidth",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.averageDeckLength",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
               code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpace",
               featureValues: [createFeatureValue({ value: "1" })]
             }),
@@ -411,6 +419,8 @@ describe("CLONE tests", () => {
       expect(result["TILESATTRIBUTES$RIDGESPACE"][0].value).toBe("1");
       expect(result["TILESATTRIBUTES$RIDGESPACESTARTANGLE"][0].value).toBe("1");
       expect(result["TILESATTRIBUTES$RIDGESPACEENDANGLE"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$AVERAGEDECKWIDTH"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$AVERAGEDECKLENGTH"][0].value).toBe("1");
       expect(result["UNDERLAYATTRIBUTES$MINSUPPORTEDPITCH"][0].value).toBe("1");
       expect(result["UNDERLAYATTRIBUTES$OVERLAP"][0].value).toBe("1");
     });
