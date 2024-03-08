@@ -13,13 +13,15 @@ export const createSchemaOrgForHomeAndBrandPage = (
   brandLogo?: string,
   sameAs?: string
 ): OrganisationSchema => {
+  const { GATSBY_COUNTRY_NAME } = process.env;
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     logo: `${siteUrl}/brands/${
       pageType === "homePage" ? "BMI" : brandLogo
     }.svg`,
-    name: pageType === "homePage" ? `BMI Group ${countryCode}` : title,
+    name: pageType === "homePage" ? `BMI Group ${GATSBY_COUNTRY_NAME}` : title,
     description,
     knowsLanguage: locale,
     sameAs: sameAs

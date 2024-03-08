@@ -1,13 +1,14 @@
 import createEntrySys from "./entrySysHelper";
 import createLink from "./linkHelper";
 import createSimplePage from "./simplePageHelper";
-import type { TypeNavigation } from "../types";
 import type { EntryPartial } from "./helperTypes";
+import type { TypeNavigation } from "../types";
 
 export const createFullyPopulatedNavigation = (
   contentfulNavigation?: EntryPartial<TypeNavigation<undefined, "en-US">>
 ): TypeNavigation<undefined, "en-US"> => {
   const navigation = createNavigation(contentfulNavigation);
+
   return {
     ...navigation,
     fields: {
