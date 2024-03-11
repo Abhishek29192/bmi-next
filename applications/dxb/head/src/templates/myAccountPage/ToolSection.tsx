@@ -19,11 +19,11 @@ const ToolSection = ({
   titleForToolSection,
   path
 }: ToolSectionProps) => {
-  const { getMicroCopy } = useSiteContext();
+  const { countryCode, getMicroCopy } = useSiteContext();
   const currentPageUrl = useMemo(() => {
-    const url = new URL(path, process.env.GATSBY_SITE_URL);
+    const url = new URL(`${countryCode}/${path}`, process.env.GATSBY_SITE_URL);
     return url.href;
-  }, [path]);
+  }, [path, countryCode]);
 
   const transformToolCardData: [ToolCardItemProps, ...ToolCardItemProps[]] =
     transformToolCard(currentPageUrl, allowTools, getMicroCopy);
