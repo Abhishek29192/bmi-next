@@ -259,7 +259,7 @@ export const getDocumentQueryObject = (
   const queryElements = [
     {
       query_string: {
-        query: `*${queryString}*`,
+        query: `*${sanitiseQueryString(queryString)}*`,
         type: "cross_fields",
         fields: ["title"]
       }
@@ -401,4 +401,4 @@ export const queryElasticSearch = async (query = {}, indexName: string) => {
 };
 
 export const sanitiseQueryString = (queryString: string) =>
-  queryString.replace(/[^.,\s\p{L}\p{Nd}-]/gu, " ");
+  queryString.replaceAll("/", "\\/").replace(/[^.,\s\p{L}\p{Nd}/\\-]/gu, " ");
