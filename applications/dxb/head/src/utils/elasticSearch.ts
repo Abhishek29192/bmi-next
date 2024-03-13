@@ -11,14 +11,16 @@ import {
 } from "./elasticSearchCommonQuery";
 import { removePLPFilterPrefix } from "./product-filters";
 
-export type Aggregations = Record<
+type Bucket = {
+  key: string;
+  doc_count: number;
+  uniqueItemsCount?: { value: number };
+};
+
+export type Aggregations<B = Bucket> = Record<
   string,
   {
-    buckets: {
-      key: string;
-      doc_count: number;
-      uniqueItemsCount?: { value: number };
-    }[];
+    buckets: B[];
   }
 >;
 

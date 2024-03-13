@@ -1,4 +1,4 @@
-export type ESResponse<T> = {
+export type ESResponse<T, A = never> = {
   hits: {
     hits: {
       max_score: number;
@@ -13,5 +13,5 @@ export type ESResponse<T> = {
       relation: string;
     };
   };
-  _source: T;
+  aggregations: A;
 };

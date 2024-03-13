@@ -17,7 +17,6 @@ import {
 describe("prepareProducts", () => {
   const tileClassificationAttributes = {
     APPEARANCEATTRIBUTES$COLOUR: [{ code: "black", name: "black" }],
-    GENERALINFORMATION$CLASSIFICATION: [{ code: "clay", name: "clay" }],
     MEASUREMENTS$LENGTH: [{ value: "30", code: "30cm" }],
     TILESATTRIBUTES$MINIMUMBATTENSPACING: [{ value: "10", code: "30cm" }],
     TILESATTRIBUTES$RIDGESPACE: [{ value: "30", code: "30cm" }],
@@ -56,7 +55,6 @@ describe("prepareProducts", () => {
       const tile = prepareProducts([product], roofAngles).tiles
         .base_product_code[0];
       expect(tile.color).toBe("black");
-      expect(tile.category).toBe("clay");
       expect(tile.coverWidth).toBe(30);
       expect(tile.length).toBe(30);
       expect(tile.minBattenSpacing).toBe(10);

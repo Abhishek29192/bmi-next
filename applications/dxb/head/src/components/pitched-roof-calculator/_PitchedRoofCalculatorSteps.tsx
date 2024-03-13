@@ -1,13 +1,20 @@
 import Button, { ButtonProps } from "@bmi-digital/components/button";
 import Typography from "@bmi-digital/components/typography";
+import { Product } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
+import isEqual from "lodash-es/isEqual";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useConfig } from "../../contexts/ConfigProvider";
+import { ESResponse } from "../../types/elasticsearch";
 import { devLog } from "../../utils/devLog";
 import { queryElasticSearch } from "../../utils/elasticSearch";
 import withGTM from "../../utils/google-tag-manager";
 import { shallowEqual } from "../../utils/isObjectEqual";
 import { useSiteContext } from "../Site";
+import TileCategory, {
+  TilesGroupedByMaterial,
+  getTileMaterials
+} from "./TileMaterial";
 import Guttering, { GutteringSelections } from "./_Guttering";
 import { StyledResultsGrid } from "./_PitchedRoofCalculatorSteps.styles";
 import Results from "./_Results";
@@ -74,6 +81,12 @@ const PitchedRoofCalculatorSteps = ({
 
   const [roof, setRoof] = useState<Roof | undefined>(undefined);
   const [dimensions, setDimensions] = useState<DimensionsValues>({});
+  const [tilesGroupedByMaterial, setTilesGroupedByMaterial] = useState<
+    TilesGroupedByMaterial | undefined
+  >(undefined);
+  const [selectedMaterial, setSelectedMaterial] = useState<string | undefined>(
+    undefined
+  );
   const [mainTileCode, setMainTileCode] = useState<string | undefined>(
     undefined
   );
@@ -99,12 +112,12 @@ const PitchedRoofCalculatorSteps = ({
   const [loading, setLoading] = useState<boolean>(false);
   const { esIndexNameProduct } = useConfig();
 
-  const fetchCalculatorData = async (dimensions: DimensionsValues) => {
+  const fetchProducts = async (tileMaterial: string) => {
     setLoading(true);
     try {
       const pitchValues = getPitchValues(dimensions);
-      const res = await queryElasticSearch(
-        getProductsQuery(pitchValues),
+      const res: ESResponse<Product> = await queryElasticSearch(
+        getProductsQuery(pitchValues, tileMaterial),
         esIndexNameProduct
       );
       const hits = res.hits.hits.map((hit) => hit._source);
@@ -118,6 +131,7 @@ const PitchedRoofCalculatorSteps = ({
   const resetSelectedData = () => {
     setRoof(undefined);
     setDimensions(undefined);
+    setSelectedMaterial(undefined);
     setMainTileCode(undefined);
     setVariant(undefined);
     setTileOptions(undefined);
@@ -145,7 +159,7 @@ const PitchedRoofCalculatorSteps = ({
     });
   };
 
-  const saveDimensions = (
+  const saveDimensions = async (
     e: React.FormEvent<Element>,
     values: DimensionsValues
   ) => {
@@ -158,16 +172,35 @@ const PitchedRoofCalculatorSteps = ({
       action: "selected"
     });
 
-    if (!shallowEqual(values, dimensions)) {
+    if (!isEqual(values, dimensions)) {
       setDimensions(values);
-      fetchCalculatorData(values);
+      setLoading(true);
+      const tilesGroupedByCategories = await getTileMaterials(
+        getPitchValues(values)
+      );
+      setTilesGroupedByMaterial(tilesGroupedByCategories);
+      setLoading(false);
     }
 
-    setMainTileCode(undefined);
-    setSelected(CalculatorSteps.SelectTile);
+    setSelectedMaterial(undefined);
+    setSelected(CalculatorSteps.SelectTileCategory);
   };
 
-  const selectTile = (_, { tile: newTileCode }: { tile: string }) => {
+  const onSelectMaterial = async (
+    _event: React.FormEvent<Element>,
+    { tileMaterial }: Record<string, unknown>
+  ) => {
+    //onSubmit prop of Form component is always being called with Record<string, unknown>. As a result 'tileMaterial' is unknown
+    setSelectedMaterial(tileMaterial as string);
+    setSelected(CalculatorSteps.SelectTile);
+    setMainTileCode(undefined);
+    fetchProducts(tileMaterial as string);
+  };
+
+  const selectTile = (
+    _: React.FormEvent<Element>,
+    { tile: newTileCode }: { tile: string }
+  ) => {
     setSelected(CalculatorSteps.SelectVariant);
     if (newTileCode === mainTileCode) {
       return;
@@ -183,7 +216,7 @@ const PitchedRoofCalculatorSteps = ({
   };
 
   const selectVariant = async (
-    _,
+    _: React.FormEvent<Element>,
     { variant: newVariantCode }: { variant: string }
   ) => {
     pushEvent({
@@ -208,7 +241,10 @@ const PitchedRoofCalculatorSteps = ({
       const query = constructQueryForProductReferences(
         newVariant.productReferences
       );
-      const res = await queryElasticSearch(query, esIndexNameProduct);
+      const res: ESResponse<Product> = await queryElasticSearch(
+        query,
+        esIndexNameProduct
+      );
       const hits = res.hits.hits.map((hit) => hit._source);
       const productReferences =
         transformProductReferences<ReferencedTileProducts>(
@@ -446,6 +482,26 @@ const PitchedRoofCalculatorSteps = ({
           {roof ? <RoofDimensions roof={roof} dimensions={dimensions} /> : null}
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
+          key={CalculatorSteps.SelectTileCategory}
+          title={getMicroCopy(microCopy.TILE_MATERIAL_SELECTION_TITLE)}
+          subtitle={getMicroCopy(microCopy.TILE_MATERIAL_SELECTION_SUBTITLE)}
+          backLabel={getMicroCopy(microCopy.TILE_MATERIAL_SELECTION_BACK_LABEL)}
+          nextLabel={getMicroCopy(microCopy.TILE_MATERIAL_SELECTION_NEXT_LABEL)}
+          backButtonOnClick={() => setSelected(CalculatorSteps.EnterDimensions)}
+          nextButtonOnClick={onSelectMaterial}
+          disableNextButton={!tilesGroupedByMaterial}
+        >
+          <TileCategory
+            tilesGroupedByMaterial={tilesGroupedByMaterial}
+            defaultValue={selectedMaterial}
+            name="tileMaterial"
+            isRequired
+            fieldIsRequiredError={getMicroCopy(
+              microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+            )}
+          />
+        </CalculatorStepper.Step>
+        <CalculatorStepper.Step
           key={CalculatorSteps.SelectTile}
           title={getMicroCopy(microCopy.TILE_SELECTION_TITLE)}
           subtitle={getMicroCopy(microCopy.TILE_SELECTION_SUBTITLE)}
@@ -458,7 +514,8 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.TILE_SELECTION_BACK_LABEL),
               action: "selected"
             });
-            setSelected(CalculatorSteps.EnterDimensions);
+            setSelected(CalculatorSteps.SelectTileCategory);
+            setMainTileCode(undefined);
           }}
           nextButtonOnClick={selectTile}
         >
@@ -469,6 +526,7 @@ const PitchedRoofCalculatorSteps = ({
               microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
             )}
             tiles={data.tiles}
+            tileMaterial={selectedMaterial}
             defaultValue={mainTileCode}
           />
         </CalculatorStepper.Step>
