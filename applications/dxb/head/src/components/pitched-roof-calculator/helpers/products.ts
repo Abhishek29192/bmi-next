@@ -85,7 +85,6 @@ export function transformClassificationAttributes(
           return {
             ...initialData,
             brokenBond: convertStrToBool(brokenBond?.[0].name),
-            category: category[0].name,
             color: color[0].name,
             coverWidth: convertToCentimeters(coverWidth[0]),
             length: convertToCentimeters(length[0]),

@@ -80,7 +80,6 @@ export interface Tile
   extends BaseProduct,
     Omit<ReferencedTileProducts, keyof VergeOption> {
   color: string;
-  category: string;
   brokenBond: boolean;
   maxBattenSpacing: number;
   eaveGauge: number;
@@ -229,6 +228,7 @@ export type ResultsRow = {
 export enum CalculatorSteps {
   SelectRoof = "select-roof",
   EnterDimensions = "enter-dimensions",
+  SelectTileCategory = "select-tile-category",
   SelectTile = "select-tile",
   SelectVariant = "select-variant",
   TileOptions = "tile-options",

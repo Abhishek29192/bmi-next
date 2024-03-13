@@ -49,13 +49,13 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         <span
           aria-valuemax="100"
           aria-valuemin="0"
-          aria-valuenow="13"
+          aria-valuenow="11"
           class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-13wqv9y-MuiLinearProgress-root"
           role="progressbar"
         >
           <span
             class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-1jrfcpe-MuiLinearProgress-bar1"
-            style="transform: translateX(-87.5%);"
+            style="transform: translateX(-88.89%);"
           />
         </span>
         <button
@@ -150,13 +150,13 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         <span
           aria-valuemax="100"
           aria-valuemin="0"
-          aria-valuenow="13"
+          aria-valuenow="11"
           class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-13wqv9y-MuiLinearProgress-root"
           role="progressbar"
         >
           <span
             class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-1jrfcpe-MuiLinearProgress-bar1"
-            style="transform: translateX(-87.5%);"
+            style="transform: translateX(-88.89%);"
           />
         </span>
         <button

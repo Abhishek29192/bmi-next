@@ -11,7 +11,7 @@ import { useSiteContext } from "../Site";
 import { AnalyticsContext } from "./helpers/analytics";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
-import { BaseProduct, GroupedTiles, MainTileCategory, Tile } from "./types";
+import { BaseProduct, GroupedTiles, Tile } from "./types";
 
 const byName = (
   { name: firstTile }: BaseProduct,
@@ -19,7 +19,7 @@ const byName = (
 ) => firstTile.localeCompare(secondTile);
 
 type TileSelectionRowProps = {
-  title: string;
+  title?: string;
   allTiles: GroupedTiles;
   onChange: (value: string) => void;
   options: Tile[];
@@ -35,10 +35,6 @@ const TileSelectionRow = ({
   const pushEvent = useContext(AnalyticsContext);
   const { values } = useContext(FormContext);
 
-  if (!options.length) {
-    return null;
-  }
-
   return (
     <FieldContainer title={title}>
       <Grid container spacing={3} justifyContent="center">
@@ -51,7 +47,13 @@ const TileSelectionRow = ({
           }`;
 
           return (
-            <Grid xs={6} md={4} lg={2} key={tile.code}>
+            <Grid
+              xs={6}
+              md={4}
+              lg={2}
+              key={tile.code}
+              data-testid="base-tile-grid"
+            >
               <CardRadioGroup.Item
                 value={tile.baseProduct.code}
                 title={tile.baseProduct.name || tile.name}
@@ -79,13 +81,16 @@ const TileSelectionRow = ({
   );
 };
 
-const categories: MainTileCategory[] = ["concrete", "clay", "metal"];
-
 export type TileSelectionProps = WithFormControlProps<string> & {
   tiles: GroupedTiles;
+  tileMaterial?: string;
 };
 
-const TileSelection = ({ tiles, onChange }: TileSelectionProps) => {
+const TileSelection = ({
+  tiles,
+  tileMaterial,
+  onChange
+}: TileSelectionProps) => {
   const { getMicroCopy } = useSiteContext();
   const productCodes = Object.keys(tiles);
 
@@ -97,17 +102,12 @@ const TileSelection = ({ tiles, onChange }: TileSelectionProps) => {
   return (
     <div>
       {sortedOptions.length ? (
-        categories.map((category) => (
-          <TileSelectionRow
-            key={category}
-            title={getMicroCopy(`tileSelection.categories.${category}`)}
-            allTiles={tiles}
-            options={sortedOptions.filter(
-              (tile) => tile.category.toLowerCase() === category
-            )}
-            onChange={onChange}
-          />
-        ))
+        <TileSelectionRow
+          title={tileMaterial}
+          allTiles={tiles}
+          options={sortedOptions}
+          onChange={(value) => onChange?.(value)}
+        />
       ) : (
         <Typography variant="h4" align="center">
           {getMicroCopy(microCopy.TILE_SELECTION_EMPTY)}
