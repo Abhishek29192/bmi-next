@@ -6,7 +6,8 @@ import {
   disableFiltersFromAggregations,
   getCountQuery,
   getDocumentQueryObject,
-  removeIrrelevantFilters
+  removeIrrelevantFilters,
+  sanitiseQueryString
 } from "../elasticSearch";
 
 describe("removeIrrelevantFilters function", () => {
@@ -692,7 +693,7 @@ describe("compileElasticSearchQuery function", () => {
                     "classifications.features.featureValues.value^6",
                     "keywords",
                   ],
-                  "query": "*bar *",
+                  "query": "*bar\\/*",
                   "type": "cross_fields",
                 },
               },
@@ -1891,5 +1892,21 @@ describe("getDocumentQueryObject function", () => {
       { filterCode: "availability", value: [] }
     ]);
     expect(actualResult).toMatchObject(expectedResult);
+  });
+});
+
+describe("sanitiseQueryString function", () => {
+  it("replaces '/' with '\\/'", () => {
+    expect(sanitiseQueryString("13/03/2024")).toBe("13\\/03\\/2024");
+  });
+
+  it("should not replace digits and letters", () => {
+    expect(sanitiseQueryString("12 some text 34")).toBe("12 some text 34");
+  });
+
+  it("should replace symbols other than '-', '.', ',' '\\/', letters and digits", () => {
+    expect(sanitiseQueryString("13/03/2023 -., some()_!@#$%^&*text")).toBe(
+      "13\\/03\\/2023 -., some           text"
+    );
   });
 });
