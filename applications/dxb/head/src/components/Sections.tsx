@@ -8,6 +8,9 @@ import CardCollectionSection, {
 import DocumentDownloadSection, {
   Data as DocumentDownloadSectionData
 } from "./DocumentDownloadSection";
+import EmbeddedScriptSection, {
+  Data as EmbeddedScriptSectionData
+} from "./EmbeddedScriptSection";
 import ExploreBarSection, {
   Data as ExploreBarSectionData
 } from "./ExploreBarSection";
@@ -58,7 +61,8 @@ export type SectionData =
   | SystemConfiguratorSectionData
   | TeamSectionData
   | SignupBlockData
-  | LeadBlockData;
+  | LeadBlockData
+  | EmbeddedScriptSectionData;
 
 export type Data = SectionData[];
 
@@ -80,7 +84,8 @@ export const sectionsMap = {
   ContentfulTeamSection: TeamSection,
   ContentfulSampleBasketSection: SampleBasketSection,
   ContentfulSignupBlock: SignupBlock,
-  ContentfulLeadBlockSection: LeadBlockSection
+  ContentfulLeadBlockSection: LeadBlockSection,
+  ContentfulEmbeddedScriptSection: EmbeddedScriptSection
 };
 
 type DisplayProps = {
@@ -159,9 +164,11 @@ const Sections = ({
         const Component: React.ElementType = sectionsMap[section.__typename];
         const title =
           // TODO: Nav could do with a refactor to align title/label/name fields.
-          section.__typename === "ContentfulNavigation"
-            ? section.label
-            : section.title;
+          section.__typename === "ContentfulEmbeddedScriptSection"
+            ? undefined
+            : section.__typename === "ContentfulNavigation"
+              ? section.label
+              : section.title;
 
         if (!Component) {
           return;
@@ -216,6 +223,7 @@ export const query = graphql`
     ...SampleBasketSectionFragment
     ...SignupBlockFragment
     ...LeadBlockSectionFragment
+    ...EmbeddedScriptSectionFragment
   }
   fragment DialogSectionsFragment on ContentfulSection {
     __typename
