@@ -50,6 +50,7 @@ export const getTileMaterials = async (
         aggs: {
           material: {
             multi_terms: {
+              size: 100,
               terms: [
                 {
                   field: "GENERALINFORMATION$MATERIALS.name.keyword"
@@ -60,7 +61,8 @@ export const getTileMaterials = async (
               ]
             }
           }
-        }
+        },
+        size: 100
       },
       process.env.GATSBY_ES_INDEX_NAME_PRODUCTS!
     );
