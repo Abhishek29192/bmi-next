@@ -9,7 +9,7 @@ import { ResultProps } from "../_Results";
 import { RoofDimensionsProps } from "../_RoofDimensions";
 import { RoofSelectionProps } from "../_RoofSelection";
 import { TileOptionsProps } from "../_TileOptions";
-import { TileSelectionProps } from "../_TileSelection";
+import TileSelectionComponent, { TileSelectionProps } from "../_TileSelection";
 import { UnderlaySelectionProps } from "../_UnderlaySelection";
 import { VariantSelectionProps } from "../_VariantSelection";
 import roofs from "../calculation/roofs";
@@ -299,10 +299,12 @@ jest.mock("../TileMaterial", () => {
   };
 });
 jest.mock("../_TileSelection", () => {
-  const TileSelection = (props: TileSelectionProps) => {
-    componentProps["_TileSelection"] = props;
-    return <p>Rendering _TileSelection</p>;
-  };
+  const TileSelection = jest
+    .fn()
+    .mockImplementation((props: TileSelectionProps) => {
+      componentProps["_TileSelection"] = props;
+      return <p>Rendering _TileSelection</p>;
+    });
   return {
     __esModule: true,
     default: TileSelection
@@ -424,6 +426,28 @@ describe("PitchedRoofCalculatorSteps component", () => {
       </MicroCopy.Provider>
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("calls TileSelection component correctly", () => {
+    render(
+      <PitchedRoofCalculatorSteps
+        selected={CalculatorSteps.SelectTile}
+        setSelected={jest.fn()}
+        calculatorConfig={null}
+      />
+    );
+
+    expect(TileSelectionComponent).toHaveBeenCalledWith(
+      {
+        name: "tile",
+        isRequired: true,
+        fieldIsRequiredError: "MC: validation.errors.fieldRequired",
+        tiles: {},
+        tileMaterial: undefined,
+        defaultValue: undefined
+      },
+      {}
+    );
   });
 
   it("moves through the steps", async () => {
