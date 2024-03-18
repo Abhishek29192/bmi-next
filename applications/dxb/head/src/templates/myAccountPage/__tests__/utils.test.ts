@@ -4,7 +4,11 @@ import UserIcon from "@bmi-digital/components/icon/User";
 import { microCopy } from "@bmi/microcopies";
 import { describe, it, jest } from "@jest/globals";
 import { GetMicroCopy } from "../../../components/MicroCopy";
-import { getUserInfo, transformToolCard } from "../utils";
+import {
+  constructUrlWithPrevPage,
+  getUserInfo,
+  transformToolCard
+} from "../utils";
 import createAuth0IdTokenPayload from "./helpers/Auth0IdTokenPayloadHelper";
 
 describe("getUserInfo", () => {
@@ -119,5 +123,26 @@ describe("transformToolCard", () => {
         }?prev_page=${encodeURIComponent(currentPageUrl)}`
       }
     ]);
+  });
+});
+
+describe("constructUrlWithPrevPage", () => {
+  it("should construct URL with previous page correctly", () => {
+    const mockLocation = {
+      origin: "https://example.com",
+      pathname: "/current-page"
+    };
+    Object.defineProperty(window, "location", {
+      value: mockLocation
+    });
+
+    const uri = "https://example.com/new-page";
+
+    const expectedUrl =
+      "https://example.com/new-page?prev_page=https%3A%2F%2Fexample.com%2Fcurrent-page";
+
+    const result = constructUrlWithPrevPage(uri);
+
+    expect(result).toBe(expectedUrl);
   });
 });

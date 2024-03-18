@@ -33,7 +33,8 @@ export const createExternalLinkData = (link?: Partial<Data>): Data => ({
   icon: "FilePDF",
   isLabelHidden: false,
   url: "http://localhost:8080/linked/page",
-  type: DataTypeEnum.External
+  type: DataTypeEnum.External,
+  ...link
 });
 
 export const createAssetLinkData = (link?: Partial<Data>): Data => ({

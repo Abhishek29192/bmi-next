@@ -57,7 +57,7 @@ exports[`RichText component closes dialog 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
-        data-testid="anchor-link"
+        data-testid="rich-text-hyperlink"
         href="https://google.co.uk"
         rel="noopener noreferrer"
         target="_blank"
@@ -264,7 +264,7 @@ exports[`RichText component renders correctly 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
-        data-testid="anchor-link"
+        data-testid="rich-text-hyperlink"
         href="https://google.co.uk"
         rel="noopener noreferrer"
         target="_blank"
@@ -460,7 +460,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
-        data-testid="anchor-link"
+        data-testid="rich-text-hyperlink"
         href="https://google.co.uk"
         rel="noopener noreferrer"
         target="_blank"

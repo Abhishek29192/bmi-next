@@ -4,9 +4,10 @@ import { microCopy } from "@bmi/microcopies";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
+import { createExternalLinkData } from "../../__tests__/helpers/LinkHelper";
 import BasketContext from "../../contexts/SampleBasketContext";
 import Header from "../Header";
-import { DataTypeEnum, Data as LinkData, NavigationData } from "../Link";
+import { DataTypeEnum, NavigationData } from "../Link";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import { Data as PageInfoData } from "../PageInfo";
 import { Data as PromoData } from "../Promo";
@@ -14,6 +15,13 @@ import { Data as PromoData } from "../Promo";
 let isGatsbyDisabledElasticSearch: boolean;
 let isSampleOrderingEnabled: boolean;
 let isLoginEnabled: boolean;
+
+const useIsClientMock = jest.fn();
+
+jest.mock("@bmi-digital/components", () => ({
+  ...jest.requireActual("@bmi-digital/components"),
+  useIsClient: () => useIsClientMock()
+}));
 
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
@@ -28,6 +36,7 @@ beforeEach(() => {
   isGatsbyDisabledElasticSearch = false;
   isSampleOrderingEnabled = true;
   isLoginEnabled = true;
+  useIsClientMock.mockReturnValue({ isClient: true });
 });
 
 afterEach(() => {
@@ -76,20 +85,6 @@ const card2: PromoData = {
   backgroundColor: null
 };
 const promos: PromoData[] = [card1, card2];
-
-const linkData: LinkData = {
-  __typename: "ContentfulLink",
-  id: "string",
-  label: "string",
-  icon: null,
-  isLabelHidden: null,
-  url: "https://www.external.co.uk",
-  linkedPage: null,
-  type: DataTypeEnum.External,
-  parameters: null,
-  dialogContent: null,
-  hubSpotCTAID: null
-};
 
 const navigationData: NavigationData = {
   __typename: "ContentfulNavigation",
@@ -144,7 +139,12 @@ const navigationData: NavigationData = {
         }
       ]
     },
-    linkData
+    createExternalLinkData({
+      icon: null,
+      id: "inTouchLink",
+      label: "inTouchLink",
+      url: "https://www.external.co.uk"
+    })
   ]
 };
 
@@ -357,5 +357,90 @@ describe("Header component", () => {
     );
 
     expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+  });
+});
+
+describe("Intouch link behavior", () => {
+  it("generates correct href if link is not intouch link and isClient is true", () => {
+    useIsClientMock.mockReturnValue({ isClient: true });
+
+    render(
+      <ThemeProvider>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          maximumSamples={3}
+          sampleBasketLink={sampleBasketLinkInfo}
+        />
+      </ThemeProvider>
+    );
+
+    const buttonOrLink = screen.getByText("inTouchLink");
+
+    expect(buttonOrLink).toBeInTheDocument();
+
+    const expectedHref = "https://www.external.co.uk";
+
+    expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
+  });
+
+  it("generates correct href if link isintouch link and is isClient is true", () => {
+    useIsClientMock.mockReturnValue({ isClient: true });
+    const originalEnv = process.env.GATSBY_INTOUCH_ORIGIN;
+    process.env.GATSBY_INTOUCH_ORIGIN = "https://www.external.co.uk";
+
+    render(
+      <ThemeProvider>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          maximumSamples={3}
+          sampleBasketLink={sampleBasketLinkInfo}
+        />
+      </ThemeProvider>
+    );
+
+    const buttonOrLink = screen.getByText("inTouchLink");
+
+    expect(buttonOrLink).toBeInTheDocument();
+
+    const expectedHref =
+      "https://www.external.co.uk?prev_page=http%3A%2F%2Flocalhost%2F";
+
+    expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
+
+    process.env.GATSBY_INTOUCH_ORIGIN = originalEnv;
+  });
+
+  it("generates correct href if link is not intouch link and isClient is false", () => {
+    useIsClientMock.mockReturnValue({ isClient: false });
+
+    render(
+      <ThemeProvider>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          maximumSamples={3}
+          sampleBasketLink={sampleBasketLinkInfo}
+        />
+      </ThemeProvider>
+    );
+
+    const buttonOrLink = screen.getByText("inTouchLink");
+
+    expect(buttonOrLink).toBeInTheDocument();
+
+    const expectedHref = "https://www.external.co.uk";
+
+    expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
   });
 });
