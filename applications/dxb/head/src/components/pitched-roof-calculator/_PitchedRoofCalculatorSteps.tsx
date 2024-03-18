@@ -194,7 +194,7 @@ const PitchedRoofCalculatorSteps = ({
     setSelectedMaterial(tileMaterial as string);
     setSelected(CalculatorSteps.SelectTile);
     setMainTileCode(undefined);
-    fetchProducts(tileMaterial as string);
+    await fetchProducts(tileMaterial as string);
   };
 
   const selectTile = (
@@ -521,7 +521,7 @@ const PitchedRoofCalculatorSteps = ({
         >
           <TileSelection
             name="tile"
-            isRequired={Boolean(data.tiles.length)}
+            isRequired
             fieldIsRequiredError={getMicroCopy(
               microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
             )}
