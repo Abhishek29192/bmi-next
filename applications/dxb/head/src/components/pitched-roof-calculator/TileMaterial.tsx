@@ -127,11 +127,11 @@ const TileMaterial = ({
             data-testid="tile-material-grid"
           >
             <CardRadioGroup.Item
-              value={replaceSpaces(material)}
-              checked={values.tileMaterial === replaceSpaces(material)}
+              value={material}
+              checked={values.tileMaterial === material}
               title={material}
               imageSource={options.product.mainImage}
-              onChange={() => onChange?.(replaceSpaces(material))}
+              onChange={() => onChange?.(material)}
               data-testid={`${replaceSpaces(material)}-roof-tile`}
             >
               <CardRadioGroup.Item.Paragraph>
