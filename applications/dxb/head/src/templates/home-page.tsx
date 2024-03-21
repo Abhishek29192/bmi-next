@@ -108,7 +108,6 @@ const HomePage = ({ data, pageContext }: Props) => {
             ) : brands?.length ? (
               <Brands data={brands} />
             ) : null}
-
             {sections && <Sections data={sections} pageTypename={__typename} />}
             {isClient &&
             welcomeDialogTitle &&

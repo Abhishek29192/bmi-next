@@ -622,6 +622,7 @@ union ContentfulSection =
   | ContentfulSampleBasketSection
   | ContentfulSignupBlock
   | ContentfulLeadBlockSection
+  | ContentfulEmbeddedScriptSection
 
 type ContentfulMicroCopy implements ContentfulObject & Node @dontInfer {
   metadata: ContentfulMetadata!
@@ -1428,5 +1429,12 @@ type ContentfulAccountPage implements Node @dontInfer {
   breadcrumbTitle: String
   path: String!
   breadcrumbs: [BreadcrumbItem!]!
+}
+
+type ContentfulEmbeddedScriptSection implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
+  name: String!
+  id: String!
+  url: String!
 }
 `;
