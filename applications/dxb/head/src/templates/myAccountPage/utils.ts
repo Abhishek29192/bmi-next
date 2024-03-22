@@ -80,3 +80,8 @@ const getInTouchUrl = (inTouchPageUrl: string, currentPageUrl: string) => {
     process.env.GATSBY_INTOUCH_ORIGIN
   }${inTouchPageUrl}?prev_page=${encodeURIComponent(currentPageUrl)}`;
 };
+
+export const constructUrlWithPrevPage = (uri: string) => {
+  const prevPage = `${window.location.origin}${window.location.pathname}`;
+  return `${uri}?prev_page=${encodeURIComponent(prevPage)}`;
+};

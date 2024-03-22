@@ -306,7 +306,7 @@ exports[`Header component renders correctly 1`] = `
                       />
                     </a>
                     <a
-                      aria-label="string"
+                      aria-label="inTouchLink"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -315,7 +315,7 @@ exports[`Header component renders correctly 1`] = `
                       role="tab"
                       tabindex="-1"
                     >
-                      string
+                      inTouchLink
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -761,7 +761,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       />
                     </a>
                     <a
-                      aria-label="string"
+                      aria-label="inTouchLink"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -770,7 +770,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       role="tab"
                       tabindex="-1"
                     >
-                      string
+                      inTouchLink
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -1216,7 +1216,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       />
                     </a>
                     <a
-                      aria-label="string"
+                      aria-label="inTouchLink"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -1225,7 +1225,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       role="tab"
                       tabindex="-1"
                     >
-                      string
+                      inTouchLink
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
@@ -1864,7 +1864,7 @@ exports[`Header component toggles search 1`] = `
                       />
                     </a>
                     <a
-                      aria-label="string"
+                      aria-label="inTouchLink"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu"}"
@@ -1873,7 +1873,7 @@ exports[`Header component toggles search 1`] = `
                       role="tab"
                       tabindex="-1"
                     >
-                      string
+                      inTouchLink
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
