@@ -3,24 +3,24 @@ import React from "react";
 
 export type Data = {
   __typename: "ContentfulEmbeddedScriptSection";
-  id: string;
+  scriptSectionId: string;
   url: string;
 };
 
 const EmbeddedScriptSection = ({
-  data: { id, url },
+  data: { scriptSectionId, url },
   "data-testid": testId
 }: {
   data: Data;
   "data-testid"?: string;
 }) => {
-  if (!id.trim() || !url.trim()) {
+  if (!scriptSectionId.trim() || !url.trim()) {
     return;
   }
 
   return (
-    <div id={id} data-testid={testId ?? "embedded-script-section"}>
-      <script src={url} data-testid="embedded-script"></script>
+    <div id={scriptSectionId} data-testid={testId ?? "embedded-script-section"}>
+      <script async src={url} data-testid="embedded-script"></script>
     </div>
   );
 };
@@ -31,6 +31,6 @@ export const query = graphql`
   fragment EmbeddedScriptSectionFragment on ContentfulEmbeddedScriptSection {
     __typename
     url
-    id
+    scriptSectionId
   }
 `;

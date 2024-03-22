@@ -805,7 +805,7 @@ describe("Sections component", () => {
     const data: Data = [
       {
         __typename: "ContentfulEmbeddedScriptSection",
-        id: "test-id",
+        scriptSectionId: "test-id",
         url: "test-url"
       }
     ];
