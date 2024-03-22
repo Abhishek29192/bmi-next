@@ -816,7 +816,7 @@ describe("Sections component", () => {
       </MockSiteContext>
     );
 
-    expect(screen.getByTestId("section-0")).toBeInTheDocument();
+    expect(screen.getByTestId("embedded-script-section")).toBeInTheDocument();
     expect(screen.getByTestId("embedded-script")).toBeInTheDocument();
   });
 });

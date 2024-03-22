@@ -184,7 +184,11 @@ const Sections = ({
               (pageTypename && pageTypenameToThemeMap[pageTypename]) || {}
             }
             key={sectionId}
-            data-testid={`section-${title ? replaceSpaces(title) : index}`}
+            data-testid={
+              section.__typename === "ContentfulEmbeddedScriptSection"
+                ? "embedded-script-section"
+                : `section-${title ? replaceSpaces(title) : index}`
+            }
           />
         );
 
