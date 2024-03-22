@@ -8,7 +8,7 @@ describe("EmbeddedScriptSection", () => {
       <EmbeddedScriptSection
         data={{
           __typename: "ContentfulEmbeddedScriptSection",
-          id: "test-id",
+          scriptSectionId: "test-id",
           url: "https://fake-script.js"
         }}
       />
@@ -30,7 +30,7 @@ describe("EmbeddedScriptSection", () => {
       <EmbeddedScriptSection
         data={{
           __typename: "ContentfulEmbeddedScriptSection",
-          id: "test-id",
+          scriptSectionId: "test-id",
           url: ""
         }}
       />
@@ -46,7 +46,7 @@ describe("EmbeddedScriptSection", () => {
       <EmbeddedScriptSection
         data={{
           __typename: "ContentfulEmbeddedScriptSection",
-          id: "test-id",
+          scriptSectionId: "test-id",
           url: ""
         }}
       />

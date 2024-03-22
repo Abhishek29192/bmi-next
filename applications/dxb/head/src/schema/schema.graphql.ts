@@ -1436,5 +1436,6 @@ type ContentfulEmbeddedScriptSection implements ContentfulObject & Node @dontInf
   name: String!
   id: String!
   url: String!
+  scriptSectionId: String!
 }
 `;
