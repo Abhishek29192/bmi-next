@@ -40,6 +40,11 @@ include:
   - local: "/applications/redirects-website-de-bmigroup-de/.gitlab-ci.yml"
   - local: "/applications/redirects-website-dt-siplast-fr/.gitlab-ci.yml"
 
+.node-full-image:
+  image: node:18
+.node-slim-image:
+  image: node:18-slim
+
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
   CACHE_COMPRESSION_LEVEL: fastest
