@@ -14,10 +14,11 @@ describe("EmbeddedScriptSection", () => {
       />
     );
 
-    expect(screen.getByTestId("embedded-script")).toHaveAttribute(
-      "src",
-      "https://fake-script.js"
-    );
+    const scriptElement: HTMLScriptElement =
+      screen.getByTestId("embedded-script");
+    expect(scriptElement).toHaveAttribute("src", "https://fake-script.js");
+    expect(scriptElement).toHaveAttribute("type", "text/javascript");
+    expect(scriptElement.async).toBe(true); // toHaveAttribute returns null
 
     expect(screen.getByTestId("embedded-script-section")).toHaveAttribute(
       "id",
@@ -25,7 +26,7 @@ describe("EmbeddedScriptSection", () => {
     );
   });
 
-  it("does not render anything when url is absent", () => {
+  it("does not render script when url is absent", () => {
     render(
       <EmbeddedScriptSection
         data={{
@@ -36,6 +37,7 @@ describe("EmbeddedScriptSection", () => {
       />
     );
 
+    expect(screen.queryByTestId("embedded-script")).not.toBeInTheDocument();
     expect(
       screen.queryByTestId("embedded-script-section")
     ).not.toBeInTheDocument();
@@ -46,12 +48,13 @@ describe("EmbeddedScriptSection", () => {
       <EmbeddedScriptSection
         data={{
           __typename: "ContentfulEmbeddedScriptSection",
-          scriptSectionId: "test-id",
-          url: ""
+          scriptSectionId: "",
+          url: "https://fake-script.js"
         }}
       />
     );
 
+    expect(screen.queryByTestId("embedded-script")).not.toBeInTheDocument();
     expect(
       screen.queryByTestId("embedded-script-section")
     ).not.toBeInTheDocument();
