@@ -143,6 +143,9 @@ migrate_content_qa:
       changes:
         - applications/dxb/contentful-migrate/src/**/*
     - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
+  needs:
+    - job: test_contentful_migrate
+      optional: true
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"

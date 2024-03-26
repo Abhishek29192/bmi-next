@@ -1,14 +1,16 @@
+import { Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useEffect } from "react";
 
 export type Data = {
   __typename: "ContentfulEmbeddedScriptSection";
+  title: string | null;
   scriptSectionId: string;
   url: string;
 };
 
 const EmbeddedScriptSection = ({
-  data: { scriptSectionId, url },
+  data: { title, scriptSectionId, url },
   "data-testid": testId
 }: {
   data: Data;
@@ -37,10 +39,13 @@ const EmbeddedScriptSection = ({
   }
 
   return (
-    <div
-      id={scriptSectionId}
-      data-testid={testId ?? "embedded-script-section"}
-    ></div>
+    <Section>
+      {title && <Section.Title>{title}</Section.Title>}
+      <div
+        id={scriptSectionId}
+        data-testid={testId ?? "embedded-script-section"}
+      ></div>
+    </Section>
   );
 };
 
@@ -49,7 +54,8 @@ export default EmbeddedScriptSection;
 export const query = graphql`
   fragment EmbeddedScriptSectionFragment on ContentfulEmbeddedScriptSection {
     __typename
-    url
+    title
     scriptSectionId
+    url
   }
 `;
