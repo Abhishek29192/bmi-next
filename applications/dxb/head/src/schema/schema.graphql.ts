@@ -1434,6 +1434,7 @@ type ContentfulAccountPage implements Node @dontInfer {
 type ContentfulEmbeddedScriptSection implements ContentfulObject & Node @dontInfer {
   metadata: ContentfulMetadata!
   name: String!
+  title: String
   id: String!
   url: String!
   scriptSectionId: String!

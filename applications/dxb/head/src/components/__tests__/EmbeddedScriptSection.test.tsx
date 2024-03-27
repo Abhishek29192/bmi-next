@@ -1,17 +1,59 @@
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import EmbeddedScriptSection from "../EmbeddedScriptSection";
 
 describe("EmbeddedScriptSection", () => {
+  it("renders section title if provided", () => {
+    render(
+      <ThemeProvider>
+        <EmbeddedScriptSection
+          data={{
+            __typename: "ContentfulEmbeddedScriptSection",
+            title: "Embedded Script",
+            scriptSectionId: "test-id",
+            url: "https://fake-script.js"
+          }}
+        />
+      </ThemeProvider>
+    );
+
+    const sectionTitle = screen.getByRole("heading", {
+      name: "Embedded Script"
+    });
+    expect(sectionTitle).toBeInTheDocument();
+    expect(sectionTitle).toHaveClass("Typography-underline");
+  });
+
+  it("does not render section title if not provided", () => {
+    render(
+      <ThemeProvider>
+        <EmbeddedScriptSection
+          data={{
+            __typename: "ContentfulEmbeddedScriptSection",
+            title: null,
+            scriptSectionId: "test-id",
+            url: "https://fake-script.js"
+          }}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.queryByRole("heading")).not.toBeInTheDocument();
+  });
+
   it("renders embedded script with correct attributes", () => {
     render(
-      <EmbeddedScriptSection
-        data={{
-          __typename: "ContentfulEmbeddedScriptSection",
-          scriptSectionId: "test-id",
-          url: "https://fake-script.js"
-        }}
-      />
+      <ThemeProvider>
+        <EmbeddedScriptSection
+          data={{
+            __typename: "ContentfulEmbeddedScriptSection",
+            title: "Embedded Script",
+            scriptSectionId: "test-id",
+            url: "https://fake-script.js"
+          }}
+        />
+      </ThemeProvider>
     );
 
     const scriptElement: HTMLScriptElement =
@@ -28,13 +70,16 @@ describe("EmbeddedScriptSection", () => {
 
   it("does not render script when url is absent", () => {
     render(
-      <EmbeddedScriptSection
-        data={{
-          __typename: "ContentfulEmbeddedScriptSection",
-          scriptSectionId: "test-id",
-          url: ""
-        }}
-      />
+      <ThemeProvider>
+        <EmbeddedScriptSection
+          data={{
+            __typename: "ContentfulEmbeddedScriptSection",
+            title: "Embedded Script",
+            scriptSectionId: "test-id",
+            url: ""
+          }}
+        />
+      </ThemeProvider>
     );
 
     expect(screen.queryByTestId("embedded-script")).not.toBeInTheDocument();
@@ -45,13 +90,16 @@ describe("EmbeddedScriptSection", () => {
 
   it("does not render anything when id is absent", () => {
     render(
-      <EmbeddedScriptSection
-        data={{
-          __typename: "ContentfulEmbeddedScriptSection",
-          scriptSectionId: "",
-          url: "https://fake-script.js"
-        }}
-      />
+      <ThemeProvider>
+        <EmbeddedScriptSection
+          data={{
+            __typename: "ContentfulEmbeddedScriptSection",
+            title: "Embedded Script",
+            scriptSectionId: "",
+            url: "https://fake-script.js"
+          }}
+        />
+      </ThemeProvider>
     );
 
     expect(screen.queryByTestId("embedded-script")).not.toBeInTheDocument();
