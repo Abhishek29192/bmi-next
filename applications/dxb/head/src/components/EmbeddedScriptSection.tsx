@@ -1,4 +1,4 @@
-import { Section } from "@bmi-digital/components";
+import Section from "@bmi-digital/components/section";
 import { graphql } from "gatsby";
 import React, { useEffect } from "react";
 

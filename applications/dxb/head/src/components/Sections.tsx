@@ -164,11 +164,9 @@ const Sections = ({
         const Component: React.ElementType = sectionsMap[section.__typename];
         const title =
           // TODO: Nav could do with a refactor to align title/label/name fields.
-          section.__typename === "ContentfulEmbeddedScriptSection"
-            ? undefined
-            : section.__typename === "ContentfulNavigation"
-              ? section.label
-              : section.title;
+          section.__typename === "ContentfulNavigation"
+            ? section.label
+            : section.title;
 
         if (!Component) {
           return;
@@ -184,11 +182,7 @@ const Sections = ({
               (pageTypename && pageTypenameToThemeMap[pageTypename]) || {}
             }
             key={sectionId}
-            data-testid={
-              section.__typename === "ContentfulEmbeddedScriptSection"
-                ? "embedded-script-section"
-                : `section-${title ? replaceSpaces(title) : index}`
-            }
+            data-testid={`section-${title ? replaceSpaces(title) : index}`}
           />
         );
 

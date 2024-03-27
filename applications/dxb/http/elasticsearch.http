@@ -23,6 +23,12 @@ Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
         "index": "{{productsIndex}}",
         "alias": "{{productsIndex}}_read"
       }
+    },
+    {
+      "add": {
+        "index": "{{productsIndex}}",
+        "alias": "{{productsIndex}}_write"
+      }
     }
   ]
 }
