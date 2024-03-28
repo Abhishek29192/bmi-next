@@ -36,7 +36,7 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 
-export type Data = PageInfoData &
+export type Data = Omit<PageInfoData, "sections"> &
   PageData & {
     __typename: "ContentfulSimplePage";
     leadBlock: LeadBlockSectionData | null;

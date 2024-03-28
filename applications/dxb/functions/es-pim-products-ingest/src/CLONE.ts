@@ -1,8 +1,8 @@
 import {
   Category,
   Classification,
-  FeatureValue,
   FeatureUnit,
+  FeatureValue,
   Image,
   Product
 } from "@bmi/pim-types";
@@ -331,7 +331,7 @@ const getFeatureValue = (
   featValue: FeatureValue,
   featureUnit?: FeatureUnit
 ): { code: string; name: string; value?: string } => {
-  // These 14 classifications will look like {code: string; name: string; value: string;} https://bmigroup.atlassian.net/browse/WEBT-607
+  // These 10 classifications will look like {code: string; name: string; value: string;} https://bmigroup.atlassian.net/browse/WEBT-607
   // All the other classifications will be without value field - {code: string; name: string}
   const fieldsToUseWithValue = [
     "measurements.length",
@@ -340,6 +340,8 @@ const getFeatureValue = (
     "tilesAttributes.ridgeSpace",
     "tilesAttributes.ridgeSpaceStartAngle",
     "tilesAttributes.ridgeSpaceEndAngle",
+    "tilesAttributes.averageDeckWidth",
+    "tilesAttributes.averageDeckLength",
     "underlayAttributes.minSupportedPitch",
     "underlayAttributes.overlap"
   ];

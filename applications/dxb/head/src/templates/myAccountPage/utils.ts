@@ -27,6 +27,7 @@ export const getUserInfo = (
 });
 
 export const transformToolCard = (
+  currentPageUrl: string,
   tools: readonly [AllowTools, ...AllowTools[]],
   getMicroCopy: GetMicroCopy
 ): [ToolCardItemProps, ...ToolCardItemProps[]] => {
@@ -41,21 +42,30 @@ export const transformToolCard = (
         sortedTools[0] = {
           title: getMicroCopy(microCopy.PROFILE_LABEL),
           icon: UserIcon,
-          url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT}`
+          url: getInTouchUrl(
+            process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT!,
+            currentPageUrl
+          )
         };
         break;
       case "Trainings":
         sortedTools[1] = {
           title: getMicroCopy(microCopy.TRAINING_LABEL),
           icon: OtherTraining,
-          url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT}`
+          url: getInTouchUrl(
+            process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT!,
+            currentPageUrl
+          )
         };
         break;
       case "Roof measurement":
         sortedTools[2] = {
           title: getMicroCopy(microCopy.ROOF_MEASUREMENT_LABEL),
           icon: RoofMeasurement,
-          url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT}`
+          url: getInTouchUrl(
+            process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT!,
+            currentPageUrl
+          )
         };
     }
   });
@@ -63,4 +73,15 @@ export const transformToolCard = (
     ToolCardItemProps,
     ...ToolCardItemProps[]
   ];
+};
+
+const getInTouchUrl = (inTouchPageUrl: string, currentPageUrl: string) => {
+  return `${
+    process.env.GATSBY_INTOUCH_ORIGIN
+  }${inTouchPageUrl}?prev_page=${encodeURIComponent(currentPageUrl)}`;
+};
+
+export const constructUrlWithPrevPage = (uri: string) => {
+  const prevPage = `${window.location.origin}${window.location.pathname}`;
+  return `${uri}?prev_page=${encodeURIComponent(prevPage)}`;
 };

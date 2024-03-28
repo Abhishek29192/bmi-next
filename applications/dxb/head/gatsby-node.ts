@@ -7,6 +7,7 @@ import type { Course as DoceboCourse } from "@bmi/docebo-types";
 import createSvgs from "./src/gatsby/createSvgs";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
+import BigIntScalar from "./src/schema/scalars/BigInt";
 import typeDefs from "./src/schema/schema.graphql";
 import { Product } from "./src/types/pim";
 import { convertStrToBool } from "./src/utils/convertStrToBool";
@@ -533,7 +534,7 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
   ({ actions }) => {
     const { createTypes } = actions;
-    createTypes(typeDefs);
+    createTypes([BigIntScalar, typeDefs]);
   };
 
 export const createResolvers: GatsbyNode["createResolvers"] = ({

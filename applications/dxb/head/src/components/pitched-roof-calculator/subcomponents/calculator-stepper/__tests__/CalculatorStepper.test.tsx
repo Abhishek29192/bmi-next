@@ -21,11 +21,11 @@ describe("CalculatorStepper component", () => {
             title="This is the 2nd page"
             subtitle="Choose the closest to your roof shape"
             backLabel="Go Back"
-            backButtonOnClick={() => {}}
+            backButtonOnClick={jest.fn()}
             linkLabel="Skip"
-            linkOnClick={() => {}}
+            linkOnClick={jest.fn()}
             nextLabel="Calculate"
-            nextButtonOnClick={() => {}}
+            nextButtonOnClick={jest.fn()}
           >
             <SelectingARoof />
           </CalculatorStepper.Step>
@@ -33,6 +33,84 @@ describe("CalculatorStepper component", () => {
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("disables 'Next' button if disableNextButton===true", () => {
+    render(
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            disableNextButton={true}
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel="Go Back"
+            backButtonOnClick={jest.fn()}
+            linkLabel="Skip"
+            linkOnClick={jest.fn()}
+            nextLabel="Next button label"
+            nextButtonOnClick={jest.fn()}
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
+    );
+    expect(
+      screen.getByRole("button", { name: "Next button label" })
+    ).toBeDisabled();
+  });
+
+  it("should not disable 'Next' button if disableNextButton===false", () => {
+    render(
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            disableNextButton={false}
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel="Go Back"
+            backButtonOnClick={jest.fn()}
+            linkLabel="Skip"
+            linkOnClick={jest.fn()}
+            nextLabel="Next button label"
+            nextButtonOnClick={jest.fn()}
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
+    );
+    expect(
+      screen.getByRole("button", { name: "Next button label" })
+    ).not.toBeDisabled();
+  });
+
+  it("should not disable 'Next' button if disableNextButton===undefined", () => {
+    render(
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            disableNextButton={undefined}
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel="Go Back"
+            backButtonOnClick={jest.fn()}
+            linkLabel="Skip"
+            linkOnClick={jest.fn()}
+            nextLabel="Next button label"
+            nextButtonOnClick={jest.fn()}
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
+    );
+    expect(
+      screen.getByRole("button", { name: "Next button label" })
+    ).not.toBeDisabled();
   });
 
   it("renders as a div", () => {
@@ -45,11 +123,11 @@ describe("CalculatorStepper component", () => {
             title="This is the 2nd page"
             subtitle="Choose the closest to your roof shape"
             backLabel="Go Back"
-            backButtonOnClick={() => {}}
+            backButtonOnClick={jest.fn()}
             linkLabel="Skip"
-            linkOnClick={() => {}}
+            linkOnClick={jest.fn()}
             nextLabel="Calculate"
-            nextButtonOnClick={() => {}}
+            nextButtonOnClick={jest.fn()}
           >
             <SelectingARoof />
           </CalculatorStepper.Step>

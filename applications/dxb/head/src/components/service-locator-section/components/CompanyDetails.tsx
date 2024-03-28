@@ -115,49 +115,41 @@ export const createCompanyDetails: Props = (
   const websiteLabelMicrocopy = getWebsiteLabelMicrocopy(service.entryType);
 
   const actions = {
-    address: getClickableActionFromUrl(
-      undefined,
-      `${GOOGLE_MAPS_URL}${googleURLLatLng}/${encodeURI(service.address)}/`,
+    address: getClickableActionFromUrl({
+      url: `${GOOGLE_MAPS_URL}${googleURLLatLng}/${encodeURI(
+        service.address
+      )}/`,
       countryCode,
-      undefined,
-      localization.globalAddress,
-      undefined,
-      undefined,
-      getServiceDataGTM(
+      label: localization.globalAddress,
+      gtmData: getServiceDataGTM(
         `${GOOGLE_MAPS_URL}${googleURLLatLng}/${encodeURI(service.address)}/`,
         localization.globalAddress
       )
-    ),
-    phone: getClickableActionFromUrl(
-      undefined,
-      `tel:${service.phone}`,
+    }),
+    phone: getClickableActionFromUrl({
+      url: `tel:${service.phone}`,
       countryCode,
-      undefined,
-      localization.globalTelephone,
-      undefined,
-      undefined,
-      getServiceDataGTM(`tel:${service.phone}`, localization.globalTelephone)
-    ),
-    website: getClickableActionFromUrl(
-      undefined,
-      websiteWithProtocol,
+      label: localization.globalTelephone,
+      gtmData: getServiceDataGTM(
+        `tel:${service.phone}`,
+        localization.globalTelephone
+      )
+    }),
+    website: getClickableActionFromUrl({
+      url: websiteWithProtocol,
       countryCode,
-      undefined,
-      websiteLabelMicrocopy,
-      undefined,
-      undefined,
-      getServiceDataGTM(websiteWithProtocol, websiteLabelMicrocopy)
-    ),
-    email: getClickableActionFromUrl(
-      undefined,
-      `mailto:${service.email}`,
+      label: websiteLabelMicrocopy,
+      gtmData: getServiceDataGTM(websiteWithProtocol, websiteLabelMicrocopy)
+    }),
+    email: getClickableActionFromUrl({
+      url: `mailto:${service.email}`,
       countryCode,
-      undefined,
-      localization.globalEmail,
-      undefined,
-      undefined,
-      getServiceDataGTM(`mailto:${service.email}`, localization.globalEmail)
-    )
+      label: localization.globalEmail,
+      gtmData: getServiceDataGTM(
+        `mailto:${service.email}`,
+        localization.globalEmail
+      )
+    })
   };
 
   const address = {

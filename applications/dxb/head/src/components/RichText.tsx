@@ -1,4 +1,5 @@
 /* eslint-disable react/display-name */
+import { useIsClient } from "@bmi-digital/components";
 import AnchorLink, {
   AnchorLinkProps
 } from "@bmi-digital/components/anchor-link";
@@ -16,6 +17,7 @@ import classnames from "classnames";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
+import { constructUrlWithPrevPage } from "../templates/myAccountPage/utils";
 import withGTM from "../utils/google-tag-manager";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import EmbeddedBlock from "./EmbeddedBlock";
@@ -35,9 +37,8 @@ type Settings = {
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
-const getOptions = (settings: Settings): Options => {
+const getOptions = (settings: Settings, isClient: boolean): Options => {
   const { underlineHeadings = [], gtmLabel } = settings;
-
   return {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node, children) => {
@@ -117,26 +118,35 @@ const getOptions = (settings: Settings): Options => {
       [INLINES.ASSET_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
         <InlineHyperlink node={node}>{children}</InlineHyperlink>
       ),
-      [INLINES.HYPERLINK]: (node: Inline, children: React.ReactNode) => (
-        <GTMAnchorLink
-          action={{
-            model: "htmlLink",
-            href: node.data.uri,
-            target: "_blank",
-            rel: "noopener noreferrer"
-          }}
-          gtm={{
-            id: "cta-click1",
-            label: gtmLabel
-              ? `${gtmLabel} - ${children[0][1]}`
-              : children[0][1],
-            action: node.data.uri
-          }}
-          color={settings.hyperlinkColor}
-        >
-          {children}
-        </GTMAnchorLink>
-      ),
+      [INLINES.HYPERLINK]: (node: Inline, children: React.ReactNode) => {
+        const { uri } = node.data;
+        const href =
+          isClient && uri.includes(process.env.GATSBY_INTOUCH_ORIGIN)
+            ? constructUrlWithPrevPage(uri)
+            : uri;
+
+        return (
+          <GTMAnchorLink
+            action={{
+              model: "htmlLink",
+              href,
+              target: "_blank",
+              rel: "noopener noreferrer"
+            }}
+            gtm={{
+              id: "cta-click1",
+              label: gtmLabel
+                ? `${gtmLabel} - ${children[0][1]}`
+                : children[0][1],
+              action: href
+            }}
+            color={settings.hyperlinkColor}
+            data-testid={"rich-text-hyperlink"}
+          >
+            {children}
+          </GTMAnchorLink>
+        );
+      },
       [INLINES.EMBEDDED_ENTRY]: (node: Inline) => (
         <EmbeddedInline node={node} {...settings} />
       )
@@ -166,6 +176,7 @@ const RichText = ({
   className?: string;
   hasNoBottomMargin?: boolean;
 } & Settings) => {
+  const { isClient } = useIsClient();
   if (!document) {
     return null;
   }
@@ -178,7 +189,7 @@ const RichText = ({
         className
       )}
     >
-      {renderRichText(document, getOptions(rest))}
+      {renderRichText(document, getOptions(rest, isClient))}
     </StyledRichText>
   );
 };

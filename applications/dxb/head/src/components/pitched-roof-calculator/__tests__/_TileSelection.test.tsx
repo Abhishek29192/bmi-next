@@ -40,7 +40,8 @@ const defaultProps: TileSelectionProps = {
   tiles,
   isRequired: true,
   name: "tile",
-  fieldIsRequiredError: "field is required"
+  fieldIsRequiredError: "field is required",
+  tileMaterial: "Clay"
 };
 
 const pushEvent = jest.fn();

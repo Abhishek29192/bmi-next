@@ -110,7 +110,7 @@ export const createIndexAlias = async (
             )}`
           });
         }
-        logger.debug({ message: `Response: ${response}` });
+        logger.debug({ message: `Response: ${JSON.stringify(response)}` });
       })
     );
   } catch (e) {

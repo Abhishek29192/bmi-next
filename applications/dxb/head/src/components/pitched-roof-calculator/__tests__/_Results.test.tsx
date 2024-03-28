@@ -20,7 +20,6 @@ import {
   Tile,
   Underlay,
   VentilationHood,
-  VergeVariant,
   WidthBasedProduct
 } from "../types";
 import { createProduct } from "./helpers/createProduct";
@@ -148,37 +147,23 @@ jest.mock("../_PDF", () => ({
 }));
 
 const selectedVerge = {
-  ...createProduct<VergeVariant>({
+  ...createProduct({
     name: "Verge Metal Flush",
     externalProductCode: "12345"
   }),
-  left: createProduct<VergeVariant>({
+  left: createProduct<WidthBasedProduct>({
     code: "849702122_Zanda_Protector_verge_metal_flush_black_left",
     name: "Zanda_Protector_verge metal flush black left",
     externalProductCode: "86035761",
     image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-    length: 10
+    coverWidth: 10
   }),
-  right: createProduct<VergeVariant>({
+  right: createProduct<WidthBasedProduct>({
     code: "849702122_Zanda_Protector_verge_metal_flush_black_right",
     name: "Zanda_Protector_verge metal flush black right",
     externalProductCode: "86035762",
     image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-    length: 10
-  }),
-  leftStart: createProduct<VergeVariant>({
-    code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
-    name: "Zanda_Protector_verge metal flush black left start",
-    externalProductCode: "86035763",
-    image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-    length: 10
-  }),
-  rightStart: createProduct<VergeVariant>({
-    code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
-    name: "Zanda_Protector_verge metal flush black right start",
-    externalProductCode: "86035764",
-    image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-    length: 10
+    coverWidth: 10
   })
 };
 
@@ -187,7 +172,7 @@ const selectedRidge = createProduct<LengthBasedProduct>({
   name: "Zanda_Protector_ridge tile black",
   externalProductCode: "46035761",
   image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-  length: 33.33
+  coverLength: 33.33
 });
 
 const selectedVentilationHood = createProduct<VentilationHood>({
@@ -316,14 +301,14 @@ const resultsProps: ResultProps = {
       name: "Zanda Protector half tile black",
       externalProductCode: "46035795",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      width: 18
+      coverWidth: 18
     }),
     hip: createProduct<LengthBasedProduct>({
       code: "249702122_Zanda_Protector_ridge_tile_black",
       name: "Zanda_Protector_ridge tile black",
       externalProductCode: "46035761",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      length: 33.33
+      coverLength: 33.33
     }),
     ridgeOptions: [
       selectedRidge,
@@ -332,40 +317,40 @@ const resultsProps: ResultProps = {
         name: "Zanda_Protector_ridge sample metal flush black",
         externalProductCode: "46035001",
         image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-        length: 33.33
+        coverLength: 33.33
       })
     ],
     vergeOptions: [
       selectedVerge,
       {
-        ...createProduct<VergeVariant>({ name: "Verge Tile" }),
-        left: createProduct<VergeVariant>({
+        ...createProduct({ name: "Verge Tile" }),
+        left: createProduct<WidthBasedProduct>({
           code: "849702122_Zanda_Protector_verge_tile_black_left",
           name: "Zanda_Protector_verge tile black left",
           externalProductCode: "87035761",
           image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
-          width: 30
+          coverWidth: 30
         }),
-        right: createProduct<VergeVariant>({
+        right: createProduct<WidthBasedProduct>({
           code: "849702122_Zanda_Protector_verge_tile_black_right",
           name: "Zanda_Protector_verge tile black right",
           externalProductCode: "87035762",
           image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
-          width: 30
+          coverWidth: 30
         }),
-        halfLeft: createProduct<VergeVariant>({
+        halfLeft: createProduct<WidthBasedProduct>({
           code: "849702122_Zanda_Protector_verge_half_tile_black_left",
           name: "Zanda_Protector_verge half tile black left",
           externalProductCode: "87035763",
           image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
-          width: 15
+          coverWidth: 15
         }),
-        halfRight: createProduct<VergeVariant>({
+        halfRight: createProduct<WidthBasedProduct>({
           code: "849702122_Zanda_Protector_verge_half_tile_black_right",
           name: "Zanda_Protector_verge half tile black right",
           externalProductCode: "87035764",
           image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
-          width: 15
+          coverWidth: 15
         })
       }
     ],
@@ -375,35 +360,35 @@ const resultsProps: ResultProps = {
       name: "Zanda_Protector_valley metal flush black start",
       externalProductCode: "66035761",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      length: 19
+      coverLength: 19
     }),
     valleyMetalFlush: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black",
       name: "Zanda_Protector_valley metal flush black",
       externalProductCode: "66035762",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      length: 19
+      coverLength: 19
     }),
     valleyMetalFlushEnd: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_end",
       name: "Zanda_Protector_valley metal flush black end",
       externalProductCode: "66035763",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      length: 19
+      coverLength: 19
     }),
     valleyMetalFlushTop: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_top",
       name: "Zanda_Protector_valley metal flush black top",
       externalProductCode: "66035764",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      length: 19
+      coverLength: 19
     }),
     valleyMetalFlushDormerStart: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_dormer_start",
       name: "Zanda_Protector_valley metal flush black dormer start",
       externalProductCode: "66035765",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      length: 19
+      coverLength: 19
     }),
     accessories: [
       createProduct<Accessory>({
@@ -487,7 +472,7 @@ const resultsProps: ResultProps = {
     maxBattenSpacing: 34,
     eaveGauge: 38,
     ridgeSpacing: 5,
-    width: 33.2,
+    coverWidth: 33.2,
     length: 42,
     brokenBond: true
   },

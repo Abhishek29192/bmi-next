@@ -1,0 +1,13 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+# General Germany bmigroup.de redirect
+[[redirects]]
+ from="/planmaster"
+ to="https://www.bmigroup.com/de/planmaster/"
+ status = 301
+
+ [[redirects]]
+ from="/*"
+ to="https://www.bmigroup.com/de/"
+ status = 301

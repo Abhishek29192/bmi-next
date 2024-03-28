@@ -14,23 +14,23 @@ type Props = {
   path: string;
 };
 
-const PageSummaryCard = ({ title, subtitle, countryCode, path }: Props) => (
-  <StyledPageSummaryCard>
-    <AnchorLink
-      action={getClickableActionFromUrl(
-        { path },
-        null,
-        countryCode,
-        undefined,
-        title
-      )}
-    >
-      <Typography noClamp variant="h4">
-        {title}
-      </Typography>
-    </AnchorLink>
-    <StyledSubtitle variant="lead">{subtitle}</StyledSubtitle>
-  </StyledPageSummaryCard>
-);
+const PageSummaryCard = ({ title, subtitle, countryCode, path }: Props) => {
+  return (
+    <StyledPageSummaryCard>
+      <AnchorLink
+        action={getClickableActionFromUrl({
+          linkedPage: { path },
+          countryCode,
+          label: title
+        })}
+      >
+        <Typography noClamp variant="h4">
+          {title}
+        </Typography>
+      </AnchorLink>
+      <StyledSubtitle variant="lead">{subtitle}</StyledSubtitle>
+    </StyledPageSummaryCard>
+  );
+};
 
 export default PageSummaryCard;

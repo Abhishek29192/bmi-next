@@ -239,6 +239,14 @@ export const microCopy = {
   ROOF_DIMENSIONS_PROTRUSIONS_REMOVE: "roofDimensions.protrusions.remove",
   ROOF_DIMENSIONS_PROTRUSIONS_TITLE: "roofDimensions.protrusions.title",
 
+  TILE_MATERIAL_SELECTION_NEXT_LABEL: "tileMaterialSelection.nextLabel",
+  TILE_MATERIAL_SELECTION_TITLE: "tileMaterialSelection.title",
+  TILE_MATERIAL_SELECTION_SUBTITLE: "tileMaterialSelection.subtitle",
+  TILE_MATERIAL_SELECTION_BACK_LABEL: "tileMaterialSelection.backLabel",
+  TILE_MATERIAL_SELECTION_CATEGORY: "tileMaterialSelection.category",
+  TILE_MATERIAL_SELECTION_CATEGORIES: "tileMaterialSelection.categories",
+  TILE_MATERIAL_SELECTION_EMPTY: "tileMaterialSelection.empty",
+
   TILE_SELECTION_NEXT_LABEL: "tileSelection.nextLabel",
   TILE_SELECTION_TITLE: "tileSelection.title",
   TILE_SELECTION_SUBTITLE: "tileSelection.subtitle",

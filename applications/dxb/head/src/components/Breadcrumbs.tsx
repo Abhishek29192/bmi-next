@@ -78,13 +78,11 @@ const IntegratedBreadcrumbs = ({
       data-testid={dataTestId ? dataTestId : "breadcrumbs"}
     >
       <Breadcrumbs.Item
-        action={getClickableActionFromUrl(
-          { path: "" },
-          null,
+        action={getClickableActionFromUrl({
+          linkedPage: { path: "" },
           countryCode,
-          undefined,
-          homePage.title
-        )}
+          label: homePage.title
+        })}
         data-testid={`breadcrumb-${replaceSpaces(homePage.title)}`}
       >
         {homePage.title}
@@ -92,13 +90,11 @@ const IntegratedBreadcrumbs = ({
       {breadcrumbsItems.map(({ label, slug }) => (
         <Breadcrumbs.Item
           key={label}
-          action={getClickableActionFromUrl(
-            { path: slug },
-            null,
+          action={getClickableActionFromUrl({
+            linkedPage: { path: slug },
             countryCode,
-            undefined,
             label
-          )}
+          })}
           data-testid={`breadcrumb-${replaceSpaces(label)}`}
         >
           {label}

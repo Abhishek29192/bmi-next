@@ -38,6 +38,7 @@ export interface Config {
   isLoginEnabled: boolean;
   excludeLocalisedAlternate: boolean;
   marketLocaleCode?: string;
+  countryName?: string;
 }
 
 const envConfig = (): Config => ({
@@ -100,7 +101,8 @@ const envConfig = (): Config => ({
   marketLocaleCode: process.env.GATSBY_MARKET_LOCALE_CODE,
   excludeLocalisedAlternate: convertStrToBool(
     process.env.GATSBY_EXCLUDE_LOCALISED_ALTERNATE
-  )
+  ),
+  countryName: process.env.GATSBY_COUNTRY_NAME
 });
 
 const ConfigContext = createContext<Config>({

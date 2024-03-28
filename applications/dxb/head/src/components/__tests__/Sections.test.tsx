@@ -1,6 +1,6 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { BLOCKS } from "@contentful/rich-text-types";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
@@ -799,5 +799,26 @@ describe("Sections component", () => {
       </MockSiteContext>
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("render embedded script to the component", () => {
+    const data: Data = [
+      {
+        __typename: "ContentfulEmbeddedScriptSection",
+        title: "Embedded Script",
+        scriptSectionId: "test-id",
+        url: "test-url"
+      }
+    ];
+
+    render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
+
+    expect(
+      screen.getByRole("heading", { name: "Embedded Script" })
+    ).toBeInTheDocument();
   });
 });

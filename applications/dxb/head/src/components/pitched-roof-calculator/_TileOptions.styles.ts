@@ -11,7 +11,3 @@ export const StyledCardCheckboxGroup = styled(CardCheckboxGroup)({
     minHeight: "206px"
   }
 });
-
-export const StyledCardCheckboxNoneItem = styled(CardCheckboxGroup.Item)({
-  minHeight: "188px"
-});

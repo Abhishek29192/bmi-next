@@ -1,7 +1,7 @@
 include:
   - project: "bmi-digital/gitlab-templates"
     file: "yarn.gitlab-ci.yml"
-    ref: "v2.2.1"
+    ref: "v2.2.3"
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/redirects-website/.gitlab-ci.yml"
@@ -37,7 +37,13 @@ include:
   - local: "/applications/redirects-website-de-wolfin-com/.gitlab-ci.yml"
   - local: "/applications/redirects-website-de-wolfin-de/.gitlab-ci.yml"
   - local: "/applications/redirects-website-be-universalpro/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-de-bmigroup-de/.gitlab-ci.yml"
   - local: "/applications/redirects-website-dt-siplast-fr/.gitlab-ci.yml"
+
+.node-full-image:
+  image: node:18
+.node-slim-image:
+  image: node:18-slim
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
