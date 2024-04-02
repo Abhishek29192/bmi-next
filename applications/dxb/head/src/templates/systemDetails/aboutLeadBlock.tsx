@@ -22,6 +22,7 @@ import { useSiteContext } from "../../components/Site";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
+import memoize from "../../utils/memoize";
 import { StyledLeadBlock, classes } from "./styles/aboutLeadBlockStyles";
 
 const GTMButton = withGTM<ButtonProps>(Button);
@@ -69,6 +70,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
       asset.realFileName?.indexOf(".png") > -1
     );
   };
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   const guaranteesAndWarrantiesLinks =
     system.guaranteesAndWarrantiesLinks?.filter(
@@ -117,12 +119,14 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
             {guaranteesAndWarrantiesLinks?.map((item, i) => (
               <div key={`link-${i}`}>
                 <GTMAnchorLink
-                  action={getClickableActionFromUrl(
-                    undefined,
-                    item.url,
-                    countryCode,
-                    undefined,
-                    item.name
+                  action={memoizedGetClickableActionFromUrl(
+                    {
+                      isSSR: !isClient,
+                      url: item.url,
+                      countryCode,
+                      label: item.name
+                    },
+                    []
                   )}
                   gtm={{
                     id: "cta-click1",

@@ -165,6 +165,17 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
   const resultsElement = useRef<HTMLDivElement>(null);
+  const memoizedGetClickableActionFromUrl = useMemo(
+    () =>
+      getClickableActionFromUrl({
+        linkedPage: featuresLink?.linkedPage,
+        url: featuresLink?.url,
+        countryCode,
+        assetUrl: featuresLink?.asset?.file?.url,
+        label: featuresLink?.label
+      }),
+    [featuresLink, countryCode]
+  );
 
   const location = useLocation();
 
@@ -448,13 +459,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                       )}
                       {featuresLink && (
                         <GTMAnchorLink
-                          action={getClickableActionFromUrl(
-                            featuresLink.linkedPage,
-                            featuresLink.url,
-                            countryCode,
-                            featuresLink.asset?.file?.url,
-                            featuresLink.label
-                          )}
+                          action={memoizedGetClickableActionFromUrl}
                           gtm={{
                             id: "cta-click1",
                             label: `${getMicroCopy(

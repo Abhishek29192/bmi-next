@@ -45,7 +45,7 @@ export type Product = {
   summary: string;
   name: string;
   code: string; // Needed
-  baseProduct?: BaseProduct; // Needed
+  baseProduct: BaseProduct; // Needed
   brandCode?: string; // Needed
   images: PimImage[]; // Needed
   allCategories: Category[];

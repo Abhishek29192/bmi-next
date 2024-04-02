@@ -1,6 +1,6 @@
 import { DoceboApiService } from "@bmi/docebo-api";
 import { Course, NODE_TYPES } from "./types";
-import { nodeBuilder, transformCourse } from "./utils";
+import { nodeBuilder, transformCourse, transformSessions } from "./utils";
 import type { GatsbyNode } from "gatsby";
 
 export type ConfigOptions = {
@@ -74,17 +74,13 @@ export const sourceNodes: GatsbyNode[`sourceNodes`] = async (
         transformCourse({
           ...course,
           ...currency,
-          sessions
+          sessions: transformSessions(sessions)
         })
       );
     }
 
-    const currentTime = new Date().getTime();
-    const coursesWithActiveSessions = coursesWithSessions.filter((course) =>
-      course.sessions.some((session) => {
-        const sessionStartTime = new Date(session.date_start).getTime();
-        return sessionStartTime > currentTime;
-      })
+    const coursesWithActiveSessions = coursesWithSessions.filter(
+      (course) => course.sessions.length
     );
 
     gatsbyApi.reporter.info(

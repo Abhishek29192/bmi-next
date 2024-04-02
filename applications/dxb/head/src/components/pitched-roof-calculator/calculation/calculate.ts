@@ -177,7 +177,7 @@ export const surface = (
   // Count tiles per each batten using tile covering width
   for (const batten of battens) {
     // If the product contains a half tile specification we round UP to the nearest half
-    let row = Math.ceil(2 * (batten.width / tile.width));
+    let row = Math.ceil(2 * (batten.width / tile.coverWidth));
     if (cloakedVerge && !subtract) {
       if (tile.brokenBond) {
         if (row % 2 === 0) {
@@ -262,10 +262,10 @@ export const surface = (
     } else {
       if (subtract) {
         // When subtracting we round DOWN to avoid missing spaces
-        count -= Math.floor(batten.width / tile.width);
+        count -= Math.floor(batten.width / tile.coverWidth);
       } else {
         // No half tile means round UP to the nearest tile
-        count += Math.ceil(batten.width / tile.width);
+        count += Math.ceil(batten.width / tile.coverWidth);
       }
     }
   }

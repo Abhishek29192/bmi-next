@@ -44,4 +44,5 @@ trigger_gcp-docebo-data-filter:
   needs: []
   cache: {}
   script:
-    - "curl -H 'Authorization: Bearer $BEARER_TOKEN' $GCP_DOCEBO_DATA_FILTER_ENDPOINT"
+    - |
+      curl -H "Authorization: Bearer $BEARER_TOKEN" $GCP_DOCEBO_DATA_FILTER_ENDPOINT

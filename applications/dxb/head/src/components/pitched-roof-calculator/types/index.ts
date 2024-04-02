@@ -10,6 +10,8 @@ export type RangeValue = {
 export interface BaseProduct extends ESProduct {
   externalProductCode: string;
   packSize: number;
+  coverLength: number | undefined;
+  coverWidth: number | undefined;
 }
 
 export type BaseVariant = BaseProduct & {
@@ -22,11 +24,13 @@ export interface Accessory extends BaseProduct {
 }
 
 export interface LengthBasedProduct extends BaseProduct {
-  length: number;
+  coverLength: number;
+  category: ProductCategory | undefined;
 }
 
 export interface WidthBasedProduct extends BaseProduct {
-  width: number;
+  coverWidth: number;
+  category: ProductCategory | undefined;
 }
 
 export interface RidgeOption extends LengthBasedProduct {
@@ -37,17 +41,11 @@ export interface RidgeOption extends LengthBasedProduct {
 
 export type VentilationHood = ESProduct;
 
-export interface VergeVariant extends BaseProduct {
-  length?: number;
-  width?: number;
-}
 export interface VergeOption {
-  left: VergeVariant;
-  right: VergeVariant;
-  leftStart?: VergeVariant;
-  rightStart?: VergeVariant;
-  halfLeft?: VergeVariant;
-  halfRight?: VergeVariant;
+  left: WidthBasedProduct;
+  right: WidthBasedProduct;
+  halfLeft?: WidthBasedProduct;
+  halfRight?: WidthBasedProduct;
 }
 
 export interface ReferencedTileProducts extends VergeOption {
@@ -82,13 +80,12 @@ export interface Tile
   extends BaseProduct,
     Omit<ReferencedTileProducts, keyof VergeOption> {
   color: string;
-  category: string;
   brokenBond: boolean;
   maxBattenSpacing: number;
   eaveGauge: number;
   ridgeSpacing: number;
   minBattenSpacing: number;
-  width: number;
+  coverWidth: number;
   length: number;
   vergeOption?: VergeOption;
 }
@@ -113,7 +110,7 @@ export interface Underlay extends BaseProduct {
   width: number;
 }
 
-export type GutterHook = LengthBasedProduct;
+export type GutterHook = BaseProduct & { length: number };
 
 export interface GutterVariant extends BaseProduct {
   length: number;
@@ -154,8 +151,6 @@ export type MainTileCategory = "concrete" | "metal" | "clay";
 export const lengthBasedProducts = [
   "HIP",
   "RIDGE_TILE",
-  "LEFT_START",
-  "RIGHT_START",
   "VALLEY_METAL_FLUSH_START",
   "VALLEY_METAL_FLUSH",
   "VALLEY_METAL_FLUSH_END",
@@ -198,8 +193,6 @@ export const mainTileReferencesMapper = {
   FINISHING_KIT: "finishingKit",
   LEFT_VERGE_TILE: "left",
   RIGHT_VERGE_TILE: "right",
-  LEFT_START: "leftStart",
-  RIGHT_START: "rightStart",
   LEFT_VERGE_HALF_TILE: "halfLeft",
   RIGHT_VERGE_HALF_TILE: "halfRight"
 };
@@ -235,6 +228,7 @@ export type ResultsRow = {
 export enum CalculatorSteps {
   SelectRoof = "select-roof",
   EnterDimensions = "enter-dimensions",
+  SelectTileCategory = "select-tile-category",
   SelectTile = "select-tile",
   SelectVariant = "select-variant",
   TileOptions = "tile-options",

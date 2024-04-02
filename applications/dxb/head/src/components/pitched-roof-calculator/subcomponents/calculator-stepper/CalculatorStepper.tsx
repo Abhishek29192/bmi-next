@@ -68,6 +68,7 @@ export type StepProps = {
   nextLabel?: string;
   nextButtonOnClick?: (e: FormEvent, value: Record<string, unknown>) => void;
   children: React.ReactNode;
+  disableNextButton?: boolean;
 };
 
 const Step = ({
@@ -81,7 +82,8 @@ const Step = ({
   linkOnClick,
   nextLabel,
   nextButtonOnClick,
-  children
+  children,
+  disableNextButton
 }: StepProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
@@ -104,7 +106,11 @@ const Step = ({
   ) : null;
 
   const nextButton = nextLabel ? (
-    <StyledFormSubmitButton accessibilityLabel="Next" component={FooterButton}>
+    <StyledFormSubmitButton
+      accessibilityLabel={nextLabel}
+      disabled={disableNextButton}
+      component={FooterButton}
+    >
       {nextLabel}
     </StyledFormSubmitButton>
   ) : null;

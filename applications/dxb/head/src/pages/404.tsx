@@ -2,7 +2,7 @@ import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useMemo } from "react";
 import FallbackComponent from "../components/FallbackComponent";
 import Image from "../components/Image";
 import { getClickableActionFromUrl } from "../components/Link";
@@ -20,6 +20,16 @@ const FourOFour = ({ data }: { data: Data }) => {
   const placeholderTitle = "Error:404.title";
   const placeholderSubtitle = "Error:404.subtitle";
   const placeholderCTALabel = "Error:404.cta.label";
+  const memoizedGetClickableActionFromUrl = useMemo(
+    () =>
+      getClickableActionFromUrl({
+        linkedPage: errorFourOFour?.cta?.linkedPage,
+        url: errorFourOFour?.cta?.url,
+        countryCode: siteData?.countryCode,
+        label: errorFourOFour?.cta?.label || placeholderCTALabel
+      }),
+    [errorFourOFour, siteData, placeholderCTALabel]
+  );
   {
     return siteData && errorFourOFour ? (
       <Page
@@ -46,15 +56,7 @@ const FourOFour = ({ data }: { data: Data }) => {
             {errorFourOFour.subtitle || placeholderSubtitle}
           </Typography>
           {errorFourOFour.cta && (
-            <Button
-              action={getClickableActionFromUrl(
-                errorFourOFour.cta?.linkedPage,
-                errorFourOFour.cta?.url,
-                siteData?.countryCode,
-                undefined,
-                errorFourOFour.cta?.label || placeholderCTALabel
-              )}
-            >
+            <Button action={memoizedGetClickableActionFromUrl}>
               {errorFourOFour.cta?.label || placeholderCTALabel}
             </Button>
           )}

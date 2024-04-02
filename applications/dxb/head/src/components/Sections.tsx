@@ -8,6 +8,9 @@ import CardCollectionSection, {
 import DocumentDownloadSection, {
   Data as DocumentDownloadSectionData
 } from "./DocumentDownloadSection";
+import EmbeddedScriptSection, {
+  Data as EmbeddedScriptSectionData
+} from "./EmbeddedScriptSection";
 import ExploreBarSection, {
   Data as ExploreBarSectionData
 } from "./ExploreBarSection";
@@ -58,7 +61,8 @@ export type SectionData =
   | SystemConfiguratorSectionData
   | TeamSectionData
   | SignupBlockData
-  | LeadBlockData;
+  | LeadBlockData
+  | EmbeddedScriptSectionData;
 
 export type Data = SectionData[];
 
@@ -80,7 +84,8 @@ export const sectionsMap = {
   ContentfulTeamSection: TeamSection,
   ContentfulSampleBasketSection: SampleBasketSection,
   ContentfulSignupBlock: SignupBlock,
-  ContentfulLeadBlockSection: LeadBlockSection
+  ContentfulLeadBlockSection: LeadBlockSection,
+  ContentfulEmbeddedScriptSection: EmbeddedScriptSection
 };
 
 type DisplayProps = {
@@ -216,6 +221,7 @@ export const query = graphql`
     ...SampleBasketSectionFragment
     ...SignupBlockFragment
     ...LeadBlockSectionFragment
+    ...EmbeddedScriptSectionFragment
   }
   fragment DialogSectionsFragment on ContentfulSection {
     __typename

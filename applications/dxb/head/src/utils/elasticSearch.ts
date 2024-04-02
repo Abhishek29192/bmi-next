@@ -11,14 +11,16 @@ import {
 } from "./elasticSearchCommonQuery";
 import { removePLPFilterPrefix } from "./product-filters";
 
-export type Aggregations = Record<
+type Bucket = {
+  key: string;
+  doc_count: number;
+  uniqueItemsCount?: { value: number };
+};
+
+export type Aggregations<B = Bucket> = Record<
   string,
   {
-    buckets: {
-      key: string;
-      doc_count: number;
-      uniqueItemsCount?: { value: number };
-    }[];
+    buckets: B[];
   }
 >;
 
@@ -259,7 +261,7 @@ export const getDocumentQueryObject = (
   const queryElements = [
     {
       query_string: {
-        query: `*${queryString}*`,
+        query: `*${sanitiseQueryString(queryString)}*`,
         type: "cross_fields",
         fields: ["title"]
       }
@@ -401,4 +403,4 @@ export const queryElasticSearch = async (query = {}, indexName: string) => {
 };
 
 export const sanitiseQueryString = (queryString: string) =>
-  queryString.replace(/[^.,\s\p{L}\p{Nd}-]/gu, " ");
+  queryString.replaceAll("/", "\\/").replace(/[^.,\s\p{L}\p{Nd}/\\-]/gu, " ");

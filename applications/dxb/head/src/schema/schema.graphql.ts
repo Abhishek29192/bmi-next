@@ -622,6 +622,7 @@ union ContentfulSection =
   | ContentfulSampleBasketSection
   | ContentfulSignupBlock
   | ContentfulLeadBlockSection
+  | ContentfulEmbeddedScriptSection
 
 type ContentfulMicroCopy implements ContentfulObject & Node @dontInfer {
   metadata: ContentfulMetadata!
@@ -1375,8 +1376,8 @@ type Session @dontInfer {
   id: Int!
   code: String!
   name: String!
-  date_start: String!
-  date_end: String!
+  date_start: BigInt!
+  date_end: BigInt!
   hours: String!
   events: String!
   events_with_sync_failed: String!
@@ -1403,7 +1404,7 @@ type DoceboCourses implements Node @dontInfer {
   currency: String!
   currencySymbol: String!
   code: String
-  sessions: [Session]
+  sessions: [Session!]!
   categoryName: String!
   price: String
   course_type: String!
@@ -1428,5 +1429,14 @@ type ContentfulAccountPage implements Node @dontInfer {
   breadcrumbTitle: String
   path: String!
   breadcrumbs: [BreadcrumbItem!]!
+}
+
+type ContentfulEmbeddedScriptSection implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
+  name: String!
+  title: String
+  id: String!
+  url: String!
+  scriptSectionId: String!
 }
 `;

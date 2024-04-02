@@ -10,8 +10,6 @@ import {
   GutterHook,
   GutterVariant,
   LengthBasedProduct,
-  lengthBasedProducts,
-  multiValueProducts,
   NestedProductReferences,
   ProductType,
   ReferencedTileProducts,
@@ -20,6 +18,8 @@ import {
   Underlay,
   VergeOption,
   WidthBasedProduct,
+  lengthBasedProducts,
+  multiValueProducts,
   widthBasedProducts
 } from "../types";
 
@@ -61,6 +61,8 @@ export function transformClassificationAttributes(
         MEASUREMENTS$LENGTH: length,
         UNDERLAYATTRIBUTES$OVERLAP: overlap,
         PACKAGINGINFORMATION$QUANTITYPERUNIT: packSize,
+        TILESATTRIBUTES$AVERAGEDECKWIDTH: coverWidth,
+        TILESATTRIBUTES$AVERAGEDECKLENGTH: coverLength,
         battenSpacings,
         ...rest
       } = product;
@@ -73,18 +75,18 @@ export function transformClassificationAttributes(
         };
 
         if (productType === ProductType.tile) {
-          const battenSpacing = battenSpacings.find((batten) =>
-            angleValues.every(
-              (angle) => batten.maxAngle >= angle && batten.minAngle <= angle
-            )
+          const battenSpacing = battenSpacings?.find(
+            (batten) =>
+              angleValues?.every(
+                (angle) => batten.maxAngle >= angle && batten.minAngle <= angle
+              )
           );
 
           return {
             ...initialData,
             brokenBond: convertStrToBool(brokenBond?.[0].name),
-            category: category[0].name,
             color: color[0].name,
-            width: convertToCentimeters(width[0]),
+            coverWidth: convertToCentimeters(coverWidth[0]),
             length: convertToCentimeters(length[0]),
             minBattenSpacing: convertToCentimeters(minBattenSpacing[0]),
             maxBattenSpacing: convertToCentimeters({
@@ -122,8 +124,8 @@ export function transformClassificationAttributes(
         return {
           ...initialData,
           category: category?.[0].name,
-          length: convertToCentimeters(length?.[0], false),
-          width: convertToCentimeters(width?.[0], false)
+          coverWidth: convertToCentimeters(coverWidth?.[0], false),
+          coverLength: convertToCentimeters(coverLength?.[0], false)
         };
       } catch (err) {
         return null;
@@ -198,7 +200,7 @@ export const convertToCentimeters = (
     name?: string;
   },
   throwOnTypeError = true
-): number => {
+) => {
   const numberValue = Number(input?.value);
 
   if (!numberValue) {
@@ -206,7 +208,7 @@ export const convertToCentimeters = (
       throw new Error("Value is not a number");
     }
 
-    return null;
+    return;
   }
 
   const { code, value } = input;
@@ -250,11 +252,11 @@ const getProductsByReference = (
         productReference.type
       );
 
-      if (isLengthBasedProduct && !transformedProduct.length) {
+      if (isLengthBasedProduct && !transformedProduct.coverLength) {
         return null;
       }
 
-      if (isWidthBasedProduct && !transformedProduct.width) {
+      if (isWidthBasedProduct && !transformedProduct.coverWidth) {
         return null;
       }
 
@@ -286,10 +288,10 @@ export const transformProductReferences = <
       ...prev,
       [key]: isArray
         ? groupedReferencesProducts
-            .filter(({ referenceType }) => referenceType === productReference)
-            .map(({ product }) => product)
+            .filter((item) => item && item.referenceType === productReference)
+            .map((item) => item && item.product)
         : groupedReferencesProducts.find(
-            ({ referenceType }) => referenceType === productReference
+            (item) => item && item.referenceType === productReference
           )?.product
     };
   }, {});
@@ -298,8 +300,7 @@ export const transformProductReferences = <
 export const getVergeOption = (
   productReferences: Partial<VergeOption>
 ): VergeOption | undefined => {
-  const { left, right, rightStart, leftStart, halfLeft, halfRight } =
-    productReferences;
+  const { left, right, halfLeft, halfRight } = productReferences;
   if (!left || !right) {
     return undefined;
   }
@@ -307,8 +308,6 @@ export const getVergeOption = (
   return {
     left,
     right,
-    rightStart,
-    leftStart,
     halfLeft,
     halfRight
   };

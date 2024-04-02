@@ -75,6 +75,7 @@ const MyAccountPage = ({ data }: Props) => {
         <ToolSection
           titleForToolSection={titleForToolSection}
           allowTools={allowTools}
+          path={path}
         />
         <ServiceSupportSection
           titleForServiceSupportSection={titleForServiceSupportSection}

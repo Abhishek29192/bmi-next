@@ -10,6 +10,7 @@ describe("createSchemaOrgForHomeAndBrandPage", () => {
     const title = "Page title";
     const path = "/";
     const sameAs = "https://example.com";
+    const { GATSBY_COUNTRY_NAME: countryName } = process.env;
 
     const schema = createSchemaOrgForHomeAndBrandPage(
       siteUrl,
@@ -30,7 +31,7 @@ describe("createSchemaOrgForHomeAndBrandPage", () => {
       knowsLanguage: locale,
       url: `${siteUrl}/${countryCode}/`,
       sameAs: [sameAs],
-      name: `BMI Group ${countryCode}`,
+      name: `BMI Group ${countryName}`,
       logo: `${siteUrl}/brands/BMI.svg`
     };
 

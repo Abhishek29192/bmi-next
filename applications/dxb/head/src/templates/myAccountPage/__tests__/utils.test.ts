@@ -4,7 +4,11 @@ import UserIcon from "@bmi-digital/components/icon/User";
 import { microCopy } from "@bmi/microcopies";
 import { describe, it, jest } from "@jest/globals";
 import { GetMicroCopy } from "../../../components/MicroCopy";
-import { getUserInfo, transformToolCard } from "../utils";
+import {
+  constructUrlWithPrevPage,
+  getUserInfo,
+  transformToolCard
+} from "../utils";
 import createAuth0IdTokenPayload from "./helpers/Auth0IdTokenPayloadHelper";
 
 describe("getUserInfo", () => {
@@ -32,6 +36,7 @@ describe("transformToolCard", () => {
     process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT = "/profile";
     process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT = "/training";
     process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT = "/roof-measurement";
+    const currentPageUrl = "https://dxb-host.com/my-account";
     const mockGetMicroCopy = jest.fn<GetMicroCopy>((label: string) => {
       switch (label) {
         case microCopy.PROFILE_LABEL: {
@@ -47,22 +52,28 @@ describe("transformToolCard", () => {
       throw Error(`Microcopy not found for unrecognised label ${label}`);
     });
     const tools = ["My profile", "Trainings", "Roof measurement"] as const;
-    const result = transformToolCard(tools, mockGetMicroCopy);
+    const result = transformToolCard(currentPageUrl, tools, mockGetMicroCopy);
     expect(result).toEqual([
       {
         icon: UserIcon,
         title: "Profile label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT}`
+        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+          process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`
       },
       {
         icon: OtherTraining,
         title: "Training label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT}`
+        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+          process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`
       },
       {
         icon: RoofMeasurement,
         title: "Roof measurement label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT}`
+        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+          process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`
       }
     ]);
   });
@@ -72,6 +83,7 @@ describe("transformToolCard", () => {
     process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT = "/profile";
     process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT = "/training";
     process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT = "/roof-measurement";
+    const currentPageUrl = "https://dxb-host.com/my-account";
     const mockGetMicroCopy = jest.fn<GetMicroCopy>((label: string) => {
       switch (label) {
         case microCopy.PROFILE_LABEL: {
@@ -87,23 +99,50 @@ describe("transformToolCard", () => {
       throw Error(`Microcopy not found for unrecognised label ${label}`);
     });
     const tools = ["Trainings", "Roof measurement", "My profile"] as const;
-    const result = transformToolCard(tools, mockGetMicroCopy);
+    const result = transformToolCard(currentPageUrl, tools, mockGetMicroCopy);
     expect(result).toEqual([
       {
         icon: UserIcon,
         title: "Profile label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT}`
+        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+          process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`
       },
       {
         icon: OtherTraining,
         title: "Training label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT}`
+        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+          process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`
       },
       {
         icon: RoofMeasurement,
         title: "Roof measurement label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT}`
+        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+          process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`
       }
     ]);
+  });
+});
+
+describe("constructUrlWithPrevPage", () => {
+  it("should construct URL with previous page correctly", () => {
+    const mockLocation = {
+      origin: "https://example.com",
+      pathname: "/current-page"
+    };
+    Object.defineProperty(window, "location", {
+      value: mockLocation
+    });
+
+    const uri = "https://example.com/new-page";
+
+    const expectedUrl =
+      "https://example.com/new-page?prev_page=https%3A%2F%2Fexample.com%2Fcurrent-page";
+
+    const result = constructUrlWithPrevPage(uri);
+
+    expect(result).toBe(expectedUrl);
   });
 });

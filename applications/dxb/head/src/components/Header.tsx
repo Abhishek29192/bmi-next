@@ -1,3 +1,4 @@
+import { useIsClient } from "@bmi-digital/components";
 import Button, { ButtonProps } from "@bmi-digital/components/button";
 import HeaderComponent from "@bmi-digital/components/header";
 import HidePrint from "@bmi-digital/components/hide-print";
@@ -13,6 +14,7 @@ import Image from "../components/Image";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import useAuth from "../hooks/useAuth";
+import { constructUrlWithPrevPage } from "../templates/myAccountPage/utils";
 import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
@@ -28,6 +30,13 @@ import RichText, { RichTextData } from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
 import { useSiteContext } from "./Site";
 import type { GetMicroCopy } from "./MicroCopy";
+
+type ParseNavigationProps = {
+  navigationItems: (NavigationData | NavigationItem | LinkData)[];
+  countryCode: string;
+  getMicroCopy: GetMicroCopy;
+  isClient?: boolean;
+};
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
   const cta = getCTA(
@@ -49,11 +58,12 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
   ];
 };
 
-const parseNavigation = (
-  navigationItems: (NavigationData | NavigationItem | LinkData)[],
-  countryCode: string,
-  getMicroCopy: GetMicroCopy
-) => {
+const parseNavigation = ({
+  navigationItems,
+  countryCode,
+  getMicroCopy,
+  isClient
+}: ParseNavigationProps) => {
   if (!navigationItems || navigationItems.length === 0) {
     return [];
   }
@@ -64,11 +74,12 @@ const parseNavigation = (
 
       const navItem = {
         label,
-        menu: parseNavigation(
-          link ? [link, ...links] : links,
+        menu: parseNavigation({
+          navigationItems: link ? [link, ...links] : links,
           countryCode,
-          getMicroCopy
-        ),
+          getMicroCopy,
+          isClient
+        }),
         ...(promos &&
           promos.length && {
             footer: promos.flatMap((promo) =>
@@ -119,9 +130,13 @@ const parseNavigation = (
           linkComponent: Link
         };
       } else if (url) {
+        const href =
+          isClient && url.includes(process.env.GATSBY_INTOUCH_ORIGIN)
+            ? constructUrlWithPrevPage(url)
+            : url;
         action = {
           model: "htmlLink",
-          href: url
+          href
         };
       }
 
@@ -187,6 +202,8 @@ const Header = ({
   lastNavigationLabel?: string;
   disableSearch?: boolean;
 }) => {
+  const { isClient } = useIsClient();
+
   const languages = useMemo(
     () =>
       regions.map((region) => ({
@@ -223,11 +240,12 @@ const Header = ({
     return null;
   }
 
-  const utilities = parseNavigation(
-    utilitiesData.links,
+  const utilities = parseNavigation({
+    navigationItems: utilitiesData.links,
     countryCode,
-    getMicroCopy
-  );
+    getMicroCopy,
+    isClient
+  });
 
   if (isLoginEnabled) {
     if (isLoggedIn && profile) {
@@ -266,11 +284,12 @@ const Header = ({
     }
   }
 
-  const navigation = parseNavigation(
-    navigationData.links,
+  const navigation = parseNavigation({
+    navigationItems: navigationData.links,
     countryCode,
-    getMicroCopy
-  );
+    getMicroCopy,
+    isClient
+  });
 
   const basketCta =
     sampleBasketLink &&

@@ -164,8 +164,8 @@ describe("TrainingRegistrationForm", () => {
             values: {
               [emailLabel]: "training code - training name, session name",
               [emailDateLabel]: "28/12/2023, 22:00:00",
-              [emailTermsOfUseLabel]: "Terms of use",
-              [emailConsentLabel]: "Consent text",
+              [emailTermsOfUseLabel]: String.fromCodePoint(0x2713),
+              [emailConsentLabel]: String.fromCodePoint(0x2713),
               Salutation: "Mr",
               "First name": "First name",
               "Last name": "Last name",

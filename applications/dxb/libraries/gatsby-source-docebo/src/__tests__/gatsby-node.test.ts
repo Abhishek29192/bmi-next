@@ -10,7 +10,7 @@ import {
 import { testPluginOptionsSchema } from "gatsby-plugin-utils";
 import { pluginOptionsSchema, sourceNodes } from "../gatsby-node";
 import { NODE_TYPES } from "../types";
-import { nodeBuilder, transformCourse } from "../utils";
+import { nodeBuilder, transformCourse, transformSessions } from "../utils";
 import type { PluginOptions, SourceNodesArgs } from "gatsby";
 
 jest.mock("../utils", () => ({
@@ -146,16 +146,13 @@ describe("source-nodes", () => {
     );
   });
 
-  it("should skip courses with no active sessions", async () => {
+  it("should skip courses with no sessions", async () => {
     const course1 = createCourse({ id_course: 1 });
     const course2 = createCourse({ id_course: 2 });
     const sessionStartDate = new Date();
     sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
     const activeSession = createSession({
       date_start: sessionStartDate.toString()
-    });
-    const outdatedSession = createSession({
-      date_start: "2022-04-24 07:00:00"
     });
 
     fetchCoursesMock.mockResolvedValue([course1, course2]);
@@ -168,7 +165,7 @@ describe("source-nodes", () => {
     fetchCatalogueMock.mockResolvedValue([catalogue]);
     fetchSessionMock
       .mockResolvedValueOnce([activeSession])
-      .mockResolvedValueOnce([outdatedSession]);
+      .mockResolvedValueOnce([]);
 
     await sourceNodes!(mockGatsbyApi, mockConfigOptions, mockCallback);
     // First call to save a course, second call to save a catalogue
@@ -180,7 +177,7 @@ describe("source-nodes", () => {
         data: transformCourse({
           ...course1,
           ...currencyMock,
-          sessions: [activeSession]
+          sessions: transformSessions([activeSession])
         })
       },
       itemId: course1.id_course
@@ -228,7 +225,7 @@ describe("source-nodes", () => {
         data: transformCourse({
           ...course1,
           ...currencyMock,
-          sessions: [session1]
+          sessions: transformSessions([session1])
         })
       },
       itemId: course1.id_course

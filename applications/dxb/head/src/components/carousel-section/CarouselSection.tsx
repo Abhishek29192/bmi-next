@@ -1,3 +1,4 @@
+import { useIsClient } from "@bmi-digital/components";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import TwoPaneCarousel, {
   Slide as TwoPaneCarouselSlide
@@ -9,7 +10,7 @@ import VerticalRoller, {
 import { microCopy } from "@bmi/microcopies";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
 import Image from "../Image";
@@ -83,8 +84,28 @@ const CarouselSection = ({
   data: Data;
 }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
+  const { isClient } = useIsClient();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
+  const linkAction = useMemo(
+    () =>
+      getClickableActionFromUrl({
+        isSSR: !isClient,
+        linkedPage: link?.linkedPage,
+        url: link?.url,
+        countryCode,
+        label: link?.label,
+        type: link?.type,
+        onClick: () => {
+          if (link?.type === "Visualiser" && openVisualiser) {
+            openVisualiser(link?.parameters);
+          } else if (link?.type === "Calculator" && openCalculator) {
+            openCalculator(link?.parameters);
+          }
+        }
+      }),
+    [link, isClient, countryCode, openCalculator, openVisualiser]
+  );
 
   return (
     <SectionElement
@@ -123,21 +144,7 @@ const CarouselSection = ({
       )}
       {link && (
         <LinkElement
-          action={getClickableActionFromUrl(
-            link?.linkedPage,
-            link?.url,
-            countryCode,
-            undefined,
-            link.label,
-            link?.type,
-            () => {
-              if (link?.type === "Visualiser" && openVisualiser) {
-                openVisualiser(link?.parameters);
-              } else if (link?.type === "Calculator" && openCalculator) {
-                openCalculator(link?.parameters);
-              }
-            }
-          )}
+          action={linkAction}
           endIcon={
             <ArrowForwardIcon
               data-testid={"carousel-section-arrow-forward-icon"}

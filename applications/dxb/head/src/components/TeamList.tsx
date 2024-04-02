@@ -1,3 +1,4 @@
+import { useIsClient } from "@bmi-digital/components";
 import AnchorLink, {
   AnchorLinkProps
 } from "@bmi-digital/components/anchor-link";
@@ -9,6 +10,7 @@ import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import withGTM from "../utils/google-tag-manager";
+import memoize from "../utils/memoize";
 import Icon from "./Icon";
 import Image, { Data as ImageData } from "./Image";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
@@ -32,6 +34,9 @@ const TeamList = ({ data }: { data: Data | null }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
   const showMoreText = getMicroCopy(microCopy.GLOBAL_SHOW_MORE);
   const [numberVisible, setNumberVisible] = useState(TEAM_MEMBERS_PER_PAGE);
+  const { isClient } = useIsClient();
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
+
   return (
     <div>
       <EqualHeights>
@@ -61,12 +66,15 @@ const TeamList = ({ data }: { data: Data | null }) => {
                   {(links || []).map((link, index) => (
                     <ProfileRow
                       key={`team-member-link-${index}`}
-                      action={getClickableActionFromUrl(
-                        link.linkedPage,
-                        link.url,
-                        countryCode,
-                        undefined,
-                        link.label
+                      action={memoizedGetClickableActionFromUrl(
+                        {
+                          isSSR: !isClient,
+                          linkedPage: link.linkedPage,
+                          url: link.url,
+                          countryCode,
+                          label: link.label
+                        },
+                        []
                       )}
                       anchorComponent={(props: AnchorLinkProps) => (
                         <GTMAnchorLink

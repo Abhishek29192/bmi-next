@@ -2,6 +2,16 @@ import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import { act, render, waitFor } from "@testing-library/react";
 import React from "react";
 import * as elasticSearch from "../../../utils/elasticSearch";
+import { TileMaterialProps, getTileMaterials } from "../TileMaterial";
+import { GutteringProps } from "../_Guttering";
+import PitchedRoofCalculatorSteps from "../_PitchedRoofCalculatorSteps";
+import { ResultProps } from "../_Results";
+import { RoofDimensionsProps } from "../_RoofDimensions";
+import { RoofSelectionProps } from "../_RoofSelection";
+import { TileOptionsProps } from "../_TileOptions";
+import TileSelectionComponent, { TileSelectionProps } from "../_TileSelection";
+import { UnderlaySelectionProps } from "../_UnderlaySelection";
+import { VariantSelectionProps } from "../_VariantSelection";
 import roofs from "../calculation/roofs";
 import { MicroCopy } from "../helpers/microCopy";
 import { transformClassificationAttributes } from "../helpers/products";
@@ -15,15 +25,6 @@ import {
   RidgeOption,
   VentilationHood
 } from "../types";
-import { GutteringProps } from "../_Guttering";
-import PitchedRoofCalculatorSteps from "../_PitchedRoofCalculatorSteps";
-import { ResultProps } from "../_Results";
-import { RoofDimensionsProps } from "../_RoofDimensions";
-import { RoofSelectionProps } from "../_RoofSelection";
-import { TileOptionsProps } from "../_TileOptions";
-import { TileSelectionProps } from "../_TileSelection";
-import { UnderlaySelectionProps } from "../_UnderlaySelection";
-import { VariantSelectionProps } from "../_VariantSelection";
 import en from "./samples/copy/en.json";
 
 const dimensions = {
@@ -37,7 +38,7 @@ const tRidge = createESProduct({
   code: "t-ridge",
   name: "T-ridge",
   externalProductCode: "43232132",
-  MEASUREMENTS$LENGTH: [
+  TILESATTRIBUTES$AVERAGEDECKLENGTH: [
     {
       code: "30cm",
       name: "30 cm",
@@ -50,7 +51,7 @@ const ridgeTile = createESProduct({
   code: "Ridge_tile",
   name: "Ridge tile",
   externalProductCode: "46035761",
-  MEASUREMENTS$LENGTH: [
+  TILESATTRIBUTES$AVERAGEDECKLENGTH: [
     {
       code: "30cm",
       name: "30 cm",
@@ -91,7 +92,7 @@ const tile = createESProduct({
   APPEARANCEATTRIBUTES$COLOUR: [{ name: "Red", code: "Red" }],
   GENERALINFORMATION$CLASSIFICATION: [{ name: "metal", code: "metal" }],
   TILESATTRIBUTES$BROKENBOND: [{ name: false, code: false }],
-  MEASUREMENTS$WIDTH: [
+  TILESATTRIBUTES$AVERAGEDECKWIDTH: [
     {
       code: "330mm",
       name: "330 mm",
@@ -252,9 +253,12 @@ const setSelected = jest
     (selection: CalculatorSteps.SelectRoof) => (selected = selection)
   );
 
+const getTileCategoriesMock = jest.fn();
+
 let componentProps: {
   _RoofSelection?: RoofSelectionProps;
   _RoofDimensions?: RoofDimensionsProps;
+  _TileMaterial?: TileMaterialProps;
   _TileSelection?: TileSelectionProps;
   _TileOptions?: TileOptionsProps;
   _VariantSelection?: VariantSelectionProps;
@@ -282,11 +286,25 @@ jest.mock("../_RoofDimensions", () => {
     default: RoofDimensions
   };
 });
-jest.mock("../_TileSelection", () => {
-  const TileSelection = (props: TileSelectionProps) => {
-    componentProps["_TileSelection"] = props;
-    return <p>Rendering _TileSelection</p>;
+jest.mock("../TileMaterial", () => {
+  const TileMaterial = (props: TileMaterialProps) => {
+    componentProps["_TileMaterial"] = props;
+    return <p>Rendering TileMaterial</p>;
   };
+  return {
+    __esModule: true,
+    default: TileMaterial,
+    getTileMaterials: (...args: Parameters<typeof getTileMaterials>) =>
+      getTileCategoriesMock(...args)
+  };
+});
+jest.mock("../_TileSelection", () => {
+  const TileSelection = jest
+    .fn()
+    .mockImplementation((props: TileSelectionProps) => {
+      componentProps["_TileSelection"] = props;
+      return <p>Rendering _TileSelection</p>;
+    });
   return {
     __esModule: true,
     default: TileSelection
@@ -410,6 +428,28 @@ describe("PitchedRoofCalculatorSteps component", () => {
     expect(container).toMatchSnapshot();
   });
 
+  it("calls TileSelection component correctly", () => {
+    render(
+      <PitchedRoofCalculatorSteps
+        selected={CalculatorSteps.SelectTile}
+        setSelected={jest.fn()}
+        calculatorConfig={null}
+      />
+    );
+
+    expect(TileSelectionComponent).toHaveBeenCalledWith(
+      {
+        name: "tile",
+        isRequired: true,
+        fieldIsRequiredError: "MC: validation.errors.fieldRequired",
+        tiles: {},
+        tileMaterial: undefined,
+        defaultValue: undefined
+      },
+      {}
+    );
+  });
+
   it("moves through the steps", async () => {
     mockedES = jest
       .spyOn(elasticSearch, "queryElasticSearch")
@@ -449,14 +489,20 @@ describe("PitchedRoofCalculatorSteps component", () => {
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.EnterDimensions);
 
-    act(() =>
-      stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
-        createFormEvent(),
-        dimensions
-      )
+    await stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
+      createFormEvent(),
+      dimensions
+    );
+
+    rerender(getComponent(selected));
+    expect(renderedStep).toBe(CalculatorSteps.SelectTileCategory);
+
+    await stepProps[CalculatorSteps.SelectTileCategory].nextButtonOnClick!(
+      createFormEvent(),
+      { tileMaterial: "Clay" }
     );
     rerender(getComponent(selected));
-    await waitFor(() => expect(renderedStep).toBe(CalculatorSteps.SelectTile));
+    expect(renderedStep).toBe(CalculatorSteps.SelectTile);
 
     stepProps[CalculatorSteps.SelectTile].nextButtonOnClick!(
       createFormEvent(),
@@ -475,65 +521,57 @@ describe("PitchedRoofCalculatorSteps component", () => {
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.TileOptions);
 
-    act(() =>
-      stepProps[CalculatorSteps.TileOptions].nextButtonOnClick!(
-        createFormEvent(),
-        {
-          verge: leftVergeTile.externalProductCode,
-          ridge: ridgeTile.externalProductCode,
-          ventilation: [ventilationHood.externalProductCode]
-        }
-      )
+    stepProps[CalculatorSteps.TileOptions].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        verge: leftVergeTile.externalProductCode,
+        ridge: ridgeTile.externalProductCode,
+        ventilation: [ventilationHood.externalProductCode]
+      }
     );
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.SelectUnderlay);
 
-    act(() =>
-      stepProps[CalculatorSteps.SelectUnderlay].nextButtonOnClick!(
-        createFormEvent(),
-        {
-          underlay: underlay.externalProductCode
-        }
-      )
+    stepProps[CalculatorSteps.SelectUnderlay].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        underlay: underlay.externalProductCode
+      }
     );
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.Guttering);
 
-    act(() => stepProps[CalculatorSteps.Guttering].linkOnClick!());
+    stepProps[CalculatorSteps.Guttering].linkOnClick!();
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.YourSolutionContains);
 
-    act(() =>
-      stepProps[CalculatorSteps.YourSolutionContains].backButtonOnClick!()
-    );
+    stepProps[CalculatorSteps.YourSolutionContains].backButtonOnClick!();
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.Guttering);
 
-    act(() =>
-      stepProps[CalculatorSteps.Guttering].nextButtonOnClick!(
-        createFormEvent(),
-        {
-          guttering: gutter.baseProduct!.code,
-          gutteringVariant: gutter.externalProductCode,
-          gutteringHook: gutterHook.externalProductCode,
-          downPipes: 10,
-          downPipeConnectors: 15
-        }
-      )
+    await stepProps[CalculatorSteps.Guttering].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        guttering: gutter.baseProduct!.code,
+        gutteringVariant: gutter.externalProductCode,
+        gutteringHook: gutterHook.externalProductCode,
+        downPipes: 10,
+        downPipeConnectors: 15
+      }
     );
-    await waitFor(() =>
-      expect(selected).toBe(CalculatorSteps.YourSolutionContains)
-    );
+    expect(selected).toBe(CalculatorSteps.YourSolutionContains);
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.YourSolutionContains);
 
     [
       [CalculatorSteps.YourSolutionContains, CalculatorSteps.Guttering],
       [CalculatorSteps.Guttering, CalculatorSteps.SelectUnderlay],
+      [CalculatorSteps.Guttering, CalculatorSteps.SelectUnderlay],
       [CalculatorSteps.SelectUnderlay, CalculatorSteps.TileOptions],
       [CalculatorSteps.TileOptions, CalculatorSteps.SelectVariant],
       [CalculatorSteps.SelectVariant, CalculatorSteps.SelectTile],
-      [CalculatorSteps.SelectTile, CalculatorSteps.EnterDimensions],
+      [CalculatorSteps.SelectTile, CalculatorSteps.SelectTileCategory],
+      [CalculatorSteps.SelectTileCategory, CalculatorSteps.EnterDimensions],
       [CalculatorSteps.EnterDimensions, CalculatorSteps.SelectRoof]
     ].forEach(([current, previous]) => {
       // eslint-disable-next-line security/detect-object-injection
@@ -571,7 +609,48 @@ describe("PitchedRoofCalculatorSteps component", () => {
     expect(renderedStep).toBe(CalculatorSteps.SelectRoof);
   });
 
-  it("allows to skip tile and tile options selection steps if there is no tile", () => {
+  it("should not fetch tile materials twice if the user has entered the same dimensions", async () => {
+    const getComponent = (selected: CalculatorSteps) => (
+      <MicroCopy.Provider values={en}>
+        <PitchedRoofCalculatorSteps
+          selected={selected}
+          setSelected={setSelected}
+          calculatorConfig={null}
+        />
+      </MicroCopy.Provider>
+    );
+    const { rerender } = render(getComponent(selected));
+
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick!(
+      createFormEvent(),
+      {
+        roof: roofs[0].id
+      }
+    );
+    rerender(getComponent(selected));
+
+    await stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
+      createFormEvent(),
+      dimensions
+    );
+    rerender(getComponent(selected));
+    expect(renderedStep).toBe(CalculatorSteps.SelectTileCategory);
+    expect(getTileCategoriesMock).toHaveBeenCalledTimes(1);
+
+    stepProps[CalculatorSteps.SelectTileCategory].backButtonOnClick!();
+    rerender(getComponent(selected));
+    expect(renderedStep).toBe(CalculatorSteps.EnterDimensions);
+
+    await stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
+      createFormEvent(),
+      dimensions
+    );
+    rerender(getComponent(selected));
+    expect(renderedStep).toBe(CalculatorSteps.SelectTileCategory);
+    expect(getTileCategoriesMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("allows to skip tile and tile options selection steps if there is no tile", async () => {
     jest
       .spyOn(elasticSearch, "queryElasticSearch")
       .mockResolvedValueOnce({ hits: { hits: [] } });
@@ -595,9 +674,15 @@ describe("PitchedRoofCalculatorSteps component", () => {
     );
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
+    await stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
       createFormEvent(),
       dimensions
+    );
+    rerender(getComponent(selected));
+
+    await stepProps[CalculatorSteps.SelectTileCategory].nextButtonOnClick!(
+      createFormEvent(),
+      { tileMaterial: "Clay" }
     );
     rerender(getComponent(selected));
 
@@ -650,11 +735,18 @@ describe("PitchedRoofCalculatorSteps component", () => {
     );
     rerender(getComponent(selected));
 
-    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
+    await stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
       createFormEvent(),
       dimensions
     );
-    await waitFor(() => expect(selected).toBe(CalculatorSteps.SelectTile));
+    expect(selected).toBe(CalculatorSteps.SelectTileCategory);
+    rerender(getComponent(selected));
+
+    await stepProps[CalculatorSteps.SelectTileCategory].nextButtonOnClick!(
+      createFormEvent(),
+      { timeMaterial: "Clay" }
+    );
+    expect(selected).toBe(CalculatorSteps.SelectTile);
     rerender(getComponent(selected));
 
     stepProps[CalculatorSteps.SelectTile].nextButtonOnClick!(
@@ -709,13 +801,22 @@ describe("PitchedRoofCalculatorSteps component", () => {
       }
     );
     rerender(getComponent(selected));
-    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
+    await stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
       createFormEvent(),
       dimensions
     );
 
     rerender(getComponent(selected));
-    await waitFor(() => expect(renderedStep).toBe(CalculatorSteps.SelectTile));
+    expect(renderedStep).toBe(CalculatorSteps.SelectTileCategory);
+
+    rerender(getComponent(selected));
+    await stepProps[CalculatorSteps.SelectTileCategory].nextButtonOnClick!(
+      createFormEvent(),
+      dimensions
+    );
+
+    rerender(getComponent(selected));
+    expect(renderedStep).toBe(CalculatorSteps.SelectTile);
 
     stepProps[CalculatorSteps.SelectTile].nextButtonOnClick!(
       createFormEvent(),

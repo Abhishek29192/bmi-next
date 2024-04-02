@@ -1,6 +1,6 @@
 import Section from "@bmi-digital/components/section";
 import ToolCards from "@bmi-digital/components/tool-cards";
-import React from "react";
+import React, { useMemo } from "react";
 import { useSiteContext } from "../../components/Site";
 import { ToolCardsBox, classes } from "./styles";
 import { transformToolCard } from "./utils";
@@ -11,12 +11,22 @@ export type AllowTools = "My profile" | "Trainings" | "Roof measurement";
 export type ToolSectionProps = {
   titleForToolSection: string;
   allowTools: readonly [AllowTools, ...AllowTools[]];
+  path: string;
 };
 
-const ToolSection = ({ allowTools, titleForToolSection }: ToolSectionProps) => {
-  const { getMicroCopy } = useSiteContext();
+const ToolSection = ({
+  allowTools,
+  titleForToolSection,
+  path
+}: ToolSectionProps) => {
+  const { countryCode, getMicroCopy } = useSiteContext();
+  const currentPageUrl = useMemo(() => {
+    const url = new URL(`${countryCode}/${path}`, process.env.GATSBY_SITE_URL);
+    return url.href;
+  }, [path, countryCode]);
+
   const transformToolCardData: [ToolCardItemProps, ...ToolCardItemProps[]] =
-    transformToolCard(allowTools, getMicroCopy);
+    transformToolCard(currentPageUrl, allowTools, getMicroCopy);
 
   return (
     <Section backgroundColor="pearl">

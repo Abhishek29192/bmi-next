@@ -2,17 +2,14 @@ import { FormContext } from "@bmi-digital/components/form";
 import { microCopy } from "@bmi/microcopies";
 import React, { useContext, useEffect } from "react";
 import { useSiteContext } from "../Site";
-import {
-  StyledCardCheckboxGroup,
-  StyledCardCheckboxNoneItem,
-  classes
-} from "./_TileOptions.styles";
+import { StyledCardCheckboxGroup, classes } from "./_TileOptions.styles";
 import { AnalyticsContext } from "./helpers/analytics";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import {
   CardCheckboxGroup,
   CardRadioGroup
 } from "./subcomponents/card-group/CardGroup";
+import { classes as cardGroupClasses } from "./subcomponents/card-group/CardGroup.styles";
 import {
   RidgeOption,
   Tile,
@@ -61,9 +58,10 @@ const VergeOptions = ({ selected, verge }: VergeOptionsProps) => {
             });
           }}
         />
-        <StyledCardCheckboxNoneItem
+        <CardRadioGroup.Item
           value="none"
           title={getMicroCopy(microCopy.TILE_OPTIONS_VERGE_NONE_LABEL)}
+          className={cardGroupClasses.noProductOption}
           onClick={() => {
             pushEvent({
               event: "dxb.button_click",

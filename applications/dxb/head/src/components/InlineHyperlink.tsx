@@ -1,3 +1,4 @@
+import { useIsClient } from "@bmi-digital/components";
 import AnchorLink, {
   AnchorLinkProps
 } from "@bmi-digital/components/anchor-link";
@@ -5,6 +6,7 @@ import { Inline } from "@contentful/rich-text-types";
 import { graphql, Link } from "gatsby";
 import React, { useCallback, useContext, useState } from "react";
 import withGTM from "../utils/google-tag-manager";
+import memoize from "../utils/memoize";
 import { getPathWithCountryCode } from "../utils/path";
 import { getClickableActionFromUrl, getLinkURL, renderDialog } from "./Link";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
@@ -41,6 +43,8 @@ const InlineHyperlink = ({
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
+  const { isClient } = useIsClient();
+  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   const fields = node.data.target;
 
@@ -61,22 +65,26 @@ const InlineHyperlink = ({
     return (
       <>
         <GTMAnchorLink
-          action={getClickableActionFromUrl(
-            linkedPage,
-            getLinkURL(fields),
-            countryCode,
-            asset ? `https:${asset?.file?.url}` : undefined,
-            String(children),
-            type,
-            () => {
-              if (type === "Visualiser" && openVisualiser) {
-                openVisualiser(parameters);
-              } else if (type === "Calculator" && openCalculator) {
-                openCalculator(parameters);
-              } else if (type === "Dialog") {
-                setDialogIsOpen(true);
+          action={memoizedGetClickableActionFromUrl(
+            {
+              isSSR: !isClient,
+              linkedPage,
+              url: getLinkURL(fields),
+              countryCode,
+              assetUrl: asset ? `https:${asset?.file?.url}` : undefined,
+              label: String(children),
+              type,
+              onClick: () => {
+                if (type === "Visualiser" && openVisualiser) {
+                  openVisualiser(parameters);
+                } else if (type === "Calculator" && openCalculator) {
+                  openCalculator(parameters);
+                } else if (type === "Dialog") {
+                  setDialogIsOpen(true);
+                }
               }
-            }
+            },
+            []
           )}
           gtm={{
             id: "cta-click1",
@@ -103,12 +111,14 @@ const InlineHyperlink = ({
     const { file } = fields;
     return (
       <GTMAnchorLink
-        action={getClickableActionFromUrl(
-          undefined,
-          undefined,
-          countryCode,
-          `https:${file.url}`,
-          String(children)
+        action={memoizedGetClickableActionFromUrl(
+          {
+            isSSR: !isClient,
+            countryCode,
+            assetUrl: `https:${file.url}`,
+            label: String(children)
+          },
+          []
         )}
         gtm={{
           id: "cta-click1",
