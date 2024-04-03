@@ -122,8 +122,8 @@ export const mapProductClassifications = (
   const MEASUREMENTS = "measurements";
 
   const FEATURES = {
-    LENGTH: `${classificationNamepace}/${MEASUREMENTS}.length`,
     WIDTH: `${classificationNamepace}/${MEASUREMENTS}.width`,
+    LENGTH: `${classificationNamepace}/${MEASUREMENTS}.length`,
     HEIGHT: `${classificationNamepace}/${MEASUREMENTS}.height`,
     THICKNESS: `${classificationNamepace}/${MEASUREMENTS}.thickness`
   };
@@ -136,8 +136,8 @@ export const mapProductClassifications = (
           features?.forEach(({ code, name, featureValues, featureUnit }) => {
             if (
               [
-                FEATURES.LENGTH,
                 FEATURES.WIDTH,
+                FEATURES.LENGTH,
                 FEATURES.HEIGHT,
                 FEATURES.THICKNESS
               ].includes(code)
@@ -227,7 +227,14 @@ export const getSizeLabel = (
   measurement: TransformedMeasurementValue,
   withUnit = true
 ) => {
-  const components = Object.values(measurement).filter(Boolean);
+  const rearrangedMeasurement = {
+    width: measurement.width,
+    length: measurement.length,
+    height: measurement.height,
+    thickness: measurement.thickness
+  };
+
+  const components = Object.values(rearrangedMeasurement).filter(Boolean);
   if (components.length === 0) {
     return "";
   }

@@ -9,7 +9,7 @@
   "scripts": {
     "build": "run compile && webpack --mode=production",
     "compile": "tsc --build",
-    "dev": "yarn build && env-cmd functions-framework --source=dist/dist/function --target=handleMessage",
+    "dev": "yarn build && env-cmd functions-framework --source=dist --signature-type=event --target=handleMessage --port=8080",
     "debug": "webpack --mode=development && env-cmd node --inspect $(yarn bin )/functions-framework --source=dist --target=handleMessage --signature-type=event --port 8090",
     "dev:top": "yarn build && env-cmd process-top $(yarn bin functions-framework) --source=dist/dist/function --target=handleMessage",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
