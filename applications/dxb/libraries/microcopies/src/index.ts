@@ -421,7 +421,16 @@ export const microCopy = {
   TRAINING_EMAIL_START_DATE: "training.emailStartDateLabel",
   TRAINING_EMAIL_LABEL: "training.emailTrainingLabel",
   TRAINING_EMAIL_DATA_CONSENT_LABEL: "training.emailDataConsentLabel",
-  TRAINING_EMAIL_TERM_OF_USE_LABEL: "training.emailTermsOfUseLabel"
+  TRAINING_EMAIL_TERM_OF_USE_LABEL: "training.emailTermsOfUseLabel",
+
+  TRAINING_REGISTRATION_WARNING_POPUP_TITLE:
+    "training.registration.warning.popup.title",
+  TRAINING_REGISTRATION_WARNING_POPUP_DESCRIPTION:
+    "training.registration.warning.popup.description",
+  TRAINING_REGISTRATION_WARNING_POPUP_CLOSE_BTN:
+    "training.registration.warning.popup.close.btn",
+  TRAINING_REGISTRATION_WARNING_POPUP_CANCEL_BTN:
+    "training.registration.warning.popup.cancel.btn"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

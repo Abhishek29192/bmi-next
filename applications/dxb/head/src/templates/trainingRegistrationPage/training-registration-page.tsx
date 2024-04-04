@@ -1,7 +1,7 @@
 import Section from "@bmi-digital/components/section";
 import { isDefined } from "@bmi/utils";
 import { graphql } from "gatsby";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Page, { Data as PageData } from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
@@ -10,9 +10,11 @@ import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils
 import { getPathWithCountryCode } from "../../utils/path";
 import TrainingRegistrationForm from "./components/TrainingRegistrationForm";
 import TrainingRegistrationHeader from "./components/TrainingRegistrationHeader";
+import WarningDialog from "./components/WarningDialog";
 import { useRegistration } from "./hooks/useRegistration";
+import { useShowWarningModal } from "./hooks/useShowWarningModal";
+import { FormStatus, type TrainingRegistrationPageProps } from "./types";
 import type { BreadcrumbItem } from "../../types/pim";
-import type { TrainingRegistrationPageProps } from "./types";
 
 const TrainingRegistrationPage = ({
   data: {
@@ -21,9 +23,12 @@ const TrainingRegistrationPage = ({
     contentfulTrainingRegistrationPage
   }
 }: TrainingRegistrationPageProps) => {
+  const [formStatus, setFormStatus] = useState(FormStatus.Initialized);
   const { path } = contentfulTrainingRegistrationPage;
-
   const { training, loading } = useRegistration();
+  const { blockedLocation, closeWarningDialog } = useShowWarningModal({
+    formStatus
+  });
 
   const breadcrumbs: BreadcrumbItem[] = useMemo(() => {
     const currentPageBreadcrumb = [
@@ -68,6 +73,12 @@ const TrainingRegistrationPage = ({
       siteData={contentfulSite}
       pageData={pageData}
     >
+      {blockedLocation && (
+        <WarningDialog
+          blockedUrl={blockedLocation.href}
+          closeDialog={closeWarningDialog}
+        />
+      )}
       {loading && (
         <Scrim theme="light">
           <ProgressIndicator theme="light" />
@@ -83,13 +94,14 @@ const TrainingRegistrationPage = ({
       {training && <TrainingRegistrationHeader training={training} />}
       {!loading && !training ? null : (
         <TrainingRegistrationForm
-          {...contentfulTrainingRegistrationPage}
+          formData={contentfulTrainingRegistrationPage}
           trainingDetailsPageUrl={getPathWithCountryCode(
             contentfulSite.countryCode,
             `/t/${training?.courseSlug}`
           )}
           courseCode={training?.courseCode}
           training={training}
+          setFormStatus={setFormStatus}
         />
       )}
       <Section backgroundColor="white" data-testid="breadcrumbs-section-bottom">

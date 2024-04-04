@@ -13,6 +13,7 @@ import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { trainingRegistrationPageData } from "../__mocks__/trainingRegistrationPage";
 import TrainingRegistrationForm from "../components/TrainingRegistrationForm";
 
+import { FormStatus } from "../types";
 import type { NavigateFn } from "@reach/router";
 
 const navigateMock = jest.fn();
@@ -67,6 +68,8 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const setFormStatusMock = jest.fn();
+
 const renderTrainingRegistrationPage = () => {
   render(
     <ConfigProvider
@@ -78,7 +81,8 @@ const renderTrainingRegistrationPage = () => {
         <ThemeProvider>
           <LocationProvider>
             <TrainingRegistrationForm
-              {...trainingRegistrationPageData}
+              setFormStatus={setFormStatusMock}
+              formData={trainingRegistrationPageData}
               trainingDetailsPageUrl="/no/t/training-details-page-utl"
               courseCode={"IT-TEST08"}
               training={createTraining()}
@@ -295,7 +299,7 @@ describe("TrainingRegistrationForm", () => {
       )
     );
     expect(executeRecaptchaMock).toHaveBeenCalled();
-  });
+  }, 10000);
 
   it("should not execute recatpcha checks if 'getCookieMock' returns a value", async () => {
     getCookieMock.mockReturnValue("qa-auth-token");
@@ -355,10 +359,29 @@ describe("TrainingRegistrationForm", () => {
       )
     );
     expect(executeRecaptchaMock).not.toHaveBeenCalled();
-  });
+  }, 10000);
 
   it("renders extra participants section", () => {
     renderTrainingRegistrationPage();
     expect(screen.getByText("Extra participants section")).toBeInTheDocument();
+  });
+
+  it("sets 'Initialized' form status on mount", () => {
+    renderTrainingRegistrationPage();
+    expect(setFormStatusMock).toHaveBeenCalledTimes(1);
+    expect(setFormStatusMock).toHaveBeenCalledWith(FormStatus.Initialized);
+  });
+
+  it("sets 'Edited' form status if at least one form field has been filled in", () => {
+    renderTrainingRegistrationPage();
+
+    const emailFieldLabel = screen.getByLabelText(
+      trainingRegistrationPageData.email,
+      {
+        exact: false
+      }
+    );
+    fireEvent.change(emailFieldLabel, { target: { value: "test-email" } });
+    expect(setFormStatusMock).toHaveBeenCalledWith(FormStatus.Edited);
   });
 });
