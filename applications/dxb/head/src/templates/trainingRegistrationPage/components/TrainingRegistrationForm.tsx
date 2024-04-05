@@ -5,7 +5,7 @@ import logger from "@bmi-digital/functions-logger";
 import { Training } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import { navigate } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useSiteContext } from "../../../components/Site";
 import { QA_AUTH_TOKEN } from "../../../constants/cookieConstants";
@@ -21,12 +21,13 @@ type TrainingRegistrationFormProps = {
   trainingDetailsPageUrl: string;
   courseCode?: string;
   training?: Training;
+  isSubmitting: boolean;
+  setIsSubmitting: (isSubmitting: boolean) => void;
 };
 
 const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
   const { getMicroCopy, node_locale } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const { gcpFormSubmitEndpoint } = useConfig();
 
@@ -36,7 +37,7 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
   ) => {
     event.preventDefault();
 
-    setIsSubmitting(true);
+    props.setIsSubmitting(true);
 
     try {
       const token = qaAuthToken ? undefined : await executeRecaptcha?.();
@@ -106,15 +107,15 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
+
+      navigate(props.trainingDetailsPageUrl, {
+        state: { showResultsModal: true },
+        replace: true
+      });
     } catch (error) {
       logger.error({ message: (error as Error).message });
+      props.setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
-    navigate(props.trainingDetailsPageUrl, {
-      state: { showResultsModal: true },
-      replace: true
-    });
   };
 
   return (
@@ -126,7 +127,7 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
         <Grid container>
           <Grid xs={12} lg={8}>
             <FormFields
-              isSubmitting={isSubmitting}
+              isSubmitting={props.isSubmitting}
               formData={props.formData}
               setFormStatus={props.setFormStatus}
             />

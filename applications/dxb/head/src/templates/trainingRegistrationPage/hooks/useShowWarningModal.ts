@@ -5,14 +5,20 @@ import { useSiteContext } from "../../../components/Site";
 import { FormStatus } from "../types";
 import type { HistoryLocation } from "@reach/router";
 
-export type UseShowWarningModalData = { formStatus: FormStatus };
+export type UseShowWarningModalData = {
+  formStatus: FormStatus;
+  isSubmitting: boolean;
+};
 
 export type UseShowWarningModal = (data: UseShowWarningModalData) => {
   closeWarningDialog: () => void;
   blockedLocation?: HistoryLocation;
 };
 
-export const useShowWarningModal: UseShowWarningModal = ({ formStatus }) => {
+export const useShowWarningModal: UseShowWarningModal = ({
+  formStatus,
+  isSubmitting
+}) => {
   const currentLocation = useLocation();
   const [blockedLocation, setBlockedLocation] = useState<
     HistoryLocation | undefined
@@ -20,7 +26,11 @@ export const useShowWarningModal: UseShowWarningModal = ({ formStatus }) => {
   const { getMicroCopy } = useSiteContext();
 
   useEffect(() => {
-    if (blockedLocation || formStatus === FormStatus.Initialized) {
+    if (
+      isSubmitting ||
+      blockedLocation ||
+      formStatus === FormStatus.Initialized
+    ) {
       return;
     }
 
@@ -39,10 +49,10 @@ export const useShowWarningModal: UseShowWarningModal = ({ formStatus }) => {
     });
 
     return () => unsubscribe();
-  }, [blockedLocation, currentLocation, formStatus]);
+  }, [blockedLocation, currentLocation, formStatus, isSubmitting]);
 
   useEffect(() => {
-    if (formStatus === FormStatus.Initialized) {
+    if (isSubmitting || formStatus === FormStatus.Initialized) {
       return;
     }
 
@@ -63,7 +73,7 @@ export const useShowWarningModal: UseShowWarningModal = ({ formStatus }) => {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [formStatus]);
+  }, [formStatus, isSubmitting]);
 
   const closeWarningDialog = () => {
     setBlockedLocation(undefined);

@@ -24,10 +24,12 @@ const TrainingRegistrationPage = ({
   }
 }: TrainingRegistrationPageProps) => {
   const [formStatus, setFormStatus] = useState(FormStatus.Initialized);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { path } = contentfulTrainingRegistrationPage;
   const { training, loading } = useRegistration();
   const { blockedLocation, closeWarningDialog } = useShowWarningModal({
-    formStatus
+    formStatus,
+    isSubmitting
   });
 
   const breadcrumbs: BreadcrumbItem[] = useMemo(() => {
@@ -102,6 +104,8 @@ const TrainingRegistrationPage = ({
           courseCode={training?.courseCode}
           training={training}
           setFormStatus={setFormStatus}
+          isSubmitting={isSubmitting}
+          setIsSubmitting={setIsSubmitting}
         />
       )}
       <Section backgroundColor="white" data-testid="breadcrumbs-section-bottom">
