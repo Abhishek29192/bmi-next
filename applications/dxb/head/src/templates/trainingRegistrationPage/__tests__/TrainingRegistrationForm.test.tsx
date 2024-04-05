@@ -12,7 +12,6 @@ import { getMockSiteContext } from "../../../components/__tests__/utils/SiteCont
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { trainingRegistrationPageData } from "../__mocks__/trainingRegistrationPage";
 import TrainingRegistrationForm from "../components/TrainingRegistrationForm";
-
 import { FormStatus } from "../types";
 import type { NavigateFn } from "@reach/router";
 
@@ -86,6 +85,8 @@ const renderTrainingRegistrationPage = () => {
               trainingDetailsPageUrl="/no/t/training-details-page-utl"
               courseCode={"IT-TEST08"}
               training={createTraining()}
+              setIsSubmitting={jest.fn()}
+              isSubmitting={false}
             />
           </LocationProvider>
         </ThemeProvider>
@@ -243,6 +244,12 @@ describe("TrainingRegistrationForm", () => {
   });
 
   it("submits the form if all the required fields are filled in correctly", async () => {
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: "OK"
+    });
     renderTrainingRegistrationPage();
 
     fireEvent.change(
@@ -303,6 +310,13 @@ describe("TrainingRegistrationForm", () => {
 
   it("should not execute recatpcha checks if 'getCookieMock' returns a value", async () => {
     getCookieMock.mockReturnValue("qa-auth-token");
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: "OK"
+    });
+
     renderTrainingRegistrationPage();
 
     fireEvent.change(
