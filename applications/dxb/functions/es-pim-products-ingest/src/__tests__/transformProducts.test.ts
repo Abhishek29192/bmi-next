@@ -417,12 +417,12 @@ describe("transformProduct", () => {
               createMeasurementsClassification({
                 features: [
                   createFeature({
-                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
-                    featureValues: [createFeatureValue({ value: "10" })]
-                  }),
-                  createFeature({
                     code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.width`,
                     featureValues: [createFeatureValue({ value: "100" })]
+                  }),
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
+                    featureValues: [createFeatureValue({ value: "10" })]
                   }),
                   createFeature({
                     code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.length`,
@@ -436,7 +436,7 @@ describe("transformProduct", () => {
       });
       const transformedProduct = await transformProduct(product);
 
-      expect(transformedProduct[0].measurementValue).toEqual("10x100x1symbol");
+      expect(transformedProduct[0].measurementValue).toEqual("100x1x10symbol");
     });
 
     it("should exclude TwoOneClassificationAndFeatures", async () => {
@@ -448,12 +448,12 @@ describe("transformProduct", () => {
               createMeasurementsClassification({
                 features: [
                   createFeature({
-                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
-                    featureValues: [createFeatureValue({ value: "10" })]
-                  }),
-                  createFeature({
                     code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.width`,
                     featureValues: [createFeatureValue({ value: "100" })]
+                  }),
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
+                    featureValues: [createFeatureValue({ value: "10" })]
                   }),
                   createFeature({
                     code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.length`,
@@ -467,7 +467,7 @@ describe("transformProduct", () => {
       });
       const transformedProduct = await transformProduct(product);
 
-      expect(transformedProduct[0].measurementValue).toEqual("10x100x1symbol");
+      expect(transformedProduct[0].measurementValue).toEqual("100x1x10symbol");
       //verify TwoOne classifications and attributes are not present iin transformed product
       expect(transformedProduct[0].bagUomAttributes).toEqual(undefined);
       expect(transformedProduct[0].canisterUomAttributes).toEqual(undefined);

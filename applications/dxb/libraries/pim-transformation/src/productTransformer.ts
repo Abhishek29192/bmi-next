@@ -4,21 +4,21 @@ import {
   GuaranteesAndWarrantiesAssetType
 } from "@bmi/firestore-types";
 import {
-  generateHashFromString,
-  generateUrl,
-  isDefined,
-  getIsApprovedOrDiscontinuedProduct
-} from "@bmi/utils";
-import {
+  ApprovalStatus,
   type Asset,
-  type Category as PimCategory,
-  type Classification as PimClassification,
   type ClassificationWithFeatures,
   type Feature,
+  type Category as PimCategory,
+  type Classification as PimClassification,
   type Product as PimProduct,
-  type VariantOption,
-  ApprovalStatus
+  type VariantOption
 } from "@bmi/pim-types";
+import {
+  generateHashFromString,
+  generateUrl,
+  getIsApprovedOrDiscontinuedProduct,
+  isDefined
+} from "@bmi/utils";
 import type {
   CategoryGroup,
   Classification,
@@ -28,6 +28,10 @@ import type {
   RelatedVariant,
   UnitValue
 } from "@bmi/firestore-types";
+import {
+  productIgnorableAttributes,
+  productIgnorableClassfications
+} from "./ignorableFeatureCodes.js";
 import {
   filterClassifications,
   getAwardAndCertificateAsset,
@@ -42,10 +46,6 @@ import {
   mapDocuments,
   mapImages
 } from "./transformerUtils.js";
-import {
-  productIgnorableAttributes,
-  productIgnorableClassfications
-} from "./ignorableFeatureCodes.js";
 
 export const transformProduct = (
   product: PimProduct,
@@ -339,7 +339,7 @@ export const transformProduct = (
         height,
         thickness,
         volume,
-        label: getSizeLabel(length, width, height, thickness)
+        label: getSizeLabel(width, length, height, thickness)
       },
       name,
       path: `/p/${generateProductUrl(
@@ -704,12 +704,12 @@ const mapRelatedVariants = (
         textureFamily,
         materials,
         measurements: {
-          length,
           width,
+          length,
           height,
           thickness,
           volume,
-          label: getSizeLabel(length, width, height, thickness)
+          label: getSizeLabel(width, length, height, thickness)
         },
         path: `/p/${generateProductUrl(
           name,
@@ -761,13 +761,13 @@ const mapProductDocuments = (
   }));
 };
 
-const getSizeLabel = (
-  length?: UnitValue,
+export const getSizeLabel = (
   width?: UnitValue,
+  length?: UnitValue,
   height?: UnitValue,
   thickness?: UnitValue
 ) => {
-  const measurementValues = [length, width, height, thickness].filter(
+  const measurementValues = [width, length, height, thickness].filter(
     isDefined
   );
   if (measurementValues.length === 0) {
@@ -781,7 +781,9 @@ const getSizeLabel = (
 
   return (
     measurementValues
-      .map((unitValue) => unitValue.value + (!sameUnit ? unitValue.unit : ""))
+      .map((unitValue) => {
+        return unitValue.value + (!sameUnit ? unitValue.unit : "");
+      })
       // Add extra space if units don't match
       .join(sameUnit ? "x" : " x ") + unit
   );
