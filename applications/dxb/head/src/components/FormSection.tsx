@@ -16,9 +16,8 @@ import { replaceSpaces } from "@bmi-digital/components/utils";
 import logger from "@bmi-digital/functions-logger";
 import { microCopy } from "@bmi/microcopies";
 import classNames from "classnames";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
-import { redirect } from "next/navigation";
 import fetch from "node-fetch";
 import React, {
   FormEvent,
@@ -33,8 +32,8 @@ import { GTM } from "@bmi-digital/components";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { useConfig } from "../contexts/ConfigProvider";
 import {
-  isValidEmail,
-  handleEmailValidation as validateEmail
+  handleEmailValidation as validateEmail,
+  isValidEmail
 } from "../utils/emailUtils";
 import getCookie from "../utils/getCookie";
 import { isRichText } from "../utils/isRichText";
@@ -602,7 +601,7 @@ const FormSection = ({
       onSuccess && onSuccess();
 
       if (successRedirect) {
-        redirect(
+        navigate(
           successRedirect.url ||
             getPathWithCountryCode(
               countryCode,
@@ -610,7 +609,7 @@ const FormSection = ({
             )
         );
       } else {
-        redirect("/");
+        navigate("/");
       }
     } catch (error) {
       logger.error({ message: (error as Error).message });
@@ -709,7 +708,7 @@ const FormSection = ({
       }
 
       if (successRedirect) {
-        redirect(
+        navigate(
           successRedirect.url ||
             getPathWithCountryCode(
               countryCode,
@@ -717,7 +716,7 @@ const FormSection = ({
             )
         );
       } else {
-        redirect("/");
+        navigate("/");
       }
     } catch (error) {
       logger.error({ message: (error as Error).message });

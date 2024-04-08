@@ -5,6 +5,7 @@ import { ConfigProvider } from "./src/contexts/ConfigProvider";
 import { theme } from "./src/styles/modifyTheme";
 
 import type { GatsbySSR } from "gatsby";
+import "./src/styles/global.css";
 
 export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
   return (

@@ -87,7 +87,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={featuredMedia?.src}
+      ogImageUrl={featuredMedia?.image?.file.url}
     >
       <Hero
         level={1}

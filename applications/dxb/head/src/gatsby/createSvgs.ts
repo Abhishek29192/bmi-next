@@ -1,14 +1,14 @@
 import fs from "node:fs";
+import ReactDomServer from "react-dom/server";
+import React from "react";
 import { iconMap } from "@bmi-digital/components/logo";
 import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
-import React from "react";
-import ReactDomServer from "react-dom/server";
 
 const parser = new DOMParser();
 const serializer = new XMLSerializer();
 
 const createSvgs = () => {
-  const outputDir = `${__dirname}/../../public/brands`;
+  const outputDir = `${__dirname}/../../static/brands`;
   if (fs.existsSync(outputDir)) {
     fs.rmSync(outputDir, { recursive: true });
   }

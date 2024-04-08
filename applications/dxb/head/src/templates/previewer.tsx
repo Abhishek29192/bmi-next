@@ -1,5 +1,4 @@
-import { graphql } from "gatsby";
-import { redirect } from "next/navigation";
+import { graphql, navigate } from "gatsby";
 import queryString from "query-string";
 import React, { useEffect, useMemo } from "react";
 
@@ -29,7 +28,7 @@ const Previewer = ({ data }: { data: Data }) => {
 
   useEffect(() => {
     if (pageData) {
-      redirect(
+      navigate(
         `/${
           process.env.GATSBY_DONT_USE_COUNTRY_CODE
             ? ""

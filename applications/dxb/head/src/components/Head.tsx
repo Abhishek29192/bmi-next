@@ -1,6 +1,10 @@
 import { transformHyphens } from "@bmi-digital/components/utils";
 import React from "react";
 import { Helmet } from "react-helmet";
+import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
+import EffraHeavy from "../../static/fonts/Effra_W_Heavy.woff2";
+import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
+import EffraRegular from "../../static/fonts/Effra_W_Regular.woff2";
 import { useConfig } from "../contexts/ConfigProvider";
 import { Product } from "../types/pim";
 import { getJpgImage } from "../utils/media";
@@ -102,6 +106,34 @@ export const Head = ({
           path
         )}`}
         hrefLang="x-default"
+      />
+      <link
+        rel="preload"
+        href={EffraRegular}
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href={EffraMedium}
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href={EffraHeavy}
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href={EffraBold}
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
       />
       {imageUrl && (
         <meta

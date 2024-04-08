@@ -141,7 +141,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
         pageData={pageData}
         siteData={data.contentfulSite}
         variantCodeToPathMap={pageContext.variantCodeToPathMap}
-        ogImageUrl={featuredMedia?.src}
+        ogImageUrl={featuredMedia?.image?.file.url}
       >
         {renderHero(heroProps, breadcrumbsNode, heroType, {
           isHeroKeyLine: isHeroKeyLine

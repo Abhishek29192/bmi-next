@@ -3,10 +3,7 @@ import { useIsClient } from "@bmi-digital/components/hooks";
 import AnchorLink from "@bmi-digital/components/anchor-link";
 import Typography from "@bmi-digital/components/typography";
 import { transformHyphens } from "@bmi-digital/components/utils";
-import {
-  documentToReactComponents,
-  Options
-} from "@contentful/rich-text-react-renderer";
+import { Options } from "@contentful/rich-text-react-renderer";
 import {
   Block,
   BLOCKS,
@@ -16,6 +13,7 @@ import {
 } from "@contentful/rich-text-types";
 import classnames from "classnames";
 import { graphql } from "gatsby";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import { constructUrlWithPrevPage } from "../templates/myAccountPage/utils";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
@@ -24,7 +22,7 @@ import EmbeddedInline from "./EmbeddedInline";
 import InlineHyperlink from "./InlineHyperlink";
 import { classes, StyledRichText } from "./styles/RichTextStyles";
 
-export type RichTextData = Parameters<typeof documentToReactComponents>[0];
+export type RichTextData = Parameters<typeof renderRichText>[0];
 
 type Settings = {
   theme?: "primary" | "secondary";
@@ -183,25 +181,40 @@ const RichText = ({
         className
       )}
     >
-      {documentToReactComponents(document, getOptions(rest, isClient))}
+      {renderRichText(document, getOptions(rest, isClient))}
     </StyledRichText>
   );
 };
 
-export const parseRichDataRawFields = (
+export const parseReachDataRawFields = (
   document: RichTextData
 ): Record<string, string | undefined> => {
-  return document.content.reduce((acc, item) => {
-    if (item.content[0].nodeType === "text") {
-      return { ...acc, [item.nodeType]: item.content[0]?.value };
-    }
-    return acc;
-  }, {});
+  const parsedRaw: {
+    nodeType: string;
+    data: Record<string, unknown>;
+    content: Array<{
+      nodeType: string;
+      data: Record<string, unknown>;
+      content: Array<{
+        value: string;
+        nodeType: string;
+        data: Record<string, unknown>;
+      }>;
+    }>;
+  } = JSON.parse(document.raw);
+
+  let res: Record<string, string | undefined> = {};
+  parsedRaw.content.forEach((item) => {
+    res = { ...res, [item.nodeType]: item.content[0]?.value };
+  });
+
+  return res;
 };
 
 export default RichText;
 
 export const query = graphql`
+  fragment RichTextFragment on ContentfulRichText {
     raw
     references {
       __typename
