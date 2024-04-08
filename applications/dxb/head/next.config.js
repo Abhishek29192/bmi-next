@@ -1,6 +1,6 @@
 "use strict";
 
-const withTM = require("next-transpile-modules")(["@bmi/gatsby-theme-auth0"]);
+const withTM = require("next-transpile-modules")([]);
 
 const headers = [];
 
