@@ -1,10 +1,12 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { globalHistory } from "@reach/router";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { navigate } from "gatsby";
 import React from "react";
 import WarningDialog from "../components/WarningDialog";
 
-jest.mock("gatsby");
+jest.mock("@reach/router", () => ({
+  globalHistory: { navigate: jest.fn() }
+}));
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -62,7 +64,7 @@ describe("WarningDialog component", () => {
         name: "MC: training.registration.warning.popup.close.btn"
       })
     );
-    expect(navigate).toHaveBeenCalledWith(blockedUrl);
+    expect(globalHistory.navigate).toHaveBeenCalledWith(blockedUrl);
   });
 
   it("uses correct microcopy for the title", () => {

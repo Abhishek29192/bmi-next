@@ -37,7 +37,7 @@ afterEach(() => {
 });
 
 describe("useShowWarningModal hook", () => {
-  it("should not block 'beforeunload' event if formState==='Initialized'", () => {
+  it("should block 'beforeunload' event if formState==='Initialized'", () => {
     render({
       data: { formStatus: FormStatus.Initialized, isSubmitting: false }
     });
