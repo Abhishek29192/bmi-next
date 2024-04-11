@@ -45,14 +45,14 @@ const WarningDialog = (props: WarningDialogProps) => {
           </Typography>
         </Dialog.Content>
         <Dialog.Actions
-          confirmLabel={getMicroCopy(
+          cancelLabel={getMicroCopy(
             microCopy.TRAINING_REGISTRATION_WARNING_POPUP_CANCEL_BTN
           )}
-          cancelLabel={getMicroCopy(
+          confirmLabel={getMicroCopy(
             microCopy.TRAINING_REGISTRATION_WARNING_POPUP_CLOSE_BTN
           )}
-          onConfirmClick={props.closeDialog}
-          onCancelClick={() => globalHistory.navigate(props.blockedUrl)}
+          onCancelClick={props.closeDialog}
+          onConfirmClick={() => globalHistory.navigate(props.blockedUrl)}
         />
       </StyledDialog>
     </>
