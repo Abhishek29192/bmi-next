@@ -101,7 +101,7 @@ describe("WarningDialog component", () => {
     );
 
     expect(screen.getByTestId("dialog-action-button-cancel")).toHaveTextContent(
-      "training.registration.warning.popup.close.btn"
+      "training.registration.warning.popup.cancel.btn"
     );
   });
 
@@ -114,6 +114,6 @@ describe("WarningDialog component", () => {
 
     expect(
       screen.getByTestId("dialog-action-button-confirm")
-    ).toHaveTextContent("training.registration.warning.popup.cancel.btn");
+    ).toHaveTextContent("training.registration.warning.popup.close.btn");
   });
 });
