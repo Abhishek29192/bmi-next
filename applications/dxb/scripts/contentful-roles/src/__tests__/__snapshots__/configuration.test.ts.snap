@@ -2,7 +2,7 @@
 
 exports[`getRolesPermissionsToCreate should return permission configurations for a editor role if the role is of editor type 1`] = `
 {
-  "description": null,
+  "description": undefined,
   "name": "DXB - uk content editor",
   "permissions": {
     "ContentDelivery": [],
@@ -156,85 +156,6 @@ exports[`getRolesPermissionsToCreate should return permission configurations for
     },
     {
       "actions": [
-        "update",
-      ],
-      "constraint": {
-        "and": [
-          {
-            "equals": [
-              {
-                "doc": "sys.type",
-              },
-              "Entry",
-            ],
-          },
-          {
-            "equals": [
-              {
-                "doc": "sys.contentType.sys.id",
-              },
-              "calculatorRoofShape",
-            ],
-          },
-        ],
-      },
-      "effect": "deny",
-    },
-    {
-      "actions": [
-        "delete",
-      ],
-      "constraint": {
-        "and": [
-          {
-            "equals": [
-              {
-                "doc": "sys.type",
-              },
-              "Entry",
-            ],
-          },
-          {
-            "equals": [
-              {
-                "doc": "sys.contentType.sys.id",
-              },
-              "calculatorRoofShape",
-            ],
-          },
-        ],
-      },
-      "effect": "deny",
-    },
-    {
-      "actions": [
-        "publish",
-        "unpublish",
-      ],
-      "constraint": {
-        "and": [
-          {
-            "equals": [
-              {
-                "doc": "sys.type",
-              },
-              "Entry",
-            ],
-          },
-          {
-            "equals": [
-              {
-                "doc": "sys.contentType.sys.id",
-              },
-              "calculatorRoofShape",
-            ],
-          },
-        ],
-      },
-      "effect": "deny",
-    },
-    {
-      "actions": [
         "read",
       ],
       "constraint": {
@@ -372,13 +293,45 @@ exports[`getRolesPermissionsToCreate should return permission configurations for
       },
       "effect": "deny",
     },
+    {
+      "actions": [
+        "create",
+        "archive",
+        "unarchive",
+        "update",
+        "delete",
+        "publish",
+        "unpublish",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "equals": [
+              {
+                "doc": "sys.contentType.sys.id",
+              },
+              "calculatorRoofShape",
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
   ],
 }
 `;
 
 exports[`getRolesPermissionsToCreate should return permission configurations for a publisher role if the role is of publisher type 1`] = `
 {
-  "description": null,
+  "description": undefined,
   "name": "DXB - uk content publisher",
   "permissions": {
     "ContentDelivery": [],
@@ -551,85 +504,6 @@ exports[`getRolesPermissionsToCreate should return permission configurations for
     },
     {
       "actions": [
-        "update",
-      ],
-      "constraint": {
-        "and": [
-          {
-            "equals": [
-              {
-                "doc": "sys.type",
-              },
-              "Entry",
-            ],
-          },
-          {
-            "equals": [
-              {
-                "doc": "sys.contentType.sys.id",
-              },
-              "calculatorRoofShape",
-            ],
-          },
-        ],
-      },
-      "effect": "deny",
-    },
-    {
-      "actions": [
-        "delete",
-      ],
-      "constraint": {
-        "and": [
-          {
-            "equals": [
-              {
-                "doc": "sys.type",
-              },
-              "Entry",
-            ],
-          },
-          {
-            "equals": [
-              {
-                "doc": "sys.contentType.sys.id",
-              },
-              "calculatorRoofShape",
-            ],
-          },
-        ],
-      },
-      "effect": "deny",
-    },
-    {
-      "actions": [
-        "publish",
-        "unpublish",
-      ],
-      "constraint": {
-        "and": [
-          {
-            "equals": [
-              {
-                "doc": "sys.type",
-              },
-              "Entry",
-            ],
-          },
-          {
-            "equals": [
-              {
-                "doc": "sys.contentType.sys.id",
-              },
-              "calculatorRoofShape",
-            ],
-          },
-        ],
-      },
-      "effect": "deny",
-    },
-    {
-      "actions": [
         "read",
       ],
       "constraint": {
@@ -790,6 +664,38 @@ exports[`getRolesPermissionsToCreate should return permission configurations for
               [
                 "test",
               ],
+            ],
+          },
+        ],
+      },
+      "effect": "deny",
+    },
+    {
+      "actions": [
+        "create",
+        "archive",
+        "unarchive",
+        "update",
+        "delete",
+        "publish",
+        "unpublish",
+      ],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type",
+              },
+              "Entry",
+            ],
+          },
+          {
+            "equals": [
+              {
+                "doc": "sys.contentType.sys.id",
+              },
+              "calculatorRoofShape",
             ],
           },
         ],

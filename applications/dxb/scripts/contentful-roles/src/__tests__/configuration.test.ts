@@ -4,6 +4,7 @@ import {
   getRolesPermissionsToUpdate
 } from "../configurations";
 import { RolesEnum } from "../types";
+import { role } from "./__mocks__/roleMock";
 
 describe("getRolesPermissionsToCreate", () => {
   it("should return permission configurations for a publisher role if the role is of publisher type", () => {
@@ -28,23 +29,8 @@ describe("getRolesPermissionsToCreate", () => {
 
 describe("getRolesPermissionsToUpdate", () => {
   it("should return an empty object if the role is publisher", () => {
-    const permission = getRolesPermissionsToUpdate(
-      RolesEnum.publisher,
-      { name: "uk", locales: ["en-GB"] },
-      ["someMarketTag"]
-    );
-
-    expect(permission).toEqual({});
-  });
-
-  it("should return an empty object if the role is editor", () => {
-    const permission = getRolesPermissionsToUpdate(
-      RolesEnum.editor,
-      { name: "uk", locales: ["en-GB"] },
-      ["someMarketTag"]
-    );
-
-    expect(permission).toEqual({});
+    const permission = getRolesPermissionsToUpdate(role);
+    expect(permission).toEqual(role);
   });
 });
 

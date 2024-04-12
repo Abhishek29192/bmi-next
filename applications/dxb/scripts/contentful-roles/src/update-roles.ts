@@ -27,15 +27,9 @@ export const main = async () => {
   }
   await Promise.allSettled(
     marketsToRun.map(async (market: IMarket) => {
-      const otherMarkets = marketsToRun.filter(
-        (currentMarket: IMarket) => currentMarket.name !== market.name
-      );
-      const otherMarketsTags = otherMarkets.map(
-        (m: IMarket) => `market__${m.name}`
-      );
       for (const role of roles) {
         const roleToUpdate = allExistingSpaceRoles.items.find(
-          (existingRole: any) =>
+          (existingRole) =>
             existingRole.name === `DXB - ${market.name} content ${role}`
         );
         if (!roleToUpdate) {
@@ -45,12 +39,8 @@ export const main = async () => {
           return;
         }
         console.info(`Getting request body for ${roleToUpdate.name} role`);
-        const body = getRolesPermissionsToUpdate(
-          role,
-          market,
-          otherMarketsTags
-        );
-        await updateRole(body, roleToUpdate);
+        const body = getRolesPermissionsToUpdate(roleToUpdate);
+        await updateRole(body);
       }
     })
   );

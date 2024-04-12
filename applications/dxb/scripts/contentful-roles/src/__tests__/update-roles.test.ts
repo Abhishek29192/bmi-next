@@ -1,4 +1,5 @@
-import { IMarket, RolesEnum } from "../types";
+import { role } from "./__mocks__/roleMock";
+import type { RoleProps } from "contentful-management";
 
 const getMarketsToRun = jest.fn();
 const getRolesPermissionsToUpdate = jest.fn();
@@ -7,11 +8,8 @@ jest.mock("../configurations", () => {
   return {
     ...originalModule,
     getMarketsToRun: () => getMarketsToRun(),
-    getRolesPermissionsToUpdate: (
-      role: RolesEnum,
-      market: IMarket,
-      otherMarketsTags: string[]
-    ) => getRolesPermissionsToUpdate(role, market, otherMarketsTags)
+    getRolesPermissionsToUpdate: (role: RoleProps) =>
+      getRolesPermissionsToUpdate(role)
   };
 });
 const getSpaceRoles = jest.fn();
@@ -46,6 +44,7 @@ describe("update roles", () => {
     expect(getRolesPermissionsToUpdate).not.toHaveBeenCalled();
     expect(updateRole).not.toHaveBeenCalled();
   });
+
   it("with markets array without existing roles", async () => {
     const market = { name: "uk", locales: ["en-GB"] };
     getMarketsToRun.mockReturnValue([market]);
@@ -60,11 +59,12 @@ describe("update roles", () => {
     expect(getRolesPermissionsToUpdate).not.toHaveBeenCalled();
     expect(updateRole).not.toHaveBeenCalled();
   });
+
   it("with markets array and existing another market roles for space", async () => {
-    const market = { name: "uk", locales: ["en-GB"] };
+    const market = { name: "no", locales: ["nb-NO"] };
     getMarketsToRun.mockReturnValue([market]);
     getSpaceRoles.mockReturnValue({
-      items: [{ name: "DXB - finland content publisher" }]
+      items: [role]
     });
     const main = async () => await import("../update-roles");
 
@@ -72,16 +72,17 @@ describe("update roles", () => {
 
     expect(getSpaceRoles).toHaveBeenCalled();
     expect(consoleSpy.mock.calls[0][0]).toEqual(
-      "Space - TEST_CONTENTFUL_SPACE_ID - doesn't have publisher role for uk market"
+      `Space - TEST_CONTENTFUL_SPACE_ID - doesn't have publisher role for ${market.name} market`
     );
     expect(getRolesPermissionsToUpdate).not.toHaveBeenCalled();
     expect(updateRole).not.toHaveBeenCalled();
   });
+
   it("with one market in markets array and existing market roles for space", async () => {
     const market = { name: "uk", locales: ["en-GB"] };
     getMarketsToRun.mockReturnValue([market]);
     getSpaceRoles.mockReturnValue({
-      items: [{ name: "DXB - uk content publisher" }]
+      items: [role]
     });
     const main = async () => await import("../update-roles");
 
@@ -89,35 +90,25 @@ describe("update roles", () => {
 
     expect(getSpaceRoles).toHaveBeenCalled();
     expect(consoleSpy.mock.calls[0][0]).toEqual(
-      "Getting request body for DXB - uk content publisher role"
+      `Getting request body for ${role.name} role`
     );
-    expect(getRolesPermissionsToUpdate).toHaveBeenCalledWith(
-      RolesEnum.publisher,
-      market,
-      []
-    );
+    expect(getRolesPermissionsToUpdate).toHaveBeenCalledWith(role);
     expect(updateRole).toHaveBeenCalled();
   });
-  it("with a few markets in markets array and existing market roles for space", async () => {
+
+  it("with a few markets in markets array and existing market role for space", async () => {
     const market1 = { name: "uk", locales: ["en-GB"] };
     const market2 = { name: "finland", locales: ["fi-FI"] };
     getMarketsToRun.mockReturnValue([market1, market2]);
     getSpaceRoles.mockReturnValue({
-      items: [{ name: "DXB - uk content publisher" }]
+      items: [role]
     });
     const main = async () => await import("../update-roles");
 
     await main();
 
     expect(getSpaceRoles).toHaveBeenCalled();
-    expect(consoleSpy.mock.calls[0][0]).toEqual(
-      "Getting request body for DXB - uk content publisher role"
-    );
-    expect(getRolesPermissionsToUpdate).toHaveBeenCalledWith(
-      RolesEnum.publisher,
-      market1,
-      ["market__finland"]
-    );
-    expect(updateRole).toHaveBeenCalled();
+    expect(getRolesPermissionsToUpdate).toHaveBeenCalledTimes(1);
+    expect(updateRole).toHaveBeenCalledTimes(1);
   });
 });
