@@ -2093,19 +2093,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bmi-digital/contentful-migration@npm:^1.4.22":
-  version: 1.4.23
-  resolution: "@bmi-digital/contentful-migration@npm:1.4.23"
+"@bmi-digital/contentful-migration@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "@bmi-digital/contentful-migration@npm:1.5.3"
   dependencies:
     "@contentful/rich-text-from-markdown": ^15.16.8
     chalk: ^5.3.0
-    contentful-management: ^11.7.0
+    contentful-management: ^11.24.5
     contentful-migration: ^4.19.0
     dateformat: ^5.0.3
     migrate: ^2.0.1
     ora: ^8.0.0
     rimraf: ^5.0.5
-  checksum: 18135a231e0d2c569b0cb9291508088eefbd7f791d602ed0e0064d5fc8fd8a5f175119626840432ed8b80b9b5d25229fd775218dda89a19b07cb5681b2318b98
+  checksum: 387d75cd6edf653411fa10e556ca649bdb27611dd2c490ac3efb90734c004427b1b3d298227b82befcb73eeb100f6df7d677936e1c97b731f9834f1a3dc84cf5
   languageName: node
   linkType: hard
 
@@ -2197,7 +2197,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -2223,7 +2223,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     dotenv: ^16.3.1
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -2261,14 +2261,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bmi/contentful-migrate@workspace:applications/dxb/contentful-migrate"
   dependencies:
-    "@bmi-digital/contentful-migration": ^1.4.22
+    "@bmi-digital/contentful-migration": ^1.5.3
     "@bmi/functions-contentful-management-client": "workspace:*"
     "@bmi/microcopies": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@types/lodash-es": ^4.17.12
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     dotenv: ^16.3.1
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2301,6 +2301,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
+    contentful-management: ^11.24.5
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2327,7 +2328,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     dotenv: ^16.3.1
     env-cmd: ^10.1.0
     eslint: ^8.56.0
@@ -2381,7 +2382,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     dotenv: ^16.3.1
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2486,7 +2487,7 @@ __metadata:
     "@types/uuid": ^9.0.7
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -2644,7 +2645,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^9.1.0
@@ -3036,7 +3037,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
     contentful: ^10.6.16
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3260,7 +3261,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3534,7 +3535,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -3571,7 +3572,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     env-cmd: ^10.1.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -4536,7 +4537,7 @@ __metadata:
     "@types/prettier": ^3.0.0
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
-    contentful-management: ^11.8.0
+    contentful-management: ^11.24.5
     crypto-js: ^4.2.0
     eslint: ^8.56.0
     eslint-config-airbnb: ^19.0.4
@@ -13854,7 +13855,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.0.1, contentful-management@npm:^11.5.7, contentful-management@npm:^11.7.0, contentful-management@npm:^11.8.0":
+"contentful-management@npm:^11.0.1, contentful-management@npm:^11.5.7":
   version: 11.8.1
   resolution: "contentful-management@npm:11.8.1"
   dependencies:
@@ -13866,6 +13867,21 @@ __metadata:
     lodash.isplainobject: ^4.0.6
     type-fest: ^4.0.0
   checksum: c0f38a8f8007d53dae7b3eecc02b05045876b9b843641f9895a32cd256ff9b1689ee26c867677efb20603667f84f8c7e20d54a1c516e70684216051385f889bb
+  languageName: node
+  linkType: hard
+
+"contentful-management@npm:^11.24.5":
+  version: 11.24.5
+  resolution: "contentful-management@npm:11.24.5"
+  dependencies:
+    "@contentful/rich-text-types": ^16.3.0
+    "@types/json-patch": 0.0.30
+    axios: ^1.6.2
+    contentful-sdk-core: ^8.1.0
+    fast-copy: ^3.0.0
+    lodash.isplainobject: ^4.0.6
+    type-fest: ^4.0.0
+  checksum: cb0a62beb2be62347fd88b89c646ccfc60b139b9a52459cc86aff78420c22b5bc76c68a8a3e1bd5ad9c2f8d4c988004fa492c5d8ef66faf30345f6c954395db7
   languageName: node
   linkType: hard
 

@@ -19,11 +19,11 @@
     "migrate-up": "node ./dist/up.js"
   },
   "dependencies": {
-    "@bmi-digital/contentful-migration": "^1.4.22",
+    "@bmi-digital/contentful-migration": "^1.5.3",
     "@bmi/functions-contentful-management-client": "workspace:*",
     "@bmi/microcopies": "workspace:*",
     "@bmi/utils": "workspace:*",
-    "contentful-management": "^11.8.0",
+    "contentful-management": "^11.24.5",
     "lodash-es": "^4.17.21",
     "migrate": "^2.0.1",
     "ora": "^8.0.1",
