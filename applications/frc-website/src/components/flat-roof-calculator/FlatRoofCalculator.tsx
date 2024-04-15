@@ -150,7 +150,6 @@ const FlatRoofCalculator = ({
   editButtonLabel,
   downloadPdfButtonLabel,
   downloadPdfButtonLoadingLabel,
-  navigate,
   urlPrefix = "/3d/"
 }: Props) => {
   const typeTree = tree.paths.find(({ option }) => option === type)
@@ -209,7 +208,6 @@ const FlatRoofCalculator = ({
         treeFieldsDisplay,
         measurementsProps,
         projectInformationProps,
-        navigate,
         backButtonLabel,
         calculateButtonLabel
       }}
@@ -243,7 +241,6 @@ const FlatRoofCalculator = ({
         resultProducts,
         treeFieldsDisplay,
         link: link || "",
-        navigate,
         calculateNewRoofButtonLabel,
         edit: () => setResult({ systemName: null, submittedValues }),
         editButtonLabel,

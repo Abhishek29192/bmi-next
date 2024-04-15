@@ -4,37 +4,22 @@
   "description": "BMI Flat Roof Calculator",
   "version": "0.0.0",
   "license": "UNLICENSED",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "tsc --build",
     "compile": "tsc --build",
-    "dev": "gatsby clean && gatsby develop",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "start": "gatsby build && gatsby serve",
-    "test": "jest --coverage --reporters=default --reporters=jest-junit",
-    "postinstall": "if-env GATSBY_CLOUD=true && run compile || echo 'do nothing'"
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@bmi-digital/components": "^2.2.3",
     "@bmi-digital/react-pdf-maker": "^1.7.6",
     "@bmi-digital/styles": "^1.7.6",
-    "@bmi/gatsby-plugin-material-ui": "workspace:*",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.3",
     "@mui/styles": "^5.15.3",
     "cookieconsent": "^3.1.1",
     "dotenv": "^16.3.1",
-    "gatsby": "^5.13.1",
-    "gatsby-plugin-react-helmet": "^6.13.0",
-    "gatsby-plugin-react-svg": "^3.3.0",
-    "gatsby-plugin-typescript": "^5.13.0",
     "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -50,7 +35,6 @@
     "@types/react-helmet": "^6.1.11",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "@typescript-eslint/parser": "^6.17.0",
-    "babel-preset-gatsby": "^3.13.0",
     "core-js": "^3.35.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
