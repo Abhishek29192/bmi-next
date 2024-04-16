@@ -58,11 +58,13 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   const [pageCount, setPageCount] = useState(
     Math.ceil(documents.length / PAGE_SIZE)
   );
+
   const getMicroCopy = generateGetMicroCopy(
     data.contentfulSite.resources?.microCopy
   );
 
   const resultsElement = useRef<HTMLDivElement>(null);
+
   const {
     title,
     description,
@@ -74,7 +76,9 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     seo,
     documentsFilters
   } = data.contentfulDocumentLibraryPage;
+
   const { documentDownloadMaxLimit, isPreviewMode } = useConfig();
+
   const maxSize = (documentDownloadMaxLimit || 0) * 1000000;
   // eslint-disable-next-line security/detect-object-injection
   const format: Format = resultTypeFormatMap[source][resultsType];
@@ -83,6 +87,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     breadcrumbs,
     breadcrumbTitle
   );
+
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
     signupBlock: data.contentfulDocumentLibraryPage.signupBlock,
@@ -110,6 +115,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
       resultsType,
       contentfulAssetTypes
     );
+
     const result = await queryElasticSearch(
       query,
       process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
@@ -117,12 +123,17 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
 
     if (result && result.hits) {
       const { hits } = result;
+
       const uniqDocumentsCount =
         result.aggregations?.unique_documents_count.value || 0;
+
       setMobileShowAllDocuments(uniqDocumentsCount);
+
       const newPageCount = Math.ceil(uniqDocumentsCount / PAGE_SIZE);
       setPageCount(newPageCount);
+
       setPage(newPageCount < page ? 0 : page);
+
       const docs = hits.hits.flatMap((hit) => {
         return resultsType === "Technical"
           ? hit.inner_hits.related_documents.hits.hits.map((hit) => hit._source)
@@ -207,6 +218,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
 
   const queryParams = useMemo<QueryParams>(() => {
     const parsedQueryParams = queryString.parse(location.search);
+
     return {
       ...parsedQueryParams,
       ...(parsedQueryParams.filters
@@ -278,60 +290,63 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
       )}
       <DownloadList maxSize={maxSize}>
         <DownloadListContext.Consumer>
-          {({ count }) => {
-            if (count === 0) {
-              return null;
-            }
-
-            return <DownloadListAlertBanner />;
-          }}
+          {({ count, resetList }) => (
+            <>
+              {count ? <DownloadListAlertBanner /> : null}
+              {!(resultsType === "Simple Archive" && source === "CMS") && (
+                <ResultsSection
+                  backgroundColor="white"
+                  className={classes["resultsSection"]}
+                  id={`document-library-filters`}
+                >
+                  <Grid container spacing={3} ref={resultsElement}>
+                    <Grid xs={12} md={12} lg={3}>
+                      <FilterSection
+                        filters={filters}
+                        onFiltersChange={(filterName, filterValue, value) => {
+                          handleFiltersChange(filterName, filterValue, value);
+                          resetList();
+                        }}
+                        onClearFilters={handleClearFilters}
+                        numberOfResults={
+                          resultsType !== "Technical"
+                            ? mobileShowAllDocuments
+                            : 0
+                        }
+                        filtersTitle={getMicroCopy(
+                          microCopy.DOCUMENT_LIBRARY_FILTERS_TITLE
+                        )}
+                        clearAllBtnLabel={getMicroCopy(
+                          microCopy.DOCUMENT_LIBRARY_FILTERS_CLEAR_ALL
+                        )}
+                      />
+                    </Grid>
+                    <Grid xs={12} md={12} lg={9}>
+                      {!initialLoading ? (
+                        <ResultSection
+                          results={documents}
+                          assetTypes={contentfulAssetTypes}
+                          format={format}
+                          pageNumber={page}
+                        />
+                      ) : null}
+                    </Grid>
+                  </Grid>
+                  {!initialLoading && (
+                    <DocumentResultsFooter
+                      sticky={format !== "cards"}
+                      onPageChange={handlePageChange}
+                      page={page + 1}
+                      count={pageCount}
+                      format={format}
+                      isDownloadButton={format !== "cards"}
+                    />
+                  )}
+                </ResultsSection>
+              )}
+            </>
+          )}
         </DownloadListContext.Consumer>
-        {!(resultsType === "Simple Archive" && source === "CMS") && (
-          <ResultsSection
-            backgroundColor="white"
-            className={classes["resultsSection"]}
-            id={`document-library-filters`}
-          >
-            <Grid container spacing={3} ref={resultsElement}>
-              <Grid xs={12} md={12} lg={3}>
-                <FilterSection
-                  filters={filters}
-                  onFiltersChange={handleFiltersChange}
-                  onClearFilters={handleClearFilters}
-                  numberOfResults={
-                    resultsType !== "Technical" ? mobileShowAllDocuments : 0
-                  }
-                  filtersTitle={getMicroCopy(
-                    microCopy.DOCUMENT_LIBRARY_FILTERS_TITLE
-                  )}
-                  clearAllBtnLabel={getMicroCopy(
-                    microCopy.DOCUMENT_LIBRARY_FILTERS_CLEAR_ALL
-                  )}
-                />
-              </Grid>
-              <Grid xs={12} md={12} lg={9}>
-                {!initialLoading ? (
-                  <ResultSection
-                    results={documents}
-                    assetTypes={contentfulAssetTypes}
-                    format={format}
-                    pageNumber={page}
-                  />
-                ) : null}
-              </Grid>
-            </Grid>
-            {!initialLoading && (
-              <DocumentResultsFooter
-                sticky={format !== "cards"}
-                onPageChange={handlePageChange}
-                page={page + 1}
-                count={pageCount}
-                format={format}
-                isDownloadButton={format !== "cards"}
-              />
-            )}
-          </ResultsSection>
-        )}
       </DownloadList>
       <Section
         backgroundColor="alabaster"

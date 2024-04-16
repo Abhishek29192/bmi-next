@@ -60,7 +60,9 @@ type Props = {
   sticky?: boolean;
   format?: Format;
 };
+
 const GTMButton = withGTM<ButtonProps>(Button);
+
 export const handleDownloadClick = async (
   list: Record<string, any>,
   config: Config,
@@ -262,6 +264,11 @@ type StickyFooterProps = {
   onPageChange?: (event: React.ChangeEvent<HTMLElement>, page: number) => void;
 };
 
+type DocumentsFooterContentProps = {
+  format: Format;
+  page: number;
+};
+
 const StickyFooter = (props: StickyFooterProps) => {
   const hasScrollbar = useHasScrollbar();
 
@@ -304,10 +311,10 @@ const StickyFooter = (props: StickyFooterProps) => {
   );
 };
 
-const DocumentsFooterContent: React.FC<{ format: Format; page: number }> = ({
+const DocumentsFooterContent = ({
   format,
   page
-}) => {
+}: DocumentsFooterContentProps) => {
   const { getMicroCopy } = useSiteContext();
   const config = useConfig();
   const { remainingSize, size, selectedAllCheckboxDisabledByPages } =
