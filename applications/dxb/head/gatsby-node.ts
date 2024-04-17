@@ -1,3 +1,6 @@
+/* eslint-disable max-statements */
+/* eslint-disable max-lines */
+/* eslint-disable max-lines-per-function */
 import path from "path";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
@@ -209,9 +212,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
     )
   };
 
-  const result = await graphql<any, any>(`
+  const result = await graphql<any, any>(
+    `query contentfulData($preview: Boolean = false)
     {
-      allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
+      allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) @skip(if : $preview) {
         nodes {
           file {
             url
@@ -245,7 +249,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       }
     }
-  `);
+  `,
+    { preview: process.env.GATSBY_PREVIEW === "true" }
+  );
 
   if (result.errors) {
     throw new Error(result.errors);
@@ -253,12 +259,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const {
     data: {
-      allContentfulSite: { nodes: sites },
-      allContentfulAsset: { nodes: contentfulRedirects }
+      allContentfulSite: { nodes: sites }
     }
   } = result;
 
-  const contentfulRedirectsFileUrl = contentfulRedirects[0]?.file?.url;
+  const contentfulRedirects =
+    result.data.allContentfulAsset?.nodes?.contentfulRedirects;
+
+  const contentfulRedirectsFileUrl = contentfulRedirects?.[0]?.file?.url;
 
   const site = sites.find(
     (s) => s.countryCode === process.env.GATSBY_SPACE_MARKET_CODE
@@ -414,7 +422,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
     `./${redirectsFileName}`,
     contentfulRedirectsFileUrl
   );
-  redirects &&
+  !process.env.GATSBY_PREVIEW &&
+    redirects &&
     redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)));
 };
 

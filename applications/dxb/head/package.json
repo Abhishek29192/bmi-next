@@ -21,6 +21,7 @@
     "clean": "gatsby clean",
     "contentful-graph": "dotenv -c development -- contentful-graph",
     "dev": "gatsby clean && gatsby develop",
+    "dev:full": "tsc --build && gatsby clean && gatsby develop",
     "dev:top": "gatsby clean && process-top $(yarn bin gatsby) develop",
     "debug": "node --nolazy --inspect-brk node_modules/.bin/gatsby develop",
     "lighthouse": "yarn lhci autorun",
