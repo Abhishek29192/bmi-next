@@ -173,11 +173,55 @@ const createTrainingPages = async (
   });
 };
 
+const createRedirects = async (
+  redirectsFileName,
+  {
+    graphql,
+    actions
+  }: {
+    graphql: CreatePagesArgs["graphql"];
+    actions: CreatePagesArgs["actions"];
+  }
+) => {
+  const { createRedirect } = actions;
+  const result = await graphql<any, any>(
+    `{
+      allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
+        nodes {
+          file {
+            url
+          }
+        }
+      }
+    }
+  `
+  );
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const {
+    data: {
+      allContentfulAsset: { nodes: contentfulRedirects }
+    }
+  } = result;
+  const contentfulRedirectsFileUrl = contentfulRedirects?.[0]?.file?.url;
+
+  const redirects = await getRedirects(
+    `./${redirectsFileName}`,
+    contentfulRedirectsFileUrl
+  );
+
+  redirects &&
+    redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)));
+};
+
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions
 }) => {
-  const { createRedirect, createPage } = actions;
+  const { createPage } = actions;
   const redirectRegex = /\/?[a-zA-Z]{2}\//i;
   const redirectsFileName = `redirects_${process.env.GATSBY_SPACE_MARKET_CODE.replace(
     redirectRegex,
@@ -213,15 +257,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   };
 
   const result = await graphql<any, any>(
-    `query contentfulData($preview: Boolean = false)
-    {
-      allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) @skip(if : $preview) {
-        nodes {
-          file {
-            url
-          }
-        }
-      }
+    `{
       allContentfulSite(filter: {countryCode: {eq: "${process.env.GATSBY_SPACE_MARKET_CODE}"}}) {
         nodes {
           id
@@ -249,8 +285,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       }
     }
-  `,
-    { preview: process.env.GATSBY_PREVIEW === "true" }
+  `
   );
 
   if (result.errors) {
@@ -262,11 +297,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
       allContentfulSite: { nodes: sites }
     }
   } = result;
-
-  const contentfulRedirects =
-    result.data.allContentfulAsset?.nodes?.contentfulRedirects;
-
-  const contentfulRedirectsFileUrl = contentfulRedirects?.[0]?.file?.url;
 
   const site = sites.find(
     (s) => s.countryCode === process.env.GATSBY_SPACE_MARKET_CODE
@@ -418,13 +448,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   }
 
-  const redirects = await getRedirects(
-    `./${redirectsFileName}`,
-    contentfulRedirectsFileUrl
-  );
-  !process.env.GATSBY_PREVIEW &&
-    redirects &&
-    redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)));
+  if (!process.env.GATSBY_PREVIEW) {
+    await createRedirects(redirectsFileName, {
+      graphql,
+      actions
+    });
+  }
 };
 
 const getRedirectConfig = (
