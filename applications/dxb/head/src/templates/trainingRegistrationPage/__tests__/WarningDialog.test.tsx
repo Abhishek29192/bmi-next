@@ -1,5 +1,4 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
-import { globalHistory } from "@reach/router";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import WarningDialog from "../components/WarningDialog";
@@ -12,6 +11,13 @@ afterEach(() => {
   jest.clearAllMocks();
   jest.resetAllMocks();
 });
+
+const pushMock = jest.fn();
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    push: (route: string, options?: string) => pushMock(route, options)
+  }))
+}));
 
 describe("WarningDialog component", () => {
   it("should open the dialog by default", () => {
@@ -64,7 +70,7 @@ describe("WarningDialog component", () => {
         name: "MC: training.registration.warning.popup.close.btn"
       })
     );
-    expect(globalHistory.navigate).toHaveBeenCalledWith(blockedUrl);
+    expect(pushMock).toHaveBeenCalledWith(blockedUrl);
   });
 
   it("uses correct microcopy for the title", () => {

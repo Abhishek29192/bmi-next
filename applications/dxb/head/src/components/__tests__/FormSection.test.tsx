@@ -1,7 +1,6 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import * as Gatsby from "gatsby";
 import React from "react";
 import { ConfigProvider } from "../../contexts/ConfigProvider";
 import FormSection, {
@@ -161,7 +160,13 @@ jest.mock("react-google-recaptcha-v3", () => ({
 }));
 
 const onSuccess = jest.fn();
-jest.spyOn(Gatsby, "navigate").mockImplementation();
+
+const pushMock = jest.fn();
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    push: (route: string, options?: string) => pushMock(route, options)
+  }))
+}));
 
 const fetchMock = jest.fn();
 jest.mock("node-fetch", () => {
@@ -404,7 +409,12 @@ describe("FormSection component", () => {
         }
       ]
     };
-    jest.spyOn(Gatsby, "navigate").mockImplementation();
+    const pushMock = jest.fn();
+    jest.mock("next/router", () => ({
+      useRouter: jest.fn().mockImplementation(() => ({
+        push: (route: string, options?: string) => pushMock(route, options)
+      }))
+    }));
     fetchMock.mockResolvedValueOnce({ ok: true });
     const { container } = render(
       <ConfigProvider
@@ -453,7 +463,7 @@ describe("FormSection component", () => {
     );
 
     expect(onSuccess).toHaveBeenCalled();
-    expect(Gatsby.navigate).toBeCalledWith("link-to-page");
+    expect(pushMock).toHaveBeenCalledWith("link-to-page");
   });
 
   it("test submit form with redirect url without recaptcha call", async () => {
@@ -477,7 +487,14 @@ describe("FormSection component", () => {
       ]
     };
     fetchMock.mockResolvedValueOnce({ ok: true });
-    jest.spyOn(Gatsby, "navigate").mockImplementation();
+
+    const pushMock = jest.fn();
+    jest.mock("next/router", () => ({
+      useRouter: jest.fn().mockImplementation(() => ({
+        push: (route: string, options?: string) => pushMock(route, options)
+      }))
+    }));
+
     const { container } = render(
       <ConfigProvider
         configOverride={{
@@ -525,7 +542,7 @@ describe("FormSection component", () => {
     );
 
     expect(onSuccess).toHaveBeenCalled();
-    expect(Gatsby.navigate).toBeCalledWith("link-to-page");
+    expect(pushMock).toHaveBeenCalledWith("link-to-page");
     expect(mockExecutRecaptcha).not.toHaveBeenCalled();
   });
 
@@ -542,7 +559,13 @@ describe("FormSection component", () => {
       successRedirect: null
     };
     fetchMock.mockResolvedValueOnce({ ok: true });
-    jest.spyOn(Gatsby, "navigate").mockImplementation();
+    const pushMock = jest.fn();
+    jest.mock("next/router", () => ({
+      useRouter: jest.fn().mockImplementation(() => ({
+        push: (route: string, options?: string) => pushMock(route, options)
+      }))
+    }));
+
     const { container } = render(
       <ConfigProvider
         configOverride={{
@@ -589,7 +612,7 @@ describe("FormSection component", () => {
       )
     );
 
-    expect(Gatsby.navigate).toBeCalledWith("/");
+    expect(pushMock).toHaveBeenCalledWith("/");
   });
 
   it("test submit form with no redirect url without recaptcha call", async () => {
@@ -614,7 +637,12 @@ describe("FormSection component", () => {
       successRedirect: null
     };
     fetchMock.mockResolvedValueOnce({ ok: true });
-    jest.spyOn(Gatsby, "navigate").mockImplementation();
+    const pushMock = jest.fn();
+    jest.mock("next/router", () => ({
+      useRouter: jest.fn().mockImplementation(() => ({
+        push: (route: string, options?: string) => pushMock(route, options)
+      }))
+    }));
     const { container } = render(
       <ConfigProvider
         configOverride={{
@@ -660,7 +688,7 @@ describe("FormSection component", () => {
       )
     );
 
-    expect(Gatsby.navigate).toBeCalledWith("/");
+    expect(pushMock).toHaveBeenCalledWith("/");
     expect(mockExecutRecaptcha).not.toHaveBeenCalled();
   });
 

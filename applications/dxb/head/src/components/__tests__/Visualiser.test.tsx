@@ -9,7 +9,6 @@ import {
 } from "@reach/router";
 import { fireEvent, render as rtlRender, screen } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
-import * as Gatsby from "gatsby";
 import React from "react";
 import { Config, ConfigProvider } from "../../contexts/ConfigProvider";
 import { devLog } from "../../utils/devLog";
@@ -18,7 +17,12 @@ import Visualiser, { VisualiserContext } from "../Visualiser";
 import createShareWidgetData from "../../__tests__/helpers/ShareWidgetHelper";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
-const navigateSpy = jest.spyOn(Gatsby, "navigate");
+const pushMock = jest.fn();
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    push: (route: string, options?: string) => pushMock(route, options)
+  }))
+}));
 window.history.replaceState = jest.fn();
 
 jest.mock("../../utils/devLog");
@@ -63,7 +67,7 @@ const mockDataRequest = (product: Product = tile) => {
 };
 
 afterEach(() => {
-  navigateSpy.mockRestore();
+  pushMock.mockRestore();
   fetchMock.reset();
   jest.clearAllMocks();
 });
@@ -118,7 +122,7 @@ describe("VisualiserProvider", () => {
 
       const navigationBtn = await screen.findByText("visualizer.readMore");
       fireEvent.click(navigationBtn);
-      expect(navigateSpy).toHaveBeenCalledWith(`/no${tile.path}`);
+      expect(pushMock).toHaveBeenCalledWith(`/no${tile.path}`);
     });
 
     it("navigates to correct pdp page using variantCodeToPathMap property", async () => {
@@ -136,7 +140,7 @@ describe("VisualiserProvider", () => {
 
       const navigationBtn = await screen.findByText("visualizer.readMore");
       fireEvent.click(navigationBtn);
-      expect(navigateSpy).toHaveBeenCalledWith("/no/p/mocked-product-page/");
+      expect(pushMock).toHaveBeenCalledWith("/no/p/mocked-product-page/");
     });
 
     it("should not navigate to the product page if pathWithCountryCode is undefined", async () => {
@@ -154,7 +158,7 @@ describe("VisualiserProvider", () => {
 
       const navigationBtn = await screen.findByText("visualizer.readMore");
       fireEvent.click(navigationBtn);
-      expect(navigateSpy).toHaveBeenCalledTimes(0);
+      expect(pushMock).toHaveBeenCalledTimes(0);
     });
 
     it("renders and opens share widget", async () => {

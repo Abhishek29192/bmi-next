@@ -13,16 +13,16 @@ import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { trainingRegistrationPageData } from "../__mocks__/trainingRegistrationPage";
 import TrainingRegistrationForm from "../components/TrainingRegistrationForm";
 import { FormStatus } from "../types";
-import type { NavigateFn } from "@reach/router";
-
-const navigateMock = jest.fn();
 
 const fetchMock = fetchMockJest.sandbox();
 global.fetch = fetchMock;
 
-jest.mock("gatsby", () => ({
-  graphql: jest.fn(),
-  navigate: (...args: Parameters<NavigateFn>) => navigateMock(...args)
+const replaceMock = jest.fn();
+
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    replace: (route: string, options?: string) => replaceMock(route, options)
+  }))
 }));
 
 const getCookieMock = jest.fn();
@@ -298,18 +298,14 @@ describe("TrainingRegistrationForm", () => {
     expect(submitButton).not.toBeDisabled();
     fireEvent.click(submitButton);
     await waitFor(() =>
-      expect(navigateMock).toHaveBeenCalledWith(
-        "/no/t/training-details-page-utl",
-        {
-          state: { showResultsModal: true },
-          replace: true
-        }
+      expect(replaceMock).toHaveBeenCalledWith(
+        "/no/t/training-details-page-utl?showDialog=true"
       )
     );
     expect(executeRecaptchaMock).toHaveBeenCalled();
   }, 10000);
 
-  it("should not execute recatpcha checks if 'getCookieMock' returns a value", async () => {
+  it("should not execute recaptcha checks if 'getCookieMock' returns a value", async () => {
     getCookieMock.mockReturnValue("qa-auth-token");
     mockResponses(fetchMock, {
       url: "*",
@@ -365,12 +361,8 @@ describe("TrainingRegistrationForm", () => {
     expect(submitButton).not.toBeDisabled();
     fireEvent.click(submitButton);
     await waitFor(() =>
-      expect(navigateMock).toHaveBeenCalledWith(
-        "/no/t/training-details-page-utl",
-        {
-          state: { showResultsModal: true },
-          replace: true
-        }
+      expect(replaceMock).toHaveBeenCalledWith(
+        "/no/t/training-details-page-utl?showDialog=true"
       )
     );
     expect(executeRecaptchaMock).not.toHaveBeenCalled();

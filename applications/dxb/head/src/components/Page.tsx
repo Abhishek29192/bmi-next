@@ -1,6 +1,7 @@
 import BackToTop from "@bmi-digital/components/back-to-top";
 import MicroCopy from "@bmi-digital/components/micro-copy";
-import { graphql, navigate } from "gatsby";
+import { graphql } from "gatsby";
+import { useRouter } from "next/navigation";
 import React, { useCallback, useMemo } from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
@@ -86,6 +87,7 @@ const Page = ({
   const { breadcrumbs, signupBlock, seo, path } = pageData;
   const { gatsbyReCaptchaKey, gatsbyReCaptchaNet, visualizerAssetUrl } =
     useConfig();
+  const router = useRouter();
   const reCaptchaNet = gatsbyReCaptchaNet === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
@@ -190,7 +192,7 @@ const Page = ({
                 >
                   <CalculatorProvider
                     onError={() =>
-                      navigate(getPathWithCountryCode(countryCode, "422"))
+                      router.push(getPathWithCountryCode(countryCode, "422"))
                     }
                     calculatorConfig={pitchedRoofCalculatorConfig}
                   >

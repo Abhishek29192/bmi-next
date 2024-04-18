@@ -1,6 +1,5 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import * as gatsby from "gatsby";
+import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import Previewer from "../previewer";
 
@@ -17,7 +16,12 @@ describe("Previewer", () => {
     }
   };
   const locationSpy = jest.spyOn(window, "location", "get");
-  const navigateSpy = jest.spyOn(gatsby, "navigate");
+  const pushMock = jest.fn();
+  jest.mock("next/router", () => ({
+    useRouter: jest.fn().mockImplementation(() => ({
+      push: (route: string, options?: string) => pushMock(route, options)
+    }))
+  }));
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -30,9 +34,7 @@ describe("Previewer", () => {
 
     expect(container).toMatchSnapshot();
     expect(screen.getByText("Redirecting to slug")).toBeTruthy();
-    expect(navigateSpy).toHaveBeenCalledWith(
-      `/${countryCode}/${pages[0].path}`
-    );
+    expect(pushMock).toHaveBeenCalledWith(`/${countryCode}/${pages[0].path}`);
   });
 
   it("return null when window is undefined", () => {
@@ -76,8 +78,6 @@ describe("Previewer", () => {
 
     expect(container).toMatchSnapshot();
     expect(screen.getByText(`Redirecting to slugslug2`)).toBeTruthy();
-    expect(navigateSpy).toHaveBeenCalledWith(
-      `/${countryCode}/${pages[0].path}`
-    );
+    expect(pushMock).toHaveBeenCalledWith(`/${countryCode}/${pages[0].path}`);
   });
 });

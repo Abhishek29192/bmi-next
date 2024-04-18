@@ -1,11 +1,12 @@
+import { useIsClient } from "@bmi-digital/components";
 import Section from "@bmi-digital/components/section";
-import { WindowLocation, useLocation } from "@reach/router";
 import { graphql } from "gatsby";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Page, { Data as PageData } from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
+import { convertStrToBool } from "../../utils/convertStrToBool";
 import RegistrationCompletedDialog from "./components/RegistrationCompletedDialog";
 import TrainingDetail from "./components/TrainingDetail";
 import { StyledTopBreadcrumbsSection } from "./trainingDetailsPageStyles";
@@ -30,15 +31,13 @@ export type Props = {
 };
 
 const TrainingDetailsPage = ({ data }: Props) => {
+  const { isClient } = useIsClient();
+
   const {
     doceboCourses: { breadcrumbs, ...trainingData },
     contentfulTrainingRegistrationPage,
     contentfulSite
   } = data;
-
-  const {
-    state: historyState
-  }: WindowLocation<{ showResultsModal?: boolean }> = useLocation();
 
   const pageData: PageData = {
     breadcrumbs: breadcrumbs,
@@ -47,11 +46,23 @@ const TrainingDetailsPage = ({ data }: Props) => {
     path: `/t/${trainingData.slug_name}`
   };
 
-  useEffect(() => {
-    if (historyState?.showResultsModal === true) {
-      history.replaceState({ showResultsModal: false }, "");
+  const showDialog = useMemo(() => {
+    if (isClient) {
+      const params = new URLSearchParams(window.location.search);
+      return convertStrToBool(params.get("showDialog") || "false");
     }
-  }, [historyState]);
+  }, [isClient]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && showDialog) {
+      const newUrlWithoutParams = `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
+      window.history.replaceState(
+        { path: newUrlWithoutParams },
+        "",
+        newUrlWithoutParams
+      );
+    }
+  }, [window]);
 
   return (
     <Page
@@ -89,7 +100,7 @@ const TrainingDetailsPage = ({ data }: Props) => {
         closeButtonLabel={
           contentfulTrainingRegistrationPage?.registrationCompletedDialogCloseButton
         }
-        open={Boolean(historyState?.showResultsModal)}
+        open={showDialog}
       />
     </Page>
   );

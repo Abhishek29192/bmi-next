@@ -3,7 +3,7 @@ import Typography from "@bmi-digital/components/typography";
 import { microCopy } from "@bmi/microcopies";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { modalClasses } from "@mui/material/Modal";
-import { globalHistory } from "@reach/router";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useSiteContext } from "../../../components/Site";
 import { StyledDialog } from "./WarningDialogStyles";
@@ -15,6 +15,7 @@ export type WarningDialogProps = {
 
 const WarningDialog = (props: WarningDialogProps) => {
   const { getMicroCopy } = useSiteContext();
+  const router = useRouter();
 
   return (
     <>
@@ -52,7 +53,7 @@ const WarningDialog = (props: WarningDialogProps) => {
             microCopy.TRAINING_REGISTRATION_WARNING_POPUP_CLOSE_BTN
           )}
           onCancelClick={props.closeDialog}
-          onConfirmClick={() => globalHistory.navigate(props.blockedUrl)}
+          onConfirmClick={() => router.push(props.blockedUrl)}
         />
       </StyledDialog>
     </>

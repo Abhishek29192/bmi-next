@@ -16,8 +16,9 @@ import { replaceSpaces } from "@bmi-digital/components/utils";
 import logger from "@bmi-digital/functions-logger";
 import { microCopy } from "@bmi/microcopies";
 import classNames from "classnames";
-import { graphql, navigate } from "gatsby";
+import { graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
+import { useRouter } from "next/navigation";
 import fetch from "node-fetch";
 import React, {
   FormEvent,
@@ -32,8 +33,8 @@ import { GTM } from "@bmi-digital/components";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { useConfig } from "../contexts/ConfigProvider";
 import {
-  handleEmailValidation as validateEmail,
-  isValidEmail
+  isValidEmail,
+  handleEmailValidation as validateEmail
 } from "../utils/emailUtils";
 import getCookie from "../utils/getCookie";
 import { isRichText } from "../utils/isRichText";
@@ -535,6 +536,7 @@ const FormSection = ({
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
+  const router = useRouter();
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -601,7 +603,7 @@ const FormSection = ({
       onSuccess && onSuccess();
 
       if (successRedirect) {
-        navigate(
+        router.push(
           successRedirect.url ||
             getPathWithCountryCode(
               countryCode,
@@ -609,7 +611,7 @@ const FormSection = ({
             )
         );
       } else {
-        navigate("/");
+        router.push("/");
       }
     } catch (error) {
       logger.error({ message: (error as Error).message });
@@ -708,7 +710,7 @@ const FormSection = ({
       }
 
       if (successRedirect) {
-        navigate(
+        router.push(
           successRedirect.url ||
             getPathWithCountryCode(
               countryCode,
@@ -716,7 +718,7 @@ const FormSection = ({
             )
         );
       } else {
-        navigate("/");
+        router.push("/");
       }
     } catch (error) {
       logger.error({ message: (error as Error).message });

@@ -4,7 +4,7 @@ import Section from "@bmi-digital/components/section";
 import logger from "@bmi-digital/functions-logger";
 import { Training } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
-import { navigate } from "gatsby";
+import { useRouter } from "next/router";
 import React, { useMemo } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { replaceSpaces } from "@bmi-digital/components/utils";
@@ -31,6 +31,7 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const { gcpFormSubmitEndpoint } = useConfig();
+  const router = useRouter();
 
   const discoverySourceOtherFieldName = useMemo(
     () => `${replaceSpaces(props.formData.discoverySourceOther)}-textfield`,
@@ -48,8 +49,10 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
     try {
       const token = qaAuthToken ? undefined : await executeRecaptcha?.();
 
+      // valuesToSend is of type Record<string, NonNullable<InputValue>> but causes issues later on
       const valuesToSend = Object.entries(values).reduce(
         (acc, [key, value]) => {
+          // @ts-expect-error -- key should be typed as string
           return value ? ((acc[`${key}`] = value), acc) : acc;
         },
         {}
@@ -94,12 +97,14 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
         ) {
           // eslint-disable-next-line security/detect-object-injection
           sanitizedValues[key] =
+            // @ts-expect-error -- key should be typed as string
             // eslint-disable-next-line security/detect-object-injection
             valuesToSend[discoverySourceOtherFieldName]?.trim() ||
             props.formData.discoverySourceOther;
           continue;
         }
 
+        // @ts-expect-error -- key should be typed as string
         // eslint-disable-next-line security/detect-object-injection
         const trimmedValue = valuesToSend[key].trim();
         if (trimmedValue !== "") {
@@ -134,10 +139,7 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
         throw new Error(response.statusText);
       }
 
-      navigate(props.trainingDetailsPageUrl, {
-        state: { showResultsModal: true },
-        replace: true
-      });
+      router.replace(`${props.trainingDetailsPageUrl}?showDialog=true`);
     } catch (error) {
       logger.error({ message: (error as Error).message });
       props.setIsSubmitting(false);

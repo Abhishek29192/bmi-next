@@ -1,4 +1,5 @@
-import { graphql, navigate } from "gatsby";
+import { graphql } from "gatsby";
+import { useRouter } from "next/navigation";
 import queryString from "query-string";
 import React, { useEffect, useMemo } from "react";
 
@@ -13,6 +14,7 @@ type Data = {
 };
 
 const Previewer = ({ data }: { data: Data }) => {
+  const router = useRouter();
   const { slug } =
     typeof window === "undefined"
       ? { slug: null }
@@ -28,7 +30,7 @@ const Previewer = ({ data }: { data: Data }) => {
 
   useEffect(() => {
     if (pageData) {
-      navigate(
+      router.push(
         `/${
           process.env.GATSBY_DONT_USE_COUNTRY_CODE
             ? ""

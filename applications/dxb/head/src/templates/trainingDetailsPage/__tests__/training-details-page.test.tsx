@@ -1,3 +1,4 @@
+import React from "react";
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import {
   createHistory,
@@ -6,7 +7,6 @@ import {
   LocationProvider
 } from "@reach/router";
 import { fireEvent, render, screen } from "@testing-library/react";
-import React from "react";
 import {
   createSession,
   createTraining
@@ -152,18 +152,29 @@ describe("Training DetailsPage", () => {
     expect(screen.getByTestId("no-available-sessions")).toBeInTheDocument();
   });
 
-  it("replaces history state if 'showResultsModal' is set to true", () => {
+  it("should render price if provided", () => {
+    renderTrainingDetailsPage({
+      course: createTraining({ price: "100" })
+    });
+    expect(screen.getByText("€100")).toBeInTheDocument();
+  });
+
+  it("shows the success dialog on page load after successful training registration", () => {
     const historyMemorySource = createMemorySource("/no/t/course-slug-name");
     historyMemorySource.history.pushState({ showResultsModal: true }, "", "");
     const history = createHistory(historyMemorySource);
 
-    renderTrainingDetailsPage({ history, course: createTraining() });
-    expect(window.history.replaceState).toHaveBeenCalledWith(
-      {
-        showResultsModal: false
+    Object.defineProperty(window, "location", {
+      value: {
+        search: "?showDialog=true" // Mocked query string
       },
-      ""
-    );
+      writable: true
+    });
+
+    renderTrainingDetailsPage({ history, course: createTraining() });
+    expect(
+      screen.getByTestId("registration-completed-dialog")
+    ).toBeInTheDocument();
   });
 
   it("should not render sessions on server side", () => {
