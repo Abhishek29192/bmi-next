@@ -14,13 +14,14 @@ import BigIntScalar from "./src/schema/scalars/BigInt";
 import typeDefs from "./src/schema/schema.graphql";
 import { Product } from "./src/types/pim";
 import { convertStrToBool } from "./src/utils/convertStrToBool";
-import { getRedirects, Redirect } from "./src/utils/get-redirects";
+import { Redirect, getRedirects } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
 import type {
   CreateBabelConfigArgs,
   CreatePagesArgs,
   GatsbyNode
 } from "gatsby";
+import type { ContentfulRedirectAssetQuery } from "./src/types/ContentfulRedirectAssetQuery";
 
 dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -174,7 +175,7 @@ const createTrainingPages = async (
 };
 
 const createRedirects = async (
-  redirectsFileName,
+  redirectsFileName: string,
   {
     graphql,
     actions
@@ -184,7 +185,7 @@ const createRedirects = async (
   }
 ) => {
   const { createRedirect } = actions;
-  const result = await graphql<any, any>(
+  const result = await graphql<ContentfulRedirectAssetQuery>(
     `{
       allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
         nodes {
@@ -201,11 +202,7 @@ const createRedirects = async (
     throw new Error(result.errors);
   }
 
-  const {
-    data: {
-      allContentfulAsset: { nodes: contentfulRedirects }
-    }
-  } = result;
+  const contentfulRedirects = result.data?.allContentfulAsset?.nodes;
   const contentfulRedirectsFileUrl = contentfulRedirects?.[0]?.file?.url;
 
   const redirects = await getRedirects(
