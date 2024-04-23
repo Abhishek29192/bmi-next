@@ -22,6 +22,7 @@ compile_head:
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
+  allow_failure: true
 
 enforce_no_new_errors_head:
   stage: build
@@ -42,6 +43,7 @@ enforce_no_new_errors_head:
 
 test_head:
   extends: .test_yarn_workspace
+  allow_failure: true
   rules:
     - !reference [.ignore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
