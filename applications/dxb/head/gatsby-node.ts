@@ -468,6 +468,10 @@ const getRedirectConfig = (
       ? redirect.to
       : `${redirect.to}/`;
 
+  if (!process.env.IS_NETLIFY) {
+    toPath = decodeURI(toPath); // Gatsby Cloud encodes the toPath URI, even if it is already encoded
+  }
+
   //If we use wildcard redirects on production users will be redirected to gatsby domain
   //Such approach allows us to prevent users from being redirected to Gatsby domain.
   // This issue is not applicable to Netlify.
@@ -489,7 +493,7 @@ const getRedirectConfig = (
     fromPath: process.env.IS_NETLIFY
       ? redirect.from // Netlify automatically passes on all querystring parameters to the destination
       : addSplatToUrl(redirect.from),
-    toPath: toPath,
+    toPath,
     statusCode: redirect.status
   };
 };
