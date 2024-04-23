@@ -26,7 +26,7 @@ type Props = {
 const TrainingRegistrationHeader = ({ training }: Props) => {
   const {
     courseName,
-    courseId,
+    courseCode,
     courseType,
     category,
     currencySymbol,
@@ -56,9 +56,9 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
       <TrainingDataContainer>
         <TrainingDetailContainer>
           <TrainingLabel>
-            {getMicroCopy(microCopy.TRAINING_ID_LABEL)}
+            {getMicroCopy(microCopy.TRAINING_CODE_LABEL)}
           </TrainingLabel>
-          <TrainingDesc data-testid="training-id">{courseId}</TrainingDesc>
+          <TrainingDesc data-testid="training-code">{courseCode}</TrainingDesc>
         </TrainingDetailContainer>
         <TrainingSeparation />
         <TrainingDetailContainer>

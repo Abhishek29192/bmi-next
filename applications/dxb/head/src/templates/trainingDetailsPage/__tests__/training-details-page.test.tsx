@@ -91,7 +91,7 @@ describe("Training DetailsPage", () => {
     renderTrainingDetailsPage({
       course
     });
-    expect(screen.getByTestId("training-id")).toBeInTheDocument();
+    expect(screen.getByTestId("training-code")).toBeInTheDocument();
     expect(screen.getByTestId("breadcrumbs-section-top")).toBeInTheDocument();
     expect(
       screen.getByTestId("breadcrumbs-section-bottom")
@@ -113,7 +113,7 @@ describe("Training DetailsPage", () => {
     renderTrainingDetailsPage({
       course: createTraining({ code: undefined })
     });
-    expect(screen.queryByTestId("training-id")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("training-code")).not.toBeInTheDocument();
   });
 
   it("should not render sessions if no sessions available for the course", () => {

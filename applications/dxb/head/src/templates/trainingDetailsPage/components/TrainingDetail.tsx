@@ -117,8 +117,8 @@ const TrainingDetails = ({
               {name}
             </Title>
             {courseCode && (
-              <Typography data-testid="training-id">
-                {getMicroCopy(microCopy.TRAINING_ID_LABEL)} {courseCode}
+              <Typography data-testid="training-code">
+                {getMicroCopy(microCopy.TRAINING_CODE_LABEL)} {courseCode}
               </Typography>
             )}
             <CourseDescription
@@ -137,7 +137,7 @@ const TrainingDetails = ({
               clickableArea="none"
               title={name}
               subtitle={`${getMicroCopy(
-                microCopy.TRAINING_ID_LABEL
+                microCopy.TRAINING_CODE_LABEL
               )} ${courseCode}`}
               media={img_url ? <img src={img_url} alt={name} /> : undefined}
               price={

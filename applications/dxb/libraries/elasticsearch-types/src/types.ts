@@ -187,7 +187,7 @@ export type Training = {
   courseId: number;
   courseName: string;
   courseSlug: string;
-  courseCode?: string;
+  courseCode: string;
   courseType: CourseType;
   courseImg?: string;
   category: string;
