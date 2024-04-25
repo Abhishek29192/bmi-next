@@ -1,4 +1,6 @@
+import { calculatorConfig } from "./calculatorConfig";
 import { IMarket, RolesEnum } from "./types";
+import type { CreateRoleProps, RoleProps } from "contentful-management";
 
 export const getMarketsToRun = () => [];
 
@@ -8,13 +10,13 @@ export const getRolesPermissionsToCreate = (
   role: RolesEnum,
   market: IMarket,
   otherMarketsTags: string[]
-) => {
+): CreateRoleProps => {
   const name = `DXB - ${market.name} content ${role}`;
   switch (role) {
     case RolesEnum.publisher:
       return {
         name,
-        description: null,
+        description: undefined,
         policies: [
           {
             effect: "allow",
@@ -153,51 +155,6 @@ export const getRolesPermissionsToCreate = (
             actions: ["read"]
           },
           {
-            effect: "deny",
-            constraint: {
-              and: [
-                { equals: [{ doc: "sys.type" }, "Entry"] },
-                {
-                  equals: [
-                    { doc: "sys.contentType.sys.id" },
-                    "calculatorRoofShape"
-                  ]
-                }
-              ]
-            },
-            actions: ["update"]
-          },
-          {
-            effect: "deny",
-            constraint: {
-              and: [
-                { equals: [{ doc: "sys.type" }, "Entry"] },
-                {
-                  equals: [
-                    { doc: "sys.contentType.sys.id" },
-                    "calculatorRoofShape"
-                  ]
-                }
-              ]
-            },
-            actions: ["delete"]
-          },
-          {
-            effect: "deny",
-            constraint: {
-              and: [
-                { equals: [{ doc: "sys.type" }, "Entry"] },
-                {
-                  equals: [
-                    { doc: "sys.contentType.sys.id" },
-                    "calculatorRoofShape"
-                  ]
-                }
-              ]
-            },
-            actions: ["publish", "unpublish"]
-          },
-          {
             effect: "allow",
             constraint: {
               and: [
@@ -340,7 +297,8 @@ export const getRolesPermissionsToCreate = (
               ]
             },
             actions: ["read"]
-          }
+          },
+          { ...calculatorConfig }
         ],
         permissions: {
           ContentModel: ["read"],
@@ -354,7 +312,7 @@ export const getRolesPermissionsToCreate = (
     case RolesEnum.editor:
       return {
         name,
-        description: null,
+        description: undefined,
         policies: [
           {
             effect: "allow",
@@ -477,51 +435,6 @@ export const getRolesPermissionsToCreate = (
             actions: ["read"]
           },
           {
-            effect: "deny",
-            constraint: {
-              and: [
-                { equals: [{ doc: "sys.type" }, "Entry"] },
-                {
-                  equals: [
-                    { doc: "sys.contentType.sys.id" },
-                    "calculatorRoofShape"
-                  ]
-                }
-              ]
-            },
-            actions: ["update"]
-          },
-          {
-            effect: "deny",
-            constraint: {
-              and: [
-                { equals: [{ doc: "sys.type" }, "Entry"] },
-                {
-                  equals: [
-                    { doc: "sys.contentType.sys.id" },
-                    "calculatorRoofShape"
-                  ]
-                }
-              ]
-            },
-            actions: ["delete"]
-          },
-          {
-            effect: "deny",
-            constraint: {
-              and: [
-                { equals: [{ doc: "sys.type" }, "Entry"] },
-                {
-                  equals: [
-                    { doc: "sys.contentType.sys.id" },
-                    "calculatorRoofShape"
-                  ]
-                }
-              ]
-            },
-            actions: ["publish", "unpublish"]
-          },
-          {
             effect: "allow",
             constraint: {
               and: [
@@ -640,7 +553,8 @@ export const getRolesPermissionsToCreate = (
               ]
             },
             actions: ["read"]
-          }
+          },
+          { ...calculatorConfig }
         ],
         permissions: {
           ContentModel: ["read"],
@@ -654,16 +568,27 @@ export const getRolesPermissionsToCreate = (
   }
 };
 
-/* get permision configuration depends on the role type to update */
 export const getRolesPermissionsToUpdate = (
-  role: RolesEnum,
-  market: IMarket,
-  otherMarketsTags: string[]
-) => {
-  switch (role) {
-    case RolesEnum.editor:
-      return {};
-    case RolesEnum.publisher:
-      return {};
-  }
-};
+  existingRole: RoleProps
+): RoleProps => ({
+  ...existingRole,
+  policies: [
+    ...existingRole.policies
+    /**
+     * This is just a template. All the new policies can be added as an array of objects.
+     * Example: 
+     {
+      effect: "deny",
+      constraint: {
+        and: [
+          { equals: [{ doc: "sys.type" }, "Entry"] },
+          {
+            equals: [{ doc: "sys.contentType.sys.id" }, "calculatorRoofShape"]
+          }
+        ]
+      },
+      actions: ["create", "archive", "unarchive"]
+    } 
+     */
+  ]
+});

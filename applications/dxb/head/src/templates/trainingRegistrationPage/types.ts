@@ -70,3 +70,8 @@ export type TrainingRegistrationPageProps = {
 };
 
 export type ESTrainingDetails = ESResponse<Training>;
+
+export enum FormStatus {
+  Initialized = "initialized",
+  Edited = "edited"
+}

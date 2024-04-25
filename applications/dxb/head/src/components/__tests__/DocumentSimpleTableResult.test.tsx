@@ -320,7 +320,9 @@ describe("DocumentSimpleTableResult", () => {
       const selectAllCheckbox = screen.getByRole("checkbox", {
         name: "MC: documentLibrary.headers.add"
       });
+
       fireEvent.click(selectAllCheckbox);
+
       expect(onChangeMock).toHaveBeenCalledWith({ [documentId]: pimDocument });
 
       fireEvent.click(selectAllCheckbox);

@@ -1,5 +1,5 @@
-import { config } from "dotenv";
 import { generateDigestFromData, generateHashFromString } from "@bmi/utils";
+import { config } from "dotenv";
 import type {
   Context,
   LegalConsent,
@@ -112,10 +112,12 @@ export default {
         });
 
         if (!hubSpotForm) {
-          // eslint-disable-next-line no-console
-          console.warn(
-            `HubSpot GUID not found: ${source.hubSpotFormGuid}.\nPlease check entry ${source.contentful_id} in Contentful.`
-          );
+          if (process.env.DXB_DEBUG) {
+            // eslint-disable-next-line no-console
+            console.debug(
+              `HubSpot GUID not found: ${source.hubSpotFormGuid}.\nPlease check entry ${source.contentful_id} in Contentful.`
+            );
+          }
           return [];
         }
 

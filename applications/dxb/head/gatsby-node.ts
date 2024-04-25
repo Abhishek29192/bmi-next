@@ -1,3 +1,6 @@
+/* eslint-disable max-statements */
+/* eslint-disable max-lines */
+/* eslint-disable max-lines-per-function */
 import path from "path";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
@@ -11,13 +14,14 @@ import BigIntScalar from "./src/schema/scalars/BigInt";
 import typeDefs from "./src/schema/schema.graphql";
 import { Product } from "./src/types/pim";
 import { convertStrToBool } from "./src/utils/convertStrToBool";
-import { getRedirects, Redirect } from "./src/utils/get-redirects";
+import { Redirect, getRedirects } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
 import type {
   CreateBabelConfigArgs,
   CreatePagesArgs,
   GatsbyNode
 } from "gatsby";
+import type { ContentfulRedirectAssetQuery } from "./src/types/ContentfulRedirectAssetQuery";
 
 dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -170,11 +174,51 @@ const createTrainingPages = async (
   });
 };
 
+const createRedirects = async (
+  redirectsFileName: string,
+  {
+    graphql,
+    actions
+  }: {
+    graphql: CreatePagesArgs["graphql"];
+    actions: CreatePagesArgs["actions"];
+  }
+) => {
+  const { createRedirect } = actions;
+  const result = await graphql<ContentfulRedirectAssetQuery>(
+    `{
+      allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
+        nodes {
+          file {
+            url
+          }
+        }
+      }
+    }
+  `
+  );
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const contentfulRedirects = result.data?.allContentfulAsset?.nodes;
+  const contentfulRedirectsFileUrl = contentfulRedirects?.[0]?.file?.url;
+
+  const redirects = await getRedirects(
+    `./${redirectsFileName}`,
+    contentfulRedirectsFileUrl
+  );
+
+  redirects &&
+    redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)));
+};
+
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions
 }) => {
-  const { createRedirect, createPage } = actions;
+  const { createPage } = actions;
   const redirectRegex = /\/?[a-zA-Z]{2}\//i;
   const redirectsFileName = `redirects_${process.env.GATSBY_SPACE_MARKET_CODE.replace(
     redirectRegex,
@@ -209,15 +253,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
     )
   };
 
-  const result = await graphql<any, any>(`
-    {
-      allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
-        nodes {
-          file {
-            url
-          }
-        }
-      }
+  const result = await graphql<any, any>(
+    `{
       allContentfulSite(filter: {countryCode: {eq: "${process.env.GATSBY_SPACE_MARKET_CODE}"}}) {
         nodes {
           id
@@ -245,7 +282,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       }
     }
-  `);
+  `
+  );
 
   if (result.errors) {
     throw new Error(result.errors);
@@ -253,12 +291,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const {
     data: {
-      allContentfulSite: { nodes: sites },
-      allContentfulAsset: { nodes: contentfulRedirects }
+      allContentfulSite: { nodes: sites }
     }
   } = result;
-
-  const contentfulRedirectsFileUrl = contentfulRedirects[0]?.file?.url;
 
   const site = sites.find(
     (s) => s.countryCode === process.env.GATSBY_SPACE_MARKET_CODE
@@ -410,12 +445,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   }
 
-  const redirects = await getRedirects(
-    `./${redirectsFileName}`,
-    contentfulRedirectsFileUrl
-  );
-  redirects &&
-    redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)));
+  if (!process.env.GATSBY_PREVIEW) {
+    await createRedirects(redirectsFileName, {
+      graphql,
+      actions
+    });
+  }
 };
 
 const getRedirectConfig = (
@@ -432,6 +467,10 @@ const getRedirectConfig = (
     : process.env.IS_NETLIFY && redirect.status === 200 // Do not add trailing slash to Netlify rewrites.
       ? redirect.to
       : `${redirect.to}/`;
+
+  if (!process.env.IS_NETLIFY) {
+    toPath = decodeURI(toPath); // Gatsby Cloud encodes the toPath URI, even if it is already encoded
+  }
 
   //If we use wildcard redirects on production users will be redirected to gatsby domain
   //Such approach allows us to prevent users from being redirected to Gatsby domain.
@@ -454,7 +493,7 @@ const getRedirectConfig = (
     fromPath: process.env.IS_NETLIFY
       ? redirect.from // Netlify automatically passes on all querystring parameters to the destination
       : addSplatToUrl(redirect.from),
-    toPath: toPath,
+    toPath,
     statusCode: redirect.status
   };
 };

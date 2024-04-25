@@ -16,6 +16,7 @@ import {
   Product
 } from "@bmi/pim-types";
 import { jest } from "@jest/globals";
+import { getSizeLabel } from "../productTransformer.js";
 
 jest.mock("@bmi-digital/functions-logger");
 
@@ -34,6 +35,39 @@ beforeEach(() => {
 });
 
 describe("transformProduct", () => {
+  test("should return measurement values in order: width, length, height, thickness", async () => {
+    const product = createProduct({ approvalStatus: ApprovalStatus.Approved });
+    const transformedProducts = await transformProduct(product);
+
+    const measurement = transformedProducts[0].measurements;
+
+    expect(Object.keys(measurement)).toEqual([
+      "length",
+      "width",
+      "height",
+      "thickness",
+      "volume",
+      "label"
+    ]);
+
+    expect(measurement?.width?.value).toEqual("20");
+    expect(measurement?.length?.value).toEqual("10");
+    expect(measurement?.height?.value).toEqual("30");
+    expect(measurement?.thickness?.value).toEqual("40");
+    expect(measurement?.label).toEqual("20x10x30x40mm");
+  });
+
+  it("getSizeLabel should return concatenated measurements in the correct format", () => {
+    const width = { value: "10", unit: "cm" };
+    const length = { value: "20", unit: "cm" };
+    const height = { value: "30", unit: "cm" };
+    const thickness = { value: "40", unit: "cm" };
+
+    const sizeLabel = getSizeLabel(width, length, height, thickness);
+
+    expect(sizeLabel).toEqual("10x20x30x40cm");
+  });
+
   it("transforms a product with no variants", async () => {
     const product = createProduct({ variantOptions: undefined });
     const transformedProducts = await transformProduct(product);
@@ -333,7 +367,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "30",
             },
-            "label": "10x20x30x40mm",
+            "label": "20x10x30x40mm",
             "length": {
               "unit": "mm",
               "value": "10",
@@ -642,7 +676,7 @@ describe("transformProduct", () => {
               "unit": "mm",
               "value": "30",
             },
-            "label": "10x20x30x40mm",
+            "label": "20x10x30x40mm",
             "length": {
               "unit": "mm",
               "value": "10",
@@ -1434,7 +1468,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8x9symbol",
+            "label": "7x6x8x9symbol",
             "length": {
               "unit": "symbol",
               "value": "6",
@@ -2264,7 +2298,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8x9symbol",
+            "label": "7x6x8x9symbol",
             "length": {
               "unit": "symbol",
               "value": "6",
@@ -3099,7 +3133,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8x9symbol",
+            "label": "7x6x8x9symbol",
             "length": {
               "unit": "symbol",
               "value": "6",
@@ -3934,7 +3968,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8x9symbol",
+            "label": "7x6x8x9symbol",
             "length": {
               "unit": "symbol",
               "value": "6",
@@ -4915,7 +4949,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8x9symbol",
+            "label": "7x6x8x9symbol",
             "length": {
               "unit": "symbol",
               "value": "6",
@@ -5805,7 +5839,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8x9symbol",
+            "label": "7x6x8x9symbol",
             "length": {
               "unit": "symbol",
               "value": "6",
@@ -5840,7 +5874,7 @@ describe("transformProduct", () => {
                   "unit": "symbol",
                   "value": "8",
                 },
-                "label": "6x7x8x9symbol",
+                "label": "7x6x8x9symbol",
                 "length": {
                   "unit": "symbol",
                   "value": "6",
@@ -6717,7 +6751,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8x9symbol",
+            "label": "7x6x8x9symbol",
             "length": {
               "unit": "symbol",
               "value": "6",
@@ -6752,7 +6786,7 @@ describe("transformProduct", () => {
                   "unit": "symbol",
                   "value": "8",
                 },
-                "label": "6x7x8x9symbol",
+                "label": "7x6x8x9symbol",
                 "length": {
                   "unit": "symbol",
                   "value": "6",
@@ -8240,7 +8274,7 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].measurements.label).toEqual("3mm x 4cm");
+    expect(transformedProducts[0].measurements.label).toEqual("4cm x 3mm");
   });
 
   it("handles measurements with missing featureUnit", async () => {
@@ -8325,7 +8359,7 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].measurements.label).toEqual("3x4x5x6");
+    expect(transformedProducts[0].measurements.label).toEqual("4x3x5x6");
     expect(transformedProducts[0].measurements.length!.unit).toEqual("");
     expect(transformedProducts[0].measurements.width!.unit).toEqual("");
     expect(transformedProducts[0].measurements.height!.unit).toEqual("");
@@ -8420,7 +8454,7 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].measurements.label).toEqual("3x4x5x6");
+    expect(transformedProducts[0].measurements.label).toEqual("4x3x5x6");
     expect(transformedProducts[0].measurements.length!.unit).toEqual("");
     expect(transformedProducts[0].measurements.width!.unit).toEqual("");
     expect(transformedProducts[0].measurements.height!.unit).toEqual("");
@@ -8498,7 +8532,7 @@ describe("transformProduct", () => {
     const transformedProducts = await transformProduct(product);
     expect(
       transformedProducts[0].relatedVariants[0].measurements.label
-    ).toEqual("5mm x 6cm");
+    ).toEqual("6cm x 5mm");
   });
 
   it("handles measurements on related variants with missing featureUnit", async () => {
@@ -8646,10 +8680,11 @@ describe("transformProduct", () => {
     const transformedProducts = await transformProduct(product);
     expect(
       transformedProducts[0].relatedVariants[0].measurements.label
-    ).toEqual("13x14x15x16");
+    ).toEqual("14x13x15x16");
     expect(
       transformedProducts[0].relatedVariants[0].measurements.length!.unit
     ).toEqual("");
+
     expect(
       transformedProducts[0].relatedVariants[0].measurements.width!.unit
     ).toEqual("");
@@ -8809,7 +8844,7 @@ describe("transformProduct", () => {
     const transformedProducts = await transformProduct(product);
     expect(
       transformedProducts[0].relatedVariants[0].measurements.label
-    ).toEqual("13x14x15x16");
+    ).toEqual("14x13x15x16");
     expect(
       transformedProducts[0].relatedVariants[0].measurements.length!.unit
     ).toEqual("");
@@ -8911,7 +8946,7 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].measurements.label).toEqual("1x2x4cm");
+    expect(transformedProducts[0].measurements.label).toEqual("2x1x4cm");
   });
 
   it("creates measurements label without thickness", async () => {
@@ -8940,7 +8975,7 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].measurements.label).toEqual("1x2x3cm");
+    expect(transformedProducts[0].measurements.label).toEqual("2x1x3cm");
   });
 
   it("creates path from variant attribute if variant attrubite present and ENABLE_PDP_VARIANT_ATTRIBUTE_URL is true", async () => {
@@ -10319,7 +10354,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "3",
             },
-            "label": "1x2x3x4symbol",
+            "label": "2x1x3x4symbol",
             "length": {
               "unit": "symbol",
               "value": "1",
@@ -11280,7 +11315,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8x9symbol",
+            "label": "7x6x8x9symbol",
             "length": {
               "unit": "symbol",
               "value": "6",
@@ -14034,7 +14069,7 @@ describe("transformProduct", () => {
             "unit": "symbol",
             "value": "8",
           },
-          "label": "6x7x8x9symbol",
+          "label": "7x6x8x9symbol",
           "length": {
             "unit": "symbol",
             "value": "6",
@@ -14869,7 +14904,7 @@ describe("transformProduct", () => {
             "unit": "symbol",
             "value": "8",
           },
-          "label": "6x7x8x9symbol",
+          "label": "7x6x8x9symbol",
           "length": {
             "unit": "symbol",
             "value": "6",

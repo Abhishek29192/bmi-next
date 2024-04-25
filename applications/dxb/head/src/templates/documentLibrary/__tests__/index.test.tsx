@@ -27,7 +27,9 @@ import {
 import { DocumentLibraryPageContext, DocumentLibraryProps } from "../types";
 
 const count = PAGE_SIZE;
+
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
+
 jest.mock("react-google-recaptcha-v3", () => {
   const originalModule = jest.requireActual("react-google-recaptcha-v3");
   return {
@@ -67,14 +69,17 @@ const renderWithProviders = ({
     isPreviewMode: false,
     isLoginEnabled: true
   } as Partial<Config>;
+
   const defaultPageContext = {
     pageId: null,
     siteId: null,
     categoryCode: null,
     variantCodeToPathMap: null
   };
+
   const filters = filtersMock();
   const defaultPageData = createData(filters);
+
   return renderWithRouter(
     <ThemeProvider>
       <ConfigProvider
@@ -470,6 +475,76 @@ describe("Document Library page", () => {
       window.history.replaceState = jest.fn();
     });
 
+    it("should clear the document selection and disable as well as reset the download button once filter is applied", async () => {
+      const collapseData = createCollapseData();
+      const eSDocumentMock = createESDocumentHitResponseMock()._source;
+
+      mockQueryES.mockResolvedValue({
+        hits: {
+          hits: [
+            createESDocumentHitResponseMock(
+              createPimProductDocument(),
+              collapseData
+            )
+          ],
+          total: {
+            value: 2
+          }
+        }
+      });
+
+      renderWithProviders({});
+
+      const downloadBtn = await screen.findByTestId(
+        "document-table-download-button"
+      );
+
+      const documentCheckbox = await screen.findByLabelText(
+        `MC: documentLibrary.download ${eSDocumentMock.title}`
+      );
+
+      const resetBtn = screen.getByTestId(
+        "document-results-footer-reset-button"
+      );
+
+      fireEvent.click(documentCheckbox);
+
+      const totalSizeText = screen.getByTestId(
+        "document-results-footer-total-size-value"
+      );
+
+      const maxSizeLabel = screen.getByTestId(
+        "document-results-footer-max-size-value"
+      );
+
+      const downloadListTitle = screen.getByText("MC: downloadList.info.title");
+
+      const downloadInfoMessage = screen.getByText(
+        "MC: downloadList.info.message"
+      );
+
+      expect(totalSizeText).toBeInTheDocument();
+      expect(maxSizeLabel).toBeInTheDocument();
+
+      expect(
+        await screen.findByText("MC: downloadList.download (1)")
+      ).toBeInTheDocument();
+
+      expect(downloadListTitle).toBeInTheDocument();
+      expect(downloadInfoMessage).toBeInTheDocument();
+      expect(resetBtn).not.toBeDisabled();
+
+      fireEvent.click(screen.queryByText("BMI Components")!);
+
+      expect(downloadListTitle).not.toBeInTheDocument();
+      expect(downloadInfoMessage).not.toBeInTheDocument();
+      expect(downloadBtn).toBeDisabled();
+      expect(downloadBtn).toHaveTextContent("MC: downloadList.download");
+      expect(totalSizeText).not.toBeInTheDocument();
+      expect(maxSizeLabel).not.toBeInTheDocument();
+      expect(resetBtn).toBeDisabled();
+    });
+
     it("should set up filters in sidebar if url query params includes filters values on page load", async () => {
       mockQueryES.mockResolvedValueOnce({
         aggregations: {
@@ -496,6 +571,7 @@ describe("Document Library page", () => {
       expect(await screen.findByLabelText(/bmi components/i)).toBeChecked();
       expect(mockQueryES).toBeCalled();
     });
+
     it("should make ES request when user select any filter and update url query params", async () => {
       mockQueryES.mockResolvedValueOnce({
         aggregations: {
@@ -525,6 +601,7 @@ describe("Document Library page", () => {
         );
       });
     });
+
     it("should clear filter correctly when click the checked filter", async () => {
       mockQueryES.mockResolvedValueOnce({
         aggregations: {
@@ -562,6 +639,7 @@ describe("Document Library page", () => {
         );
       });
     });
+
     it("should clear all filters correctly when click the clear all button", async () => {
       mockQueryES.mockResolvedValueOnce({
         aggregations: {
@@ -663,8 +741,12 @@ describe("Document Library page", () => {
     const checkbox = await screen.findByLabelText(
       `MC: documentLibrary.download ${eSDocumentMock.title}`
     );
-    expect(screen.queryByText("MC: downloadList.info.title")).toBeFalsy();
-    expect(screen.queryByText("MC: downloadList.info.message")).toBeFalsy();
+    expect(
+      screen.queryByText("MC: downloadList.info.title")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: downloadList.info.message")
+    ).not.toBeInTheDocument();
 
     fireEvent.click(checkbox);
     expect(screen.getByText("MC: downloadList.info.title")).toBeTruthy();
@@ -676,6 +758,7 @@ describe("Document Library page", () => {
       documentResultsFooter,
       "handleDownloadClick"
     );
+
     const mockESDocumentsList = Array.from(Array(2)).map((_, index) =>
       createESDocumentHitResponseMock(
         createPimProductDocument({
@@ -684,6 +767,7 @@ describe("Document Library page", () => {
         })
       )
     );
+
     mockQueryES.mockResolvedValueOnce({
       hits: {
         hits: [...mockESDocumentsList],
@@ -692,7 +776,9 @@ describe("Document Library page", () => {
         }
       }
     });
+
     renderWithProviders({});
+
     const checkbox = await screen.findByLabelText(
       "MC: documentLibrary.download documentTitle0"
     );
@@ -702,10 +788,13 @@ describe("Document Library page", () => {
 
     fireEvent.click(checkbox);
     fireEvent.click(checkbox2);
+
     const downloadButton = await screen.findByText(
       "MC: downloadList.download (2)"
     );
+
     fireEvent.click(downloadButton);
+
     await waitFor(() => {
       expect(executeRecaptchaSpy).toHaveBeenCalledTimes(1);
     });
