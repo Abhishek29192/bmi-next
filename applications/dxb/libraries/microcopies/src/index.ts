@@ -383,7 +383,7 @@ export const microCopy = {
   TRAINING_CATALOGUE_SHOW_LESS: "trainingCatalogue.showLess",
   TRAINING_PRICE_FREE: "training.price.free",
 
-  TRAINING_ID_LABEL: "training.courseIdLabel",
+  TRAINING_CODE_LABEL: "training.courseCodeLabel",
   TRAINING_DETAILS_SESSIONS_LABEL: "trainingDetails.sessionsLabel",
   TRAINING_DETAILS_SESSION_ENROLL_LABEL: "trainingDetails.session.enrollLabel",
   TRAINING_DETAILS_NO_SESSIONS_TOOLTIP_MESSAGE:
