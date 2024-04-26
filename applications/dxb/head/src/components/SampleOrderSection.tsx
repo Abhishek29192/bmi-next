@@ -4,6 +4,7 @@ import Remove from "@bmi-digital/components/icon/Remove";
 import ShoppingCart from "@bmi-digital/components/icon/ShoppingCart";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
+import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
 import {
   ACTION_TYPES,
@@ -13,7 +14,7 @@ import {
 import { Product } from "../types/pim";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import withGTM from "../utils/google-tag-manager";
-import { getCTA } from "./Link";
+import { getPathWithCountryCode } from "../utils/path";
 import { Data as PageInfoData } from "./PageInfo";
 import { useSiteContext } from "./Site";
 import {
@@ -79,9 +80,6 @@ const SampleOrderSection = ({
     );
     setBasketHasProducts(basketState?.products?.length > 0);
   }, [basketState, maximumSamples, product]);
-  const cta =
-    sampleBasketLinkInfo &&
-    getCTA(sampleBasketLinkInfo, countryCode, sampleBasketLinkInfo.slug);
   const GTMButton = withGTM<ButtonProps>(Button);
 
   const gtmAction =
@@ -91,6 +89,14 @@ const SampleOrderSection = ({
       product.colour,
       product.textureFamily,
       product.measurements?.label
+    );
+
+  const sampleBasketUrl =
+    basketHasProducts &&
+    sampleBasketLinkInfo &&
+    getPathWithCountryCode(countryCode, sampleBasketLinkInfo.path).replace(
+      /\/+/gi,
+      "/"
     );
 
   return (
@@ -133,12 +139,18 @@ const SampleOrderSection = ({
                   </GTMButton>
                 ) : undefined
               ) : undefined}
-              {basketHasProducts && cta && cta.action && (
+              {sampleBasketUrl && (
                 <Button
                   className={classes["complete-order"]}
                   endIcon={<ShoppingCart />}
                   variant="outlined"
-                  action={cta.action}
+                  to={sampleBasketUrl}
+                  component={Link}
+                  gtm={{
+                    id: "cta-click1",
+                    action: sampleBasketUrl,
+                    label: sampleBasketLinkInfo.slug
+                  }}
                   data-testid={"complete-order-basket-button"}
                 >
                   {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}

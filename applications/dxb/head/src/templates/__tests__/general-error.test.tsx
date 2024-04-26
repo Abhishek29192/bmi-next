@@ -2,8 +2,8 @@ import { RegionCode } from "@bmi-digital/components/language-selection";
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { screen } from "@testing-library/react";
 import React from "react";
-import { DataTypeEnum, Data as LinkData } from "../../components/Link";
 import { Data as SiteData } from "../../components/Site";
+import { DataTypeEnum, Data as LinkData } from "../../components/link/types";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import GeneralError from "../general-error";
 

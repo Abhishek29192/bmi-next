@@ -74,6 +74,16 @@ const PitchedRoofCalculator = ({
     </StyledSpinner>
   );
 
+  const onCloseClick = useCallback(() => {
+    pushEvent({
+      event: "dxb.button_click",
+      id: "rc-close",
+      label: "Close Roof Calculator",
+      action: "selected"
+    });
+    onClose();
+  }, [onClose, pushEvent]);
+
   return (
     <AnalyticsContext.Provider value={pushEvent}>
       <StyledContainerDialog
@@ -81,15 +91,7 @@ const PitchedRoofCalculator = ({
           selected === CalculatorSteps.YourSolutionContains ? "white" : "pearl"
         }
         open={isOpen}
-        onCloseClick={() => {
-          pushEvent({
-            event: "dxb.button_click",
-            id: "rc-close",
-            label: "Close Roof Calculator",
-            action: "selected"
-          });
-          onClose();
-        }}
+        onCloseClick={onCloseClick}
         maxWidth="xl"
         containerClassName={classes.dialogContent}
         allowOverflow={false}
@@ -97,7 +99,10 @@ const PitchedRoofCalculator = ({
           // Disabling close on backdrop click
         }}
       >
-        <ContainerDialog.Header className={classes.modalHeader}>
+        <ContainerDialog.Header
+          className={classes.modalHeader}
+          onCloseClick={onCloseClick}
+        >
           <StyledLogo source={brandLogo} />
           <StyledLinearProgress value={progress} variant="determinate" />
         </ContainerDialog.Header>

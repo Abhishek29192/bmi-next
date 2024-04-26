@@ -251,10 +251,7 @@ const ResultsView = ({
           {resultsContent.shareLinkDescription}
         </Typography>
         <div className="linkContainer">
-          <AnchorLink
-            action={{ model: "htmlLink", href: link }}
-            className="link"
-          >
+          <AnchorLink href={link} className="link">
             {link}
           </AnchorLink>
         </div>

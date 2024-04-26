@@ -3,6 +3,7 @@ import { replaceSpaces } from "@bmi-digital/components/utils";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import * as Gatsby from "gatsby";
 import React from "react";
+import { GTM } from "@bmi-digital/components";
 import { ConfigProvider } from "../../contexts/ConfigProvider";
 import FormSection, {
   Data,
@@ -10,8 +11,8 @@ import FormSection, {
   InputType,
   InputWidthType
 } from "../FormSection";
-import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
+import { DataTypeEnum } from "../link/types";
 import { SourceType } from "../types/FormSectionTypes";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
@@ -197,7 +198,25 @@ describe("FormSection component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("test flow when gtm data passed from outside", () => {
+  it("should use the following GTM object by default", () => {
+    const defaultGTMObject: GTM = {
+      id: "form-button1",
+      action: data.title,
+      label: "children"
+    };
+
+    render(
+      <ThemeProvider>
+        <FormSection id={formId} data={data} backgroundColor="white" />
+      </ThemeProvider>
+    );
+
+    expect(
+      screen.getByTestId(`contentful-form-section-Test-form-submit-button`)
+    ).toHaveAttribute("data-gtm", JSON.stringify(defaultGTMObject));
+  });
+
+  it("should replace the action and label GTM object properties if the gtmOverride prop is defined", () => {
     render(
       <ThemeProvider>
         <FormSection
@@ -205,18 +224,22 @@ describe("FormSection component", () => {
           data={data}
           backgroundColor="white"
           gtmOverride={{
-            label: "GTM-label",
-            action: "GTM-action"
+            action: "gtmActionOverride",
+            label: "gtmLabelOverride"
           }}
         />
       </ThemeProvider>
     );
 
-    const specificationButton = screen.getByTestId(
-      `contentful-form-section-${replaceSpaces(data.title)}-submit-button`
-    );
-    expect(specificationButton).toHaveAttribute("aria-label", "GTM-label");
-    expect(specificationButton).toHaveAttribute("data-action", "GTM-action");
+    const expectedGTMObject: GTM = {
+      id: "form-button1",
+      action: "gtmActionOverride",
+      label: "gtmLabelOverride"
+    };
+
+    expect(
+      screen.getByTestId(`contentful-form-section-Test-form-submit-button`)
+    ).toHaveAttribute("data-gtm", JSON.stringify(expectedGTMObject));
   });
 
   it("test handleEmailValidation with incorrect email", () => {
@@ -727,9 +750,11 @@ describe("FormSection component", () => {
       "label-Another-Data-Protection-Policy-anchor-link"
     );
     expect(externalLink).toHaveAttribute("href", "https://google.co.uk");
-    expect(externalLink).toHaveAttribute("rel", "noopener");
+    expect(externalLink).toHaveAttribute("rel", "noreferrer");
+    expect(externalLink).toHaveAttribute("referrerpolicy", "no-referrer");
     expect(internalLink).toHaveAttribute("href", "https://www.bmigroup.com");
     expect(internalLink).not.toHaveAttribute("rel");
+    expect(internalLink).not.toHaveAttribute("referrerpolicy");
     expect(container).toMatchSnapshot();
   });
 

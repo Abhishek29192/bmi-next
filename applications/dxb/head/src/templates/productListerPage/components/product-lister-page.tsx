@@ -1,4 +1,3 @@
-import { AnchorLinkProps } from "@bmi-digital/components/anchor-link";
 import { PLPFilterResponse } from "@bmi-digital/components/filters";
 import Grid from "@bmi-digital/components/grid";
 import { HeroProps } from "@bmi-digital/components/hero";
@@ -26,10 +25,6 @@ import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";
 import FiltersSidebar from "../../../components/FiltersSidebar";
-import {
-  Data as LinkData,
-  getClickableActionFromUrl
-} from "../../../components/Link";
 import Page, { Data as PageData } from "../../../components/Page";
 import { Data as PageInfoData } from "../../../components/PageInfo";
 import ProgressIndicator from "../../../components/ProgressIndicator";
@@ -37,6 +32,8 @@ import ResultsPagination from "../../../components/ResultsPagination";
 import RichText, { RichTextData } from "../../../components/RichText";
 import Scrim from "../../../components/Scrim";
 import { Data as SiteData } from "../../../components/Site";
+import Link from "../../../components/link/Link";
+import { Data as LinkData } from "../../../components/link/types";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { ProductFilter } from "../../../types/pim";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
@@ -54,18 +51,13 @@ import {
   replaceDotFiltersParameter,
   updateFilterValue
 } from "../../../utils/filters";
-import withGTM from "../../../utils/google-tag-manager";
 import {
   generateHeroLevel,
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
-import {
-  FeaturesLink,
-  ProductListGrid,
-  ProductListWrapperGrid
-} from "../styles";
+import { ProductListGrid, ProductListWrapperGrid } from "../styles";
 import {
   renderProducts,
   resolveFilters
@@ -124,8 +116,6 @@ const BlueCheckIcon = () => {
   return <StyledBlueCheckIcon />;
 };
 
-const GTMAnchorLink = withGTM<AnchorLinkProps>(FeaturesLink);
-
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
     brandLogo,
@@ -165,18 +155,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
   const resultsElement = useRef<HTMLDivElement>(null);
-  const memoizedGetClickableActionFromUrl = useMemo(
-    () =>
-      getClickableActionFromUrl({
-        linkedPage: featuresLink?.linkedPage,
-        url: featuresLink?.url,
-        countryCode,
-        assetUrl: featuresLink?.asset?.file?.url,
-        label: featuresLink?.label
-      }),
-    [featuresLink, countryCode]
-  );
-
   const location = useLocation();
 
   const queryParams = useMemo<QueryParams>(() => {
@@ -458,8 +436,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                         </IconList>
                       )}
                       {featuresLink && (
-                        <GTMAnchorLink
-                          action={memoizedGetClickableActionFromUrl}
+                        <Link
+                          data={featuresLink}
                           gtm={{
                             id: "cta-click1",
                             label: `${getMicroCopy(
@@ -468,7 +446,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           }}
                         >
                           {featuresLink.label}
-                        </GTMAnchorLink>
+                        </Link>
                       )}
                     </LeadBlock.Card.Content>
                   </LeadBlock.Card.Section>

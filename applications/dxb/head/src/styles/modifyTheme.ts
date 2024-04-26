@@ -7,7 +7,7 @@ export const modifyTheme = (theme: ThemeOptions): ThemeOptions => {
       MuiCssBaseline: {
         styleOverrides: `
               ${theme.components?.MuiCssBaseline?.styleOverrides}
-              body { background-color: ${theme.colours.alabasterA} !important}  `
+              body { background-color: ${theme.colours.white} !important}  `
       }
     }
   };

@@ -11,7 +11,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
         data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
           data-testid="table-head"
         >
           <tr
@@ -78,7 +78,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
         data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
           data-testid="table-head"
         >
           <tr
@@ -145,7 +145,7 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
         data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
           data-testid="table-head"
         >
           <tr
@@ -198,7 +198,7 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
         data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
           data-testid="table-head"
         >
           <tr

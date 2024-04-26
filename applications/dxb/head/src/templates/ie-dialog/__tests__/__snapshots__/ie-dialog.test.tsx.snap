@@ -51,8 +51,10 @@ exports[`IEDialog component renders correctly 1`] = `
         >
           <a
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+            data-testid="button"
             href="http://localhost"
-            rel="noopener noreferrer"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             tabindex="0"
             target="_blank"
           >

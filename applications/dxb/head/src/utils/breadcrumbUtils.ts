@@ -1,18 +1,12 @@
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
-import { Data, NavigationData, NavigationItem } from "../components/Link";
-import { truncate } from "./truncate";
-
-const BREADCRUMB_TITLE_CHARACTERS_LIMIT = 20; // should be 20 characters include ellipsis
+import { Data, NavigationData, NavigationItem } from "../components/link/types";
 
 export const updateBreadcrumbTitleFromContentful = (
   breadcrumbs: BreadcrumbsData,
   breadcrumbTitle: string | null
 ): BreadcrumbsData => {
   if (breadcrumbTitle) {
-    breadcrumbs[breadcrumbs.length - 1].label = truncate(
-      breadcrumbTitle,
-      BREADCRUMB_TITLE_CHARACTERS_LIMIT
-    );
+    breadcrumbs[breadcrumbs.length - 1].label = breadcrumbTitle;
   }
   return [...breadcrumbs];
 };

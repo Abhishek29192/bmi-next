@@ -1,4 +1,4 @@
-import Button from "@bmi-digital/components/button";
+import IconButton from "@bmi-digital/components/icon-button";
 import { filledInputClasses } from "@mui/material/FilledInput";
 import { iconButtonClasses } from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
@@ -24,7 +24,7 @@ export const StyledComponentWithButtons = styled("div")(({ theme }) => ({
   }
 }));
 
-export const StyledDownButton = styled(Button)(({ theme }) => ({
+export const StyledDownButton = styled(IconButton)(({ theme }) => ({
   borderTopLeftRadius: "3px",
   borderBottomLeftRadius: "3px",
   height: "auto",
@@ -36,7 +36,7 @@ export const StyledDownButton = styled(Button)(({ theme }) => ({
   }
 }));
 
-export const StyledUpButton = styled(Button)(({ theme }) => ({
+export const StyledUpButton = styled(IconButton)(({ theme }) => ({
   borderTopRightRadius: "3px",
   borderBottomRightRadius: "3px",
   height: "auto",

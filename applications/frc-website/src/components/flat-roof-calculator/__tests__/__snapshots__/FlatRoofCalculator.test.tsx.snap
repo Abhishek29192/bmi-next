@@ -3,7 +3,7 @@
 exports[`FlatRoofCalculator component renders correctly 1`] = `
 <div>
   <div
-    class="css-153e614"
+    class="css-peyr3x"
     id="flat-roof-calculator"
   >
     <div
@@ -309,7 +309,9 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 Capsheet colour
               </h5>
               <button
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-text MuiIconButton-sizeLarge iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                aria-label="Help"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-testid="icon-button"
                 tabindex="-1"
                 type="button"
               >
@@ -458,7 +460,9 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               Field area
             </h5>
             <button
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-text MuiIconButton-sizeLarge iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              aria-label="Help"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="-1"
               type="button"
             >
@@ -488,7 +492,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-fieldArea"
                 >
                   <label
@@ -562,7 +566,9 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               Upstand (optional)
             </h5>
             <button
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-text MuiIconButton-sizeLarge iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              aria-label="Help"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="-1"
               type="button"
             >
@@ -592,7 +598,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-upstandHeight"
                 >
                   <label
@@ -651,7 +657,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-upstandLength"
                 >
                   <label
@@ -729,7 +735,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-kerbHeight"
                 >
                   <label
@@ -788,7 +794,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-kerbLength"
                 >
                   <label
@@ -866,7 +872,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-detailHeight1"
                 >
                   <label
@@ -925,7 +931,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-detailLength1"
                 >
                   <label
@@ -1003,7 +1009,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-detailHeight2"
                 >
                   <label
@@ -1062,7 +1068,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-detailLength2"
                 >
                   <label
@@ -1137,7 +1143,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           >
             <div>
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-companyName"
               >
                 <label
@@ -1187,7 +1193,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           >
             <div>
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-projectName"
               >
                 <label
@@ -1257,11 +1263,12 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
       >
         <button
           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium item css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          data-testid="button"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <svg
               aria-hidden="true"
@@ -1281,7 +1288,9 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium item css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+          data-testid="button"
           tabindex="0"
           type="submit"
         >

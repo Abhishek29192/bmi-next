@@ -128,7 +128,11 @@ export const StyledFooter = styled("div")(({ theme }) => ({
   }
 }));
 
-export const FooterButton = styled(Button)(({ theme }) => ({
+export const StyledSkipAndNextButtons = styled("div")({
+  marginLeft: "auto"
+});
+
+const commonButtonStyles = ({ theme }) => ({
   height: "44px",
   [theme.breakpoints.down("lg")]: {
     width: "100%",
@@ -136,11 +140,12 @@ export const FooterButton = styled(Button)(({ theme }) => ({
       marginTop: "12px"
     }
   }
-}));
-
-export const StyledSkipAndNextButtons = styled("div")({
-  marginLeft: "auto"
 });
+
+export const FooterButton = styled(Button)(commonButtonStyles);
+export const StyledFormSubmitButton = styled(Form.SubmitButton)(
+  commonButtonStyles
+);
 
 export const StyledFooterBackButtonLink = styled(FooterButton)(({ theme }) => ({
   marginRight: "60px",
@@ -149,7 +154,3 @@ export const StyledFooterBackButtonLink = styled(FooterButton)(({ theme }) => ({
     marginRight: "0"
   }
 }));
-
-export const StyledFormSubmitButton = styled(Form.SubmitButton)({
-  height: "44px"
-});

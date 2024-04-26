@@ -96,7 +96,11 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         cta={resources?.sdpLeadBlockCta}
         promotionalContent={system.promotionalContent}
         uniqueSellingPropositions={system.uniqueSellingPropositions}
-        brandLogo={<BrandLogo brandName={system.brand?.code} />}
+        brandLogo={
+          system.brand?.code ? (
+            <BrandLogo brandName={system.brand?.code} />
+          ) : undefined
+        }
         goodBetterBest={system.goodBetterBest}
       />
       <StyledImageGalarySection

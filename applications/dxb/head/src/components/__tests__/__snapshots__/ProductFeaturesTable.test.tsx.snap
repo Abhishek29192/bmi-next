@@ -174,7 +174,7 @@ exports[`ProductFeaturesTable component Renders correctly With header row 1`] = 
         data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
           data-testid="table-head"
         >
           <div>

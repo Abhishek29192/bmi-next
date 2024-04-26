@@ -1,15 +1,15 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { screen } from "@testing-library/react";
 import React from "react";
-import {
-  DataTypeEnum,
-  Data as LinkData,
-  NavigationData
-} from "../../components/Link";
-import { Data as SiteData } from "../../components/Site";
+import { DataTypeEnum } from "../../components/link/types";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import Sitemap from "../sitemap";
+import type {
+  Data as LinkData,
+  NavigationData
+} from "../../components/link/types";
+import type { Data as SiteData } from "../../components/Site";
 
 beforeAll(() => {
   jest.clearAllMocks();
@@ -114,33 +114,6 @@ describe("Sitemap", () => {
     expect(screen.getByText(menuUtilities.label!)).toBeTruthy();
   });
 
-  it("renders correctly when footerMainNavigation is falsy", () => {
-    const data: { contentfulSite: SiteData } = {
-      contentfulSite: {
-        ...mockSiteData,
-        footerMainNavigation: null,
-        footerSecondaryNavigation,
-        menuNavigation,
-        menuUtilities
-      }
-    };
-    const { container } = renderWithRouter(
-      <ThemeProvider>
-        <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
-      </ThemeProvider>
-    );
-
-    expect(container).toMatchSnapshot();
-    expect(screen.getByRole("banner")).toBeInTheDocument();
-    expect(screen.getByTestId("footer")).toBeTruthy();
-    expect(screen.getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(screen.getAllByTestId("sitemap-section")).toHaveLength(3);
-    expect(screen.queryByText(footerMainNavigation.label!)).toBeFalsy();
-    expect(screen.getByText(footerSecondaryNavigation.label!)).toBeTruthy();
-    expect(screen.getByText(menuNavigation.label!)).toBeTruthy();
-    expect(screen.getByText(menuUtilities.label!)).toBeTruthy();
-  });
-
   it("renders correctly when footerSecondaryNavigation is falsy", () => {
     const data: { contentfulSite: SiteData } = {
       contentfulSite: {
@@ -234,7 +207,7 @@ describe("Sitemap", () => {
     };
     const { container } = renderWithRouter(
       <ThemeProvider>
-        <Sitemap data={data} pageContext={null} />
+        <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
     );
 

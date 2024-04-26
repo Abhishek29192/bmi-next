@@ -1,20 +1,18 @@
 import Grid from "@bmi-digital/components/grid";
-import OverviewCard, {
-  OverviewCardProps
-} from "@bmi-digital/components/overview-card";
+import ProductOverviewCard from "@bmi-digital/components/product-overview-card";
 import Typography from "@bmi-digital/components/typography";
 import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import { Link } from "gatsby";
 import React from "react";
-import DefaultImage from "../images/DefaultImage.svg";
 import { useSearchParams } from "../utils/filters";
-import withGTM from "../utils/google-tag-manager";
+import {
+  getLevel,
+  goodBetterBestLabels
+} from "../utils/getGoodBetterBestLabel";
 import { getPathWithCountryCode } from "../utils/path";
 import BrandLogo from "./BrandLogo";
-import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 import { useSiteContext } from "./Site";
-import { FooterAnchorLink } from "./styles/ProductGridViewStyles";
 
 export type Props = {
   products: ReadonlyArray<ESProduct>;
@@ -46,12 +44,12 @@ const ProductsGridView = ({
     );
   }
 
-  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
-
   return (
     <>
       {products.flatMap((variant) => {
-        const brandLogo = <BrandLogo brandName={variant.brandCode} />;
+        const brandLogo = variant.brandCode ? (
+          <BrandLogo brandName={variant.brandCode} />
+        ) : undefined;
         const mainImage = variant.mainImage;
         const product = variant.baseProduct;
         const productUrl = `${getPathWithCountryCode(
@@ -59,53 +57,42 @@ const ProductsGridView = ({
           variantCodeToPathMap?.[variant.code] || variant.path
         )}${searchParams}`;
 
-        const uniqueClassifications = variant.subTitle || "";
+        const uniqueClassifications = variant.subTitle;
         const moreOptionsAvailable =
           variant.all_variants?.length > 1 &&
           getMicroCopy(microCopy.PLP_PRODUCT_MORE_OPTIONS_AVAILABLE);
         return (
-          <Grid key={`${product?.code}-${variant.code}`} xs={12} md={6} lg={4}>
-            <GTMOverviewCard
-              title={product?.name}
-              titleVariant="h5"
-              subtitle={uniqueClassifications}
-              subtitleVariant="h6"
+          <Grid key={`${product.code}-${variant.code}`} xs={12} md={6} lg={4}>
+            <ProductOverviewCard
+              title={product.name || variant.name}
+              subtitle={moreOptionsAvailable || uniqueClassifications}
+              description={variant.shortDescription}
               tag={
-                <GoodBetterBestIndicator
-                  indicatorType={variant.goodBetterBest}
-                />
+                variant.goodBetterBest && {
+                  level: getLevel(variant.goodBetterBest),
+                  label: getMicroCopy(
+                    goodBetterBestLabels[variant.goodBetterBest]
+                  )
+                }
               }
               media={
-                mainImage ? (
-                  <img
-                    src={mainImage}
-                    alt={`${uniqueClassifications} ${product?.name}`}
-                  />
-                ) : (
-                  <DefaultImage />
-                )
+                <img
+                  src={mainImage}
+                  alt={`${uniqueClassifications} ${
+                    product.name || variant.name
+                  }`}
+                />
               }
-              imageSize="contain"
-              brandImageSource={brandLogo}
-              action={{
-                model: "routerLink",
-                linkComponent: Link,
-                to: productUrl
-              }}
+              brandLogo={brandLogo}
+              component={Link}
+              to={productUrl}
               gtm={{
                 id: "cta-click1",
                 label: getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS),
                 action: productUrl
               }}
-              footer={
-                <FooterAnchorLink component="span" iconEnd>
-                  {getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
-                </FooterAnchorLink>
-              }
-              moreOptionsAvailable={moreOptionsAvailable}
-            >
-              {variant.shortDescription}
-            </GTMOverviewCard>
+              ctaLabel={getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
+            />
           </Grid>
         );
       })}

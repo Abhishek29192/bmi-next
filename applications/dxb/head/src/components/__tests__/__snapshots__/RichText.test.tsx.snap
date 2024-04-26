@@ -59,52 +59,48 @@ exports[`RichText component closes dialog 1`] = `
         data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="rich-text-hyperlink"
         href="https://google.co.uk"
-        rel="noopener noreferrer"
+        referrerpolicy="no-referrer"
+        rel="noreferrer"
         target="_blank"
       >
-        <span>
-          External
-        </span>
+        External
       </a>
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
-        data-testid="anchor-link"
+        data-testid="rich-text-entry-hyperlink"
         href="/testing-simple-page/"
       >
-        <span>
-          Entry
-        </span>
+        Entry
       </a>
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
-        data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
-        rel="noopener noreferrer"
+        referrerpolicy="no-referrer"
+        rel="noreferrer"
         target="_blank"
       >
-        <span>
-          Asset
-        </span>
+        Asset
       </a>
        
       <div
         class="css-1v5x0v5"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-          data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
+        <a
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+          data-gtm="{"id":"cta-click1","action":"//product-category-page/product-sub-category-page/aerodek-robust-plus/","label":"Aerodek Robust Plus"}"
+          data-testid="internal-button-link-Aerodek-Robust-Plus"
+          href="//product-category-page/product-sub-category-page/aerodek-robust-plus/"
           tabindex="0"
-          type="button"
         >
           Aerodek Robust Plus
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </button>
+        </a>
       </div>
     </p>
     <ul>
@@ -139,17 +135,18 @@ exports[`RichText component closes dialog 1`] = `
     <div
       class="css-1v5x0v5"
     >
-      <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
+      <a
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","action":"//landing-page/","label":"Support"}"
+        data-testid="internal-button-link-Support"
+        href="//landing-page/"
         tabindex="0"
-        type="button"
       >
         Support
         <span
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
-      </button>
+      </a>
     </div>
     <picture>
       <source
@@ -180,14 +177,16 @@ exports[`RichText component closes dialog 1`] = `
       data-testid="typography"
     >
       <button
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-51z1et-MuiTypography-root-MuiLink-root"
-        data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
-        data-testid="rich-text-entry-hyperlink"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium  css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","action":"Dialog","label":"Open dialog"}"
+        data-testid="dialog-link-"
+        tabindex="0"
         type="button"
       >
-        <span>
-          Open dialog
-        </span>
+        Open dialog
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
       </button>
     </p>
   </div>
@@ -266,52 +265,48 @@ exports[`RichText component renders correctly 1`] = `
         data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="rich-text-hyperlink"
         href="https://google.co.uk"
-        rel="noopener noreferrer"
+        referrerpolicy="no-referrer"
+        rel="noreferrer"
         target="_blank"
       >
-        <span>
-          External
-        </span>
+        External
       </a>
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
-        data-testid="anchor-link"
+        data-testid="rich-text-entry-hyperlink"
         href="/testing-simple-page/"
       >
-        <span>
-          Entry
-        </span>
+        Entry
       </a>
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
-        data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
-        rel="noopener noreferrer"
+        referrerpolicy="no-referrer"
+        rel="noreferrer"
         target="_blank"
       >
-        <span>
-          Asset
-        </span>
+        Asset
       </a>
        
       <div
         class="css-1v5x0v5"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-          data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
+        <a
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+          data-gtm="{"id":"cta-click1","action":"//product-category-page/product-sub-category-page/aerodek-robust-plus/","label":"Aerodek Robust Plus"}"
+          data-testid="internal-button-link-Aerodek-Robust-Plus"
+          href="//product-category-page/product-sub-category-page/aerodek-robust-plus/"
           tabindex="0"
-          type="button"
         >
           Aerodek Robust Plus
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </button>
+        </a>
       </div>
     </p>
     <ul>
@@ -346,17 +341,18 @@ exports[`RichText component renders correctly 1`] = `
     <div
       class="css-1v5x0v5"
     >
-      <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
+      <a
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","action":"//landing-page/","label":"Support"}"
+        data-testid="internal-button-link-Support"
+        href="//landing-page/"
         tabindex="0"
-        type="button"
       >
         Support
         <span
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
-      </button>
+      </a>
     </div>
     <picture>
       <source
@@ -387,14 +383,16 @@ exports[`RichText component renders correctly 1`] = `
       data-testid="typography"
     >
       <button
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-51z1et-MuiTypography-root-MuiLink-root"
-        data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
-        data-testid="rich-text-entry-hyperlink"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium  css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","action":"Dialog","label":"Open dialog"}"
+        data-testid="dialog-link-"
+        tabindex="0"
         type="button"
       >
-        <span>
-          Open dialog
-        </span>
+        Open dialog
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
       </button>
     </p>
   </div>
@@ -462,52 +460,48 @@ exports[`RichText component renders when dialog clicked 1`] = `
         data-gtm="{"id":"cta-click1","label":"External","action":"https://google.co.uk"}"
         data-testid="rich-text-hyperlink"
         href="https://google.co.uk"
-        rel="noopener noreferrer"
+        referrerpolicy="no-referrer"
+        rel="noreferrer"
         target="_blank"
       >
-        <span>
-          External
-        </span>
+        External
       </a>
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
-        data-testid="anchor-link"
+        data-testid="rich-text-entry-hyperlink"
         href="/testing-simple-page/"
       >
-        <span>
-          Entry
-        </span>
+        Entry
       </a>
        
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Asset","action":"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"}"
-        data-testid="anchor-link"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
-        rel="noopener noreferrer"
+        referrerpolicy="no-referrer"
+        rel="noreferrer"
         target="_blank"
       >
-        <span>
-          Asset
-        </span>
+        Asset
       </a>
        
       <div
         class="css-1v5x0v5"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-          data-gtm="{"id":"cta-click1","label":"Aerodek Robust Plus","action":"product-category-page/product-sub-category-page/aerodek-robust-plus/"}"
+        <a
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+          data-gtm="{"id":"cta-click1","action":"//product-category-page/product-sub-category-page/aerodek-robust-plus/","label":"Aerodek Robust Plus"}"
+          data-testid="internal-button-link-Aerodek-Robust-Plus"
+          href="//product-category-page/product-sub-category-page/aerodek-robust-plus/"
           tabindex="0"
-          type="button"
         >
           Aerodek Robust Plus
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </button>
+        </a>
       </div>
     </p>
     <ul>
@@ -542,17 +536,18 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <div
       class="css-1v5x0v5"
     >
-      <button
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-        data-gtm="{"id":"cta-click1","label":"Support","action":"landing-page/"}"
+      <a
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","action":"//landing-page/","label":"Support"}"
+        data-testid="internal-button-link-Support"
+        href="//landing-page/"
         tabindex="0"
-        type="button"
       >
         Support
         <span
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
-      </button>
+      </a>
     </div>
     <picture>
       <source
@@ -583,14 +578,16 @@ exports[`RichText component renders when dialog clicked 1`] = `
       data-testid="typography"
     >
       <button
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiLink-button Anchorlink css-51z1et-MuiTypography-root-MuiLink-root"
-        data-gtm="{"id":"cta-click1","label":"Open dialog","action":"Dialog"}"
-        data-testid="rich-text-entry-hyperlink"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium  css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"cta-click1","action":"Dialog","label":"Open dialog"}"
+        data-testid="dialog-link-"
+        tabindex="0"
         type="button"
       >
-        <span>
-          Open dialog
-        </span>
+        Open dialog
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
       </button>
     </p>
   </div>

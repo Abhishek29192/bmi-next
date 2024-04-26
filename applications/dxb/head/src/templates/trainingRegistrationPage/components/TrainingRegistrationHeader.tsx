@@ -1,9 +1,13 @@
-import { Calender, Price } from "@bmi-digital/components/icon";
+import Calender from "@bmi-digital/components/icon/Calender";
+import ConnectedTv from "@bmi-digital/components/icon/ConnectedTv";
+import ContactsOutlined from "@bmi-digital/components/icon/ContactsOutlined";
+import FlatRoof from "@bmi-digital/components/icon/FlatRoof";
+import Laptop from "@bmi-digital/components/icon/Laptop";
+import OtherTraining from "@bmi-digital/components/icon/OtherTraining";
+import PitchedRoof from "@bmi-digital/components/icon/PitchedRoof";
+import TollOutlined from "@bmi-digital/components/icon/TollOutlined";
 import Section from "@bmi-digital/components/section";
-import {
-  trainingCategoriesIcon,
-  trainingTypeIcon
-} from "@bmi-digital/components/training-card";
+import { CategoryType, CourseType } from "@bmi/docebo-types";
 import { Training } from "@bmi/elasticsearch-types";
 import { MicroCopyValues, microCopy } from "@bmi/microcopies";
 import React from "react";
@@ -21,6 +25,18 @@ import {
 
 type Props = {
   training: Training;
+};
+
+const trainingCategoriesIcon: Record<CategoryType, React.ElementType> = {
+  Pitched: PitchedRoof,
+  Flat: FlatRoof,
+  Other: OtherTraining
+};
+
+const trainingTypeIcon: Record<CourseType, React.ElementType> = {
+  classroom: ContactsOutlined,
+  elearning: ConnectedTv,
+  webinar: Laptop
 };
 
 const TrainingRegistrationHeader = ({ training }: Props) => {
@@ -66,10 +82,10 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
             {getMicroCopy(microCopy.FILTER_LABELS_CATEGORY)}
           </TrainingLabel>
           <TrainingDesc data-testid="training-category">
-            <StyledIcon
-              source={trainingCategoriesIcon[category.toUpperCase()]}
-            />
-            {getMicroCopy(trainingCategoryMicroCopies[category.toUpperCase()])}
+            {/* eslint-disable-next-line security/detect-object-injection */}
+            <StyledIcon source={trainingCategoriesIcon[category]} />
+            {/* eslint-disable-next-line security/detect-object-injection */}
+            {getMicroCopy(trainingCategoryMicroCopies[category])}
           </TrainingDesc>
         </TrainingDetailContainer>
         <TrainingSeparation />
@@ -78,7 +94,8 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
             {getMicroCopy(microCopy.TRAINING_REGISTRATION_TYPE)}
           </TrainingLabel>
           <TrainingDesc data-testid="training-type">
-            <StyledIcon source={trainingTypeIcon[String(courseType)]} />
+            {/* eslint-disable-next-line security/detect-object-injection */}
+            <StyledIcon source={trainingTypeIcon[courseType]} />
             {getMicroCopy(`trainingType.${courseType}` as MicroCopyValues)}
           </TrainingDesc>
         </TrainingDetailContainer>
@@ -88,7 +105,7 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
             {getMicroCopy(microCopy.TRAINING_REGISTRATION_COST)}
           </TrainingLabel>
           <TrainingDesc data-testid="training-price">
-            <StyledIcon source={Price} />
+            <StyledIcon source={TollOutlined} />
             {onSale
               ? `${currencySymbol}${price}`
               : getMicroCopy(microCopy.TRAINING_PRICE_FREE)}

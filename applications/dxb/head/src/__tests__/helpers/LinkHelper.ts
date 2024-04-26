@@ -1,4 +1,4 @@
-import { Data, DataTypeEnum } from "../../components/Link";
+import { Data, DataTypeEnum } from "../../components/link/types";
 import createTitleWithContentData from "./TitleWithContentHelper";
 
 const createCommonLinkData = (): Data => ({
@@ -25,7 +25,8 @@ export const createInternalLinkData = (link?: Partial<Data>): Data => ({
   linkedPage: {
     // NOTE: null is for Homepage type
     path: "linked/page/path"
-  }
+  },
+  ...link
 });
 
 export const createExternalLinkData = (link?: Partial<Data>): Data => ({
@@ -45,13 +46,15 @@ export const createAssetLinkData = (link?: Partial<Data>): Data => ({
     file: {
       url: "http://localhost:8080/asset.pdf"
     }
-  }
+  },
+  ...link
 });
 
 export const createVisualiserLinkData = (link?: Partial<Data>): Data => ({
   ...createCommonLinkData(),
   type: DataTypeEnum.Visualiser,
-  parameters: { ["param1"]: "value1" }
+  parameters: { ["param1"]: "value1" },
+  ...link
 });
 
 export const createDialogLinkData = (link?: Partial<Data>): Data => ({
@@ -59,13 +62,15 @@ export const createDialogLinkData = (link?: Partial<Data>): Data => ({
   icon: "FilePDF",
   isLabelHidden: false,
   type: DataTypeEnum.Dialog,
-  dialogContent: createTitleWithContentData()
+  dialogContent: createTitleWithContentData(),
+  ...link
 });
 
 export const createCalculatorLinkData = (link?: Partial<Data>): Data => ({
   ...createCommonLinkData(),
   type: DataTypeEnum.Calculator,
-  parameters: { ["param1"]: "value1" }
+  parameters: { ["param1"]: "value1" },
+  ...link
 });
 
 export const createHubSpotCtaLinkData = (link?: Partial<Data>): Data => ({
@@ -73,7 +78,8 @@ export const createHubSpotCtaLinkData = (link?: Partial<Data>): Data => ({
   icon: "FilePDF",
   isLabelHidden: false,
   type: DataTypeEnum.HubSpotCta,
-  hubSpotCTAID: "hubspot-cta-id"
+  hubSpotCTAID: "hubspot-cta-id",
+  ...link
 });
 
 const createLinkData = (link?: Partial<Data>): Data => ({
@@ -93,7 +99,8 @@ const createLinkData = (link?: Partial<Data>): Data => ({
       url: "http://localhost:8080/asset.pdf"
     }
   },
-  hubSpotCTAID: "hubspot-cta-id"
+  hubSpotCTAID: "hubspot-cta-id",
+  ...link
 });
 
 export default createLinkData;

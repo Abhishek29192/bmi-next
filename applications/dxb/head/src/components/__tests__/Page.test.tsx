@@ -3,9 +3,9 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { LocationProvider } from "@reach/router";
 import { render } from "@testing-library/react";
 import React from "react";
-import { DataTypeEnum, NavigationData } from "../Link";
 import Page, { Data } from "../Page";
 import { Data as SiteData } from "../Site";
+import { DataTypeEnum, NavigationData } from "../link/types";
 
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({

@@ -168,7 +168,13 @@ export default function withGTM<P>(
       gtmDataset?.action;
 
     if (!gtmId && !gtmLabel && !gtmAction) {
-      throw new Error("No GTM data provided.");
+      throw new Error(
+        `No GTM data provided ${JSON.stringify({
+          gtm,
+          action,
+          to: props["to"]
+        })}.`
+      );
     }
 
     const dataGtm = {

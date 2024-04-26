@@ -1,4 +1,3 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
 import Dialog from "@bmi-digital/components/dialog";
 import SignupBlock, {
   SignupBlockColor
@@ -7,7 +6,6 @@ import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import { isValidEmail } from "../utils/emailUtils";
-import withGTM from "../utils/google-tag-manager";
 import FormSection, { Data as FormData } from "./FormSection";
 import { useSiteContext } from "./Site";
 import {
@@ -24,6 +22,7 @@ export type Data = {
   signupLabel: string;
   signupDialogContent: FormData;
 };
+
 const IntegratedSignupBlock = ({
   data,
   theme
@@ -33,7 +32,6 @@ const IntegratedSignupBlock = ({
 }) => {
   const { getMicroCopy } = useSiteContext();
   const [dialogOpen, setDialogOpen] = useState(false);
-  const GTMButton = withGTM<ButtonProps>(Button);
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [hubSpotForm, setHubSpotForm] = useState<HTMLFormElement | null>(null);
   const [email, setEmail] = useState("");
@@ -88,17 +86,11 @@ const IntegratedSignupBlock = ({
         description={description?.description}
         inputCallToAction={signupLabel}
         color={theme || "blue800"}
-        buttonComponent={(props: ButtonProps) => (
-          <GTMButton
-            gtm={{
-              id: "cta-click-sign-up",
-              label: `${title} - ${signupLabel}`,
-              action: "sign up started"
-            }}
-            {...props}
-            data-testid="signup-button"
-          />
-        )}
+        gtm={{
+          id: "cta-click-sign-up",
+          label: `${title} - ${signupLabel}`,
+          action: "sign up started"
+        }}
         onSubmit={() => {
           setDialogOpen(true);
         }}

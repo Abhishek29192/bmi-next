@@ -14,13 +14,9 @@ import ExploreBar, {
 import LeadBlockSection, {
   Data as LeadBlockSectionData
 } from "../../../components/LeadBlockSection";
-import { Data as LinkData } from "../../../components/Link";
 import LinkColumnsSection, {
   Data as LinkColumnsSectionData
 } from "../../../components/LinkColumnsSection";
-import NextBestActions, {
-  Data as NextBestActionsData
-} from "../../../components/NextBestActions";
 import Page, { Data as PageData } from "../../../components/Page";
 import { Data as PageInfoData } from "../../../components/PageInfo";
 import Sections, { Data as SectionsData } from "../../../components/Sections";
@@ -28,6 +24,10 @@ import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../../components/ShareWidgetSection";
 import { Data as SiteData } from "../../../components/Site";
+import { Data as LinkData } from "../../../components/link/types";
+import NextBestActions, {
+  Data as NextBestActionsData
+} from "../../../components/next-best-actions/NextBestActions";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
 import {

@@ -342,15 +342,15 @@ describe("RichText component", () => {
       </ThemeProvider>
     );
 
-    const expectedDataGtm = JSON.stringify({
+    const expectedDataGtm = {
       id: "cta-click1",
-      label: "gtmLabelTest - Open dialog",
-      action: "Dialog"
-    });
+      label: "gtmLabelTest - Entry",
+      action: "/testing-simple-page/"
+    };
 
     expect(
       screen.getByTestId("rich-text-entry-hyperlink").getAttribute("data-gtm")
-    ).toEqual(expectedDataGtm);
+    ).toEqual(JSON.stringify(expectedDataGtm));
   });
 
   it("renders when dialog clicked", () => {

@@ -6,7 +6,7 @@ exports[`Footer component renders correctly 1`] = `
     class=" css-bnck4c-HidePrint"
   >
     <div
-      class=" css-r109q4"
+      class="css-an2sjs"
       data-testid="footer"
     >
       <div
@@ -38,12 +38,13 @@ exports[`Footer component renders correctly 1`] = `
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"nav-footer1","label":"+44 (0) 1234567890","action":"tel:+4401234567890"}"
+                      data-gtm="{"id":"nav-footer1","action":"tel:+4401234567890","label":"+44 (0) 1234567890"}"
+                      data-testid="footer-navigation-button-+44-(0)-1234567890"
                       href="tel:+4401234567890"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
@@ -85,7 +86,8 @@ exports[`Footer component renders correctly 1`] = `
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"nav-footer1","label":"Our story","action":"/uk/landing-page/"}"
+                      data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Our story"}"
+                      data-testid="footer-navigation-button-Our-story"
                       href="/uk/landing-page/"
                       tabindex="0"
                     >
@@ -125,13 +127,15 @@ exports[`Footer component renders correctly 1`] = `
             </div>
             <ul
               class="Footer-listInline css-p4h7lm"
+              data-testid="footer-secondary-navigation-item-container"
             >
               <li
                 class="Footer-listItem"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-footer1","label":"Our story","action":"/uk/landing-page/"}"
+                  data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Our story"}"
+                  data-testid="footer-navigation-button-Our-story"
                   href="/uk/landing-page/"
                   tabindex="0"
                 >
@@ -146,7 +150,8 @@ exports[`Footer component renders correctly 1`] = `
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-footer1","label":"global.sitemap","action":"/uk/sitemap/"}"
+                  data-gtm="{"id":"nav-footer1","action":"/uk/sitemap/","label":"global.sitemap"}"
+                  data-testid="footer-navigation-button-global.sitemap"
                   href="/uk/sitemap/"
                   tabindex="0"
                 >
@@ -222,7 +227,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
     class=" css-bnck4c-HidePrint"
   >
     <div
-      class=" css-r109q4"
+      class="css-an2sjs"
       data-testid="footer"
     >
       <div
@@ -254,12 +259,13 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"nav-footer1","label":"+44 (0) 1234567890","action":"tel:+4401234567890"}"
+                      data-gtm="{"id":"nav-footer1","action":"tel:+4401234567890","label":"+44 (0) 1234567890"}"
+                      data-testid="footer-navigation-button-+44-(0)-1234567890"
                       href="tel:+4401234567890"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
@@ -301,7 +307,8 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"nav-footer1","label":"Our story","action":"/uk/landing-page/"}"
+                      data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Our story"}"
+                      data-testid="footer-navigation-button-Our-story"
                       href="/uk/landing-page/"
                       tabindex="0"
                     >
@@ -341,18 +348,20 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
             </div>
             <ul
               class="Footer-listInline css-p4h7lm"
+              data-testid="footer-secondary-navigation-item-container"
             >
               <li
                 class="Footer-listItem"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-footer1","label":"Icopal brand","action":"/uk/landing-page/"}"
+                  data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Icopal brand"}"
+                  data-testid="footer-navigation-button-Icopal-brand"
                   href="/uk/landing-page/"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                   >
                     <svg
                       viewBox="0 0 154 100"
@@ -376,7 +385,8 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-footer1","label":"global.sitemap","action":"/uk/sitemap/"}"
+                  data-gtm="{"id":"nav-footer1","action":"/uk/sitemap/","label":"global.sitemap"}"
+                  data-testid="footer-navigation-button-global.sitemap"
                   href="/uk/sitemap/"
                   tabindex="0"
                 >

@@ -2,77 +2,51 @@ import Card from "@bmi-digital/components/card";
 import Container from "@bmi-digital/components/container";
 import CTACard from "@bmi-digital/components/cta-card";
 import Grid from "@bmi-digital/components/grid";
-import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
-import withGTM from "../utils/google-tag-manager";
 import Image from "./Image";
-import { getCTA } from "./Link";
-import { Data as PageInfoData } from "./PageInfo";
-import { Data as PromoData } from "./Promo";
 import { useSiteContext } from "./Site";
 import Video from "./Video";
+import { getCTA } from "./link/utils";
 import { OverlapCardsSection, StyledGrid } from "./styles/OverlapCardsStyles";
+import { CTACardPageInfoData, CTACardPromoData } from "./types/CTACardTypes";
 
-type Card =
-  | Pick<
-      PromoData,
-      "__typename" | "title" | "cta" | "featuredMedia" | "featuredVideo"
-    >
-  | Pick<
-      PageInfoData,
-      "__typename" | "title" | "path" | "featuredMedia" | "featuredVideo"
-    >;
+type Card = CTACardPromoData | CTACardPageInfoData;
 
 // NOTE: Minimum two cards required.
 export type Data = [Card, Card, ...Card[]];
 
-const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
+const IntegratedOverlapCards = ({ data }: { data: Data }) => {
   const { countryCode } = useSiteContext();
-
-  const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { action: "to" });
-
   return (
     <OverlapCardsSection data-testid="overlap-cards-wrapper">
       <Container>
         <Grid spacing={3} container justifyContent="center">
-          {data?.map(
-            ({ title, featuredMedia, featuredVideo, ...rest }, key) => {
-              const cta = getCTA(rest, countryCode);
-              return (
-                <StyledGrid key={key} xs={12} sm={6} md={5} lg={3}>
-                  <CTACard
-                    title={title}
-                    buttonComponent={(props: ButtonBaseProps) => (
-                      <GTMButton
-                        gtm={{
-                          id: "cta-click1",
-                          label: title ?? undefined
-                        }}
-                        {...props}
+          {data.map(({ title, featuredMedia, featuredVideo, ...rest }, key) => {
+            const cta = getCTA(rest, countryCode, title);
+            return (
+              <StyledGrid key={key} xs={12} sm={6} md={5} lg={3}>
+                <CTACard
+                  title={title}
+                  media={
+                    featuredVideo ? (
+                      <Video
+                        {...featuredVideo}
+                        data-testid="overlap-cards-video"
                       />
-                    )}
-                    media={
-                      featuredVideo ? (
-                        <Video
-                          {...featuredVideo}
-                          data-testid={"overlap-cards-video"}
-                        />
-                      ) : featuredMedia ? (
-                        <Image
-                          {...featuredMedia}
-                          data-testid={"overlap-cards-image"}
-                        />
-                      ) : undefined
-                    }
-                    clickableArea={featuredVideo ? "heading" : "full"}
-                    action={cta?.action}
-                    data-testid="overlap-card"
-                  />
-                </StyledGrid>
-              );
-            }
-          )}
+                    ) : (
+                      <Image
+                        {...featuredMedia}
+                        data-testid="overlap-cards-image"
+                      />
+                    )
+                  }
+                  {...cta}
+                  data-testid="overlap-card"
+                />
+              </StyledGrid>
+            );
+          })}
         </Grid>
       </Container>
     </OverlapCardsSection>

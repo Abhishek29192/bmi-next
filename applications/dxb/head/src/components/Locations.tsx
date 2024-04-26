@@ -2,6 +2,7 @@ import Grid from "@bmi-digital/components/grid";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
+import { Card } from "@bmi-digital/components";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import { useSiteContext } from "./Site";
 import { LocationsButton, LocationsSection } from "./styles/LocationsStyles";
@@ -20,8 +21,16 @@ const Locations = ({ data }: { data: Data }) => {
       {data.slice(0, numberVisible).map((data, index) => {
         const locationKey = `locations-card-${index}`;
         return (
-          <Grid key={locationKey} xs={12} lg={6} data-testid={locationKey}>
-            <ContactDetails data={data} gtmLabel={data.title} />
+          <Grid
+            key={locationKey}
+            xs={12}
+            lg={6}
+            data-testid={locationKey}
+            style={{ display: "grid" }}
+          >
+            <Card>
+              <ContactDetails data={data} gtmLabel={data.title} />
+            </Card>
           </Grid>
         );
       })}

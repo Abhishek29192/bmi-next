@@ -1,61 +1,48 @@
-import { useIsClient } from "@bmi-digital/components";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
+import { MainNavigationItem } from "@bmi-digital/components/dist/footer/Footer";
 import Footer, {
   MenuItem as FooterMenuItem
 } from "@bmi-digital/components/footer";
 import HidePrint from "@bmi-digital/components/hide-print";
-import BmiIcon from "@bmi-digital/components/logo/Bmi";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
+import { isDefined } from "@bmi/utils";
+import { Link, graphql } from "gatsby";
 import React from "react";
-import withGTM from "../utils/google-tag-manager";
-import memoize from "../utils/memoize";
+import { getPathWithCountryCode } from "../utils/path";
 import Icon from "./Icon";
-import {
-  Data as LinkData,
-  NavigationData,
-  getClickableActionFromUrl
-} from "./Link";
 import { useSiteContext } from "./Site";
+import { toAnchorLinkActionProps } from "./link/utils";
+import type { NavigationData } from "./link/types";
 
 const parseNavigation = (
-  getClickableAction: (
-    ...args: [...Parameters<typeof getClickableActionFromUrl>, []]
-  ) => ReturnType<typeof getClickableActionFromUrl>,
-  isClient: boolean,
   navigationItems: NavigationData["links"],
   countryCode: string
 ): FooterMenuItem[] => {
-  if (!navigationItems) {
-    return [];
-  }
-  return navigationItems.map((navigationItem) => {
-    if ("links" in navigationItem && navigationItem.links) {
-      const { links, label } = navigationItem as NavigationData;
-      return {
-        label,
-        menu: parseNavigation(getClickableAction, isClient, links, countryCode)
-      };
-    }
+  return navigationItems
+    .map<FooterMenuItem | undefined>((navigationItem) => {
+      if (navigationItem.__typename === "ContentfulLink") {
+        const { label, icon, isLabelHidden } = navigationItem;
 
-    const {
-      label,
-      icon: iconName,
-      isLabelHidden,
-      linkedPage,
-      url
-    } = navigationItem as LinkData;
-
-    return {
-      label,
-      icon: iconName && <Icon name={iconName} />,
-      isLabelHidden,
-      action: getClickableAction(
-        { isSSR: !isClient, linkedPage, url, countryCode, label },
-        []
-      )
-    };
-  });
+        const { download, ...actionProps } = toAnchorLinkActionProps(
+          navigationItem,
+          countryCode
+        );
+        const iconProps = icon
+          ? { icon: <Icon name={icon} />, isLabelHidden }
+          : { icon: undefined, isLabelHidden: false };
+        return {
+          label,
+          ...iconProps,
+          ...actionProps,
+          gtm: {
+            id: "nav-footer1",
+            action: actionProps.href || `${actionProps.to}`,
+            label
+          }
+        };
+      }
+      return undefined;
+    })
+    .filter(isDefined);
 };
 
 type Props = {
@@ -65,57 +52,46 @@ type Props = {
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const { isClient } = useIsClient();
-  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
-  const main = parseNavigation(
-    memoizedGetClickableActionFromUrl,
-    isClient,
-    mainNavigation?.links || [],
-    countryCode
-  );
-  const secondary = parseNavigation(
-    memoizedGetClickableActionFromUrl,
-    isClient,
-    secondaryNavigation?.links || [],
-    countryCode
-  );
-  const secondaryWithSitemap = [
-    ...secondary,
-    {
-      label: getMicroCopy(microCopy.GLOBAL_SITEMAP),
-      action: memoizedGetClickableActionFromUrl(
-        {
-          isSSR: !isClient,
-          linkedPage: { path: "sitemap" },
-          countryCode,
-          label: getMicroCopy(microCopy.GLOBAL_SITEMAP)
-        },
-        []
-      )
-    }
-  ];
+  const main: MainNavigationItem[] | undefined = mainNavigation?.links
+    .map<MainNavigationItem | undefined>((link) => {
+      if (link.__typename === "ContentfulNavigation") {
+        return {
+          subHeading: link.label,
+          // TODO: Shouldn't really type cast this, but it will require a
+          // massive change in Contentful to be more strict
+          menuItems: parseNavigation(link.links, countryCode) as [
+            FooterMenuItem,
+            ...FooterMenuItem[]
+          ]
+        };
+      }
+      return undefined;
+    })
+    .filter(isDefined);
 
-  const GTMButton = withGTM<ButtonProps>(Button, {
-    label: "children"
+  const secondary = secondaryNavigation?.links
+    ? parseNavigation(secondaryNavigation.links, countryCode)
+    : [];
+
+  const sitemapPath = getPathWithCountryCode(countryCode, "sitemap");
+  const sitemapLabel = getMicroCopy(microCopy.GLOBAL_SITEMAP);
+
+  secondary.push({
+    label: sitemapLabel,
+    to: sitemapPath,
+    component: Link,
+    gtm: {
+      id: "nav-footer1",
+      action: sitemapPath,
+      label: sitemapLabel
+    }
   });
 
   return (
     <HidePrint>
       <Footer
-        buttonComponent={(props: ButtonProps) => (
-          <GTMButton
-            gtm={{
-              id: "nav-footer1",
-              label: props.accessibilityLabel
-                ? props.accessibilityLabel
-                : undefined
-            }}
-            {...props}
-          />
-        )}
         mainNavigation={main}
-        secondaryNavigation={secondaryWithSitemap}
-        logo={<BmiIcon />}
+        secondaryNavigation={secondary as [FooterMenuItem, ...FooterMenuItem[]]}
       />
     </HidePrint>
   );

@@ -1,4 +1,3 @@
-import { useIsClient } from "@bmi-digital/components";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import TwoPaneCarousel, {
   Slide as TwoPaneCarouselSlide
@@ -10,18 +9,17 @@ import VerticalRoller, {
 import { microCopy } from "@bmi/microcopies";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
-import React, { useContext, useMemo } from "react";
+import React from "react";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
 import Image from "../Image";
-import { Data as LinkData, getCTA, getClickableActionFromUrl } from "../Link";
 import { Data as PageInfoData } from "../PageInfo";
-import { CalculatorContext } from "../PitchedRoofCalcualtor";
 import { Data as PromoData } from "../Promo";
 import { useSiteContext } from "../Site";
 import Video from "../Video";
-import { VisualiserContext } from "../Visualiser";
-import { LinkElement, SectionElement } from "../styles/CarouselSectionStyles";
+import { getCTA } from "../link/utils";
+import { SectionElement, LinkElement } from "../styles/CarouselSectionStyles";
+import type { Data as LinkData } from "../link/types";
 
 type Slide = PromoData | PageInfoData;
 
@@ -72,7 +70,7 @@ const parseSlides = (
             />
           ) : undefined,
           description: subtitle || undefined,
-          cta
+          cta: cta ? { ...cta, children: title } : undefined
         };
       }
     );
@@ -84,28 +82,6 @@ const CarouselSection = ({
   data: Data;
 }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const { isClient } = useIsClient();
-  const { open: openVisualiser } = useContext(VisualiserContext);
-  const { open: openCalculator } = useContext(CalculatorContext);
-  const linkAction = useMemo(
-    () =>
-      getClickableActionFromUrl({
-        isSSR: !isClient,
-        linkedPage: link?.linkedPage,
-        url: link?.url,
-        countryCode,
-        label: link?.label,
-        type: link?.type,
-        onClick: () => {
-          if (link?.type === "Visualiser" && openVisualiser) {
-            openVisualiser(link?.parameters);
-          } else if (link?.type === "Calculator" && openCalculator) {
-            openCalculator(link?.parameters);
-          }
-        }
-      }),
-    [link, isClient, countryCode, openCalculator, openVisualiser]
-  );
 
   return (
     <SectionElement
@@ -144,7 +120,7 @@ const CarouselSection = ({
       )}
       {link && (
         <LinkElement
-          action={linkAction}
+          data={link}
           endIcon={
             <ArrowForwardIcon
               data-testid={"carousel-section-arrow-forward-icon"}

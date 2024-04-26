@@ -173,9 +173,11 @@ export type CourseAdditionalFields = {
   value: string;
 };
 
+export type CategoryType = "Pitched" | "Flat" | "Other";
+
 export type CourseCategory = {
   id: number;
-  name: string;
+  name: CategoryType | string;
 };
 
 export type CourseDates = {

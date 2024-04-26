@@ -238,7 +238,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="accordion"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1dvnk40-MuiPaper-root-MuiAccordion-root"
                 data-testid="accordion-item"
               >
                 <div
@@ -344,7 +344,7 @@ exports[`Sections component renders correctly 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-kmsk3c"
+              class=" css-iid5p5"
               data-testid="tabs"
             >
               <div>
@@ -436,7 +436,7 @@ exports[`Sections component renders correctly 1`] = `
                   </div>
                 </div>
                 <hr
-                  class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                  class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
                 />
               </div>
               <div
@@ -512,7 +512,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="Villain-content ColorPair-blue800 css-1pt14k0"
+                  class="Villain-content ColorPair-blue800 css-1d0x0e2"
                 >
                   <h3
                     class="MuiTypography-root MuiTypography-h2 Typography-underline css-1jvmopm-MuiTypography-root"
@@ -543,7 +543,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="Villain-content ColorPair-blue800 css-1pt14k0"
+                  class="Villain-content ColorPair-blue800 css-1d0x0e2"
                 >
                   <h3
                     class="MuiTypography-root MuiTypography-h2 Typography-underline css-1jvmopm-MuiTypography-root"
@@ -571,7 +571,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="css-1gmujki"
+      class="css-1zddvc"
       data-testid="card-collection-section-card-collection-section-title"
     >
       <div
@@ -586,7 +586,7 @@ exports[`Sections component renders correctly 1`] = `
           >
             <h2
               class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
-              data-testid="typography"
+              data-testid="card-collection-section-title"
             >
               card collection section title
             </h2>
@@ -599,21 +599,25 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="card-collection-grid-item-visible-00000000-0000-0000-0000-000000000000"
               >
                 <div
-                  class="OverviewCard-flat MuiBox-root css-179egsz"
-                  data-testid="overview-card-box"
+                  class="ColorPair-white css-1j2zog7"
+                  data-testid="tappable-card-box"
                 >
-                  <div
-                    class="OverviewCard-main"
-                    data-testid="overview-card-main"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
+                    data-testid="card-collection-section-item-promo-title"
+                    href="/uk/contact-us/"
+                    tabindex="0"
                   >
                     <div
-                      class="OverviewCard-body"
+                      class="TappableCard-body css-c6k36h"
                     >
                       <div
-                        class="OverviewCard-brandLogo"
+                        class="TappableCard-brandLogo css-p11bhc"
+                        data-testid="tappable-card-body-brand-logo"
                       >
                         <svg
-                          class=" css-1bpjlyv"
+                          class=" css-1l1ul6h"
                           data-testid="brand-logo"
                           preserveAspectRatio="xMinYMin"
                           viewBox="0 0 244 100"
@@ -627,43 +631,39 @@ exports[`Sections component renders correctly 1`] = `
                         </svg>
                       </div>
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                        data-testid="overview-card-body-title"
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
                       >
-                        <a
-                          class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickableArea css-1mubuvn-MuiButtonBase-root"
-                          data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
-                          href="/uk/contact-us/"
-                          tabindex="0"
-                          type="button"
-                        >
-                          promo title
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </a>
+                        promo title
                       </h4>
                       <div
-                        class="OverviewCard-text css-kl66ak"
-                        data-testid="overview-card-body-description"
+                        class="TappableCard-text"
+                        data-testid="tappable-card-body-description"
                       >
-                        promo subtitle
+                        <p
+                          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                          data-testid="story-card-footer-description-promo-title"
+                        >
+                          promo subtitle
+                        </p>
                       </div>
                     </div>
-                  </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </a>
                   <div
-                    class=" css-1cyx9t4"
-                    data-testid="overview-card-body-footer"
+                    class="TappableCard-footer css-1rg9dq1"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CardCollectionSectionStyles-footerButton css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"promo title - Card Label","action":"/uk/contact-us/"}"
-                      data-testid="card-link"
+                      data-testid="story-card-footer-cta-promo-title"
                       href="/uk/contact-us/"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
@@ -687,8 +687,9 @@ exports[`Sections component renders correctly 1`] = `
               </div>
             </div>
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium CardCollectionSectionStyles-link css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium CardCollectionSectionStyles-link css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"cta-click1","action":"/uk/contact-us/","label":"Contact us"}"
+              data-testid="internal-button-link-Contact-us"
               href="/uk/contact-us/"
               tabindex="0"
             >
@@ -722,7 +723,7 @@ exports[`Sections component renders correctly 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="css-1gmujki"
+      class="css-1zddvc"
       data-testid="card-collection-section-card-section-title-2"
     >
       <div
@@ -737,7 +738,7 @@ exports[`Sections component renders correctly 1`] = `
           >
             <h2
               class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
-              data-testid="typography"
+              data-testid="card-collection-section-title"
             >
               card section title 2
             </h2>
@@ -749,20 +750,19 @@ exports[`Sections component renders correctly 1`] = `
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
                 data-testid="card-collection-grid-item-visible-00000000-0000-0000-0000-000000000000"
               >
-                <a
-                  class="MuiButtonBase-root CardCollectionSectionStyles-cardButton OverviewCard-clickable MuiBox-root css-1j4vfy5-MuiButtonBase-root"
-                  data-gtm="{"id":"cta-click1","label":"page title - Go to page title","action":"/uk/path/"}"
-                  data-testid="overview-card-box"
-                  href="/uk/path/"
-                  tabindex="0"
-                  type="button"
+                <div
+                  class=" ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
                 >
-                  <div
-                    class="OverviewCard-main"
-                    data-testid="overview-card-main"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"page title - Go to page title","action":"/uk/path/"}"
+                    data-testid="card-collection-section-item-page-title"
+                    href="/uk/path/"
+                    tabindex="0"
                   >
                     <div
-                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-headerPicture css-7mgsqw-Media"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained TappableCard-headerPicture css-11fi03y-Media"
                       data-gatsby-image-wrapper=""
                       style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
@@ -794,6 +794,7 @@ exports[`Sections component renders correctly 1`] = `
                           data-main-image=""
                           data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                           data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                          data-testid="tappable-card-media"
                           decoding="async"
                           draggable="false"
                           loading="lazy"
@@ -809,46 +810,62 @@ exports[`Sections component renders correctly 1`] = `
                       </script>
                     </div>
                     <div
-                      class="OverviewCard-body"
+                      class="TappableCard-body css-c6k36h"
                     >
-                      <div
-                        class="OverviewCard-brandLogo OverviewCard-negative"
-                      />
                       <h4
-                        class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                        data-testid="overview-card-body-title"
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
                       >
                         page title
                       </h4>
                       <div
-                        class="OverviewCard-text css-kl66ak"
-                        data-testid="overview-card-body-description"
+                        class="TappableCard-text"
+                        data-testid="tappable-card-body-description"
                       >
-                        page subtitle
+                        <p
+                          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                          data-testid="highlight-card-footer-description-page-title"
+                        >
+                          page subtitle
+                        </p>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="OverviewCard-clickable css-1cyx9t4"
-                    data-testid="overview-card-body-footer"
-                  >
                     <span
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium CardCollectionSectionStyles-footerButton css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-testid="card-link"
-                      role="button"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </a>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"page title - Go to page title","action":"/uk/path/"}"
+                      data-testid="highlight-card-footer-cta-page-title"
+                      href="/uk/path/"
                       tabindex="0"
-                      type="button"
                     >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
                       Go to page title
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </span>
+                    </a>
                   </div>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -897,9 +914,10 @@ exports[`Sections component renders correctly 1`] = `
                   class="css-wpz1t9"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1 ","label":"string","action":"link-to-page"}"
-                    href="link-to-page"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium  css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","action":"/uk/","label":"string"}"
+                    data-testid="internal-button-link-string"
+                    href="/uk/"
                     tabindex="0"
                   >
                     string
@@ -921,12 +939,10 @@ exports[`Sections component renders correctly 1`] = `
               >
                 <div
                   aria-label="Video"
-                  class="YoutubeVideo-thumbnail css-14jkchm"
-                  classes="[object Object]"
-                  component="button"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                   data-testid="thumbnail"
-                  type="button"
-                  variant="contained"
+                  role="button"
+                  tabindex="0"
                 >
                   <img
                     alt="Video"
@@ -941,11 +957,10 @@ exports[`Sections component renders correctly 1`] = `
                   </span>
                   <div
                     aria-label="Video"
-                    class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="thumbnail-button"
                     role="button"
                     tabindex="0"
-                    type="button"
                   >
                     <svg
                       aria-hidden="true"
@@ -962,6 +977,9 @@ exports[`Sections component renders correctly 1`] = `
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </div>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </div>
               </div>
             </div>
@@ -1245,7 +1263,7 @@ exports[`Sections component renders correctly 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
@@ -1260,7 +1278,7 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-vhaxby"
+                      class="css-oscqqj"
                       viewBox="0 0 16 16"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -1338,13 +1356,15 @@ exports[`Sections component renders correctly 1`] = `
                 </span>
               </div>
               <button
+                aria-disabled="true"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-v9qqu-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                  class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                 >
                   <svg
                     aria-hidden="true"
@@ -1363,7 +1383,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg css-uj6ct4"
+            class="Tabs-secondary Tabs-visibleUntillg css-602gvl"
             data-testid="tabs"
           >
             <div>
@@ -1429,7 +1449,7 @@ exports[`Sections component renders correctly 1`] = `
                 </div>
               </div>
               <hr
-                class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
               />
             </div>
             <div
@@ -1529,7 +1549,7 @@ exports[`Sections component renders correctly 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
@@ -1544,7 +1564,7 @@ exports[`Sections component renders correctly 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-vhaxby"
+                      class="css-oscqqj"
                       viewBox="0 0 16 16"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -1622,13 +1642,15 @@ exports[`Sections component renders correctly 1`] = `
                 </span>
               </div>
               <button
+                aria-disabled="true"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-v9qqu-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                  class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                 >
                   <svg
                     aria-hidden="true"
@@ -1698,7 +1720,7 @@ exports[`Sections component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg css-uj6ct4"
+            class="Tabs-secondary Tabs-visibleUntillg css-602gvl"
             data-testid="tabs"
           >
             <div>
@@ -1764,7 +1786,7 @@ exports[`Sections component renders correctly 1`] = `
                 </div>
               </div>
               <hr
-                class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
               />
             </div>
             <div
@@ -1783,7 +1805,7 @@ exports[`Sections component renders correctly 1`] = `
                   class="css-1sptzt8"
                 >
                   <div
-                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
                     data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
@@ -1834,137 +1856,37 @@ exports[`Sections component renders correctly 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-hvci11"
+                            class="css-ip7vfl"
                             data-testid="company-details-root"
                           >
                             <div
-                              class="css-xdees7"
+                              class="css-1v8x7dw"
                             >
                               <dl
-                                class="css-1uk1gs8"
+                                class="css-38o98x"
+                                data-testid="company-details-list"
                               >
                                 <div
-                                  class="css-1nzacgw"
-                                  data-testid="company-details-phone"
-                                  type="phone"
+                                  class="css-t1t5ij"
+                                  data-testid="company-details-content"
                                 >
                                   <dt
-                                    class="css-fah0r0"
+                                    class="css-12bzmaa"
                                   >
-                                    <p
-                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
-                                      data-testid="typography"
-                                    >
-                                      global.telephone
-                                    </p>
-                                  </dt>
-                                  <dd
-                                    class="css-bp47jm"
-                                  >
-                                    <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"tel:phone 1"}"
-                                      data-testid="anchor-link"
-                                      href="tel:phone 1"
-                                    >
-                                      <span>
-                                        phone 1
-                                      </span>
-                                    </a>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="css-1nzacgw"
-                                  data-testid="company-details-email"
-                                  type="email"
-                                >
-                                  <dt
-                                    class="css-fah0r0"
-                                  >
-                                    <p
-                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
-                                      data-testid="typography"
-                                    >
-                                      global.email
-                                    </p>
-                                  </dt>
-                                  <dd
-                                    class="css-bp47jm"
-                                  >
-                                    <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
-                                      data-testid="anchor-link"
-                                      href="mailto:test@test.com"
-                                    >
-                                      <span>
-                                        test@test.com
-                                      </span>
-                                    </a>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="css-1nzacgw"
-                                  data-testid="company-details-website"
-                                  type="website"
-                                >
-                                  <dt
-                                    class="css-fah0r0"
-                                  >
-                                    <p
-                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
-                                      data-testid="typography"
-                                    >
-                                      global.website
-                                    </p>
-                                  </dt>
-                                  <dd
-                                    class="css-bp47jm"
-                                  >
-                                    <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Pitched Roof","action":"https://www.test.com"}"
-                                      data-testid="anchor-link"
-                                      href="https://www.test.com"
-                                      rel="noopener noreferrer"
-                                      target="_blank"
-                                    >
-                                      <span>
-                                        www.test.com
-                                      </span>
-                                    </a>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="css-1nzacgw"
-                                  data-testid="company-details-roofType"
-                                  type="roofType"
-                                >
-                                  <dt
-                                    class="css-fah0r0"
-                                  >
-                                    <p
-                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    <h6
+                                      class="MuiTypography-root MuiTypography-h6  css-mqc7k2-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       findARoofer.roofTypeLabel
-                                    </p>
+                                    </h6>
                                   </dt>
                                   <dd
-                                    class="css-bp47jm"
+                                    class="css-1uk1gs8"
                                   >
-                                    <b>
-                                      Pitched Roof, Flat Roof
-                                    </b>
+                                    Pitched Roof, Flat Roof
                                   </dd>
                                 </div>
                               </dl>
-                              <p
-                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
-                                data-testid="typography"
-                              >
-                                roofer summary
-                              </p>
                             </div>
                           </div>
                         </div>
@@ -1972,7 +1894,7 @@ exports[`Sections component renders correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
                     data-gtm="{"id":"selector-cards6","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
@@ -2023,137 +1945,37 @@ exports[`Sections component renders correctly 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-hvci11"
+                            class="css-ip7vfl"
                             data-testid="company-details-root"
                           >
                             <div
-                              class="css-xdees7"
+                              class="css-1v8x7dw"
                             >
                               <dl
-                                class="css-1uk1gs8"
+                                class="css-38o98x"
+                                data-testid="company-details-list"
                               >
                                 <div
-                                  class="css-1nzacgw"
-                                  data-testid="company-details-phone"
-                                  type="phone"
+                                  class="css-t1t5ij"
+                                  data-testid="company-details-content"
                                 >
                                   <dt
-                                    class="css-fah0r0"
+                                    class="css-12bzmaa"
                                   >
-                                    <p
-                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
-                                      data-testid="typography"
-                                    >
-                                      global.telephone
-                                    </p>
-                                  </dt>
-                                  <dd
-                                    class="css-bp47jm"
-                                  >
-                                    <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"tel:phone 1"}"
-                                      data-testid="anchor-link"
-                                      href="tel:phone 1"
-                                    >
-                                      <span>
-                                        phone 1
-                                      </span>
-                                    </a>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="css-1nzacgw"
-                                  data-testid="company-details-email"
-                                  type="email"
-                                >
-                                  <dt
-                                    class="css-fah0r0"
-                                  >
-                                    <p
-                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
-                                      data-testid="typography"
-                                    >
-                                      global.email
-                                    </p>
-                                  </dt>
-                                  <dd
-                                    class="css-bp47jm"
-                                  >
-                                    <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"mailto:test@test.com"}"
-                                      data-testid="anchor-link"
-                                      href="mailto:test@test.com"
-                                    >
-                                      <span>
-                                        test@test.com
-                                      </span>
-                                    </a>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="css-1nzacgw"
-                                  data-testid="company-details-website"
-                                  type="website"
-                                >
-                                  <dt
-                                    class="css-fah0r0"
-                                  >
-                                    <p
-                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
-                                      data-testid="typography"
-                                    >
-                                      global.website
-                                    </p>
-                                  </dt>
-                                  <dd
-                                    class="css-bp47jm"
-                                  >
-                                    <a
-                                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Pitched Roof","action":"https://www.test.com"}"
-                                      data-testid="anchor-link"
-                                      href="https://www.test.com"
-                                      rel="noopener noreferrer"
-                                      target="_blank"
-                                    >
-                                      <span>
-                                        www.test.com
-                                      </span>
-                                    </a>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="css-1nzacgw"
-                                  data-testid="company-details-roofType"
-                                  type="roofType"
-                                >
-                                  <dt
-                                    class="css-fah0r0"
-                                  >
-                                    <p
-                                      class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                    <h6
+                                      class="MuiTypography-root MuiTypography-h6  css-mqc7k2-MuiTypography-root"
                                       data-testid="typography"
                                     >
                                       findARoofer.roofTypeLabel
-                                    </p>
+                                    </h6>
                                   </dt>
                                   <dd
-                                    class="css-bp47jm"
+                                    class="css-1uk1gs8"
                                   >
-                                    <b>
-                                      Pitched Roof, Flat Roof
-                                    </b>
+                                    Pitched Roof, Flat Roof
                                   </dd>
                                 </div>
                               </dl>
-                              <p
-                                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
-                                data-testid="typography"
-                              >
-                                roofer summary
-                              </p>
                             </div>
                           </div>
                         </div>
@@ -2259,7 +2081,8 @@ exports[`Sections component renders correctly 1`] = `
                 >
                   <button
                     aria-label="Video label"
-                    class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="icon-button"
                     tabindex="0"
                     type="button"
                   >
@@ -2331,7 +2154,7 @@ exports[`Sections component renders correctly 1`] = `
                 Team Section - alabaster
               </h2>
               <div
-                class="TeamSection-tabs css-kmsk3c"
+                class="TeamSection-tabs css-iid5p5"
                 data-testid="tabs"
               >
                 <div>
@@ -2427,7 +2250,7 @@ exports[`Sections component renders correctly 1`] = `
                     </div>
                   </div>
                   <hr
-                    class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                    class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
                   />
                 </div>
                 <div
@@ -2502,7 +2325,7 @@ exports[`Sections component renders correctly 1`] = `
                                           Bob McBobbinson
                                         </strong>
                                         <p
-                                          class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                                          class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                                           data-testid="profile-card-body-title"
                                         >
                                           CEO
@@ -2555,7 +2378,7 @@ exports[`Sections component renders correctly 1`] = `
                 Team Section - undefined colour (2 categories)
               </h2>
               <div
-                class="TeamSection-tabs css-kmsk3c"
+                class="TeamSection-tabs css-iid5p5"
                 data-testid="tabs"
               >
                 <div>
@@ -2667,7 +2490,7 @@ exports[`Sections component renders correctly 1`] = `
                     </div>
                   </div>
                   <hr
-                    class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                    class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
                   />
                 </div>
                 <div
@@ -2742,7 +2565,7 @@ exports[`Sections component renders correctly 1`] = `
                                           Bob McBobbinson
                                         </strong>
                                         <p
-                                          class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                                          class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                                           data-testid="profile-card-body-title"
                                         >
                                           CEO
@@ -2822,7 +2645,7 @@ exports[`Sections component renders correctly 1`] = `
                                           Johnny McJohnson
                                         </strong>
                                         <p
-                                          class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                                          class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                                           data-testid="profile-card-body-title"
                                         >
                                           CEO
@@ -2862,22 +2685,23 @@ exports[`Sections component renders correctly 1`] = `
         >
           <nav
             aria-labelledby="explore-bar"
-            class="css-v7bjwn"
+            class="css-1j349hk"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h6 css-ramvgg-MuiTypography-root"
               data-testid="typography"
               id="explore-bar"
             >
               Explore
             </h2>
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1clvr55-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"cta-click1","action":"link-to-page","label":"string"}"
+              data-testid="button"
               href="link-to-page"
               tabindex="0"
             >
-              string
+              Explore
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
@@ -2920,7 +2744,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-first-name"
                 >
                   <label
@@ -2973,7 +2797,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-second-names"
                 >
                   <label
@@ -3026,7 +2850,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-email"
                 >
                   <label
@@ -3079,7 +2903,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-company"
                 >
                   <label
@@ -3122,7 +2946,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-telephone"
                 >
                   <label
@@ -3181,7 +3005,7 @@ exports[`Sections component renders correctly 1`] = `
                     </span>
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1tnxenj-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1htezj5-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                   >
                     <div
                       aria-controls=":r9:"
@@ -3240,15 +3064,15 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth css-1axd2jt-MuiFormControl-root"
                 >
                   <div>
                     <label
                       for="section-15-files"
                     >
-                      <span
+                      <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
-                        role="button"
+                        data-testid="button"
                         tabindex="0"
                         type="button"
                       >
@@ -3267,7 +3091,7 @@ exports[`Sections component renders correctly 1`] = `
                         <span
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </span>
+                      </button>
                     </label>
                     <input
                       accept=".pdf, .jpg, .jpeg, .png"
@@ -3294,7 +3118,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-message"
                 >
                   <label
@@ -3481,12 +3305,11 @@ exports[`Sections component renders correctly 1`] = `
                           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                           data-testid="label-Data-Protection-Policy-anchor-link"
                           href="https://google.co.uk"
-                          rel="noopener"
+                          referrerpolicy="no-referrer"
+                          rel="noreferrer"
                           target="_blank"
                         >
-                          <span>
-                            Data Protection Policy
-                          </span>
+                          Data Protection Policy
                         </a>
                       </div>
                     </span>
@@ -3545,10 +3368,9 @@ exports[`Sections component renders correctly 1`] = `
               class="Form-buttonWrapper"
             >
               <button
-                aria-label="children"
+                aria-disabled="true"
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                data-action="Form section"
-                data-gtm="{"id":"form-button1","label":"children","action":"Form section"}"
+                data-gtm="{"id":"form-button1","action":"Form section","label":"children"}"
                 data-testid="contentful-form-section-Form-section-submit-button"
                 disabled=""
                 tabindex="-1"
@@ -3582,24 +3404,22 @@ exports[`Sections component renders correctly 1`] = `
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-privacy-policy-link"
               href="https://policies.google.com/privacy"
-              rel="noreferrer noopener"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               target="_blank"
             >
-              <span>
-                Privacy Policy
-              </span>
+              Privacy Policy
             </a>
              and 
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="recaptcha-terms-of-service-link"
               href="https://policies.google.com/terms"
-              rel="noreferrer noopener"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               target="_blank"
             >
-              <span>
-                Terms of Service
-              </span>
+              Terms of Service
             </a>
              apply.
           </p>
@@ -3646,7 +3466,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
               data-testid="accordion"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1dvnk40-MuiPaper-root-MuiAccordion-root"
                 data-testid="accordion-item"
               >
                 <div
@@ -3752,7 +3572,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-kmsk3c"
+              class=" css-iid5p5"
               data-testid="tabs"
             >
               <div>
@@ -3844,7 +3664,7 @@ exports[`Sections component renders correctly when incomplete 1`] = `
                   </div>
                 </div>
                 <hr
-                  class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                  class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
                 />
               </div>
               <div
@@ -3935,7 +3755,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
               data-testid="accordion"
             >
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1dvnk40-MuiPaper-root-MuiAccordion-root"
                 data-testid="accordion-item"
               >
                 <div
@@ -4041,7 +3861,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
             style="margin-top: 40px;"
           >
             <div
-              class=" css-kmsk3c"
+              class=" css-iid5p5"
               data-testid="tabs"
             >
               <div>
@@ -4133,7 +3953,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
                   </div>
                 </div>
                 <hr
-                  class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                  class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
                 />
               </div>
               <div
@@ -4166,7 +3986,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="Villain-fullSize ColorPair-blue800 css-ui4cq5"
+      class="Villain-fullSize ColorPair-blue800 css-wx99jx"
     >
       <div
         class=" css-ze8cyt"

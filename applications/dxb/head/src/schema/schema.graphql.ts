@@ -556,7 +556,7 @@ type ContentfulNavigation implements ContentfulObject & Node @dontInfer {
   metadata: ContentfulMetadata!
   title: String
   label: String
-  links: [ContentfulNavigationEntity] @link(from: "links___NODE")
+  links: [ContentfulNavigationEntity!]! @link(from: "links___NODE")
   link: ContentfulLink @link(from: "link___NODE")
   promos: [ContentfulPromoOrPage] @link(from: "promos___NODE")
 }

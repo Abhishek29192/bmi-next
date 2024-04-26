@@ -66,6 +66,12 @@ export type SectionData =
 
 export type Data = SectionData[];
 
+export type SectionsProps = {
+  data: Data;
+  startIndex?: number;
+  pageTypename?: string;
+};
+
 export const sectionsMap = {
   ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
@@ -110,53 +116,44 @@ const pageTypenameToThemeMap: Record<string, Theme> = {
   }
 };
 
-const Sections = ({
-  data,
-  startIndex = 0,
-  pageTypename
-}: {
-  data: Data;
-  startIndex?: number;
-  pageTypename?: string;
-}) => {
-  const themeMap = useMemo(
-    () =>
-      data.reduce<Context>((carry, section, index) => {
-        const previousSection = data[index - 1];
-        if (section.__typename !== "ContentfulPromo") {
-          return carry;
+const createThemeMap = (data: SectionsProps["data"]): Context => {
+  return data.reduce<Context>((carry, section, index) => {
+    const previousSection = data[index - 1];
+    if (section.__typename !== "ContentfulPromo") {
+      return carry;
+    }
+
+    const { id, backgroundColor } = section;
+
+    if (previousSection?.__typename !== "ContentfulPromo") {
+      return {
+        ...carry,
+        [id]: {
+          isReversed: true,
+          backgroundColor: backgroundColor || "White"
         }
+      };
+    }
 
-        const { id, backgroundColor } = section;
+    const previousCarry = carry[previousSection.id];
 
-        if (previousSection?.__typename !== "ContentfulPromo") {
-          return {
-            ...carry,
-            [id]: {
-              isReversed: true,
-              backgroundColor: backgroundColor || "White"
-            }
-          };
-        }
+    return {
+      ...carry,
+      [id]: {
+        // eslint-disable-next-line security/detect-object-injection
+        isReversed: previousCarry ? !previousCarry.isReversed : true,
+        backgroundColor:
+          backgroundColor ||
+          // eslint-disable-next-line security/detect-object-injection
+          (previousCarry?.backgroundColor === "White" ? "Alabaster" : "White")
+      }
+    };
+  }, {});
+};
 
-        const previousCarry = carry[previousSection.id];
-
-        return {
-          ...carry,
-          [id]: {
-            // eslint-disable-next-line security/detect-object-injection
-            isReversed: previousCarry ? !previousCarry.isReversed : true,
-            backgroundColor:
-              backgroundColor ||
-              // eslint-disable-next-line security/detect-object-injection
-              (previousCarry?.backgroundColor === "White"
-                ? "Alabaster"
-                : "White")
-          }
-        };
-      }, {}),
-    [data]
-  );
+const Sections = (props: SectionsProps) => {
+  const { data, startIndex, pageTypename } = props;
+  const themeMap = useMemo(() => createThemeMap(data), [data]);
 
   return (
     <SectionsContext.Provider value={themeMap}>
@@ -168,15 +165,12 @@ const Sections = ({
             ? section.label
             : section.title;
 
-        if (!Component) {
-          return;
-        }
         const sectionId = `section-${index}`;
         const sectionComponent = (
           <Component
             id={sectionId}
             data={section}
-            position={startIndex + index}
+            position={startIndex ?? 0 + index}
             theme={
               // eslint-disable-next-line security/detect-object-injection
               (pageTypename && pageTypenameToThemeMap[pageTypename]) || {}

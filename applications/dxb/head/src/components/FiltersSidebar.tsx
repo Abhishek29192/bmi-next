@@ -8,6 +8,7 @@ import Filters, {
   Filter as FilterType
 } from "@bmi-digital/components/filters";
 import Icon from "@bmi-digital/components/icon";
+import IconButton from "@bmi-digital/components/icon-button";
 import Close from "@bmi-digital/components/icon/Close";
 import Filter from "@bmi-digital/components/icon/Filter";
 import Typography from "@bmi-digital/components/typography";
@@ -175,8 +176,12 @@ const FiltersSidebar = ({
 
 type MobileFiltersProps = {
   isOpen: boolean;
-  handleDrawerToggle: () => void;
-  clearFilters: () => void;
+  handleDrawerToggle: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+  clearFilters: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
   filtersComponent: React.ReactNode;
   resultsNumber?: number;
   showDocumentCount: boolean;
@@ -238,14 +243,14 @@ const MobileFilters = ({
             >
               {clearAllBtnLabel}
             </ClearAllButton>
-            <Button
-              isIconButton
+            <IconButton
               variant="outlined"
               onClick={handleDrawerToggle}
               data-testid="filters-close-btn"
+              accessibilityLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
             >
               <Icon source={Close} />
-            </Button>
+            </IconButton>
           </div>
         </MobileFiltersHeaderContainer>
         <MobileFiltersContainer>{filtersComponent}</MobileFiltersContainer>

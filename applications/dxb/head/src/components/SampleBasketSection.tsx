@@ -12,11 +12,11 @@ import {
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { getPathWithCountryCode } from "../utils/path";
 import FormSection from "./FormSection";
-import { getCTA } from "./Link";
 import RichText from "./RichText";
 import { Data } from "./SampleBasketBase";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
+import { getCTA } from "./link/utils";
 import { StyledCompleteButtonContainer } from "./styles/SampleBasketSection.styles";
 
 const formatSamples = (samples: SampleOrderElement[]) =>
@@ -88,11 +88,11 @@ const SampleBasketSection = ({
         <SampleBasketSectionProducts />
         {!hasSamplesInTheBasket && <RichText document={emptyBasketMessage} />}
 
-        {!hasSamplesInTheBasket && basketCta && basketCta.action && (
+        {!hasSamplesInTheBasket && basketCta && (
           <Button
+            {...basketCta}
             endIcon={<ArrowForwardIcon />}
             variant="outlined"
-            action={basketCta.action}
             data-testid="sample-basket-section-browse-product"
           >
             {browseProductsCTALabel}

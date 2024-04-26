@@ -1,9 +1,9 @@
 import { MediaData } from "@bmi-digital/components/media-gallery";
 import { ProductOverviewPaneProps } from "@bmi-digital/components/product-overview-pane";
+import DefaultImage from "@bmi-digital/components/resources/DefaultImage";
 import { Link } from "gatsby";
 import React from "react";
 import { isDefined } from "../../../libraries/utils/src";
-import DefaultImage from "../images/DefaultImage.svg";
 import { Image, Measurements, Product, RelatedVariant } from "../types/pim";
 import { getPathWithCountryCode } from "./path";
 
@@ -258,7 +258,7 @@ export const getProductAttributes = (
             path && {
               action: {
                 model: "routerLink",
-                linkComponent: Link,
+                component: Link,
                 to: path
               }
             })
@@ -301,7 +301,7 @@ export const getProductAttributes = (
               allTextureFamilies.length > 1 && {
                 action: {
                   model: "routerLink",
-                  linkComponent: Link,
+                  component: Link,
                   to: path
                 }
               })
@@ -344,7 +344,7 @@ export const getProductAttributes = (
               allMeasurements.length > 1 && {
                 action: {
                   model: "routerLink",
-                  linkComponent: Link,
+                  component: Link,
                   to: path
                 }
               })
@@ -390,7 +390,7 @@ export const getProductAttributes = (
               allVariantAttributes.length > 1 && {
                 action: {
                   model: "routerLink",
-                  linkComponent: Link,
+                  component: Link,
                   to: path
                 }
               })

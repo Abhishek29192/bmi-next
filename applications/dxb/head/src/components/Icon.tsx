@@ -7,7 +7,6 @@ import IconComponent, {
   CertificationOtherTraining,
   CertificationPitchedRoof,
   CopyContent,
-  Price,
   Cross,
   Cube,
   Design,
@@ -33,13 +32,14 @@ import IconComponent, {
   Heart,
   IconProps,
   Instagram,
+  Laptop,
   LinkedIn,
-  Place,
   Mail,
   OtherTraining,
   Phone,
   PhoneMobile,
   PitchedRoof,
+  Place,
   PlayArrow,
   QuestionMark,
   SelectRoof,
@@ -49,12 +49,13 @@ import IconComponent, {
   ThumbUp,
   Tile,
   TileColour,
+  TollOutlined,
   Twitter,
   User,
   YouTube
 } from "@bmi-digital/components/icon";
 import React from "react";
-import { getLogo, Logo } from "./BrandLogo";
+import { Logo, getLogo } from "./BrandLogo";
 
 export type IconName =
   | Logo
@@ -64,7 +65,7 @@ export type IconName =
   | "ArrowForward"
   | "Box"
   | "Calender"
-  | "Price"
+  | "TollOutlined"
   | "CopyContent"
   | "Download"
   | "Facebook"
@@ -109,7 +110,8 @@ export type IconName =
   | "OtherTraining"
   | "PitchedRoof"
   | "FolderZip"
-  | "Cube";
+  | "Cube"
+  | "Laptop";
 
 const getIcon = (icon: string) => {
   const logo = getLogo(icon);
@@ -127,8 +129,8 @@ const getIcon = (icon: string) => {
       return Download;
     case "Calender":
       return Calender;
-    case "Price":
-      return Price;
+    case "TollOutlined":
+      return TollOutlined;
     case "CopyContent":
       return CopyContent;
     case "Facebook":
@@ -221,6 +223,8 @@ const getIcon = (icon: string) => {
       return FolderZip;
     case "Cube":
       return Cube;
+    case "Laptop":
+      return Laptop;
     default:
       return undefined;
   }

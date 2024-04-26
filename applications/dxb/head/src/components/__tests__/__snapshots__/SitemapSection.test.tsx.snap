@@ -46,12 +46,11 @@ exports[`SitemapSection component renders correctly 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                        data-gtm="{"id":"cta-click1","action":"tel:+4401234567890","label":"+44 (0) 1234567890"}"
                         data-testid="sitemap-link"
-                        type="button"
+                        href="tel:+4401234567890"
                       >
-                        <span>
-                          +44 (0) 1234567890
-                        </span>
+                        +44 (0) 1234567890
                       </a>
                     </h6>
                   </div>
@@ -79,12 +78,11 @@ exports[`SitemapSection component renders correctly 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                        data-gtm="{"id":"cta-click1","action":"/undefined/landing-page/","label":"Our story"}"
                         data-testid="sitemap-link"
-                        type="button"
+                        href="/undefined/landing-page/"
                       >
-                        <span>
-                          Our story
-                        </span>
+                        Our story
                       </a>
                     </h6>
                   </div>
@@ -145,12 +143,11 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                        data-gtm="{"id":"cta-click1","action":"tel:+4401234567890","label":"+44 (0) 1234567890"}"
                         data-testid="sitemap-link"
-                        type="button"
+                        href="tel:+4401234567890"
                       >
-                        <span>
-                          +44 (0) 1234567890
-                        </span>
+                        +44 (0) 1234567890
                       </a>
                     </h6>
                     <div>
@@ -170,12 +167,11 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                           >
                             <a
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                              data-gtm="{"id":"cta-click1","action":"/undefined/landing-page/","label":"Our story"}"
                               data-testid="sitemap-link"
-                              type="button"
+                              href="/undefined/landing-page/"
                             >
-                              <span>
-                                Our story
-                              </span>
+                              Our story
                             </a>
                           </h6>
                           <div>
@@ -195,12 +191,11 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                                    data-gtm="{"id":"cta-click1","action":"/undefined/landing-page/","label":"Our story"}"
                                     data-testid="sitemap-link"
-                                    type="button"
+                                    href="/undefined/landing-page/"
                                   >
-                                    <span>
-                                      Our story
-                                    </span>
+                                    Our story
                                   </a>
                                 </h6>
                               </div>
@@ -234,12 +229,11 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                        data-gtm="{"id":"cta-click1","action":"/undefined/landing-page/","label":"Our story"}"
                         data-testid="sitemap-link"
-                        type="button"
+                        href="/undefined/landing-page/"
                       >
-                        <span>
-                          Our story
-                        </span>
+                        Our story
                       </a>
                     </h6>
                   </div>

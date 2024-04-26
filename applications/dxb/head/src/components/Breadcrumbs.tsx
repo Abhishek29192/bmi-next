@@ -1,107 +1,110 @@
 import Breadcrumbs, {
-  BreadcrumbsProps
+  BreadcrumbsProps as BaseProps,
+  LastBreadcrumbItemProps,
+  LinkedBreadcrumbProps
 } from "@bmi-digital/components/breadcrumbs";
-import { replaceSpaces } from "@bmi-digital/components/utils";
-import { graphql } from "gatsby";
+import { transformHyphens } from "@bmi-digital/components/utils";
+import { microCopy } from "@bmi/microcopies";
+import { Link, graphql } from "gatsby";
 import React, { useMemo } from "react";
 import { BreadcrumbItem } from "../types/pim";
-import { getClickableActionFromUrl } from "./Link";
-import { useSiteContext } from "./Site";
+import { getPathWithCountryCode } from "../utils/path";
+import { Context, useSiteContext } from "./Site";
 
 export type Data = BreadcrumbItem[];
 
+type BreadcrumbProps = Omit<
+  BaseProps,
+  "linkedBreadcrumbitems" | "lastBreadcrumbitem"
+> & {
+  data: Data;
+  concatenateUrls?: boolean;
+  "data-testid"?: string;
+};
+
+const getHomePageBreadcrumb = (
+  countryCode: Context["countryCode"],
+  homePage: Context["homePage"]
+): LinkedBreadcrumbProps => {
+  return {
+    label: transformHyphens(homePage.title),
+    url: `/${countryCode}/`,
+    gtm: {
+      id: "cta-click1",
+      action: `/${countryCode}/`,
+      label: transformHyphens(homePage.title)
+    }
+  };
+};
+
+type BreadcrumbParams = {
+  data: BreadcrumbProps["data"];
+  concatenateUrls: BreadcrumbProps["concatenateUrls"];
+  countryCode: Context["countryCode"];
+  homePage: Context["homePage"];
+};
+
 const getBreadcrumbsItem = (
-  items: BreadcrumbItem[],
-  concatenateUrls: boolean
-): [BreadcrumbItem[], BreadcrumbItem] => {
-  if (items.length === 1) {
-    return [[], items[0]];
-  }
+  props: BreadcrumbParams
+): [BaseProps["linkedBreadcrumbitems"], BaseProps["lastBreadcrumbitem"]] => {
+  const { data, concatenateUrls, countryCode, homePage } = props;
+  const homePageBreadcrumb = getHomePageBreadcrumb(countryCode, homePage);
 
-  const breadcrumbsItems = [...items]
+  const middleBreadcrumbs: LinkedBreadcrumbProps[] = data
+    .slice(0, -1)
     .filter(({ slug }) => slug)
-    .map((item, index, array) => {
-      const breadcrumbItem: BreadcrumbItem = {
-        id: item.id,
-        label: item.label,
-        slug:
-          index !== array.length - 1
-            ? getBreadcrumbSlug(array, index, concatenateUrls)
-            : null
-      };
+    .map((item, index, array) => ({
+      label: transformHyphens(item.label),
+      url: `/${countryCode}/${getBreadcrumbSlug(
+        array,
+        index,
+        concatenateUrls
+      )}`,
+      gtm: {
+        id: "cta-click1",
+        action: getPathWithCountryCode(countryCode, item.slug),
+        label: transformHyphens(item.label)
+      }
+    }));
 
-      return breadcrumbItem;
-    });
+  const lastBreadcrumb: LastBreadcrumbItemProps = {
+    label: transformHyphens(data[data.length - 1].label)
+  };
 
-  const currentBreadcrumb = breadcrumbsItems[breadcrumbsItems.length - 1];
-  const existingBreadcrumbsItems = breadcrumbsItems.slice(
-    0,
-    breadcrumbsItems.length - 1
-  );
-  return [existingBreadcrumbsItems, currentBreadcrumb];
+  return [[homePageBreadcrumb, ...middleBreadcrumbs], lastBreadcrumb];
 };
 
 const getBreadcrumbSlug = (
-  items: BreadcrumbItem[],
+  items: BreadcrumbProps["data"],
   index: number,
-  concatenateUrls: boolean
+  concatenateUrls: BreadcrumbProps["concatenateUrls"]
 ) =>
   concatenateUrls
-    ? items
-        .slice(0, index + 1)
-        .map(({ slug }) => slug)
-        .join("/")
-        .concat("/")
+    ? `${items.map(({ slug }) => slug).join("/")}/`
     : // eslint-disable-next-line security/detect-object-injection
-      items[index].slug;
+      `${items[index].slug}/`;
 
 const IntegratedBreadcrumbs = ({
   data,
   "data-testid": dataTestId,
   concatenateUrls = true,
   ...rest
-}: {
-  data: Data;
-} & BreadcrumbsProps & {
-    concatenateUrls?: boolean;
-    "data-testid"?: string;
-  }) => {
-  const { countryCode, homePage } = useSiteContext();
+}: BreadcrumbProps) => {
+  const { countryCode, homePage, getMicroCopy } = useSiteContext();
   const [breadcrumbsItems, currentBreadcrumb] = useMemo(
-    () => getBreadcrumbsItem(data, concatenateUrls),
-    [data, concatenateUrls]
+    () => getBreadcrumbsItem({ data, concatenateUrls, countryCode, homePage }),
+    [data, concatenateUrls, countryCode, homePage]
   );
 
   return (
     <Breadcrumbs
       {...rest}
-      data-testid={dataTestId ? dataTestId : "breadcrumbs"}
-    >
-      <Breadcrumbs.Item
-        action={getClickableActionFromUrl({
-          linkedPage: { path: "" },
-          countryCode,
-          label: homePage.title
-        })}
-        data-testid={`breadcrumb-${replaceSpaces(homePage.title)}`}
-      >
-        {homePage.title}
-      </Breadcrumbs.Item>
-      {breadcrumbsItems.map(({ label, slug }) => (
-        <Breadcrumbs.Item
-          key={label}
-          action={getClickableActionFromUrl({
-            linkedPage: { path: slug },
-            countryCode,
-            label
-          })}
-          data-testid={`breadcrumb-${replaceSpaces(label)}`}
-        >
-          {label}
-        </Breadcrumbs.Item>
-      ))}
-      <Breadcrumbs.Item>{currentBreadcrumb.label}</Breadcrumbs.Item>
-    </Breadcrumbs>
+      linkedBreadcrumbitems={breadcrumbsItems}
+      lastBreadcrumbitem={currentBreadcrumb}
+      component={Link}
+      data-testid={dataTestId}
+      expandText={getMicroCopy(microCopy.GLOBAL_SHOW_MORE)}
+    />
   );
 };
 
@@ -112,9 +115,7 @@ export const query = graphql`
     breadcrumbs {
       ...BreadcrumbItemFragment
     }
-    breadcrumbTitle
   }
-
   fragment BreadcrumbItemFragment on BreadcrumbItem {
     id
     label

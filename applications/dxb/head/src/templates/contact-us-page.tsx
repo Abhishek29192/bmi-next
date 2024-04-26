@@ -16,14 +16,14 @@ import IframeSection, {
 } from "../components/IframeSection";
 import Image from "../components/Image";
 import Locations, { Data as LocationsData } from "../components/Locations";
-import NextBestActions, {
-  Data as NextBestActionsData
-} from "../components/NextBestActions";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
 import Video from "../components/Video";
+import NextBestActions, {
+  Data as NextBestActionsData
+} from "../components/next-best-actions/NextBestActions";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 export type Data = PageInfoData &

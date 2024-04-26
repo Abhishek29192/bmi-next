@@ -1,6 +1,5 @@
 import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
 import AnchorLink from "@bmi-digital/components/anchor-link";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
 import Checkbox from "@bmi-digital/components/checkbox";
 import Form, { InputValue } from "@bmi-digital/components/form";
 import Grid from "@bmi-digital/components/grid";
@@ -33,26 +32,27 @@ import matchAll from "string.prototype.matchall";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { useConfig } from "../contexts/ConfigProvider";
 import {
-  handleEmailValidation as validateEmail,
-  isValidEmail
+  isValidEmail,
+  handleEmailValidation as validateEmail
 } from "../utils/emailUtils";
 import getCookie from "../utils/getCookie";
-import withGTM, { GTM } from "../utils/google-tag-manager";
+import { GTM } from "../utils/google-tag-manager";
 import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
-import { Data as LinkData, isExternalUrl } from "./Link";
 import ProgressIndicator from "./ProgressIndicator";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
+import { isExternalUrl } from "./link/utils";
 import {
   HubspotFormWrapper,
   StyledForm,
   classes
 } from "./styles/FormSectionStyles";
 import { SourceType } from "./types/FormSectionTypes";
+import type { Data as LinkData } from "./link/types";
 
 export type Data = {
   __typename: "ContentfulFormSection";
@@ -118,9 +118,8 @@ export const convertMarkdownLinksToAnchorLinks = (
       <div key={`hubspot-markdown-link${index}`}>
         {input.substring(0, offset)}
         <AnchorLink
-          action={{ model: "htmlLink", href: link }}
-          target="_blank"
-          rel={isExternalUrl(link) ? "noopener" : undefined}
+          href={link}
+          external={isExternalUrl(link) || undefined}
           data-testid={`label-${replaceSpaces(label)}-anchor-link`}
         >
           {label}
@@ -499,7 +498,7 @@ type FormSectionProps = {
   additionalValues?: Record<string, string>;
   sampleIds?: string;
   isSubmitDisabled?: boolean;
-  gtmOverride?: Partial<GTM>;
+  gtmOverride?: { action?: GTM["action"]; label?: GTM["label"] };
   onSuccess?: () => void;
   onFormReady?: (
     event: MessageEvent,
@@ -544,10 +543,6 @@ const FormSection = ({
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
-  const GTMButton = withGTM<ButtonProps>(Button, {
-    label: "aria-label",
-    action: "data-action"
-  });
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -791,21 +786,10 @@ const FormSection = ({
           </Grid>
           <Form.ButtonWrapper>
             <Form.SubmitButton
-              component={(props: ButtonProps) => {
-                return (
-                  <GTMButton
-                    {...props}
-                    gtm={{
-                      id: "form-button1"
-                    }}
-                    aria-label={
-                      gtmOverride?.label ? gtmOverride?.label : "children"
-                    }
-                    data-action={
-                      gtmOverride?.action ? gtmOverride?.action : title
-                    }
-                  />
-                );
+              gtm={{
+                id: "form-button1",
+                action: gtmOverride?.action ? gtmOverride.action : title,
+                label: gtmOverride?.label ? gtmOverride.label : "children"
               }}
               endIcon={
                 isSubmitting ? (

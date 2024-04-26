@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createCompanyDetails should handle minimal set of data 1`] = `
+{
+  "address": {
+    "address": "address 1",
+    "gtm": {
+      "action": "https://www.google.com/maps/dir/10,+10/address%201/",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - Roofer",
+    },
+    "link": "https://www.google.com/maps/dir/10,+10/address%201/",
+  },
+  "content": null,
+  "distance": undefined,
+  "email": undefined,
+  "fax": undefined,
+  "phone": undefined,
+  "roofProLevel": undefined,
+  "summary": null,
+  "website": undefined,
+}
+`;
+
+exports[`createCompanyDetails should return details for sectionType = BRANCH_TYPE 1`] = `
+{
+  "address": {
+    "address": "address 1",
+    "gtm": {
+      "action": "https://www.google.com/maps/dir/10,+10/address%201/",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - MC: global.address",
+    },
+    "link": "https://www.google.com/maps/dir/10,+10/address%201/",
+  },
+  "content": undefined,
+  "distance": {
+    "label": "MC: findARoofer.distanceLabel",
+    "text": "0.01km",
+  },
+  "email": {
+    "email": "test@test.com",
+    "gtm": {
+      "action": "mailto:test@test.com",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - MC: global.email",
+    },
+    "label": "MC: global.email",
+  },
+  "facebook": {
+    "gtm": {
+      "action": "facebook",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - facebook",
+    },
+    "handle": "facebook",
+  },
+  "fax": {
+    "fax": "01234567891",
+    "label": "MC: global.fax",
+  },
+  "instagram": {
+    "gtm": {
+      "action": "instagram",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - instagram",
+    },
+    "handle": "instagram",
+  },
+  "label": "MC: findARoofer.socialMediaLabel",
+  "linkedIn": {
+    "gtm": {
+      "action": "linkedIn",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - linkedIn",
+    },
+    "handle": "linkedin",
+  },
+  "phone": {
+    "gtm": {
+      "action": "tel:01234567890",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - MC: global.telephone",
+    },
+    "label": "MC: global.telephone",
+    "phone": "01234567890",
+  },
+  "roofProLevel": undefined,
+  "summary": "Contentful service summary",
+  "twitter": {
+    "gtm": {
+      "action": "twitter",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - twitter",
+    },
+    "handle": "twitter",
+  },
+  "website": {
+    "gtm": {
+      "action": "http://localhost",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - MC: findABranch.websiteLabel",
+    },
+    "label": "MC: findABranch.websiteLabel",
+    "text": "localhost",
+    "website": "http://localhost",
+  },
+}
+`;
+
+exports[`createCompanyDetails should return details for sectionType = MERCHANT_TYPE 1`] = `
+{
+  "address": {
+    "address": "address 1",
+    "gtm": {
+      "action": "https://www.google.com/maps/dir/10,+10/address%201/",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - MC: global.address",
+    },
+    "link": "https://www.google.com/maps/dir/10,+10/address%201/",
+  },
+  "content": undefined,
+  "distance": {
+    "label": "MC: findARoofer.distanceLabel",
+    "text": "0.01km",
+  },
+  "email": {
+    "email": "test@test.com",
+    "gtm": {
+      "action": "mailto:test@test.com",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - MC: global.email",
+    },
+    "label": "MC: global.email",
+  },
+  "facebook": {
+    "gtm": {
+      "action": "facebook",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - facebook",
+    },
+    "handle": "facebook",
+  },
+  "fax": undefined,
+  "instagram": {
+    "gtm": {
+      "action": "instagram",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - instagram",
+    },
+    "handle": "instagram",
+  },
+  "label": "MC: findARoofer.socialMediaLabel",
+  "linkedIn": {
+    "gtm": {
+      "action": "linkedIn",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - linkedIn",
+    },
+    "handle": "linkedin",
+  },
+  "phone": {
+    "gtm": {
+      "action": "tel:01234567890",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - MC: global.telephone",
+    },
+    "label": "MC: global.telephone",
+    "phone": "01234567890",
+  },
+  "roofProLevel": undefined,
+  "summary": "Contentful service summary",
+  "twitter": {
+    "gtm": {
+      "action": "twitter",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - twitter",
+    },
+    "handle": "twitter",
+  },
+  "website": {
+    "gtm": {
+      "action": "http://localhost",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - MC: findAMerchant.websiteLabel",
+    },
+    "label": "MC: findAMerchant.websiteLabel",
+    "text": "localhost",
+    "website": "http://localhost",
+  },
+}
+`;
+
+exports[`createCompanyDetails should return details for sectionType = ROOFER_TYPE 1`] = `
+{
+  "address": {
+    "address": "address 1",
+    "gtm": {
+      "action": "https://www.google.com/maps/dir/10,+10/address%201/",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof",
+    },
+    "link": "https://www.google.com/maps/dir/10,+10/address%201/",
+  },
+  "content": {
+    "label": "MC: findARoofer.roofTypeLabel",
+    "text": "Pitched Roof",
+  },
+  "distance": {
+    "label": "MC: findARoofer.distanceLabel",
+    "text": "0.01km",
+  },
+  "email": {
+    "email": "test@test.com",
+    "gtm": {
+      "action": "mailto:test@test.com",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof",
+    },
+    "label": "MC: global.email",
+  },
+  "facebook": {
+    "gtm": {
+      "action": "facebook",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - facebook",
+    },
+    "handle": "facebook",
+  },
+  "fax": undefined,
+  "instagram": {
+    "gtm": {
+      "action": "instagram",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - instagram",
+    },
+    "handle": "instagram",
+  },
+  "label": "MC: findARoofer.socialMediaLabel",
+  "linkedIn": {
+    "gtm": {
+      "action": "linkedIn",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - linkedIn",
+    },
+    "handle": "linkedin",
+  },
+  "phone": {
+    "gtm": {
+      "action": "tel:01234567890",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof",
+    },
+    "label": "MC: global.telephone",
+    "phone": "01234567890",
+  },
+  "roofProLevel": {
+    "label": "MC: findARoofer.certificationLabel",
+    "level": "elite",
+  },
+  "summary": "Contentful service summary",
+  "twitter": {
+    "gtm": {
+      "action": "twitter",
+      "id": "cta-share-ext-company",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof - twitter",
+    },
+    "handle": "twitter",
+  },
+  "website": {
+    "gtm": {
+      "action": "http://localhost",
+      "id": "cta-click1",
+      "label": "roofer 1 - address 1 - elite - Pitched Roof",
+    },
+    "label": "MC: findARoofer.websiteLabel",
+    "text": "localhost",
+    "website": "http://localhost",
+  },
+}
+`;

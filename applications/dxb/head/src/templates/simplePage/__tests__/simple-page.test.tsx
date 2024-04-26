@@ -8,11 +8,9 @@ import { render, RenderResult, screen } from "@testing-library/react";
 import React from "react";
 import { Data as ExploreBarData } from "../../../components/ExploreBar";
 import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
-import { Data as LinkData } from "../../../components/Link";
+import { Data as LinkData } from "../../../components/link/types";
 import { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
-import { Data as NextBestActionsData } from "../../../components/NextBestActions";
-import { Data as SectionsData } from "../../../components/Sections";
-import { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
+import { Data as NextBestActionsData } from "../../../components/next-best-actions/NextBestActions";
 import { Data as SiteData } from "../../../components/Site";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
@@ -25,10 +23,10 @@ import {
   nextBestActions,
   pageContext,
   sections,
-  shareWidgetData,
   signupBlock
 } from "../__mocks__/simplePage";
 import SimplePage, { Data, Props } from "../components/simple-page";
+import createShareWidgetData from "../../../__tests__/helpers/ShareWidgetHelper";
 
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
@@ -70,8 +68,12 @@ const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
     // ContentfulSimplePageData
     __typename: "ContentfulSimplePage",
     leadBlock: leadBlockData as LeadBlockSectionData,
-    shareWidget: shareWidgetData as ShareWidgetSectionData,
-    sections: sections as SectionsData,
+    shareWidget: createShareWidgetData({
+      copy: true,
+      linkedin: true,
+      pinterest: true
+    }),
+    sections: sections,
     nextBestActions: nextBestActions as NextBestActionsData,
     exploreBar: exploreBarData as ExploreBarData,
     linkColumns: linkColumnsData as LinkColumnsSectionData,

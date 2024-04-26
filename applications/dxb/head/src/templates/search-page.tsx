@@ -18,7 +18,6 @@ import React, { FormEvent, useEffect, useMemo, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
-import NextBestActions from "../components/NextBestActions";
 import Page from "../components/Page";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
@@ -33,6 +32,7 @@ import SearchTabPanelProducts, {
   getCount as getProductsCount
 } from "../components/SearchTabProducts";
 import { Data as SiteData } from "../components/Site";
+import NextBestActions from "../components/next-best-actions/NextBestActions";
 import { useConfig } from "../contexts/ConfigProvider";
 import { getSearchTabUrl, setSearchTabUrl } from "../utils/filters";
 

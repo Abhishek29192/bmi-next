@@ -88,7 +88,7 @@ exports[`TeamList component renders correctly 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -245,7 +245,7 @@ exports[`TeamList component renders correctly with links 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -258,10 +258,19 @@ exports[`TeamList component renders correctly with links 1`] = `
               data-testid="profile-card-footer"
             >
               <span
-                class="css-qsbrz0"
+                class="css-1y6ycuv"
                 data-testid="profile-card-row"
               >
-                Contact us
+                <a
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  data-gtm="{"id":"cta-click1","action":"href","label":"Name - Contact us"}"
+                  data-testid="profile-card-row-action"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Contact us
+                </a>
               </span>
             </div>
           </div>
@@ -360,7 +369,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -450,7 +459,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -540,7 +549,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -630,7 +639,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -720,7 +729,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -810,7 +819,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -900,7 +909,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -990,7 +999,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -1080,7 +1089,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title

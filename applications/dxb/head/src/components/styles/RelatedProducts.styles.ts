@@ -1,4 +1,3 @@
-import AnchorLink from "@bmi-digital/components/anchor-link";
 import { styled } from "@mui/material/styles";
 
 export const StyledLoadMoreWrapper = styled("div")(({ theme }) => ({
@@ -7,6 +6,6 @@ export const StyledLoadMoreWrapper = styled("div")(({ theme }) => ({
   marginTop: "32px"
 }));
 
-export const StyledReadMoreAnchor = styled(AnchorLink)(({ theme }) => ({
+export const StyledReadMoreSpan = styled("span")(({ theme }) => ({
   marginTop: "12px"
 }));

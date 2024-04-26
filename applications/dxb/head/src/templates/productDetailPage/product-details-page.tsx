@@ -1,7 +1,6 @@
 import Container from "@bmi-digital/components/container";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
-import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
 import BackToResults from "../../components/BackToResults";
@@ -23,7 +22,7 @@ import {
   getProductAttributes,
   transformImages
 } from "../../utils/product-details-transforms";
-import { PdpCardsSection } from "./components/pdp-cards";
+import PdpCardsSection from "./components/pdp-cards";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -60,11 +59,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pdpSpecificationDescription
   } = resources;
 
-  const location = useLocation();
   const isSSR = typeof window === "undefined";
   const queryParams = useMemo<string>(() => {
     return isSSR ? "" : window.location.search;
-  }, [location]);
+  }, [isSSR]);
 
   const images = transformImages(
     [product.masterImage, ...product.galleryImages].filter(Boolean)

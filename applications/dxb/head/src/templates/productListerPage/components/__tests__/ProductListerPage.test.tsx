@@ -17,8 +17,8 @@ import {
 } from "@testing-library/react";
 import React from "react";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
+import { DataTypeEnum } from "../../../../components/link/types";
 import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
-import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
 import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
 import ProductListerPage, {
@@ -26,6 +26,7 @@ import ProductListerPage, {
   Data as PlpPageInfoData,
   Props
 } from "../product-lister-page";
+import type { NavigationData } from "applications/dxb/head/src/components/link/types";
 
 window.alert = jest.fn();
 

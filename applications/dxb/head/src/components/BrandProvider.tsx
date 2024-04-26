@@ -1,9 +1,8 @@
 import { DialogClassNameContext } from "@bmi-digital/components/dialog";
-import ThemeProvider, {
-  ThemeOptions
-} from "@bmi-digital/components/theme-provider";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import React, { createContext } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
+import type { ThemeOptions } from "@bmi-digital/components/theme-provider";
 
 export const BrandClassNameContext = createContext<string | null>(null);
 
@@ -97,7 +96,7 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
           primary: {
             ...theme.palette.primary,
             main: theme.colours.brandRedInter,
-            dark: theme.colours.brandRedFocus
+            dark: theme.colours.brandRedInterFocus
           }
         },
         colours: {
@@ -106,8 +105,8 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
           accent: theme.colours.brandRed,
           inter: theme.colours.brandRedInter,
           interDark: theme.colours.brandRedInter,
-          focus: theme.colours.brandRedFocus,
-          focusDark: theme.colours.brandRedFocus,
+          focus: theme.colours.brandRedInterFocus,
+          focusDark: theme.colours.brandRedInterFocus,
           secondary1: theme.colours.orange400,
           secondary2: theme.colours.slate,
           secondary3: theme.colours.charcoal,
@@ -122,7 +121,7 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
           primary: {
             ...theme.palette.primary,
             main: theme.colours.brandGreenInter,
-            dark: theme.colours.brandGreenFocus
+            dark: theme.colours.brandGreenInterFocus
           }
         },
         colours: {
@@ -131,8 +130,8 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
           accent: theme.colours.brandGreen,
           inter: theme.colours.brandGreenInter,
           interDark: theme.colours.brandGreenInter,
-          focus: theme.colours.brandGreenFocus,
-          focusDark: theme.colours.brandGreenFocus,
+          focus: theme.colours.brandGreenInterFocus,
+          focusDark: theme.colours.brandGreenInterFocus,
           secondary1: theme.colours.brandGreen,
           secondary2: theme.colours.slate,
           secondary3: theme.colours.charcoal,

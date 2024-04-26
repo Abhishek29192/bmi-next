@@ -1,6 +1,7 @@
 import type {
   Catalogue,
   Category,
+  CategoryType,
   Certification,
   Course as DoceboCourse,
   Session as DoceboSession
@@ -12,7 +13,7 @@ export type Session = Omit<DoceboSession, "date_start" | "date_end"> & {
 };
 
 export type Course = Omit<DoceboCourse, "category"> & {
-  categoryName: string;
+  categoryName: CategoryType;
   sessions: Session[];
   currency: string;
   currencySymbol: string;

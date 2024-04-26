@@ -95,7 +95,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const shouldEnableSearch = sectionType !== EntryTypeEnum.BRANCH_TYPE;
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
-  const { getMicroCopy, countryCode } = useSiteContext();
+  const { getMicroCopy } = useSiteContext();
   const windowLocation = useLocation();
 
   const params = new URLSearchParams(windowLocation.search);
@@ -111,7 +111,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   );
   const [showResultList, setShowResultList] = useState(showDefaultResultList);
   const [googleApi, setGoogleApi] = useState<Google>(null);
-  const [selectedRoofer, setSelectedRoofer] = useState<Service>(null);
+  const [selectedRoofer, setSelectedRoofer] = useState<Service | null>(null);
   const [centre, setCentre] = useState<GoogleLatLngLiteral>();
   const [zoom, setZoom] = useState<number>(
     initialMapZoom || DEFAULT_LEVEL_ZOOM
@@ -230,20 +230,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setCentre(centre || null);
   };
 
-  const getCompanyDetails = (
-    service: Service,
-    isAddressHidden?: boolean
-  ): CompanyDetailProps[] => {
-    const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
-
-    return createCompanyDetails(
-      sectionType,
-      service,
-      countryCode,
-      getMicroCopy,
-      isAddressHidden,
-      googleURLLatLng
-    );
+  const getCompanyDetails = (service: Service): CompanyDetailProps => {
+    return createCompanyDetails(sectionType, service, getMicroCopy, centre);
   };
 
   const getMicroCopyPrefix = (serviceType: EntryTypeEnum) => {

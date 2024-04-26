@@ -1,4 +1,3 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
 import CarouselHero from "@bmi-digital/components/carousel-hero";
 import { useIsClient } from "@bmi-digital/components/hooks";
 import Search from "@bmi-digital/components/search";
@@ -14,7 +13,6 @@ import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
 import { useConfig } from "../contexts/ConfigProvider";
-import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { getHeroItemsWithContext } from "./helpers/getHeroItemsWithContext";
 import type { Data as SlideData } from "../components/Promo";
@@ -23,10 +21,9 @@ import type { Data as PageInfoData } from "../components/PageInfo";
 export type HomepageData = {
   __typename: "ContentfulHomePage";
   title: string;
-  slides: readonly (SlideData | PageInfoData)[];
+  slides: readonly [SlideData | PageInfoData, ...(SlideData | PageInfoData)[]];
   overlapCards: OverlapCardData | null;
-  brands: BrandData[];
-  spaBrands: BrandData[];
+  brands: [BrandData, ...BrandData[]] | null;
   sections: SectionsData | null;
 } & PageData;
 
@@ -49,7 +46,6 @@ const HomePage = ({ data, pageContext }: Props) => {
     brands,
     sections,
     signupBlock,
-    spaBrands,
     seo
   } = data.contentfulHomePage;
   const pageData: PageData = {
@@ -61,7 +57,6 @@ const HomePage = ({ data, pageContext }: Props) => {
   const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
     data.contentfulSite.resources || {};
 
-  const GTMButton = withGTM<ButtonProps>(Button);
   const { isGatsbyDisabledElasticSearch } = useConfig();
   const { isClient } = useIsClient();
 
@@ -70,8 +65,8 @@ const HomePage = ({ data, pageContext }: Props) => {
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
-      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={slides?.[0]?.featuredMedia?.image?.file.url}
+      variantCodeToPathMap={pageContext.variantCodeToPathMap}
+      ogImageUrl={slides[0].featuredMedia?.image?.file.url}
       pageType="homePage"
     >
       {({ siteContext }) => {
@@ -87,15 +82,10 @@ const HomePage = ({ data, pageContext }: Props) => {
             >
               {!isGatsbyDisabledElasticSearch && (
                 <Search
-                  buttonComponent={(props) => (
-                    <GTMButton
-                      gtm={{
-                        id: "search2",
-                        label: getMicroCopy(microCopy.SEARCH_LABEL)
-                      }}
-                      {...props}
-                    />
-                  )}
+                  gtm={{
+                    id: "search2",
+                    label: getMicroCopy(microCopy.SEARCH_LABEL)
+                  }}
                   action={getPathWithCountryCode(countryCode, "search")}
                   label={getMicroCopy(microCopy.SEARCH_LABEL)}
                   placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}
@@ -103,24 +93,26 @@ const HomePage = ({ data, pageContext }: Props) => {
               )}
             </CarouselHero>
             {overlapCards && <OverlapCards data={overlapCards} />}
-            {spaBrands?.length ? (
-              <Brands data={spaBrands} spaBrand />
-            ) : brands?.length ? (
-              <Brands data={brands} />
-            ) : null}
-            {sections && <Sections data={sections} pageTypename={__typename} />}
-            {isClient &&
-            welcomeDialogTitle &&
-            welcomeDialogBody &&
-            welcomeDialogBrands ? (
-              <WelcomeDialog
-                data={{
-                  welcomeDialogTitle,
-                  welcomeDialogBody,
-                  welcomeDialogBrands
-                }}
+            {brands && <Brands data={brands} />}
+            {sections && (
+              <Sections
+                data-testid="homepage-sections"
+                data={sections}
+                pageTypename={__typename}
               />
-            ) : null}
+            )}
+            {isClient &&
+              welcomeDialogTitle &&
+              welcomeDialogBody &&
+              welcomeDialogBrands && (
+                <WelcomeDialog
+                  data={{
+                    welcomeDialogTitle,
+                    welcomeDialogBody,
+                    welcomeDialogBrands
+                  }}
+                />
+              )}
           </>
         );
       }}
@@ -148,9 +140,6 @@ export const pageQuery = graphql`
       }
       brands {
         ...BrandFragment
-      }
-      spaBrands {
-        ...SPABrandFragment
       }
       sections {
         ...SectionsFragment

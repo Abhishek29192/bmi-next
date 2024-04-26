@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NextBestActions component renders correctly 1`] = `
+<div>
+  <div
+    class="Section-root Section-alabaster css-10chrh8"
+    data-testid="next-best-actions-section"
+  >
+    <div
+      class=" css-ze8cyt"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
+          data-testid="typography"
+        >
+          MC: nba.title
+        </h2>
+        <div
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+          data-testid="grid-container"
+        >
+          <div
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-gyr80o-MuiGrid2-root"
+            data-testid="grid-item"
+          >
+            <div
+              class="ColorPair-secondary1 css-14grad6"
+              data-testid="tappable-card-box"
+            >
+              <a
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"cta-click1","action":"http://localhost:8080/asset.pdf","label":"Link label"}"
+                data-testid="nba-card-Promo-NBA-Title"
+                download=""
+                href="http://localhost:8080/asset.pdf"
+                tabindex="0"
+              >
+                <div
+                  class="TappableCard-body css-c6k36h"
+                >
+                  <h4
+                    class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                    data-testid="tappable-card-body-title"
+                  >
+                    Promo NBA Title
+                  </h4>
+                  <div
+                    class="TappableCard-text"
+                    data-testid="tappable-card-body-description"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Promo NBA Subtitle
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+              <div
+                class="TappableCard-footer css-1rg9dq1"
+              >
+                <a
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                  data-gtm="{"id":"cta-click1","action":"http://localhost:8080/asset.pdf","label":"Link label"}"
+                  data-testid="anchor-link"
+                  href="http://localhost:8080/asset.pdf"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                    data-testid="internal"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                  Promo NBA Title
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-gyr80o-MuiGrid2-root"
+            data-testid="grid-item"
+          >
+            <div
+              class="ColorPair-secondary2 css-14grad6"
+              data-testid="tappable-card-box"
+            >
+              <a
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
+                data-testid="nba-card-Page-Info-NBA-Title"
+                href="/en/en/page-info/path/"
+                tabindex="0"
+              >
+                <div
+                  class="TappableCard-body css-c6k36h"
+                >
+                  <h4
+                    class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                    data-testid="tappable-card-body-title"
+                  >
+                    Page Info NBA Title
+                  </h4>
+                  <div
+                    class="TappableCard-text"
+                    data-testid="tappable-card-body-description"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                      data-testid="typography"
+                    >
+                      Page Info NBA Subtitle
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+              <div
+                class="TappableCard-footer css-1rg9dq1"
+              >
+                <a
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                  data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
+                  data-testid="anchor-link"
+                  href="/en/en/page-info/path/"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                    data-testid="internal"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                  Page Info NBA Title
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,19 +1,17 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Button from "@bmi-digital/components/button";
 import { useIsClient } from "@bmi-digital/components/hooks";
 import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
 import { microCopy } from "@bmi/microcopies";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Link } from "gatsby";
 import React, { FC, ReactElement } from "react";
 import { PATHNAME_KEY, getBackToResultsPath } from "../utils/filters";
-import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
 import {
   BackToResultsElement,
   BackToResultsSeparator
 } from "./styles/BackToResultsStyles";
-
-const CTABackToResults = withGTM<ButtonProps>(Button);
 
 interface Props {
   children: ReactElement;
@@ -38,14 +36,12 @@ const BackToResults: FC<Props> = ({
       <BackToResultsElement
         data-testid={dataTestId || "back-to-results-section"}
       >
-        <CTABackToResults
+        <Button
           startIcon={<ArrowBackIcon />}
           variant="text"
           hasDarkBackground={isDarkThemed}
-          action={{
-            model: "htmlLink",
-            href: getBackToResultsPath(countryCode)
-          }}
+          to={getBackToResultsPath(countryCode)}
+          component={Link}
           gtm={{
             id: "nav-breadcrumb-back-to-results",
             action: getBackToResultsPath(countryCode),
@@ -54,7 +50,7 @@ const BackToResults: FC<Props> = ({
           data-testid="back-to-results-button"
         >
           {getMicroCopy(microCopy.SEARCH_BACK_TO_RESULTS)}
-        </CTABackToResults>
+        </Button>
         {isDesktop && (
           <>
             <BackToResultsSeparator data-testid="back-to-results-separator" />

@@ -12,10 +12,10 @@ import {
   StyledComputation,
   StyledContent,
   StyledFooter,
+  StyledFormSubmitButton,
   StyledFooterBackButtonLink,
   StyledForm,
   StyledFormContent,
-  StyledFormSubmitButton,
   StyledHR,
   StyledSkipAndNextButtons,
   StyledSpinnerContainer,
@@ -109,7 +109,6 @@ const Step = ({
     <StyledFormSubmitButton
       accessibilityLabel={nextLabel}
       disabled={disableNextButton}
-      component={FooterButton}
     >
       {nextLabel}
     </StyledFormSubmitButton>

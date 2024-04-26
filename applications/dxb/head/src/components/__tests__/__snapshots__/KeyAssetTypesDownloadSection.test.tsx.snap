@@ -14,7 +14,7 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
         type="button"
       >
         <span
-          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+          class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
         >
           <svg
             data-name="Ico 24 Folder Zip"
@@ -53,13 +53,12 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"download1","label":"Download","action":"[\\"http://pimDocument\\"]"}"
         data-testid="AATDownload"
+        download=""
         href="http://pimdocument/"
-        rel="noopener noreferrer"
         tabindex="0"
-        target="_blank"
       >
         <span
-          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+          class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
         >
           <svg
             aria-hidden="true"

@@ -1,17 +1,51 @@
 import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
-import { graphql } from "gatsby";
-import React, { useMemo } from "react";
+import { Link, graphql } from "gatsby";
+import React from "react";
 import FallbackComponent from "../components/FallbackComponent";
 import Image from "../components/Image";
-import { getClickableActionFromUrl } from "../components/Link";
 import Page from "../components/Page";
 import Video from "../components/Video";
-import { FourOFourResponse } from "../schema/resolvers/types/Contentful";
+import { getPathWithCountryCode } from "../utils/path";
+import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
+import type {
+  ContentfulPromoCard,
+  ContentfulSite,
+  FourOFourResponse
+} from "../schema/resolvers/types/Contentful";
+import type { AnchorLinkActionProps } from "@bmi-digital/components/anchor-link";
 
 type Data = {
   fourOFour: FourOFourResponse;
+};
+
+const Cta = (
+  props: ContentfulPromoCard["cta"] & {
+    countryCode: ContentfulSite["countryCode"];
+  }
+) => {
+  const placeholderCTALabel = "Error:404.cta.label";
+  const actionProps: AnchorLinkActionProps = props.linkedPage
+    ? {
+        to: getPathWithCountryCode(props.countryCode, props.linkedPage.path),
+        component: Link
+      }
+    : { href: props.url, external: true };
+
+  const ctaLabel = props.label || placeholderCTALabel;
+  return (
+    <Button
+      {...actionProps}
+      gtm={{
+        id: "cta-click1",
+        action: stringifyToObject(actionProps.to) || actionProps.href,
+        label: ctaLabel
+      }}
+    >
+      {ctaLabel}
+    </Button>
+  );
 };
 
 const FourOFour = ({ data }: { data: Data }) => {
@@ -19,53 +53,41 @@ const FourOFour = ({ data }: { data: Data }) => {
   const errorFourOFour = data.fourOFour.errorPageData;
   const placeholderTitle = "Error:404.title";
   const placeholderSubtitle = "Error:404.subtitle";
-  const placeholderCTALabel = "Error:404.cta.label";
-  const memoizedGetClickableActionFromUrl = useMemo(
-    () =>
-      getClickableActionFromUrl({
-        linkedPage: errorFourOFour?.cta?.linkedPage,
-        url: errorFourOFour?.cta?.url,
-        countryCode: siteData?.countryCode,
-        label: errorFourOFour?.cta?.label || placeholderCTALabel
-      }),
-    [errorFourOFour, siteData, placeholderCTALabel]
-  );
-  {
-    return siteData && errorFourOFour ? (
-      <Page
-        title={errorFourOFour.title || placeholderTitle}
-        pageData={{
-          breadcrumbs: null,
-          signupBlock: null,
-          seo: null,
-          path: null
-        }}
-        siteData={siteData}
-      >
-        <PromoSection
-          title={errorFourOFour.title || placeholderTitle}
-          media={
-            errorFourOFour.featuredVideo ? (
-              <Video {...errorFourOFour.featuredVideo} />
-            ) : errorFourOFour.featuredMedia ? (
-              <Image {...errorFourOFour.featuredMedia} />
-            ) : undefined
-          }
-        >
-          <Typography variant="body2" gutterBottom>
-            {errorFourOFour.subtitle || placeholderSubtitle}
-          </Typography>
-          {errorFourOFour.cta && (
-            <Button action={memoizedGetClickableActionFromUrl}>
-              {errorFourOFour.cta?.label || placeholderCTALabel}
-            </Button>
-          )}
-        </PromoSection>
-      </Page>
-    ) : (
-      <FallbackComponent />
-    );
+
+  if (!siteData || !errorFourOFour) {
+    return <FallbackComponent />;
   }
+
+  return (
+    <Page
+      title={errorFourOFour.title || placeholderTitle}
+      pageData={{
+        breadcrumbs: null,
+        signupBlock: null,
+        seo: null,
+        path: null
+      }}
+      siteData={siteData}
+    >
+      <PromoSection
+        title={errorFourOFour.title || placeholderTitle}
+        media={
+          errorFourOFour.featuredVideo ? (
+            <Video {...errorFourOFour.featuredVideo} />
+          ) : errorFourOFour.featuredMedia ? (
+            <Image {...errorFourOFour.featuredMedia} />
+          ) : undefined
+        }
+      >
+        <Typography variant="body2" gutterBottom>
+          {errorFourOFour.subtitle || placeholderSubtitle}
+        </Typography>
+        {errorFourOFour.cta && (
+          <Cta {...errorFourOFour.cta} countryCode={siteData.countryCode} />
+        )}
+      </PromoSection>
+    </Page>
+  );
 };
 
 export default FourOFour;

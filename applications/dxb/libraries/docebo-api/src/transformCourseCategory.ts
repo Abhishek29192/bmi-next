@@ -1,11 +1,16 @@
-import { CourseCategory } from "@bmi/docebo-types";
+import type { CategoryType, CourseCategory } from "@bmi/docebo-types";
 
-const allowedCategories = ["PITCHED", "FLAT"];
+const allowedCategories = ["Pitched", "Flat"];
 
-export const transformCourseCategory = (category: CourseCategory): string => {
-  if (!allowedCategories.includes(category.name.toUpperCase())) {
-    return "Other";
+const isAllowed = (categoryName: string): categoryName is CategoryType => {
+  return allowedCategories.includes(categoryName);
+};
+
+export const transformCourseCategory = (
+  category: CourseCategory
+): CategoryType => {
+  if (isAllowed(category.name)) {
+    return category.name;
   }
-
-  return category.name;
+  return "Other";
 };

@@ -7,7 +7,8 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
   >
     <button
       aria-label="Down"
-      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+      data-testid="icon-button"
       tabindex="0"
       type="button"
     >
@@ -27,7 +28,7 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
       />
     </button>
     <div
-      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
@@ -46,7 +47,8 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
     </div>
     <button
       aria-label="Up"
-      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+      data-testid="icon-button"
       tabindex="0"
       type="button"
     >
@@ -76,7 +78,7 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
     data-testid="up-down-simple-numeric-input-buttons-wrapper"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
@@ -95,7 +97,8 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
     </div>
     <button
       aria-label="Down"
-      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-right css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-right css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+      data-testid="icon-button"
       tabindex="0"
       type="button"
     >
@@ -116,7 +119,8 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
     </button>
     <button
       aria-label="Up"
-      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+      data-testid="icon-button"
       tabindex="0"
       type="button"
     >
@@ -146,7 +150,8 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
   >
     <button
       aria-label="Down"
-      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-17xy7b6-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button-sides css-t93omw-MuiButtonBase-root-MuiIconButton-root"
+      data-testid="icon-button"
       tabindex="0"
       type="button"
     >
@@ -166,7 +171,7 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
       />
     </button>
     <div
-      class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-af3ul8-MuiFormControl-root-MuiTextField-root"
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
@@ -185,7 +190,8 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
     </div>
     <button
       aria-label="Up"
-      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-12vmduj-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge button css-14c360u-MuiButtonBase-root-MuiIconButton-root"
+      data-testid="icon-button"
       tabindex="0"
       type="button"
     >
