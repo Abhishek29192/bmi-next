@@ -3,7 +3,6 @@ import { replaceSpaces } from "@bmi-digital/components/utils";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import * as Gatsby from "gatsby";
 import React from "react";
-import { GTM } from "@bmi-digital/components";
 import { ConfigProvider } from "../../contexts/ConfigProvider";
 import FormSection, {
   Data,
@@ -15,6 +14,7 @@ import { SiteContextProvider } from "../Site";
 import { DataTypeEnum } from "../link/types";
 import { SourceType } from "../types/FormSectionTypes";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
+import type { GTM } from "@bmi-digital/components/types";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (

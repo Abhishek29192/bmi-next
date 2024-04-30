@@ -1,7 +1,7 @@
 import Button from "@bmi-digital/components/button";
-import { ApprovalStatus } from "@bmi/pim-types";
 import { buttonClasses } from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
+import type { ApprovalStatus } from "@bmi/pim-types";
 import Icon from "../Icon";
 
 const PREFIX = "document-simple-table-results";

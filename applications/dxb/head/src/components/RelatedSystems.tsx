@@ -10,7 +10,6 @@ import { System as EsSystem, SystemAttribute } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import { Link, graphql } from "gatsby";
 import React, { useState } from "react";
-import { GTM } from "@bmi-digital/components";
 import { RelatedSystem } from "../types/pim";
 import {
   getLevel,
@@ -25,6 +24,7 @@ import {
   StyledLoadMoreWrapper,
   StyledTitle
 } from "./styles/RelatedSystems.styles";
+import type { GTM } from "@bmi-digital/components/types";
 
 export type SystemCardProps = {
   system: RelatedSystem | EsSystem;

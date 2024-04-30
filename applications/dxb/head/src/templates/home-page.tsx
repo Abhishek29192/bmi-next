@@ -3,18 +3,20 @@ import { useIsClient } from "@bmi-digital/components/hooks";
 import Search from "@bmi-digital/components/search";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
-import React from "react";
-import Brands, { Data as BrandData } from "../components/Brands";
-import OverlapCards, {
-  Data as OverlapCardData
-} from "../components/OverlapCards";
-import Page, { Data as PageData } from "../components/Page";
-import Sections, { Data as SectionsData } from "../components/Sections";
-import { Data as SiteData } from "../components/Site";
+import React, { useMemo } from "react";
+import Brands from "../components/Brands";
+import OverlapCards from "../components/OverlapCards";
+import Page from "../components/Page";
+import Sections from "../components/Sections";
 import WelcomeDialog from "../components/WelcomeDialog";
 import { useConfig } from "../contexts/ConfigProvider";
 import { getPathWithCountryCode } from "../utils/path";
 import { getHeroItemsWithContext } from "./helpers/getHeroItemsWithContext";
+import type { Data as OverlapCardData } from "../components/OverlapCards";
+import type { Data as BrandData } from "../components/Brands";
+import type { Data as PageData } from "../components/Page";
+import type { Data as SiteData } from "../components/Site";
+import type { Data as SectionsData } from "../components/Sections";
 import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
 
@@ -48,12 +50,15 @@ const HomePage = ({ data, pageContext }: Props) => {
     signupBlock,
     seo
   } = data.contentfulHomePage;
-  const pageData: PageData = {
-    breadcrumbs: null,
-    signupBlock,
-    seo,
-    path: data.contentfulHomePage.path
-  };
+  const pageData: PageData = useMemo(
+    () => ({
+      breadcrumbs: null,
+      signupBlock,
+      seo,
+      path: data.contentfulHomePage.path
+    }),
+    [data.contentfulHomePage.path, seo, signupBlock]
+  );
   const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
     data.contentfulSite.resources || {};
 

@@ -1,5 +1,5 @@
 import { ApprovalStatus, createCategory } from "@bmi/pim-types";
-import { Image, System } from "./types";
+import type { Image, System } from "./types";
 
 const createSystemImage = (): Image => ({
   mainSource: "http://localhost:8000/mainSource",

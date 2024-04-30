@@ -1,4 +1,4 @@
-import { createEllipsis } from "@bmi-digital/components";
+import { createEllipsis } from "@bmi-digital/components/utils";
 import CarouselHero, {
   CarouselHeroItem
 } from "@bmi-digital/components/carousel-hero";

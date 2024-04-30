@@ -12,7 +12,7 @@ import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
 import { pushToDataLayer } from "../utils/google-tag-manager";
-import { CalculatorConfig, Data } from "./pitched-roof-calculator/types";
+import type { CalculatorConfig, Data } from "./pitched-roof-calculator/types";
 
 const PitchedRoofCalculator = React.lazy(
   () => import("./pitched-roof-calculator/PitchedRoofCalculator")
@@ -34,7 +34,7 @@ export const CalculatorContext = createContext<Context>({
   }
 });
 
-type Props = {
+export type Props = {
   children: React.ReactNode;
   onError: () => void;
   calculatorConfig: CalculatorConfig | null;

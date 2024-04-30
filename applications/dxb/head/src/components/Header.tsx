@@ -1,5 +1,5 @@
 import Button from "@bmi-digital/components/button";
-import { useIsClient } from "@bmi-digital/components";
+import { useIsClient } from "@bmi-digital/components/hooks";
 import HeaderComponent from "@bmi-digital/components/header";
 import HidePrint from "@bmi-digital/components/hide-print";
 import IconButton from "@bmi-digital/components/icon-button";

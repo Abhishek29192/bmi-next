@@ -1,4 +1,4 @@
-import { AnchorLink } from "@bmi-digital/components";
+import AnchorLink from "@bmi-digital/components/anchor-link";
 import MasonryGrid from "@bmi-digital/components/masonry-grid";
 import classnames from "classnames";
 import React from "react";

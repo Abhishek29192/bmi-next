@@ -3,7 +3,7 @@ import { microCopy } from "@bmi/microcopies";
 import { isDefined } from "@bmi/utils";
 import { Link } from "gatsby";
 import React from "react";
-import { replaceSpaces } from "@bmi-digital/components";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import {
   ACTION_TYPES,
   Sample,

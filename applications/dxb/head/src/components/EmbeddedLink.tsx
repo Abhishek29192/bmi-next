@@ -1,4 +1,3 @@
-import classnames from "classnames";
 import { graphql } from "gatsby";
 import React from "react";
 import ButtonLink from "./link/ButtonLink";
@@ -28,7 +27,7 @@ const EmbeddedLink = ({
         data={transformedFields}
         variant={theme === "primary" ? "contained" : "opaqueOutlined"}
         hasDarkBackground={backgroundTheme === "dark"}
-        className={classnames([classes.embeddedLink], "embeddedLink")}
+        className={classes.embeddedLink}
       >
         {fields.label}
       </ButtonLink>

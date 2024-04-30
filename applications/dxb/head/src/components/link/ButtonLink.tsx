@@ -5,7 +5,7 @@ import { graphql, Link as GatsbyLink } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
 import React, { Suspense, useCallback, useContext, useState } from "react";
 import { getPathWithCountryCode } from "../../utils/path";
-import { CalculatorContext } from "../PitchedRoofCalcualtor";
+import { CalculatorContext } from "../PitchedRoofCalculator";
 import { useSiteContext } from "../Site";
 import { VisualiserContext } from "../Visualiser";
 import { classes, StyledButton, StyledLinkDialog } from "./styles";

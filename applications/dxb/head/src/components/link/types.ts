@@ -1,4 +1,5 @@
-import type { ButtonProps, GTM } from "@bmi-digital/components";
+import type { ButtonProps } from "@bmi-digital/components/button";
+import type { GTM } from "@bmi-digital/components/types";
 import type { IconName } from "../Icon";
 import type { Data as PromoData } from "../Promo";
 import type { SectionData } from "../Sections";

@@ -25,7 +25,7 @@ import {
 } from "./styles/DocumentSimpleTableResultsCommonStyles";
 import type { PseudoZipPIMDocument } from "../types/pim";
 import type { Document, TitleField } from "../types/Document";
-import type { GTM } from "@bmi-digital/components";
+import type { GTM } from "@bmi-digital/components/types";
 
 export const MultipleAssetToFileDownload = ({
   document,

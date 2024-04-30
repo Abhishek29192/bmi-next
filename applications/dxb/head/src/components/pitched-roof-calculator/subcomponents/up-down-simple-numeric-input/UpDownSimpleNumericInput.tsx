@@ -1,5 +1,4 @@
 import { withFormControl } from "@bmi-digital/components/form";
-import Icon from "@bmi-digital/components/icon";
 import AddIcon from "@bmi-digital/components/icon/Add";
 import RemoveIcon from "@bmi-digital/components/icon/Remove";
 import classnames from "classnames";
@@ -64,7 +63,7 @@ const UpDownSimpleNumericInput = ({
       onClick={handleIncrement}
       accessibilityLabel={"Up"}
     >
-      <Icon source={AddIcon} />
+      <AddIcon />
     </StyledUpButton>
   );
 
@@ -74,7 +73,7 @@ const UpDownSimpleNumericInput = ({
       onClick={handleDecrement}
       accessibilityLabel={"Down"}
     >
-      <Icon source={RemoveIcon} />
+      <RemoveIcon />
     </StyledDownButton>
   );
 

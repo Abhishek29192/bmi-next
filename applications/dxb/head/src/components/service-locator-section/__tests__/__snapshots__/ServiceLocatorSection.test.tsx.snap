@@ -46,17 +46,16 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -501,17 +500,16 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -995,17 +993,16 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -1450,17 +1447,16 @@ exports[`ServiceLocatorSection component close button 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -1853,17 +1849,16 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-v6yrsk-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -2486,17 +2481,16 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -2872,17 +2866,16 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -3278,17 +3271,16 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -4158,17 +4150,16 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -4559,17 +4550,16 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -4960,17 +4950,16 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -5361,17 +5350,16 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -5951,17 +5939,16 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -6352,17 +6339,16 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -6878,17 +6864,16 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -7321,17 +7306,16 @@ exports[`ServiceLocatorSection component renders single service with No service 
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -7654,17 +7638,16 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -7987,17 +7970,16 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -8392,17 +8374,16 @@ exports[`ServiceLocatorSection component renders single service with single serv
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-oscqqj"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -8747,17 +8728,16 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-v6yrsk-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -9109,17 +9089,16 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-v6yrsk-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -9570,17 +9549,16 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -9905,17 +9883,16 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -10331,17 +10308,16 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -10674,17 +10650,16 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -10959,17 +10934,16 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -11492,17 +11466,16 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />
@@ -11802,17 +11775,16 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
-                      class="css-oscqqj"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                      focusable="false"
                       viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h16v16H0z"
                         fill="none"
                       />
-                      <g
-                        fill="currentColor"
-                      >
+                      <g>
                         <path
                           d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                         />

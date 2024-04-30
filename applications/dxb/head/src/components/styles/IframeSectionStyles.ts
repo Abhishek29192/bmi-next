@@ -1,7 +1,7 @@
-import Section from "@bmi-digital/components/section";
 import { styled } from "@mui/material/styles";
+import RichText from "../RichText";
 
-export const IframeSummary = styled(Section)(({ theme }) => ({
+export const StyledRichText = styled(RichText)(({ theme }) => ({
   marginBottom: "32px"
 }));
 

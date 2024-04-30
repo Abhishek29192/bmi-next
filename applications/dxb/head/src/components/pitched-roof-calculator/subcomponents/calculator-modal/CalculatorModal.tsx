@@ -2,8 +2,7 @@ import Container from "@bmi-digital/components/container";
 import { DialogClassNameContext } from "@bmi-digital/components/dialog";
 import IconButton from "@bmi-digital/components/icon-button";
 import CloseIcon from "@bmi-digital/components/icon/Close";
-import Logo from "@bmi-digital/components/logo";
-import brandLogo from "@bmi-digital/components/logo/Bmi";
+import BMI from "@bmi-digital/components/logo/Bmi";
 import { SVGImport } from "@bmi-digital/svg-import";
 import Fade from "@mui/material/Fade";
 import Modal, { ModalProps } from "@mui/material/Modal";
@@ -28,7 +27,7 @@ type Props = {
 const CalculatorModal = ({
   open = true,
   pearl,
-  logo = brandLogo,
+  logo: Logo = BMI,
   onCloseClick,
   onBackdropClick = onCloseClick,
   backdropProps,
@@ -63,10 +62,7 @@ const CalculatorModal = ({
             ])}
           >
             <Container className={classes.headerCentre} fullWidth>
-              <Logo
-                source={logo}
-                className={classnames(classes.headerSide, classes.logo)}
-              />
+              <Logo className={classnames(classes.headerSide, classes.logo)} />
               <div className={classes.headerCentre}>{headerCentre}</div>
               <IconButton
                 variant="text"

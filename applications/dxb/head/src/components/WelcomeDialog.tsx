@@ -3,13 +3,14 @@ import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
 import useStickyState from "../utils/sticky-state";
-import { Logo } from "./BrandLogo";
-import RichText, { RichTextData } from "./RichText";
+import RichText from "./RichText";
 import { useSiteContext } from "./Site";
 import {
   StyledBrandLogo,
   StyledContentArea
 } from "./styles/WelcomeDialog.styles";
+import type { RichTextData } from "./RichText";
+import type { Logo } from "./BrandLogo";
 
 export type Data = {
   welcomeDialogTitle: string | null;

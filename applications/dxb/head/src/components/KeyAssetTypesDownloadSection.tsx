@@ -1,5 +1,6 @@
 import Button from "@bmi-digital/components/button";
 import GetApp from "@bmi-digital/components/icon/GetApp";
+import FolderZip from "@bmi-digital/components/icon/FolderZip";
 import fetch, { Response } from "node-fetch";
 import React, { useCallback } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -9,7 +10,6 @@ import { KeyAssetDocument, ProductDocument } from "../types/pim";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
 import getCookie from "../utils/getCookie";
-import Icon from "./Icon";
 import { StyledKeyAssetTypeSectionContainer } from "./styles/KeyAssetTypesDownloadSection.styles";
 import type { ButtonActionProps } from "@bmi-digital/components/button";
 
@@ -104,9 +104,7 @@ const KeyAssetTypesDownloadSectionButton = ({
         action: JSON.stringify(documents.map((item) => item.url))
       }}
       variant="text"
-      startIcon={
-        documents.length === 1 ? <GetApp /> : <Icon name="FolderZip" />
-      }
+      startIcon={documents.length === 1 ? <GetApp /> : <FolderZip />}
       data-testid={`${assetType}Download`}
       {...actionProps}
     >

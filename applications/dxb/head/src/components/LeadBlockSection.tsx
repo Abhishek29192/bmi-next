@@ -7,7 +7,7 @@ import { microCopy } from "@bmi/microcopies";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";
-import { replaceSpaces } from "@bmi-digital/components";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import RichText, { RichTextData, parseReachDataRawFields } from "./RichText";
 import { useSiteContext } from "./Site";
 import ButtonLink from "./link/ButtonLink";

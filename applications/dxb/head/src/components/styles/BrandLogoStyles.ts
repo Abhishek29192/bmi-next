@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import Logo from "@bmi-digital/components/logo";
+import Logo from "@bmi-digital/components/logo/Logo";
 
 const PREFIX = "BrandLogoStyles";
 

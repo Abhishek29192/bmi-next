@@ -157,10 +157,11 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                 >
                   <svg
-                    class="download-icon css-z6lod7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                     fill="none"
+                    focusable="false"
                     viewBox="0 0 48 48"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M30.78 5H12.55v38H42V15.858L30.78 5z"
@@ -218,13 +219,14 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   tabindex="0"
                 >
                   <svg
-                    class="css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                    data-testid="DownloadIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
+                      d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                     />
                   </svg>
                   <span
@@ -245,12 +247,14 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                     type="button"
                   >
                     <svg
-                      class="css-afm3c7"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                      data-testid="ContentCopyIcon"
+                      focusable="false"
                       viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                        d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                       />
                     </svg>
                     <span
@@ -329,8 +333,10 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                 >
                   <svg
-                    class="download-icon css-z6lod7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                     fill="none"
+                    focusable="false"
                     viewBox="0 0 48 48"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -390,13 +396,14 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   tabindex="0"
                 >
                   <svg
-                    class="css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                    data-testid="DownloadIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
+                      d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                     />
                   </svg>
                   <span
@@ -417,12 +424,14 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                     type="button"
                   >
                     <svg
-                      class="css-afm3c7"
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                      data-testid="ContentCopyIcon"
+                      focusable="false"
                       viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                        d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                       />
                     </svg>
                     <span
@@ -554,8 +563,10 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
-                          class="download-icon css-z6lod7"
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                           fill="none"
+                          focusable="false"
                           viewBox="0 0 48 48"
                           xmlns="http://www.w3.org/2000/svg"
                         >
@@ -623,13 +634,14 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                           tabindex="0"
                         >
                           <svg
-                            class="css-afm3c7"
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                            data-testid="DownloadIcon"
+                            focusable="false"
                             viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                              fill="currentColor"
+                              d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                             />
                           </svg>
                           <span
@@ -654,12 +666,14 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                             type="button"
                           >
                             <svg
-                              class="css-afm3c7"
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                              data-testid="ContentCopyIcon"
+                              focusable="false"
                               viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                               />
                             </svg>
                             <span
