@@ -1,6 +1,7 @@
 import fetchRetry from "@bmi/fetch-retry";
+import type { CreateRoleProps, RoleProps } from "contentful-management";
 
-export const createRoles = async (body: any) => {
+export const createRoles = async (body: CreateRoleProps) => {
   try {
     await fetchRetry(
       `https://api.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/roles`,
@@ -19,7 +20,7 @@ export const createRoles = async (body: any) => {
   }
 };
 
-export const updateRole = async (body: Record<string, never>, role: any) => {
+export const updateRole = async (role: RoleProps) => {
   try {
     console.info(`Triggering update ${role.name} role`);
     await fetchRetry(
@@ -29,9 +30,9 @@ export const updateRole = async (body: Record<string, never>, role: any) => {
         headers: {
           Authorization: `Bearer ${process.env.CONTENTFUL_MANAGEMENT_TOKEN}`,
           "Content-Type": "application/vnd.contentful.management.v1+json",
-          "X-Contentful-Version": role.sys.version
+          "X-Contentful-Version": role.sys.version.toString()
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify(role)
       }
     );
     console.info(`Updated ${role.name} role`);
@@ -40,7 +41,18 @@ export const updateRole = async (body: Record<string, never>, role: any) => {
   }
 };
 
-export const getSpaceRoles = async () => {
+type GetSpaceRoles = () => Promise<
+  | {
+      items: RoleProps[];
+      total: number;
+      skip: number;
+      limit: number;
+      sys: { type: "Array" };
+    }
+  | undefined
+>;
+
+export const getSpaceRoles: GetSpaceRoles = async () => {
   try {
     const response = await fetchRetry(
       `https://api.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/roles`,

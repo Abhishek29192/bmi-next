@@ -56,9 +56,6 @@ export const getAllValues = (
       const lengthValueA = a["length"]?.value || 0;
       const lengthValueB = b["length"]?.value || 0;
 
-      const volumeValueA = a["volume"]?.value || 0;
-      const volumeValueB = b["volume"]?.value || 0;
-
       const thicknessValueA = a["thickness"]?.value || 0;
       const thicknessValueB = b["thickness"]?.value || 0;
 
@@ -66,8 +63,7 @@ export const getAllValues = (
         lengthValueA - lengthValueB ||
         heightValueA - heightValueB ||
         widthValueA - widthValueB ||
-        thicknessValueA - thicknessValueB ||
-        volumeValueA - volumeValueB
+        thicknessValueA - thicknessValueB
       );
     }
     return a < b ? -1 : 1;

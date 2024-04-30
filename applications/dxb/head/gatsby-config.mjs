@@ -329,7 +329,8 @@ const config = {
         }
       }
     },
-    ...(process.env.GATSBY_ENABLE_TRAININGS === "true"
+    ...(process.env.GATSBY_ENABLE_TRAININGS === "true" &&
+    !process.env.GATSBY_PREVIEW
       ? [
           {
             resolve: "@bmi/gatsby-source-docebo",
@@ -370,7 +371,7 @@ const config = {
         options
       };
     }),
-    ...(process.env.DISABLE_PIM_DATA === "true"
+    ...(process.env.DISABLE_PIM_DATA === "true" || process.env.GATSBY_PREVIEW
       ? []
       : [
           {
@@ -581,11 +582,11 @@ const config = {
       : [])
   ],
   flags: {
-    DEV_SSR: true,
-    FAST_DEV: true,
-    PARALLEL_SOURCING: true,
-    PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    PARALLEL_QUERY_RUNNING: true
+    DEV_SSR: process.env.GATSBY_PREVIEW !== "true",
+    FAST_DEV: process.env.GATSBY_PREVIEW !== "true",
+    PARALLEL_SOURCING: process.env.GATSBY_PREVIEW !== "true",
+    PRESERVE_FILE_DOWNLOAD_CACHE: process.env.GATSBY_PREVIEW !== "true",
+    PARALLEL_QUERY_RUNNING: process.env.GATSBY_PREVIEW !== "true"
   },
   // The `headers` section is used by gatsbyjs adapters
   headers: [

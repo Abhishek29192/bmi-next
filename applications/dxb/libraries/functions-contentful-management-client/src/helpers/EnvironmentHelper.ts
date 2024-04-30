@@ -94,6 +94,8 @@ const createEnvironment = (
   getEnvironmentTemplateInstallations:
     jest.fn<Environment["getEnvironmentTemplateInstallations"]>(),
   toPlainObject: jest.fn<Environment["toPlainObject"]>(),
+  getPublishedAssets: jest.fn<Environment["getPublishedAssets"]>(),
+  createAppAccessToken: jest.fn<Environment["createAppAccessToken"]>(),
   ...environment
 });
 

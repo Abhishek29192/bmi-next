@@ -18,7 +18,8 @@ import {
   groupBy,
   IndexedItemGroup,
   indexFeatures,
-  mapProductClassifications
+  mapProductClassifications,
+  TransformedMeasurementValue
 } from "../CLONE";
 import { createTwoOneClassifications } from "./helpers/TwoOneHelper";
 
@@ -57,15 +58,15 @@ describe("CLONE tests", () => {
         it("should return multiple measurements with same unit", () => {
           expect(
             getSizeLabel({
-              height: {
-                name: "height",
+              width: {
+                name: "width",
                 value: {
                   value: { value: "5" },
                   unit: "mm"
                 }
               },
-              width: {
-                name: "width",
+              height: {
+                name: "height",
                 value: {
                   value: { value: "5" },
                   unit: "mm"
@@ -95,7 +96,7 @@ describe("CLONE tests", () => {
                 }
               }
             })
-          ).toEqual("5mm x 5cm");
+          ).toEqual("5cm x 5mm");
         });
       });
     });
@@ -208,6 +209,29 @@ describe("CLONE tests", () => {
       expect(mapedProductClassifications).toEqual(expectedObj);
     });
 
+    // To test the order of arguments
+    it("should return the correct size label with units when called with arguments in order", () => {
+      const measurement: TransformedMeasurementValue = {
+        width: {
+          name: "Bredde",
+          value: { value: { value: "50" }, unit: "mm" }
+        },
+        length: {
+          name: "Lengde",
+          value: { value: { value: "1000" }, unit: "mm" }
+        },
+        height: {
+          name: "Høyde",
+          value: { value: { value: "40" }, unit: "mm" }
+        },
+        thickness: {
+          name: "Tykkelse",
+          value: { value: { value: "1" }, unit: "mm" }
+        }
+      };
+      expect(getSizeLabel(measurement)).toBe("50x1000x40x1mm");
+    });
+
     describe("when withUnit is false tests", () => {
       describe("when object with single measurement attribute is provided", () => {
         it("should return single measurement without its unit", () => {
@@ -258,24 +282,24 @@ describe("CLONE tests", () => {
           expect(
             getSizeLabel(
               {
-                height: {
-                  name: "height",
-                  value: {
-                    value: { value: "5" },
-                    unit: "mm"
-                  }
-                },
                 width: {
                   name: "width",
                   value: {
                     value: { value: "5" },
                     unit: "cm"
                   }
+                },
+                height: {
+                  name: "height",
+                  value: {
+                    value: { value: "5" },
+                    unit: "mm"
+                  }
                 }
               },
               false
             )
-          ).toEqual("5mm x 5cm");
+          ).toEqual("5cm x 5mm");
         });
       });
     });
