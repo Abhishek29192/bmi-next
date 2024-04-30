@@ -207,7 +207,7 @@ describe("VisualiserProvider", () => {
         >
           <VisualiserContext.Consumer>
             {(ctx) => (
-              <Button onClick={() => ctx.open!()}>Open Visualiser</Button>
+              <Button onClick={() => ctx.open!(null)}>Open Visualiser</Button>
             )}
           </VisualiserContext.Consumer>
         </Visualiser>,
@@ -249,7 +249,7 @@ describe("VisualiserContext", () => {
       <ThemeProvider>
         <VisualiserContext.Consumer>
           {(ctx) => (
-            <Button onClick={() => ctx.open!()}>Open Visualiser</Button>
+            <Button onClick={() => ctx.open!(null)}>Open Visualiser</Button>
           )}
         </VisualiserContext.Consumer>
       </ThemeProvider>
@@ -268,7 +268,7 @@ describe("VisualiserContext", () => {
       <ThemeProvider>
         <VisualiserContext.Consumer>
           {(ctx) => (
-            <Button onClick={() => ctx.open!()}>Open Visualiser</Button>
+            <Button onClick={() => ctx.open!(null)}>Open Visualiser</Button>
           )}
         </VisualiserContext.Consumer>
       </ThemeProvider>

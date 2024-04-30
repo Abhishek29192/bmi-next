@@ -710,7 +710,7 @@ describe("ButtonLink", () => {
       expect(mockOpen).not.toHaveBeenCalled();
     });
 
-    it("should not call open if the parameters prop is null", () => {
+    it("should call open if the parameters prop is null", () => {
       renderWithProviders(
         <VisualiserContext.Provider value={{ isOpen: false, open: mockOpen }}>
           <ButtonLink
@@ -727,7 +727,7 @@ describe("ButtonLink", () => {
       );
 
       fireEvent.click(visualiserButtonLink);
-      expect(mockOpen).not.toHaveBeenCalled();
+      expect(mockOpen).toHaveBeenCalledWith(null);
     });
 
     it("should attach a data-gtm attribute, using the children prop as the label, by default", () => {
@@ -948,7 +948,7 @@ describe("ButtonLink", () => {
       expect(mockOpen).not.toHaveBeenCalled();
     });
 
-    it("should not call open if the parameters prop is null", () => {
+    it("should call open if the parameters prop is null", () => {
       renderWithProviders(
         <CalculatorContext.Provider value={{ isOpen: false, open: mockOpen }}>
           <ButtonLink
@@ -965,7 +965,7 @@ describe("ButtonLink", () => {
       );
 
       fireEvent.click(calculatorButtonLink);
-      expect(mockOpen).not.toHaveBeenCalled();
+      expect(mockOpen).toHaveBeenCalledWith(null);
     });
 
     it("should attach a data-gtm attribute, using the children prop as the label, by default", () => {

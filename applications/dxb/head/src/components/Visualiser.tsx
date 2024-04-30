@@ -23,7 +23,7 @@ const VisualiserOld = React.lazy(() => import("./visualiser/VisualiserOld"));
 
 type Context = {
   isOpen: boolean;
-  open?: (params?: Record<string, unknown>) => void;
+  open?: (params: Record<string, unknown> | null) => void;
 };
 
 const GtmEventsMap = {

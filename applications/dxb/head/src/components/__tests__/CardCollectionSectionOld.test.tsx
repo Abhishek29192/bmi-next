@@ -462,7 +462,7 @@ describe("CardCollectionSection component", () => {
       fireEvent.click(visualiserLink);
     });
 
-    it("does not call visualiserOpen when link paramaters are null", async () => {
+    it("should call visualiserOpen when link paramaters are null", async () => {
       const cards: Card[] = [card1];
 
       const data: Data = {
@@ -509,7 +509,7 @@ describe("CardCollectionSection component", () => {
 
       const visualiserLink = screen.getByText(data.link!.label);
       fireEvent.click(visualiserLink);
-      expect(visualiserOpen).not.toHaveBeenCalled();
+      expect(visualiserOpen).toHaveBeenCalledWith(null);
     });
 
     it("calls visualiserOpen with link parameters when link parameters are populated", async () => {
@@ -613,7 +613,7 @@ describe("CardCollectionSection component", () => {
       fireEvent.click(calculatorLink);
     });
 
-    it("does not call calculatorOpen when link parameters are null", async () => {
+    it("calls calculatorOpen when link parameters are null", async () => {
       const cards: Card[] = [card1];
 
       const data: Data = {
@@ -661,7 +661,7 @@ describe("CardCollectionSection component", () => {
 
       const calculatorLink = screen.getByText(data.link!.label);
       fireEvent.click(calculatorLink);
-      expect(calculatorOpen).not.toHaveBeenCalled();
+      expect(calculatorOpen).toHaveBeenCalledWith(null);
     });
 
     it("calls calculatorOpen with link parameters when link parameters are populated", async () => {

@@ -595,7 +595,7 @@ describe("Link", () => {
       expect(mockOpen).not.toHaveBeenCalled();
     });
 
-    it("should not call open if the parameters prop is null", () => {
+    it("should call open if the parameters prop is null", () => {
       renderWithProviders(
         <VisualiserContext.Provider value={{ isOpen: false, open: mockOpen }}>
           <Link
@@ -612,7 +612,7 @@ describe("Link", () => {
       );
 
       fireEvent.click(visualiserLink);
-      expect(mockOpen).not.toHaveBeenCalled();
+      expect(mockOpen).toHaveBeenCalledWith(null);
     });
 
     it("should attach a data-gtm attribute, using the children prop as the label, by default", () => {
@@ -819,7 +819,7 @@ describe("Link", () => {
       expect(mockOpen).not.toHaveBeenCalled();
     });
 
-    it("should not call open if the parameters prop is null", () => {
+    it("should call open if the parameters prop is null", () => {
       renderWithProviders(
         <CalculatorContext.Provider value={{ isOpen: false, open: mockOpen }}>
           <Link
@@ -836,7 +836,7 @@ describe("Link", () => {
       );
 
       fireEvent.click(calculatorLink);
-      expect(mockOpen).not.toHaveBeenCalled();
+      expect(mockOpen).toHaveBeenCalledWith(null);
     });
 
     it("should attach a data-gtm attribute, using the children prop as the label, by default", () => {
