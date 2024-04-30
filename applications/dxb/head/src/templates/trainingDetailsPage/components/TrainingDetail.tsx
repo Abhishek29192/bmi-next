@@ -1,32 +1,33 @@
-import { useIsClient } from "@bmi-digital/components";
+import { useIsClient } from "@bmi-digital/components/hooks";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import Container from "@bmi-digital/components/container";
 import Grid from "@bmi-digital/components/grid";
 import Typography from "@bmi-digital/components/typography";
-import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import ProgressIndicator from "../../../components/ProgressIndicator";
 import Scrim from "../../../components/Scrim";
 import { useSiteContext } from "../../../components/Site";
-import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
-import getCategoryType from "../../../utils/getCategoryType";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { useHeaderHeight } from "../../../utils/useHeaderHeight";
 import {
   CourseDescription,
   EnrollButton,
   EnrollButtonContainer,
+  MobileTrainingInfoGrid,
   SessionContainer,
   SessionDataContainer,
   SessionDetailContainer,
   SessionInterval,
   SessionName,
   StyledCardGrid,
-  StyledTrainingCard,
   Title,
-  TrainingInfoContainer,
+  TrainingCode,
   Wrapper
 } from "../trainingDetailsPageStyles";
+import DesktopTrainingCard from "./DesktopTrainingCard";
+import MobileStickyFooter from "./MobileStickyFooter";
+import MobileTrainingInfo from "./MobileTrainingInfo";
 import type { TrainingDetailsCourseType as Course } from "../types";
 
 interface Props {
@@ -54,6 +55,7 @@ const TrainingDetails = ({
   const headerHeight = useHeaderHeight();
   const { isClient } = useIsClient();
   const [loading, setLoading] = useState<boolean>(true);
+  const sessionsSectionRef = useRef<HTMLDivElement | null>(null);
 
   const trainingCardTopOffset = useMemo(
     () => `${headerHeight + 18}px`,
@@ -95,6 +97,11 @@ const TrainingDetails = ({
       ).toLowerCase(),
     [getMicroCopy]
   );
+  const scrollToSessions = () => {
+    //Should be used for the desktop version after switching
+    //to the new version of the Training Details Card component
+    sessionsSectionRef.current?.scrollIntoView();
+  };
 
   return (
     <Wrapper>
@@ -104,7 +111,22 @@ const TrainingDetails = ({
         </Scrim>
       )}
       <Container>
-        <TrainingInfoContainer container spacing={3}>
+        <Grid container spacing={3}>
+          <MobileTrainingInfoGrid
+            xs={12}
+            md={12}
+            data-testid="mobile-training-info-grid"
+          >
+            <MobileTrainingInfo
+              code={courseCode}
+              categoryName={categoryName}
+              name={name}
+              course_type={course_type}
+              price={price}
+              currencySymbol={currencySymbol}
+              img_url={img_url}
+            />
+          </MobileTrainingInfoGrid>
           <Grid xs={12} md={12} lg={8}>
             <Title
               variant="h1"
@@ -114,11 +136,9 @@ const TrainingDetails = ({
             >
               {name}
             </Title>
-            {courseCode && (
-              <Typography data-testid="training-code">
-                {getMicroCopy(microCopy.TRAINING_CODE_LABEL)} {courseCode}
-              </Typography>
-            )}
+            <TrainingCode data-testid="training-code">
+              {getMicroCopy(microCopy.TRAINING_CODE_LABEL)} {courseCode}
+            </TrainingCode>
             <CourseDescription
               dangerouslySetInnerHTML={{ __html: description }}
               data-testid="training-description"
@@ -131,35 +151,28 @@ const TrainingDetails = ({
             top={trainingCardTopOffset}
             data-testid="training-card-sticky-container"
           >
-            <StyledTrainingCard
-              title={name}
-              subtitle={`${getMicroCopy(
-                microCopy.TRAINING_CODE_LABEL
-              )} ${courseCode}`}
-              media={<img src={img_url} alt={name} />}
-              price={
-                Number(price) > 0
-                  ? `${currencySymbol}${price}`
-                  : getMicroCopy(microCopy.TRAINING_PRICE_FREE)
-              }
-              category={{
-                type: getCategoryType(categoryName),
-                // eslint-disable-next-line security/detect-object-injection
-                label: getMicroCopy(trainingCategoryMicroCopies[categoryName])
-              }}
-              trainingType={{
-                type: course_type,
-                label: getMicroCopy(`trainingType.${course_type}`)
-              }}
-              ctaLabel={getMicroCopy(
-                microCopy.TRAINING_DETAILS_SEE_AVAILABLE_SESSIONS_BUTTON
-              )}
-              href={`#${availableSessionsContainerId}`}
+            <DesktopTrainingCard
+              code={courseCode}
+              categoryName={categoryName}
+              name={name}
+              course_type={course_type}
+              price={price}
+              currencySymbol={currencySymbol}
+              img_url={img_url}
+              sessionsContainerId={availableSessionsContainerId}
             />
           </StyledCardGrid>
-        </TrainingInfoContainer>
+        </Grid>
       </Container>
-      <SessionContainer id={availableSessionsContainerId}>
+      <MobileStickyFooter
+        disabled={!runningSessions?.length}
+        scrollToSessions={scrollToSessions}
+      />
+      <SessionContainer
+        id={availableSessionsContainerId}
+        ref={sessionsSectionRef}
+        data-testid="available-sessions"
+      >
         <Container>
           <Title
             variant="h4"

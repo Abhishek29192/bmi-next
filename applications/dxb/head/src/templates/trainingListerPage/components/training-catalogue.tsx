@@ -3,11 +3,12 @@ import AddIcon from "@bmi-digital/components/icon/Add";
 import RemoveIcon from "@bmi-digital/components/icon/Remove";
 import TrainingCatalogueCard from "@bmi-digital/components/training-catalogue-card";
 import { Training } from "@bmi/elasticsearch-types";
-import { MicroCopyValues, microCopy } from "@bmi/microcopies";
+import { microCopy } from "@bmi/microcopies";
 import { Link } from "gatsby";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useSiteContext } from "../../../components/Site";
-import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
+import { trainingCategoryMicroCopies } from "../../../constants/trainingCategoryMicroCopies";
+import { trainingTypeMicroCopies } from "../../../constants/trainingTypeMicroCopies";
 import { getSearchParams } from "../../../utils/filters";
 import getCategoryType from "../../../utils/getCategoryType";
 import { getPathWithCountryCode } from "../../../utils/path";
@@ -142,7 +143,7 @@ const TrainingCatalogue = ({
               trainingType={{
                 type: training.courseType,
                 label: getMicroCopy(
-                  `trainingType.${training.courseType}` as MicroCopyValues
+                  trainingTypeMicroCopies[training.courseType]
                 )
               }}
               price={

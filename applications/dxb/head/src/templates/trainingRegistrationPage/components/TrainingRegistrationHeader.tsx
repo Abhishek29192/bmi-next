@@ -1,19 +1,16 @@
 import Calender from "@bmi-digital/components/icon/Calender";
-import ConnectedTv from "@bmi-digital/components/icon/ConnectedTv";
-import ContactsOutlined from "@bmi-digital/components/icon/ContactsOutlined";
-import FlatRoof from "@bmi-digital/components/icon/FlatRoof";
-import Laptop from "@bmi-digital/components/icon/Laptop";
-import OtherTraining from "@bmi-digital/components/icon/OtherTraining";
-import PitchedRoof from "@bmi-digital/components/icon/PitchedRoof";
 import TollOutlined from "@bmi-digital/components/icon/TollOutlined";
 import Section from "@bmi-digital/components/section";
-import { CategoryType, CourseType } from "@bmi/docebo-types";
 import { Training } from "@bmi/elasticsearch-types";
-import { MicroCopyValues, microCopy } from "@bmi/microcopies";
+import { microCopy } from "@bmi/microcopies";
 import React from "react";
 import { useSiteContext } from "../../../components/Site";
-import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
+import { trainingCategoriesIcon } from "../../../constants/trainingCategoriesIcon";
+import { trainingTypeIcon } from "../../../constants/trainingTypeIcon";
+import { trainingCategoryMicroCopies } from "../../../constants/trainingCategoryMicroCopies";
+import { trainingTypeMicroCopies } from "../../../constants/trainingTypeMicroCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
+import { getPriceLabel } from "../../../utils/trainingUtils";
 import {
   StyledIcon,
   TrainingDataContainer,
@@ -27,18 +24,6 @@ type Props = {
   training: Training;
 };
 
-const trainingCategoriesIcon: Record<CategoryType, React.ElementType> = {
-  Pitched: PitchedRoof,
-  Flat: FlatRoof,
-  Other: OtherTraining
-};
-
-const trainingTypeIcon: Record<CourseType, React.ElementType> = {
-  classroom: ContactsOutlined,
-  elearning: ConnectedTv,
-  webinar: Laptop
-};
-
 const TrainingRegistrationHeader = ({ training }: Props) => {
   const {
     courseName,
@@ -46,7 +31,6 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
     courseType,
     category,
     currencySymbol,
-    onSale,
     startDate,
     price
   } = training;
@@ -96,7 +80,8 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
           <TrainingDesc data-testid="training-type">
             {/* eslint-disable-next-line security/detect-object-injection */}
             <StyledIcon source={trainingTypeIcon[courseType]} />
-            {getMicroCopy(`trainingType.${courseType}` as MicroCopyValues)}
+            {/* eslint-disable-next-line security/detect-object-injection */}
+            {getMicroCopy(trainingTypeMicroCopies[courseType])}
           </TrainingDesc>
         </TrainingDetailContainer>
         <TrainingSeparation />
@@ -106,9 +91,11 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
           </TrainingLabel>
           <TrainingDesc data-testid="training-price">
             <StyledIcon source={TollOutlined} />
-            {onSale
-              ? `${currencySymbol}${price}`
-              : getMicroCopy(microCopy.TRAINING_PRICE_FREE)}
+            {getPriceLabel(
+              price,
+              currencySymbol,
+              getMicroCopy(microCopy.TRAINING_PRICE_FREE)
+            )}
           </TrainingDesc>
         </TrainingDetailContainer>
         <TrainingSeparation />
