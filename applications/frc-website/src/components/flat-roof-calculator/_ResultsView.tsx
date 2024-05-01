@@ -30,7 +30,6 @@ type Props = {
   resultProducts: ResultProduct[];
   treeFieldsDisplay: FieldsDisplay;
   link: string;
-  navigate: (to: string) => void;
   calculateNewRoofButtonLabel: string;
   edit: () => void;
   editButtonLabel: string;
@@ -46,7 +45,6 @@ const ResultsView = ({
   resultProducts,
   treeFieldsDisplay,
   link,
-  navigate,
   calculateNewRoofButtonLabel,
   edit,
   editButtonLabel,
@@ -262,7 +260,7 @@ const ResultsView = ({
           <Button
             startIcon={<ArrowBackIcon />}
             variant="outlined"
-            onClick={() => navigate("/" + window.location.search)}
+            href={`/${window.location.search}`}
             className="item"
           >
             {calculateNewRoofButtonLabel}

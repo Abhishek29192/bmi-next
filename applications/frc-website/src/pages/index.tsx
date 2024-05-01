@@ -4,7 +4,6 @@ import Hero from "@bmi-digital/components/hero";
 import HelpOutlineIcon from "@bmi-digital/components/icon/QuestionMarkOutline";
 import VerifiedUserIcon from "@bmi-digital/components/icon/VerifiedUser";
 import Typography from "@bmi-digital/components/typography";
-import { Link } from "gatsby";
 import queryString from "query-string";
 import React from "react";
 import Container from "../components/Container";
@@ -53,14 +52,14 @@ const Home = () => (
         }
       >
         <Grid>
-          <Link to={getLink("sbs", { guarantee: "20" })} className="link">
-            <Button>20 Year System</Button>
-          </Link>
+          <Button className="link" href={getLink("sbs", { guarantee: "20" })}>
+            20 Year System
+          </Button>
         </Grid>
         <Grid>
-          <Link to={getLink("sbs", { guarantee: "15" })} className="link">
-            <Button>15 Year System</Button>
-          </Link>
+          <Button className="link" href={getLink("sbs", { guarantee: "15" })}>
+            15 Year System
+          </Button>
         </Grid>
       </OptionCard>
       <OptionCard
@@ -69,9 +68,9 @@ const Home = () => (
           "BMI Icopal APP Bitumen systems come in two colour finishes and offer a 15 year guarantee."
         }
       >
-        <Link to={getLink("app", { guarantee: "15" })} className="link">
-          <Button>15 Year System</Button>
-        </Link>
+        <Button className="link" href={getLink("app", { guarantee: "15" })}>
+          15 Year System
+        </Button>
       </OptionCard>
       <div>
         <DescriptionCard

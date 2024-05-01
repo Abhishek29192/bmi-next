@@ -1,5 +1,4 @@
 import React from "react";
-import { navigate } from "gatsby";
 import FlatRoofCalculator from "../components/flat-roof-calculator";
 import calculatorData from "../components/flat-roof-calculator/samples/calculatorData";
 import Page from "../components/Page";
@@ -25,7 +24,6 @@ const SBS = () => (
         }}
         calculatorData={calculatorData}
         treeFieldsDisplay={treeFieldsDisplay("SBS")}
-        navigate={navigate}
         inputContent={inputContent("SBS")}
         resultsContent={{
           header: "Recommended system",

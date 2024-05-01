@@ -1261,11 +1261,11 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
       <div
         class="spaceBetween"
       >
-        <button
+        <a
           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium item css-1ga0prt-MuiButtonBase-root-MuiButton-root"
           data-testid="button"
+          href="/"
           tabindex="0"
-          type="button"
         >
           <span
             class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1286,7 +1286,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </button>
+        </a>
         <button
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
