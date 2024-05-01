@@ -119,7 +119,7 @@ const VisualiserButton = ({
     (...args: unknown[]) => {
       onClick && onClick(...args);
 
-      if (open && parameters) {
+      if (open) {
         open(parameters);
       }
     },
@@ -159,7 +159,7 @@ const CalculatorButton = ({
     (...args: unknown[]) => {
       onClick && onClick(...args);
 
-      if (open && parameters) {
+      if (open) {
         open(parameters);
       }
     },

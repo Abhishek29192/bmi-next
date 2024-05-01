@@ -24,7 +24,7 @@ type Parameters = {
 
 type Context = {
   isOpen: boolean;
-  open?: (params?: Record<string, unknown>) => void;
+  open?: (params: Record<string, unknown> | null) => void;
 };
 
 export const CalculatorContext = createContext<Context>({
@@ -51,8 +51,8 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
   } = useConfig();
   const showCalculatorDialog = !(typeof window === "undefined") && isOpen;
 
-  const open: Context["open"] = (params = {}) => {
-    setParameters(params);
+  const open: Context["open"] = (params) => {
+    setParameters(params || {});
     setIsOpen(true);
   };
 
