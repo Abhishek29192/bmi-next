@@ -1,3 +1,8 @@
+spec:
+  inputs:
+    preceding_job:
+---
+
 lint_gcp-system-configurator:
   extends: .lint_function
   variables:
@@ -33,6 +38,9 @@ deploy_gcp-system-configurator:
   needs:
     - job: package_gcp-system-configurator
       artifacts: true
+    - job: $[[inputs.preceding_job]]
+      artifacts: false
+      optional: true
   variables:
     FUNCTION_NAME: "gcp-system-configurator"
     ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"

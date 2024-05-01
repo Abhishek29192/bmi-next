@@ -1,3 +1,8 @@
+spec:
+  inputs:
+    preceding_job:
+---
+
 lint_gcp-docebo-data-filter:
   extends: .lint_function
   variables:
@@ -32,6 +37,9 @@ deploy_gcp-docebo-data-filter:
   needs:
     - job: package_gcp-docebo-data-filter
       artifacts: true
+    - job: $[[inputs.preceding_job]]
+      artifacts: false
+      optional: true
   variables:
     FUNCTION_NAME: gcp-docebo-data-filter
     ROOT_DIR: applications/dxb/functions/gcp-docebo-data-filter
