@@ -16,8 +16,6 @@ import {
 } from "@bmi/functions-es-client";
 import { ApprovalStatus } from "@bmi/pim-types";
 
-export type Operation = "index" | "delete";
-
 const getAssetsBulkOperations = (
   indexName: string,
   assets: readonly (PimSystemDocument | PimProductDocument)[]

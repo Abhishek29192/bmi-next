@@ -6,7 +6,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import CardCollectionSection, { Data } from "../CardCollectionSection";
 import { Data as PageInfoData } from "../PageInfo";
-import { CalculatorContext } from "../PitchedRoofCalcualtor";
+import { CalculatorContext } from "../PitchedRoofCalculator";
 import { Data as PromoData } from "../Promo";
 import { SiteContextProvider } from "../Site";
 import { TagData } from "../Tag";

@@ -167,7 +167,7 @@ describe("DesktopTrainingCard component", () => {
     );
 
     const footerButton = screen.getByTestId(
-      "training-catalogue-card-footer-button"
+      "training-details-card-footer-button"
     );
     expect(footerButton).toHaveTextContent(
       "MC: trainingDetails.see.available.sessions.button"

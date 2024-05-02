@@ -3,7 +3,6 @@ import AnchorLink from "@bmi-digital/components/anchor-link";
 import Checkbox from "@bmi-digital/components/checkbox";
 import Form, { InputValue } from "@bmi-digital/components/form";
 import Grid from "@bmi-digital/components/grid";
-import { useIsClient } from "@bmi-digital/components/hooks";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import RadioGroup from "@bmi-digital/components/radio-group";
 import Section from "@bmi-digital/components/section";
@@ -140,7 +139,6 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
-  const { isClient } = useIsClient();
   const { gcpFormUploadEndpoint } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -175,6 +173,18 @@ const Input = ({
     [getMicroCopy, maxSize]
   );
 
+  const onUploadRequest = useCallback(async () => {
+    const token = qaAuthToken ? undefined : await executeRecaptcha?.();
+    let headers: HeadersInit = {
+      "X-Recaptcha-Token": token
+    };
+    if (qaAuthToken) {
+      headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+    }
+
+    return { headers: { ...headers } };
+  }, [executeRecaptcha, qaAuthToken]);
+
   switch (type) {
     case "upload":
       return (
@@ -204,17 +214,7 @@ const Input = ({
               : "")
           }
           mapValue={mapValue}
-          onUploadRequest={async () => {
-            const token = qaAuthToken ? undefined : await executeRecaptcha?.();
-            let headers: HeadersInit = {
-              "X-Recaptcha-Token": token
-            };
-            if (qaAuthToken) {
-              headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
-            }
-
-            return { headers: { ...headers } };
-          }}
+          onUploadRequest={onUploadRequest}
           microcopyProvider={{
             "upload.instructions.drop": getMicroCopy(
               microCopy.UPLOAD_INSTRUCTIONS_DROP
@@ -289,9 +289,7 @@ const Input = ({
       return (
         <>
           <Typography>
-            {isClient && (
-              <span dangerouslySetInnerHTML={{ __html: label }}></span>
-            )}
+            <span dangerouslySetInnerHTML={{ __html: label }}></span>
           </Typography>
           <HiddenInput name={name} value={label} />
         </>
@@ -300,13 +298,7 @@ const Input = ({
       return (
         <Checkbox
           name={name}
-          label={
-            isClient ? (
-              <span dangerouslySetInnerHTML={{ __html: label }}></span>
-            ) : (
-              <span></span>
-            )
-          }
+          label={<span dangerouslySetInnerHTML={{ __html: label }}></span>}
           isRequired={required}
         />
       );

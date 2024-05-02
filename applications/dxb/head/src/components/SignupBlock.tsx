@@ -4,7 +4,7 @@ import SignupBlock, {
 } from "@bmi-digital/components/signup-block";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { isValidEmail } from "../utils/emailUtils";
 import FormSection, { Data as FormData } from "./FormSection";
 import { useSiteContext } from "./Site";
@@ -39,17 +39,11 @@ const IntegratedSignupBlock = ({
   const [legalConsentSubscription, setLegalConsentSubscription] =
     useState(false);
 
-  if (!data) {
-    return null;
-  }
-
-  const { title, description, signupLabel, signupDialogContent } = data;
-
-  const onSuccess = () => {
+  const onSuccess = useCallback(() => {
     setFormSubmitted(true);
-  };
+  }, []);
 
-  const onFormReady = (_, hsForm: HTMLFormElement) => {
+  const onFormReady = useCallback((_, hsForm: HTMLFormElement) => {
     setEmail(hsForm.querySelector<HTMLInputElement>("input[type=email]").value);
     hsForm.querySelector<HTMLInputElement>("input[type=email]").oninput = (
       e
@@ -70,14 +64,33 @@ const IntegratedSignupBlock = ({
     };
 
     setHubSpotForm(hsForm);
-  };
+  }, []);
 
-  const handleDialogClose = () => {
+  const handleDialogClose = useCallback(() => {
     setDialogOpen(false);
     setLegalConsentSubscription(false);
     setLegalConsentProcessing(false);
     setFormSubmitted(false);
-  };
+  }, []);
+
+  const onSubmit = useCallback(() => {
+    setDialogOpen(true);
+  }, []);
+
+  const gtm = useMemo(
+    () => ({
+      id: "cta-click-sign-up",
+      label: `${data?.title} - ${data?.signupLabel}`,
+      action: "sign up started"
+    }),
+    [data?.title, data?.signupLabel]
+  );
+
+  if (!data) {
+    return null;
+  }
+
+  const { title, description, signupLabel, signupDialogContent } = data;
 
   return (
     <StyledIntegratedSignupBlock>
@@ -86,14 +99,8 @@ const IntegratedSignupBlock = ({
         description={description?.description}
         inputCallToAction={signupLabel}
         color={theme || "blue800"}
-        gtm={{
-          id: "cta-click-sign-up",
-          label: `${title} - ${signupLabel}`,
-          action: "sign up started"
-        }}
-        onSubmit={() => {
-          setDialogOpen(true);
-        }}
+        gtm={gtm}
+        onSubmit={onSubmit}
       />
       {dialogOpen && (
         <Dialog

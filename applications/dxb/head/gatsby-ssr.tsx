@@ -2,8 +2,7 @@ import { HubspotProvider } from "@aaronhayes/react-use-hubspot-form";
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import React from "react";
 import { ConfigProvider } from "./src/contexts/ConfigProvider";
-
-import { modifyTheme } from "./src/styles/modifyTheme";
+import { theme } from "./src/styles/modifyTheme";
 
 import type { GatsbySSR } from "gatsby";
 import "./src/styles/global.css";
@@ -12,7 +11,7 @@ export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
   return (
     /*providers with static data*/
     <ConfigProvider>
-      <ThemeProvider modifyTheme={modifyTheme}>
+      <ThemeProvider theme={theme}>
         <HubspotProvider async={false} addToHead={true}>
           {element}
         </HubspotProvider>

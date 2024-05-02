@@ -1,7 +1,7 @@
 import { ApprovalStatus } from "@bmi/pim-types";
 import createProduct from "../../__tests__/helpers/ProductHelper";
-import { Product } from "../../types/pim";
 import { createSchemaOrgDataForPdpPage } from "../schemaOrgPDPpage";
+import type { Product } from "../../types/pim";
 
 describe("createSchemaOrgDataForPdpPage", () => {
   it("should return minimal information for SchemaOrg", () => {

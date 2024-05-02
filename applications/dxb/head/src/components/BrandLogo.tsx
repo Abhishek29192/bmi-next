@@ -1,4 +1,3 @@
-import Logo from "@bmi-digital/components/logo";
 import AeroDek from "@bmi-digital/components/logo/AeroDek";
 import Awak from "@bmi-digital/components/logo/Awak";
 import BMI from "@bmi-digital/components/logo/Bmi";
@@ -95,7 +94,8 @@ export type Logo =
   | "Wierer"
   | "Wolfin"
   | "Zanda"
-  | string; // Handle PIM data
+  | string; // Handle PIM
+
 export const getLogo = (logo?: Logo | null) => {
   switch (logo) {
     case "AeroDek":

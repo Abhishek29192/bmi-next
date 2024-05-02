@@ -3,9 +3,10 @@ import { CategoryType } from "@bmi/docebo-types";
 import FlatRoof from "@bmi-digital/components/icon/FlatRoof";
 import OtherTraining from "@bmi-digital/components/icon/OtherTraining";
 import PitchedRoof from "@bmi-digital/components/icon/PitchedRoof";
+import type { SvgIconProps } from "@mui/material/SvgIcon";
 
 export const trainingCategoriesIcon: {
-  [key in CategoryType]: React.FC<React.SVGProps<SVGSVGElement>>;
+  [key in CategoryType]: React.FC<SvgIconProps>;
 } = {
   Pitched: (props) => (
     <PitchedRoof {...props} data-testid="pitched-training-category-icon" />

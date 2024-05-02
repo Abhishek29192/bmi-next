@@ -1,4 +1,3 @@
-import Icon from "@bmi-digital/components/icon";
 import Delete from "@bmi-digital/components/icon/Delete";
 import Table from "@bmi-digital/components/table";
 import Typography from "@bmi-digital/components/typography";
@@ -150,11 +149,10 @@ export const BuildSmallViewRows = ({
                     onChange={(value) => onChangeQuantity(row, value)}
                   />
                 </div>
-                <Icon
+                <Delete
                   aria-label={`Remove ${row.description}`}
                   role="button"
                   className={classes.icon}
-                  source={Delete}
                   onClick={() => onDelete(row)}
                 />
               </div>
@@ -201,11 +199,10 @@ export const BuildMediumViewRows = ({
           <Table.Cell className={classes.mediumCell}>
             <div className={classes.mediumCellBasketIconWrapper}>
               <Typography>{row.externalProductCode}</Typography>
-              <Icon
+              <Delete
                 aria-label={`Remove ${row.description}`}
                 role="button"
                 className={classes.icon}
-                source={Delete}
                 onClick={() => onDelete(row)}
               />
             </div>
@@ -260,11 +257,10 @@ export const BuildLargeViewRows = ({
             </div>
           </Table.Cell>
           <Table.Cell className={classes.largeCell}>
-            <Icon
+            <Delete
               aria-label={`Remove ${row.description}`}
               role="button"
               className={classes.icon}
-              source={Delete}
               onClick={() => onDelete(row)}
             />
           </Table.Cell>

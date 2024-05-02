@@ -1,4 +1,4 @@
-import {
+import type {
   Asset as PimAsset,
   AssetAssetType as PimAssetAssetType,
   Category as PimCategory,

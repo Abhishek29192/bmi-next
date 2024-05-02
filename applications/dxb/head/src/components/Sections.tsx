@@ -17,7 +17,7 @@ import ExploreBarSection, {
 import FormSection, { Data as FormSectionData } from "./FormSection";
 import IframeSection, { Data as IframeSectionData } from "./IframeSection";
 import LeadBlockSection, { Data as LeadBlockData } from "./LeadBlockSection";
-import ImageGallerySection, {
+import MediaGallerySection, {
   Data as ImageGallerySectionData
 } from "./MediaGallerySection";
 import PromoSection, { Data as PromoSectionData } from "./PromoSection";
@@ -81,7 +81,7 @@ export const sectionsMap = {
   ContentfulNavigation: ExploreBarSection,
   ContentfulTitleWithContent: TitleWithContentSection,
   ContentfulPromo: PromoSection,
-  ContentfulMediaGallerySection: ImageGallerySection,
+  ContentfulMediaGallerySection: MediaGallerySection,
   ContentfulDocumentDownloadSection: DocumentDownloadSection,
   ContentfulServiceLocatorSection: ServiceLocatorSection,
   ContentfulVideoSection: VideoSection,

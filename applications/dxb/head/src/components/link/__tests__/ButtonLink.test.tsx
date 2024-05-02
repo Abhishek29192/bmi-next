@@ -16,7 +16,7 @@ import {
   createVisualiserLinkData
 } from "../../../__tests__/helpers/LinkHelper";
 import { VisualiserContext } from "../../Visualiser";
-import { CalculatorContext } from "../../PitchedRoofCalcualtor";
+import { CalculatorContext } from "../../PitchedRoofCalculator";
 import createFormSectionData from "../../../__tests__/helpers/FormSectionHelper";
 
 const ButtonLinkLabel = "Find out more";

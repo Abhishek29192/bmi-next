@@ -1,5 +1,4 @@
 import Button from "@bmi-digital/components/button";
-import Icon from "@bmi-digital/components/icon";
 import IconButton from "@bmi-digital/components/icon-button";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import Close from "@bmi-digital/components/icon/Close";
@@ -69,7 +68,7 @@ const SampleBasketDialog = ({
           onClick={toggleCart}
           data-testid={"shopping-cart-dialog-close-button"}
         >
-          <Icon source={Close} />
+          <Close />
         </CloseButton>
         <Typography
           variant="h3"
@@ -144,7 +143,7 @@ const SampleBasketDialog = ({
                   product.name
                 )}`}
               >
-                <Icon source={DeleteIcon} />
+                <DeleteIcon />
               </IconButton>
             </ProductButtonContainer>
           </Product>

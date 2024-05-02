@@ -1,4 +1,3 @@
-import { MainNavigationItem } from "@bmi-digital/components/dist/footer/Footer";
 import Footer, {
   MenuItem as FooterMenuItem
 } from "@bmi-digital/components/footer";
@@ -11,6 +10,7 @@ import { getPathWithCountryCode } from "../utils/path";
 import Icon from "./Icon";
 import { useSiteContext } from "./Site";
 import { toAnchorLinkActionProps } from "./link/utils";
+import type { MainNavigationItem } from "@bmi-digital/components/dist/footer/Footer";
 import type { NavigationData } from "./link/types";
 
 const parseNavigation = (

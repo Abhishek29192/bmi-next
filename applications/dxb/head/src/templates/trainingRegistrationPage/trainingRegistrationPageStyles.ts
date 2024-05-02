@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import Icon from "@bmi-digital/components/icon";
+import Icon from "@bmi-digital/components/icon/Icon";
 import Typography from "@bmi-digital/components/typography";
 
 export const TrainingDataContainer = styled("div")(({ theme }) => ({

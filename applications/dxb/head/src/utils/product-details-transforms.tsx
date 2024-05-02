@@ -73,10 +73,11 @@ export const getAllValues = (
 export const transformImages = (
   images: readonly Image[]
 ): readonly MediaData[] => {
-  return images.map(({ mainSource, thumbnail, altText }) => ({
+  return images.map(({ mainSource, thumbnail, altText }, index) => ({
     media: React.createElement("img", {
       src: mainSource,
-      alt: altText
+      alt: altText,
+      loading: index === 0 ? "eager" : "lazy"
     } as HTMLImageElement),
     thumbnail
   }));

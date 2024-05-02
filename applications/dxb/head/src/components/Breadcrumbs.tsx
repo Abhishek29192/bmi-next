@@ -15,7 +15,7 @@ export type Data = BreadcrumbItem[];
 
 type BreadcrumbProps = Omit<
   BaseProps,
-  "linkedBreadcrumbitems" | "lastBreadcrumbitem"
+  "linkedBreadcrumbItems" | "lastBreadcrumbItem"
 > & {
   data: Data;
   concatenateUrls?: boolean;
@@ -46,7 +46,7 @@ type BreadcrumbParams = {
 
 const getBreadcrumbsItem = (
   props: BreadcrumbParams
-): [BaseProps["linkedBreadcrumbitems"], BaseProps["lastBreadcrumbitem"]] => {
+): [BaseProps["linkedBreadcrumbItems"], BaseProps["lastBreadcrumbItem"]] => {
   const { data, concatenateUrls, countryCode, homePage } = props;
   const homePageBreadcrumb = getHomePageBreadcrumb(countryCode, homePage);
 
@@ -99,8 +99,8 @@ const IntegratedBreadcrumbs = ({
   return (
     <Breadcrumbs
       {...rest}
-      linkedBreadcrumbitems={breadcrumbsItems}
-      lastBreadcrumbitem={currentBreadcrumb}
+      linkedBreadcrumbItems={breadcrumbsItems}
+      lastBreadcrumbItem={currentBreadcrumb}
       component={Link}
       data-testid={dataTestId}
       expandText={getMicroCopy(microCopy.GLOBAL_SHOW_MORE)}

@@ -7,8 +7,8 @@ import DefaultImage from "@bmi-digital/components/resources/DefaultImage";
 import Tag from "@bmi-digital/components/tag";
 import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
 import { microCopy } from "@bmi/microcopies";
-import { GoodBetterBest } from "@bmi/pim-types";
 import React, { useContext } from "react";
+import type { GoodBetterBest } from "@bmi/pim-types";
 import { useConfig } from "../contexts/ConfigProvider";
 import {
   getLevel,

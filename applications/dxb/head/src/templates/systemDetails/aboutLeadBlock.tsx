@@ -2,14 +2,13 @@ import AnchorLink from "@bmi-digital/components/anchor-link";
 import Button from "@bmi-digital/components/button";
 import { useIsClient } from "@bmi-digital/components/hooks";
 import IconList from "@bmi-digital/components/icon-list";
-import CheckIcon from "@bmi-digital/components/icon/Check";
 import Launch from "@bmi-digital/components/icon/ExternalLink";
 import LeadBlock from "@bmi-digital/components/lead-block";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { Asset } from "@bmi/pim-types";
 import React from "react";
+import type { Asset } from "@bmi/pim-types";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import RichText from "../../components/RichText";
 import { useSiteContext } from "../../components/Site";
@@ -21,10 +20,6 @@ import type { System } from "../../types/pim";
 type Props = {
   system: System;
   sidebarItem?: ContentfulTitleWithContent;
-};
-
-const BlueCheckIcon = () => {
-  return <StyledBlueCheckIconInter source={CheckIcon} />;
 };
 
 const LeadBlockCardContent = ({
@@ -41,7 +36,7 @@ const LeadBlockCardContent = ({
         {contents.map((value, index) => (
           <IconList.Item
             key={index}
-            icon={BlueCheckIcon()}
+            icon={<StyledBlueCheckIconInter />}
             title={value}
             isCompact
           />

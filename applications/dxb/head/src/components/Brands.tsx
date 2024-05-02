@@ -5,9 +5,10 @@ import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
 import { graphql, Link } from "gatsby";
 import React from "react";
-import BrandLogo, { Logo } from "./BrandLogo";
+import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import { SectionElement } from "./styles/BrandsStyles";
+import type { Logo } from "./BrandLogo";
 
 export type Data = {
   title: string;

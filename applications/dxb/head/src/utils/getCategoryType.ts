@@ -1,5 +1,5 @@
 import type { CategoryType } from "@bmi/docebo-types";
-import type { TrainingDetailsCardProps } from "@bmi-digital/components";
+import type { TrainingDetailsCardProps } from "@bmi-digital/components/training-details-card";
 
 const getCategoryType = (
   categoryType: CategoryType

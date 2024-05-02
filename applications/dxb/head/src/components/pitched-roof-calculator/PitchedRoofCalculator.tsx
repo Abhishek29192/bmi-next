@@ -1,6 +1,5 @@
 import ContainerDialog from "@bmi-digital/components/container-dialog";
 import { useIsClient } from "@bmi-digital/components/hooks";
-import brandLogo from "@bmi-digital/components/logo/Bmi";
 import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import ProgressIndicator from "../ProgressIndicator";
@@ -103,7 +102,7 @@ const PitchedRoofCalculator = ({
           className={classes.modalHeader}
           onCloseClick={onCloseClick}
         >
-          <StyledLogo source={brandLogo} />
+          <StyledLogo />
           <StyledLinearProgress value={progress} variant="determinate" />
         </ContainerDialog.Header>
         <div className={classes.dialogBody}>

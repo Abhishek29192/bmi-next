@@ -1,31 +1,28 @@
 import BackToTop from "@bmi-digital/components/back-to-top";
 import MicroCopy from "@bmi-digital/components/micro-copy";
 import { graphql, navigate } from "gatsby";
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useConfig } from "../contexts/ConfigProvider";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
-import { Product } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 import BrandProvider from "./BrandProvider";
-import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";
 import FallbackComponent from "./FallbackComponent";
 import { Head } from "./Head";
 import { generateGetMicroCopy } from "./MicroCopy";
-import CalculatorProvider from "./PitchedRoofCalcualtor";
-import { Data as SEOContentData } from "./SEOContent";
-import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
-import {
-  Context as SiteContext,
-  SiteContextProvider,
-  Data as SiteData,
-  useSiteContext
-} from "./Site";
+import SignupBlock from "./SignupBlock";
+import { SiteContextProvider, useSiteContext } from "./Site";
 import VisualiserProvider from "./Visualiser";
+import CalculatorProvider from "./PitchedRoofCalculator";
+import type { Context as SiteContext, Data as SiteData } from "./Site";
+import type { Data as SignupBlockData } from "./SignupBlock";
+import type { Product } from "../types/pim";
+import type { Data as SEOContentData } from "./SEOContent";
+import type { Data as BreadcrumbsData } from "./Breadcrumbs";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -93,16 +90,6 @@ const Page = ({
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
-  const siteContext = {
-    node_locale,
-    countryCode,
-    homePage: siteData.homePage,
-    getMicroCopy,
-    gatsbyReCaptchaKey,
-    reCaptchaNet,
-    accountPage
-  };
-
   const microCopyContext = resources?.microCopy?.reduce(
     (carry, { key, value }) => ({
       ...carry,
@@ -111,8 +98,45 @@ const Page = ({
     {}
   );
 
+  const siteContext = useMemo(
+    () => ({
+      node_locale,
+      countryCode,
+      homePage: siteData.homePage,
+      getMicroCopy,
+      gatsbyReCaptchaKey,
+      reCaptchaNet,
+      accountPage
+    }),
+    [
+      accountPage,
+      countryCode,
+      gatsbyReCaptchaKey,
+      getMicroCopy,
+      node_locale,
+      reCaptchaNet,
+      siteData.homePage
+    ]
+  );
+
   const seoTitle =
     variantProduct && variantProduct.seoTitle ? variantProduct.seoTitle : title;
+
+  const onError = useCallback(
+    () => navigate(getPathWithCountryCode(countryCode, "422")),
+    [countryCode]
+  );
+
+  const fallbackRender = useCallback(
+    () => (
+      <ErrorFallback
+        countryCode={countryCode}
+        promo={resources?.errorGeneral}
+      />
+    ),
+    [countryCode, resources?.errorGeneral]
+  );
+
   return (
     <div style={{ overflowX: "hidden", display: "contents" }}>
       <Head
@@ -128,24 +152,14 @@ const Page = ({
         brandLogo={brand}
       />
       <SiteContextProvider value={siteContext}>
-        <BasketContextProvider>
-          <MicroCopy.Provider values={microCopyContext}>
-            <GoogleReCaptchaProvider
-              reCaptchaKey={gatsbyReCaptchaKey}
-              useRecaptchaNet={reCaptchaNet}
-              language={countryCode}
-            >
-              <ErrorBoundary
-                fallbackRender={() => (
-                  <ErrorFallback
-                    countryCode={countryCode}
-                    promo={resources?.errorGeneral}
-                  />
-                )}
-                onError={() =>
-                  navigate(getPathWithCountryCode(countryCode, "422"))
-                }
-              >
+        <MicroCopy.Provider values={microCopyContext}>
+          <GoogleReCaptchaProvider
+            reCaptchaKey={gatsbyReCaptchaKey}
+            useRecaptchaNet={reCaptchaNet}
+            language={countryCode}
+          >
+            <ErrorBoundary fallbackRender={fallbackRender} onError={onError}>
+              <BasketContextProvider>
                 <Header
                   navigationData={menuNavigation}
                   utilitiesData={menuUtilities}
@@ -173,26 +187,24 @@ const Page = ({
                   houseTypes={visualiserHouseTypes}
                 >
                   <CalculatorProvider
-                    onError={() =>
-                      navigate(getPathWithCountryCode(countryCode, "422"))
-                    }
+                    onError={onError}
                     calculatorConfig={pitchedRoofCalculatorConfig}
                   >
                     <BrandProvider brand={brand}>
                       <Content>{children}</Content>
                     </BrandProvider>
                   </CalculatorProvider>
-                  {signupBlock ? <SignupBlock data={signupBlock} /> : null}
-                  <Footer
-                    mainNavigation={footerMainNavigation}
-                    secondaryNavigation={footerSecondaryNavigation}
-                  />
-                  <BackToTop accessibilityLabel="Back to the top" />
                 </VisualiserProvider>
-              </ErrorBoundary>
-            </GoogleReCaptchaProvider>
-          </MicroCopy.Provider>
-        </BasketContextProvider>
+              </BasketContextProvider>
+              {signupBlock ? <SignupBlock data={signupBlock} /> : null}
+              <Footer
+                mainNavigation={footerMainNavigation}
+                secondaryNavigation={footerSecondaryNavigation}
+              />
+              <BackToTop accessibilityLabel="Back to the top" />
+            </ErrorBoundary>
+          </GoogleReCaptchaProvider>
+        </MicroCopy.Provider>
       </SiteContextProvider>
     </div>
   );

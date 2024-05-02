@@ -117,7 +117,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -245,7 +245,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -393,7 +393,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -524,7 +524,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -733,7 +733,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -864,7 +864,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -1012,7 +1012,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -1124,7 +1124,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>

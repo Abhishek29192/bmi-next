@@ -87,7 +87,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
                         class="MuiAccordionDetails-root  css-188s0du-MuiAccordionDetails-root"
                       >
                         <div
-                          class="RichText-root RichText-no-bottom-margin css-1u73y0t"
+                          class="RichText-root RichText-no-bottom-margin css-1lf5op0"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -197,7 +197,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
                         class="MuiAccordionDetails-root  css-188s0du-MuiAccordionDetails-root"
                       >
                         <div
-                          class="RichText-root RichText-no-bottom-margin css-1u73y0t"
+                          class="RichText-root RichText-no-bottom-margin css-1lf5op0"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -352,7 +352,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
               role="tabpanel"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -502,7 +502,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
               role="tabpanel"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -766,7 +766,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
               role="tabpanel"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

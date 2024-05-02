@@ -3,8 +3,8 @@ import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
 import React from "react";
 import { useHasOptanonBoxClosed } from "../utils/useHasOptanonBoxClosed";
-import RichText, { RichTextData } from "./RichText";
-import { Iframe, IframeSummary } from "./styles/IframeSectionStyles";
+import { RichTextData } from "./RichText";
+import { Iframe, StyledRichText } from "./styles/IframeSectionStyles";
 
 type CookieTypeToClass = {
   [key: string]: string;
@@ -47,9 +47,7 @@ const IframeSection = ({ data }: Props) => {
     >
       {data.title && <Section.Title>{data.title}</Section.Title>}
       {data.summary && (
-        <IframeSummary>
-          <RichText document={data.summary} hasNoBottomMargin />
-        </IframeSummary>
+        <StyledRichText document={data.summary} hasNoBottomMargin />
       )}
       {hasAcceptedOptanonCookie && (
         <Iframe

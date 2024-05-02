@@ -7,7 +7,6 @@ import SelectTile from "@bmi-digital/components/icon/SelectTile";
 import SelectWallColour from "@bmi-digital/components/icon/SelectWallColour";
 import ShareIcon from "@bmi-digital/components/icon/Share";
 import TileColour from "@bmi-digital/components/icon/TileColour";
-import Logo from "@bmi-digital/components/logo";
 import BMI from "@bmi-digital/components/logo/Bmi";
 import ToggleCard from "@bmi-digital/components/toggle-card";
 import Typography from "@bmi-digital/components/typography";
@@ -552,12 +551,7 @@ const Visualiser = ({
         )}
         <div className={classes.details}>
           <div className={classes.detailsContainer}>
-            <Logo
-              source={BMI}
-              width="60"
-              height="60"
-              className={classes.detailsLogo}
-            />
+            <BMI width="60" height="60" className={classes.detailsLogo} />
             <div>
               <Typography
                 variant="h5"

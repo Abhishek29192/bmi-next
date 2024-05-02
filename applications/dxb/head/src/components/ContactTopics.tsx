@@ -1,6 +1,6 @@
-import Card, { CardProps } from "@bmi-digital/components/card";
+import Card from "@bmi-digital/components/card";
 import ExpandableCard from "@bmi-digital/components/expandable-card";
-import Grid, { GridProps } from "@bmi-digital/components/grid";
+import Grid from "@bmi-digital/components/grid";
 import IconList from "@bmi-digital/components/icon-list";
 import AddShoppingCartIcon from "@bmi-digital/components/icon/AddShoppingCart";
 import BuildIcon from "@bmi-digital/components/icon/Build";
@@ -16,11 +16,14 @@ import { styled } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
-import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
+import ContactDetails from "./ContactDetails";
 import RichText from "./RichText";
-import { Data as TitleWithContentData } from "./TitleWithContent";
 import { BorderItemElement } from "./styles/BorderedItemStyles";
 import { BodyTitle, FooterTitle } from "./styles/ContactTopicsStyles";
+import type { GridProps } from "@bmi-digital/components/grid";
+import type { CardProps } from "@bmi-digital/components/card";
+import type { Data as ContactDetailsData } from "./ContactDetails";
+import type { Data as TitleWithContentData } from "./TitleWithContent";
 
 const StyledEmojiOutlinedIcon = styled(EmojiObjectsOutlinedIcon)(
   ({ theme }) => ({

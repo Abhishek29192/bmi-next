@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { useIsClient } from "@bmi-digital/components";
+import { useIsClient } from "@bmi-digital/components/hooks";
 import AnchorLink from "@bmi-digital/components/anchor-link";
 import Typography from "@bmi-digital/components/typography";
 import { transformHyphens } from "@bmi-digital/components/utils";

@@ -2,13 +2,12 @@ import Button from "@bmi-digital/components/button";
 import IconList from "@bmi-digital/components/icon-list";
 import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
-import CheckIcon from "@bmi-digital/components/icon/Check";
 import LeadBlock from "@bmi-digital/components/lead-block";
 import Tag from "@bmi-digital/components/tag";
 import { microCopy } from "@bmi/microcopies";
-import { GoodBetterBest } from "@bmi/pim-types";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
+import type { GoodBetterBest } from "@bmi/pim-types";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import { useSiteContext } from "../../components/Site";
 import ButtonLink from "../../components/link/ButtonLink";
@@ -28,10 +27,6 @@ import {
   classes
 } from "./styles/leadBlockSection.styles";
 import type { Data as LinkData } from "../../components/link/types";
-
-const BlueCheckIcon = () => {
-  return <StyledBlueCheckIconInter source={CheckIcon} />;
-};
 
 type Props = {
   name: string;
@@ -160,7 +155,7 @@ const LeadBlockSection = ({
                   {uniqueSellingPropositions.map((value, id) => (
                     <IconList.Item
                       isCompact
-                      icon={BlueCheckIcon()}
+                      icon={<StyledBlueCheckIconInter />}
                       title={value}
                       key={`unique-selling-proposition-${id}`}
                     />

@@ -3,7 +3,7 @@
 exports[`RichText component closes dialog 1`] = `
 <div>
   <div
-    class="RichText-root css-1u73y0t"
+    class="RichText-root css-1lf5op0"
   >
     <h2
       class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
@@ -90,7 +90,7 @@ exports[`RichText component closes dialog 1`] = `
         class="css-1v5x0v5"
       >
         <a
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
           data-gtm="{"id":"cta-click1","action":"//product-category-page/product-sub-category-page/aerodek-robust-plus/","label":"Aerodek Robust Plus"}"
           data-testid="internal-button-link-Aerodek-Robust-Plus"
           href="//product-category-page/product-sub-category-page/aerodek-robust-plus/"
@@ -136,7 +136,7 @@ exports[`RichText component closes dialog 1`] = `
       class="css-1v5x0v5"
     >
       <a
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","action":"//landing-page/","label":"Support"}"
         data-testid="internal-button-link-Support"
         href="//landing-page/"
@@ -196,7 +196,7 @@ exports[`RichText component closes dialog 1`] = `
 exports[`RichText component falls back with incorrect data 1`] = `
 <div>
   <div
-    class="RichText-root css-1u73y0t"
+    class="RichText-root css-1lf5op0"
   >
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -209,7 +209,7 @@ exports[`RichText component falls back with incorrect data 1`] = `
 exports[`RichText component renders correctly 1`] = `
 <div>
   <div
-    class="RichText-root css-1u73y0t"
+    class="RichText-root css-1lf5op0"
   >
     <h2
       class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
@@ -296,7 +296,7 @@ exports[`RichText component renders correctly 1`] = `
         class="css-1v5x0v5"
       >
         <a
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
           data-gtm="{"id":"cta-click1","action":"//product-category-page/product-sub-category-page/aerodek-robust-plus/","label":"Aerodek Robust Plus"}"
           data-testid="internal-button-link-Aerodek-Robust-Plus"
           href="//product-category-page/product-sub-category-page/aerodek-robust-plus/"
@@ -342,7 +342,7 @@ exports[`RichText component renders correctly 1`] = `
       class="css-1v5x0v5"
     >
       <a
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","action":"//landing-page/","label":"Support"}"
         data-testid="internal-button-link-Support"
         href="//landing-page/"
@@ -404,7 +404,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
   aria-hidden="true"
 >
   <div
-    class="RichText-root css-1u73y0t"
+    class="RichText-root css-1lf5op0"
   >
     <h2
       class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
@@ -491,7 +491,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
         class="css-1v5x0v5"
       >
         <a
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
           data-gtm="{"id":"cta-click1","action":"//product-category-page/product-sub-category-page/aerodek-robust-plus/","label":"Aerodek Robust Plus"}"
           data-testid="internal-button-link-Aerodek-Robust-Plus"
           href="//product-category-page/product-sub-category-page/aerodek-robust-plus/"
@@ -537,7 +537,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       class="css-1v5x0v5"
     >
       <a
-        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","action":"//landing-page/","label":"Support"}"
         data-testid="internal-button-link-Support"
         href="//landing-page/"
