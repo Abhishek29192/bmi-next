@@ -125,7 +125,7 @@ const Page = ({
     variantProduct && variantProduct.seoTitle ? variantProduct.seoTitle : title;
 
   const onError = useCallback(
-    () => navigate(getPathWithCountryCode(countryCode, "422")),
+    () => router.push(getPathWithCountryCode(countryCode, "422")),
     [countryCode]
   );
 

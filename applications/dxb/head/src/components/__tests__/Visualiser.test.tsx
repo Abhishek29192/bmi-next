@@ -53,7 +53,7 @@ const tile = createProduct({
 });
 
 const fetchMock = fetchMockJest.sandbox();
-global.fetch = fetchMock;
+global.fetch = fetchMock as typeof fetch;
 
 const mockDataRequest = (product: Product = tile) => {
   mockResponses(fetchMock, {

@@ -15,7 +15,7 @@ import TrainingRegistrationForm from "../components/TrainingRegistrationForm";
 import { FormStatus } from "../types";
 
 const fetchMock = fetchMockJest.sandbox();
-global.fetch = fetchMock;
+global.fetch = fetchMock as typeof fetch;
 
 const replaceMock = jest.fn();
 

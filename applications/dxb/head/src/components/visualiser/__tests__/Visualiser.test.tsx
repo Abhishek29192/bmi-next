@@ -64,7 +64,7 @@ afterEach(() => {
 
 describe("Visualiser component", () => {
   const fetchMock = fetchMockJest.sandbox();
-  global.fetch = fetchMock;
+  global.fetch = fetchMock as typeof fetch;
 
   beforeEach(() => {
     fetchMock.reset();

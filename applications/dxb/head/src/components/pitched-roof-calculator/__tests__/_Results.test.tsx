@@ -844,7 +844,7 @@ describe("PitchedRoofCalculator Results component", () => {
 
 describe("replaceImageURLWithImage", () => {
   const fetchMock = fetchMockJest.sandbox();
-  global.fetch = fetchMock;
+  global.fetch = fetchMock as typeof fetch;
 
   beforeEach(() => {
     fetchMock.reset();
