@@ -1,5 +1,4 @@
 import { draftMode } from "next/headers";
-import React from "react";
 
 async function getData() {
   const { isEnabled } = draftMode();

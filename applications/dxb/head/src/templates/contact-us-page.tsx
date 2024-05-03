@@ -3,28 +3,27 @@ import Section from "@bmi-digital/components/section";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { graphql } from "gatsby";
-import React from "react";
 import BackToResults from "../components/BackToResults";
-import Breadcrumbs, {
-  Data as BreadcrumbsData
-} from "../components/Breadcrumbs";
-import ContactTopics, {
-  Data as ContactTopicsData
-} from "../components/ContactTopics";
-import IframeSection, {
-  Data as IframeSectionData
-} from "../components/IframeSection";
-import Locations, { Data as LocationsData } from "../components/Locations";
-import Page, { Data as PageData } from "../components/Page";
-import { Data as PageInfoData } from "../components/PageInfo";
-import Sections, { Data as SectionsData } from "../components/Sections";
-import { Data as SiteData } from "../components/Site";
-import NextBestActions, {
-  Data as NextBestActionsData
-} from "../components/next-best-actions/NextBestActions";
+import Breadcrumbs from "../components/Breadcrumbs";
+import ContactTopics from "../components/ContactTopics";
+import IframeSection from "../components/IframeSection";
+import Locations from "../components/Locations";
+import Page from "../components/Page";
+import Sections from "../components/Sections";
+import NextBestActions from "../components/next-best-actions/NextBestActions";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import createImageProps from "../components/image/createImageProps";
 import createVideoProps from "../components/video/createVideoProps";
+import type { Data as BreadcrumbsData } from "../components/Breadcrumbs";
+import type { Data as ContactTopicsData } from "../components/ContactTopics";
+import type { Data as IframeSectionData } from "../components/IframeSection";
+import type { Data as LocationsData } from "../components/Locations";
+import type { Data as PageData } from "../components/Page";
+import type { Data as PageInfoData } from "../components/PageInfo";
+import type { Data as SectionsData } from "../components/Sections";
+import type { Data as SiteData } from "../components/Site";
+import type { Data as NextBestActionsData } from "../components/next-best-actions/NextBestActions";
+import type { ImageWidths } from "../components/image/types";
 
 export type Data = PageInfoData &
   PageData & {
@@ -50,6 +49,8 @@ type Props = {
     variantCodeToPathMap?: Record<string, string>;
   };
 };
+
+const mediaWidths: ImageWidths = [593, 713, 408, 708, 988];
 
 const ContactUsPage = ({ data, pageContext }: Props) => {
   const {
@@ -94,12 +95,16 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         title={title}
         media={
           featuredVideo
-            ? createVideoProps(featuredVideo)
+            ? createVideoProps({
+                ...featuredVideo,
+                previewMediaWidths: mediaWidths
+              })
             : featuredMedia
               ? createImageProps({
                   ...featuredMedia,
                   size: "cover",
-                  loading: "eager"
+                  loading: "eager",
+                  widths: mediaWidths
                 })
               : undefined
         }

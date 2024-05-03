@@ -6,7 +6,6 @@ import Search from "@bmi-digital/components/search";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
-import React from "react";
 import BackToResults from "../components/BackToResults";
 import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
@@ -19,7 +18,7 @@ import Page, { Data as PageData } from "../components/Page";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Context as SiteContext } from "../components/Site";
 import ButtonLink from "../components/link/ButtonLink";
-import { DataTypeEnum, type Data as LinkData } from "../components/link/types";
+import { type Data as LinkData, DataTypeEnum } from "../components/link/types";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import { getPathWithCountryCode } from "../utils/path";
 import createImageProps from "../components/image/createImageProps";
@@ -27,6 +26,7 @@ import createVideoProps from "../components/video/createVideoProps";
 import type { Data as SiteData } from "../components/Site";
 import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
+import type { ImageWidths } from "../components/image/types";
 
 type BrandLandingPageData = Omit<PageInfoData, "sections" | "featuredVideo"> &
   Omit<PageData, "breadcrumbs"> & {
@@ -48,6 +48,8 @@ export type Props = {
     variantCodeToPathMap?: Record<string, string>;
   };
 };
+
+const mediaWidths: ImageWidths = [593, 713, 408, 708, 988];
 
 const getHeroItemsWithContext = (
   { getMicroCopy }: SiteContext,
@@ -84,7 +86,10 @@ const getHeroItemsWithContext = (
       title,
       children: subtitle,
       media: featuredVideo
-        ? createVideoProps(featuredVideo)
+        ? createVideoProps({
+            ...featuredVideo,
+            previewMediaWidths: mediaWidths
+          })
         : featuredMedia
           ? createImageProps({
               ...featuredMedia,
@@ -134,7 +139,12 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       description?.description && createEllipsis(description.description, 400),
 
     media: featuredMedia
-      ? createImageProps({ ...featuredMedia, size: "cover", loading: "eager" })
+      ? createImageProps({
+          ...featuredMedia,
+          size: "cover",
+          loading: "eager",
+          widths: mediaWidths
+        })
       : undefined,
     hasUnderline: false,
     cta: cta ? (

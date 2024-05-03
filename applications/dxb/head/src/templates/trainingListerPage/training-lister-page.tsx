@@ -4,7 +4,7 @@ import Search from "@bmi-digital/components/search";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Filters from "../../components/FiltersSidebar";
@@ -13,7 +13,7 @@ import Page from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import Scrim from "../../components/Scrim";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
-import createImageProps from "../../components/image/createImageProps";
+import createContentfulImageProps from "../../components/image/contentful-image/createContentfulImageProps";
 import TrainingCatalogue from "./components/training-catalogue";
 import TrainingNoResults from "./components/training-no-results";
 import { useTrainings } from "./hooks/useTrainings";
@@ -23,6 +23,9 @@ import {
   StyledSearchTitle
 } from "./styles";
 import { TrainingListerPageProps } from "./types";
+import type { ImageWidths } from "../../components/image/types";
+
+const mediaWidths: ImageWidths = [537, 641, 761, 493, 322];
 
 const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
   const {
@@ -87,10 +90,11 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
       <Hero
         level={1}
         title={title}
-        media={createImageProps({
+        media={createContentfulImageProps({
           ...featuredMedia,
           size: "cover",
-          loading: "eager"
+          loading: "eager",
+          widths: mediaWidths
         })}
         breadcrumbs={
           <BackToResults isDarkThemed data-testid="breadcrumbs-hero-section">

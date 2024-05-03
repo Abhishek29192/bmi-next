@@ -1,14 +1,14 @@
 import CommonHero from "@bmi-digital/components/hero";
 import Typography from "@bmi-digital/components/typography";
-import React from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import useAuth from "../../hooks/useAuth";
 import createImageProps from "../../components/image/createImageProps";
 import { HelloText } from "./styles";
 import { getUserInfo } from "./utils";
-import type { Data as ContentfulImage } from "../../components/image/types";
 import type { Data as BreadcrumbData } from "../../components/Breadcrumbs";
+import type { Data as ContentfulImage } from "../../components/image/contentful-image/types";
+import type { ImageWidths } from "../../components/image/types";
 
 export type HeroProps = {
   breadcrumbs: BreadcrumbData;
@@ -18,6 +18,8 @@ export type HeroProps = {
   slug: string;
   description: string;
 };
+
+const mediaWidths: ImageWidths = [537, 641, 761, 493, 322];
 
 const Hero = ({
   breadcrumbs,
@@ -41,7 +43,11 @@ const Hero = ({
       }
       media={
         featuredMedia
-          ? createImageProps({ ...featuredMedia, size: "cover" })
+          ? createImageProps({
+              ...featuredMedia,
+              size: "cover",
+              widths: mediaWidths
+            })
           : undefined
       }
       breadcrumbs={

@@ -1,8 +1,7 @@
-import { GatsbyImage } from "gatsby-plugin-image";
+import NextImage from "next/image";
 import createGalleryPimVideo from "../../__tests__/helpers/GalleryPimVideoHelper";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
 import createGallerySectionVideo from "../../__tests__/helpers/GallerySectionVideo";
-import createGatsbyImageData from "../../__tests__/helpers/GatsbyImageDataHelper";
 import { GallerySectionMedias, getJpgImage, transformMediaSrc } from "../media";
 
 describe("getJpgImage function", () => {
@@ -53,7 +52,7 @@ describe("transformMediaSrc function", () => {
       media: {
         alt: "alt text",
         className: undefined,
-        component: GatsbyImage,
+        component: NextImage,
         "data-testid": undefined,
         draggable: false,
         image: {
@@ -103,7 +102,7 @@ describe("transformMediaSrc function", () => {
         previewImageSource: {
           alt: "ContentfulVideoAltText",
           className: undefined,
-          component: GatsbyImage,
+          component: NextImage,
           "data-testid": undefined,
           draggable: false,
           image: {
@@ -211,7 +210,7 @@ describe("transformMediaSrc function", () => {
         previewImageSource: {
           alt: "ContentfulVideoAltText",
           className: undefined,
-          component: GatsbyImage,
+          component: NextImage,
           "data-testid": undefined,
           draggable: false,
           image: {
@@ -254,7 +253,6 @@ describe("transformMediaSrc function", () => {
         file: {
           fileName: "Lorem ipsum"
         },
-        gatsbyImageData: createGatsbyImageData(),
         thumbnail: undefined
       }
     });

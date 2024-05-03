@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
 import type { Logo } from "./BrandLogo";
-import type { Data as ImageData } from "./image/types";
+import type { Data as ImageData } from "./image/contentful-image/types";
 import type { RichTextData } from "./RichText";
 import type { TagData } from "./Tag";
 import type { ContentfulVideoData } from "./video/types";

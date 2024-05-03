@@ -1,6 +1,6 @@
 import { EntryTypeEnum } from "../../Service";
 import type { Service } from "../index";
-import type { Data as ContentfulImageData } from "../../image/types";
+import type { Data as ContentfulImageData } from "../../image/contentful-image/types";
 
 export const markersMockData = [
   {

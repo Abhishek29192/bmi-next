@@ -1,16 +1,16 @@
-import {
+import { graphql } from "gatsby";
+import type {
   ContentfulDocument as EsContentfulDocument,
   PimProductDocument as EsPimDocument,
   PimSystemDocument as EsPimSystemDocument
 } from "@bmi/elasticsearch-types/src";
-import { graphql } from "gatsby";
-import { Data as ImageData } from "../components/image/types";
-import { RichTextData } from "../components/RichText";
-import { ContentfulAssetType as AssetTypeData } from "./AssetType";
-import {
+import type { Data as ImageData } from "../components/image/contentful-image/types";
+import type { RichTextData } from "../components/RichText";
+import type { ContentfulAssetType as AssetTypeData } from "./AssetType";
+import type {
   ProductDocument as FsPimDocument,
-  SystemDocument as FsPimSystemDocument,
-  PseudoZipPIMDocument
+  PseudoZipPIMDocument,
+  SystemDocument as FsPimSystemDocument
 } from "./pim";
 
 export type DocumentTableHeader =

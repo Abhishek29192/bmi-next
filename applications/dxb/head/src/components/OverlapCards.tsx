@@ -3,19 +3,24 @@ import Container from "@bmi-digital/components/container";
 import CTACard from "@bmi-digital/components/cta-card";
 import Grid from "@bmi-digital/components/grid";
 import { graphql } from "gatsby";
-import React from "react";
 import DefaultImage from "@bmi-digital/components/resources/DefaultImage";
 import { useSiteContext } from "./Site";
 import { getCTA } from "./link/utils";
 import { OverlapCardsSection, StyledGrid } from "./styles/OverlapCardsStyles";
-import { CTACardPageInfoData, CTACardPromoData } from "./types/CTACardTypes";
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
+import type {
+  CTACardPageInfoData,
+  CTACardPromoData
+} from "./types/CTACardTypes";
+import type { ImageWidths } from "./image/types";
 
 type Card = CTACardPromoData | CTACardPageInfoData;
 
 // NOTE: Minimum two cards required.
 export type Data = [Card, Card, ...Card[]];
+
+const mediaWidths: ImageWidths = [561, 321, 381, 446, 330];
 
 const IntegratedOverlapCards = ({ data }: { data: Data }) => {
   const { countryCode } = useSiteContext();
@@ -34,12 +39,14 @@ const IntegratedOverlapCards = ({ data }: { data: Data }) => {
                     featuredVideo
                       ? createVideoProps({
                           ...featuredVideo,
-                          "data-testid": "overlap-cards-video"
+                          "data-testid": "overlap-cards-video",
+                          previewMediaWidths: mediaWidths
                         })
                       : (featuredMedia &&
                           createImageProps({
                             ...featuredMedia,
-                            "data-testid": "overlap-cards-image"
+                            "data-testid": "overlap-cards-image",
+                            widths: mediaWidths
                           })) || { component: DefaultImage }
                   }
                   {...cta}

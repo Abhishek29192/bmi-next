@@ -1,5 +1,5 @@
 import type { Layout } from "@bmi-digital/components/youtube-video";
-import type { Data as ContentfulImageData } from "../image/types";
+import type { Data as ContentfulImageData } from "../image/contentful-image/types";
 
 export type Data = {
   title: string | null;

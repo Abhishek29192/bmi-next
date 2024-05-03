@@ -1,15 +1,17 @@
 import DocumentCard from "@bmi-digital/components/document-card";
 import Grid from "@bmi-digital/components/grid";
-import { ContentfulDocument } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
-import React from "react";
+import type { ContentfulDocument } from "@bmi/elasticsearch-types";
 import BrandLogo from "../../../../components/BrandLogo";
 import { useSiteContext } from "../../../../components/Site";
-import createImageProps from "../../../../components/image/createImageProps";
+import createContentfulImageProps from "../../../../components/image/contentful-image/createContentfulImageProps";
+import type { ImageWidths } from "../../../../components/image/types";
 
 type Props = {
   documents: ContentfulDocument[];
 };
+
+const mediaWidths: ImageWidths = [593, 713, 408, 708, 988];
 
 const DocumentCardsResults = ({ documents }: Props) => {
   const { getMicroCopy } = useSiteContext();
@@ -32,7 +34,10 @@ const DocumentCardsResults = ({ documents }: Props) => {
               title={document.title}
               media={
                 document.featuredMedia &&
-                createImageProps(document.featuredMedia)
+                createContentfulImageProps({
+                  ...document.featuredMedia,
+                  widths: mediaWidths
+                })
               }
               brandLogo={
                 document.BRAND ? (

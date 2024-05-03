@@ -23,13 +23,14 @@ import Image from "./image/Image";
 import Icon from "./Icon";
 import RichText from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
-import { Data as SiteData, useSiteContext } from "./Site";
+import { useSiteContext } from "./Site";
 import { getCTA } from "./link/utils";
 import type { ToastProps } from "@bmi-digital/components/toast";
 import type { RichTextData } from "./RichText";
 import type { IconButtonProps } from "@bmi-digital/components/icon-button";
 import type { HeaderProps } from "@bmi-digital/components/header";
 import type { ButtonProps } from "@bmi-digital/components/button";
+import type { Data as SiteData } from "./Site";
 import type { Data as PageInfoData } from "./PageInfo";
 import type {
   Data as LinkData,
@@ -39,6 +40,7 @@ import type {
 import type { GetMicroCopy } from "./MicroCopy";
 import type { NavigationList } from "@bmi-digital/components/navigation";
 import type { Data as PromoData } from "./Promo";
+import type { ImageWidths } from "./image/types";
 
 type ParseNavigationProps = {
   navigationItems: (NavigationData | NavigationItem | LinkData)[];
@@ -52,6 +54,8 @@ type GetPromoSectionProps = {
   countryCode: SiteData["countryCode"];
   getMicroCopy: GetMicroCopy;
 };
+
+const promoSectionMediaWidths: ImageWidths = [359, 359, 359, 326, 359];
 
 const getPromoSection = (props: GetPromoSectionProps) => {
   const { promo, countryCode, getMicroCopy } = props;
@@ -72,7 +76,12 @@ const getPromoSection = (props: GetPromoSectionProps) => {
       ? [
           {
             label,
-            image: <Image {...promo.featuredMedia} />
+            image: (
+              <Image
+                {...promo.featuredMedia}
+                widths={promoSectionMediaWidths}
+              />
+            )
           }
         ]
       : []),

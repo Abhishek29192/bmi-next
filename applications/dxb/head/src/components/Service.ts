@@ -1,6 +1,6 @@
 import { RoofProLevel } from "@bmi-digital/components/company-details";
 import { graphql } from "gatsby";
-import { Data as ContentfulImageData } from "./image/types";
+import { Data as ContentfulImageData } from "./image/contentful-image/types";
 import { Data as ServiceType } from "./ServiceType";
 
 export enum EntryTypeEnum {

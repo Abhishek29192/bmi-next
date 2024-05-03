@@ -7,7 +7,7 @@
 import type { MicroCopyValues } from "@bmi/microcopies";
 import type { Node as GatsbyNode } from "gatsby";
 import type { Region } from "../../../components/Header";
-import type { Data as ContentfulImage } from "../../../components/image/types";
+import type { Data as ContentfulImage } from "../../../components/image/contentful-image/types";
 import type { RichTextData } from "../../../components/RichText";
 import type { ContentfulVideoData } from "../../../components/video/types";
 import type { CalculatorConfig } from "../../../components/pitched-roof-calculator/types";

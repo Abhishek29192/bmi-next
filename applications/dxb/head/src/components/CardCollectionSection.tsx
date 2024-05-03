@@ -1,6 +1,6 @@
 import Button from "@bmi-digital/components/button";
 import Carousel from "@bmi-digital/components/carousel";
-import Chip, { ChipProps } from "@bmi-digital/components/chip";
+import Chip from "@bmi-digital/components/chip";
 import Grid from "@bmi-digital/components/grid";
 import HighlightCard from "@bmi-digital/components/highlight-card";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
@@ -11,18 +11,14 @@ import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
-import React, { memo, useMemo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { isDefined } from "@bmi/utils";
 import withGTM from "../utils/google-tag-manager";
 import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
 import BrandLogo from "./BrandLogo";
-import { Data as PageInfoData } from "./PageInfo";
-import { Data as PromoData } from "./Promo";
-import RichText, { RichTextData } from "./RichText";
+import RichText from "./RichText";
 import { useSiteContext } from "./Site";
-import { TagData } from "./Tag";
 import ButtonLink from "./link/ButtonLink";
-import { Data as LinkData } from "./link/types";
 import { getCTA } from "./link/utils";
 import {
   CardCollectionSectionContainer,
@@ -35,6 +31,13 @@ import {
 } from "./styles/CardCollectionSectionStyles";
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
+import type { Data as LinkData } from "./link/types";
+import type { TagData } from "./Tag";
+import type { RichTextData } from "./RichText";
+import type { Data as PromoData } from "./Promo";
+import type { Data as PageInfoData } from "./PageInfo";
+import type { ChipProps } from "@bmi-digital/components/chip";
+import type { ImageWidths } from "./image/types";
 
 type Card = PageInfoData | PromoData;
 
@@ -61,6 +64,8 @@ type CardCollectionItemProps = {
   label: string | null;
   type: Data["cardType"];
 };
+
+const mediaWidths: ImageWidths = [561, 321, 381, 446, 330];
 
 const CardCollectionItem = (props: CardCollectionItemProps) => {
   const { card, label, type } = props;
@@ -111,9 +116,15 @@ const CardCollectionItem = (props: CardCollectionItemProps) => {
       description={subtitle}
       media={
         featuredVideo
-          ? createVideoProps(featuredVideo)
+          ? createVideoProps({
+              ...featuredVideo,
+              previewMediaWidths: mediaWidths
+            })
           : featuredMedia
-            ? createImageProps(featuredMedia)
+            ? createImageProps({
+                ...featuredMedia,
+                previewMediaWidths: mediaWidths
+              })
             : undefined
       }
       brandLogo={brandLogo ? <BrandLogo brandName={brandLogo} /> : undefined}

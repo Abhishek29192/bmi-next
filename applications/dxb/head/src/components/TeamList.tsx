@@ -4,13 +4,13 @@ import Grid from "@bmi-digital/components/grid";
 import ProfileCard from "@bmi-digital/components/profile-card";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
-import React, { useState } from "react";
+import { useState } from "react";
 import Icon from "./Icon";
-import Image from "./image/Image";
+import ContentfulImage from "./image/contentful-image/ContentfulImage";
 import { useSiteContext } from "./Site";
-import { type Data as LinkData } from "./link/types";
 import { ProfileRow } from "./styles/TeamListStyles";
-import type { Data as ImageData } from "./image/types";
+import type { Data as LinkData } from "./link/types";
+import type { Data as ImageData } from "./image/contentful-image/types";
 
 export type Data = {
   name: string;
@@ -36,7 +36,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
             return (
               <Grid xs={12} sm={6} lg={3} key={index}>
                 <ProfileCard
-                  imageSource={<Image {...profileImage} />}
+                  imageSource={<ContentfulImage {...profileImage} />}
                   body={
                     <EqualHeights.Consumer shouldDisableBoxSizing>
                       {({ addRef, equalHeight }) => {

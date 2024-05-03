@@ -4,6 +4,11 @@ import React, { useMemo } from "react";
 import { useGTM } from "../../utils/google-tag-manager";
 import createImageProps from "../image/createImageProps";
 import type { Data } from "./types";
+import type { CustomImageProps } from "@bmi-digital/components/dist/media/types";
+
+export type Props = Omit<Data, "previewMedia"> & {
+  previewMedia?: CustomImageProps;
+};
 
 const Video = ({
   label,
@@ -14,7 +19,7 @@ const Video = ({
   defaultYouTubePreviewImage,
   layout,
   ...props
-}: Data) => {
+}: Props) => {
   const gtm = useMemo(
     () => ({
       id: "cta-click--video-youtube",

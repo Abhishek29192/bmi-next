@@ -27,8 +27,8 @@ if (typeof contentSecurityPolicy !== "undefined") {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    loader: "custom",
-    formats: ["image/avif", "image/webp"]
+    deviceSizes: [599, 719, 839, 1439, 2000],
+    loader: "custom"
   },
   async headers() {
     return headers;

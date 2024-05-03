@@ -1,5 +1,5 @@
+import NextImage from "next/image";
 import { microCopy } from "@bmi/microcopies";
-import { GatsbyImage } from "gatsby-plugin-image";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import { Context as SiteContext } from "../../components/Site";
 import { getMockSiteContext } from "../../components/__tests__/utils/SiteContextProvider";
@@ -32,7 +32,8 @@ describe("getHeroItemsWithContext", () => {
     previewMedia: null,
     videoRatio: null,
     defaultYouTubePreviewImage:
-      "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+      "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg",
+    previewMediaWidths: [400, 500, 400, 300, 400]
   };
 
   const slide: SlideData = {
@@ -111,7 +112,7 @@ describe("getHeroItemsWithContext", () => {
     expect(result[0].media).toEqual({
       alt: "Image alt text",
       className: undefined,
-      component: GatsbyImage,
+      component: NextImage,
       "data-testid": "hero-image",
       draggable: false,
       image: {

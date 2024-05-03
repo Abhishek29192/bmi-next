@@ -16,10 +16,10 @@ import {
 import { getPathWithCountryCode } from "../utils/path";
 import { useSiteContext } from "./Site";
 import {
-  StyledSampleBasketSection,
-  classes
+  classes,
+  StyledSampleBasketSection
 } from "./styles/SampleBasketSectionProducts.styles";
-import createImageProps from "./image/createImageProps";
+import createGenericImageProps from "./image/generic-image/createGenericImageProps";
 
 const SampleBasketSectionProducts = () => {
   const { basketState, basketDispatch } = useBasketContext();
@@ -36,17 +36,13 @@ const SampleBasketSectionProducts = () => {
       goodBetterBest
     } = sample;
     const media = image
-      ? createImageProps({
-          type: "Descriptive",
+      ? createGenericImageProps({
+          size: "contain",
           altText: name,
-          image: {
-            file: {
-              fileName: name,
-              url: image
-            }
-          },
-          focalPoint: { x: 0, y: 0 },
-          className: classes["product-image"]
+          src: image,
+          className: classes["product-image"],
+          width: 110,
+          height: 80
         })
       : undefined;
 

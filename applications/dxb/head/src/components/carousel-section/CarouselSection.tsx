@@ -9,17 +9,17 @@ import VerticalRoller, {
 import { microCopy } from "@bmi/microcopies";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
-import React from "react";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
-import { Data as PageInfoData } from "../PageInfo";
-import { Data as PromoData } from "../Promo";
 import { useSiteContext } from "../Site";
 import { getCTA } from "../link/utils";
-import { SectionElement, LinkElement } from "../styles/CarouselSectionStyles";
+import { LinkElement, SectionElement } from "../styles/CarouselSectionStyles";
 import createImageProps from "../image/createImageProps";
 import createVideoProps from "../video/createVideoProps";
+import type { Data as PromoData } from "../Promo";
+import type { Data as PageInfoData } from "../PageInfo";
 import type { Data as LinkData } from "../link/types";
+import type { ImageWidths } from "../image/types";
 
 type Slide = PromoData | PageInfoData;
 
@@ -30,6 +30,8 @@ export type Data = {
   slides: Slide[];
   link: LinkData | null;
 };
+
+const mediaWidths: ImageWidths = [561, 665, 381, 681, 920];
 
 const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { label: "children" });
 
@@ -61,12 +63,14 @@ const parseSlides = (
             ? createVideoProps({
                 ...featuredVideo,
                 className: "video-preview-image",
-                "data-testid": `carousel-section-slide-video-${index}`
+                "data-testid": `carousel-section-slide-video-${index}`,
+                previewMediaWidths: mediaWidths
               })
             : featuredMedia
               ? createImageProps({
                   ...featuredMedia,
-                  "data-testid": `carousel-section-slide-image-${index}`
+                  "data-testid": `carousel-section-slide-image-${index}`,
+                  widths: mediaWidths
                 })
               : undefined,
           description: subtitle || undefined,

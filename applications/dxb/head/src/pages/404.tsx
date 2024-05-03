@@ -1,20 +1,20 @@
 import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
-import { Link, graphql } from "gatsby";
-import React from "react";
+import { graphql, Link } from "gatsby";
 import FallbackComponent from "../components/FallbackComponent";
 import Page from "../components/Page";
 import { getPathWithCountryCode } from "../utils/path";
 import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
-import createImageProps from "../components/image/createImageProps";
 import createVideoProps from "../components/video/createVideoProps";
+import createContentfulImageProps from "../components/image/contentful-image/createContentfulImageProps";
 import type {
   ContentfulPromoCard,
   ContentfulSite,
   FourOFourResponse
 } from "../schema/resolvers/types/Contentful";
 import type { AnchorLinkActionProps } from "@bmi-digital/components/anchor-link";
+import type { ImageWidths } from "../components/image/types";
 
 type Data = {
   fourOFour: FourOFourResponse;
@@ -48,6 +48,8 @@ const Cta = (
   );
 };
 
+const mediaWidths: ImageWidths = [561, 321, 381, 446, 330];
+
 const FourOFour = ({ data }: { data: Data }) => {
   const siteData = data.fourOFour.siteData;
   const errorFourOFour = data.fourOFour.errorPageData;
@@ -73,9 +75,17 @@ const FourOFour = ({ data }: { data: Data }) => {
         title={errorFourOFour.title || placeholderTitle}
         media={
           errorFourOFour.featuredVideo
-            ? createVideoProps(errorFourOFour.featuredVideo)
+            ? createVideoProps({
+                ...errorFourOFour.featuredVideo,
+                previewMediaWidths: mediaWidths
+              })
             : errorFourOFour.featuredMedia
-              ? createImageProps(errorFourOFour.featuredMedia)
+              ? {
+                  ...createContentfulImageProps({
+                    ...errorFourOFour.featuredMedia,
+                    widths: mediaWidths
+                  })
+                }
               : undefined
         }
       >

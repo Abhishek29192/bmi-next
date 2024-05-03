@@ -1,13 +1,14 @@
 import PromoSection from "@bmi-digital/components/promo-section";
 import { graphql } from "gatsby";
-import React, { useContext } from "react";
-import { Data as PromoData } from "./Promo";
+import { useContext } from "react";
 import RichText from "./RichText";
 import { SectionsContext } from "./Sections";
 import ButtonLink from "./link/ButtonLink";
 import { PromoSectionLink } from "./styles/PromoSectionStyles";
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
+import type { Data as PromoData } from "./Promo";
+import type { ImageWidths } from "./image/types";
 
 export type Data = PromoData;
 
@@ -15,6 +16,8 @@ const backgroundColorMap = {
   White: "white" as const,
   Alabaster: "alabaster" as const
 };
+
+const mediaWidths: ImageWidths = [561, 436, 516, 916, 920];
 
 const IntegratedPromoSection = ({ data }: { data: Data }) => {
   const {
@@ -35,9 +38,16 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       title={title}
       media={
         featuredVideo
-          ? createVideoProps(featuredVideo)
+          ? createVideoProps({
+              ...featuredVideo,
+              previewMediaWidths: mediaWidths
+            })
           : featuredMedia
-            ? createImageProps({ ...featuredMedia, position: "top left" })
+            ? createImageProps({
+                ...featuredMedia,
+                position: "top left",
+                widths: mediaWidths
+              })
             : undefined
       }
       backgroundColor={

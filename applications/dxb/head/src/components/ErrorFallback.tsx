@@ -2,11 +2,13 @@ import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
 import { Link } from "gatsby";
-import React from "react";
 import { getPathWithCountryCode } from "../utils/path";
-import { Data as PromoData } from "./Promo";
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
+import type { Data as PromoData } from "./Promo";
+import type { ImageWidths } from "./image/types";
+
+const mediaWidths: ImageWidths = [561, 436, 516, 916, 920];
 
 const ErrorFallback = ({
   countryCode,
@@ -27,14 +29,18 @@ const ErrorFallback = ({
   } = promo ?? {};
   const to: string | undefined =
     cta && getPathWithCountryCode(countryCode, cta.linkedPage?.path);
+
   return (
     <PromoSection
       title={title}
       media={
         featuredVideo
-          ? createVideoProps(featuredVideo)
+          ? createVideoProps({
+              ...featuredVideo,
+              previewMediaWidths: mediaWidths
+            })
           : featuredMedia
-            ? createImageProps(featuredMedia)
+            ? createImageProps({ ...featuredMedia, widths: mediaWidths })
             : undefined
       }
     >

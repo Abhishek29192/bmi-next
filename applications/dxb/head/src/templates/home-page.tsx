@@ -3,7 +3,7 @@ import { useIsClient } from "@bmi-digital/components/hooks";
 import Search from "@bmi-digital/components/search";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import Brands from "../components/Brands";
 import OverlapCards from "../components/OverlapCards";
 import Page from "../components/Page";

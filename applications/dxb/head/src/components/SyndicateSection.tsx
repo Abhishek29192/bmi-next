@@ -1,11 +1,11 @@
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
-import Villain, { VillainProps } from "@bmi-digital/components/villain";
+import Villain from "@bmi-digital/components/villain";
 import { microCopy, MicroCopyValues } from "@bmi/microcopies";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { graphql } from "gatsby";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import Button from "@bmi-digital/components/button";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
@@ -16,8 +16,10 @@ import {
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
 import { getCTA } from "./link/utils";
+import type { VillainProps } from "@bmi-digital/components/villain";
 import type { Data as PageInfoData } from "./PageInfo";
 import type { Data as PromoData } from "./Promo";
+import type { ImageWidths } from "./image/types";
 
 export type Data = {
   __typename: "ContentfulSyndicateSection";
@@ -33,6 +35,8 @@ export interface Props {
   data: Data;
   position: number;
 }
+
+const mediaWidths: ImageWidths = [561, 436, 516, 916, 920];
 
 const SyndicateSection = ({
   data: { description, title, villains, isReversed },
@@ -83,12 +87,16 @@ const SyndicateSection = ({
             transformHyphens(data.subtitle)
           ),
           media: data.featuredVideo
-            ? createVideoProps(data.featuredVideo)
+            ? createVideoProps({
+                ...data.featuredVideo,
+                previewMediaWidths: mediaWidths
+              })
             : data.featuredMedia
               ? createImageProps({
                   ...data.featuredMedia,
                   size: "cover",
-                  isMobile
+                  isMobile,
+                  widths: mediaWidths
                 })
               : undefined,
           cta: getCallToAction(data, countryCode, getMicroCopy)
