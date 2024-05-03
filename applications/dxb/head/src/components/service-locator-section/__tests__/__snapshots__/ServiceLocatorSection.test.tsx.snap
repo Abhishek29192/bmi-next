@@ -918,9 +918,9 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                   >
                                     <a
                                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Roofer","action":"https://www.google.com/maps/dir//address%201/"}"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 2 - address 1 - Roofer","action":"https://www.google.com/maps/dir/address%201/"}"
                                       data-testid="anchor-link"
-                                      href="https://www.google.com/maps/dir//address%201/"
+                                      href="https://www.google.com/maps/dir/address%201/"
                                       referrerpolicy="no-referrer"
                                       rel="noreferrer"
                                       target="_blank"
@@ -10233,9 +10233,9 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                                   >
                                     <a
                                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1y85wav-MuiTypography-root-MuiLink-root"
-                                      data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Roofer","action":"https://www.google.com/maps/dir//address%201/"}"
+                                      data-gtm="{"id":"cta-click1","label":"roofer 1 - address 1 - Roofer","action":"https://www.google.com/maps/dir/address%201/"}"
                                       data-testid="anchor-link"
-                                      href="https://www.google.com/maps/dir//address%201/"
+                                      href="https://www.google.com/maps/dir/address%201/"
                                       referrerpolicy="no-referrer"
                                       rel="noreferrer"
                                       target="_blank"

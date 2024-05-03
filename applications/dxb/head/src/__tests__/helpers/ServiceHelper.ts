@@ -43,7 +43,7 @@ const createService = (service?: Partial<Service>): Service => ({
   fax: null,
   serviceTypes: null,
   certification: null,
-  summary: null,
+  summary: undefined,
   websiteLinkAsLabel: null,
   ...service
 });
