@@ -1,3 +1,8 @@
+spec:
+  inputs:
+    preceding_job:
+---
+
 lint_es-pim-products-ingest:
   extends: .lint_function
   variables:
@@ -32,6 +37,9 @@ deploy_es-pim-products-ingest:
   needs:
     - job: package_es-pim-products-ingest
       artifacts: true
+    - job: $[[inputs.preceding_job]]
+      artifacts: false
+      optional: true
   variables:
     FUNCTION_NAME: es-pim-products-ingest
     ROOT_DIR: applications/dxb/functions/es-pim-products-ingest
