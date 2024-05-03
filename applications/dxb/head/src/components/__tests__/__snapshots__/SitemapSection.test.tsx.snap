@@ -78,9 +78,9 @@ exports[`SitemapSection component renders correctly 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
-                        data-gtm="{"id":"cta-click1","action":"/undefined/landing-page/","label":"Our story"}"
+                        data-gtm="{"id":"cta-click1","action":"/landing-page/","label":"Our story"}"
                         data-testid="sitemap-link"
-                        href="/undefined/landing-page/"
+                        href="/landing-page/"
                       >
                         Our story
                       </a>
@@ -167,9 +167,9 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                           >
                             <a
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
-                              data-gtm="{"id":"cta-click1","action":"/undefined/landing-page/","label":"Our story"}"
+                              data-gtm="{"id":"cta-click1","action":"/landing-page/","label":"Our story"}"
                               data-testid="sitemap-link"
-                              href="/undefined/landing-page/"
+                              href="/landing-page/"
                             >
                               Our story
                             </a>
@@ -191,9 +191,9 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
-                                    data-gtm="{"id":"cta-click1","action":"/undefined/landing-page/","label":"Our story"}"
+                                    data-gtm="{"id":"cta-click1","action":"/landing-page/","label":"Our story"}"
                                     data-testid="sitemap-link"
-                                    href="/undefined/landing-page/"
+                                    href="/landing-page/"
                                   >
                                     Our story
                                   </a>
@@ -229,9 +229,9 @@ exports[`SitemapSection component renders correctly 2 levels deep 1`] = `
                     >
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
-                        data-gtm="{"id":"cta-click1","action":"/undefined/landing-page/","label":"Our story"}"
+                        data-gtm="{"id":"cta-click1","action":"/landing-page/","label":"Our story"}"
                         data-testid="sitemap-link"
-                        href="/undefined/landing-page/"
+                        href="/landing-page/"
                       >
                         Our story
                       </a>
