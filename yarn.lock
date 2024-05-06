@@ -2054,9 +2054,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bmi-digital/components@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "@bmi-digital/components@npm:4.2.0"
+"@bmi-digital/components@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "@bmi-digital/components@npm:4.2.1"
   dependencies:
     "@bmi-digital/use-dimensions": ^1.7.6
     "@emotion/react": ^11.11.3
@@ -2089,7 +2089,7 @@ __metadata:
     "@mui/styles": ^5.15.3
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: f8456636b502b4a392a463e17a48f948536ad4d5e4cbdeec07e030bb84fe96a68629e6f1ea283bbf8bdca48ce76de86d2455e7b1dc47961dbb5b9e7352f5e14d
+  checksum: 8f80838be815587464759684a729e38d57c745f9c8b3cf0a89a6cdb2b0895a2e95a4a458c054473e211b07dd7240cf457b48b6f97c5cddf178d8f48efd302fd4
   languageName: node
   linkType: hard
 
@@ -2568,7 +2568,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.23.7
     "@babel/plugin-proposal-decorators": ^7.23.7
-    "@bmi-digital/components": ^4.2.0
+    "@bmi-digital/components": ^4.2.1
     "@bmi-digital/react-pdf-maker": ^1.7.6
     "@bmi-digital/styles": ^1.7.6
     "@emotion/react": ^11.11.3
@@ -3684,7 +3684,7 @@ __metadata:
     "@auth0/auth0-react": ^2.2.4
     "@babel/core": ^7.23.7
     "@babel/plugin-proposal-decorators": ^7.23.7
-    "@bmi-digital/components": ^4.2.0
+    "@bmi-digital/components": ^4.2.1
     "@bmi-digital/react-pdf-maker": ^1.7.6
     "@bmi-digital/styles": ^1.7.6
     "@bmi-digital/svg-import": ^1.7.6

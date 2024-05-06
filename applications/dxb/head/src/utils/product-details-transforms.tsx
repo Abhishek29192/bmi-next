@@ -2,7 +2,6 @@ import { MediaData } from "@bmi-digital/components/media-gallery";
 import { ProductOverviewPaneProps } from "@bmi-digital/components/product-overview-pane";
 import DefaultImage from "@bmi-digital/components/resources/DefaultImage";
 import { Link } from "gatsby";
-import React from "react";
 import { isDefined } from "../../../libraries/utils/src";
 import { Image, Measurements, Product, RelatedVariant } from "../types/pim";
 import { getPathWithCountryCode } from "./path";
@@ -73,14 +72,21 @@ export const getAllValues = (
 export const transformImages = (
   images: readonly Image[]
 ): readonly MediaData[] => {
-  return images.map(({ mainSource, thumbnail, altText }, index) => ({
-    media: React.createElement("img", {
-      src: mainSource,
-      alt: altText,
-      loading: index === 0 ? "eager" : "lazy"
-    } as HTMLImageElement),
-    thumbnail
-  }));
+  return images.flatMap(({ mainSource, thumbnail, altText }, index) => {
+    if (!mainSource || !altText) {
+      return [];
+    }
+    return [
+      {
+        media: {
+          src: mainSource,
+          alt: altText,
+          loading: index === 0 ? "eager" : "lazy"
+        },
+        thumbnail: thumbnail ?? undefined
+      }
+    ];
+  });
 };
 
 export type Options = { size: string; variantAttribute: string };
@@ -251,9 +257,9 @@ export const getProductAttributes = (
           thumbnail:
             variant?.thumbnail || product?.masterImage?.thumbnail || null,
           media:
-            !variant?.thumbnail && !product?.masterImage?.thumbnail ? (
-              <DefaultImage />
-            ) : null,
+            !variant?.thumbnail && !product?.masterImage?.thumbnail
+              ? { component: DefaultImage }
+              : null,
           ...(!isSelected &&
             allColours.length > 1 &&
             path && {
@@ -283,14 +289,15 @@ export const getProductAttributes = (
           return acc;
         }
 
-        const path = !isSelected
-          ? generateVariantPathWithQuery(
-              variant,
-              queryParams,
-              countryCode,
-              variantCodeToPathMap
-            )
-          : undefined;
+        const path =
+          !isSelected && variant
+            ? generateVariantPathWithQuery(
+                variant,
+                queryParams,
+                countryCode,
+                variantCodeToPathMap
+              )
+            : undefined;
 
         return [
           ...acc,

@@ -6,10 +6,11 @@ import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import Icon from "./Icon";
-import Image, { Data as ImageData } from "./Image";
+import Image from "./image/Image";
 import { useSiteContext } from "./Site";
 import { type Data as LinkData } from "./link/types";
 import { ProfileRow } from "./styles/TeamListStyles";
+import type { Data as ImageData } from "./image/types";
 
 export type Data = {
   name: string;
@@ -55,7 +56,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
                     <ProfileRow
                       key={`team-member-link-${index}`}
                       link={{
-                        href: link.url,
+                        href: link.url ?? undefined,
                         external: true,
                         gtm: {
                           id: "cta-click1",
@@ -63,7 +64,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
                           label: `${name} - ${link.label}`
                         }
                       }}
-                      icon={link.icon && <Icon name={link.icon} />}
+                      icon={link.icon ? <Icon name={link.icon} /> : undefined}
                     >
                       {link.label}
                     </ProfileRow>

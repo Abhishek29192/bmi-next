@@ -888,19 +888,72 @@ describe("product-details-transforms tests", () => {
   });
 
   describe("transformImages tests", () => {
-    describe("when empty images are provided", () => {
-      it("should return empty medias", () => {
-        expect(transformImages([])).toEqual([]);
-      });
+    const imgMainSource = "https://mainsource.com";
+    const imgMainSource2 = "https://mainsource2.com";
+    const imgAltText = "alt text1";
+    const imgAltText2 = "alt text2";
+
+    it("should not render an image if the mainSource property is not defined", () => {
+      const result = transformImages([
+        {
+          mainSource: undefined,
+          thumbnail: null,
+          altText: imgAltText
+        },
+        {
+          mainSource: imgMainSource2,
+          thumbnail: null,
+          altText: imgAltText2
+        }
+      ]);
+
+      render(
+        <ThemeProvider>
+          <MediaGallery media={[...result]} />
+        </ThemeProvider>
+      );
+
+      const linkResult = screen.getAllByRole("img");
+      expect(linkResult).toHaveLength(1);
+      expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource2);
+      expect(linkResult[0].getAttribute("alt")).toEqual(imgAltText2);
     });
+
+    it("should not render an image if the altText property is not defined", () => {
+      const result = transformImages([
+        {
+          mainSource: imgMainSource,
+          thumbnail: null,
+          altText: null
+        },
+        {
+          mainSource: imgMainSource2,
+          thumbnail: null,
+          altText: imgAltText2
+        }
+      ]);
+
+      render(
+        <ThemeProvider>
+          <MediaGallery media={[...result]} />
+        </ThemeProvider>
+      );
+
+      const linkResult = screen.getAllByRole("img");
+      expect(linkResult).toHaveLength(1);
+      expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource2);
+      expect(linkResult[0].getAttribute("alt")).toEqual(imgAltText2);
+    });
+
     describe("when single image is provided", () => {
-      it("should return transformed media data", () => {
+      it("should return transformed media data when mainSource and altText are provided", () => {
         const imgMainSource = "https://mainsource.com";
+        const imgAltText = "alt text";
         const result = transformImages([
           {
             mainSource: imgMainSource,
             thumbnail: null,
-            altText: "alt text"
+            altText: imgAltText
           }
         ]);
 
@@ -912,25 +965,30 @@ describe("product-details-transforms tests", () => {
         const linkResult = screen.getAllByRole("img");
         expect(linkResult).toHaveLength(1);
         expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
-        //unmount();
+        expect(linkResult[0].getAttribute("alt")).toEqual(imgAltText);
       });
     });
-    describe("when multiple images is provided", () => {
+
+    describe("when multiple images are provided", () => {
       it("should return multiple transformed media data", () => {
         const imgMainSource = "https://mainsource.com";
         const imgMainSource2 = "https://mainsource2.com";
+        const imgAltText = "alt text1";
+        const imgAltText2 = "alt text2";
+
         const result = transformImages([
           {
             mainSource: imgMainSource,
             thumbnail: null,
-            altText: "alt text"
+            altText: imgAltText
           },
           {
             mainSource: imgMainSource2,
             thumbnail: null,
-            altText: "alt text 2"
+            altText: imgAltText2
           }
         ]);
+
         render(
           <ThemeProvider>
             <MediaGallery media={[...result]} />
@@ -941,6 +999,9 @@ describe("product-details-transforms tests", () => {
         expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
         expect(linkResult[1].getAttribute("src")).toEqual(imgMainSource);
         expect(linkResult[2].getAttribute("src")).toEqual(imgMainSource2);
+        expect(linkResult[0].getAttribute("alt")).toEqual(imgAltText);
+        expect(linkResult[1].getAttribute("alt")).toEqual(imgAltText);
+        expect(linkResult[2].getAttribute("alt")).toEqual(imgAltText2);
       });
     });
   });

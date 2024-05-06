@@ -246,7 +246,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               data-testid="efgh"
             >
               <div
-                class="TappableCard-highlighted ColorPair-white css-963r91"
+                class="TappableCard-root TappableCard-highlighted ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -257,15 +257,15 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                   tabindex="0"
                 >
                   <svg
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
-                    fill="none"
+                    draggable="false"
                     viewBox="0 0 920 440"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h920v440H0z"
-                      fill="#fff"
+                      fill="none"
                     />
                     <path
                       clip-rule="evenodd"
@@ -590,7 +590,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               data-testid="efgh"
             >
               <div
-                class="TappableCard-highlighted ColorPair-white css-963r91"
+                class="TappableCard-root TappableCard-highlighted ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -601,15 +601,15 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                   tabindex="0"
                 >
                   <svg
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
-                    fill="none"
+                    draggable="false"
                     viewBox="0 0 920 440"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h920v440H0z"
-                      fill="#fff"
+                      fill="none"
                     />
                     <path
                       clip-rule="evenodd"
@@ -3250,7 +3250,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="ijkl"
             >
               <div
-                class="TappableCard-highlighted ColorPair-white css-963r91"
+                class="TappableCard-root TappableCard-highlighted ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3262,8 +3262,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 >
                   <img
                     alt="ijkl name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -3331,7 +3332,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="efgh"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3343,8 +3344,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 >
                   <img
                     alt="efgh name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -3412,7 +3414,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="abcd"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3424,8 +3426,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 >
                   <img
                     alt="abcd name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -3493,7 +3496,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="mnop"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3505,8 +3508,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 >
                   <img
                     alt="mnop name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -3823,7 +3827,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="ijkl"
             >
               <div
-                class="TappableCard-highlighted ColorPair-white css-963r91"
+                class="TappableCard-root TappableCard-highlighted ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3835,8 +3839,9 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                 >
                   <img
                     alt="ijkl name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -3910,7 +3915,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="efgh"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3922,8 +3927,9 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                 >
                   <img
                     alt="efgh name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div

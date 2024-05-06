@@ -75,14 +75,10 @@ const ProductsGridView = ({
                   )
                 }
               }
-              media={
-                <img
-                  src={mainImage}
-                  alt={`${uniqueClassifications} ${
-                    product.name || variant.name
-                  }`}
-                />
-              }
+              media={{
+                src: mainImage,
+                alt: `${uniqueClassifications} ${product.name || variant.name}`
+              }}
               brandLogo={brandLogo}
               component={Link}
               to={productUrl}

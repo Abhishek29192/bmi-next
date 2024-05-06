@@ -78,11 +78,13 @@ export default {
           id: trainingListerPage.featuredMedia___NODE
         });
 
-      const asset = await context.nodeModel.getNodeById<ContentfulAssetNode>({
-        type: "ContentfulAsset",
-        id: featuredMedia.image___NODE
-      });
-      return asset.file.url;
+      const asset =
+        featuredMedia &&
+        (await context.nodeModel.getNodeById<ContentfulAssetNode>({
+          type: "ContentfulAsset",
+          id: featuredMedia.image___NODE
+        }));
+      return asset?.file.url;
     }
   }
 };

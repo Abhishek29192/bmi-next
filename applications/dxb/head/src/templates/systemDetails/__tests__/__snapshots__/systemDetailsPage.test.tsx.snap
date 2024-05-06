@@ -1,5 +1,113 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Media Gallery should render the media gallery component without the masterImage, if it's not provided 1`] = `
+<div
+  class="css-2bw4l8"
+  data-testid="media-gallery-root"
+>
+  <div
+    class=" css-79elbk"
+    data-testid="media-gallery-media-wrapper"
+  >
+    <img
+      alt="Alt text"
+      class="MediaGallery-mainImageWrappershort css-1smc134"
+      data-testid="media-gallery-media"
+      draggable="false"
+      loading="eager"
+      src="http://localhost:8000/image-main-source.jpg"
+    />
+  </div>
+</div>
+`;
+
+exports[`Media Gallery should render the media gallery component, with the masterImage as the first media asset if provided 1`] = `
+<div
+  class="css-2bw4l8"
+  data-testid="media-gallery-root"
+>
+  <div
+    class=" css-79elbk"
+    data-testid="media-gallery-media-wrapper"
+  >
+    <img
+      alt="example-master-image-alt-text"
+      class="MediaGallery-mainImageWrappershort css-1smc134"
+      data-testid="media-gallery-media"
+      draggable="false"
+      loading="eager"
+      src="exampleMasterImage.jpg"
+    />
+  </div>
+  <div
+    class="css-xhyzf2"
+    data-testid="thumbnails-root"
+  >
+    <button
+      aria-label="Scroll left"
+      class="MuiButtonBase-root ThumbScrollerButton-left css-1qq5z22-MuiButtonBase-root"
+      data-testid="thumbnail-scroller-left"
+      tabindex="-1"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium ThumbScrollerButton-icon css-i4bv87-MuiSvgIcon-root"
+        data-testid="ChevronLeftIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+        />
+      </svg>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+    <div
+      class="css-9kk3b1"
+      data-testid="thumbnail-scroller"
+      style="right: 0px;"
+    >
+      <button
+        class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ebds7h-MuiButtonBase-root"
+        data-gtm="{"id":"media-gallery1","label":"example-master-image-alt-text","action":"exampleMasterImage.jpg"}"
+        data-testid="thumbnail-default"
+        tabindex="0"
+        type="button"
+      >
+        <img
+          alt="example-master-image-alt-text"
+          class="css-1tdmq76"
+          draggable="false"
+          loading="eager"
+          src="exampleMasterImage.jpg"
+        />
+      </button>
+      <button
+        class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ebds7h-MuiButtonBase-root"
+        data-gtm="{"id":"media-gallery1","label":"Alt text","action":"http://localhost:8000/image-main-source.jpg"}"
+        data-testid="thumbnail-default"
+        tabindex="0"
+        type="button"
+      >
+        <img
+          alt="Alt text"
+          class="css-1tdmq76"
+          draggable="false"
+          loading="lazy"
+          src="http://localhost:8000/image-main-source.jpg"
+        />
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`SystemDetailsPage template component gtm on landing on sdp from sc run pushtogtm data layer if selected_system in query param 1`] = `
 <div>
   <div
@@ -1074,8 +1182,9 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 >
                   <img
                     alt="Alt text"
-                    class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+                    class="MediaGallery-mainImageWrappershort css-1smc134"
                     data-testid="media-gallery-media"
+                    draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
@@ -1613,7 +1722,10 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               data-testid="document-table-download-application/pdf-button"
                               download=""
                               href="http://localhost/pim-link-document-id"
+                              referrerpolicy="no-referrer"
+                              rel="noreferrer"
                               tabindex="0"
+                              target="_blank"
                             >
                               <span
                                 class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1952,7 +2064,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 data-testid="system-card-related-system-code"
               >
                 <div
-                  class=" ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -1964,8 +2076,9 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   >
                     <img
                       alt="related-system-1"
-                      class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                      class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                       data-testid="tappable-card-media"
+                      draggable="false"
                       src="http://localhost:8000/image-main-source.jpg"
                     />
                     <div
@@ -3625,8 +3738,9 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                 >
                   <img
                     alt="Alt text"
-                    class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+                    class="MediaGallery-mainImageWrappershort css-1smc134"
                     data-testid="media-gallery-media"
+                    draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
@@ -4164,7 +4278,10 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                               data-testid="document-table-download-application/pdf-button"
                               download=""
                               href="http://localhost/pim-link-document-id"
+                              referrerpolicy="no-referrer"
+                              rel="noreferrer"
                               tabindex="0"
+                              target="_blank"
                             >
                               <span
                                 class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -4503,7 +4620,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                 data-testid="system-card-related-system-code"
               >
                 <div
-                  class=" ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -4515,8 +4632,9 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                   >
                     <img
                       alt="related-system-1"
-                      class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                      class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                       data-testid="tappable-card-media"
+                      draggable="false"
                       src="http://localhost:8000/image-main-source.jpg"
                     />
                     <div
@@ -6177,8 +6295,9 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   >
                     <img
                       alt="Alt text"
-                      class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+                      class="MediaGallery-mainImageWrappershort css-1smc134"
                       data-testid="media-gallery-media"
+                      draggable="false"
                       loading="eager"
                       src="http://localhost:8000/image-main-source.jpg"
                     />
@@ -6716,7 +6835,10 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                 data-testid="document-table-download-application/pdf-button"
                                 download=""
                                 href="http://localhost/pim-link-document-id"
+                                referrerpolicy="no-referrer"
+                                rel="noreferrer"
                                 tabindex="0"
+                                target="_blank"
                               >
                                 <span
                                   class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -7055,7 +7177,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   data-testid="system-card-related-system-1"
                 >
                   <div
-                    class=" ColorPair-white css-963r91"
+                    class="TappableCard-root ColorPair-white css-963r91"
                     data-testid="tappable-card-box"
                   >
                     <a
@@ -7067,8 +7189,9 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     >
                       <img
                         alt="related-ssytem-name"
-                        class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                        class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                         data-testid="tappable-card-media"
+                        draggable="false"
                         src="http://localhost:8000/image-main-source.jpg"
                       />
                       <div
@@ -8729,8 +8852,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 >
                   <img
                     alt="Alt text"
-                    class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+                    class="MediaGallery-mainImageWrappershort css-1smc134"
                     data-testid="media-gallery-media"
+                    draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
@@ -9268,7 +9392,10 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               data-testid="document-table-download-application/pdf-button"
                               download=""
                               href="http://localhost/pim-link-document-id"
+                              referrerpolicy="no-referrer"
+                              rel="noreferrer"
                               tabindex="0"
+                              target="_blank"
                             >
                               <span
                                 class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -9607,7 +9734,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 data-testid="system-card-related-system-code"
               >
                 <div
-                  class=" ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -9619,8 +9746,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   >
                     <img
                       alt="related-system-1"
-                      class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                      class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                       data-testid="tappable-card-media"
+                      draggable="false"
                       src="http://localhost:8000/image-main-source.jpg"
                     />
                     <div
@@ -11280,8 +11408,9 @@ exports[`SystemDetailsPage template component should render without specificatio
                 >
                   <img
                     alt="Alt text"
-                    class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+                    class="MediaGallery-mainImageWrappershort css-1smc134"
                     data-testid="media-gallery-media"
+                    draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
@@ -11779,7 +11908,10 @@ exports[`SystemDetailsPage template component should render without specificatio
                               data-testid="document-table-download-application/pdf-button"
                               download=""
                               href="http://localhost/pim-link-document-id"
+                              referrerpolicy="no-referrer"
+                              rel="noreferrer"
                               tabindex="0"
+                              target="_blank"
                             >
                               <span
                                 class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -12118,7 +12250,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 data-testid="system-card-related-system-1"
               >
                 <div
-                  class=" ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -12130,8 +12262,9 @@ exports[`SystemDetailsPage template component should render without specificatio
                   >
                     <img
                       alt="related-ssytem-name"
-                      class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                      class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                       data-testid="tappable-card-media"
+                      draggable="false"
                       src="http://localhost:8000/image-main-source.jpg"
                     />
                     <div
@@ -13791,8 +13924,9 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 >
                   <img
                     alt="Alt text"
-                    class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+                    class="MediaGallery-mainImageWrappershort css-1smc134"
                     data-testid="media-gallery-media"
+                    draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
@@ -14330,7 +14464,10 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               data-testid="document-table-download-application/pdf-button"
                               download=""
                               href="http://localhost/pim-link-document-id"
+                              referrerpolicy="no-referrer"
+                              rel="noreferrer"
                               tabindex="0"
+                              target="_blank"
                             >
                               <span
                                 class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -14669,7 +14806,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 data-testid="system-card-related-system-1"
               >
                 <div
-                  class=" ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -14681,8 +14818,9 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   >
                     <img
                       alt="related-ssytem-name"
-                      class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                      class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                       data-testid="tappable-card-media"
+                      draggable="false"
                       src="http://localhost:8000/image-main-source.jpg"
                     />
                     <div
@@ -16342,8 +16480,9 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 >
                   <img
                     alt="Alt text"
-                    class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+                    class="MediaGallery-mainImageWrappershort css-1smc134"
                     data-testid="media-gallery-media"
+                    draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
@@ -17005,7 +17144,10 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               data-testid="document-table-download-application/pdf-button"
                               download=""
                               href="http://localhost/pim-link-document-id"
+                              referrerpolicy="no-referrer"
+                              rel="noreferrer"
                               tabindex="0"
+                              target="_blank"
                             >
                               <span
                                 class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -17344,7 +17486,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 data-testid="system-card-related-system-1"
               >
                 <div
-                  class=" ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -17356,8 +17498,9 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   >
                     <img
                       alt="related-ssytem-name"
-                      class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                      class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                       data-testid="tappable-card-media"
+                      draggable="false"
                       src="http://localhost:8000/image-main-source.jpg"
                     />
                     <div

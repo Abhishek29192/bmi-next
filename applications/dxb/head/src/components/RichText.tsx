@@ -114,7 +114,7 @@ const getOptions = (settings: Settings, isClient: boolean): Options => {
       [INLINES.ASSET_HYPERLINK]: (node: Inline, children: string) => (
         <InlineHyperlink node={node}>{children}</InlineHyperlink>
       ),
-      [INLINES.HYPERLINK]: (node: Inline, children: React.ReactNode) => {
+      [INLINES.HYPERLINK]: (node: Inline, children: string) => {
         const { uri } = node.data;
         const href =
           isClient && uri.includes(process.env.GATSBY_INTOUCH_ORIGIN)

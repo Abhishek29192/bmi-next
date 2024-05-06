@@ -14,17 +14,17 @@ import ContactTopics, {
 import IframeSection, {
   Data as IframeSectionData
 } from "../components/IframeSection";
-import Image from "../components/Image";
 import Locations, { Data as LocationsData } from "../components/Locations";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
-import Video from "../components/Video";
 import NextBestActions, {
   Data as NextBestActionsData
 } from "../components/next-best-actions/NextBestActions";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import createImageProps from "../components/image/createImageProps";
+import createVideoProps from "../components/video/createVideoProps";
 
 export type Data = PageInfoData &
   PageData & {
@@ -93,11 +93,15 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         level={1}
         title={title}
         media={
-          featuredVideo ? (
-            <Video {...featuredVideo} />
-          ) : featuredMedia ? (
-            <Image {...featuredMedia} size="cover" loading="eager" />
-          ) : undefined
+          featuredVideo
+            ? createVideoProps(featuredVideo)
+            : featuredMedia
+              ? createImageProps({
+                  ...featuredMedia,
+                  size: "cover",
+                  loading: "eager"
+                })
+              : undefined
         }
         breadcrumbs={
           <BackToResults isDarkThemed data-testid="breadcrumbs-section-top">

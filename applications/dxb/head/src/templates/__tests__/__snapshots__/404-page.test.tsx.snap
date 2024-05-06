@@ -723,7 +723,8 @@ exports[`404 page tests When error page data is partially populated renders plac
               >
                 <img
                   alt="alt-text-img"
-                  class="PromoSection-image css-7mgsqw-Media"
+                  class="css-1tdmq76"
+                  draggable="false"
                   loading="lazy"
                   src="https://nowhere.com"
                   style="object-fit: cover; object-position: center;"
@@ -1869,7 +1870,8 @@ exports[`404 page tests When site data and error page data are fully populated r
               >
                 <img
                   alt="alt-text-img"
-                  class="PromoSection-image css-7mgsqw-Media"
+                  class="css-1tdmq76"
+                  draggable="false"
                   loading="lazy"
                   src="https://nowhere.com"
                   style="object-fit: cover; object-position: center;"

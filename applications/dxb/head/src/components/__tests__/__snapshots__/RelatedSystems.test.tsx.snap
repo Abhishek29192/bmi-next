@@ -28,7 +28,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -40,8 +40,9 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                 >
                   <img
                     alt="system-1"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -115,7 +116,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -127,8 +128,9 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                 >
                   <img
                     alt="system-1"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -263,7 +265,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -275,8 +277,9 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                 >
                   <img
                     alt="system-Name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -350,7 +353,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -362,8 +365,9 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                 >
                   <img
                     alt="system-Name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -468,7 +472,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -480,8 +484,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                 >
                   <img
                     alt="system-1"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -555,7 +560,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -567,8 +572,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                 >
                   <img
                     alt="system-2"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -673,7 +679,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -685,8 +691,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                 >
                   <img
                     alt="system-Name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -760,7 +767,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -772,8 +779,9 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                 >
                   <img
                     alt="system-Name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -878,7 +886,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -890,8 +898,9 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
                 >
                   <img
                     alt="system-Name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -996,7 +1005,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -1008,8 +1017,9 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
                 >
                   <img
                     alt="system-Name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -1114,7 +1124,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
               data-testid="system-card-system-code"
             >
               <div
-                class=" ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-963r91"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -1126,8 +1136,9 @@ exports[`RelatedSystems component renders systems correctly without classificati
                 >
                   <img
                     alt="system-Name"
-                    class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                     data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
@@ -1211,7 +1222,7 @@ exports[`SystemCard renders correctly with related system 1`] = `
     data-testid="system-card-related-system-1"
   >
     <div
-      class=" ColorPair-white css-963r91"
+      class="TappableCard-root ColorPair-white css-963r91"
       data-testid="tappable-card-box"
     >
       <a
@@ -1223,8 +1234,9 @@ exports[`SystemCard renders correctly with related system 1`] = `
       >
         <img
           alt="related-ssytem-name"
-          class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+          class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
           data-testid="tappable-card-media"
+          draggable="false"
           src="http://localhost:8000/image-main-source.jpg"
         />
         <div

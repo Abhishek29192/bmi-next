@@ -28,6 +28,7 @@ import React, {
 } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
+import { GTM } from "@bmi-digital/components";
 import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { useConfig } from "../contexts/ConfigProvider";
 import {
@@ -35,7 +36,6 @@ import {
   handleEmailValidation as validateEmail
 } from "../utils/emailUtils";
 import getCookie from "../utils/getCookie";
-import { GTM } from "../utils/google-tag-manager";
 import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";

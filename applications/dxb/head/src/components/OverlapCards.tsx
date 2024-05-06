@@ -4,12 +4,13 @@ import CTACard from "@bmi-digital/components/cta-card";
 import Grid from "@bmi-digital/components/grid";
 import { graphql } from "gatsby";
 import React from "react";
-import Image from "./Image";
+import DefaultImage from "@bmi-digital/components/resources/DefaultImage";
 import { useSiteContext } from "./Site";
-import Video from "./Video";
 import { getCTA } from "./link/utils";
 import { OverlapCardsSection, StyledGrid } from "./styles/OverlapCardsStyles";
 import { CTACardPageInfoData, CTACardPromoData } from "./types/CTACardTypes";
+import createImageProps from "./image/createImageProps";
+import createVideoProps from "./video/createVideoProps";
 
 type Card = CTACardPromoData | CTACardPageInfoData;
 
@@ -29,17 +30,16 @@ const IntegratedOverlapCards = ({ data }: { data: Data }) => {
                 <CTACard
                   title={title}
                   media={
-                    featuredVideo ? (
-                      <Video
-                        {...featuredVideo}
-                        data-testid="overlap-cards-video"
-                      />
-                    ) : (
-                      <Image
-                        {...featuredMedia}
-                        data-testid="overlap-cards-image"
-                      />
-                    )
+                    featuredVideo
+                      ? createVideoProps({
+                          ...featuredVideo,
+                          "data-testid": "overlap-cards-video"
+                        })
+                      : (featuredMedia &&
+                          createImageProps({
+                            ...featuredMedia,
+                            "data-testid": "overlap-cards-image"
+                          })) || { component: DefaultImage }
                   }
                   {...cta}
                   data-testid="overlap-card"

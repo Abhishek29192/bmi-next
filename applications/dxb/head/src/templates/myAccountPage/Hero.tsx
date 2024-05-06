@@ -3,11 +3,11 @@ import Typography from "@bmi-digital/components/typography";
 import React from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
-import Image from "../../components/Image";
 import useAuth from "../../hooks/useAuth";
+import createImageProps from "../../components/image/createImageProps";
 import { HelloText } from "./styles";
 import { getUserInfo } from "./utils";
-import type { Data as ContentfulImage } from "../../components/Image";
+import type { Data as ContentfulImage } from "../../components/image/types";
 import type { Data as BreadcrumbData } from "../../components/Breadcrumbs";
 
 export type HeroProps = {
@@ -40,7 +40,9 @@ const Hero = ({
         </HelloText>
       }
       media={
-        featuredMedia ? <Image {...featuredMedia} size="cover" /> : undefined
+        featuredMedia
+          ? createImageProps({ ...featuredMedia, size: "cover" })
+          : undefined
       }
       breadcrumbs={
         <BackToResults isDarkThemed data-testid="breadcrumbs-section-top">

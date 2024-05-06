@@ -407,7 +407,8 @@ const SystemConfiguratorResult = ({
             <RichText document={description} />
           </StyledSectionDescription>
         )}
-        {recommendedSystems?.length > 0 &&
+        {recommendedSystems &&
+          recommendedSystems.length > 0 &&
           recommendedSystemPimObjects.length > 0 && (
             <Grid
               container

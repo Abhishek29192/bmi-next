@@ -27,7 +27,7 @@ exports[`NextBestActions component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="ColorPair-secondary1 css-14grad6"
+              class="TappableCard-root ColorPair-secondary1 css-14grad6"
               data-testid="tappable-card-box"
             >
               <a
@@ -36,7 +36,10 @@ exports[`NextBestActions component renders correctly 1`] = `
                 data-testid="nba-card-Promo-NBA-Title"
                 download=""
                 href="http://localhost:8080/asset.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <div
                   class="TappableCard-body css-c6k36h"
@@ -93,7 +96,7 @@ exports[`NextBestActions component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="ColorPair-secondary2 css-14grad6"
+              class="TappableCard-root ColorPair-secondary2 css-14grad6"
               data-testid="tappable-card-box"
             >
               <a

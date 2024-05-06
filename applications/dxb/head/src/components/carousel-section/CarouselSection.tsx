@@ -12,13 +12,13 @@ import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
-import Image from "../Image";
 import { Data as PageInfoData } from "../PageInfo";
 import { Data as PromoData } from "../Promo";
 import { useSiteContext } from "../Site";
-import Video from "../Video";
 import { getCTA } from "../link/utils";
 import { SectionElement, LinkElement } from "../styles/CarouselSectionStyles";
+import createImageProps from "../image/createImageProps";
+import createVideoProps from "../video/createVideoProps";
 import type { Data as LinkData } from "../link/types";
 
 type Slide = PromoData | PageInfoData;
@@ -57,18 +57,18 @@ const parseSlides = (
         return {
           title,
           brandIcon: brandLogoIcons,
-          media: featuredVideo ? (
-            <Video
-              {...featuredVideo}
-              className="video-preview-image"
-              data-testid={`carousel-section-slide-video-${index}`}
-            />
-          ) : featuredMedia ? (
-            <Image
-              {...featuredMedia}
-              data-testid={`carousel-section-slide-image-${index}`}
-            />
-          ) : undefined,
+          media: featuredVideo
+            ? createVideoProps({
+                ...featuredVideo,
+                className: "video-preview-image",
+                "data-testid": `carousel-section-slide-video-${index}`
+              })
+            : featuredMedia
+              ? createImageProps({
+                  ...featuredMedia,
+                  "data-testid": `carousel-section-slide-image-${index}`
+                })
+              : undefined,
           description: subtitle || undefined,
           cta: cta ? { ...cta, children: title } : undefined
         };

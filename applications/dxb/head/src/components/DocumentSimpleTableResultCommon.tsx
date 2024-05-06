@@ -121,6 +121,7 @@ export const DocumentTitle = (props: {
       )}
       gtm={{ id: "download1", label: "Download", action: mappedDocument.url }}
       href={getDownloadLink(mappedDocument.url) || ""}
+      external
       download
       variant="text"
       startIcon={

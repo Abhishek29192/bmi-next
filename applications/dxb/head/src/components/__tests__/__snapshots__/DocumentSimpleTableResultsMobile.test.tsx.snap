@@ -16,7 +16,10 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
           data-testid="document-table-download-application/pdf-button"
           download=""
           href="http://doesnot-exist.com/fileName"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           tabindex="0"
+          target="_blank"
         >
           <span
             class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"

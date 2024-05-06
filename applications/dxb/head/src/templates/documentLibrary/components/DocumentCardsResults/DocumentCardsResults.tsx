@@ -4,8 +4,8 @@ import { ContentfulDocument } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import React from "react";
 import BrandLogo from "../../../../components/BrandLogo";
-import Image from "../../../../components/Image";
 import { useSiteContext } from "../../../../components/Site";
+import createImageProps from "../../../../components/image/createImageProps";
 
 type Props = {
   documents: ContentfulDocument[];
@@ -31,7 +31,8 @@ const DocumentCardsResults = ({ documents }: Props) => {
               noIndex={true}
               title={document.title}
               media={
-                document.featuredMedia && <Image {...document.featuredMedia} />
+                document.featuredMedia &&
+                createImageProps(document.featuredMedia)
               }
               brandLogo={
                 document.BRAND ? (

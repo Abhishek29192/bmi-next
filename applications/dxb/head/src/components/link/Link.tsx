@@ -88,6 +88,7 @@ const AssetLink = ({
     <StyledAnchorLink
       className={classnames(className, hasBrandColours && classes.branded)}
       href={to}
+      external
       download
       gtm={{
         id: "cta-click1",

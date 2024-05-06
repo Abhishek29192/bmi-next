@@ -16,13 +16,11 @@ import { isDefined } from "@bmi/utils";
 import withGTM from "../utils/google-tag-manager";
 import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
 import BrandLogo from "./BrandLogo";
-import Image from "./Image";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import { TagData } from "./Tag";
-import Video from "./Video";
 import ButtonLink from "./link/ButtonLink";
 import { Data as LinkData } from "./link/types";
 import { getCTA } from "./link/utils";
@@ -35,6 +33,8 @@ import {
   StyledTitle,
   classes
 } from "./styles/CardCollectionSectionStyles";
+import createImageProps from "./image/createImageProps";
+import createVideoProps from "./video/createVideoProps";
 
 type Card = PageInfoData | PromoData;
 
@@ -107,11 +107,11 @@ const CardCollectionItem = (props: CardCollectionItemProps) => {
       title={title}
       description={subtitle}
       media={
-        featuredVideo ? (
-          <Video {...featuredVideo} />
-        ) : featuredMedia ? (
-          <Image {...featuredMedia} />
-        ) : undefined
+        featuredVideo
+          ? createVideoProps(featuredVideo)
+          : featuredMedia
+            ? createImageProps(featuredMedia)
+            : undefined
       }
       brandLogo={brandLogo ? <BrandLogo brandName={brandLogo} /> : undefined}
       ctaLabel={transformedCardLabel}

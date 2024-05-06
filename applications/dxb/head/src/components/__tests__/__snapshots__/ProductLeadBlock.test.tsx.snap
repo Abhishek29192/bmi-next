@@ -662,7 +662,10 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-testid="document-table-download-application/pdf-button"
                         download=""
                         href="http://pimdocument/"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
+                        target="_blank"
                       >
                         <span
                           class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -832,7 +835,10 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-testid="document-table-download-application/pdf-button"
                         download=""
                         href="http://pimdocument/"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
+                        target="_blank"
                       >
                         <span
                           class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1002,7 +1008,10 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-testid="document-table-download-application/pdf-button"
                         download=""
                         href="http://pimdocument/"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
+                        target="_blank"
                       >
                         <span
                           class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1172,7 +1181,10 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-testid="document-table-download-application/pdf-button"
                         download=""
                         href="http://pimdocument/"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
+                        target="_blank"
                       >
                         <span
                           class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1408,8 +1420,9 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 >
                   <img
                     alt="Alt text"
-                    class="MediaGallery-mainImageWrapperdefault css-ztt6nc-Media"
+                    class="MediaGallery-mainImageWrapperdefault css-1smc134"
                     data-testid="media-gallery-media"
+                    draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
@@ -2118,7 +2131,10 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-testid="document-table-download-application/pdf-button"
                         download=""
                         href="http://pimdocument/"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
+                        target="_blank"
                       >
                         <span
                           class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -2288,7 +2304,10 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-testid="document-table-download-application/pdf-button"
                         download=""
                         href="http://pimdocument/"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
+                        target="_blank"
                       >
                         <span
                           class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -2524,8 +2543,9 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 >
                   <img
                     alt="Alt text"
-                    class="MediaGallery-mainImageWrapperdefault css-ztt6nc-Media"
+                    class="MediaGallery-mainImageWrapperdefault css-1smc134"
                     data-testid="media-gallery-media"
+                    draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
@@ -3119,8 +3139,9 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                 >
                   <img
                     alt="Alt text"
-                    class="MediaGallery-mainImageWrapperdefault css-ztt6nc-Media"
+                    class="MediaGallery-mainImageWrapperdefault css-1smc134"
                     data-testid="media-gallery-media"
+                    draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
@@ -3313,7 +3334,10 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-testid="document-table-download-application/pdf-button"
                   download=""
                   href="http://pimdocument/"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -3483,7 +3507,10 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-testid="document-table-download-application/pdf-button"
                   download=""
                   href="http://pimdocument/"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -3653,7 +3680,10 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-testid="document-table-download-application/pdf-button"
                   download=""
                   href="http://pimdocument/"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -3823,7 +3853,10 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-testid="document-table-download-application/pdf-button"
                   download=""
                   href="http://pimdocument/"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -4418,7 +4451,10 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-testid="document-table-download-application/pdf-button"
                   download=""
                   href="http://pimdocument/"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -4588,7 +4624,10 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-testid="document-table-download-application/pdf-button"
                   download=""
                   href="http://pimdocument/"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -4758,7 +4797,10 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-testid="document-table-download-application/pdf-button"
                   download=""
                   href="http://pimdocument/"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -4928,7 +4970,10 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-testid="document-table-download-application/pdf-button"
                   download=""
                   href="http://pimdocument/"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -5220,8 +5265,9 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
           >
             <img
               alt="Alt text"
-              class="MediaGallery-mainImageWrapperdefault css-ztt6nc-Media"
+              class="MediaGallery-mainImageWrapperdefault css-1smc134"
               data-testid="media-gallery-media"
+              draggable="false"
               loading="eager"
               src="http://localhost:8000/image-main-source.jpg"
             />

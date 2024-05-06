@@ -62,6 +62,7 @@ export const toAnchorLinkActionProps = (
     return {
       href: link.asset.file.url,
       download: true,
+      external: true,
       gtm: {
         id: "cta-click1",
         action: link.asset.file.url,

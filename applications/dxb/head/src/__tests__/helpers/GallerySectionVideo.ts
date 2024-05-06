@@ -16,8 +16,7 @@ const createGallerySectionVideo = (
       gatsbyImageData: createGatsbyImageData(),
       thumbnail: createGatsbyImageData(),
       file: {
-        fileName: "fileName",
-        url: "fileNameURL"
+        fileName: "fileName"
       }
     },
     focalPoint: { x: 0, y: 0 }

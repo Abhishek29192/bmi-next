@@ -453,7 +453,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
         </ResultsTable>
       </>
     ) : null}
-    {results.extras.length ? (
+    {results.extras?.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]} center>
           {getMicroCopy(microCopy.PDF_REPORT_EXTRAS_SECTION_TITLE)}

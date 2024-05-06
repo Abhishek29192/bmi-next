@@ -1,9 +1,9 @@
 import { graphql } from "gatsby";
 import type { Logo } from "./BrandLogo";
-import type { Data as ImageData } from "./Image";
+import type { Data as ImageData } from "./image/types";
 import type { Data as SampleBasketSectionData } from "./SampleBasketBase";
 import type { TagData } from "./Tag";
-import type { ContentfulVideoData } from "./Video";
+import type { ContentfulVideoData } from "./video/types";
 import type { Data as LinkData } from "./link/types";
 
 export type Data = {

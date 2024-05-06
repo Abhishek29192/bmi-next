@@ -14,12 +14,12 @@ import {
   goodBetterBestLabels
 } from "../utils/getGoodBetterBestLabel";
 import { getPathWithCountryCode } from "../utils/path";
-import Image from "./Image";
 import { useSiteContext } from "./Site";
 import {
   StyledSampleBasketSection,
   classes
 } from "./styles/SampleBasketSectionProducts.styles";
+import createImageProps from "./image/createImageProps";
 
 const SampleBasketSectionProducts = () => {
   const { basketState, basketDispatch } = useBasketContext();
@@ -35,20 +35,20 @@ const SampleBasketSectionProducts = () => {
       measurements,
       goodBetterBest
     } = sample;
-    const media = (
-      <Image
-        type="Descriptive"
-        altText={name}
-        image={{
-          file: {
-            fileName: name,
-            url: image
-          }
-        }}
-        focalPoint={{ x: 0, y: 0 }}
-        className={classes["product-image"]}
-      />
-    );
+    const media = image
+      ? createImageProps({
+          type: "Descriptive",
+          altText: name,
+          image: {
+            file: {
+              fileName: name,
+              url: image
+            }
+          },
+          focalPoint: { x: 0, y: 0 },
+          className: classes["product-image"]
+        })
+      : undefined;
 
     const removeFromBasket = (payload: Sample) => {
       basketDispatch({

@@ -37,7 +37,7 @@ const DesktopTrainingCard = ({
     <StyledTrainingCard
       title={name}
       subtitle={`${getMicroCopy(microCopy.TRAINING_CODE_LABEL)} ${code}`}
-      media={<img src={img_url} alt={name} />}
+      media={{ src: img_url, alt: name }}
       price={getPriceLabel(
         price,
         currencySymbol,

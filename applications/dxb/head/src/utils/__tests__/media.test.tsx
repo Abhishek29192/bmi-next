@@ -1,15 +1,13 @@
-import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import createGalleryPimVideo from "../../__tests__/helpers/GalleryPimVideoHelper";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
 import createGallerySectionVideo from "../../__tests__/helpers/GallerySectionVideo";
 import createGatsbyImageData from "../../__tests__/helpers/GatsbyImageDataHelper";
-import Image from "../../components/Image";
-import Video from "../../components/Video";
 import { GallerySectionMedias, getJpgImage, transformMediaSrc } from "../media";
 
 describe("getJpgImage function", () => {
   it("does nothing if undefined", () => {
-    expect(getJpgImage(null)).toBeNull();
+    expect(getJpgImage(undefined)).toBeUndefined();
   });
 
   it("does nothing if not a contentful url", () => {
@@ -48,26 +46,108 @@ describe("transformMediaSrc function", () => {
     const mockMedia: GallerySectionMedias[] = [image, video, pimVideo];
 
     const expectResult = transformMediaSrc(mockMedia);
-
     expect(expectResult[0]).toEqual({
-      thumbnail: image.image.thumbnail?.images.fallback?.src,
-      isVideo: false,
-      caption: "CAPTION",
       altText: "alt text",
-      media: <Image {...image} />
+      caption: "CAPTION",
+      isVideo: false,
+      media: {
+        alt: "alt text",
+        className: undefined,
+        component: GatsbyImage,
+        "data-testid": undefined,
+        draggable: false,
+        image: {
+          backgroundColor: "#484848",
+          height: 720,
+          images: {
+            fallback: {
+              sizes: "(min-width: 948px) 948px, 100vw",
+              src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
+              srcSet:
+                "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+            },
+            sources: [
+              {
+                sizes: "(min-width: 948px) 948px, 100vw",
+                srcSet:
+                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
+                type: "image/webp"
+              }
+            ]
+          },
+          layout: "constrained",
+          width: 948
+        },
+        loading: "lazy",
+        objectFit: "cover",
+        objectPosition: "center"
+      },
+      thumbnail:
+        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
     });
     expect(expectResult[1]).toEqual({
-      thumbnail: video.previewMedia.image.thumbnail.images.fallback.src,
-      isVideo: true,
-      caption: "ContentfulVideoSubtitle",
       altText: "label",
-      media: <Video {...video} />
+      caption: "ContentfulVideoSubtitle",
+      isVideo: true,
+      media: {
+        "data-testid": undefined,
+        embedHeight: 9,
+        embedWidth: 16,
+        label: "label",
+        layout: "dialog",
+        previewImageSource: {
+          alt: "ContentfulVideoAltText",
+          className: undefined,
+          component: GatsbyImage,
+          "data-testid": undefined,
+          draggable: false,
+          image: {
+            backgroundColor: "#484848",
+            height: 720,
+            images: {
+              fallback: {
+                sizes: "(min-width: 948px) 948px, 100vw",
+                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
+                srcSet:
+                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+              },
+              sources: [
+                {
+                  sizes: "(min-width: 948px) 948px, 100vw",
+                  srcSet:
+                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
+                  type: "image/webp"
+                }
+              ]
+            },
+            layout: "constrained",
+            width: 948
+          },
+          loading: "lazy",
+          objectFit: "contain",
+          objectPosition: "center"
+        },
+        subtitle: "ContentfulVideoSubtitle",
+        videoUrl: "https://youtu.be/01SUXJmB9Ik"
+      },
+      thumbnail:
+        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
     });
     expect(expectResult[2]).toEqual({
-      thumbnail: pimVideo.defaultYouTubePreviewImage,
-      isVideo: true,
       caption: "PimVideoTitle",
-      media: <Video {...pimVideo} />
+      isVideo: true,
+      media: {
+        "data-testid": undefined,
+        embedHeight: 0,
+        embedWidth: 0,
+        label: "PimVideoLabel",
+        layout: "dialog",
+        previewImageSource:
+          "https://i.ytimg.com/vi/AGVIbPFLDcI/maxresdefault.jpg",
+        subtitle: "subtitle",
+        videoUrl: "https://www.youtube.com/watch?v=AGVIbPFLDcI"
+      },
+      thumbnail: "https://i.ytimg.com/vi/AGVIbPFLDcI/maxresdefault.jpg"
     });
   });
 
@@ -76,11 +156,21 @@ describe("transformMediaSrc function", () => {
     const expectResult = transformMediaSrc([video]);
 
     expect(expectResult[0]).toEqual({
-      thumbnail: "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
-      isVideo: true,
-      caption: "ContentfulVideoSubtitle",
       altText: "label",
-      media: <Video {...video} />
+      caption: "ContentfulVideoSubtitle",
+      isVideo: true,
+      media: {
+        "data-testid": undefined,
+        embedHeight: 9,
+        embedWidth: 16,
+        label: "label",
+        layout: "dialog",
+        previewImageSource:
+          "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
+        subtitle: "ContentfulVideoSubtitle",
+        videoUrl: "https://youtu.be/01SUXJmB9Ik"
+      },
+      thumbnail: "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg"
     });
   });
 
@@ -89,11 +179,52 @@ describe("transformMediaSrc function", () => {
     const expectResult = transformMediaSrc([video]);
 
     expect(expectResult[0]).toEqual({
-      thumbnail: video.previewMedia.image.thumbnail.images.fallback.src,
-      isVideo: true,
-      caption: undefined,
       altText: "label",
-      media: <Video {...video} />
+      caption: undefined,
+      isVideo: true,
+      media: {
+        "data-testid": undefined,
+        embedHeight: 9,
+        embedWidth: 16,
+        label: "label",
+        layout: "dialog",
+        previewImageSource: {
+          alt: "ContentfulVideoAltText",
+          className: undefined,
+          component: GatsbyImage,
+          "data-testid": undefined,
+          draggable: false,
+          image: {
+            backgroundColor: "#484848",
+            height: 720,
+            images: {
+              fallback: {
+                sizes: "(min-width: 948px) 948px, 100vw",
+                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
+                srcSet:
+                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+              },
+              sources: [
+                {
+                  sizes: "(min-width: 948px) 948px, 100vw",
+                  srcSet:
+                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
+                  type: "image/webp"
+                }
+              ]
+            },
+            layout: "constrained",
+            width: 948
+          },
+          loading: "lazy",
+          objectFit: "contain",
+          objectPosition: "center"
+        },
+        subtitle: null,
+        videoUrl: "https://youtu.be/01SUXJmB9Ik"
+      },
+      thumbnail:
+        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
     });
   });
 
@@ -101,8 +232,7 @@ describe("transformMediaSrc function", () => {
     const image = createGallerySectionImage({
       image: {
         file: {
-          fileName: "Lorem ipsum",
-          url: "//images.asset.jpg"
+          fileName: "Lorem ipsum"
         },
         gatsbyImageData: createGatsbyImageData(),
         thumbnail: undefined

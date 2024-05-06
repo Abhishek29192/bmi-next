@@ -46,7 +46,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { resources } = contentfulSite;
   const pageData: PageData = {
     breadcrumbs: product.breadcrumbs,
-    signupBlock: resources?.pdpSignupBlock,
+    signupBlock: resources?.pdpSignupBlock ?? null,
     seo: null,
     path: product.path
   };
@@ -64,9 +64,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     return isSSR ? "" : window.location.search;
   }, [isSSR]);
 
-  const images = transformImages(
-    [product.masterImage, ...product.galleryImages].filter(Boolean)
-  );
+  const images =
+    product.masterImage &&
+    transformImages(
+      [product.masterImage, ...product.galleryImages].filter(Boolean)
+    );
+
   return (
     <Page
       brand={product.brand?.code}
@@ -114,8 +117,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     pageContext?.variantCodeToPathMap
                   ),
                   variantCode: pageContext.productCode,
-                  isRecaptchaShown:
-                    Object.keys(product.keyAssetDocuments).length > 0,
+                  isRecaptchaShown: product.keyAssetDocuments
+                    ? Object.keys(product.keyAssetDocuments).length > 0
+                    : undefined,
                   isNavigationToVisualiserAvailable:
                     product.isVisualiserAvailable
                 }}
@@ -126,11 +130,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   maximumSamples={maximumSamples}
                   sampleBasketLinkInfo={sampleBasketLink}
                 />
-                {Object.keys(product.keyAssetDocuments).length > 0 && (
-                  <KeyAssetTypesDownloadSection
-                    keyAssetDocuments={product.keyAssetDocuments}
-                  />
-                )}
+                {product.keyAssetDocuments &&
+                  Object.keys(product.keyAssetDocuments).length > 0 && (
+                    <KeyAssetTypesDownloadSection
+                      keyAssetDocuments={product.keyAssetDocuments}
+                    />
+                  )}
                 {resources?.pdpShareWidget && (
                   <ShareWidgetSection
                     data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}

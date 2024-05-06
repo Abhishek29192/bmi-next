@@ -41,7 +41,10 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
         data-testid="AATDownload"
         download=""
         href="http://pimdocument/"
+        referrerpolicy="no-referrer"
+        rel="noreferrer"
         tabindex="0"
+        target="_blank"
       >
         <span
           class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"

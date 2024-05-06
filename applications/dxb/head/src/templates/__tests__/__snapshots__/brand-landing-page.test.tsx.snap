@@ -1030,9 +1030,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           style="width: 100%;"
                         >
                           <div
-                            class="CarouselHero-image css-1moer0t-Media"
-                            data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                            data-testid="hero-image-carousel-media"
+                            class="CarouselHero-image css-uagn6w"
+                            data-testid="youtube-dialog-wrapper"
                           >
                             <div
                               aria-label="label"
@@ -1043,8 +1042,9 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                             >
                               <img
                                 alt="label"
-                                class="YoutubeVideo-previewImage"
+                                class="css-qri583"
                                 data-testid="youtube-preview-image"
+                                draggable="false"
                                 src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
                               />
                               <span
@@ -1119,9 +1119,59 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -1129,56 +1179,6 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -1211,9 +1211,59 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -1221,56 +1271,6 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -2897,7 +2897,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                           style="width: 100%;"
                         >
                           <div
-                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-7mgsqw-Media"
+                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-1tdmq76"
                             data-gatsby-image-wrapper=""
                             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                           >
@@ -2927,7 +2927,6 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
-                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -4585,9 +4584,59 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -4595,56 +4644,6 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -4677,9 +4676,59 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -4687,56 +4736,6 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -6361,7 +6360,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                           style="width: 100%;"
                         >
                           <div
-                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-7mgsqw-Media"
+                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-1tdmq76"
                             data-gatsby-image-wrapper=""
                             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                           >
@@ -6391,7 +6390,6 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
-                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -6448,9 +6446,59 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -6458,56 +6506,6 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -6540,9 +6538,59 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -6550,56 +6598,6 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -8226,7 +8224,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                           style="width: 100%;"
                         >
                           <div
-                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-7mgsqw-Media"
+                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-1tdmq76"
                             data-gatsby-image-wrapper=""
                             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                           >
@@ -8256,7 +8254,6 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
-                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -8313,9 +8310,59 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -8323,56 +8370,6 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -8405,9 +8402,59 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -8415,56 +8462,6 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -10061,7 +10058,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                           style="width: 100%;"
                         >
                           <div
-                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-7mgsqw-Media"
+                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-1tdmq76"
                             data-gatsby-image-wrapper=""
                             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                           >
@@ -10091,7 +10088,6 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
-                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -10148,9 +10144,59 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -10158,56 +10204,6 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -10240,9 +10236,59 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -10250,56 +10296,6 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -11926,7 +11922,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                           style="width: 100%;"
                         >
                           <div
-                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-7mgsqw-Media"
+                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-1tdmq76"
                             data-gatsby-image-wrapper=""
                             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                           >
@@ -11956,7 +11952,6 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
-                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -12013,9 +12008,59 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -12023,56 +12068,6 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -12105,9 +12100,59 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -12115,56 +12160,6 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -13801,7 +13796,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                           style="width: 100%;"
                         >
                           <div
-                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-7mgsqw-Media"
+                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-1tdmq76"
                             data-gatsby-image-wrapper=""
                             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                           >
@@ -13831,7 +13826,6 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
-                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -13888,9 +13882,59 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -13898,56 +13942,6 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -13980,9 +13974,59 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -13990,56 +14034,6 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -15678,7 +15672,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                           style="width: 100%;"
                         >
                           <div
-                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-7mgsqw-Media"
+                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-1tdmq76"
                             data-gatsby-image-wrapper=""
                             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                           >
@@ -15708,7 +15702,6 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
-                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -15765,9 +15758,59 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -15775,56 +15818,6 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -15857,9 +15850,59 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -15867,56 +15910,6 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -17555,7 +17548,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                           style="width: 100%;"
                         >
                           <div
-                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-7mgsqw-Media"
+                            class="gatsby-image-wrapper gatsby-image-wrapper-constrained CarouselHero-image css-1tdmq76"
                             data-gatsby-image-wrapper=""
                             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                           >
@@ -17585,7 +17578,6 @@ exports[`Brand Landing Page Template when description is more than 400 character
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
-                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -17642,9 +17634,59 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -17652,56 +17694,6 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >
@@ -17734,9 +17726,59 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-white css-mdwtx6"
+                  class="TappableCard-root ColorPair-white css-skcmyp"
                   data-testid="tappable-card-box"
                 >
+                  <div
+                    class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-testid="overlap-cards-video"
+                  >
+                    <div
+                      aria-label="label"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                      data-testid="thumbnail"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="label"
+                        class="css-qri583"
+                        data-testid="youtube-preview-image"
+                        draggable="false"
+                        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+                      />
+                      <span
+                        class="css-1ptr1nd"
+                      >
+                        label
+                      </span>
+                      <div
+                        aria-label="label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="thumbnail-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PlayArrowIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8 5v14l11-7z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"/en/some-page/","label":"Call to action"}"
@@ -17744,56 +17786,6 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     href="/en/some-page/"
                     tabindex="0"
                   >
-                    <div
-                      class="TappableCard-headerPicture css-125lpbj-Media"
-                      data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-                      data-testid="overlap-cards-video"
-                    >
-                      <div
-                        aria-label="label"
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                        data-testid="thumbnail"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <img
-                          alt="label"
-                          class="YoutubeVideo-previewImage"
-                          data-testid="youtube-preview-image"
-                          src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-                        />
-                        <span
-                          class="css-1ptr1nd"
-                        >
-                          label
-                        </span>
-                        <div
-                          aria-label="label"
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="thumbnail-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                            data-testid="PlayArrowIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M8 5v14l11-7z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </div>
-                    </div>
                     <div
                       class="TappableCard-body css-c6k36h"
                     >

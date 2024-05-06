@@ -115,8 +115,7 @@ describe("Home Page Template", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },

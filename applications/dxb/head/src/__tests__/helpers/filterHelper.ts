@@ -1,4 +1,4 @@
-import { Filter as FirestoreFilter } from "../../types/pim";
+import type { Filter as FirestoreFilter } from "../../types/pim";
 import type { Filter } from "@bmi-digital/components/filters";
 
 export const createBrandFilterCriteria = (

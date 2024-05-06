@@ -779,7 +779,10 @@ exports[`TabLeadBlock tests should render 1`] = `
                             data-testid="document-table-download-application/pdf-button"
                             download=""
                             href="http://localhost/pim-link-document-id"
+                            referrerpolicy="no-referrer"
+                            rel="noreferrer"
                             tabindex="0"
+                            target="_blank"
                           >
                             <span
                               class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1260,7 +1263,10 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                         data-testid="document-table-download-application/pdf-button"
                         download=""
                         href="http://localhost/pim-link-document-id"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
+                        target="_blank"
                       >
                         <span
                           class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"

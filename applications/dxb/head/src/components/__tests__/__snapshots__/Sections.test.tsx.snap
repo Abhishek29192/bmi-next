@@ -599,7 +599,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="card-collection-grid-item-visible-00000000-0000-0000-0000-000000000000"
               >
                 <div
-                  class="ColorPair-white css-1j2zog7"
+                  class="TappableCard-root ColorPair-white css-1j2zog7"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -751,7 +751,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="card-collection-grid-item-visible-00000000-0000-0000-0000-000000000000"
               >
                 <div
-                  class=" ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -762,7 +762,7 @@ exports[`Sections component renders correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained TappableCard-headerPicture css-11fi03y-Media"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained TappableCard-headerPicture css-k77jxl"
                       data-gatsby-image-wrapper=""
                       style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
@@ -933,8 +933,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="PromoSection-image css-1moer0t-Media"
-                data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=abc123-Video","action":"Play"}"
+                class="PromoSection-image css-uagn6w"
                 data-testid="youtube-dialog-wrapper"
               >
                 <div
@@ -946,8 +945,9 @@ exports[`Sections component renders correctly 1`] = `
                 >
                   <img
                     alt="Video"
-                    class="YoutubeVideo-previewImage"
+                    class="css-qri583"
                     data-testid="youtube-preview-image"
+                    draggable="false"
                     src="https://i.ytimg.com/vi/abc123/maxresdefault.jpg"
                   />
                   <span
@@ -1032,7 +1032,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained PromoSection-image css-7mgsqw-Media"
+                class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1tdmq76"
                 data-gatsby-image-wrapper=""
                 style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
               >
@@ -1126,7 +1126,7 @@ exports[`Sections component renders correctly 1`] = `
                   data-testid="media-gallery-media-wrapper"
                 >
                   <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"
+                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-clqrrf"
                     data-gatsby-image-wrapper=""
                     style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
@@ -1153,14 +1153,11 @@ exports[`Sections component renders correctly 1`] = `
                         type="image/webp"
                       />
                       <img
-                        __typename="ContentfulImage"
                         alt="alt text"
-                        caption="[object Object]"
                         data-gatsby-image-ssr=""
                         data-main-image=""
                         data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                         data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        data-testid="media-gallery-media"
                         decoding="async"
                         draggable="false"
                         loading="lazy"
@@ -2063,15 +2060,15 @@ exports[`Sections component renders correctly 1`] = `
             class="css-178yklu"
           >
             <div
-              class="YoutubeVideo-inline css-1tx8gw7"
-              data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=A-RfHC91Ewc-Video label","action":"Play"}"
+              class="YoutubeVideo-inline css-g8q1iy"
               data-testid="youtube-inline-wrapper"
             >
               <div>
                 <img
                   alt="Video label"
-                  class="YoutubeVideo-previewImage"
+                  class="css-qri583"
                   data-testid="youtube-preview-image"
+                  draggable="false"
                   src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
                 />
                 <div

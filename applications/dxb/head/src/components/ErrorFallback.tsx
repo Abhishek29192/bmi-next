@@ -4,9 +4,9 @@ import Typography from "@bmi-digital/components/typography";
 import { Link } from "gatsby";
 import React from "react";
 import { getPathWithCountryCode } from "../utils/path";
-import Image from "./Image";
 import { Data as PromoData } from "./Promo";
-import Video from "./Video";
+import createImageProps from "./image/createImageProps";
+import createVideoProps from "./video/createVideoProps";
 
 const ErrorFallback = ({
   countryCode,
@@ -31,11 +31,11 @@ const ErrorFallback = ({
     <PromoSection
       title={title}
       media={
-        featuredVideo ? (
-          <Video {...featuredVideo} />
-        ) : featuredMedia ? (
-          <Image {...featuredMedia} />
-        ) : undefined
+        featuredVideo
+          ? createVideoProps(featuredVideo)
+          : featuredMedia
+            ? createImageProps(featuredMedia)
+            : undefined
       }
     >
       <Typography variant="body2" gutterBottom>

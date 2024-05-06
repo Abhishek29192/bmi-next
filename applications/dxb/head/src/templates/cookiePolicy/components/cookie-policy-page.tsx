@@ -88,7 +88,7 @@ const CookiePolicyPage = ({ data, pageContext }: Props) => {
     subtitle,
     null,
     null,
-    undefined
+    null
   );
 
   const isDarkThemed = heroLevel !== 3;

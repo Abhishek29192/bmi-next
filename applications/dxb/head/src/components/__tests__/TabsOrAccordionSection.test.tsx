@@ -3,6 +3,7 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import TabsOrAccordionSection, { Data } from "../TabsOrAccordionSection";
+import type { TitleWithContentData } from "../SystemConfiguratorSection";
 
 const contentMock = JSON.stringify({
   nodeType: BLOCKS.DOCUMENT,
@@ -24,7 +25,13 @@ const contentMock = JSON.stringify({
   ]
 });
 
-const getDummyData = ({ name, title, type }): Data => {
+type GetDummyDataType = {
+  name: TitleWithContentData["name"];
+  title: Data["title"];
+  type: Data["type"];
+};
+
+const getDummyData = ({ name, title, type }: GetDummyDataType): Data => {
   return {
     __typename: "ContentfulTabsOrAccordionSection",
     description: { description: "string" },

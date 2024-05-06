@@ -26,7 +26,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
           class="css-15l37u8"
         >
           <div
-            class="SampleBasketSectionProducts-product-wrapper ColorPair-white css-963r91"
+            class="SampleBasketSectionProducts-product-wrapper TappableCard-root ColorPair-white css-963r91"
             data-testid="tappable-card-box"
           >
             <a
@@ -37,8 +37,9 @@ exports[`SampleBasketSection component renders correctly 1`] = `
             >
               <img
                 alt="sample-1"
-                class="SampleBasketSectionProducts-product-image TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                class="SampleBasketSectionProducts-product-image TappableCard-headerPicture TappableCard-contain css-1817fzu"
                 data-testid="tappable-card-media"
+                draggable="false"
                 loading="lazy"
                 src="http://localhost:8000/image-real-file-name.jpg"
                 style="object-fit: contain; object-position: center;"
@@ -168,7 +169,7 @@ exports[`SampleBasketSection component should render form after complete button 
           class="css-15l37u8"
         >
           <div
-            class="SampleBasketSectionProducts-product-wrapper ColorPair-white css-963r91"
+            class="SampleBasketSectionProducts-product-wrapper TappableCard-root ColorPair-white css-963r91"
             data-testid="tappable-card-box"
           >
             <a
@@ -179,8 +180,9 @@ exports[`SampleBasketSection component should render form after complete button 
             >
               <img
                 alt="sample-1"
-                class="SampleBasketSectionProducts-product-image TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                class="SampleBasketSectionProducts-product-image TappableCard-headerPicture TappableCard-contain css-1817fzu"
                 data-testid="tappable-card-media"
+                draggable="false"
                 loading="lazy"
                 src="http://localhost:8000/image-real-file-name.jpg"
                 style="object-fit: contain; object-position: center;"

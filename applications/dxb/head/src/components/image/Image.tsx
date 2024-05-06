@@ -1,65 +1,8 @@
 import { graphql } from "gatsby";
-import {
-  GatsbyImageProps,
-  IGatsbyImageData,
-  GatsbyImage as Img
-} from "gatsby-plugin-image";
+import { GatsbyImage as Img } from "gatsby-plugin-image";
 import React from "react";
-
-type ImageData = {
-  file: {
-    fileName: string;
-    url?: string;
-  };
-  gatsbyImageData?: IGatsbyImageData;
-  thumbnail?: IGatsbyImageData;
-};
-
-export type Data = {
-  altText: string;
-  type?: "Decorative" | "Descriptive" | null;
-  image: ImageData;
-  focalPoint?: {
-    x: number;
-    y: number;
-  } | null;
-  loading?: GatsbyImageProps["loading"];
-};
-
-type Options = {
-  className?: string;
-  size?: "cover" | "contain";
-  position?: string;
-  isMobile?: boolean;
-};
-
-const typeToObjectFitMap: {
-  [key in NonNullable<Data["type"]>]: Options["size"];
-} = {
-  Decorative: "cover",
-  Descriptive: "contain"
-};
-
-const getPosition = ({
-  size,
-  position,
-  focalPoint,
-  isMobile
-}: Options & Pick<Data, "focalPoint">): Options["position"] => {
-  if (position) {
-    return position;
-  }
-
-  if (isMobile) {
-    return "center";
-  }
-
-  if (size === "cover" && focalPoint) {
-    return `${focalPoint.x}% ${focalPoint.y}%`;
-  }
-
-  return "center";
-};
+import { getPosition, typeToObjectFitMap } from "./utils";
+import type { Props } from "./types";
 
 const Image = ({
   altText,
@@ -72,29 +15,8 @@ const Image = ({
   isMobile,
   loading = "lazy",
   ...props
-}: Data & Options) => {
-  if (!image?.gatsbyImageData) {
-    return (
-      <img
-        className={className}
-        src={image?.file.url}
-        alt={altText}
-        style={{
-          objectFit: size || typeToObjectFitMap[type || "Decorative"],
-          objectPosition: getPosition({
-            size,
-            position,
-            focalPoint: focalPoint,
-            isMobile: isMobile
-          })
-        }}
-        loading={loading}
-        {...props}
-      />
-    );
-  }
-
-  return (
+}: Props) => {
+  return image.gatsbyImageData ? (
     <Img
       image={image.gatsbyImageData}
       alt={altText}
@@ -107,6 +29,23 @@ const Image = ({
         isMobile: isMobile
       })}
       className={className}
+      loading={loading}
+      {...props}
+    />
+  ) : (
+    <img
+      className={className}
+      src={image.file.url}
+      alt={altText}
+      style={{
+        objectFit: size || typeToObjectFitMap[type || "Decorative"],
+        objectPosition: getPosition({
+          size,
+          position,
+          focalPoint: focalPoint,
+          isMobile: isMobile
+        })
+      }}
       loading={loading}
       {...props}
     />

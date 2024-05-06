@@ -326,3 +326,55 @@ describe("SystemDetailsPage template component", () => {
     });
   });
 });
+
+describe("Media Gallery", () => {
+  it("should render the media gallery component, with the masterImage as the first media asset if provided", () => {
+    withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            system: createSystem({
+              masterImage: {
+                mainSource: "exampleMasterImage.jpg",
+                altText: "example-master-image-alt-text",
+                thumbnail: "example-thumbnail-text"
+              }
+            }),
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemCode: systemCode,
+            siteId
+          }}
+        />
+      )
+    });
+    expect(screen.getByTestId("media-gallery-root")).toMatchSnapshot();
+  });
+
+  it("should render the media gallery component without the masterImage, if it's not provided", () => {
+    withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            system: createSystem({
+              masterImage: undefined
+            }),
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemCode: systemCode,
+            siteId
+          }}
+        />
+      )
+    });
+    expect(screen.getByTestId("media-gallery-root")).toMatchSnapshot();
+  });
+});

@@ -18,7 +18,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
     data-testid="grid-item"
   >
     <div
-      class=" ColorPair-white css-963r91"
+      class="TappableCard-root ColorPair-white css-963r91"
       data-testid="tappable-card-box"
     >
       <a
@@ -30,8 +30,9 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
       >
         <img
           alt=" name"
-          class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+          class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
           data-testid="tappable-card-media"
+          draggable="false"
           src="http://localhost:8000"
         />
         <div
@@ -98,7 +99,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
     data-testid="grid-item"
   >
     <div
-      class=" ColorPair-white css-963r91"
+      class="TappableCard-root ColorPair-white css-963r91"
       data-testid="tappable-card-box"
     >
       <a
@@ -110,8 +111,9 @@ exports[`ProductsGridView component renders correctly when not empty with filter
       >
         <img
           alt=" name"
-          class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+          class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
           data-testid="tappable-card-media"
+          draggable="false"
           src="http://localhost:8000"
         />
         <div

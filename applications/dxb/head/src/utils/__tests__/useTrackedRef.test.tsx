@@ -4,7 +4,7 @@ import { useTrackedRef } from "../useTrackedRef";
 
 describe("useTrackedRef hook", () => {
   it("assigns html node to ref", async () => {
-    const { result } = renderHook(useTrackedRef);
+    const { result } = renderHook(useTrackedRef<HTMLDivElement>);
     expect(result.current.node).toBeNull();
     render(<div ref={result.current.ref} />);
 

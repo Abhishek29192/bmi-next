@@ -85,6 +85,7 @@ describe("Product Details Page", () => {
       )
     ).toBeInTheDocument();
   });
+
   it("shouldn't render KeyAssetTypesDownloadSection when product doesn't have any keyAssetDocuments", () => {
     const product = {
       ...mockProduct,
