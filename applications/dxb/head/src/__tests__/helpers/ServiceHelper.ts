@@ -15,7 +15,7 @@ export const createFullyPopulatedService = (
   twitter: "twitter",
   fax: "01234567891",
   serviceTypes: [{ __typename: "ContentfulServiceType", name: "Pitched Roof" }],
-  certification: "elite",
+  certification: "Elite",
   summary: "Contentful service summary",
   websiteLinkAsLabel: false,
   companyLogo: createImageData(),

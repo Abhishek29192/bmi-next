@@ -306,7 +306,7 @@ describe("helpers functions", () => {
     });
   });
   describe("getResultDataGtm", () => {
-    const serviceMock = createService({ certification: "expert" });
+    const serviceMock = createService({ certification: "Expert" });
     const { name, address, certification, serviceTypes, entryType } =
       serviceMock;
     it("should return dataGtm object with map pin ID if isMarker === true", () => {

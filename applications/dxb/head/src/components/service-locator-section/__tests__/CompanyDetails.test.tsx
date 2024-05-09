@@ -60,18 +60,18 @@ describe("createCompanyDetails", () => {
       });
 
       it(`should always return a service address object, with the following link property if the 'centre', 'service.certification' and 'service.serviceTypes' props are defined`, () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
-            expectedGtmLabel = "roofer 1 - address 1 - elite - Pitched Roof";
+            expectedGtmLabel = "roofer 1 - address 1 - Elite - Pitched Roof";
             break;
           case EntryTypeEnum.MERCHANT_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Pitched Roof - MC: global.address";
+              "roofer 1 - address 1 - Elite - Pitched Roof - MC: global.address";
             break;
           case EntryTypeEnum.BRANCH_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Pitched Roof - MC: global.address";
+              "roofer 1 - address 1 - Elite - Pitched Roof - MC: global.address";
             break;
         }
 
@@ -105,7 +105,7 @@ describe("createCompanyDetails", () => {
       });
 
       it(`should not include the 'service.certification' prop value in the gtm label, if undefined`, () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
             expectedGtmLabel = "roofer 1 - address 1 - Pitched Roof";
@@ -136,18 +136,18 @@ describe("createCompanyDetails", () => {
       });
 
       it(`should use the service.entryType value in the gtm label if service.serviceTypes is null`, () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
-            expectedGtmLabel = "roofer 1 - address 1 - elite - Roofer";
+            expectedGtmLabel = "roofer 1 - address 1 - Elite - Roofer";
             break;
           case EntryTypeEnum.MERCHANT_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Merchant - MC: global.address";
+              "roofer 1 - address 1 - Elite - Merchant - MC: global.address";
             break;
           case EntryTypeEnum.BRANCH_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Branch - MC: global.address";
+              "roofer 1 - address 1 - Elite - Branch - MC: global.address";
             break;
         }
 
@@ -275,18 +275,18 @@ describe("createCompanyDetails", () => {
       });
 
       it("should return the following gtm object, if 'service.certification' and 'service.serviceTypes' props are defined", () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
-            expectedGtmLabel = "roofer 1 - address 1 - elite - Pitched Roof";
+            expectedGtmLabel = "roofer 1 - address 1 - Elite - Pitched Roof";
             break;
           case EntryTypeEnum.MERCHANT_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Pitched Roof - MC: global.telephone";
+              "roofer 1 - address 1 - Elite - Pitched Roof - MC: global.telephone";
             break;
           case EntryTypeEnum.BRANCH_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Pitched Roof - MC: global.telephone";
+              "roofer 1 - address 1 - Elite - Pitched Roof - MC: global.telephone";
             break;
         }
 
@@ -309,7 +309,7 @@ describe("createCompanyDetails", () => {
       });
 
       it("should not include the 'service.certification' prop value in the gtm label, if undefined", () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
             expectedGtmLabel = "roofer 1 - address 1 - Pitched Roof";
@@ -340,18 +340,18 @@ describe("createCompanyDetails", () => {
       });
 
       it("should use the service.entryType value in the gtm label if service.serviceTypes is null", () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
-            expectedGtmLabel = "roofer 1 - address 1 - elite - Roofer";
+            expectedGtmLabel = "roofer 1 - address 1 - Elite - Roofer";
             break;
           case EntryTypeEnum.MERCHANT_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Merchant - MC: global.telephone";
+              "roofer 1 - address 1 - Elite - Merchant - MC: global.telephone";
             break;
           case EntryTypeEnum.BRANCH_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Branch - MC: global.telephone";
+              "roofer 1 - address 1 - Elite - Branch - MC: global.telephone";
             break;
         }
 
@@ -421,18 +421,18 @@ describe("createCompanyDetails", () => {
       });
 
       it("should return the following gtm object, if 'service.certification' and 'service.serviceTypes' props are defined", () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
-            expectedGtmLabel = "roofer 1 - address 1 - elite - Pitched Roof";
+            expectedGtmLabel = "roofer 1 - address 1 - Elite - Pitched Roof";
             break;
           case EntryTypeEnum.MERCHANT_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Pitched Roof - MC: global.email";
+              "roofer 1 - address 1 - Elite - Pitched Roof - MC: global.email";
             break;
           case EntryTypeEnum.BRANCH_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Pitched Roof - MC: global.email";
+              "roofer 1 - address 1 - Elite - Pitched Roof - MC: global.email";
             break;
         }
 
@@ -455,7 +455,7 @@ describe("createCompanyDetails", () => {
       });
 
       it("should not include the 'service.certification' prop value in the gtm label, if undefined", () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
             expectedGtmLabel = "roofer 1 - address 1 - Pitched Roof";
@@ -486,18 +486,18 @@ describe("createCompanyDetails", () => {
       });
 
       it("should use the service.entryType value in the gtm label if service.serviceTypes is null", () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
-            expectedGtmLabel = "roofer 1 - address 1 - elite - Roofer";
+            expectedGtmLabel = "roofer 1 - address 1 - Elite - Roofer";
             break;
           case EntryTypeEnum.MERCHANT_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Merchant - MC: global.email";
+              "roofer 1 - address 1 - Elite - Merchant - MC: global.email";
             break;
           case EntryTypeEnum.BRANCH_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Branch - MC: global.email";
+              "roofer 1 - address 1 - Elite - Branch - MC: global.email";
             break;
         }
 
@@ -643,18 +643,18 @@ describe("createCompanyDetails", () => {
       });
 
       it("should return the following gtm object, if 'service.certification' and 'service.serviceTypes' props are defined", () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
-            expectedGtmLabel = "roofer 1 - address 1 - elite - Pitched Roof";
+            expectedGtmLabel = "roofer 1 - address 1 - Elite - Pitched Roof";
             break;
           case EntryTypeEnum.MERCHANT_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Pitched Roof - MC: findAMerchant.websiteLabel";
+              "roofer 1 - address 1 - Elite - Pitched Roof - MC: findAMerchant.websiteLabel";
             break;
           case EntryTypeEnum.BRANCH_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Pitched Roof - MC: findABranch.websiteLabel";
+              "roofer 1 - address 1 - Elite - Pitched Roof - MC: findABranch.websiteLabel";
             break;
         }
 
@@ -677,7 +677,7 @@ describe("createCompanyDetails", () => {
       });
 
       it("should not include the 'service.certification' prop value in the gtm label, if undefined", () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
             expectedGtmLabel = "roofer 1 - address 1 - Pitched Roof";
@@ -708,18 +708,18 @@ describe("createCompanyDetails", () => {
       });
 
       it("should use the service.entryType value in the gtm label if service.serviceTypes is null", () => {
-        let expectedGtmLabel;
+        let expectedGtmLabel: string;
         switch (entryType) {
           case EntryTypeEnum.ROOFER_TYPE:
-            expectedGtmLabel = "roofer 1 - address 1 - elite - Roofer";
+            expectedGtmLabel = "roofer 1 - address 1 - Elite - Roofer";
             break;
           case EntryTypeEnum.MERCHANT_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Merchant - MC: findAMerchant.websiteLabel";
+              "roofer 1 - address 1 - Elite - Merchant - MC: findAMerchant.websiteLabel";
             break;
           case EntryTypeEnum.BRANCH_TYPE:
             expectedGtmLabel =
-              "roofer 1 - address 1 - elite - Branch - MC: findABranch.websiteLabel";
+              "roofer 1 - address 1 - Elite - Branch - MC: findABranch.websiteLabel";
             break;
         }
 
@@ -771,7 +771,7 @@ describe("createCompanyDetails", () => {
 
       expect(details).toHaveProperty("roofProLevel", {
         label: "MC: findARoofer.certificationLabel",
-        level: "elite"
+        level: "Elite"
       });
     });
 

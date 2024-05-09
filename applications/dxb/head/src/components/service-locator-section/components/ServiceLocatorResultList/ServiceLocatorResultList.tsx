@@ -1,12 +1,8 @@
 import CompanyDetails, {
   CompanyDetailProps,
-  RoofProLevel
+  roofProLevelIconSourceMap
 } from "@bmi-digital/components/company-details";
-import RoofProElite from "@bmi-digital/components/logo/RoofProElite";
-import RoofProExpert from "@bmi-digital/components/logo/RoofProExpert";
-import RoofProPartnerSmall from "@bmi-digital/components/logo/RoofProPartnerSmall";
 import Typography from "@bmi-digital/components/typography";
-import { SVGImport } from "@bmi-digital/svg-import";
 import { microCopy } from "@bmi/microcopies";
 import React from "react";
 import { useSiteContext } from "../../../Site";
@@ -36,12 +32,6 @@ export interface Props {
   selectedRoofer: Service;
   shouldListCertification: boolean;
 }
-
-const iconSourceMap: Record<RoofProLevel, SVGImport> = {
-  expert: RoofProExpert,
-  partner: RoofProPartnerSmall,
-  elite: RoofProElite
-};
 
 export const ServiceLocatorResultList = ({
   onListItemClick,
@@ -87,7 +77,7 @@ export const ServiceLocatorResultList = ({
                       :
                       <RoofProLogo
                         source={
-                          iconSourceMap[service.certification.toLowerCase()]
+                          roofProLevelIconSourceMap[service.certification]
                         }
                       />
                     </RoofProCertification>
