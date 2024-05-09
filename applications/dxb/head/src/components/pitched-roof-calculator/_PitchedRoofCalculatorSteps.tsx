@@ -118,7 +118,7 @@ const PitchedRoofCalculatorSteps = ({
         esIndexNameProduct
       );
       const hits = res.hits.hits.map((hit) => hit._source);
-      setData(prepareProducts(hits, pitchValues));
+      setData(prepareProducts(hits));
     } catch (err) {
       devLog("Failed to fetch data", err);
     }

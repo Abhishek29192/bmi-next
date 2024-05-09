@@ -8,7 +8,6 @@ import {
   WidthBasedProduct
 } from "../../types";
 import {
-  convertToCentimeters,
   getVergeOption,
   prepareProducts,
   transformProductReferences
@@ -22,24 +21,8 @@ describe("prepareProducts", () => {
     TILESATTRIBUTES$RIDGESPACE: [{ value: "30", code: "30cm" }],
     TILESATTRIBUTES$AVERAGEDECKWIDTH: [{ value: "300", code: "300mm" }],
     TILESATTRIBUTES$AVERAGEDECKLENGTH: [{ value: "270", code: "270mm" }],
-    GENERALINFORMATION$PRODUCTTYPE: [{ code: ProductType.tile }],
-    battenSpacings: [
-      {
-        minAngle: 1,
-        maxAngle: 90,
-        battenDistance: {
-          value: 330,
-          unit: "mm"
-        },
-        firstRowBattenDistance: {
-          value: 380,
-          unit: "mm"
-        }
-      }
-    ]
+    GENERALINFORMATION$PRODUCTTYPE: [{ code: ProductType.tile }]
   };
-
-  const roofAngles = [30, 40];
 
   describe("Tile attributes", () => {
     it("returns correct attributes for tiles", () => {
@@ -52,15 +35,12 @@ describe("prepareProducts", () => {
         }
       });
 
-      const tile = prepareProducts([product], roofAngles).tiles
-        .base_product_code[0];
+      const tile = prepareProducts([product]).tiles.base_product_code[0];
       expect(tile.color).toBe("black");
       expect(tile.coverWidth).toBe(30);
       expect(tile.length).toBe(30);
       expect(tile.minBattenSpacing).toBe(10);
-      expect(tile.maxBattenSpacing).toBe(33);
       expect(tile.ridgeSpacing).toBe(30);
-      expect(tile.eaveGauge).toBe(38);
       expect(tile.brokenBond).toBe(true);
     });
 
@@ -73,8 +53,7 @@ describe("prepareProducts", () => {
         }
       });
 
-      const tile = prepareProducts([product], roofAngles).tiles
-        .base_product_code[0];
+      const tile = prepareProducts([product]).tiles.base_product_code[0];
       expect(tile.brokenBond).toBe(false);
     });
 
@@ -88,7 +67,7 @@ describe("prepareProducts", () => {
         }
       });
 
-      const products = prepareProducts([product], roofAngles);
+      const products = prepareProducts([product]);
       expect(products.tiles).toStrictEqual({});
     });
 
@@ -104,7 +83,7 @@ describe("prepareProducts", () => {
         }
       });
 
-      const products = prepareProducts([product], roofAngles);
+      const products = prepareProducts([product]);
       const tile = products.tiles.base_product_code[0];
       expect(tile.packSize).toBe(20);
     });
@@ -119,7 +98,7 @@ describe("prepareProducts", () => {
         productReferences: undefined
       });
 
-      const products = prepareProducts([product], roofAngles);
+      const products = prepareProducts([product]);
       const tile = products.tiles.zanda_classic[0];
       expect(tile.productReferences).toStrictEqual([]);
     });
@@ -134,7 +113,7 @@ describe("prepareProducts", () => {
         GENERALINFORMATION$PRODUCTTYPE: [{ code: ProductType.underlay }]
       });
 
-      const underlay = prepareProducts([product], roofAngles).underlays[0];
+      const underlay = prepareProducts([product]).underlays[0];
       expect(underlay.width).toBe(300);
       expect(underlay.length).toBe(1500);
       expect(underlay.overlap).toBe(10);
@@ -152,9 +131,7 @@ describe("prepareProducts", () => {
         }
       });
 
-      const gutter = prepareProducts([product], roofAngles).gutters[
-        "base_product_code"
-      ][0];
+      const gutter = prepareProducts([product]).gutters["base_product_code"][0];
       expect(gutter.length).toBe(1500);
     });
 
@@ -164,52 +141,9 @@ describe("prepareProducts", () => {
         GENERALINFORMATION$PRODUCTTYPE: [{ code: ProductType.gutterHook }]
       });
 
-      const gutterHook = prepareProducts([product], roofAngles).gutterHooks[0];
+      const gutterHook = prepareProducts([product]).gutterHooks[0];
       expect(gutterHook.length).toBe(1500);
     });
-  });
-});
-
-describe("convertToCentimeters", () => {
-  it("returns correct value", () => {
-    let result = convertToCentimeters({
-      value: "10",
-      name: "10 cm",
-      code: "10cm"
-    });
-    expect(result).toBe(10);
-
-    result = convertToCentimeters({
-      value: "10",
-      name: "10 mm",
-      code: "10mm"
-    });
-    expect(result).toBe(1);
-
-    result = convertToCentimeters({ value: "2", code: "2m", name: "2 m" });
-    expect(result).toBe(200);
-
-    result = convertToCentimeters({
-      value: "10000",
-      code: "10000μm",
-      name: "10000 μm"
-    });
-    expect(result).toBe(1);
-  });
-
-  it("throws error", () => {
-    expect(() =>
-      convertToCentimeters({ value: "str", name: "str cm", code: "strcm" })
-    ).toThrow();
-  });
-
-  it("returns undefined", () => {
-    expect(
-      convertToCentimeters(
-        { value: "str", name: "str cm", code: "strcm" },
-        false
-      )
-    ).toBeUndefined();
   });
 });
 
@@ -236,7 +170,7 @@ describe("transformProductReferences", () => {
     TILESATTRIBUTES$AVERAGEDECKWIDTH: [{ value: "30", code: "30cm" }]
   });
 
-  it("groups products product references correctly", () => {
+  it("groups product references correctly", () => {
     const res = transformProductReferences<ReferencedTileProducts>(
       productReferences,
       [hip, firstAccessory, halfTile],

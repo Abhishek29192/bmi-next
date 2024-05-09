@@ -22,17 +22,16 @@ export type ProductReference = ReferenceTarget & {
   type: ProductReferenceType;
 };
 
+export type Distance = {
+  value: number;
+  unit: string;
+};
+
 export type BattenSpacing = {
   minAngle: number;
   maxAngle: number;
-  battenDistance: {
-    value: number;
-    unit: string;
-  };
-  firstRowBattenDistance: {
-    value: number;
-    unit: string;
-  };
+  battenDistance: Distance;
+  firstRowBattenDistance: Distance;
 };
 
 export type Product = {
