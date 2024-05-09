@@ -9,6 +9,7 @@ import {
   StyledSitemapItem,
   classes
 } from "./styles/SitemapBlock.styles";
+import { useSiteContext } from "./Site";
 
 type Props = {
   links: (NavigationData | NavigationItem | LinkData)[] | null;
@@ -52,6 +53,7 @@ const WrapperComponent = ({
 
 const SitemapBlock = ({ links, label, level = 0 }: Props) => {
   const validSitemapLinks = links?.filter(isValidSitemapType);
+  const { countryCode } = useSiteContext();
 
   return (
     <WrapperComponent isChild={level > 0}>
@@ -65,7 +67,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
               key={`${level}-${label}`}
             >
               <AnchorLink
-                {...toAnchorLinkActionProps(linkData)}
+                {...toAnchorLinkActionProps(linkData, countryCode)}
                 data-testid={"sitemap-link"}
               >
                 {linkData.label}
@@ -84,7 +86,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
                   variant={levelVariantMap[level.toString()].label}
                 >
                   {link ? (
-                    <AnchorLink {...toAnchorLinkActionProps(link)}>
+                    <AnchorLink {...toAnchorLinkActionProps(link, countryCode)}>
                       {label}
                     </AnchorLink>
                   ) : (
