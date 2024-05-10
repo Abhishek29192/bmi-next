@@ -111,8 +111,9 @@ process.env.PULL_DOCEBO_DATA = "false";
 process.env.CONTENT_SECURITY_POLICY = "group content security policy";
 process.env.X_ROBOTS_TAG = "group x robots tag";
 process.env.ACCESS_CONTROL_ALLOW_ORIGIN = "group access control allow origin";
-
-process.env.DXB_CONTENT_SECURITY_POLICY_NO = "norway content security policy";
-process.env.DXB_X_ROBOTS_TAG_NO = "norway x robots tag";
-process.env.DXB_ACCESS_CONTROL_ALLOW_ORIGIN_NO =
+process.env.DXB_ENVIRONMENT = "PROD";
+process.env.PROD_DXB_CONTENT_SECURITY_POLICY_NO =
+  "norway content security policy";
+process.env.PROD_DXB_X_ROBOTS_TAG_NO = "norway x robots tag";
+process.env.PROD_DXB_ACCESS_CONTROL_ALLOW_ORIGIN_NO =
   "norway access control allow origin";
