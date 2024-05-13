@@ -1,5 +1,6 @@
 import { selectedRooferMock } from "../../__mocks__/markers";
 import { getSocialMediaGtm, ID, Props } from "../getSocialMediaGtm";
+import type { Data } from "../../../ServiceType";
 
 const props: Props = {
   channel: "facebook",
@@ -8,6 +9,10 @@ const props: Props = {
     facebook: "blah"
   }
 };
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
 
 describe("getSocialMediaGtm", () => {
   describe("When social-media link is clicked", () => {
@@ -31,12 +36,11 @@ describe("getSocialMediaGtm", () => {
 
     describe('When service does not include "RoofPro" level', () => {
       it('should not return "RoofPro" level in analytics', () => {
-        jest.clearAllMocks();
         const label = `${name} - ${address} - ${serviceType} - ${channel}`;
 
         const result = getSocialMediaGtm({
           channel,
-          service: { ...service, certification: undefined }
+          service: { ...service, certification: null }
         });
 
         expect(result).toEqual({
@@ -49,15 +53,13 @@ describe("getSocialMediaGtm", () => {
 
     describe("When service has multiple service types ", () => {
       it("should create a label with comma separated service types", () => {
-        jest.clearAllMocks();
-
-        const serviceTypes = [
+        const serviceTypes: Data[] = [
           {
-            ["__typename"]: "ContentfulService" as any,
+            __typename: "ContentfulServiceType",
             name: "foo"
           },
           {
-            ["__typename"]: "ContentfulService" as any,
+            __typename: "ContentfulServiceType",
             name: "bar"
           }
         ];
@@ -80,9 +82,7 @@ describe("getSocialMediaGtm", () => {
 
     describe("When service has NO service types ", () => {
       it("should create a label with NO service type", () => {
-        jest.clearAllMocks();
-
-        const serviceTypes = [];
+        const serviceTypes: Data[] = [];
 
         const label = `${name} - ${address} -  - ${channel}`;
 
