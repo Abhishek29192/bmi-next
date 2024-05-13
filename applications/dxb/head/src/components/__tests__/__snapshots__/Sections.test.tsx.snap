@@ -2683,7 +2683,7 @@ exports[`Sections component renders correctly 1`] = `
         >
           <nav
             aria-labelledby="explore-bar"
-            class="css-1j349hk"
+            class="css-cfvaxj"
           >
             <h2
               class="MuiTypography-root MuiTypography-h6 css-ramvgg-MuiTypography-root"
