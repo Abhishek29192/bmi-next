@@ -10,13 +10,13 @@ import {
   ProductCategory,
   ResultsRow,
   RidgeOption,
-  Tile,
   Underlay,
   VentilationHood,
   WidthBasedProduct
 } from "../types";
 import { Measurements } from "../types/roof";
 import { createProduct } from "./helpers/createProduct";
+import { createTile } from "./helpers/createTile";
 
 const vergeHalfLeftTile = createProduct<WidthBasedProduct>({
   code: "849702122_Zanda_Protector_verge_half_tile_black_left",
@@ -140,7 +140,7 @@ const input: QuantitiesCalculatorProps = {
     area: 1446045.741409989
   },
   mainTileVariant: {
-    ...createProduct<Tile>({
+    ...createTile({
       code: "175200122_Zanda_Protector_main_tile_black",
       name: "Zanda Protector main tile black",
       externalProductCode: "46035712",
@@ -328,8 +328,20 @@ const input: QuantitiesCalculatorProps = {
       })
     ],
     minBattenSpacing: 31,
-    maxBattenSpacing: 31,
-    eaveGauge: 38,
+    battenSpacings: [
+      {
+        minAngle: 1,
+        maxAngle: 90,
+        battenDistance: {
+          value: 310,
+          unit: "mm"
+        },
+        firstRowBattenDistance: {
+          value: 380,
+          unit: "mm"
+        }
+      }
+    ],
     ridgeSpacing: 5,
     coverWidth: 33.2,
     length: 42,

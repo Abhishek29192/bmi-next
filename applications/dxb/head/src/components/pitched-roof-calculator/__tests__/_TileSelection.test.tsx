@@ -5,11 +5,11 @@ import React from "react";
 import TileSelection, { TileSelectionProps } from "../_TileSelection";
 import { AnalyticsContext } from "../helpers/analytics";
 import { MicroCopy } from "../helpers/microCopy";
-import { GroupedTiles, Tile } from "../types";
-import { createProduct } from "./helpers/createProduct";
+import { GroupedTiles } from "../types";
 import en from "./samples/copy/en.json";
+import { createTile } from "./helpers/createTile";
 
-const firstTile = createProduct<Tile>({
+const firstTile = createTile({
   baseProduct: {
     name: "12345",
     code: "zanda_minster_main_tile"
@@ -20,7 +20,7 @@ const firstTile = createProduct<Tile>({
   packSize: 20
 });
 
-const secondTile = createProduct<Tile>({
+const secondTile = createTile({
   baseProduct: {
     name: "2345",
     code: "Nova_main_tile_engobed_black"

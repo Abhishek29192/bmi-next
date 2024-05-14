@@ -539,7 +539,7 @@ const Results = ({
               {faces.map((face, i) => (
                 <li key={i}>
                   <b>face {i + 1} battens (width):</b>{" "}
-                  {battenCalc(face.vertices, variant)
+                  {battenCalc(face.vertices, face.pitch, variant)
                     .map(({ width }) => width.toFixed(2))
                     .join(" | ")}
                 </li>

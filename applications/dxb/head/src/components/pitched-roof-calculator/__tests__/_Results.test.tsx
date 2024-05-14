@@ -17,13 +17,13 @@ import {
   LengthBasedProduct,
   ProductCategory,
   ResultsRow,
-  Tile,
   Underlay,
   VentilationHood,
   WidthBasedProduct
 } from "../types";
 import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
+import { createTile } from "./helpers/createTile";
 
 jest.mock("../../../utils/useIsMobileDevice", () => ({
   useIsMobileDevice: jest.fn().mockReturnValue(false)
@@ -289,7 +289,7 @@ const resultsProps: ResultProps = {
     area: 1515140.4208063872
   },
   variant: {
-    ...createProduct<Tile>({
+    ...createTile({
       code: "175200122_Zanda_Protector_main_tile_black",
       name: "Zanda Protector main tile black",
       externalProductCode: "46035712",
@@ -469,8 +469,20 @@ const resultsProps: ResultProps = {
       })
     ],
     minBattenSpacing: 31,
-    maxBattenSpacing: 34,
-    eaveGauge: 38,
+    battenSpacings: [
+      {
+        minAngle: 1,
+        maxAngle: 90,
+        battenDistance: {
+          value: 340,
+          unit: "mm"
+        },
+        firstRowBattenDistance: {
+          value: 380,
+          unit: "mm"
+        }
+      }
+    ],
     ridgeSpacing: 5,
     coverWidth: 33.2,
     length: 42,

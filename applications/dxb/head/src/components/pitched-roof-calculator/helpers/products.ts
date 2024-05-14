@@ -22,12 +22,12 @@ import {
   multiValueProducts,
   widthBasedProducts
 } from "../types";
+import { convertToCentimeters } from "./convertToCentimeters";
 
 // Function overloads to make it working correctly with products of different types
 export function transformClassificationAttributes(
   products: ESProduct[],
-  productType: ProductType.tile,
-  angle: number[]
+  productType: ProductType.tile
 ): Tile[];
 export function transformClassificationAttributes(
   products: ESProduct[],
@@ -42,8 +42,7 @@ export function transformClassificationAttributes(
 ): (RidgeOption | LengthBasedProduct | WidthBasedProduct | Accessory)[];
 export function transformClassificationAttributes(
   products: ESProduct[],
-  productType?: ProductType,
-  angleValues?: number[]
+  productType?: ProductType
 ) {
   if (!products) {
     return [];
@@ -63,7 +62,6 @@ export function transformClassificationAttributes(
         PACKAGINGINFORMATION$QUANTITYPERUNIT: packSize,
         TILESATTRIBUTES$AVERAGEDECKWIDTH: coverWidth,
         TILESATTRIBUTES$AVERAGEDECKLENGTH: coverLength,
-        battenSpacings,
         ...rest
       } = product;
 
@@ -75,13 +73,6 @@ export function transformClassificationAttributes(
         };
 
         if (productType === ProductType.tile) {
-          const battenSpacing = battenSpacings?.find(
-            (batten) =>
-              angleValues?.every(
-                (angle) => batten.maxAngle >= angle && batten.minAngle <= angle
-              )
-          );
-
           return {
             ...initialData,
             brokenBond: convertStrToBool(brokenBond?.[0].name),
@@ -89,15 +80,7 @@ export function transformClassificationAttributes(
             coverWidth: convertToCentimeters(coverWidth[0]),
             length: convertToCentimeters(length[0]),
             minBattenSpacing: convertToCentimeters(minBattenSpacing[0]),
-            maxBattenSpacing: convertToCentimeters({
-              value: `${battenSpacing?.battenDistance.value}`,
-              code: `${battenSpacing?.battenDistance.value}${battenSpacing?.battenDistance.unit}`
-            }),
             ridgeSpacing: convertToCentimeters(ridgeSpacing[0]),
-            eaveGauge: convertToCentimeters({
-              value: `${battenSpacing?.firstRowBattenDistance.value}`,
-              code: `${battenSpacing?.firstRowBattenDistance.value}${battenSpacing?.firstRowBattenDistance.unit}`
-            }),
             productReferences: initialData.productReferences || []
           };
         }
@@ -135,8 +118,7 @@ export function transformClassificationAttributes(
 }
 
 export const groupByProductType = (
-  products: ESProduct[],
-  angleValues: number[]
+  products: ESProduct[]
 ): {
   tiles: Tile[];
   underlays: Underlay[];
@@ -151,8 +133,7 @@ export const groupByProductType = (
   return {
     tiles: transformClassificationAttributes(
       groupedProducts.MAIN_TILE,
-      ProductType.tile,
-      angleValues
+      ProductType.tile
     ),
     underlays: transformClassificationAttributes(
       groupedProducts.UNDERLAY,
@@ -169,11 +150,8 @@ export const groupByProductType = (
   };
 };
 
-export const prepareProducts = (
-  products: ESProduct[],
-  angleValues: number[]
-): Data => {
-  const transformedProducts = groupByProductType(products, angleValues);
+export const prepareProducts = (products: ESProduct[]): Data => {
+  const transformedProducts = groupByProductType(products);
 
   const groupedTiles = groupBy(
     transformedProducts.tiles,
@@ -191,40 +169,6 @@ export const prepareProducts = (
     gutterHooks: transformedProducts.gutterHooks,
     underlays: transformedProducts.underlays
   };
-};
-
-export const convertToCentimeters = (
-  input: {
-    value: string;
-    code: string;
-    name?: string;
-  },
-  throwOnTypeError = true
-) => {
-  const numberValue = Number(input?.value);
-
-  if (!numberValue) {
-    if (throwOnTypeError) {
-      throw new Error("Value is not a number");
-    }
-
-    return;
-  }
-
-  const { code, value } = input;
-
-  //cm, mm, m, μm
-  const unitOfLength = code.slice(value.length).toLowerCase();
-  switch (unitOfLength) {
-    case "mm":
-      return numberValue / 10;
-    case "m":
-      return numberValue * 100;
-    case "μm":
-      return numberValue / 10000;
-    default:
-      return numberValue;
-  }
 };
 
 const getProductsByReference = (
