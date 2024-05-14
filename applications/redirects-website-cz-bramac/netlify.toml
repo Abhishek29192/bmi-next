@@ -6356,12 +6356,12 @@
  status = 301
 
 [[redirects]]
- from="/fileadmin/rootBramac/bramac_czech/Content/Dokumente/A5\snavod\sBSK\snadstresni_01.pdf"
+ from='/fileadmin/rootBramac/bramac_czech/Content/Dokumente/A5\snavod\sBSK\snadstresni_01.pdf'
  to="https://www.bmigroup.com/cz/bmi-bramac/pro-odborniky/ceniky-a-technicka-dokumentace/"
  status = 301
 
 [[redirects]]
- from="/fileadmin/rootBramac/bramac_czech/Content/Dokumente/A5\snavod\scerpadlove\sskupiny.pdf"
+ from='/fileadmin/rootBramac/bramac_czech/Content/Dokumente/A5\snavod\scerpadlove\sskupiny.pdf'
  to="https://www.bmigroup.com/cz/bmi-bramac/pro-odborniky/ceniky-a-technicka-dokumentace/"
  status = 301
 
@@ -6391,7 +6391,7 @@
  status = 301
 
 [[redirects]]
- from="/fileadmin/rootBramac/bramac_czech/Content/Dokumente/ES\sBramac\sUni.pdf"
+ from='/fileadmin/rootBramac/bramac_czech/Content/Dokumente/ES\sBramac\sUni.pdf'
  to="https://www.bmigroup.com/cz/bmi-bramac/pro-odborniky/ceniky-a-technicka-dokumentace/"
  status = 301
 
@@ -6431,7 +6431,7 @@
  status = 301
 
 [[redirects]]
- from="/fileadmin/rootBramac/bramac_czech/Content/Dokumente/zaruka\sBramac\s2011\s.pdf"
+ from='/fileadmin/rootBramac/bramac_czech/Content/Dokumente/zaruka\sBramac\s2011\s.pdf'
  to="https://www.bmigroup.com/cz/bmi-bramac/pro-odborniky/ceniky-a-technicka-dokumentace/"
  status = 301
 
@@ -6621,12 +6621,12 @@
  status = 301
 
 [[redirects]]
- from="/fileadmin/rootBramac/bramac_czech/Online_Service/Downloadbereich/priruckaA6_aktualizace_11_9_09.pdf\)"
+ from='/fileadmin/rootBramac/bramac_czech/Online_Service/Downloadbereich/priruckaA6_aktualizace_11_9_09.pdf\)'
  to="https://www.bmigroup.com/cz/bmi-bramac/pro-odborniky/ceniky-a-technicka-dokumentace/"
  status = 301
 
 [[redirects]]
- from="/fileadmin/rootBramac/bramac_czech/Online_Service/Downloadbereich/priruckaA6_aktualizace_11_9_09.pdf\)."
+ from='/fileadmin/rootBramac/bramac_czech/Online_Service/Downloadbereich/priruckaA6_aktualizace_11_9_09.pdf\).'
  to="https://www.bmigroup.com/cz/bmi-bramac/pro-odborniky/ceniky-a-technicka-dokumentace/"
  status = 301
 
@@ -6641,7 +6641,7 @@
  status = 301
 
 [[redirects]]
- from="/fileadmin/rootBramac/bramac_czech/Online_Service/Downloadbereich/solar\skatalog\s2011.pdf"
+ from='/fileadmin/rootBramac/bramac_czech/Online_Service/Downloadbereich/solar\skatalog\s2011.pdf'
  to="https://www.bmigroup.com/cz/bmi-bramac/pro-odborniky/ceniky-a-technicka-dokumentace/"
  status = 301
 
@@ -6671,7 +6671,7 @@
  status = 301
 
 [[redirects]]
- from="/fileadmin/rootBramac/bramac_czech/Produkte/Bilder/Nadkrokevn\xC3\xAD"
+ from='/fileadmin/rootBramac/bramac_czech/Produkte/Bilder/Nadkrokevn\xC3\xAD'
  to="https://www.bmigroup.com/cz/bmi-bramac/pro-odborniky/ceniky-a-technicka-dokumentace/"
  status = 301
 
