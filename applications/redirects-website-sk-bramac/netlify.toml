@@ -1,6 +1,3 @@
-# Settings in the [build] context are global and are applied to all contexts
-# unless otherwise overridden by more specific contexts.
-
 [[redirects]]
  from="/produkty/"
  to="https://www.bmigroup.com/sk/bmi-bramac/?utm_source=bramac.sk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
