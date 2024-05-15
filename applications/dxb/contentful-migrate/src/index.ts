@@ -138,7 +138,9 @@ const buildContentful = async (
   }
 
   console.log(
-    `Pointing contentful alias ${contentfulEnvironment} to ${newEnv.sys.id}`
+    `Pointing contentful alias ${contentfulAlias || contentfulEnvironment} to ${
+      newEnv.sys.id
+    }`
   );
 
   alias.environment.sys.id = newEnv.sys.id;
