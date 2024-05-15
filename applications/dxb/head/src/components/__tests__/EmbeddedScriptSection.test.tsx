@@ -12,7 +12,8 @@ describe("EmbeddedScriptSection", () => {
             __typename: "ContentfulEmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
-            url: "https://fake-script.js"
+            url: "https://fake-script.js",
+            ecmaScript: false
           }}
         />
       </ThemeProvider>
@@ -33,7 +34,8 @@ describe("EmbeddedScriptSection", () => {
             __typename: "ContentfulEmbeddedScriptSection",
             title: null,
             scriptSectionId: "test-id",
-            url: "https://fake-script.js"
+            url: "https://fake-script.js",
+            ecmaScript: false
           }}
         />
       </ThemeProvider>
@@ -42,7 +44,7 @@ describe("EmbeddedScriptSection", () => {
     expect(screen.queryByRole("heading")).not.toBeInTheDocument();
   });
 
-  it("renders embedded script with correct attributes", () => {
+  it("renders embedded script with correct attributes when not ECMAScript module", () => {
     render(
       <ThemeProvider>
         <EmbeddedScriptSection
@@ -50,7 +52,8 @@ describe("EmbeddedScriptSection", () => {
             __typename: "ContentfulEmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
-            url: "https://fake-script.js"
+            url: "https://fake-script.js",
+            ecmaScript: false
           }}
         />
       </ThemeProvider>
@@ -59,7 +62,34 @@ describe("EmbeddedScriptSection", () => {
     const scriptElement: HTMLScriptElement =
       screen.getByTestId("embedded-script");
     expect(scriptElement).toHaveAttribute("src", "https://fake-script.js");
-    expect(scriptElement).toHaveAttribute("type", "text/javascript");
+    expect(scriptElement).not.toHaveAttribute("type");
+    expect(scriptElement.async).toBe(true); // toHaveAttribute returns null
+
+    expect(screen.getByTestId("embedded-script-section")).toHaveAttribute(
+      "id",
+      "test-id"
+    );
+  });
+
+  it("renders embedded script with correct attributes when ECMAScript module", () => {
+    render(
+      <ThemeProvider>
+        <EmbeddedScriptSection
+          data={{
+            __typename: "ContentfulEmbeddedScriptSection",
+            title: "Embedded Script",
+            scriptSectionId: "test-id",
+            url: "https://fake-script.js",
+            ecmaScript: true
+          }}
+        />
+      </ThemeProvider>
+    );
+
+    const scriptElement: HTMLScriptElement =
+      screen.getByTestId("embedded-script");
+    expect(scriptElement).toHaveAttribute("src", "https://fake-script.js");
+    expect(scriptElement).toHaveAttribute("type", "module");
     expect(scriptElement.async).toBe(true); // toHaveAttribute returns null
 
     expect(screen.getByTestId("embedded-script-section")).toHaveAttribute(
@@ -76,7 +106,8 @@ describe("EmbeddedScriptSection", () => {
             __typename: "ContentfulEmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
-            url: ""
+            url: "",
+            ecmaScript: false
           }}
         />
       </ThemeProvider>
@@ -96,7 +127,8 @@ describe("EmbeddedScriptSection", () => {
             __typename: "ContentfulEmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "",
-            url: "https://fake-script.js"
+            url: "https://fake-script.js",
+            ecmaScript: false
           }}
         />
       </ThemeProvider>
