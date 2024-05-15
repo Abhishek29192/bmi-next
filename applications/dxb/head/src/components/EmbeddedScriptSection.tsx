@@ -7,15 +7,18 @@ export type Data = {
   title: string | null;
   scriptSectionId: string;
   url: string;
+  ecmaScript: boolean;
+};
+
+type Props = {
+  data: Data;
+  "data-testid"?: string;
 };
 
 const EmbeddedScriptSection = ({
-  data: { title, scriptSectionId, url },
+  data: { title, scriptSectionId, url, ecmaScript },
   "data-testid": testId
-}: {
-  data: Data;
-  "data-testid"?: string;
-}) => {
+}: Props) => {
   useEffect(() => {
     if (!scriptSectionId.trim() || !url.trim()) {
       return;
@@ -24,15 +27,17 @@ const EmbeddedScriptSection = ({
     const script = document.createElement("script");
 
     script.src = url;
-    script.type = "text/javascript";
     script.async = true;
     script.setAttribute("data-testid", "embedded-script");
+    if (ecmaScript) {
+      script.type = "module";
+    }
     document.body.appendChild(script);
 
     return () => {
       document.body.removeChild(script);
     };
-  }, [scriptSectionId, url]);
+  }, [ecmaScript, scriptSectionId, url]);
 
   if (!scriptSectionId.trim() || !url.trim()) {
     return;
@@ -57,5 +62,6 @@ export const query = graphql`
     title
     scriptSectionId
     url
+    ecmaScript
   }
 `;
