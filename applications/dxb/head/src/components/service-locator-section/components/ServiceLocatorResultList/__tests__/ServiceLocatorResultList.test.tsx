@@ -10,6 +10,7 @@ afterEach(() => {
 });
 const listItemTestId = "GTMIntegratedLinkCard-test-id";
 const handlePageChange = jest.fn();
+const onListItemClick = jest.fn();
 
 describe("ServiceLocatorResultList component", () => {
   it("should render empty list with NO service", () => {
@@ -22,7 +23,7 @@ describe("ServiceLocatorResultList component", () => {
           roofersList={[]}
           getCompanyDetails={jest.fn()}
           onCloseCard={jest.fn()}
-          onListItemClick={jest.fn}
+          onListItemClick={onListItemClick}
           selectedRoofer={{ ...selectedRooferMock }}
           shouldListCertification={false}
         />
@@ -33,6 +34,7 @@ describe("ServiceLocatorResultList component", () => {
     });
     expect(noResultHeading).toBeDefined();
   });
+
   it("should render correctly with single service type", () => {
     const service = createService({
       serviceTypes: [
@@ -56,8 +58,8 @@ describe("ServiceLocatorResultList component", () => {
           roofersList={[service]}
           getCompanyDetails={jest.fn()}
           onCloseCard={jest.fn()}
-          onListItemClick={jest.fn}
-          selectedRoofer={{ ...selectedRooferMock }}
+          onListItemClick={onListItemClick}
+          selectedRoofer={service}
           shouldListCertification={false}
         />
       </ThemeProvider>
@@ -67,9 +69,9 @@ describe("ServiceLocatorResultList component", () => {
     );
     expect(gtmData.label).toEqual(expectedResult);
   });
+
   it("should execute callback fn when user click on list item", () => {
     const service = createService({ serviceTypes: [] });
-    const onListItemClick = jest.fn();
     render(
       <ThemeProvider>
         <ServiceLocatorResultList
@@ -87,12 +89,11 @@ describe("ServiceLocatorResultList component", () => {
     );
     const listItem = screen.getByTestId(listItemTestId);
     fireEvent.click(listItem);
-    expect(onListItemClick).toBeCalled();
+    expect(onListItemClick).toHaveBeenCalled();
   });
 
   it("should print subtitle if shouldListCertification === true", () => {
-    const service = createService({ certification: "expert" });
-    const onListItemClick = jest.fn();
+    const service = createService({ certification: "Expert" });
     render(
       <ThemeProvider>
         <ServiceLocatorResultList
@@ -103,19 +104,41 @@ describe("ServiceLocatorResultList component", () => {
           getCompanyDetails={jest.fn()}
           onCloseCard={jest.fn()}
           onListItemClick={onListItemClick}
-          selectedRoofer={null}
+          selectedRoofer={service}
           shouldListCertification={true}
         />
       </ThemeProvider>
     );
     const listItem = screen.getByText("MC: findARoofer.certificationLabel:");
 
-    expect(listItem).toBeDefined();
+    expect(listItem).toBeInTheDocument();
+  });
+
+  it("should not print subtitle if shouldListCertification === false", () => {
+    const service = createService({ certification: "Expert" });
+    render(
+      <ThemeProvider>
+        <ServiceLocatorResultList
+          page={1}
+          pageCount={1}
+          onPageChange={handlePageChange}
+          roofersList={[service]}
+          getCompanyDetails={jest.fn()}
+          onCloseCard={jest.fn()}
+          onListItemClick={onListItemClick}
+          selectedRoofer={service}
+          shouldListCertification={false}
+        />
+      </ThemeProvider>
+    );
+
+    expect(
+      screen.queryByText("MC: findARoofer.certificationLabel:")
+    ).not.toBeInTheDocument();
   });
 
   it("should render correctly if pageCount larger then 1", () => {
-    const service = createService({ certification: "expert" });
-    const onListItemClick = jest.fn();
+    const service = createService({ certification: "Expert" });
     render(
       <ThemeProvider>
         <ServiceLocatorResultList
@@ -126,7 +149,7 @@ describe("ServiceLocatorResultList component", () => {
           getCompanyDetails={jest.fn()}
           onCloseCard={jest.fn()}
           onListItemClick={onListItemClick}
-          selectedRoofer={{ ...selectedRooferMock }}
+          selectedRoofer={service}
           shouldListCertification={false}
         />
       </ThemeProvider>
@@ -136,9 +159,9 @@ describe("ServiceLocatorResultList component", () => {
 
     expect(pagination).toBeDefined();
   });
+
   it("should trigger popup when selectedRoofer.id === service.id", () => {
     const service = createService({ id: "testServiceId" });
-    const onListItemClick = jest.fn();
     render(
       <ThemeProvider>
         <ServiceLocatorResultList
