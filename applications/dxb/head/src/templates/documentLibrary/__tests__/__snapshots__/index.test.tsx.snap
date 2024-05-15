@@ -6,7 +6,7 @@ exports[`Document Library page renders correctly  1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -109,24 +109,6 @@ exports[`Document Library page renders correctly  1`] = `
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
-              </li>
-              <li
-                class="Header-navItem"
-                data-testid="utilities-link-MC:-login.label.btn"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
-                  data-testid="login"
-                  tabindex="0"
-                  target="_blank"
-                  type="button"
-                >
-                  MC: login.label.btn
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
               </li>
               <li
                 class="Header-navItem"
@@ -581,7 +563,7 @@ exports[`Document Library page renders correctly  1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -614,6 +596,7 @@ exports[`Document Library page renders correctly  1`] = `
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button

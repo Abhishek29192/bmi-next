@@ -6,7 +6,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -337,7 +337,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -370,6 +370,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -793,7 +794,7 @@ exports[`Sitemap renders correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1124,7 +1125,7 @@ exports[`Sitemap renders correctly 1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -1157,6 +1158,7 @@ exports[`Sitemap renders correctly 1`] = `
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -1580,7 +1582,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1911,7 +1913,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -1944,6 +1946,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button

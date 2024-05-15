@@ -17,9 +17,9 @@ export type Context = {
   getMicroCopy: GetMicroCopy;
   reCaptchaKey?: string;
   reCaptchaNet?: boolean;
-  accountPage?: {
+  accountPage: {
     slug: string;
-  };
+  } | null;
 };
 
 const SiteContext = React.createContext<Context>({

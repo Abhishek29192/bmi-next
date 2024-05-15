@@ -35,6 +35,7 @@ import type {
 import type { GetMicroCopy } from "./MicroCopy";
 import type { NavigationList } from "@bmi-digital/components/navigation";
 import type { Data as PromoData } from "./Promo";
+import type { HeaderProps } from "@bmi-digital/components/header";
 
 type ParseNavigationProps = {
   navigationItems: (NavigationData | NavigationItem | LinkData)[];
@@ -68,6 +69,40 @@ const getPromoSection = (props: GetPromoSectionProps) => {
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),
     ...(cta ? [{ label: promo.cta.label || promo.name, action: cta }] : [])
   ];
+};
+
+const useHeaderAuthData = () => {
+  const { isLoginEnabled } = useConfig();
+  const { isLoggedIn, profile } = useAuth();
+  const { getMicroCopy, accountPage, countryCode } = useSiteContext();
+
+  const authHeaderProps: HeaderProps["auth"] = useMemo(() => {
+    if (!isLoginEnabled || !accountPage) {
+      return;
+    }
+
+    return {
+      isLoggedIn: Boolean(isLoggedIn && profile),
+      myAccountBtnLabel: getMicroCopy(microCopy.MY_ACCOUNT_LABEL),
+      myAccountBtnAction: {
+        to: getPathWithCountryCode(countryCode, accountPage?.slug),
+        component: Link
+      },
+      loginBtnLabel: getMicroCopy(microCopy.LOG_IN_LABEL_BTN),
+      loginButtonAction: { onClick: AuthService.login },
+      logoutBtnLabel: getMicroCopy(microCopy.LOG_OUT_LABEL_BTN),
+      logoutButtonAction: { onClick: AuthService.logout }
+    };
+  }, [
+    isLoggedIn,
+    profile,
+    getMicroCopy,
+    isLoginEnabled,
+    accountPage,
+    countryCode
+  ]);
+
+  return authHeaderProps;
 };
 
 const parseNavigation = ({
@@ -232,17 +267,13 @@ const Header = ({
     [languages, countryCode]
   );
 
-  const { getMicroCopy, accountPage } = useSiteContext();
-  const {
-    isGatsbyDisabledElasticSearch,
-    isSampleOrderingEnabled,
-    isLoginEnabled
-  } = useConfig();
+  const { getMicroCopy } = useSiteContext();
+  const { isGatsbyDisabledElasticSearch, isSampleOrderingEnabled } =
+    useConfig();
   const {
     basketState: { products: productsInBasket }
   } = useBasketContext();
-
-  const { isLoggedIn, profile } = useAuth();
+  const authHeaderProps = useHeaderAuthData();
 
   if (!navigationData || !utilitiesData) {
     return null;
@@ -254,40 +285,6 @@ const Header = ({
     getMicroCopy,
     isClient
   });
-
-  if (isLoginEnabled) {
-    if (isLoggedIn && profile) {
-      utilities.push(
-        {
-          label: getMicroCopy(microCopy.MY_ACCOUNT_LABEL),
-          action: {
-            to: getPathWithCountryCode(countryCode, accountPage?.slug),
-            component: Link,
-            "data-testid": "my-acc"
-          }
-        },
-        {
-          label: getMicroCopy(microCopy.LOG_OUT_LABEL_BTN),
-          action: {
-            onClick: () => {
-              AuthService.logout();
-            },
-            "data-testid": "logout"
-          }
-        }
-      );
-    } else {
-      utilities.push({
-        label: getMicroCopy(microCopy.LOG_IN_LABEL_BTN),
-        action: {
-          onClick: () => {
-            AuthService.login();
-          },
-          "data-testid": "login"
-        }
-      });
-    }
-  }
 
   const navigation = parseNavigation({
     navigationItems: navigationData.links,
@@ -395,6 +392,7 @@ const Header = ({
           openLabel={getMicroCopy(microCopy.MENU_OPEN)}
           mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
           mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
+          auth={authHeaderProps}
         />
       )}
     />

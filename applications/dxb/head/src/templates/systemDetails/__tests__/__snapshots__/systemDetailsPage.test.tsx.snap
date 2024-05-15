@@ -6,7 +6,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -563,7 +563,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -596,6 +596,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -2580,7 +2581,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -3137,7 +3138,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -3170,6 +3171,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -5127,7 +5129,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -5684,7 +5686,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -5717,6 +5719,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -7676,7 +7679,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -8233,7 +8236,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -8266,6 +8269,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -10223,7 +10227,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -10780,7 +10784,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -10813,6 +10817,7 @@ exports[`SystemDetailsPage template component should render without specificatio
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -12730,7 +12735,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -13287,7 +13292,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -13320,6 +13325,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -15277,7 +15283,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-1y9383h-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -15834,7 +15840,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -15867,6 +15873,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
