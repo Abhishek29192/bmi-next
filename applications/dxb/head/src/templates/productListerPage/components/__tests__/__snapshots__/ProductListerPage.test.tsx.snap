@@ -7,7 +7,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -285,7 +285,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -315,6 +315,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden;"
         >
           <button
@@ -1070,7 +1071,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -1348,7 +1349,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -1378,6 +1379,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden;"
         >
           <button
@@ -2139,7 +2141,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -2445,7 +2447,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -2478,6 +2480,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -3453,7 +3456,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -3759,7 +3762,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -3792,6 +3795,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -4753,7 +4757,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -5031,7 +5035,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -5061,6 +5065,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden;"
         >
           <button
@@ -6000,7 +6005,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -6278,7 +6283,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -6308,6 +6313,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden;"
         >
           <button
@@ -6994,7 +7000,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -7272,7 +7278,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -7302,6 +7308,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden;"
         >
           <button
@@ -7988,7 +7995,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -8266,7 +8273,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -8296,6 +8303,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden;"
         >
           <button
@@ -9040,7 +9048,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -9346,7 +9354,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -9379,6 +9387,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -10327,7 +10336,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -10633,7 +10642,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -10666,6 +10675,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -11614,7 +11624,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -11920,7 +11930,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -11953,6 +11963,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -12914,7 +12925,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -13220,7 +13231,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -13253,6 +13264,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -14234,7 +14246,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -14540,7 +14552,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -14573,6 +14585,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -17798,7 +17811,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
       >
         <nav
           aria-label="Utilities"
@@ -18104,7 +18117,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -18137,6 +18150,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         />
         <div
           class="Header-drawer Header-navDrawer"
+          data-testid="nav-drawer"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button

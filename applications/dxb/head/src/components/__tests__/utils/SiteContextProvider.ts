@@ -9,5 +9,6 @@ export const getMockSiteContext = (
   node_locale: nodeLocale,
   homePage: {
     title: "Home page title"
-  }
+  },
+  accountPage: null
 });

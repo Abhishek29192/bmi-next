@@ -3,7 +3,7 @@
 exports[`Header component renders correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -37,12 +37,12 @@ exports[`Header component renders correctly 1`] = `
             </li>
             <li
               class="Header-navItem"
-              data-testid="utilities-link-MC:-login.label.btn"
+              data-testid="login"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
-                data-testid="login"
+                data-testid="button"
                 tabindex="0"
                 target="_blank"
                 type="button"
@@ -355,7 +355,7 @@ exports[`Header component renders correctly 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -388,6 +388,7 @@ exports[`Header component renders correctly 1`] = `
     />
     <div
       class="Header-drawer Header-navDrawer"
+      data-testid="nav-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -457,7 +458,7 @@ exports[`Header component renders correctly 1`] = `
 exports[`Header component renders correctly when flag doesn't exist 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -491,12 +492,12 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </li>
             <li
               class="Header-navItem"
-              data-testid="utilities-link-MC:-login.label.btn"
+              data-testid="login"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
-                data-testid="login"
+                data-testid="button"
                 tabindex="0"
                 target="_blank"
                 type="button"
@@ -809,7 +810,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -842,6 +843,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
     />
     <div
       class="Header-drawer Header-navDrawer"
+      data-testid="nav-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -911,7 +913,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
 exports[`Header component shows sample basket icon 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -945,12 +947,12 @@ exports[`Header component shows sample basket icon 1`] = `
             </li>
             <li
               class="Header-navItem"
-              data-testid="utilities-link-MC:-login.label.btn"
+              data-testid="login"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
-                data-testid="login"
+                data-testid="button"
                 tabindex="0"
                 target="_blank"
                 type="button"
@@ -1296,7 +1298,7 @@ exports[`Header component shows sample basket icon 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -1329,6 +1331,7 @@ exports[`Header component shows sample basket icon 1`] = `
     />
     <div
       class="Header-drawer Header-navDrawer"
+      data-testid="nav-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -1556,7 +1559,7 @@ exports[`Header component shows sample basket icon 1`] = `
 exports[`Header component toggles search 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1y9383h-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -1590,12 +1593,12 @@ exports[`Header component toggles search 1`] = `
             </li>
             <li
               class="Header-navItem"
-              data-testid="utilities-link-MC:-login.label.btn"
+              data-testid="login"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
-                data-testid="login"
+                data-testid="button"
                 tabindex="0"
                 target="_blank"
                 type="button"
@@ -1908,7 +1911,7 @@ exports[`Header component toggles search 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -1941,6 +1944,7 @@ exports[`Header component toggles search 1`] = `
     />
     <div
       class="Header-drawer Header-navDrawer"
+      data-testid="nav-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
