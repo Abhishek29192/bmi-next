@@ -5,8 +5,9 @@ import logger from "@bmi-digital/functions-logger";
 import { Training } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import { navigate } from "gatsby";
-import React from "react";
+import React, { useMemo } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { replaceSpaces } from "@bmi-digital/components/utils";
 import { useSiteContext } from "../../../components/Site";
 import { QA_AUTH_TOKEN } from "../../../constants/cookieConstants";
 import { useConfig } from "../../../contexts/ConfigProvider";
@@ -31,6 +32,11 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
   const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const { gcpFormSubmitEndpoint } = useConfig();
 
+  const discoverySourceOtherFieldName = useMemo(
+    () => `${replaceSpaces(props.formData.discoverySourceOther)}-textfield`,
+    [props.formData.discoverySourceOther]
+  );
+
   const handleFormSubmit = async (
     event: React.FormEvent,
     values: Record<string, InputValue>
@@ -48,15 +54,18 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
         },
         {}
       );
-      const sanitizedValues = {};
+      const sanitizedValues: Record<string, string> = {};
       const checkmark = String.fromCodePoint(0x2713);
 
       sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_LABEL)] =
         `${props.training?.courseCode} - ${props.training?.courseName}, ${props.training?.sessionName}`;
 
       sanitizedValues[getMicroCopy(microCopy.TRAINING_EMAIL_START_DATE)] =
-        props.training?.startDate &&
-        new Date(props.training.startDate).toLocaleString(node_locale);
+        new Date(props.training!.startDate).toLocaleString(node_locale);
+
+      const discoverySourceValue = values[props.formData.discoverySourceTitle];
+      const isOtherDiscoverySourceSelected =
+        discoverySourceValue === props.formData.discoverySourceOther;
 
       sanitizedValues[
         getMicroCopy(microCopy.TRAINING_EMAIL_TERM_OF_USE_LABEL)
@@ -70,7 +79,24 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
         if (key === "consent") {
           continue;
         }
+
         if (key === "terms-of-use") {
+          continue;
+        }
+
+        if (key === discoverySourceOtherFieldName) {
+          continue;
+        }
+
+        if (
+          isOtherDiscoverySourceSelected &&
+          key === props.formData.discoverySourceTitle
+        ) {
+          // eslint-disable-next-line security/detect-object-injection
+          sanitizedValues[key] =
+            // eslint-disable-next-line security/detect-object-injection
+            valuesToSend[discoverySourceOtherFieldName]?.trim() ||
+            props.formData.discoverySourceOther;
           continue;
         }
 
