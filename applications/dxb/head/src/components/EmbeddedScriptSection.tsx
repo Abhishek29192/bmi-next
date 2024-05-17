@@ -29,7 +29,8 @@ const EmbeddedScriptSection = ({
     script.src = url;
     script.async = true;
     script.setAttribute("data-testid", "embedded-script");
-    if (ecmaScript) {
+    const pathname = new URL(url).pathname;
+    if ((pathname.endsWith(".js") && ecmaScript) || pathname.endsWith(".mjs")) {
       script.type = "module";
     }
     document.body.appendChild(script);

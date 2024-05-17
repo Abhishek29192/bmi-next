@@ -807,7 +807,7 @@ describe("Sections component", () => {
         __typename: "ContentfulEmbeddedScriptSection",
         title: "Embedded Script",
         scriptSectionId: "test-id",
-        url: "test-url",
+        url: "https://test-url",
         ecmaScript: false
       }
     ];
