@@ -3,5 +3,11 @@ function = "add-trailing-slash"
 path = "/*"
 excludedPath = ["/*.css", "/*.js", "/*json", "/*.png", "/*.jpg", "/*.webp", "/*.svg", "/static/*", "/manifest.webmanifest"]
 
+[[plugins]]
+package = "../libraries/netlify-plugin-csp"
+  [plugins.inputs]
+    dxbMarketPrefixes =  "za, cn, in, id, my, al, at, be, be/fr-be, ba, bg, hr, cz, dk, ee, fi, fr, de, hu, ie, it, lv, lt, nl, no, pl, pt, ro, rs, sa, se, sk, si, es, ch, ch/fr-ch, tr, ua, uk"
+
+
 [dev]
   command = "yarn workspace @bmi/head dev:full"

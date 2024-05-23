@@ -3920,6 +3920,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/netlify-plugin-csp@workspace:applications/dxb/libraries/netlify-plugin-csp":
+  version: 0.0.0-use.local
+  resolution: "@bmi/netlify-plugin-csp@workspace:applications/dxb/libraries/netlify-plugin-csp"
+  dependencies:
+    eslint: ^8.56.0
+    firebase-admin: 12.0.0
+  languageName: unknown
+  linkType: soft
+
 "@bmi/netlify-plugin-trigger-gitlab@workspace:applications/dxb/libraries/netlify-plugin-trigger-gitlab":
   version: 0.0.0-use.local
   resolution: "@bmi/netlify-plugin-trigger-gitlab@workspace:applications/dxb/libraries/netlify-plugin-trigger-gitlab"
@@ -17723,7 +17732,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"firebase-admin@npm:^12.0.0":
+"firebase-admin@npm:12.0.0, firebase-admin@npm:^12.0.0":
   version: 12.0.0
   resolution: "firebase-admin@npm:12.0.0"
   dependencies:

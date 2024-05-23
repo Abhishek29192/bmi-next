@@ -1,0 +1,5 @@
+name: netlify-plugin-csp
+inputs:
+  - name: dxbMarketPrefixes
+    description: Comma seperated string of all applicable dxb market prefixes ordered by from least specific to most specific.
+    required: true
