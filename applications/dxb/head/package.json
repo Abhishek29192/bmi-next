@@ -71,6 +71,7 @@
     "auth0-js": "^9.24.1",
     "browserify-zlib": "^0.2.0",
     "classnames": "^2.5.1",
+    "content-security-policy-parser": "^0.6.0",
     "contentful-resolve-response": "^1.8.1",
     "css-mediaquery": "^0.1.2",
     "file-saver": "^2.0.5",
