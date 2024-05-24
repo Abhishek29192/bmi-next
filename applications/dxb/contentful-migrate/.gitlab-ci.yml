@@ -1,9 +1,9 @@
 lint_contentful_migrate:
   extends: .lint_yarn_workspace
   rules:
-    - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main_workspace, rules]
-    - !reference [.run_for_changes_on_mr_workspace, rules]
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/contentful-migrate"
@@ -11,12 +11,12 @@ lint_contentful_migrate:
 build_contentful_migrate:
   extends: .build_yarn_workspace
   rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/microcopies/src/index.ts
-    - !reference [.run_for_changes_on_mr_workspace, rules]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
     - if: "$CI_COMMIT_TAG"
     - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   variables:
@@ -26,9 +26,9 @@ build_contentful_migrate:
 test_contentful_migrate:
   extends: .test_yarn_workspace
   rules:
-    - !reference [.ignore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main_workspace, rules]
-    - !reference [.run_for_changes_on_mr_workspace, rules]
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
     WORKSPACE: "@bmi/contentful-migrate"
@@ -47,14 +47,14 @@ test_contentful_migrate:
 .migrate_content:
   stage: pre deploy
   rules:
-    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
       variables:
         CONTENTFUL_ENVIRONMENT: master
         CONTENTFUL_ALIAS: pre-production
         DELETE_OLD_ENVIRONMENTS: "true"
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
         NEW_ENVIRONMENT_NAME: $CI_COMMIT_TAG
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
       variables:
         CONTENTFUL_ENVIRONMENT: master
         DELETE_OLD_ENVIRONMENTS: "true"
@@ -81,16 +81,16 @@ test_contentful_migrate:
 .deploy_gatsby_cloud:
   stage: deploy
   rules:
-    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
       variables:
         DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PREPROD
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
       variables:
         DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PROD
   variables:
     DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
     ROOT_DIR: "applications/dxb/contentful-migrate"
-  cache: {}
+  cache: { }
   script:
     - |
       apt-get update
@@ -117,11 +117,11 @@ test_contentful_migrate:
     - job: build_contentful_migrate
       artifacts: true
   rules:
-    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
       variables:
         CONTENTFUL_ENVIRONMENT: pre-production
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
       variables:
         CONTENTFUL_ENVIRONMENT: master
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
@@ -139,11 +139,12 @@ test_contentful_migrate:
 migrate_content_qa:
   extends: .migrate_content
   rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
     - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
   needs:
+    - job: build_contentful_migrate
     - job: test_contentful_migrate
       optional: true
   variables:
@@ -155,11 +156,11 @@ migrate_content_qa:
 update_mc_qa:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - job: migrate_content_qa # in case only the microcopies have changed
       optional: true
   rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
         - applications/dxb/libraries/microcopies/src/index.ts
@@ -172,7 +173,7 @@ update_mc_qa:
 deploy_gatsby_cloud_qa:
   extends: .deploy_gatsby_cloud
   rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
     - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
@@ -187,7 +188,7 @@ deploy_gatsby_cloud_qa:
 migrate_content_qa_consolidated:
   extends: .migrate_content
   rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
     - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
@@ -200,11 +201,11 @@ migrate_content_qa_consolidated:
 update_mc_qa_consolidated:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - job: migrate_content_qa_consolidated # in case only the microcopies have changed
       optional: true
   rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
         - applications/dxb/libraries/microcopies/src/index.ts
@@ -218,7 +219,7 @@ update_mc_qa_consolidated:
 deploy_gatsby_cloud_qa_consolidated:
   extends: .deploy_gatsby_cloud
   rules:
-    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
+    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
       changes:
         - applications/dxb/contentful-migrate/src/**/*
     - if: '$WHICH_SCHEDULE == "migrate_content_qa"'
@@ -238,7 +239,7 @@ migrate_content_italy:
 update_mc_italy:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_italy
   variables:
     DXB_MARKET_ID: "IT"
@@ -259,7 +260,7 @@ migrate_content_france:
 update_mc_france:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_france
   variables:
     DXB_MARKET_ID: "FR"
@@ -280,7 +281,7 @@ migrate_content_germany:
 update_mc_germany:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_germany
   variables:
     DXB_MARKET_ID: "DE"
@@ -301,7 +302,7 @@ migrate_content_netherlands:
 update_mc_netherlands:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_netherlands
   variables:
     DXB_MARKET_ID: "NL"
@@ -322,7 +323,7 @@ migrate_content_unitedkingdom:
 update_mc_unitedkingdom:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_unitedkingdom
   variables:
     DXB_MARKET_ID: "UK"
@@ -343,7 +344,7 @@ migrate_content_space_1:
 update_mc_space_1:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_1
   variables:
     DXB_MARKET_ID: "space_1"
@@ -366,7 +367,7 @@ migrate_content_space_2:
 update_mc_space_2:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_2
   variables:
     DXB_MARKET_ID: "space_2"
@@ -412,7 +413,7 @@ migrate_content_space_3:
 update_mc_space_3:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_3
   variables:
     DXB_MARKET_ID: "space_3"
@@ -436,7 +437,7 @@ migrate_content_space_4:
 update_mc_space_4:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_4
   variables:
     DXB_MARKET_ID: "space_4"
@@ -474,7 +475,7 @@ migrate_content_space_5:
 update_mc_space_5:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_5
   variables:
     DXB_MARKET_ID: "space_5"
@@ -506,7 +507,7 @@ migrate_content_space_6:
 update_mc_space_6:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_6
   variables:
     DXB_MARKET_ID: "space_6"
@@ -545,7 +546,7 @@ migrate_content_space_7:
 update_mc_space_7:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_7
   variables:
     DXB_MARKET_ID: "space_7"
@@ -583,7 +584,7 @@ migrate_content_space_8:
 update_mc_space_8:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_8
   variables:
     DXB_MARKET_ID: "space_8"
@@ -629,7 +630,7 @@ migrate_content_space_9:
 update_mc_space_9:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_9
   variables:
     DXB_MARKET_ID: "space_9"
@@ -675,7 +676,7 @@ migrate_content_space_10:
 update_mc_space_10:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_10
   variables:
     DXB_MARKET_ID: "space_10"
@@ -721,7 +722,7 @@ migrate_content_space_11:
 update_mc_space_11:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_space_11
   variables:
     DXB_MARKET_ID: "space_11"
@@ -757,7 +758,7 @@ migrate_content_sandpit:
     # Only trigger for PROD tags
     # Gitlab CI/CD does not currently support pattern matching using a regex in
     # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   variables:
     DXB_MARKET_ID: "SANDPIT"
     CONTENTFUL_ENVIRONMENT: master
@@ -768,10 +769,10 @@ migrate_content_sandpit:
 update_mc_sandpit:
   extends: .update_mc
   needs:
-    - !reference [.update_mc, needs]
+    - !reference [ .update_mc, needs ]
     - migrate_content_sandpit
   rules:
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   variables:
     DXB_MARKET_ID: "SANDPIT"
     CONTENTFUL_ENVIRONMENT: master
@@ -783,7 +784,7 @@ deploy_gatsby_cloud_sandpit:
     # Only trigger for PROD tags
     # Gitlab CI/CD does not currently support pattern matching using a regex in
     # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   needs:
     - migrate_content_sandpit
     - update_mc_sandpit
