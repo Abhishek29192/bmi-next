@@ -47,11 +47,12 @@ export const accessControlAllowOrigin = (marketCode) => {
 // Builds the market environment variable suffix in the form NO
 // or FR_BE (for bilingual markets).
 const envVarSuffix = (marketCode) => {
+  console.log(`marketCode: ${marketCode}`);
   return `${marketCode.split("/").pop().toUpperCase().replace("-", "_")}`;
 };
 
 const buildCsp = (marketCode) => {
-  const environment = process.env["DXB_ENVIRONMENT"].toLocaleUpperCase();
+  const environment = process.env["DXB_ENVIRONMENT"].toUpperCase();
   const commonCsp = process.env[`${environment}_DXB_CONTENT_SECURITY_POLICY`];
   const marketcsp =
     process.env[
