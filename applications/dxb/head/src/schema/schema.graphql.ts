@@ -1436,7 +1436,8 @@ type ContentfulEmbeddedScriptSection implements ContentfulObject & Node @dontInf
   name: String!
   title: String
   id: String!
-  url: String!
   scriptSectionId: String!
+  url: String!
+  ecmaScript: Boolean!
 }
 `;
