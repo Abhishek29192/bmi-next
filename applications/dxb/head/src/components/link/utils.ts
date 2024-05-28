@@ -1,4 +1,4 @@
-import { Link as GatsbyLink } from "gatsby";
+import NextLink from "next/link";
 import { getPathWithCountryCode } from "../../utils/path";
 import { DataTypeEnum } from "./types";
 import type { Data } from "./types";
@@ -25,8 +25,8 @@ export const getCTA = (
     "/"
   );
   return {
-    to: to,
-    component: GatsbyLink,
+    href: to,
+    component: NextLink,
     gtm: { id: "cta-click1", action: to, label: linkLabel }
   };
 };
@@ -84,8 +84,8 @@ export const toAnchorLinkActionProps = (
       link.linkedPage.path
     ).replace(/\/+/gi, "/");
     return {
-      component: GatsbyLink,
-      to,
+      component: NextLink,
+      href: to,
       gtm: { id: "cta-click1", action: to, label: link.label }
     };
   }

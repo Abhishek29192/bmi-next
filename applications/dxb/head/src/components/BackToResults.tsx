@@ -4,8 +4,8 @@ import ArrowBackIcon from "@bmi-digital/components/icon/ArrowBack";
 import { microCopy } from "@bmi/microcopies";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Link } from "gatsby";
-import React, { FC, ReactElement } from "react";
+import NextLink from "next/link";
+import { FC, ReactElement } from "react";
 import { PATHNAME_KEY, getBackToResultsPath } from "../utils/filters";
 import { useSiteContext } from "./Site";
 import {
@@ -40,8 +40,8 @@ const BackToResults: FC<Props> = ({
           startIcon={<ArrowBackIcon />}
           variant="text"
           hasDarkBackground={isDarkThemed}
-          to={getBackToResultsPath(countryCode)}
-          component={Link}
+          href={getBackToResultsPath(countryCode)}
+          component={NextLink}
           gtm={{
             id: "nav-breadcrumb-back-to-results",
             action: getBackToResultsPath(countryCode),

@@ -6,7 +6,7 @@ import DeleteIcon from "@bmi-digital/components/icon/Delete";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { Link } from "gatsby";
+import NextLink from "next/link";
 import React from "react";
 import {
   ACTION_TYPES,
@@ -151,8 +151,8 @@ const SampleBasketDialog = ({
       </ProductList>
       <CartActions data-testid={"shopping-cart-dialog-actions"}>
         <Button
-          component={Link}
-          to={basketUrl}
+          component={NextLink}
+          href={basketUrl}
           endIcon={<ArrowForwardIcon />}
           data-testid={"shopping-cart-dialog-complete-order-button"}
         >

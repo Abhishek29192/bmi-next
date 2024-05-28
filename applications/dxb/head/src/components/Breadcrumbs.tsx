@@ -5,8 +5,9 @@ import Breadcrumbs, {
 } from "@bmi-digital/components/breadcrumbs";
 import { transformHyphens } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { Link, graphql } from "gatsby";
-import React, { useMemo } from "react";
+import { graphql } from "gatsby";
+import NextLink from "next/link";
+import { useMemo } from "react";
 import { BreadcrumbItem } from "../types/pim";
 import { useConfig, Config } from "../contexts/ConfigProvider";
 import { Context, useSiteContext } from "./Site";
@@ -133,7 +134,7 @@ const IntegratedBreadcrumbs = ({
       {...rest}
       linkedBreadcrumbItems={breadcrumbsItems}
       lastBreadcrumbItem={currentBreadcrumb}
-      component={Link}
+      component={NextLink}
       data-testid={dataTestId}
       expandText={getMicroCopy(microCopy.GLOBAL_SHOW_MORE)}
     />

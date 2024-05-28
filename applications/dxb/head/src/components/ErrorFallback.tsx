@@ -1,7 +1,7 @@
 import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
-import { Link } from "gatsby";
+import NextLink from "next/link";
 import { getPathWithCountryCode } from "../utils/path";
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
@@ -49,8 +49,8 @@ const ErrorFallback = ({
       </Typography>
       {cta && (
         <Button
-          component={Link}
-          to={to}
+          component={NextLink}
+          href={to}
           gtm={{ id: "cta-click1", action: to, label: cta.label }}
         >
           {cta.label}

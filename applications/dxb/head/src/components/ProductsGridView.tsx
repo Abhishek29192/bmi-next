@@ -3,8 +3,7 @@ import ProductOverviewCard from "@bmi-digital/components/product-overview-card";
 import Typography from "@bmi-digital/components/typography";
 import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
-import { Link } from "gatsby";
-import React from "react";
+import NextLink from "next/link";
 import { useSearchParams } from "../utils/filters";
 import {
   getLevel,
@@ -86,8 +85,8 @@ const ProductsGridView = ({
                   : undefined
               }
               brandLogo={brandLogo}
-              component={Link}
-              to={productUrl}
+              component={NextLink}
+              href={productUrl}
               gtm={{
                 id: "cta-click1",
                 label: getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS),

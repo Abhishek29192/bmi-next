@@ -6,8 +6,9 @@ import Section from "@bmi-digital/components/section";
 import Tabs from "@bmi-digital/components/tabs";
 import { microCopy } from "@bmi/microcopies";
 import Tab, { TabProps } from "@mui/material/Tab";
-import { graphql, Link } from "gatsby";
-import React, { useMemo, useState } from "react";
+import { graphql } from "gatsby";
+import NextLink from "next/link";
+import { useMemo, useState } from "react";
 import { RelatedProduct } from "../types/pim";
 import {
   getLevel,
@@ -102,8 +103,8 @@ const ProductListing = ({
                   }
                 }
                 brandLogo={brandLogo}
-                component={Link}
-                to={productUrl}
+                component={NextLink}
+                href={productUrl}
                 gtm={{
                   id: "cta-click1",
                   label: gtmLabel,

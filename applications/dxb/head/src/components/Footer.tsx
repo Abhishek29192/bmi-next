@@ -4,8 +4,8 @@ import Footer, {
 import HidePrint from "@bmi-digital/components/hide-print";
 import { microCopy } from "@bmi/microcopies";
 import { isDefined } from "@bmi/utils";
-import { Link, graphql } from "gatsby";
-import React from "react";
+import { graphql } from "gatsby";
+import NextLink from "next/link";
 import { getPathWithCountryCode } from "../utils/path";
 import Icon from "./Icon";
 import { useSiteContext } from "./Site";
@@ -78,8 +78,8 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
 
   secondary.push({
     label: sitemapLabel,
-    to: sitemapPath,
-    component: Link,
+    href: sitemapPath,
+    component: NextLink,
     gtm: {
       id: "nav-footer1",
       action: sitemapPath,

@@ -1,6 +1,7 @@
 import AnchorLink from "@bmi-digital/components/anchor-link";
 import { Inline } from "@contentful/rich-text-types";
-import { Link as GatsbyLink, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import NextLink from "next/link";
 import React from "react";
 import { getPathWithCountryCode } from "../utils/path";
 import { useSiteContext } from "./Site";
@@ -72,8 +73,8 @@ const InlineHyperlink = ({
   );
   return (
     <AnchorLink
-      component={GatsbyLink}
-      to={action}
+      component={NextLink}
+      href={action}
       gtm={{
         id: "cta-click1",
         label,

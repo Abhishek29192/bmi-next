@@ -1,7 +1,6 @@
 import AnchorLink from "@bmi-digital/components/anchor-link";
 import Typography from "@bmi-digital/components/typography";
-import { Link as GatsbyLink } from "gatsby";
-import React from "react";
+import NextLink from "next/link";
 import { getPathWithCountryCode } from "../utils/path";
 import {
   StyledPageSummaryCard,
@@ -20,8 +19,8 @@ const PageSummaryCard = ({ title, subtitle, countryCode, path }: Props) => {
   return (
     <StyledPageSummaryCard>
       <AnchorLink
-        component={GatsbyLink}
-        to={href}
+        component={NextLink}
+        href={href}
         gtm={{ id: "cta-click1", action: href, label: title }}
       >
         <Typography noClamp variant="h4">

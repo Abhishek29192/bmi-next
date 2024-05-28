@@ -2,8 +2,7 @@ import { Filter } from "@bmi-digital/components/filters";
 import Grid from "@bmi-digital/components/grid";
 import ProductOverviewCard from "@bmi-digital/components/product-overview-card";
 import { microCopy } from "@bmi/microcopies";
-import { Link as GatsbyLink } from "gatsby";
-import React from "react";
+import NextLink from "next/link";
 import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import BrandLogo from "../../../components/BrandLogo";
 import { getSearchParams } from "../../../utils/filters";
@@ -83,8 +82,8 @@ export const renderProducts = (
             label: getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)
           }}
           ctaLabel={getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
-          component={GatsbyLink}
-          to={productUrl}
+          component={NextLink}
+          href={productUrl}
         />
       </Grid>
     );

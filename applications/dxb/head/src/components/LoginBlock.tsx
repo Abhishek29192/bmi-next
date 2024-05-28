@@ -1,7 +1,6 @@
 import Button from "@bmi-digital/components/button";
 import { microCopy } from "@bmi/microcopies";
-import { Link } from "gatsby";
-import React from "react";
+import NextLink from "next/link";
 import AuthService from "../auth/service";
 import useAuth from "../hooks/useAuth";
 import { getPathWithCountryCode } from "../utils/path";
@@ -19,8 +18,8 @@ const LoginBlock = () => {
           <Button
             variant="text"
             data-testid="my-acc"
-            to={getPathWithCountryCode(countryCode, accountPage?.slug)}
-            component={Link}
+            href={getPathWithCountryCode(countryCode, accountPage?.slug)}
+            component={NextLink}
           >
             {getMicroCopy(microCopy.MY_ACCOUNT_LABEL)}
           </Button>

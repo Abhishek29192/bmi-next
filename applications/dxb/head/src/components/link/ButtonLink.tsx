@@ -1,7 +1,8 @@
 import Dialog from "@bmi-digital/components/dialog";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import classnames from "classnames";
-import { graphql, Link as GatsbyLink } from "gatsby";
+import { graphql } from "gatsby";
+import NextLink from "next/link";
 import uniqueId from "lodash-es/uniqueId";
 import React, { Suspense, useCallback, useContext, useState } from "react";
 import { getPathWithCountryCode } from "../../utils/path";
@@ -61,8 +62,8 @@ const InternalLink = ({
   return (
     <StyledButton
       className={classnames(className, hasBrandColours && classes.branded)}
-      component={GatsbyLink}
-      to={url}
+      component={NextLink}
+      href={url}
       gtm={{
         id: "cta-click1",
         action: url,

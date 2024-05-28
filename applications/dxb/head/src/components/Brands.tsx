@@ -3,8 +3,8 @@ import Grid from "@bmi-digital/components/grid";
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { graphql, Link } from "gatsby";
-import React from "react";
+import { graphql } from "gatsby";
+import NextLink from "next/link";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import { SectionElement } from "./styles/BrandsStyles";
@@ -35,8 +35,8 @@ const Brands = ({ data }: { data: Data[] }) => {
                 logoIcon={<BrandLogo brandName={brand.brandLogo} />}
                 subtitle={brand.subtitle}
                 ctaLabel={buttonLabel}
-                component={Link}
-                to={brand.path}
+                component={NextLink}
+                href={brand.path}
                 gtm={{
                   id: "cta-click1",
                   label: `${brand.title} - ${buttonLabel}`,

@@ -8,8 +8,9 @@ import SystemResultsCard from "@bmi-digital/components/system-results-card";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { System as EsSystem, SystemAttribute } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
-import { Link, graphql } from "gatsby";
-import React, { useState } from "react";
+import { graphql } from "gatsby";
+import NextLink from "next/link";
+import { useState } from "react";
 import { RelatedSystem } from "../types/pim";
 import {
   getLevel,
@@ -114,8 +115,8 @@ export const SystemCard = ({
         }
         gtm={gtm}
         ctaLabel={getMicroCopy(microCopy.SDP_SYSTEM_READ_MORE)}
-        component={Link}
-        to={systemUrl}
+        component={NextLink}
+        href={systemUrl}
         highlighted={isHighlighted}
         description={system.shortDescription ?? undefined}
         systemProperties={getFilteredSystemPropertyValuesList(

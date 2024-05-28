@@ -1,7 +1,7 @@
 import ProductSampleCard from "@bmi-digital/components/product-sample-card";
 import { microCopy } from "@bmi/microcopies";
 import { isDefined } from "@bmi/utils";
-import { Link } from "gatsby";
+import NextLink from "next/link";
 import React from "react";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import {
@@ -68,8 +68,8 @@ const SampleBasketSectionProducts = () => {
         subtitle={[colour, textureFamily].filter(isDefined).join(" | ")}
         description={measurements}
         media={media}
-        to={getPathWithCountryCode(countryCode, path)}
-        component={Link}
+        href={getPathWithCountryCode(countryCode, path)}
+        component={NextLink}
         ctaLabel={getMicroCopy(microCopy.PDP_OVERVIEW_REMOVE_SAMPLE)}
         removeSample={handleRemove}
         tag={

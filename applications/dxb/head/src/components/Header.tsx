@@ -5,10 +5,10 @@ import IconButton from "@bmi-digital/components/icon-button";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import { RegionCode } from "@bmi-digital/components/language-selection";
 import { microCopy } from "@bmi/microcopies";
-import { graphql, Link, withPrefix } from "gatsby";
+import { graphql, withPrefix } from "gatsby";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import NextLink from "next/link";
 import Toast from "@bmi-digital/components/toast";
-import type { MicroCopyValues } from "@bmi/microcopies";
 import AuthService from "../auth/service";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
@@ -25,6 +25,7 @@ import RichText from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
 import { useSiteContext } from "./Site";
 import { getCTA } from "./link/utils";
+import type { MicroCopyValues } from "@bmi/microcopies";
 import type { ToastProps } from "@bmi-digital/components/toast";
 import type { RichTextData } from "./RichText";
 import type { IconButtonProps } from "@bmi-digital/components/icon-button";
@@ -113,7 +114,7 @@ const useHeaderAuthData = () => {
       myAccountBtnLabel: getMicroCopy(microCopy.MY_ACCOUNT_LABEL),
       myAccountBtnAction: {
         to: getPathWithCountryCode(countryCode, accountPage?.slug),
-        component: Link
+        component: NextLink
       },
       loginBtnLabel: getMicroCopy(microCopy.LOG_IN_LABEL_BTN),
       loginButtonAction: { onClick: AuthService.login },
@@ -203,8 +204,8 @@ const parseNavigation = ({
 
       if (linkedPage) {
         action = {
-          to: getPathWithCountryCode(countryCode, linkedPage.path),
-          component: Link
+          href: getPathWithCountryCode(countryCode, linkedPage.path),
+          component: NextLink
         };
       } else if (url) {
         const href =
@@ -226,7 +227,7 @@ const parseNavigation = ({
         gtm: {
           id: "nav-main-menu",
           label: label,
-          action: stringifyToObject(action?.to) || action?.href
+          action: action?.href
         }
       });
     }
@@ -366,8 +367,8 @@ const Header = ({
         utilities={utilities}
         navigation={navigation}
         logoAction={{
-          component: Link,
-          to: getPathWithCountryCode(countryCode, "")
+          component: NextLink,
+          href: getPathWithCountryCode(countryCode, "")
         }}
         logoLabel={getMicroCopy(microCopy.GLOBAL_LOGO_LABEL)}
         activeNavLabel={newActiveLabel}

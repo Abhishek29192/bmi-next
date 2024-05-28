@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import NextLink from "next/link";
 import createClassification, {
   createFeature
 } from "../../__tests__/helpers/ClassificationHelper";
@@ -170,18 +170,18 @@ describe("product-details-transforms tests", () => {
                       label: "label",
                       isSelected: false,
                       action: {
-                        component: Link,
+                        component: NextLink,
                         model: "routerLink",
-                        to: "/no/p/name-hashed-related-code/"
+                        href: "/no/p/name-hashed-related-code/"
                       }
                     },
                     {
                       label: "5x3x4mm",
                       isSelected: false,
                       action: {
-                        component: Link,
+                        component: NextLink,
                         model: "routerLink",
-                        to: "/no/path-to-related-measure-3/"
+                        href: "/no/path-to-related-measure-3/"
                       }
                     },
                     {
@@ -192,18 +192,18 @@ describe("product-details-transforms tests", () => {
                       label: "12x10x11mm",
                       isSelected: false,
                       action: {
-                        component: Link,
+                        component: NextLink,
                         model: "routerLink",
-                        to: "/no/p/name-hashed-related-code/"
+                        href: "/no/p/name-hashed-related-code/"
                       }
                     },
                     {
                       label: "13x12x11mm",
                       isSelected: false,
                       action: {
-                        component: Link,
+                        component: NextLink,
                         model: "routerLink",
-                        to: "/no/p/name-hashed-related-code/"
+                        href: "/no/p/name-hashed-related-code/"
                       }
                     }
                   ]

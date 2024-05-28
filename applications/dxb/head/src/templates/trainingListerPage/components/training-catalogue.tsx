@@ -4,8 +4,8 @@ import RemoveIcon from "@bmi-digital/components/icon/Remove";
 import TrainingCatalogueCard from "@bmi-digital/components/training-catalogue-card";
 import { Training } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
-import { Link } from "gatsby";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import NextLink from "next/link";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSiteContext } from "../../../components/Site";
 import { trainingCategoryMicroCopies } from "../../../constants/trainingCategoryMicroCopies";
 import { trainingTypeMicroCopies } from "../../../constants/trainingTypeMicroCopies";
@@ -125,11 +125,11 @@ const TrainingCatalogue = ({
             key={`${catalogueData.id}-${training.courseSlug}`}
           >
             <TrainingCatalogueCard
-              to={`${getPathWithCountryCode(
+              href={`${getPathWithCountryCode(
                 countryCode,
                 `/t/${training.courseSlug}`
               )}${getSearchParams()}`}
-              component={Link}
+              component={NextLink}
               data-testid="training-card"
               category={{
                 type: getCategoryType(training.category),

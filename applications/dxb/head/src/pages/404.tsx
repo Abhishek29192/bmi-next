@@ -1,7 +1,8 @@
 import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
+import NextLink from "next/link";
 import FallbackComponent from "../components/FallbackComponent";
 import Page from "../components/Page";
 import { getPathWithCountryCode } from "../utils/path";
@@ -28,8 +29,8 @@ const Cta = (
   const placeholderCTALabel = "Error:404.cta.label";
   const actionProps: AnchorLinkActionProps = props.linkedPage
     ? {
-        to: getPathWithCountryCode(props.countryCode, props.linkedPage.path),
-        component: Link
+        href: getPathWithCountryCode(props.countryCode, props.linkedPage.path),
+        component: NextLink
       }
     : { href: props.url, external: true };
 

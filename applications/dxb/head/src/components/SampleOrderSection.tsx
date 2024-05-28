@@ -4,8 +4,8 @@ import Remove from "@bmi-digital/components/icon/Remove";
 import ShoppingCart from "@bmi-digital/components/icon/ShoppingCart";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
-import { Link } from "gatsby";
-import React, { useEffect, useState } from "react";
+import NextLink from "next/link";
+import { useEffect, useState } from "react";
 import {
   ACTION_TYPES,
   createSample,
@@ -144,8 +144,8 @@ const SampleOrderSection = ({
                   className={classes["complete-order"]}
                   endIcon={<ShoppingCart />}
                   variant="outlined"
-                  to={sampleBasketUrl}
-                  component={Link}
+                  href={sampleBasketUrl}
+                  component={NextLink}
                   gtm={{
                     id: "cta-click1",
                     action: sampleBasketUrl,
