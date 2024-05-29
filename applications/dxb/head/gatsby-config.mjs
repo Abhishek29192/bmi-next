@@ -8,7 +8,6 @@ import process from "process";
 import getCredentialData from "./src/utils/get-credentials-data.mjs";
 import {
   accessControlAllowOrigin,
-  contentSecurityPolicy,
   xRobotTags
 } from "./src/utils/httpHeadersHelper.mjs";
 import dxbMarketPrefixes from "./src/utils/siteUrlPrefixes.mjs";
@@ -594,10 +593,6 @@ const config = {
       source: "/*",
       headers: [
         {
-          key: "Content-Security-Policy",
-          value: contentSecurityPolicy(process.env.GATSBY_SPACE_MARKET_CODE)
-        },
-        {
           key: "X-Frame-Options",
           value: "DENY"
         },
@@ -627,11 +622,7 @@ const config = {
     // when proxying requests to market URL prefixes.
     ...(process.env.IS_NETLIFY && process.env.GATSBY_SPACE_MARKET_CODE === "grp"
       ? dxbMarketPrefixes.flatMap((prefix) => {
-          if (
-            !contentSecurityPolicy(prefix) &&
-            !xRobotTags(prefix) &&
-            !accessControlAllowOrigin(prefix)
-          ) {
+          if (!xRobotTags(prefix) && !accessControlAllowOrigin(prefix)) {
             // Ignore, if market specific response-header-variables are not available.
             return [];
           }
@@ -639,14 +630,6 @@ const config = {
           return {
             source: `/${prefix}/*`,
             headers: [
-              ...(contentSecurityPolicy(prefix)
-                ? [
-                    {
-                      key: "Content-Security-Policy",
-                      value: contentSecurityPolicy(prefix)
-                    }
-                  ]
-                : []),
               ...(xRobotTags(prefix)
                 ? [{ key: "X-Robots-Tag", value: xRobotTags(prefix) }]
                 : []),

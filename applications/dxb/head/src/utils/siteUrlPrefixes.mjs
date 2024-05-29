@@ -33,8 +33,8 @@ const dxbMarketPrefixes = [
   "sk",
   "si",
   "es",
-  "ch",
   "ch/fr-ch",
+  "ch",
   "tr",
   "ua",
   "uk"

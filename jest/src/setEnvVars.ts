@@ -109,9 +109,6 @@ process.env.ES_INDEX_NAME_TRAININGS = "dxb_no_trainings";
 process.env.PULL_DOCEBO_DATA = "false";
 
 process.env.DXB_ENVIRONMENT = "QA";
-process.env.CONTENT_SECURITY_POLICY = "sole content security policy";
-process.env.QA_DXB_CONTENT_SECURITY_POLICY =
-  "default-src 'self' https: https://*.test.org; script-src 'self' https://somescript.com";
 
 process.env.X_ROBOTS_TAG = "sole x robots tag";
 process.env.QA_DXB_X_ROBOTS_TAG = "common x robots tag";
