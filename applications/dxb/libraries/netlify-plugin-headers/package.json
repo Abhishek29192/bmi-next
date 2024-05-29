@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/netlify-plugin-csp",
+  "name": "@bmi/netlify-plugin-headers",
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,

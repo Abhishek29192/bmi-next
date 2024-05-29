@@ -3920,9 +3920,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@bmi/netlify-plugin-csp@workspace:applications/dxb/libraries/netlify-plugin-csp":
+"@bmi/netlify-plugin-headers@workspace:applications/dxb/libraries/netlify-plugin-headers":
   version: 0.0.0-use.local
-  resolution: "@bmi/netlify-plugin-csp@workspace:applications/dxb/libraries/netlify-plugin-csp"
+  resolution: "@bmi/netlify-plugin-headers@workspace:applications/dxb/libraries/netlify-plugin-headers"
   dependencies:
     eslint: ^8.56.0
     firebase-admin: 12.0.0

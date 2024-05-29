@@ -1,9 +1,9 @@
-lint_netlify-plugin-csp:
+lint_netlify-plugin-headers:
   extends: .lint_yarn_workspace
   rules:
     - !reference [ .ignore_release_mrs, rules ]
     - !reference [ .run_for_changes_on_main_workspace, rules ]
     - !reference [ .run_for_changes_on_mr_workspace, rules ]
   variables:
-    ROOT_DIR: "applications/dxb/libraries/netlify-plugin-csp"
-    WORKSPACE: "@bmi/netlify-plugin-csp"
+    ROOT_DIR: "applications/dxb/libraries/netlify-plugin-headers"
+    WORKSPACE: "@bmi/netlify-plugin-headers"
