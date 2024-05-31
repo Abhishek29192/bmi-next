@@ -1,0 +1,9 @@
+lint_netlify-plugin-group-proxy:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main_workspace, rules ]
+    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/netlify-plugin-group-proxy"
+    WORKSPACE: "@bmi/netlify-plugin-group-proxy"

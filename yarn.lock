@@ -3920,6 +3920,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@bmi/netlify-plugin-group-proxy@workspace:applications/dxb/libraries/netlify-plugin-group-proxy":
+  version: 0.0.0-use.local
+  resolution: "@bmi/netlify-plugin-group-proxy@workspace:applications/dxb/libraries/netlify-plugin-group-proxy"
+  dependencies:
+    eslint: ^8.56.0
+    firebase-admin: 12.0.0
+  languageName: unknown
+  linkType: soft
+
 "@bmi/netlify-plugin-headers@workspace:applications/dxb/libraries/netlify-plugin-headers":
   version: 0.0.0-use.local
   resolution: "@bmi/netlify-plugin-headers@workspace:applications/dxb/libraries/netlify-plugin-headers"
