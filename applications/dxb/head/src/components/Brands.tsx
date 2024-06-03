@@ -29,7 +29,7 @@ const Brands = ({ data }: { data: Data[] }) => {
             title: brand.title
           });
           return (
-            <Grid xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
+            <Grid xs={12} md={6} xl={4} key={`${brand.path}-${index}`}>
               <BrandIntroCard
                 name={brand.brandLogo}
                 logoIcon={<BrandLogo brandName={brand.brandLogo} />}

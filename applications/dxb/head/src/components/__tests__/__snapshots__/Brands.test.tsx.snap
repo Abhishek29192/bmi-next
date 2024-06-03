@@ -24,7 +24,7 @@ exports[`Brands component renders correctly 1`] = `
           data-testid="grid-container"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-xl-3 Grid-item css-36j3ru-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-xl-4 Grid-item css-vdzimu-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -127,7 +127,7 @@ exports[`Brands component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-xl-3 Grid-item css-36j3ru-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-xl-4 Grid-item css-vdzimu-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
