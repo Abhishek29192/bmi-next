@@ -25,7 +25,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               scope="col"
             >
               <div
-                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -98,7 +98,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               data-testid="document-table-add-contentful-document-id"
             >
               <div
-                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -216,7 +216,10 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   data-testid="download-document-button-contentful-document-id"
                   download=""
                   href="http://localhost:9000/asset-filename.jpg"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <svg
                     aria-hidden="true"
@@ -274,7 +277,7 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
               data-testid="document-table-add-pim-document-id"
             >
               <div
-                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -393,7 +396,10 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                   data-testid="download-document-button-pim-document-id"
                   download=""
                   href="http://localhost:9000/document.pdf"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
                   tabindex="0"
+                  target="_blank"
                 >
                   <svg
                     aria-hidden="true"
@@ -479,7 +485,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
             >
               <div>
                 <div
-                  class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                  class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -631,7 +637,10 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                           data-testid="download-document-button-pim-document-id"
                           download=""
                           href="http://localhost:9000/document.pdf"
+                          referrerpolicy="no-referrer"
+                          rel="noreferrer"
                           tabindex="0"
+                          target="_blank"
                         >
                           <svg
                             aria-hidden="true"

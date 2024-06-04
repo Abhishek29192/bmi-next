@@ -19,8 +19,10 @@ exports[`Brands component renders correctly 1`] = `
           data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
           data-testid="tappable-card-main"
           href="https:http://localhost:9000/asset-filename.jpg"
-          rel="noindex"
+          referrerpolicy="no-referrer"
+          rel="noreferrer noindex"
           tabindex="0"
+          target="_blank"
         >
           <img
             alt="contentful image alt text"
@@ -95,8 +97,10 @@ exports[`Brands component renders correctly 1`] = `
               data-testid="download-document-button-contentful-document-id"
               download=""
               href="https:http://localhost:9000/asset-filename.jpg"
-              rel="noindex"
+              referrerpolicy="no-referrer"
+              rel="noreferrer noindex"
               tabindex="0"
+              target="_blank"
             >
               <svg
                 aria-hidden="true"
@@ -130,8 +134,10 @@ exports[`Brands component renders correctly 1`] = `
           data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
           data-testid="tappable-card-main"
           href="https:http://localhost:9000/asset-filename.jpg"
-          rel="noindex"
+          referrerpolicy="no-referrer"
+          rel="noreferrer noindex"
           tabindex="0"
+          target="_blank"
         >
           <div
             class="TappableCard-body css-c6k36h"
@@ -211,8 +217,10 @@ exports[`Brands component renders correctly 1`] = `
               data-testid="download-document-button-contentful-document-id"
               download=""
               href="https:http://localhost:9000/asset-filename.jpg"
-              rel="noindex"
+              referrerpolicy="no-referrer"
+              rel="noreferrer noindex"
               tabindex="0"
+              target="_blank"
             >
               <svg
                 aria-hidden="true"

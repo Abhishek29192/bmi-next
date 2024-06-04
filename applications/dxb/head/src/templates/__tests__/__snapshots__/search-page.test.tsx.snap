@@ -666,7 +666,7 @@ exports[`Search Page Template render correctly 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -716,7 +716,7 @@ exports[`Search Page Template render correctly 1`] = `
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-MC:-searchPage.title"
                         >
                           MC: searchPage.title
@@ -731,7 +731,7 @@ exports[`Search Page Template render correctly 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -820,11 +820,11 @@ exports[`Search Page Template render correctly 1`] = `
                       class="InputGroup-lockedxs css-14zqdme"
                     >
                       <div
-                        class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                        class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                         data-testid="search-input-text"
                       >
                         <label
-                          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                           data-shrink="false"
                           for="search-input-text"
                           id="search-input-text-label"
@@ -832,7 +832,7 @@ exports[`Search Page Template render correctly 1`] = `
                           MC: searchPage.placeholder
                         </label>
                         <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                         >
                           <input
                             aria-invalid="false"

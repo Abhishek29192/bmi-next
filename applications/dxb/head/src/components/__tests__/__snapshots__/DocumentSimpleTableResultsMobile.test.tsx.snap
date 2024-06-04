@@ -92,7 +92,10 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
             data-testid="download-document-button-contentful-document-id"
             download=""
             href="http://doesnot-exist.com/fileName"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             tabindex="0"
+            target="_blank"
           >
             <svg
               aria-hidden="true"
@@ -147,7 +150,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
           class="css-10lan02"
         />
         <div
-          class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+          class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
         >
           <label
             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"

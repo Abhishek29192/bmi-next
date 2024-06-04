@@ -2303,7 +2303,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               class="Carousel-wrapperShowOffScreen Carousel-wrapperGutter css-xi64lz"
             >
               <div
-                class="Carousel-opacity Carousel-carouselGutter Carousel-slideConstantHeight css-1s5ge7u"
+                class="Carousel-opacity Carousel-carouselGutter css-xeumfy"
                 data-testid="carousel"
               >
                 <div

@@ -27,7 +27,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
             >
               <div>
                 <div
-                  class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                  class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -179,7 +179,10 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                           data-testid="download-document-button-pim-document-id"
                           download=""
                           href="http://localhost:9000/document.pdf"
+                          referrerpolicy="no-referrer"
+                          rel="noreferrer"
                           tabindex="0"
+                          target="_blank"
                         >
                           <svg
                             aria-hidden="true"
@@ -315,7 +318,10 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                           data-testid="download-document-button-pim-document-id"
                           download=""
                           href="http://localhost:9000/document.pdf"
+                          referrerpolicy="no-referrer"
+                          rel="noreferrer"
                           tabindex="0"
+                          target="_blank"
                         >
                           <svg
                             aria-hidden="true"
@@ -406,7 +412,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
             >
               <div>
                 <div
-                  class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                  class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -558,7 +564,10 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                           data-testid="download-document-button-pim-document-id"
                           download=""
                           href="http://localhost:9000/document.pdf"
+                          referrerpolicy="no-referrer"
+                          rel="noreferrer"
                           tabindex="0"
+                          target="_blank"
                         >
                           <svg
                             aria-hidden="true"
@@ -694,7 +703,10 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                           data-testid="download-document-button-pim-document-id"
                           download=""
                           href="http://localhost:9000/document.pdf"
+                          referrerpolicy="no-referrer"
+                          rel="noreferrer"
                           tabindex="0"
+                          target="_blank"
                         >
                           <svg
                             aria-hidden="true"
@@ -785,7 +797,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
             >
               <div>
                 <div
-                  class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                  class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"

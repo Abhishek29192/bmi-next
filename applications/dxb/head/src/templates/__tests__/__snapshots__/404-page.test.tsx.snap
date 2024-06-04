@@ -665,7 +665,7 @@ exports[`404 page tests When error page data is partially populated renders plac
       data-testid="brand-colors-provider"
     >
       <div
-        class=" Section-root Section-white css-1obptq1"
+        class=" Section-root Section-white css-169jmoe"
         data-testid="promo-section"
       >
         <div
@@ -1811,7 +1811,7 @@ exports[`404 page tests When site data and error page data are fully populated r
       data-testid="brand-colors-provider"
     >
       <div
-        class=" Section-root Section-white css-1obptq1"
+        class=" Section-root Section-white css-169jmoe"
         data-testid="promo-section"
       >
         <div

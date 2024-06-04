@@ -327,7 +327,6 @@ const CardCollectionSection = ({
             }}
             scroll="finite"
             hasGutter
-            enableAnimateHeightMobile={false}
             disableLazyLoading={true}
           >
             {sortedIterableCards.map((card, i) => {
