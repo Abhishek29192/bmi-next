@@ -31,11 +31,11 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -43,7 +43,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -485,11 +485,11 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -497,7 +497,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -978,11 +978,11 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -990,7 +990,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -1432,11 +1432,11 @@ exports[`ServiceLocatorSection component close button 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1444,7 +1444,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -1834,11 +1834,11 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                 class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -1846,7 +1846,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-v6yrsk-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-s04xli-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -2466,11 +2466,11 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -2478,7 +2478,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                     MC: findARoofer.merchantNameSearchLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -2851,11 +2851,11 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -2863,7 +2863,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -3256,11 +3256,11 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -3268,7 +3268,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -4135,11 +4135,11 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -4147,7 +4147,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                   MC: findARoofer.merchantNameSearchLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -4535,11 +4535,11 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -4547,7 +4547,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                   MC: findARoofer.merchantNameSearchLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -4935,11 +4935,11 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -4947,7 +4947,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                   MC: findARoofer.merchantNameSearchLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -5335,11 +5335,11 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -5347,7 +5347,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -5924,11 +5924,11 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -5936,7 +5936,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -6324,11 +6324,11 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -6336,7 +6336,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -6849,11 +6849,11 @@ exports[`ServiceLocatorSection component renders multiple services with single s
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -6861,7 +6861,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -7291,11 +7291,11 @@ exports[`ServiceLocatorSection component renders single service with No service 
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -7303,7 +7303,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -7623,11 +7623,11 @@ exports[`ServiceLocatorSection component renders single service with empty servi
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -7635,7 +7635,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -7955,11 +7955,11 @@ exports[`ServiceLocatorSection component renders single service with multiple se
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -7967,7 +7967,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -8359,11 +8359,11 @@ exports[`ServiceLocatorSection component renders single service with single serv
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -8371,7 +8371,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -8713,11 +8713,11 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                 class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -8725,7 +8725,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-v6yrsk-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-s04xli-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -9074,11 +9074,11 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                 class="MuiAutocomplete-root Mui-expanded MuiAutocomplete-hasClearIcon css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -9086,7 +9086,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-v6yrsk-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-s04xli-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -9534,11 +9534,11 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -9546,7 +9546,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -9868,11 +9868,11 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -9880,7 +9880,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -10293,11 +10293,11 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -10305,7 +10305,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -10635,11 +10635,11 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -10647,7 +10647,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -10919,11 +10919,11 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -10931,7 +10931,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                     MC: findARoofer.merchantNameSearchLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -10991,11 +10991,11 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon css-1t7m83h-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="location-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="location-autocomplete"
                     id="location-autocomplete-label"
@@ -11003,7 +11003,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                     MC: findARoofer.locationFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-v6yrsk-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-s04xli-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -11451,11 +11451,11 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -11463,7 +11463,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                     MC: findARoofer.merchantNameSearchLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -11523,11 +11523,11 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 class="MuiAutocomplete-root css-1t7m83h-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="location-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="location-autocomplete"
                     id="location-autocomplete-label"
@@ -11535,7 +11535,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                     MC: findARoofer.locationFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"
@@ -11760,11 +11760,11 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-cwb8cr-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                     data-shrink="true"
                     for="company-autocomplete"
                     id="company-autocomplete-label"
@@ -11772,7 +11772,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                     MC: findARoofer.companyFieldLabel
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <svg
                       aria-hidden="true"

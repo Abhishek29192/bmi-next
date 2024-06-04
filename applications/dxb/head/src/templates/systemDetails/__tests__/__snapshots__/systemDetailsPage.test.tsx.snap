@@ -676,7 +676,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -726,7 +726,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -741,7 +741,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1491,7 +1491,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                             scope="col"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1564,7 +1564,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1679,7 +1679,10 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 data-testid="download-document-button-pim-link-document-id"
                                 download=""
                                 href="http://localhost/pim-link-document-id"
+                                referrerpolicy="no-referrer"
+                                rel="noreferrer"
                                 tabindex="0"
+                                target="_blank"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1737,7 +1740,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2052,7 +2055,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2102,7 +2105,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -2117,7 +2120,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3251,7 +3254,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3301,7 +3304,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -3316,7 +3319,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4039,7 +4042,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                             scope="col"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4112,7 +4115,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4227,7 +4230,10 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                                 data-testid="download-document-button-pim-link-document-id"
                                 download=""
                                 href="http://localhost/pim-link-document-id"
+                                referrerpolicy="no-referrer"
+                                rel="noreferrer"
                                 tabindex="0"
+                                target="_blank"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -4285,7 +4291,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4600,7 +4606,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4650,7 +4656,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -4665,7 +4671,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -5803,7 +5809,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -5853,7 +5859,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-system-Name"
                     >
                       system-Name
@@ -5868,7 +5874,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6588,7 +6594,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               scope="col"
                             >
                               <div
-                                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                                class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                               >
                                 <label
                                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -6661,7 +6667,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               data-testid="document-table-add-pim-link-document-id"
                             >
                               <div
-                                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                                class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                               >
                                 <label
                                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -6776,7 +6782,10 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   data-testid="download-document-button-pim-link-document-id"
                                   download=""
                                   href="http://localhost/pim-link-document-id"
+                                  referrerpolicy="no-referrer"
+                                  rel="noreferrer"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -6834,7 +6843,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               data-testid="document-table-add-pim-link-document-id"
                             >
                               <div
-                                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                                class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                               >
                                 <label
                                   class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -7149,7 +7158,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -7199,7 +7208,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-system-Name"
                     >
                       system-Name
@@ -7214,7 +7223,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -8349,7 +8358,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -8399,7 +8408,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -8414,7 +8423,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9137,7 +9146,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             scope="col"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -9210,7 +9219,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -9325,7 +9334,10 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 data-testid="download-document-button-pim-link-document-id"
                                 download=""
                                 href="http://localhost/pim-link-document-id"
+                                referrerpolicy="no-referrer"
+                                rel="noreferrer"
                                 tabindex="0"
+                                target="_blank"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -9383,7 +9395,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -9698,7 +9710,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9748,7 +9760,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -9763,7 +9775,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -10897,7 +10909,7 @@ exports[`SystemDetailsPage template component should render without specificatio
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -10947,7 +10959,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -10962,7 +10974,7 @@ exports[`SystemDetailsPage template component should render without specificatio
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11645,7 +11657,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                             scope="col"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -11718,7 +11730,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -11833,7 +11845,10 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 data-testid="download-document-button-pim-link-document-id"
                                 download=""
                                 href="http://localhost/pim-link-document-id"
+                                referrerpolicy="no-referrer"
+                                rel="noreferrer"
                                 tabindex="0"
+                                target="_blank"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -11891,7 +11906,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -12206,7 +12221,7 @@ exports[`SystemDetailsPage template component should render without specificatio
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -12256,7 +12271,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -12271,7 +12286,7 @@ exports[`SystemDetailsPage template component should render without specificatio
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13405,7 +13420,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13455,7 +13470,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -13470,7 +13485,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -14193,7 +14208,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                             scope="col"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -14266,7 +14281,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -14381,7 +14396,10 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 data-testid="download-document-button-pim-link-document-id"
                                 download=""
                                 href="http://localhost/pim-link-document-id"
+                                referrerpolicy="no-referrer"
+                                rel="noreferrer"
                                 tabindex="0"
+                                target="_blank"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -14439,7 +14457,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -14754,7 +14772,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -14804,7 +14822,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -14819,7 +14837,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15953,7 +15971,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -16003,7 +16021,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -16018,7 +16036,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -16865,7 +16883,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                             scope="col"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -16938,7 +16956,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -17053,7 +17071,10 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 data-testid="download-document-button-pim-link-document-id"
                                 download=""
                                 href="http://localhost/pim-link-document-id"
+                                referrerpolicy="no-referrer"
+                                rel="noreferrer"
                                 tabindex="0"
+                                target="_blank"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -17111,7 +17132,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                             data-testid="document-table-add-pim-link-document-id"
                           >
                             <div
-                              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
                             >
                               <label
                                 class="MuiFormControlLabel-root Mui-disabled MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -17426,7 +17447,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -17476,7 +17497,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   class="MuiBreadcrumbs-li"
                 >
                   <span
-                    class="Breadcrumbs-label Breadcrumbs-link"
+                    class="Breadcrumbs-lastBreadcrumb"
                     data-testid="bread-crumb-system-Name"
                   >
                     system-Name
@@ -17491,7 +17512,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+              class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
             >
               <ol
                 class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"

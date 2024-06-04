@@ -687,7 +687,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -737,7 +737,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -752,7 +752,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -800,7 +800,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -937,11 +937,11 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -949,7 +949,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -1003,7 +1003,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -1348,7 +1348,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1398,7 +1398,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -1413,7 +1413,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2559,7 +2559,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2609,7 +2609,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -2624,7 +2624,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2672,7 +2672,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -2804,11 +2804,11 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -2816,7 +2816,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -2870,7 +2870,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -2981,7 +2981,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3031,7 +3031,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -3046,7 +3046,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4192,7 +4192,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4242,7 +4242,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -4257,7 +4257,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4305,7 +4305,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -4454,11 +4454,11 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -4466,7 +4466,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -4520,7 +4520,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -4814,7 +4814,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -4864,7 +4864,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -4879,7 +4879,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6025,7 +6025,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6075,7 +6075,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -6090,7 +6090,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6138,7 +6138,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -6268,11 +6268,11 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -6280,7 +6280,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -6334,7 +6334,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -6677,7 +6677,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -6727,7 +6727,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -6742,7 +6742,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -7888,7 +7888,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -7938,7 +7938,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -7953,7 +7953,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -8001,7 +8001,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -8133,11 +8133,11 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -8145,7 +8145,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -8199,7 +8199,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -8512,7 +8512,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -8562,7 +8562,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -8577,7 +8577,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9723,7 +9723,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9773,7 +9773,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -9788,7 +9788,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -9836,7 +9836,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -9968,11 +9968,11 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -9980,7 +9980,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -10034,7 +10034,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -10377,7 +10377,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -10427,7 +10427,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -10442,7 +10442,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11588,7 +11588,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11638,7 +11638,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -11653,7 +11653,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -11701,7 +11701,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -11833,11 +11833,11 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -11845,7 +11845,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -11899,7 +11899,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -12242,7 +12242,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -12292,7 +12292,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -12307,7 +12307,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13453,7 +13453,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13503,7 +13503,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -13518,7 +13518,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -13566,7 +13566,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -13708,11 +13708,11 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -13720,7 +13720,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -13774,7 +13774,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -14117,7 +14117,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -14167,7 +14167,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -14182,7 +14182,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15328,7 +15328,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15378,7 +15378,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -15393,7 +15393,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -15441,7 +15441,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -15585,11 +15585,11 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -15597,7 +15597,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -15651,7 +15651,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -15994,7 +15994,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -16044,7 +16044,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -16059,7 +16059,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -17205,7 +17205,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -17255,7 +17255,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -17270,7 +17270,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -17318,7 +17318,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-1s5ge7u"
+                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
                   data-testid="carousel"
                 >
                   <div
@@ -17462,11 +17462,11 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-8fe7fr-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
                         data-shrink="false"
                         for="search-input-text"
                         id="search-input-text-label"
@@ -17474,7 +17474,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                         MC: search.placeholder.hero
                       </label>
                       <div
-                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+                        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
                       >
                         <input
                           aria-invalid="false"
@@ -17528,7 +17528,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-1s5ge7u"
+                class="Carousel-swipeable css-xeumfy"
                 data-testid="carousel"
               >
                 <div
@@ -17871,7 +17871,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -17921,7 +17921,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -17936,7 +17936,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"

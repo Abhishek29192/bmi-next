@@ -710,7 +710,7 @@ exports[`Document Library page renders correctly  1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -760,7 +760,7 @@ exports[`Document Library page renders correctly  1`] = `
                         class="MuiBreadcrumbs-li"
                       >
                         <span
-                          class="Breadcrumbs-label Breadcrumbs-link"
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
                         >
                           breadcrumbTitle
@@ -775,7 +775,7 @@ exports[`Document Library page renders correctly  1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -944,7 +944,7 @@ exports[`Document Library page renders correctly  1`] = `
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                                        class="MuiFormControl-root css-108emsj-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -985,7 +985,7 @@ exports[`Document Library page renders correctly  1`] = `
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                                        class="MuiFormControl-root css-108emsj-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1059,7 +1059,7 @@ exports[`Document Library page renders correctly  1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1109,7 +1109,7 @@ exports[`Document Library page renders correctly  1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -1124,7 +1124,7 @@ exports[`Document Library page renders correctly  1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1601,8 +1601,10 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
         data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
         data-testid="tappable-card-main"
         href="https:http://localhost:9000/asset-filename.jpg"
-        rel="noindex"
+        referrerpolicy="no-referrer"
+        rel="noreferrer noindex"
         tabindex="0"
+        target="_blank"
       >
         <div
           class="TappableCard-body css-c6k36h"
@@ -1682,8 +1684,10 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
             data-testid="download-document-button-contentful-document-id"
             download=""
             href="https:http://localhost:9000/asset-filename.jpg"
-            rel="noindex"
+            referrerpolicy="no-referrer"
+            rel="noreferrer noindex"
             tabindex="0"
+            target="_blank"
           >
             <svg
               aria-hidden="true"
@@ -1731,7 +1735,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1798,7 +1802,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1907,7 +1911,10 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 data-testid="download-document-button-pim-document-id"
                 download=""
                 href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <svg
                   aria-hidden="true"
@@ -1986,7 +1993,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2053,7 +2060,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-add-contentful-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2161,7 +2168,10 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 data-testid="download-document-button-contentful-document-id"
                 download=""
                 href="http://localhost:9000/asset-filename.jpg"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <svg
                   aria-hidden="true"
@@ -2240,7 +2250,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2307,7 +2317,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2416,7 +2426,10 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 data-testid="download-document-button-pim-document-id"
                 download=""
                 href="https://url/"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <svg
                   aria-hidden="true"
@@ -2495,7 +2508,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2562,7 +2575,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-add-contentful-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2670,7 +2683,10 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 data-testid="download-document-button-contentful-document-id"
                 download=""
                 href="http://localhost:9000/asset-filename.jpg"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <svg
                   aria-hidden="true"
@@ -2749,7 +2765,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2816,7 +2832,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2925,7 +2941,10 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 data-testid="download-document-button-pim-document-id"
                 download=""
                 href="https://url/"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <svg
                   aria-hidden="true"
@@ -3004,7 +3023,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3071,7 +3090,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3180,7 +3199,10 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 data-testid="download-document-button-pim-document-id"
                 download=""
                 href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <svg
                   aria-hidden="true"
@@ -3259,7 +3281,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3326,7 +3348,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3435,7 +3457,10 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 data-testid="download-document-button-pim-document-id"
                 download=""
                 href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <svg
                   aria-hidden="true"
@@ -3514,7 +3539,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3593,7 +3618,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3718,7 +3743,10 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 data-testid="download-document-button-pim-document-id"
                 download=""
                 href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <svg
                   aria-hidden="true"
@@ -3797,7 +3825,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3876,7 +3904,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4001,7 +4029,10 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
                 data-testid="download-document-button-pim-document-id"
                 download=""
                 href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <svg
                   aria-hidden="true"
@@ -4085,7 +4116,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
           >
             <div>
               <div
-                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4237,7 +4268,10 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                         data-testid="download-document-button-pim-document-id"
                         download=""
                         href="https://url/"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
+                        target="_blank"
                       >
                         <svg
                           aria-hidden="true"

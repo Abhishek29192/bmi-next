@@ -682,7 +682,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               >
                 <nav
                   aria-label="breadcrumbs"
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -732,7 +732,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="MuiBreadcrumbs-li"
                     >
                       <span
-                        class="Breadcrumbs-label Breadcrumbs-link"
+                        class="Breadcrumbs-lastBreadcrumb"
                         data-testid="bread-crumb-breadcrumbTitle"
                       >
                         breadcrumbTitle
@@ -747,7 +747,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               >
                 <nav
                   aria-label="breadcrumbs"
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1224,7 +1224,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1274,7 +1274,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -1289,7 +1289,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2525,7 +2525,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               >
                 <nav
                   aria-label="breadcrumbs"
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2575,7 +2575,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="MuiBreadcrumbs-li"
                     >
                       <span
-                        class="Breadcrumbs-label Breadcrumbs-link"
+                        class="Breadcrumbs-lastBreadcrumb"
                         data-testid="bread-crumb-breadcrumbTitle"
                       >
                         breadcrumbTitle
@@ -2590,7 +2590,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               >
                 <nav
                   aria-label="breadcrumbs"
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3355,7 +3355,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3405,7 +3405,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <span
-                      class="Breadcrumbs-label Breadcrumbs-link"
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
                     >
                       breadcrumbTitle
@@ -3420,7 +3420,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1cph33u-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
