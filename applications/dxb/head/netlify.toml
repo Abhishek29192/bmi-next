@@ -8,6 +8,8 @@ package = "../libraries/netlify-plugin-headers"
   [plugins.inputs]
     dxbMarketPrefixes =  "za, cn, in, id, my, al, at, be, be/fr-be, ba, bg, hr, cz, dk, ee, fi, fr, de, hu, ie, it, lv, lt, nl, no, pl, pt, ro, rs, sa, se, sk, si, es, ch, ch/fr-ch, tr, ua, uk"
 
+[[plugins]]
+package = "../libraries/netlify-plugin-group-proxy"
 
 [dev]
   command = "yarn workspace @bmi/head dev:full"
