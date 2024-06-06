@@ -37,7 +37,7 @@ deploy_gcp-docebo-data-filter:
   needs:
     - job: package_gcp-docebo-data-filter
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:

@@ -71,7 +71,7 @@ deploy_gcp-pim-message-handler:
   needs:
     - job: package_gcp-pim-message-handler
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   rules:

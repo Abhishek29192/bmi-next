@@ -37,7 +37,7 @@ deploy_gcp-contentful-documents-ingest:
   needs:
     - job: package_gcp-contentful-documents-ingest
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:

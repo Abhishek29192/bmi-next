@@ -37,7 +37,7 @@ deploy_gcp-download-zip:
   needs:
     - job: package_gcp-download-zip
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:

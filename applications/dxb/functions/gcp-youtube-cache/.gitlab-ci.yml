@@ -71,7 +71,7 @@ deploy_gcp-youtube-cache:
   needs:
     - job: package_gcp-youtube-cache
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   rules:

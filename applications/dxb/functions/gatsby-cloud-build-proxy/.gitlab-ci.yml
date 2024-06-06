@@ -37,7 +37,7 @@ deploy_gatsby-cloud-build-proxy:
   needs:
     - job: package_gatsby-cloud-build-proxy
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:

@@ -96,7 +96,7 @@ deploy_gcp-firestore-writer:
   needs:
     - job: package_gcp-firestore-writer
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   rules:
