@@ -19,7 +19,10 @@ interface Params {
   index: string;
   body: {
     query: {
-      match: Record<"code" | "baseProduct.code" | "productBaseCode", string>;
+      match: Record<
+        "code.keyword" | "baseProduct.code.keyword" | "productBaseCode.keyword",
+        string
+      >;
     };
   };
 }
@@ -66,23 +69,23 @@ describe("deleteESItemByCode", () => {
 
     await deleteEsItemByCode(deleteItem, "PRODUCTS");
 
-    expect(getEsClient).toBeCalled();
-    expect(deleteByQuery).toBeCalledWith({
+    expect(getEsClient).toHaveBeenCalled();
+    expect(deleteByQuery).toHaveBeenCalledWith({
       index: "dxb_no_products_write",
       body: {
         query: {
           match: {
-            "baseProduct.code": deleteItem.code
+            "baseProduct.code.keyword": deleteItem.code
           }
         }
       }
     });
-    expect(deleteByQuery).toBeCalledWith({
+    expect(deleteByQuery).toHaveBeenCalledWith({
       index: "pim-documents-test_write",
       body: {
         query: {
           match: {
-            productBaseCode: deleteItem.code
+            "productBaseCode.keyword": deleteItem.code
           }
         }
       }
@@ -97,13 +100,13 @@ describe("deleteESItemByCode", () => {
 
     await deleteEsItemByCode(deleteItem, "PRODUCTS");
 
-    expect(getEsClient).toBeCalled();
-    expect(deleteByQuery).toBeCalledWith({
+    expect(getEsClient).toHaveBeenCalled();
+    expect(deleteByQuery).toHaveBeenCalledWith({
       index: "dxb_no_products_write",
       body: {
         query: {
           match: {
-            code: deleteItem.code
+            "code.keyword": deleteItem.code
           }
         }
       }
@@ -119,23 +122,23 @@ describe("deleteESItemByCode", () => {
 
     await deleteEsItemByCode(deleteItem, "SYSTEMS");
 
-    expect(getEsClient).toBeCalled();
-    expect(deleteByQuery).toBeCalledWith({
+    expect(getEsClient).toHaveBeenCalled();
+    expect(deleteByQuery).toHaveBeenCalledWith({
       index: "dxb_no_systems_write",
       body: {
         query: {
           match: {
-            code: deleteItem.code
+            "code.keyword": deleteItem.code
           }
         }
       }
     });
-    expect(deleteByQuery).toBeCalledWith({
+    expect(deleteByQuery).toHaveBeenCalledWith({
       index: "pim-documents-test_write",
       body: {
         query: {
           match: {
-            productBaseCode: deleteItem.code
+            "productBaseCode.keyword": deleteItem.code
           }
         }
       }
@@ -155,7 +158,7 @@ describe("deleteESItemByCode", () => {
 
     const logMessage = JSON.parse(logData[logData.length - 1][0]).message;
 
-    expect(getEsClient).not.toBeCalled();
+    expect(getEsClient).not.toHaveBeenCalled();
     expect(deleteByQuery).toHaveBeenCalledTimes(0);
     expect(logMessage).toEqual("'Layer' is not indexed into ES");
   });
@@ -177,7 +180,7 @@ describe("deleteESItemByCode", () => {
           expect(true).toEqual(`An error should not be thrown: ${error}`);
         }
 
-        expect(getEsClient).toBeCalled();
+        expect(getEsClient).toHaveBeenCalled();
         expect(deleteByQuery).toHaveBeenCalledTimes(callTimes);
       });
 
@@ -192,7 +195,7 @@ describe("deleteESItemByCode", () => {
           expect(true).toEqual(`An error should not be thrown: ${error}`);
         }
 
-        expect(getEsClient).toBeCalled();
+        expect(getEsClient).toHaveBeenCalled();
         expect(deleteByQuery).toHaveBeenCalledTimes(callTimes);
       });
 
@@ -207,7 +210,7 @@ describe("deleteESItemByCode", () => {
           expect(true).toEqual(`An error should not be thrown: ${error}`);
         }
 
-        expect(getEsClient).toBeCalled();
+        expect(getEsClient).toHaveBeenCalled();
         expect(deleteByQuery).toHaveBeenCalledTimes(callTimes);
       });
     });
