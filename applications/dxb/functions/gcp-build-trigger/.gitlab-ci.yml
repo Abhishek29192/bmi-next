@@ -43,7 +43,7 @@ deploy_gcp-build-trigger:
   needs:
     - job: package_gcp-build-trigger
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:

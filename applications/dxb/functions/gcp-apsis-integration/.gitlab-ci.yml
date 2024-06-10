@@ -37,7 +37,7 @@ deploy_gcp-apsis-integration:
   needs:
     - job: package_gcp-apsis-integration
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:

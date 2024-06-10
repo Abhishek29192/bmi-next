@@ -37,7 +37,7 @@ deploy_es-pim-products-ingest:
   needs:
     - job: package_es-pim-products-ingest
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:

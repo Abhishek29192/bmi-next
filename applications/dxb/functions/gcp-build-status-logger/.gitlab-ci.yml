@@ -37,7 +37,7 @@ deploy_gcp-build-status-logger:
   needs:
     - job: package_gcp-build-status-logger
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:

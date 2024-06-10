@@ -38,7 +38,7 @@ deploy_gcp-system-configurator:
   needs:
     - job: package_gcp-system-configurator
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:

@@ -37,7 +37,7 @@ deploy_gcp-url-generator:
   needs:
     - job: package_gcp-url-generator
       artifacts: true
-    - job: $[[inputs.preceding_job]]
+    - job: $[[ inputs.preceding_job ]]
       artifacts: false
       optional: true
   variables:
