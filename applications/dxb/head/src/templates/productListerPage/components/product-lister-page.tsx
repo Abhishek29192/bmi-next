@@ -379,7 +379,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     />
   );
 
-  const isFeaturesArrayExist = features?.length > 0;
+  const isFeaturesArrayExist = features && features.length > 0;
   const isKeyFeatureBlockVisible = isFeaturesArrayExist || featuresLink;
   const isHeroKeyLine = Boolean(isBrandProviderEnabled && brandLogo);
   return (

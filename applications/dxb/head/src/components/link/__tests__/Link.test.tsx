@@ -376,6 +376,18 @@ describe("Link", () => {
       expect(assetLink).toHaveAttribute("download");
     });
 
+    it("should open the asset in a new tab and apply security attributes", () => {
+      renderWithProviders(
+        <Link data={createAssetLinkData()}>{linkLabel}</Link>
+      );
+
+      const assetLink = screen.getByTestId("asset-link-Find-out-more");
+
+      expect(assetLink).toHaveAttribute("rel", "noreferrer");
+      expect(assetLink).toHaveAttribute("referrerpolicy", "no-referrer");
+      expect(assetLink).toHaveAttribute("target", "_blank");
+    });
+
     it("should use the ContentfulLink asset file url prop as the href value", () => {
       renderWithProviders(
         <Link data={createAssetLinkData()}>{linkLabel}</Link>

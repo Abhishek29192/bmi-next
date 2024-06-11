@@ -55,7 +55,7 @@ const IEDialog = ({ data }: { data: { contentfulSite: SiteData } }) => {
 
           <div className={classes["IEDialog-actions"]}>
             <Button
-              href={ieDialogData.ieDialogActionLink}
+              href={ieDialogData.ieDialogActionLink ?? undefined}
               external
               endIcon={<ArrowForwardIcon />}
             >

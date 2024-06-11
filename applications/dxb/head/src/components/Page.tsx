@@ -177,13 +177,15 @@ const Page = ({
                     resources?.countryNavigationIntroduction
                   }
                   regions={regions}
-                  sampleBasketLink={resources?.sampleBasketLink}
-                  maximumSamples={resources?.maximumSamples}
+                  sampleBasketLink={resources?.sampleBasketLink ?? undefined}
+                  maximumSamples={resources?.maximumSamples ?? null}
                 />
                 <VisualiserProvider
                   contentSource={visualizerAssetUrl}
                   variantCodeToPathMap={variantCodeToPathMap}
-                  shareWidgetData={resources?.visualiserShareWidget}
+                  shareWidgetData={
+                    resources?.visualiserShareWidget ?? undefined
+                  }
                   houseTypes={visualiserHouseTypes}
                 >
                   <CalculatorProvider

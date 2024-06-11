@@ -22,6 +22,7 @@ describe("getCTA", () => {
     const cta = getCTA(createPromoData(), "no");
     expect(cta).toStrictEqual({
       download: true,
+      external: true,
       gtm: {
         action: "http://localhost:8080/asset.pdf",
         id: "cta-click1",
@@ -35,6 +36,7 @@ describe("getCTA", () => {
     const cta = getCTA(createSimplePageData({ cta: createLinkData() }), "no");
     expect(cta).toStrictEqual({
       download: true,
+      external: true,
       gtm: {
         action: "http://localhost:8080/asset.pdf",
         id: "cta-click1",
@@ -138,6 +140,7 @@ describe("toAnchorLinkActionProps", () => {
     const cta = toAnchorLinkActionProps(createAssetLinkData());
     expect(cta).toStrictEqual({
       download: true,
+      external: true,
       gtm: {
         action: "http://localhost:8080/asset.pdf",
         id: "cta-click1",

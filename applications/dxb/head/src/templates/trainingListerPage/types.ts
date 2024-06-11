@@ -1,10 +1,10 @@
-import { Filter } from "@bmi-digital/components/filters";
-import { Training } from "@bmi/elasticsearch-types";
-import { Data as ImageData } from "../../components/Image";
-import { Data as PageData } from "../../components/Page";
-import { Data as SiteData } from "../../components/Site";
-import { Data as TitleWithContentData } from "../../components/TitleWithContent";
-import { Aggregations } from "../../utils/elasticSearch";
+import type { Training } from "@bmi/elasticsearch-types";
+import type { Filter } from "@bmi-digital/components/filters";
+import type { Data as ImageData } from "../../components/image/types";
+import type { Data as PageData } from "../../components/Page";
+import type { Data as SiteData } from "../../components/Site";
+import type { Data as TitleWithContentData } from "../../components/TitleWithContent";
+import type { Aggregations } from "../../utils/elasticSearch";
 
 export type EsCollapsedTraining = {
   inner_hits: {

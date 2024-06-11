@@ -13,6 +13,7 @@ import { getSearchParams } from "../../../utils/filters";
 import getCategoryType from "../../../utils/getCategoryType";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { SHOW_MORE_LIMIT } from "../constants";
+import getTrainingPreviewImage from "../helpers/getTrainingPreviewImage";
 import {
   Description,
   ItemsCount,
@@ -151,13 +152,11 @@ const TrainingCatalogue = ({
                   ? `${training.currencySymbol}${training.price}`
                   : getMicroCopy(microCopy.TRAINING_PRICE_FREE)
               }
-              media={
-                <img
-                  data-testid="training-preview-image"
-                  src={training.courseImg || defaultImageUrl}
-                  alt={training.courseName}
-                />
-              }
+              media={getTrainingPreviewImage(
+                training.courseImg,
+                defaultImageUrl,
+                training.courseName
+              )}
               ctaLabel={getMicroCopy(
                 microCopy.TRAINING_LISTER_PAGE_VIEW_TRAINING
               )}

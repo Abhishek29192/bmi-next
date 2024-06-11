@@ -16,7 +16,6 @@ import {
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { mapClassificationValues } from "../utils/product-details-transforms";
-import { renderMedia } from "../utils/renderMedia";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import { StyledLoadMoreWrapper } from "./styles/RelatedProducts.styles";
@@ -86,7 +85,14 @@ const ProductListing = ({
                 subtitle={uniqueClassifications}
                 label={getMicroCopy(microCopy.PDP_NOBB_LABEL)}
                 value={product.externalProductCode ?? undefined}
-                media={renderMedia(product.masterImage?.mainSource, altText)}
+                media={
+                  product.masterImage?.mainSource
+                    ? {
+                        src: product.masterImage.mainSource,
+                        alt: altText
+                      }
+                    : undefined
+                }
                 tag={
                   product.goodBetterBest && {
                     level: getLevel(product.goodBetterBest),

@@ -17,8 +17,7 @@ const createContentfulDocument = (
     },
     image: {
       file: {
-        fileName: "image.jpg",
-        url: "http://doesnot-exist.com/image.jpg"
+        fileName: "image.jpg"
       },
       gatsbyImageData: {
         images: {

@@ -7,16 +7,16 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
-import Image from "./Image";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
 import {
   DescriptionGrid,
   DescriptionTypoMultiLine
 } from "./styles/SyndicateSection.styles";
-import Video from "./Video";
 
 import ButtonLink from "./link/ButtonLink";
+import createImageProps from "./image/createImageProps";
+import createVideoProps from "./video/createVideoProps";
 import type { Data as PageInfoData } from "./PageInfo";
 import type { Data as PromoData } from "./Promo";
 
@@ -76,11 +76,15 @@ const SyndicateSection = ({
           ) : (
             transformHyphens(data.subtitle)
           ),
-          media: data.featuredVideo ? (
-            <Video {...data.featuredVideo} />
-          ) : data.featuredMedia ? (
-            <Image {...data.featuredMedia} size="cover" isMobile={isMobile} />
-          ) : undefined,
+          media: data.featuredVideo
+            ? createVideoProps(data.featuredVideo)
+            : data.featuredMedia
+              ? createImageProps({
+                  ...data.featuredMedia,
+                  size: "cover",
+                  isMobile
+                })
+              : undefined,
           cta: getCallToAction(data, countryCode, getMicroCopy)
         };
       }),

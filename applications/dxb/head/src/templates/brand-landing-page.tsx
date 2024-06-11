@@ -12,18 +12,18 @@ import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
-import Image from "../components/Image";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import Page, { Data as PageData } from "../components/Page";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Context as SiteContext } from "../components/Site";
-import Video from "../components/Video";
 import ButtonLink from "../components/link/ButtonLink";
 import { DataTypeEnum, type Data as LinkData } from "../components/link/types";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import { getPathWithCountryCode } from "../utils/path";
+import createImageProps from "../components/image/createImageProps";
+import createVideoProps from "../components/video/createVideoProps";
 import type { Data as SiteData } from "../components/Site";
 import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
@@ -82,11 +82,14 @@ const getHeroItemsWithContext = (
     return {
       title,
       children: subtitle,
-      media: featuredVideo ? (
-        <Video {...featuredVideo} />
-      ) : featuredMedia ? (
-        <Image {...featuredMedia} size="cover" />
-      ) : undefined,
+      media: featuredVideo
+        ? createVideoProps(featuredVideo)
+        : featuredMedia
+          ? createImageProps({
+              ...featuredMedia,
+              size: "cover"
+            })
+          : undefined,
       cta:
         slide.__typename === "ContentfulPromo"
           ? GetCTAButton(slide.cta)
@@ -129,9 +132,9 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     children:
       description?.description && createEllipsis(description.description, 400),
 
-    media: featuredMedia ? (
-      <Image {...featuredMedia} size="cover" loading="eager" />
-    ) : undefined,
+    media: featuredMedia
+      ? createImageProps({ ...featuredMedia, size: "cover", loading: "eager" })
+      : undefined,
     hasUnderline: false,
     cta: cta ? (
       <ButtonLink data={cta} data-testid="first-slide-cta" hasBrandColours>

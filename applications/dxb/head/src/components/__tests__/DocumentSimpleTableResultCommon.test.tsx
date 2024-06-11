@@ -112,6 +112,27 @@ describe("DocumentTitle component", () => {
     );
     expect(screen.getByText("Assembly instructions")).toBeInTheDocument();
   });
+
+  it("should open the asset in a new tab and apply security attributes", () => {
+    const document = createPimDocument({
+      title: "Fake title",
+      assetType: createAssetType({ name: "Assembly instructions" })
+    });
+
+    render(
+      <ThemeProvider>
+        <DocumentTitle document={document} titleField="type" />
+      </ThemeProvider>
+    );
+
+    const titleButton = screen.getByTestId(
+      "document-table-download-application/pdf-button"
+    );
+
+    expect(titleButton).toHaveAttribute("rel", "noreferrer");
+    expect(titleButton).toHaveAttribute("referrerpolicy", "no-referrer");
+    expect(titleButton).toHaveAttribute("target", "_blank");
+  });
 });
 
 describe("CopyToClipboard component", () => {

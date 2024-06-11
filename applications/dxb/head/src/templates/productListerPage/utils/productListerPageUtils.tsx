@@ -67,7 +67,7 @@ export const renderProducts = (
               label: getMicroCopy(goodBetterBestLabels[variant.goodBetterBest])
             }
           }
-          media={<img src={mainImage} alt={product.name || variant.name} />}
+          media={{ src: mainImage, alt: product.name || variant.name }}
           brandLogo={
             variant.brandCode ? (
               <BrandLogo brandName={variant.brandCode} />

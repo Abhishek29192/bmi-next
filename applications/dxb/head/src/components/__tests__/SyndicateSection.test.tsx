@@ -23,7 +23,7 @@ describe("SyndicateSection", () => {
     it("should be displayed", () => {
       const { description } = data;
       renderWithProviders(<SyndicateSection {...props} />);
-      expect(screen.getByText(description.description)).toBeInTheDocument();
+      expect(screen.getByText(description.description!)).toBeInTheDocument();
     });
   });
 
@@ -38,7 +38,7 @@ describe("SyndicateSection", () => {
         />
       );
       expect(
-        screen.queryByText(description.description)
+        screen.queryByText(description.description!)
       ).not.toBeInTheDocument();
     });
   });

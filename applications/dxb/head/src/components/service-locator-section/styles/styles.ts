@@ -4,7 +4,7 @@ import IconButton from "@bmi-digital/components/icon-button";
 import Tabs, { tabsClasses } from "@bmi-digital/components/tabs";
 import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";
-import Image from "../../Image";
+import Image from "../../image/Image";
 
 const PREFIX = "ServiceLocatorSection-module";
 

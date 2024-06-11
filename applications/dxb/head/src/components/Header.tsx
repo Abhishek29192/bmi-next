@@ -9,7 +9,6 @@ import { microCopy } from "@bmi/microcopies";
 import { graphql, Link, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
 import AuthService from "../auth/service";
-import Image from "../components/Image";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import useAuth from "../hooks/useAuth";
@@ -18,6 +17,7 @@ import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
+import Image from "./image/Image";
 import Icon from "./Icon";
 import RichText from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
@@ -67,7 +67,7 @@ const getPromoSection = (props: GetPromoSectionProps) => {
     },
     { label: promo.title || promo.name, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),
-    ...(cta ? [{ label: promo.cta.label || promo.name, action: cta }] : [])
+    ...(cta ? [{ label: promo.cta?.label || promo.name, action: cta }] : [])
   ];
 };
 

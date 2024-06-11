@@ -815,9 +815,8 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
           </div>
         </div>
         <div
-          class="Hero-image css-1moer0t-Media"
-          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-          data-testid="hero-image"
+          class="Hero-image css-uagn6w"
+          data-testid="youtube-dialog-wrapper"
         >
           <div
             aria-label="label"
@@ -828,8 +827,9 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
           >
             <img
               alt="label"
-              class="YoutubeVideo-previewImage"
+              class="css-qri583"
               data-testid="youtube-preview-image"
+              draggable="false"
               src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
             />
             <span
@@ -1429,7 +1429,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
                       <a
@@ -1502,9 +1502,59 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
+                      <div
+                        class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-testid="tappable-card-media"
+                      >
+                        <div
+                          aria-label="BMI Group VIDEO LABEL"
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                          data-testid="thumbnail"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <img
+                            alt="BMI Group VIDEO LABEL"
+                            class="css-qri583"
+                            data-testid="youtube-preview-image"
+                            draggable="false"
+                            src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
+                          />
+                          <span
+                            class="css-1ptr1nd"
+                          >
+                            BMI Group VIDEO LABEL
+                          </span>
+                          <div
+                            aria-label="BMI Group VIDEO LABEL"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="thumbnail-button"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="PlayArrowIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M8 5v14l11-7z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
+                      </div>
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","label":"BMI test video on PROMO - Testing "}"
@@ -1512,56 +1562,6 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         tabindex="0"
                         type="button"
                       >
-                        <div
-                          class="TappableCard-headerPicture css-125lpbj-Media"
-                          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
-                          data-testid="tappable-card-media"
-                        >
-                          <div
-                            aria-label="BMI Group VIDEO LABEL"
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                            data-testid="thumbnail"
-                            role="button"
-                            tabindex="0"
-                          >
-                            <img
-                              alt="BMI Group VIDEO LABEL"
-                              class="YoutubeVideo-previewImage"
-                              data-testid="youtube-preview-image"
-                              src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
-                            />
-                            <span
-                              class="css-1ptr1nd"
-                            >
-                              BMI Group VIDEO LABEL
-                            </span>
-                            <div
-                              aria-label="BMI Group VIDEO LABEL"
-                              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="thumbnail-button"
-                              role="button"
-                              tabindex="0"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                data-testid="PlayArrowIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M8 5v14l11-7z"
-                                />
-                              </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
-                            </div>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </div>
-                        </div>
                         <div
                           class="TappableCard-body css-c6k36h"
                         >
@@ -2144,7 +2144,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary1 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -2153,7 +2153,10 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     data-testid="nba-card-Promo-NBA-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
+                    referrerpolicy="no-referrer"
+                    rel="noreferrer"
                     tabindex="0"
+                    target="_blank"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -2210,7 +2213,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary2 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -3724,9 +3727,8 @@ exports[`Contact us page render Sections correctly 1`] = `
           </div>
         </div>
         <div
-          class="Hero-image css-1moer0t-Media"
-          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-          data-testid="hero-image"
+          class="Hero-image css-uagn6w"
+          data-testid="youtube-dialog-wrapper"
         >
           <div
             aria-label="label"
@@ -3737,8 +3739,9 @@ exports[`Contact us page render Sections correctly 1`] = `
           >
             <img
               alt="label"
-              class="YoutubeVideo-previewImage"
+              class="css-qri583"
               data-testid="youtube-preview-image"
+              draggable="false"
               src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
             />
             <span
@@ -4338,7 +4341,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
                       <a
@@ -4411,9 +4414,59 @@ exports[`Contact us page render Sections correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
+                      <div
+                        class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-testid="tappable-card-media"
+                      >
+                        <div
+                          aria-label="BMI Group VIDEO LABEL"
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                          data-testid="thumbnail"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <img
+                            alt="BMI Group VIDEO LABEL"
+                            class="css-qri583"
+                            data-testid="youtube-preview-image"
+                            draggable="false"
+                            src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
+                          />
+                          <span
+                            class="css-1ptr1nd"
+                          >
+                            BMI Group VIDEO LABEL
+                          </span>
+                          <div
+                            aria-label="BMI Group VIDEO LABEL"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="thumbnail-button"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="PlayArrowIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M8 5v14l11-7z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
+                      </div>
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","label":"BMI test video on PROMO - Testing "}"
@@ -4421,56 +4474,6 @@ exports[`Contact us page render Sections correctly 1`] = `
                         tabindex="0"
                         type="button"
                       >
-                        <div
-                          class="TappableCard-headerPicture css-125lpbj-Media"
-                          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
-                          data-testid="tappable-card-media"
-                        >
-                          <div
-                            aria-label="BMI Group VIDEO LABEL"
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                            data-testid="thumbnail"
-                            role="button"
-                            tabindex="0"
-                          >
-                            <img
-                              alt="BMI Group VIDEO LABEL"
-                              class="YoutubeVideo-previewImage"
-                              data-testid="youtube-preview-image"
-                              src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
-                            />
-                            <span
-                              class="css-1ptr1nd"
-                            >
-                              BMI Group VIDEO LABEL
-                            </span>
-                            <div
-                              aria-label="BMI Group VIDEO LABEL"
-                              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="thumbnail-button"
-                              role="button"
-                              tabindex="0"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                data-testid="PlayArrowIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M8 5v14l11-7z"
-                                />
-                              </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
-                            </div>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </div>
-                        </div>
                         <div
                           class="TappableCard-body css-c6k36h"
                         >
@@ -5053,7 +5056,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary1 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -5062,7 +5065,10 @@ exports[`Contact us page render Sections correctly 1`] = `
                     data-testid="nba-card-Promo-NBA-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
+                    referrerpolicy="no-referrer"
+                    rel="noreferrer"
                     tabindex="0"
+                    target="_blank"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -5119,7 +5125,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary2 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -6633,7 +6639,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
           </div>
         </div>
         <div
-          class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+          class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
           data-gatsby-image-wrapper=""
           style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
         >
@@ -6663,7 +6669,6 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
               alt="Image alt text"
               data-gatsby-image-ssr=""
               data-main-image=""
-              data-testid="hero-image"
               decoding="async"
               draggable="false"
               loading="eager"
@@ -7245,7 +7250,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
                       <a
@@ -7318,9 +7323,59 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
+                      <div
+                        class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-testid="tappable-card-media"
+                      >
+                        <div
+                          aria-label="BMI Group VIDEO LABEL"
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                          data-testid="thumbnail"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <img
+                            alt="BMI Group VIDEO LABEL"
+                            class="css-qri583"
+                            data-testid="youtube-preview-image"
+                            draggable="false"
+                            src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
+                          />
+                          <span
+                            class="css-1ptr1nd"
+                          >
+                            BMI Group VIDEO LABEL
+                          </span>
+                          <div
+                            aria-label="BMI Group VIDEO LABEL"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="thumbnail-button"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="PlayArrowIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M8 5v14l11-7z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
+                      </div>
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","label":"BMI test video on PROMO - Testing "}"
@@ -7328,56 +7383,6 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         tabindex="0"
                         type="button"
                       >
-                        <div
-                          class="TappableCard-headerPicture css-125lpbj-Media"
-                          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
-                          data-testid="tappable-card-media"
-                        >
-                          <div
-                            aria-label="BMI Group VIDEO LABEL"
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                            data-testid="thumbnail"
-                            role="button"
-                            tabindex="0"
-                          >
-                            <img
-                              alt="BMI Group VIDEO LABEL"
-                              class="YoutubeVideo-previewImage"
-                              data-testid="youtube-preview-image"
-                              src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
-                            />
-                            <span
-                              class="css-1ptr1nd"
-                            >
-                              BMI Group VIDEO LABEL
-                            </span>
-                            <div
-                              aria-label="BMI Group VIDEO LABEL"
-                              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="thumbnail-button"
-                              role="button"
-                              tabindex="0"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                data-testid="PlayArrowIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M8 5v14l11-7z"
-                                />
-                              </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
-                            </div>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </div>
-                        </div>
                         <div
                           class="TappableCard-body css-c6k36h"
                         >
@@ -7960,7 +7965,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary1 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -7969,7 +7974,10 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                     data-testid="nba-card-Promo-NBA-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
+                    referrerpolicy="no-referrer"
+                    rel="noreferrer"
                     tabindex="0"
+                    target="_blank"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -8026,7 +8034,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary2 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -9540,9 +9548,8 @@ exports[`Contact us page render iframe correctly 1`] = `
           </div>
         </div>
         <div
-          class="Hero-image css-1moer0t-Media"
-          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-          data-testid="hero-image"
+          class="Hero-image css-uagn6w"
+          data-testid="youtube-dialog-wrapper"
         >
           <div
             aria-label="label"
@@ -9553,8 +9560,9 @@ exports[`Contact us page render iframe correctly 1`] = `
           >
             <img
               alt="label"
-              class="YoutubeVideo-previewImage"
+              class="css-qri583"
               data-testid="youtube-preview-image"
+              draggable="false"
               src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
             />
             <span
@@ -10154,7 +10162,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
                       <a
@@ -10227,9 +10235,59 @@ exports[`Contact us page render iframe correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
+                      <div
+                        class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-testid="tappable-card-media"
+                      >
+                        <div
+                          aria-label="BMI Group VIDEO LABEL"
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                          data-testid="thumbnail"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <img
+                            alt="BMI Group VIDEO LABEL"
+                            class="css-qri583"
+                            data-testid="youtube-preview-image"
+                            draggable="false"
+                            src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
+                          />
+                          <span
+                            class="css-1ptr1nd"
+                          >
+                            BMI Group VIDEO LABEL
+                          </span>
+                          <div
+                            aria-label="BMI Group VIDEO LABEL"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="thumbnail-button"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="PlayArrowIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M8 5v14l11-7z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
+                      </div>
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","label":"BMI test video on PROMO - Testing "}"
@@ -10237,56 +10295,6 @@ exports[`Contact us page render iframe correctly 1`] = `
                         tabindex="0"
                         type="button"
                       >
-                        <div
-                          class="TappableCard-headerPicture css-125lpbj-Media"
-                          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
-                          data-testid="tappable-card-media"
-                        >
-                          <div
-                            aria-label="BMI Group VIDEO LABEL"
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                            data-testid="thumbnail"
-                            role="button"
-                            tabindex="0"
-                          >
-                            <img
-                              alt="BMI Group VIDEO LABEL"
-                              class="YoutubeVideo-previewImage"
-                              data-testid="youtube-preview-image"
-                              src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
-                            />
-                            <span
-                              class="css-1ptr1nd"
-                            >
-                              BMI Group VIDEO LABEL
-                            </span>
-                            <div
-                              aria-label="BMI Group VIDEO LABEL"
-                              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="thumbnail-button"
-                              role="button"
-                              tabindex="0"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                data-testid="PlayArrowIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M8 5v14l11-7z"
-                                />
-                              </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
-                            </div>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </div>
-                        </div>
                         <div
                           class="TappableCard-body css-c6k36h"
                         >
@@ -10869,7 +10877,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary1 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -10878,7 +10886,10 @@ exports[`Contact us page render iframe correctly 1`] = `
                     data-testid="nba-card-Promo-NBA-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
+                    referrerpolicy="no-referrer"
+                    rel="noreferrer"
                     tabindex="0"
+                    target="_blank"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -10935,7 +10946,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary2 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -12449,9 +12460,8 @@ exports[`Contact us page render location correctly 1`] = `
           </div>
         </div>
         <div
-          class="Hero-image css-1moer0t-Media"
-          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-          data-testid="hero-image"
+          class="Hero-image css-uagn6w"
+          data-testid="youtube-dialog-wrapper"
         >
           <div
             aria-label="label"
@@ -12462,8 +12472,9 @@ exports[`Contact us page render location correctly 1`] = `
           >
             <img
               alt="label"
-              class="YoutubeVideo-previewImage"
+              class="css-qri583"
               data-testid="youtube-preview-image"
+              draggable="false"
               src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
             />
             <span
@@ -13063,7 +13074,7 @@ exports[`Contact us page render location correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
                       <a
@@ -13136,9 +13147,59 @@ exports[`Contact us page render location correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
+                      <div
+                        class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-testid="tappable-card-media"
+                      >
+                        <div
+                          aria-label="BMI Group VIDEO LABEL"
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                          data-testid="thumbnail"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <img
+                            alt="BMI Group VIDEO LABEL"
+                            class="css-qri583"
+                            data-testid="youtube-preview-image"
+                            draggable="false"
+                            src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
+                          />
+                          <span
+                            class="css-1ptr1nd"
+                          >
+                            BMI Group VIDEO LABEL
+                          </span>
+                          <div
+                            aria-label="BMI Group VIDEO LABEL"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="thumbnail-button"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="PlayArrowIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M8 5v14l11-7z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
+                      </div>
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","label":"BMI test video on PROMO - Testing "}"
@@ -13146,56 +13207,6 @@ exports[`Contact us page render location correctly 1`] = `
                         tabindex="0"
                         type="button"
                       >
-                        <div
-                          class="TappableCard-headerPicture css-125lpbj-Media"
-                          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
-                          data-testid="tappable-card-media"
-                        >
-                          <div
-                            aria-label="BMI Group VIDEO LABEL"
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                            data-testid="thumbnail"
-                            role="button"
-                            tabindex="0"
-                          >
-                            <img
-                              alt="BMI Group VIDEO LABEL"
-                              class="YoutubeVideo-previewImage"
-                              data-testid="youtube-preview-image"
-                              src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
-                            />
-                            <span
-                              class="css-1ptr1nd"
-                            >
-                              BMI Group VIDEO LABEL
-                            </span>
-                            <div
-                              aria-label="BMI Group VIDEO LABEL"
-                              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="thumbnail-button"
-                              role="button"
-                              tabindex="0"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                data-testid="PlayArrowIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M8 5v14l11-7z"
-                                />
-                              </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
-                            </div>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </div>
-                        </div>
                         <div
                           class="TappableCard-body css-c6k36h"
                         >
@@ -13778,7 +13789,7 @@ exports[`Contact us page render location correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary1 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -13787,7 +13798,10 @@ exports[`Contact us page render location correctly 1`] = `
                     data-testid="nba-card-Promo-NBA-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
+                    referrerpolicy="no-referrer"
+                    rel="noreferrer"
                     tabindex="0"
+                    target="_blank"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -13844,7 +13858,7 @@ exports[`Contact us page render location correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary2 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -15358,9 +15372,8 @@ exports[`Contact us page renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="Hero-image css-1moer0t-Media"
-          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
-          data-testid="hero-image"
+          class="Hero-image css-uagn6w"
+          data-testid="youtube-dialog-wrapper"
         >
           <div
             aria-label="label"
@@ -15371,8 +15384,9 @@ exports[`Contact us page renders correctly 1`] = `
           >
             <img
               alt="label"
-              class="YoutubeVideo-previewImage"
+              class="css-qri583"
               data-testid="youtube-preview-image"
+              draggable="false"
               src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
             />
             <span
@@ -15972,7 +15986,7 @@ exports[`Contact us page renders correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
                       <a
@@ -16045,9 +16059,59 @@ exports[`Contact us page renders correctly 1`] = `
                     data-testid="card-collection-grid-item-visible-a6f7e167-7c2b-5336-8df1-24e14f7203b8"
                   >
                     <div
-                      class=" ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-963r91"
                       data-testid="tappable-card-box"
                     >
+                      <div
+                        class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-testid="tappable-card-media"
+                      >
+                        <div
+                          aria-label="BMI Group VIDEO LABEL"
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                          data-testid="thumbnail"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <img
+                            alt="BMI Group VIDEO LABEL"
+                            class="css-qri583"
+                            data-testid="youtube-preview-image"
+                            draggable="false"
+                            src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
+                          />
+                          <span
+                            class="css-1ptr1nd"
+                          >
+                            BMI Group VIDEO LABEL
+                          </span>
+                          <div
+                            aria-label="BMI Group VIDEO LABEL"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="thumbnail-button"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="PlayArrowIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M8 5v14l11-7z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
+                      </div>
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","label":"BMI test video on PROMO - Testing "}"
@@ -16055,56 +16119,6 @@ exports[`Contact us page renders correctly 1`] = `
                         tabindex="0"
                         type="button"
                       >
-                        <div
-                          class="TappableCard-headerPicture css-125lpbj-Media"
-                          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
-                          data-testid="tappable-card-media"
-                        >
-                          <div
-                            aria-label="BMI Group VIDEO LABEL"
-                            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                            data-testid="thumbnail"
-                            role="button"
-                            tabindex="0"
-                          >
-                            <img
-                              alt="BMI Group VIDEO LABEL"
-                              class="YoutubeVideo-previewImage"
-                              data-testid="youtube-preview-image"
-                              src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
-                            />
-                            <span
-                              class="css-1ptr1nd"
-                            >
-                              BMI Group VIDEO LABEL
-                            </span>
-                            <div
-                              aria-label="BMI Group VIDEO LABEL"
-                              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="thumbnail-button"
-                              role="button"
-                              tabindex="0"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                data-testid="PlayArrowIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M8 5v14l11-7z"
-                                />
-                              </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
-                            </div>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </div>
-                        </div>
                         <div
                           class="TappableCard-body css-c6k36h"
                         >
@@ -16687,7 +16701,7 @@ exports[`Contact us page renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary1 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -16696,7 +16710,10 @@ exports[`Contact us page renders correctly 1`] = `
                     data-testid="nba-card-Promo-NBA-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
+                    referrerpolicy="no-referrer"
+                    rel="noreferrer"
                     tabindex="0"
+                    target="_blank"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -16753,7 +16770,7 @@ exports[`Contact us page renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="ColorPair-secondary2 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
                   <a

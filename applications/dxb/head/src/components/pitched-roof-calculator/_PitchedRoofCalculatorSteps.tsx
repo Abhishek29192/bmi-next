@@ -415,7 +415,7 @@ const PitchedRoofCalculatorSteps = ({
         preparedData;
 
       setTileOptions((tileOptions) => {
-        let ridge = tileOptions.ridge;
+        let ridge = tileOptions?.ridge;
 
         if (ridge) {
           ridge = { ...ridge, yRidge, tRidge, ridgeEnd };

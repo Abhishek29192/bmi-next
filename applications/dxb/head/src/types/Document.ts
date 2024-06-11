@@ -4,7 +4,7 @@ import {
   PimSystemDocument as EsPimSystemDocument
 } from "@bmi/elasticsearch-types/src";
 import { graphql } from "gatsby";
-import { Data as ImageData } from "../components/Image";
+import { Data as ImageData } from "../components/image/types";
 import { RichTextData } from "../components/RichText";
 import { ContentfulAssetType as AssetTypeData } from "./AssetType";
 import {

@@ -68,7 +68,7 @@ export const sections: CardCollectionData[] = [
           videoRatio: { width: 17776, height: 9999 },
           defaultYouTubePreviewImage:
             "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg",
-          className: null
+          className: undefined
         },
         backgroundColor: null
       }

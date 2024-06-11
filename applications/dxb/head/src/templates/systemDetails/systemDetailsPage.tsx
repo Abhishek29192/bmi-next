@@ -5,6 +5,7 @@ import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
+import { isDefined } from "@bmi/utils";
 import BrandLogo from "../../components/BrandLogo";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { generateGetMicroCopy } from "../../components/MicroCopy";
@@ -67,13 +68,17 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       />
     </Section>
   );
-  const media = [
-    ...transformImages(
-      [system.masterImage, ...system.galleryImages].filter(Boolean)
-    ),
-    //TODO: check if it doesnt work on system detals page!!!
-    ...transformMediaSrc(system.videos)
-  ];
+
+  const images = system.masterImage
+    ? transformImages([system.masterImage, ...system.galleryImages]).filter(
+        isDefined
+      )
+    : transformImages([...system.galleryImages]).filter(isDefined);
+
+  const videos = transformMediaSrc(system.videos).filter(isDefined);
+
+  //TODO: check if it doesnt work on system detals page!!!
+  const media = [...images, ...videos];
 
   const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
     label: "media",
@@ -84,7 +89,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     <Page
       brand={system.brand?.code}
       title={system.name}
-      pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
+      pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: "" }}
       siteData={contentfulSite}
     >
       <BreadcrumbSection location="top" />
@@ -93,8 +98,8 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       )}
       <LeadBlockSection
         name={system.name}
-        cta={resources?.sdpLeadBlockCta}
-        promotionalContent={system.promotionalContent}
+        cta={resources?.sdpLeadBlockCta ?? undefined}
+        promotionalContent={system.promotionalContent ?? undefined}
         uniqueSellingPropositions={system.uniqueSellingPropositions}
         brandLogo={
           system.brand?.code ? (
@@ -128,7 +133,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       <TabLeadBlock
         system={system}
         aboutLeadBlockGenericContent={resources?.sdpSidebarItems?.[0]}
-        bimDescription={resources?.sdpBimDescription}
+        bimDescription={resources?.sdpBimDescription ?? undefined}
         specificationNotes={resources?.sdpSpecificationNotesCta}
       />
       {system.relatedSystems.length > 0 && (

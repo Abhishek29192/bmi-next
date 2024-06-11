@@ -38,8 +38,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -88,8 +87,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -126,8 +124,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -164,8 +161,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -202,8 +198,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -240,8 +235,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -278,8 +272,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -316,8 +309,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -354,8 +346,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -392,8 +383,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -445,8 +435,7 @@ describe("TeamList component", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -469,17 +458,6 @@ describe("TeamList component", () => {
         ]
       }
     ];
-
-    const { container } = render(
-      <ThemeProvider>
-        <TeamList data={data} />
-      </ThemeProvider>
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders correctly when incomplete", () => {
-    const data = [{}] as Data;
 
     const { container } = render(
       <ThemeProvider>

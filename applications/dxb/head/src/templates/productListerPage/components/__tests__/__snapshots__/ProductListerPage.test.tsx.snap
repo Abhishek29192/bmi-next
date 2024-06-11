@@ -536,7 +536,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="SpotlightHero-blue css-ah43vw"
           >
             <div
-              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
+              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1izz2nl"
               data-gatsby-image-wrapper=""
               style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
             >
@@ -568,7 +568,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-main-image=""
                   decoding="async"
                   draggable="false"
-                  layout="in-place"
                   loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
                   src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -694,7 +693,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -706,8 +705,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -1600,7 +1600,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             class="SpotlightHero-blue css-ah43vw"
           >
             <div
-              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
+              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1izz2nl"
               data-gatsby-image-wrapper=""
               style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
             >
@@ -1632,7 +1632,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-main-image=""
                   decoding="async"
                   draggable="false"
-                  layout="in-place"
                   loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
                   src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -1764,7 +1763,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -1776,8 +1775,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -2721,7 +2721,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             </div>
           </div>
           <div
-            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
             data-gatsby-image-wrapper=""
             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
@@ -2751,7 +2751,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-testid="hero-image"
                 decoding="async"
                 draggable="false"
                 loading="eager"
@@ -3079,7 +3078,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -3091,8 +3090,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -4036,7 +4036,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             </div>
           </div>
           <div
-            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
             data-gatsby-image-wrapper=""
             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
@@ -4066,7 +4066,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-testid="hero-image"
                 decoding="async"
                 draggable="false"
                 loading="eager"
@@ -4380,7 +4379,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -4392,8 +4391,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -5276,7 +5276,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             </div>
           </div>
           <div
-            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
             data-gatsby-image-wrapper=""
             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
@@ -5306,7 +5306,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-testid="hero-image"
                 decoding="async"
                 draggable="false"
                 loading="eager"
@@ -5628,7 +5627,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -5640,8 +5639,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -6534,7 +6534,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="SpotlightHero-blue css-ah43vw"
           >
             <div
-              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
+              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1izz2nl"
               data-gatsby-image-wrapper=""
               style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
             >
@@ -6566,7 +6566,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-main-image=""
                   decoding="async"
                   draggable="false"
-                  layout="in-place"
                   loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
                   src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -7529,7 +7528,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="SpotlightHero-blue css-ah43vw"
           >
             <div
-              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
+              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1izz2nl"
               data-gatsby-image-wrapper=""
               style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
             >
@@ -7561,7 +7560,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-main-image=""
                   decoding="async"
                   draggable="false"
-                  layout="in-place"
                   loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
                   src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -8514,7 +8512,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             </div>
           </div>
           <div
-            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
             data-gatsby-image-wrapper=""
             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
@@ -8544,7 +8542,6 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-testid="hero-image"
                 decoding="async"
                 draggable="false"
                 loading="eager"
@@ -8671,7 +8668,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -8683,8 +8680,9 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -9614,7 +9612,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             class="SpotlightHero-blue css-ah43vw"
           >
             <div
-              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
+              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1izz2nl"
               data-gatsby-image-wrapper=""
               style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
             >
@@ -9646,7 +9644,6 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   data-main-image=""
                   decoding="async"
                   draggable="false"
-                  layout="in-place"
                   loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
                   src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -9959,7 +9956,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -9971,8 +9968,9 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -10902,7 +10900,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
             class="SpotlightHero-blue css-ah43vw"
           >
             <div
-              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-k7hylw-Media"
+              class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1izz2nl"
               data-gatsby-image-wrapper=""
               style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
             >
@@ -10934,7 +10932,6 @@ exports[`ProductListerPage template renders an default image if there is no imag
                   data-main-image=""
                   decoding="async"
                   draggable="false"
-                  layout="in-place"
                   loading="eager"
                   sizes="(min-width: 948px) 948px, 100vw"
                   src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -11247,7 +11244,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -11259,8 +11256,9 @@ exports[`ProductListerPage template renders an default image if there is no imag
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -12204,7 +12202,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             </div>
           </div>
           <div
-            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
             data-gatsby-image-wrapper=""
             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
@@ -12234,7 +12232,6 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-testid="hero-image"
                 decoding="async"
                 draggable="false"
                 loading="eager"
@@ -12548,7 +12545,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -12560,8 +12557,9 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -13505,7 +13503,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
             </div>
           </div>
           <div
-            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
             data-gatsby-image-wrapper=""
             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
@@ -13535,7 +13533,6 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-testid="hero-image"
                 decoding="async"
                 draggable="false"
                 loading="eager"
@@ -13863,7 +13860,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -13875,8 +13872,9 @@ exports[`ProductListerPage template test handle change url by click on filters a
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -14826,7 +14824,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             </div>
           </div>
           <div
-            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
             data-gatsby-image-wrapper=""
             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
@@ -14856,7 +14854,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-testid="hero-image"
                 decoding="async"
                 draggable="false"
                 loading="eager"
@@ -15170,7 +15167,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15182,8 +15179,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15245,7 +15243,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15257,8 +15255,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15320,7 +15319,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15332,8 +15331,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15395,7 +15395,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15407,8 +15407,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15470,7 +15471,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15482,8 +15483,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15545,7 +15547,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15557,8 +15559,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15620,7 +15623,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15632,8 +15635,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15695,7 +15699,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15707,8 +15711,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15770,7 +15775,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15782,8 +15787,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15845,7 +15851,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15857,8 +15863,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15920,7 +15927,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15932,8 +15939,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -15995,7 +16003,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16007,8 +16015,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16070,7 +16079,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16082,8 +16091,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16145,7 +16155,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16157,8 +16167,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16220,7 +16231,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16232,8 +16243,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16295,7 +16307,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16307,8 +16319,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16370,7 +16383,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16382,8 +16395,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16445,7 +16459,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16457,8 +16471,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16520,7 +16535,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16532,8 +16547,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16595,7 +16611,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16607,8 +16623,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16670,7 +16687,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16682,8 +16699,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16745,7 +16763,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16757,8 +16775,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16820,7 +16839,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16832,8 +16851,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16895,7 +16915,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16907,8 +16927,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -16970,7 +16991,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16982,8 +17003,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -17045,7 +17067,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17057,8 +17079,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -17120,7 +17143,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17132,8 +17155,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -17195,7 +17219,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17207,8 +17231,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -17270,7 +17295,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17282,8 +17307,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -17345,7 +17371,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17357,8 +17383,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -18391,7 +18418,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             </div>
           </div>
           <div
-            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
             data-gatsby-image-wrapper=""
             style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
@@ -18421,7 +18448,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 alt="Image alt text"
                 data-gatsby-image-ssr=""
                 data-main-image=""
-                data-testid="hero-image"
                 decoding="async"
                 draggable="false"
                 loading="eager"
@@ -18735,7 +18761,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -18747,8 +18773,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -18810,7 +18837,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -18822,8 +18849,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -18885,7 +18913,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -18897,8 +18925,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -18960,7 +18989,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -18972,8 +19001,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19035,7 +19065,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19047,8 +19077,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19110,7 +19141,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19122,8 +19153,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19185,7 +19217,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19197,8 +19229,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19260,7 +19293,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19272,8 +19305,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19335,7 +19369,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19347,8 +19381,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19410,7 +19445,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19422,8 +19457,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19485,7 +19521,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19497,8 +19533,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19560,7 +19597,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19572,8 +19609,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19635,7 +19673,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19647,8 +19685,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19710,7 +19749,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19722,8 +19761,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19785,7 +19825,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19797,8 +19837,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19860,7 +19901,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19872,8 +19913,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -19935,7 +19977,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19947,8 +19989,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20010,7 +20053,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20022,8 +20065,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20085,7 +20129,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20097,8 +20141,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20160,7 +20205,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20172,8 +20217,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20235,7 +20281,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20247,8 +20293,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20310,7 +20357,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20322,8 +20369,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20385,7 +20433,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20397,8 +20445,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20460,7 +20509,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20472,8 +20521,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20535,7 +20585,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20547,8 +20597,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20610,7 +20661,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20622,8 +20673,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20685,7 +20737,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20697,8 +20749,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20760,7 +20813,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20772,8 +20825,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20835,7 +20889,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20847,8 +20901,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div
@@ -20910,7 +20965,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class=" ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-963r91"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20922,8 +20977,9 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <img
                             alt="name"
-                            class="TappableCard-headerPicture TappableCard-contain css-11fi03y-Media"
+                            class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
                             data-testid="tappable-card-media"
+                            draggable="false"
                             src="http://localhost:8000"
                           />
                           <div

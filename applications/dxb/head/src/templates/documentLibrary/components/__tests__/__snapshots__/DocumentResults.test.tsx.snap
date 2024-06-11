@@ -151,7 +151,10 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                 data-testid="document-table-download-image/jpeg-button"
                 download=""
                 href="http://localhost:9000/asset-filename.jpg"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -330,7 +333,10 @@ exports[`DocumentResults component When SimpleTable documents have multiple uniq
                 data-testid="document-table-download-application/pdf-button"
                 download=""
                 href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -563,7 +569,10 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       data-testid="document-table-download-application/pdf-button"
                       download=""
                       href="http://localhost:9000/document.pdf"
+                      referrerpolicy="no-referrer"
+                      rel="noreferrer"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"

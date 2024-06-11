@@ -93,7 +93,11 @@ const KeyAssetTypesDownloadSectionButton = ({
 
   const actionProps: ButtonActionProps =
     documents.length === 1
-      ? { href: getDownloadLink(documents[0].url), download: true }
+      ? {
+          href: getDownloadLink(documents[0].url),
+          download: true,
+          external: true
+        }
       : { onClick };
 
   return (

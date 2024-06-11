@@ -11,7 +11,7 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <div
-        class=" ColorPair-white css-963r91"
+        class="TappableCard-root ColorPair-white css-963r91"
         data-testid="tappable-card-box"
       >
         <a
@@ -26,12 +26,12 @@ exports[`Brands component renders correctly 1`] = `
         >
           <img
             alt="contentful image alt text"
-            class="TappableCard-headerPicture css-11fi03y-Media"
+            class="TappableCard-headerPicture css-k77jxl"
             data-testid="tappable-card-media"
+            draggable="false"
             loading="lazy"
             src="http://localhost:9000/image-filname.jpg"
             style="object-fit: cover; object-position: center;"
-            title="contentful image title"
           />
           <div
             class="TappableCard-body css-c6k36h"
@@ -126,7 +126,7 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <div
-        class=" ColorPair-white css-963r91"
+        class="TappableCard-root ColorPair-white css-963r91"
         data-testid="tappable-card-box"
       >
         <a

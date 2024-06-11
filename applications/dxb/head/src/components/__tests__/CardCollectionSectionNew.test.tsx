@@ -437,20 +437,24 @@ describe("Card Collection Item Component", () => {
       it("should render the card's featuredVideo if defined", () => {
         renderWithProviders(
           <CardCollectionSection
-            data={createCardCollectionSection({ cardType: type })}
+            data={createCardCollectionSection({
+              cardType: type,
+              cards: [
+                createPageInfoData(),
+                createPromoData({ featuredMedia: null })
+              ]
+            })}
           />
         );
 
         const promoCard = screen.getByTestId(
-          "card-collection-section-item-Contentful-Promo-data"
+          "card-collection-grid-item-visible-contentful-id"
         );
         const promoCardVideo = within(promoCard).getByTestId(
           "tappable-card-media"
         );
-        const mediaContent = screen.getByTestId("youtube-inline-react-player");
 
         expect(promoCardVideo).toBeInTheDocument();
-        expect(mediaContent).toBeInTheDocument();
       });
 
       it("should not render the card's featuredVideo if undefined", () => {

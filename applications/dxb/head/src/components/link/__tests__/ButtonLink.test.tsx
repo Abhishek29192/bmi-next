@@ -469,6 +469,19 @@ describe("ButtonLink", () => {
       expect(assetButtonLink).toHaveAttribute("download");
     });
 
+    it("should open the asset in a new tab and apply security attributes", () => {
+      renderWithProviders(
+        <ButtonLink data={createAssetLinkData()}>{ButtonLinkLabel}</ButtonLink>
+      );
+
+      const assetButtonLink = screen.getByTestId(
+        "asset-button-link-Find-out-more"
+      );
+      expect(assetButtonLink).toHaveAttribute("rel", "noreferrer");
+      expect(assetButtonLink).toHaveAttribute("referrerpolicy", "no-referrer");
+      expect(assetButtonLink).toHaveAttribute("target", "_blank");
+    });
+
     it("should use the ContentfulLink asset file url prop as the href value", () => {
       renderWithProviders(
         <ButtonLink data={createAssetLinkData()}>{ButtonLinkLabel}</ButtonLink>

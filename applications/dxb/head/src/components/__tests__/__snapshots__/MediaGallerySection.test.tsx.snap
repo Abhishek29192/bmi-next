@@ -40,7 +40,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 data-testid="media-gallery-media-wrapper"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-clqrrf"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -67,14 +67,11 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                       type="image/webp"
                     />
                     <img
-                      __typename="ContentfulImage"
                       alt="alt text"
-                      caption="[object Object]"
                       data-gatsby-image-ssr=""
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                      data-testid="media-gallery-media"
                       decoding="async"
                       draggable="false"
                       loading="lazy"
@@ -145,7 +142,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                     type="button"
                   >
                     <div
-                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained  css-7mgsqw-Media"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1tdmq76"
                       data-gatsby-image-wrapper=""
                       style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
@@ -172,9 +169,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                           type="image/webp"
                         />
                         <img
-                          __typename="ContentfulImage"
                           alt="alt text"
-                          caption="[object Object]"
                           data-gatsby-image-ssr=""
                           data-main-image=""
                           data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -315,7 +310,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
                 data-testid="media-gallery-media-wrapper"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-clqrrf"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -342,14 +337,11 @@ exports[`MediaGallerySection component renders correctly with long description 1
                       type="image/webp"
                     />
                     <img
-                      __typename="ContentfulImage"
                       alt="alt text"
-                      caption="[object Object]"
                       data-gatsby-image-ssr=""
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                      data-testid="media-gallery-media"
                       decoding="async"
                       draggable="false"
                       loading="lazy"

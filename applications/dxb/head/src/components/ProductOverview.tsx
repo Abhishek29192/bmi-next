@@ -28,7 +28,7 @@ export type Data = {
   name: string;
   brandCode?: string;
   nobb: string | null;
-  images: readonly MediaData[];
+  images: readonly MediaData[] | null;
   attributes: ProductOverviewPaneProps["attributes"] | null;
   variantCode: string;
   isRecaptchaShown?: boolean;
@@ -111,9 +111,9 @@ const ProductOverview = ({
   };
 
   const visualiserMedia = getVisualiserMedia();
-  const media: MediaData[] = [...images, ...videos];
+  const media: MediaData[] = [...(images || []), ...(videos || [])];
 
-  if (visualiserMedia) {
+  if (visualiserMedia && images) {
     media.push({
       ...visualiserMedia,
       ...images[0]
@@ -121,7 +121,7 @@ const ProductOverview = ({
   }
 
   if (media.length === 0) {
-    media.push({ media: <DefaultImage /> });
+    media.push({ media: { component: DefaultImage } });
   }
 
   return (

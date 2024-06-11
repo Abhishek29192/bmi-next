@@ -89,7 +89,11 @@ const TeamSection = ({ data, className }: Props) => {
               <TeamCategorySection
                 key={category.id}
                 title={category.title}
-                description={index === 0 && category.description}
+                description={
+                  index === 0 && category.description
+                    ? category.description
+                    : null
+                }
                 team_member={category.team_member}
               />
             ))

@@ -1,4 +1,3 @@
-import { CompanyDetailProps } from "@bmi-digital/components/company-details";
 import GoogleApi, {
   Google,
   GeocoderResult as GoogleGeocoderResult,
@@ -12,15 +11,8 @@ import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
-import { Data as ContentfulImageData } from "../Image";
-import RichText, { RichTextData } from "../RichText";
-import {
-  EntryTypeEnum,
-  Data as ServiceData,
-  ServiceTypeFilter,
-  ServiceTypesPrefixesEnum
-} from "../Service";
-import { Data as ServiceType } from "../ServiceType";
+import RichText from "../RichText";
+import { EntryTypeEnum, ServiceTypesPrefixesEnum } from "../Service";
 import { useSiteContext } from "../Site";
 import {
   SearchLocationBlock,
@@ -43,7 +35,6 @@ import {
   getTypesFromServices,
   sortServices
 } from "./helpers";
-
 import {
   Body,
   Controls,
@@ -52,6 +43,11 @@ import {
   StyledTabs,
   classes
 } from "./styles/styles";
+import type { CompanyDetailProps } from "@bmi-digital/components/company-details";
+import type { Data as ServiceType } from "../ServiceType";
+import type { Data as ServiceData, ServiceTypeFilter } from "../Service";
+import type { RichTextData } from "../RichText";
+import type { Data as ContentfulImageData } from "../image/types";
 
 export type Service = Omit<ServiceData, "companyLogo" | "summary"> & {
   distance?: number;

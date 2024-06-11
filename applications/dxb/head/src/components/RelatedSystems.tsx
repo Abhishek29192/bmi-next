@@ -17,7 +17,6 @@ import {
 } from "../utils/getGoodBetterBestLabel";
 
 import { getPathWithCountryCode } from "../utils/path";
-import { renderMedia } from "../utils/renderMedia";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
 import {
@@ -101,7 +100,7 @@ export const SystemCard = ({
     >
       <SystemResultsCard
         title={system.name}
-        media={renderMedia(mainImage, system.name)}
+        media={mainImage ? { src: mainImage, alt: system.name } : undefined}
         tag={
           system.goodBetterBest && {
             level: getLevel(system.goodBetterBest),

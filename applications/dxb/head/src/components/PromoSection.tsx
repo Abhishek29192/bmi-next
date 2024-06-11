@@ -1,13 +1,13 @@
 import PromoSection from "@bmi-digital/components/promo-section";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import Image from "./Image";
 import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { SectionsContext } from "./Sections";
-import Video from "./Video";
 import ButtonLink from "./link/ButtonLink";
 import { PromoSectionLink } from "./styles/PromoSectionStyles";
+import createImageProps from "./image/createImageProps";
+import createVideoProps from "./video/createVideoProps";
 
 export type Data = PromoData;
 
@@ -34,11 +34,11 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
     <PromoSection
       title={title}
       media={
-        featuredVideo ? (
-          <Video {...featuredVideo} />
-        ) : featuredMedia ? (
-          <Image {...featuredMedia} position="top left" />
-        ) : undefined
+        featuredVideo
+          ? createVideoProps(featuredVideo)
+          : featuredMedia
+            ? createImageProps({ ...featuredMedia, position: "top left" })
+            : undefined
       }
       backgroundColor={
         theme

@@ -4,11 +4,11 @@ import Typography from "@bmi-digital/components/typography";
 import { Link, graphql } from "gatsby";
 import React from "react";
 import FallbackComponent from "../components/FallbackComponent";
-import Image from "../components/Image";
 import Page from "../components/Page";
-import Video from "../components/Video";
 import { getPathWithCountryCode } from "../utils/path";
 import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
+import createImageProps from "../components/image/createImageProps";
+import createVideoProps from "../components/video/createVideoProps";
 import type {
   ContentfulPromoCard,
   ContentfulSite,
@@ -72,11 +72,11 @@ const FourOFour = ({ data }: { data: Data }) => {
       <PromoSection
         title={errorFourOFour.title || placeholderTitle}
         media={
-          errorFourOFour.featuredVideo ? (
-            <Video {...errorFourOFour.featuredVideo} />
-          ) : errorFourOFour.featuredMedia ? (
-            <Image {...errorFourOFour.featuredMedia} />
-          ) : undefined
+          errorFourOFour.featuredVideo
+            ? createVideoProps(errorFourOFour.featuredVideo)
+            : errorFourOFour.featuredMedia
+              ? createImageProps(errorFourOFour.featuredMedia)
+              : undefined
         }
       >
         <Typography variant="body2" gutterBottom>

@@ -90,6 +90,7 @@ const AssetLink = ({
       className={classnames(className, hasBrandColours && classes.branded)}
       href={to}
       download
+      external
       gtm={{
         id: "cta-click1",
         action: to,

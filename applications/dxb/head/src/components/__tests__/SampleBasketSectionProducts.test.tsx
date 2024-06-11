@@ -81,7 +81,7 @@ describe("SampleBasketSectionProducts component", () => {
     ).toHaveAttribute("href", "/no/sample-1-path/");
   });
 
-  it("should always render the image component even if the image prop is undefined", () => {
+  it("should not render the image component if the image prop is undefined", () => {
     const sampleData = [createSampleData()];
 
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify(sampleData));
@@ -94,10 +94,7 @@ describe("SampleBasketSectionProducts component", () => {
       </ThemeProvider>
     );
 
-    const image = screen.getByRole("img");
-    expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute("alt", sampleData[0].name);
-    expect(image).not.toHaveAttribute("src");
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
   });
 
   it("should apply the image prop value to the image src attribute if defined", () => {
