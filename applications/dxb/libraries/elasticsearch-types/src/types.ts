@@ -53,7 +53,7 @@ export type Product = {
   productScoringWeightInt: number;
   variantScoringWeightInt: number;
   totalVariantCount: number;
-  mainImage: string;
+  mainImage?: string;
   path: string;
   subTitle: string;
   productReferences?: ProductReference[];

@@ -150,6 +150,23 @@ describe("ProductsGridView component", () => {
     expect(image).toHaveAttribute("alt", "example-sub-title baseProductName");
   });
 
+  it("renders the default image SVG when mainImage is not defined", () => {
+    render(
+      <ThemeProvider>
+        <ProductsGridView
+          products={[
+            createESProduct({
+              mainImage: undefined
+            })
+          ]}
+          pageContext={pageContext}
+        />
+      </ThemeProvider>
+    );
+    const image = screen.getByTestId("tappable-card-media");
+    expect(image).toMatchSnapshot();
+  });
+
   it("uses the variant product name when the base product name is undefined for the image alternative text", () => {
     render(
       <ThemeProvider>

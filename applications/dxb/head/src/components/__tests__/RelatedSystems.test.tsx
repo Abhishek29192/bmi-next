@@ -236,7 +236,7 @@ describe("SystemCard", () => {
     );
   });
 
-  it("works correctly if there is no images", () => {
+  it("should render the default SVG image if no master image or gallery images are provided", () => {
     const system: RelatedSystem = createRelatedSystem({
       name: "Fake system",
       masterImage: undefined,
@@ -253,7 +253,7 @@ describe("SystemCard", () => {
         />
       </ThemeProvider>
     );
-    expect(screen.queryByAltText(system.name)).not.toBeInTheDocument();
+    expect(screen.getByTestId("tappable-card-media")).toMatchSnapshot();
   });
 
   it("should render the tag component if goodBetterBest is defined", () => {
