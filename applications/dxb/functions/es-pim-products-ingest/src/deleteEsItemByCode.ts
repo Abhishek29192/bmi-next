@@ -55,8 +55,8 @@ export const deleteEsItemByCode = async (
 
   const match: MatchData =
     objType === ObjType.Base_product
-      ? { "baseProduct.code": code }
-      : { code: code };
+      ? { "baseProduct.code.keyword": code }
+      : { "code.keyword": code };
 
   //delete base product or system or layer or variant from index
   const objectPromise = esDeleteByQuery(
@@ -69,7 +69,7 @@ export const deleteEsItemByCode = async (
     await esDeleteByQuery(
       client,
       `${process.env.ES_INDEX_NAME_DOCUMENTS}_write`.toLowerCase(),
-      { productBaseCode: code }
+      { "productBaseCode.keyword": code }
     );
   }
 
