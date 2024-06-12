@@ -773,7 +773,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 </span>
               </div>
               <div
-                class="css-1te4yym"
+                class="css-1kgkujd"
               >
                 <form
                   action="/en/search/"
