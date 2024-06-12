@@ -2795,26 +2795,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@bmi/gatsby-plugin-google-tagmanager@workspace:*, @bmi/gatsby-plugin-google-tagmanager@workspace:applications/dxb/libraries/gatsby-plugin-google-tagmanager":
-  version: 0.0.0-use.local
-  resolution: "@bmi/gatsby-plugin-google-tagmanager@workspace:applications/dxb/libraries/gatsby-plugin-google-tagmanager"
-  dependencies:
-    "@babel/cli": ^7.23.4
-    "@babel/core": ^7.23.7
-    "@babel/runtime": ^7.23.7
-    babel-preset-gatsby-package: ^3.13.0
-    cross-env: ^7.0.3
-    eslint: ^8.56.0
-    gatsby: ^5.13.1
-    gatsby-plugin-utils: ^4.13.0
-    jest: ^29.7.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    typescript: ^5.3.3
-    web-vitals: ^3.0.0
-  languageName: unknown
-  linkType: soft
-
 "@bmi/gatsby-plugin-leadoo@workspace:*, @bmi/gatsby-plugin-leadoo@workspace:applications/dxb/libraries/gatsby-plugin-leadoo":
   version: 0.0.0-use.local
   resolution: "@bmi/gatsby-plugin-leadoo@workspace:applications/dxb/libraries/gatsby-plugin-leadoo"
@@ -3703,7 +3683,6 @@ __metadata:
     "@bmi/fetch-retry": "workspace:*"
     "@bmi/firestore-types": "workspace:*"
     "@bmi/gatsby-plugin-elasticsearch": "workspace:*"
-    "@bmi/gatsby-plugin-google-tagmanager": "workspace:*"
     "@bmi/gatsby-plugin-leadoo": "workspace:*"
     "@bmi/gatsby-plugin-material-ui": "workspace:*"
     "@bmi/gatsby-plugin-sitemap": "workspace:*"
@@ -31386,13 +31365,6 @@ __metadata:
   version: 1.2.2
   resolution: "weak-lru-cache@npm:1.2.2"
   checksum: 744847bd5b96ca86db1cb40d0aea7e92c02bbdb05f501181bf9c581e82fa2afbda32a327ffbe75749302b8492ab449f1c657ca02410d725f5d412d1e6c607d72
-  languageName: node
-  linkType: hard
-
-"web-vitals@npm:^3.0.0":
-  version: 3.5.1
-  resolution: "web-vitals@npm:3.5.1"
-  checksum: 2b0239241b40e491aa048fac67191ba50cbc5b9d4a859166455d751d12c33399b70579dd3bf5639c37d32421459ce0f64de69307f4f2adae43c0f6b23010849c
   languageName: node
   linkType: hard
 
