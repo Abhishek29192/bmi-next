@@ -11615,6 +11615,27 @@ exports[`ProductListerPage template renders an default image if there is no imag
 </body>
 `;
 
+exports[`ProductListerPage template should render the product default svg if mainImage is not defined 1`] = `
+<svg
+  class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+  data-testid="tappable-card-media"
+  draggable="false"
+  viewBox="0 0 920 440"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0 0h920v440H0z"
+    fill="none"
+  />
+  <path
+    clip-rule="evenodd"
+    d="M527.74 259.414 420.853 152.526h91.832c8.28 0 15.055 6.775 15.055 15.055zm-2.253 36.131-7.527-7.527H407.309c-8.28 0-15.054-6.774-15.054-15.054V162.313l-7.528-7.528 9.786-9.785 140.76 140.76zm-29.363-30.109-29.356-29.356-14.302 18.065-18.818-22.582-26.345 33.873z"
+    fill="#CCC"
+    fill-rule="evenodd"
+  />
+</svg>
+`;
+
 exports[`ProductListerPage template test filter resolver utils when it is not a colour name 1`] = `
 <body>
   <div>
