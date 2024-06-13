@@ -19,7 +19,7 @@ describe("PromoSection", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders with image if one is provided", () => {
+  it("renders an image if one is provided, with an object-position style property of 'top left'", () => {
     const promoData = createPromoData({
       featuredMedia: createImageData({ altText: "featured image alt text" }),
       featuredVideo: null,
@@ -27,6 +27,9 @@ describe("PromoSection", () => {
     });
     renderWithProviders(<PromoSection data={promoData} />);
     expect(screen.getByAltText("featured image alt text")).toBeInTheDocument();
+    expect(screen.getByAltText("featured image alt text")).toHaveStyle({
+      "object-position": "top left"
+    });
   });
 
   it("should not display media if none is available", () => {

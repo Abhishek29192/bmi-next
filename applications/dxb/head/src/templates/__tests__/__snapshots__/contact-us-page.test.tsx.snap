@@ -816,7 +816,8 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
         </div>
         <div
           class="Hero-image css-uagn6w"
-          data-testid="youtube-dialog-wrapper"
+          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
+          data-testid="hero-image"
         >
           <div
             aria-label="label"
@@ -1507,6 +1508,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     >
                       <div
                         class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                         data-testid="tappable-card-media"
                       >
                         <div
@@ -3728,7 +3730,8 @@ exports[`Contact us page render Sections correctly 1`] = `
         </div>
         <div
           class="Hero-image css-uagn6w"
-          data-testid="youtube-dialog-wrapper"
+          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
+          data-testid="hero-image"
         >
           <div
             aria-label="label"
@@ -4419,6 +4422,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                     >
                       <div
                         class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                         data-testid="tappable-card-media"
                       >
                         <div
@@ -6669,6 +6673,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
               alt="Image alt text"
               data-gatsby-image-ssr=""
               data-main-image=""
+              data-testid="hero-image"
               decoding="async"
               draggable="false"
               loading="eager"
@@ -7328,6 +7333,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                     >
                       <div
                         class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                         data-testid="tappable-card-media"
                       >
                         <div
@@ -9549,7 +9555,8 @@ exports[`Contact us page render iframe correctly 1`] = `
         </div>
         <div
           class="Hero-image css-uagn6w"
-          data-testid="youtube-dialog-wrapper"
+          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
+          data-testid="hero-image"
         >
           <div
             aria-label="label"
@@ -10240,6 +10247,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                     >
                       <div
                         class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                         data-testid="tappable-card-media"
                       >
                         <div
@@ -12461,7 +12469,8 @@ exports[`Contact us page render location correctly 1`] = `
         </div>
         <div
           class="Hero-image css-uagn6w"
-          data-testid="youtube-dialog-wrapper"
+          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
+          data-testid="hero-image"
         >
           <div
             aria-label="label"
@@ -13152,6 +13161,7 @@ exports[`Contact us page render location correctly 1`] = `
                     >
                       <div
                         class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                         data-testid="tappable-card-media"
                       >
                         <div
@@ -15373,7 +15383,8 @@ exports[`Contact us page renders correctly 1`] = `
         </div>
         <div
           class="Hero-image css-uagn6w"
-          data-testid="youtube-dialog-wrapper"
+          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
+          data-testid="hero-image"
         >
           <div
             aria-label="label"
@@ -16064,6 +16075,7 @@ exports[`Contact us page renders correctly 1`] = `
                     >
                       <div
                         class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                         data-testid="tappable-card-media"
                       >
                         <div

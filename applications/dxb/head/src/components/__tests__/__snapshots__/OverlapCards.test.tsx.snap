@@ -21,7 +21,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-skcmyp"
+              class="TappableCard-root ColorPair-white css-1uq8xbz"
               data-testid="tappable-card-box"
             >
               <a
@@ -111,7 +111,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-skcmyp"
+              class="TappableCard-root ColorPair-white css-1uq8xbz"
               data-testid="tappable-card-box"
             >
               <a
@@ -201,11 +201,12 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-skcmyp"
+              class="TappableCard-root ColorPair-white css-1uq8xbz"
               data-testid="tappable-card-box"
             >
               <div
                 class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                 data-testid="overlap-cards-video"
               >
                 <div
@@ -356,7 +357,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-skcmyp"
+              class="TappableCard-root ColorPair-white css-1uq8xbz"
               data-testid="tappable-card-box"
             >
               <a
@@ -446,7 +447,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-skcmyp"
+              class="TappableCard-root ColorPair-white css-1uq8xbz"
               data-testid="tappable-card-box"
             >
               <a
@@ -536,11 +537,12 @@ exports[`OverlapCards component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-skcmyp"
+              class="TappableCard-root ColorPair-white css-1uq8xbz"
               data-testid="tappable-card-box"
             >
               <div
                 class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                 data-testid="overlap-cards-video"
               >
                 <div

@@ -878,6 +878,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                         >
                           <div
                             class="CarouselHero-image css-uagn6w"
+                            data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                             data-testid="hero-video"
                           >
                             <div
@@ -966,7 +967,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -1056,7 +1057,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -1146,11 +1147,12 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div

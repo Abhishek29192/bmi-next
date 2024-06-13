@@ -91,6 +91,11 @@ describe("transformMediaSrc function", () => {
       isVideo: true,
       media: {
         "data-testid": undefined,
+        dataGTM: {
+          action: "Play",
+          id: "cta-click--video-youtube",
+          label: "https://youtu.be/01SUXJmB9Ik-label"
+        },
         embedHeight: 9,
         embedWidth: 16,
         label: "label",
@@ -138,6 +143,11 @@ describe("transformMediaSrc function", () => {
       isVideo: true,
       media: {
         "data-testid": undefined,
+        dataGTM: {
+          action: "Play",
+          id: "cta-click--video-youtube",
+          label: "https://www.youtube.com/watch?v=AGVIbPFLDcI-PimVideoLabel"
+        },
         embedHeight: 0,
         embedWidth: 0,
         label: "PimVideoLabel",
@@ -161,6 +171,11 @@ describe("transformMediaSrc function", () => {
       isVideo: true,
       media: {
         "data-testid": undefined,
+        dataGTM: {
+          action: "Play",
+          id: "cta-click--video-youtube",
+          label: "https://youtu.be/01SUXJmB9Ik-label"
+        },
         embedHeight: 9,
         embedWidth: 16,
         label: "label",
@@ -184,6 +199,11 @@ describe("transformMediaSrc function", () => {
       isVideo: true,
       media: {
         "data-testid": undefined,
+        dataGTM: {
+          action: "Play",
+          id: "cta-click--video-youtube",
+          label: "https://youtu.be/01SUXJmB9Ik-label"
+        },
         embedHeight: 9,
         embedWidth: 16,
         label: "label",

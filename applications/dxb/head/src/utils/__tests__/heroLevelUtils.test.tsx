@@ -132,13 +132,19 @@ describe("generateHeroProps test", () => {
     );
 
     expect(result.media).toEqual({
+      "data-testid": undefined,
       embedHeight: 0,
       embedWidth: 0,
       label: featureVideo.label,
       layout: "dialog",
       previewImageSource: featureVideo.defaultYouTubePreviewImage,
       subtitle: featureVideo.subtitle,
-      videoUrl: featureVideo.videoUrl
+      videoUrl: featureVideo.videoUrl,
+      dataGTM: {
+        action: "Play",
+        id: "cta-click--video-youtube",
+        label: "https://youtu.be/TDNEwZbm_Nk-video label"
+      }
     });
 
     expect((result.cta as React.ReactElement).props).toEqual(

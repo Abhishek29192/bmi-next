@@ -1031,7 +1031,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         >
                           <div
                             class="CarouselHero-image css-uagn6w"
-                            data-testid="youtube-dialog-wrapper"
+                            data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
+                            data-testid="hero-image-carousel-media"
                           >
                             <div
                               aria-label="label"
@@ -1119,11 +1120,12 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -1211,11 +1213,12 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -2927,6 +2930,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
+                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -4584,11 +4588,12 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -4676,11 +4681,12 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -6390,6 +6396,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
+                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -6446,11 +6453,12 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -6538,11 +6546,12 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -8254,6 +8263,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
+                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -8310,11 +8320,12 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -8402,11 +8413,12 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -10088,6 +10100,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
+                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -10144,11 +10157,12 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -10236,11 +10250,12 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -11952,6 +11967,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
+                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -12008,11 +12024,12 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -12100,11 +12117,12 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -13826,6 +13844,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
+                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -13882,11 +13901,12 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -13974,11 +13994,12 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -15702,6 +15723,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
+                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -15758,11 +15780,12 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -15850,11 +15873,12 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -17578,6 +17602,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                                 alt="Image alt text"
                                 data-gatsby-image-ssr=""
                                 data-main-image=""
+                                data-testid="hero-image-carousel-media"
                                 decoding="async"
                                 draggable="false"
                                 loading="eager"
@@ -17634,11 +17659,12 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
@@ -17726,11 +17752,12 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-skcmyp"
+                  class="TappableCard-root ColorPair-white css-1uq8xbz"
                   data-testid="tappable-card-box"
                 >
                   <div
                     class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                    data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                     data-testid="overlap-cards-video"
                   >
                     <div
