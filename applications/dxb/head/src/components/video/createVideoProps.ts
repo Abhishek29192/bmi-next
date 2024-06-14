@@ -11,6 +11,7 @@ const createVideoProps = (videoData: Data): VideoProps => {
     previewMedia,
     defaultYouTubePreviewImage,
     layout,
+    className,
     "data-testid": dataTestId
   } = videoData;
 
@@ -27,8 +28,14 @@ const createVideoProps = (videoData: Data): VideoProps => {
     embedHeight: height,
     embedWidth: width,
     previewImageSource,
+    className,
     layout: layout || "dialog",
-    "data-testid": dataTestId
+    "data-testid": dataTestId,
+    dataGTM: {
+      id: "cta-click--video-youtube",
+      label: `${videoUrl}-${label}`,
+      action: "Play"
+    }
   };
 };
 

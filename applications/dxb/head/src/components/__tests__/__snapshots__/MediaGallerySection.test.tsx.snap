@@ -40,7 +40,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 data-testid="media-gallery-media-wrapper"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-clqrrf"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-clqrrf"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -72,6 +72,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      data-testid="media-gallery-media"
                       decoding="async"
                       draggable="false"
                       loading="lazy"
@@ -310,7 +311,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
                 data-testid="media-gallery-media-wrapper"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-clqrrf"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-clqrrf"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -342,6 +343,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
                       data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      data-testid="media-gallery-media"
                       decoding="async"
                       draggable="false"
                       loading="lazy"

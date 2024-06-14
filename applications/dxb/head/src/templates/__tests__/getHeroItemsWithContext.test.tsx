@@ -90,7 +90,12 @@ describe("getHeroItemsWithContext", () => {
       layout: "dialog",
       previewImageSource: "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg",
       subtitle: null,
-      videoUrl: "https://www.youtube.com/watch?v=youtubeId"
+      videoUrl: "https://www.youtube.com/watch?v=youtubeId",
+      dataGTM: {
+        action: "Play",
+        id: "cta-click--video-youtube",
+        label: "https://www.youtube.com/watch?v=youtubeId-label"
+      }
     });
     expect(result[0].cta).toBeTruthy();
   });

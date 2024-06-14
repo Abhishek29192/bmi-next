@@ -2699,6 +2699,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             alt="Image alt text"
             data-gatsby-image-ssr=""
             data-main-image=""
+            data-testid="hero-image"
             decoding="async"
             draggable="false"
             loading="eager"
@@ -2962,6 +2963,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <div
                         class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                         data-testid="tappable-card-media"
                       >
                         <div
