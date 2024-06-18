@@ -6,7 +6,7 @@
     :versions: []
     :when: 2023-06-05 21:16:30.048171000 Z
 - - :inherit_from
-  - https://gitlab.com/bmi-digital/license-finder/-/raw/main/dependency_decisions.yml
+  - https://raw.githubusercontent.com/BMI-Group/license-finder/main/dependency_decisions.yml
 - - :inherit_from
   - doc/workspace_dependencies.yml
 - - :approve

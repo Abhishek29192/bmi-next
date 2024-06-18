@@ -35,6 +35,13 @@ Authorization: Bearer {{contentfulDeliveryToken}}
 
 ###
 
+# @name Preview - Get entry by ID
+@id=5x8uAuSGpYpoACttwBfvF8
+GET https://preview.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/{{id}}
+Authorization: Bearer {{contentfulPreviewToken}}
+
+###
+
 # @name Get all assets
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/assets/
 Authorization: Bearer {{contentfulToken}}
