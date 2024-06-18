@@ -1,16 +1,16 @@
 import { URLSearchParams } from "url";
 import logger from "@bmi-digital/functions-logger";
-import {
+import fetch, { RequestRedirect, Response } from "node-fetch";
+import { PimTypes } from "@bmi/pim-types";
+import type {
   AuthResponse,
   CatalogVersion,
   ErrorResponse,
-  PimTypes,
   Product,
   ProductsApiResponse,
   System,
   SystemsApiResponse
 } from "@bmi/pim-types";
-import fetch, { RequestRedirect, Response } from "node-fetch";
 
 const {
   PIM_CLIENT_ID,

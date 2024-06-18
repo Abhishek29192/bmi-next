@@ -19,16 +19,14 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           data-testid="media-gallery-root"
         >
           <div
-            class="css-11z69iv"
-            data-testid="media-gallery-tag"
-          />
-          <div
             class=" css-79elbk"
             data-testid="media-gallery-media-wrapper"
           >
             <img
-              class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+              alt="Lorem ipsum"
+              class="MediaGallery-mainImageWrappershort css-1smc134"
               data-testid="media-gallery-media"
+              draggable="false"
               src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
             />
             <div
@@ -80,26 +78,30 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               style="right: 0px;"
             >
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
-                data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ebds7h-MuiButtonBase-root"
+                data-gtm="{"id":"media-gallery1","label":"Lorem ipsum","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
                 <img
-                  class=" css-7mgsqw-Media"
+                  alt="Lorem ipsum"
+                  class="css-1tdmq76"
+                  draggable="false"
                   src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
                 />
               </button>
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
-                data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ebds7h-MuiButtonBase-root"
+                data-gtm="{"id":"media-gallery1","label":"Lorem ipsum","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
                 <img
-                  class=" css-7mgsqw-Media"
+                  alt="Lorem ipsum"
+                  class="css-1tdmq76"
+                  draggable="false"
                   src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
                 />
                 <span
@@ -107,8 +109,8 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
                 />
               </button>
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
-                data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ebds7h-MuiButtonBase-root"
+                data-gtm="{"id":"media-gallery1","label":"test video","action":"https://youtu.be/A-RfHC91Ewc"}"
                 data-testid="thumbnail-video"
                 tabindex="0"
                 type="button"
@@ -188,24 +190,22 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>
@@ -234,16 +234,14 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
           data-testid="media-gallery-root"
         >
           <div
-            class="css-11z69iv"
-            data-testid="media-gallery-tag"
-          />
-          <div
             class=" css-79elbk"
             data-testid="media-gallery-media-wrapper"
           >
             <img
-              class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+              alt="Lorem ipsum"
+              class="MediaGallery-mainImageWrappershort css-1smc134"
               data-testid="media-gallery-media"
+              draggable="false"
               src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
             />
             <div
@@ -295,26 +293,30 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               style="right: 0px;"
             >
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
-                data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ebds7h-MuiButtonBase-root"
+                data-gtm="{"id":"media-gallery1","label":"Lorem ipsum","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
                 <img
-                  class=" css-7mgsqw-Media"
+                  alt="Lorem ipsum"
+                  class="css-1tdmq76"
+                  draggable="false"
                   src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
                 />
               </button>
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
-                data-gtm="{"id":"media-gallery1","label":"undefined","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ebds7h-MuiButtonBase-root"
+                data-gtm="{"id":"media-gallery1","label":"Lorem ipsum","action":"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"}"
                 data-testid="thumbnail-default"
                 tabindex="0"
                 type="button"
               >
                 <img
-                  class=" css-7mgsqw-Media"
+                  alt="Lorem ipsum"
+                  class="css-1tdmq76"
+                  draggable="false"
                   src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
                 />
                 <span
@@ -322,8 +324,8 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
                 />
               </button>
               <button
-                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
-                data-gtm="{"id":"media-gallery1","label":"test video","action":"[object Object]"}"
+                class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ebds7h-MuiButtonBase-root"
+                data-gtm="{"id":"media-gallery1","label":"test video","action":"https://youtu.be/A-RfHC91Ewc"}"
                 data-testid="thumbnail-video"
                 tabindex="0"
                 type="button"
@@ -419,17 +421,27 @@ exports[`ProductOverview component renders with default image if there are no im
           data-testid="media-gallery-root"
         >
           <div
-            class="css-11z69iv"
-            data-testid="media-gallery-tag"
-          />
-          <div
             class=" css-79elbk"
             data-testid="media-gallery-media-wrapper"
           >
             <svg
-              class="MediaGallery-mainImageWrappershort css-ztt6nc-Media"
+              class="MediaGallery-mainImageWrappershort css-1smc134"
               data-testid="media-gallery-media"
-            />
+              draggable="false"
+              viewBox="0 0 920 440"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h920v440H0z"
+                fill="none"
+              />
+              <path
+                clip-rule="evenodd"
+                d="M527.74 259.414 420.853 152.526h91.832c8.28 0 15.055 6.775 15.055 15.055zm-2.253 36.131-7.527-7.527H407.309c-8.28 0-15.054-6.774-15.054-15.054V162.313l-7.528-7.528 9.786-9.785 140.76 140.76zm-29.363-30.109-29.356-29.356-14.302 18.065-18.818-22.582-26.345 33.873z"
+                fill="#CCC"
+                fill-rule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -467,24 +479,22 @@ exports[`ProductOverview component renders with default image if there are no im
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>

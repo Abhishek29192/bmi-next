@@ -2,9 +2,10 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { Data as SDPSpecificationNotesData } from "../../../components/ContentfulSpecificationNotes";
-import { DataTypeEnum } from "../../../components/Link";
+import { DataTypeEnum } from "../../../components/link/types";
 import { Classification, Feature } from "../../../types/pim";
 import Component from "../technicalSpecificationLeadBlock";
+import createCardCollectionSection from "../../../__tests__/helpers/CardCollectionSection";
 
 const technicalSpecClassifications: Classification[] = [
   {
@@ -42,7 +43,7 @@ const specificationNotesData: SDPSpecificationNotesData = {
     linkedPage: null,
     type: DataTypeEnum.Dialog,
     parameters: null,
-    dialogContent: null,
+    dialogContent: createCardCollectionSection(),
     hubSpotCTAID: null
   }
 };
@@ -55,8 +56,8 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
   beforeEach(() => {
     // resolve useDimensions (useState) hook in ProductFeatureTable
     jest.mock("react", () => ({
-      ...(jest.requireActual("react") as any),
-      useState: (initial) => [initial, jest.fn()]
+      ...jest.requireActual("react"),
+      useState: (initial: unknown) => [initial, jest.fn()]
     }));
     jest
       .spyOn(window, "requestAnimationFrame")
@@ -240,11 +241,12 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
           screen.queryByTestId("specificationNotes")
         ).not.toBeInTheDocument();
       });
+
       it("should pass correct gtm data data", async () => {
         const expectedGTM = JSON.stringify({
           id: "cta-click1",
-          label: "specification notes title - ImALink",
-          action: "https://www.external.co.uk"
+          action: "https://www.external.co.uk",
+          label: "specification notes title - ImALink"
         });
         render(
           <ThemeProvider>

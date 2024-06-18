@@ -112,6 +112,27 @@ describe("DocumentTitle component", () => {
     );
     expect(screen.getByText("Assembly instructions")).toBeInTheDocument();
   });
+
+  it("should open the asset in a new tab and apply security attributes", () => {
+    const document = createPimDocument({
+      title: "Fake title",
+      assetType: createAssetType({ name: "Assembly instructions" })
+    });
+
+    render(
+      <ThemeProvider>
+        <DocumentTitle document={document} titleField="type" />
+      </ThemeProvider>
+    );
+
+    const titleButton = screen.getByTestId(
+      "document-table-download-application/pdf-button"
+    );
+
+    expect(titleButton).toHaveAttribute("rel", "noreferrer");
+    expect(titleButton).toHaveAttribute("referrerpolicy", "no-referrer");
+    expect(titleButton).toHaveAttribute("target", "_blank");
+  });
 });
 
 describe("CopyToClipboard component", () => {
@@ -127,12 +148,14 @@ describe("CopyToClipboard component", () => {
       <ThemeProvider>
         <CopyToClipboard
           id={document.id}
-          url={document.url}
+          href={document.url}
           title={document.title}
         />
       </ThemeProvider>
     );
-    const copyLinkButton = screen.getByLabelText(`Copy ${document.title}`);
+    const copyLinkButton = screen.getByTestId(
+      "copy-to-clipboard-button-pim-document"
+    );
     fireEvent.click(copyLinkButton);
     expect(writeText).toHaveBeenCalled();
     const message = await screen.findByLabelText(
@@ -152,7 +175,9 @@ describe("DownloadDocumentButton component", () => {
         <DownloadDocumentButton document={pimDocument} />
       </ThemeProvider>
     );
-    fireEvent.click(screen.getByLabelText(`Download ${pimDocument.title}`));
+    fireEvent.click(
+      screen.getByTestId("download-document-button-pim-document")
+    );
     expect(getDownloadLink).toHaveBeenCalled();
   });
 
@@ -165,7 +190,9 @@ describe("DownloadDocumentButton component", () => {
         <DownloadDocumentButton document={zipDocument} />
       </ThemeProvider>
     );
-    fireEvent.click(screen.getByLabelText(`Download ${zipDocument.title}`));
+    fireEvent.click(
+      screen.getByTestId("download-document-button-pim-pseudo-document")
+    );
     expect(downloadMultipleFiles).toHaveBeenCalled();
   });
 });

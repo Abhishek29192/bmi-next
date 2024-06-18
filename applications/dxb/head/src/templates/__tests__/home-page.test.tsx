@@ -1,16 +1,13 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
-import { replaceSpaces } from "@bmi-digital/components/utils";
 import { screen } from "@testing-library/react";
 import React from "react";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
-import { Data as BrandData } from "../../components/Brands";
-import { DataTypeEnum } from "../../components/Link";
+import { DataTypeEnum } from "../../components/link/types";
 import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as SlideData } from "../../components/Promo";
-import { Data as SectionsData } from "../../components/Sections";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import HomePage, { Props as HomePageData } from "../home-page";
+import HomePage, { Props as HomePageData, HomepageData } from "../home-page";
 
 let isGatsbyDisabledElasticSearch: boolean;
 let isLoginEnabled: boolean;
@@ -41,7 +38,7 @@ describe("Home Page Template", () => {
       }
     ]
   });
-  const sectionsData: SectionsData = [
+  const sectionsData: HomepageData["sections"] = [
     {
       __typename: "ContentfulTabsOrAccordionSection",
       description: { description: "string" },
@@ -60,7 +57,8 @@ describe("Home Page Template", () => {
       type: "Accordion"
     }
   ];
-  const brandsData: BrandData[] = [
+
+  const brandsData: HomepageData["brands"] = [
     {
       title: "Smilex brand",
       path: "/smilex-brand",
@@ -68,34 +66,21 @@ describe("Home Page Template", () => {
       brandLogo: "Icopal"
     }
   ];
-  const spaBrandsData: BrandData[] = [
-    {
-      title: "Smilex spa brand",
-      path: "/smilex-spa-brand",
-      subtitle: "Uh-oh. He don't look happy. He's been using spa brand X",
-      brandLogo: "Icopal"
-    }
-  ];
+
   const overlapCardsData: OverlapCardData = [
     {
-      __typename: "ContentfulSimplePage",
       title: "Call to action",
       path: "some-page",
-      featuredMedia: createImageData(),
-      featuredVideo: null
+      featuredMedia: createImageData()
     },
     {
-      __typename: "ContentfulSimplePage",
       title: "Call to action",
       path: "some-page",
-      featuredMedia: createImageData(),
-      featuredVideo: null
+      featuredMedia: createImageData()
     },
     {
-      __typename: "ContentfulSimplePage",
       title: "Card with Video",
       path: "some-page",
-      featuredMedia: createImageData(),
       featuredVideo: {
         __typename: "ContentfulVideo",
         title: "video title",
@@ -130,8 +115,7 @@ describe("Home Page Template", () => {
               height: 720
             },
             file: {
-              fileName: "Lorem ipsum",
-              url: "//images.asset.jpg"
+              fileName: "Lorem ipsum"
             }
           }
         },
@@ -141,6 +125,7 @@ describe("Home Page Template", () => {
       }
     }
   ];
+
   const slide: SlideData = {
     __typename: "ContentfulPromo",
     id: "id",
@@ -190,7 +175,6 @@ describe("Home Page Template", () => {
       slides: [slide],
       overlapCards: overlapCardsData,
       brands: brandsData,
-      spaBrands: spaBrandsData,
       sections: sectionsData,
       breadcrumbs: [
         {
@@ -201,7 +185,7 @@ describe("Home Page Template", () => {
       ],
       signupBlock: null,
       seo: null,
-      path: null
+      path: ""
     }
   };
 
@@ -230,17 +214,10 @@ describe("Home Page Template", () => {
 
     expect(screen.getAllByTestId("hero-content-slide-0").length).toEqual(1);
     expect(screen.getAllByTestId("hero-content-slide-text").length).toEqual(1);
-    expect(screen.getByTestId("search-button")).toBeInTheDocument();
+    expect(screen.getByTestId("search-submit-button")).toBeInTheDocument();
     expect(screen.getByText(slide.title as string)).toBeInTheDocument();
     expect(screen.getAllByTestId("overlap-card")).toHaveLength(3);
     expect(screen.getByTestId("brands")).toBeInTheDocument();
-    expect(
-      screen.getByTestId(
-        `brand-intro-card-${replaceSpaces(
-          data.contentfulHomePage.spaBrands[0].title
-        )}`
-      )
-    ).toBeInTheDocument();
     expect(
       screen.getByTestId(`tabs-or-accordion-section-${title}`)
     ).toBeInTheDocument();
@@ -251,7 +228,6 @@ describe("Home Page Template", () => {
 
   it("render slide with not ContentfulPromo __typename and featureMedia data", () => {
     isGatsbyDisabledElasticSearch = false;
-    slide.__typename = null;
     slide.featuredMedia = createImageData({
       altText: "Lorem ipsum ContentfulImage"
     });
@@ -259,7 +235,6 @@ describe("Home Page Template", () => {
     slide.featuredVideo = null;
     slide.cta = null;
     data.contentfulSite.resources = null;
-    data.contentfulHomePage.spaBrands = [];
 
     renderWithRouter(
       <ThemeProvider>
@@ -278,7 +253,6 @@ describe("Home Page Template", () => {
 
   it("render page with brands", () => {
     data.contentfulHomePage.brands = brandsData;
-    data.contentfulHomePage.spaBrands = [];
 
     renderWithRouter(
       <ThemeProvider>
@@ -293,41 +267,6 @@ describe("Home Page Template", () => {
     expect(
       screen.getByText(brandsData[0].subtitle as string)
     ).toBeInTheDocument();
-  });
-
-  it("render page with spaBrands", () => {
-    data.contentfulHomePage.brands = [];
-    data.contentfulHomePage.spaBrands = spaBrandsData;
-
-    renderWithRouter(
-      <ThemeProvider>
-        <HomePage
-          data={data}
-          pageContext={{ variantCodeToPathMap: undefined }}
-        />
-      </ThemeProvider>
-    );
-
-    expect(screen.getByTestId("brands")).toBeInTheDocument();
-    expect(
-      screen.getByText(spaBrandsData[0].subtitle as string)
-    ).toBeInTheDocument();
-  });
-
-  it("render page without brands and without spaBrands", () => {
-    data.contentfulHomePage.spaBrands = [];
-    data.contentfulHomePage.brands = [];
-
-    renderWithRouter(
-      <ThemeProvider>
-        <HomePage
-          data={data}
-          pageContext={{ variantCodeToPathMap: undefined }}
-        />
-      </ThemeProvider>
-    );
-
-    expect(screen.queryByTestId("brands")).not.toBeInTheDocument();
   });
 
   it("render page with overlapCardsData", () => {
@@ -361,7 +300,7 @@ describe("Home Page Template", () => {
   });
 
   it("render page with sections", () => {
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <ThemeProvider>
         <HomePage
           data={data}
@@ -370,18 +309,20 @@ describe("Home Page Template", () => {
       </ThemeProvider>
     );
 
-    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access
-    expect(container.querySelectorAll("[class*=Section-root]")).toHaveLength(1);
+    expect(
+      screen.getByTestId("tabs-or-accordion-section-string")
+    ).toBeInTheDocument();
   });
 
   it("render page without sections", () => {
     data.contentfulHomePage.sections = null;
 
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <HomePage data={data} pageContext={{ variantCodeToPathMap: undefined }} />
     );
 
-    // eslint-disable-next-line testing-library/no-container,testing-library/no-node-access
-    expect(container.querySelectorAll("[class*=Section-root]")).toHaveLength(0);
+    expect(
+      screen.queryByTestId("tabs-or-accordion-section-string")
+    ).not.toBeInTheDocument();
   });
 });

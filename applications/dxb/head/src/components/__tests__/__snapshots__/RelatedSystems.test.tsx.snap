@@ -27,131 +27,177 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-1"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-1
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-1"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-1
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -218,131 +264,177 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-Name"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-Name
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-Name"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-Name
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -379,131 +471,177 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-1"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-1
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-2 - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-2 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-2"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-2
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-2 - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -540,131 +678,177 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-Name"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-Name
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-Name"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-Name
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -701,66 +885,89 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-Name"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-Name
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -797,66 +1004,89 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-Name"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-Name
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -893,66 +1123,89 @@ exports[`RelatedSystems component renders systems correctly without classificati
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
               data-testid="system-card-system-code"
             >
-              <a
-                class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
-                data-testid="overview-card-box"
-                href="/en/s/path/"
-                tabindex="0"
+              <div
+                class="TappableCard-root ColorPair-white css-963r91"
+                data-testid="tappable-card-box"
               >
-                <div
-                  class="OverviewCard-main"
-                  data-testid="overview-card-main"
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                  data-testid="tappable-card-main"
+                  href="/en/s/path/"
+                  tabindex="0"
                 >
                   <img
                     alt="system-Name"
-                    class="OverviewCard-headerPicture css-10hd0hb-Media"
+                    class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                    data-testid="tappable-card-media"
+                    draggable="false"
                     src="http://localhost:8000/image-main-source.jpg"
                   />
                   <div
-                    class="OverviewCard-body"
+                    class="TappableCard-body css-c6k36h"
                   >
                     <div
-                      class="OverviewCard-brandLogo OverviewCard-negative"
+                      class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                      data-testid="tappable-card-body-brand-logo"
                     />
                     <h5
-                      class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                      data-testid="overview-card-body-title"
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
                     >
                       system-Name
                     </h5>
                     <div
-                      class="OverviewCard-text css-kl66ak"
-                      data-testid="overview-card-body-description"
+                      class="TappableCard-text"
+                      data-testid="tappable-card-body-description"
                     >
-                      <div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                        data-testid="typography"
+                      >
                         system-desc
-                      </div>
+                      </p>
+                      <div
+                        class="css-1s6ecvv"
+                        data-testid="systemProperties"
+                      />
                     </div>
                   </div>
-                  <div
-                    class="css-iicyj8"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </div>
+                </a>
                 <div
-                  class="OverviewCard-clickable css-1cyx9t4"
-                  data-testid="overview-card-body-footer"
+                  class="TappableCard-footer css-1rg9dq1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
+                    data-testid="button"
+                    href="/en/s/path/"
                     tabindex="0"
-                    type="button"
                   >
+                    <span
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
                     MC: sdp.system.readMore
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -968,66 +1221,110 @@ exports[`SystemCard renders correctly with related system 1`] = `
     class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
     data-testid="system-card-related-system-1"
   >
-    <a
-      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-      data-gtm="{"id":"gtm-id"}"
-      data-testid="overview-card-box"
-      href="/en/related-system-path/"
-      tabindex="0"
+    <div
+      class="TappableCard-root ColorPair-white css-963r91"
+      data-testid="tappable-card-box"
     >
-      <div
-        class="OverviewCard-main"
-        data-testid="overview-card-main"
+      <a
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+        data-gtm="{"id":"gtm-id"}"
+        data-testid="tappable-card-main"
+        href="/en/related-system-path/"
+        tabindex="0"
       >
         <img
           alt="related-ssytem-name"
-          class="OverviewCard-headerPicture css-10hd0hb-Media"
+          class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+          data-testid="tappable-card-media"
+          draggable="false"
           src="http://localhost:8000/image-main-source.jpg"
         />
         <div
-          class="OverviewCard-body"
+          class="TappableCard-body css-c6k36h"
         >
           <div
-            class="OverviewCard-brandLogo OverviewCard-negative"
+            class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+            data-testid="tappable-card-body-brand-logo"
           />
           <h5
-            class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-            data-testid="overview-card-body-title"
+            class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+            data-testid="tappable-card-body-title"
           >
             related-ssytem-name
           </h5>
           <div
-            class="OverviewCard-text css-kl66ak"
-            data-testid="overview-card-body-description"
+            class="TappableCard-text"
+            data-testid="tappable-card-body-description"
           >
-            <div>
+            <p
+              class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+              data-testid="typography"
+            >
               related-short-desc
-            </div>
+            </p>
+            <div
+              class="css-1s6ecvv"
+              data-testid="systemProperties"
+            />
           </div>
         </div>
-        <div
-          class="css-iicyj8"
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
-      </div>
+      </a>
       <div
-        class="OverviewCard-clickable css-1cyx9t4"
-        data-testid="overview-card-body-footer"
+        class="TappableCard-footer css-1rg9dq1"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-9exsop-MuiButtonBase-root-MuiButton-root"
+        <a
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+          data-gtm="{"id":"gtm-id"}"
+          data-testid="button"
+          href="/en/related-system-path/"
           tabindex="0"
-          type="button"
         >
+          <span
+            class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ArrowForwardIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+          </span>
           MC: sdp.system.readMore
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </button>
+        </a>
       </div>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </a>
+    </div>
   </div>
 </div>
+`;
+
+exports[`SystemCard should render the default SVG image if no master image or gallery images are provided 1`] = `
+<svg
+  class="TappableCard-headerPicture TappableCard-contain css-1817fzu"
+  data-testid="tappable-card-media"
+  draggable="false"
+  viewBox="0 0 920 440"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0 0h920v440H0z"
+    fill="none"
+  />
+  <path
+    clip-rule="evenodd"
+    d="M527.74 259.414 420.853 152.526h91.832c8.28 0 15.055 6.775 15.055 15.055zm-2.253 36.131-7.527-7.527H407.309c-8.28 0-15.054-6.774-15.054-15.054V162.313l-7.528-7.528 9.786-9.785 140.76 140.76zm-29.363-30.109-29.356-29.356-14.302 18.065-18.818-22.582-26.345 33.873z"
+    fill="#CCC"
+    fill-rule="evenodd"
+  />
+</svg>
 `;

@@ -11,7 +11,7 @@ exports[`ContactTopics component renders correctly 1`] = `
     >
       <div
         aria-label="Did you know?1"
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ExpandableCard-collapsed css-ios428-MuiPaper-root-MuiCard-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ExpandableCard-collapsed css-1ud9n9q-MuiPaper-root-MuiCard-root"
         data-gtm="{"id":"selector-cards2","label":"Did you know?1","action":"Selector - Cards"}"
         data-testid="expandable-card-Did-you-know?1-collapsed"
         role="button"
@@ -19,7 +19,7 @@ exports[`ContactTopics component renders correctly 1`] = `
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge ExpandableCard-close css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge ExpandableCard-close css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-testid="close-button"
           tabindex="0"
           type="button"
@@ -115,7 +115,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="IconList-description"
                   >
                     <div
-                      class="RichText-root RichText-no-bottom-margin css-1u73y0t"
+                      class="RichText-root RichText-no-bottom-margin css-1lf5op0"
                     >
                       <p
                         class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -167,7 +167,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="IconList-description"
                   >
                     <div
-                      class="RichText-root RichText-no-bottom-margin css-1u73y0t"
+                      class="RichText-root RichText-no-bottom-margin css-1lf5op0"
                     >
                       <p
                         class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -210,7 +210,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     teste
                   </h5>
                   <div
-                    class="RichText-root css-1u73y0t"
+                    class="RichText-root css-1lf5op0"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

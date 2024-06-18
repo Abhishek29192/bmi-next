@@ -1,8 +1,9 @@
-import { DataTypeEnum } from "../../../components/Link";
-import { Data as SignUpBlockData } from "../../../components/SignupBlock";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
-import { PageContextType } from "../../productListerPage/components/product-lister-page";
+import { Data as CardCollectionData } from "../../../components/CardCollectionSection";
+import { Data as SignUpBlockData } from "../../../components/SignupBlock";
+import { DataTypeEnum } from "../../../components/link/types";
 import { SourceType } from "../../../components/types/FormSectionTypes";
+import { PageContextType } from "../../productListerPage/components/product-lister-page";
 
 export const pageContext: PageContextType = {
   allowFilterBy: [],
@@ -31,7 +32,7 @@ export const nextBestActions = [
     backgroundColor: null
   }
 ];
-export const sections = [
+export const sections: CardCollectionData[] = [
   {
     __typename: "ContentfulCardCollectionSection",
     title: "ContentfulCardCollectionSectionTitle",
@@ -67,7 +68,7 @@ export const sections = [
           videoRatio: { width: 17776, height: 9999 },
           defaultYouTubePreviewImage:
             "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg",
-          className: null
+          className: undefined
         },
         backgroundColor: null
       }
@@ -87,21 +88,6 @@ export const leadBlockData = {
   },
   link: null,
   postItCard: null
-};
-
-export const shareWidgetData = {
-  __typename: "ShareWidgetSection",
-  title: "ShareWidgetSectionTitle",
-  message: "ShareWidgetSectionMessage",
-  clipboardSuccessMessage: null,
-  clipboardErrorMessage: null,
-  isLeftAligned: null,
-  copy: null,
-  email: null,
-  facebook: null,
-  linkedin: null,
-  pinterest: null,
-  twitter: null
 };
 
 export const exploreBarData = {

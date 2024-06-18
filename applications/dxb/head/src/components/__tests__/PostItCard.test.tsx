@@ -2,11 +2,11 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { DataTypeEnum, Data as LinkProps } from "../../components/Link";
 import PostItCard, {
   Props as PostItCradProps,
   Data as SectionProps
 } from "../../components/PostItCard";
+import { DataTypeEnum, Data as LinkProps } from "../link/types";
 
 describe("PostItCard", () => {
   const linkData: LinkProps = {

@@ -1,7 +1,8 @@
 import AnchorLink from "@bmi-digital/components/anchor-link";
 import Typography from "@bmi-digital/components/typography";
+import { Link as GatsbyLink } from "gatsby";
 import React from "react";
-import { getClickableActionFromUrl } from "./Link";
+import { getPathWithCountryCode } from "../utils/path";
 import {
   StyledPageSummaryCard,
   StyledSubtitle
@@ -15,14 +16,13 @@ type Props = {
 };
 
 const PageSummaryCard = ({ title, subtitle, countryCode, path }: Props) => {
+  const href = getPathWithCountryCode(countryCode, path).replace(/\/+/gi, "/");
   return (
     <StyledPageSummaryCard>
       <AnchorLink
-        action={getClickableActionFromUrl({
-          linkedPage: { path },
-          countryCode,
-          label: title
-        })}
+        component={GatsbyLink}
+        to={href}
+        gtm={{ id: "cta-click1", action: href, label: title }}
       >
         <Typography noClamp variant="h4">
           {title}

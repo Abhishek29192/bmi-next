@@ -6,12 +6,6 @@ import adapter from "gatsby-adapter-netlify";
 import path from "path";
 import process from "process";
 import getCredentialData from "./src/utils/get-credentials-data.mjs";
-import {
-  accessControlAllowOrigin,
-  contentSecurityPolicy,
-  xRobotTags
-} from "./src/utils/httpHeadersHelper.mjs";
-import dxbMarketPrefixes from "./src/utils/siteUrlPrefixes.mjs";
 
 /**
  * @typedef { import("gatsby").GatsbyConfig } GatsbyConfig
@@ -587,82 +581,7 @@ const config = {
     PARALLEL_SOURCING: process.env.GATSBY_PREVIEW !== "true",
     PRESERVE_FILE_DOWNLOAD_CACHE: process.env.GATSBY_PREVIEW !== "true",
     PARALLEL_QUERY_RUNNING: process.env.GATSBY_PREVIEW !== "true"
-  },
-  // The `headers` section is used by gatsbyjs adapters
-  headers: [
-    {
-      source: "/*",
-      headers: [
-        {
-          key: "Content-Security-Policy",
-          value: contentSecurityPolicy(process.env.GATSBY_SPACE_MARKET_CODE)
-        },
-        {
-          key: "X-Frame-Options",
-          value: "DENY"
-        },
-        {
-          key: "X-Robots-Tag",
-          value: xRobotTags(process.env.GATSBY_SPACE_MARKET_CODE)
-        },
-        {
-          key: "x-xss-protection", // use lowercase key here to silence the netllify warning
-          value: " 1; mode=block"
-        },
-        {
-          key: "X-Content-Type-Options",
-          value: "nosniff"
-        },
-        {
-          key: "Referrer-Policy",
-          value: "strict-origin-when-cross-origin"
-        },
-        {
-          key: "Access-Control-Allow-Origin",
-          value: accessControlAllowOrigin(process.env.GATSBY_SPACE_MARKET_CODE)
-        }
-      ]
-    },
-    // Group site overrides custom response headers with market specific values
-    // when proxying requests to market URL prefixes.
-    ...(process.env.IS_NETLIFY && process.env.GATSBY_SPACE_MARKET_CODE === "grp"
-      ? dxbMarketPrefixes.flatMap((prefix) => {
-          if (
-            !contentSecurityPolicy(prefix) &&
-            !xRobotTags(prefix) &&
-            !accessControlAllowOrigin(prefix)
-          ) {
-            // Ignore, if market specific response-header-variables are not available.
-            return [];
-          }
-
-          return {
-            source: `/${prefix}/*`,
-            headers: [
-              ...(contentSecurityPolicy(prefix)
-                ? [
-                    {
-                      key: "Content-Security-Policy",
-                      value: contentSecurityPolicy(prefix)
-                    }
-                  ]
-                : []),
-              ...(xRobotTags(prefix)
-                ? [{ key: "X-Robots-Tag", value: xRobotTags(prefix) }]
-                : []),
-              ...(accessControlAllowOrigin(prefix)
-                ? [
-                    {
-                      key: "Access-Control-Allow-Origin",
-                      value: accessControlAllowOrigin(prefix)
-                    }
-                  ]
-                : [])
-            ]
-          };
-        })
-      : [])
-  ]
+  }
 };
 
 export default config;

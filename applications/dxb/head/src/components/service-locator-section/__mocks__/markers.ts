@@ -1,6 +1,6 @@
-import { Data as ContentfulImageData } from "../../Image";
 import { EntryTypeEnum } from "../../Service";
-import { Service } from "../index";
+import type { Service } from "../index";
+import type { Data as ContentfulImageData } from "../../image/types";
 
 export const markersMockData = [
   {
@@ -64,8 +64,7 @@ export const imageData: ContentfulImageData = {
   focalPoint: null,
   image: {
     file: {
-      fileName: "logo_icopal_2560x1710px_rahmen.jpeg",
-      url: "//images.ctfassets.net/xd0cdgm332jz/3RRWFgk7OviMBNU2mwgvlx/e00e18fedaf95f571d20575da89ade93/logo_icopal_2560x1710px_rahmen.jpeg"
+      fileName: "logo_icopal_2560x1710px_rahmen.jpeg"
     },
     gatsbyImageData: {
       images: {

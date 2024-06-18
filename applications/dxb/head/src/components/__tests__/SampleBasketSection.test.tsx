@@ -3,15 +3,14 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { Config, ConfigProvider } from "../../contexts/ConfigProvider";
 import * as BasketContextUtils from "../../contexts/SampleBasketContext";
-import {
-  BasketContextProvider,
-  Sample
-} from "../../contexts/SampleBasketContext";
+import { BasketContextProvider } from "../../contexts/SampleBasketContext";
 import { local } from "../../utils/storage";
 import { Data } from "../SampleBasketBase";
 import SampleBasketSection from "../SampleBasketSection";
 import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
+import createSampleData from "../../__tests__/helpers/SampleHelper";
+import { renderWithProviders } from "../../__tests__/renderWithProviders";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({
@@ -38,7 +37,7 @@ const MockSiteContext = ({
   );
 };
 
-const sample: Sample = {
+const sample = createSampleData({
   name: "sample-1",
   code: "sample-1",
   path: "sample-1-details",
@@ -46,7 +45,7 @@ const sample: Sample = {
   textureFamily: "rough",
   measurements: "1x2x3 mm",
   image: "http://localhost:8000/image-real-file-name.jpg"
-};
+});
 
 const data: Data = {
   __typename: "SampleBasketSection",
@@ -122,12 +121,10 @@ beforeEach(() => {
 
 describe("SampleBasketSection component", () => {
   it("renders correctly", () => {
-    const { container } = render(
-      <ThemeProvider>
-        <BasketContextProvider>
-          <SampleBasketSection data={data} />
-        </BasketContextProvider>
-      </ThemeProvider>
+    const { container } = renderWithProviders(
+      <BasketContextProvider>
+        <SampleBasketSection data={data} />
+      </BasketContextProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -152,8 +149,8 @@ describe("SampleBasketSection component", () => {
     expect(
       screen.queryByText("MC: pdp.overview.completeSampleOrder")
     ).not.toBeInTheDocument();
-    expect(local.getItem).lastCalledWith("no-basketItems");
-    expect(local.setItem).lastCalledWith(
+    expect(local.getItem).toHaveBeenLastCalledWith("no-basketItems");
+    expect(local.setItem).toHaveBeenLastCalledWith(
       "no-basketItems",
       '[{"name":"sample-1","code":"sample-1","path":"sample-1-details","colour":"green","textureFamily":"rough","measurements":"1x2x3 mm","image":"http://localhost:8000/image-real-file-name.jpg"}]'
     );
@@ -208,9 +205,9 @@ describe("SampleBasketSection with form", () => {
       { products: [sample] },
       { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
-    expect(local.getItem).lastCalledWith("no-basketItems");
+    expect(local.getItem).toHaveBeenLastCalledWith("no-basketItems");
     await waitFor(() =>
-      expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+      expect(local.setItem).toHaveBeenLastCalledWith("no-basketItems", "[]")
     );
   });
 
@@ -264,21 +261,14 @@ describe("SampleBasketSection with form", () => {
       { products: [sample] },
       { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
-    expect(local.getItem).lastCalledWith("no-basketItems");
+    expect(local.getItem).toHaveBeenLastCalledWith("no-basketItems");
     await waitFor(() =>
-      expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+      expect(local.setItem).toHaveBeenLastCalledWith("no-basketItems", "[]")
     );
   });
 
   it("should submit form with provided samples, ignoring null values", async () => {
-    const sample: Sample = {
-      name: "sample-1",
-      code: "sample-1",
-      path: "sample-1-details",
-      colour: null,
-      textureFamily: null,
-      measurements: null
-    };
+    const sample = createSampleData();
 
     jest.spyOn(local, "getItem").mockReturnValueOnce(JSON.stringify([sample]));
 
@@ -312,13 +302,12 @@ describe("SampleBasketSection with form", () => {
             values: {
               text: "Text",
               samples:
-                "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/"
+                "id: sample-1-code<br>title: sample-1<br>url: http://localhost/no/sample-1-path/"
             }
           }),
           headers: {
             "X-Recaptcha-Token": "RECAPTCHA",
-            "Content-Type": "application/json",
-            authorization: undefined
+            "Content-Type": "application/json"
           }
         }
       )
@@ -328,9 +317,9 @@ describe("SampleBasketSection with form", () => {
       { products: [sample] },
       { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
-    expect(local.getItem).lastCalledWith("no-basketItems");
+    expect(local.getItem).toHaveBeenLastCalledWith("no-basketItems");
     await waitFor(() =>
-      expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+      expect(local.setItem).toHaveBeenLastCalledWith("no-basketItems", "[]")
     );
   });
 
@@ -338,14 +327,7 @@ describe("SampleBasketSection with form", () => {
     mockedWindowDocumentCookie.mockReturnValueOnce(
       `qaAuthToken=${qaAuthToken}`
     );
-    const sample: Sample = {
-      name: "sample-1",
-      code: "sample-1",
-      path: "sample-1-details",
-      colour: null,
-      textureFamily: null,
-      measurements: null
-    };
+    const sample = createSampleData();
 
     jest.spyOn(local, "getItem").mockReturnValueOnce(JSON.stringify([sample]));
 
@@ -379,7 +361,7 @@ describe("SampleBasketSection with form", () => {
             values: {
               text: "Text",
               samples:
-                "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/"
+                "id: sample-1-code<br>title: sample-1<br>url: http://localhost/no/sample-1-path/"
             }
           }),
           headers: {
@@ -395,9 +377,9 @@ describe("SampleBasketSection with form", () => {
       { products: [sample] },
       { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
-    expect(local.getItem).lastCalledWith("no-basketItems");
+    expect(local.getItem).toHaveBeenLastCalledWith("no-basketItems");
     await waitFor(() =>
-      expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+      expect(local.setItem).toHaveBeenLastCalledWith("no-basketItems", "[]")
     );
   });
 });
@@ -422,9 +404,9 @@ describe("SampleBasketSection remove sample from basket", () => {
         "href",
         "/no/zanda-brand/torvtak/"
       );
-      expect(local.getItem).lastCalledWith("no-basketItems");
+      expect(local.getItem).toHaveBeenLastCalledWith("no-basketItems");
       await waitFor(() =>
-        expect(local.setItem).lastCalledWith("no-basketItems", "[]")
+        expect(local.setItem).toHaveBeenLastCalledWith("no-basketItems", "[]")
       );
     });
   });

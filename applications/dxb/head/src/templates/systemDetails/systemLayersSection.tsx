@@ -1,24 +1,17 @@
 import Accordion from "@bmi-digital/components/accordion";
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
+import AnchorLink from "@bmi-digital/components/anchor-link";
 import Grid from "@bmi-digital/components/grid";
 import Typography from "@bmi-digital/components/typography";
 import { microCopy } from "@bmi/microcopies";
 import React from "react";
 import { useSiteContext } from "../../components/Site";
-import { Product, SystemLayer } from "../../types/pim";
+import { SystemLayer } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../utils/path";
 
 type Props = {
   systemLayers: readonly SystemLayer[];
 };
-
-const createLinkAction = (product: Product, countryCode: string) => ({
-  model: "htmlLink",
-  href: getPathWithCountryCode(countryCode, product.path)
-});
 
 const SystemLayersSection = ({ systemLayers }: Props) => {
   const { getMicroCopy, countryCode } = useSiteContext();
@@ -28,12 +21,9 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
       {systemLayers &&
         systemLayers.map((layer, index) => {
           const relatedProduct = layer.relatedProducts?.[0];
-          const productLinkAction =
-            relatedProduct && createLinkAction(relatedProduct, countryCode);
-
-          const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
-            label: "children"
-          });
+          const productLink =
+            relatedProduct &&
+            getPathWithCountryCode(countryCode, relatedProduct.path);
 
           const GTMAccordionSummary = withGTM(Accordion.Summary);
 
@@ -75,16 +65,16 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                   >
                     {relatedProduct && (
                       <Grid xs={12} md={12} lg={12}>
-                        <GTMAnchorLink
+                        <AnchorLink
                           gtm={{
                             id: "cta-click1",
                             label: relatedProduct.name,
-                            action: productLinkAction?.href
+                            action: productLink
                           }}
-                          action={productLinkAction}
+                          href={productLink}
                         >
                           {relatedProduct.name}
-                        </GTMAnchorLink>
+                        </AnchorLink>
                       </Grid>
                     )}
 
@@ -103,9 +93,9 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                     )}
 
                     {optionalRelatedProducts.map((product, id) => {
-                      const productLinkAction = createLinkAction(
-                        product,
-                        countryCode
+                      const productLink = getPathWithCountryCode(
+                        countryCode,
+                        product.path
                       );
                       return (
                         <Grid
@@ -114,16 +104,16 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                           lg={12}
                           key={`related-optional-product-${id}`}
                         >
-                          <GTMAnchorLink
+                          <AnchorLink
                             gtm={{
                               id: "cta-click1",
                               label: product.name,
-                              action: productLinkAction?.href
+                              action: productLink
                             }}
-                            action={productLinkAction}
+                            href={productLink}
                           >
                             {product.name}
-                          </GTMAnchorLink>
+                          </AnchorLink>
                         </Grid>
                       );
                     })}

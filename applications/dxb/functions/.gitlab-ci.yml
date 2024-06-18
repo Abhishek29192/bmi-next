@@ -1,26 +1,91 @@
 include:
-  - local: "/applications/dxb/functions/es-pim-products-ingest/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gatsby-cloud-build-proxy/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-apsis-integration/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-build-status-logger/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-build-trigger/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-contentful-documents-ingest/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-docebo-data-filter/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-docebo-data-handler/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-download-zip/.gitlab-ci.yml"
+  # Not deployed to GCP
   - local: "/applications/dxb/functions/gcp-es-proxy/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-firestore-writer/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-form-submit/.gitlab-ci.yml"
+
+  # Deploy GCP functions sequentially to avoid hitting GCP platform limits.
+  # gcp-functions-deployer is the first function to be deployed to GCP.
+  # Therefore it does not have a preceding_job.
   - local: "/applications/dxb/functions/gcp-functions-deployer/.gitlab-ci.yml"
+
+  - local: "/applications/dxb/functions/es-pim-products-ingest/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-functions-deployer"
+
+  - local: "/applications/dxb/functions/gatsby-cloud-build-proxy/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_es-pim-products-ingest"
+
+  - local: "/applications/dxb/functions/gcp-apsis-integration/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gatsby-cloud-build-proxy"
+
+  - local: "/applications/dxb/functions/gcp-build-status-logger/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-apsis-integration"
+
+  - local: "/applications/dxb/functions/gcp-build-trigger/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-build-status-logger"
+
+  - local: "/applications/dxb/functions/gcp-contentful-documents-ingest/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-build-trigger"
+
+  - local: "/applications/dxb/functions/gcp-docebo-data-filter/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-contentful-documents-ingest"
+
+  - local: "/applications/dxb/functions/gcp-docebo-data-handler/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-docebo-data-filter"
+
+  - local: "/applications/dxb/functions/gcp-download-zip/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-docebo-data-handler"
+
+  - local: "/applications/dxb/functions/gcp-firestore-writer/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-download-zip"
+
+  - local: "/applications/dxb/functions/gcp-form-submit/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-firestore-writer"
+  
   - local: "/applications/dxb/functions/gcp-pim-full-fetch/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-form-submit"
+
   - local: "/applications/dxb/functions/gcp-pim-full-fetch-coordinator/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-pim-full-fetch"
+
   - local: "/applications/dxb/functions/gcp-pim-message-handler/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-pim-full-fetch-coordinator"
+
   - local: "/applications/dxb/functions/gcp-system-configurator/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-pim-message-handler"
+
   - local: "/applications/dxb/functions/gcp-upload-file/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-system-configurator"
+
   - local: "/applications/dxb/functions/gcp-url-generator/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-upload-file"
+
   - local: "/applications/dxb/functions/gcp-youtube-cache/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-url-generator"
+
   - local: "/applications/dxb/functions/gcp-pim-preview-firestore-writer/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-youtube-cache"
+
   - local: "/applications/dxb/functions/gcp-get-gatsby-build-events/.gitlab-ci.yml"
+    inputs:
+      preceding_job: "deploy_gcp-pim-preview-firestore-writer"
 
 .lint_function:
   extends: .lint_yarn_workspace

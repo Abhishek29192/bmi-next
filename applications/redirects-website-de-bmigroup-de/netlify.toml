@@ -1,13 +1,35 @@
-# Settings in the [build] context are global and are applied to all contexts
-# unless otherwise overridden by more specific contexts.
-
 # General Germany bmigroup.de redirect
 [[redirects]]
- from="/planmaster"
- to="https://www.bmigroup.com/de/planmaster/"
- status = 301
+from = "/planmaster"
+to = "https://www.bmigroup.com/de/planmaster/"
+status = 301
 
- [[redirects]]
- from="/*"
- to="https://www.bmigroup.com/de/"
- status = 301
+[[redirects]]
+from = "/flachdachcheck"
+to = "https://de.bmigroup.com/bmi-services-flachdach-check"
+status = 302
+
+[[redirects]]
+from = "/pv-solarsysteme"
+to = "https://de.bmigroup.com/pv-solarsysteme"
+status = 302
+
+[[redirects]]
+from = "/braas-systemgarantie"
+to = "https://de.bmigroup.com/braas-systemgarantie"
+status = 302
+
+[[redirects]]
+from = "/alle-solarsysteme"
+to = "https://www.bmigroup.com/de/solarsysteme/"
+status = 302
+
+[[redirects]]
+from = "/services"
+to = "https://www.bmigroup.com/de/services-downloads-im-ueberblick/alle-services/"
+status = 302
+
+[[redirects]]
+from = "/*"
+to = "https://www.bmigroup.com/de/"
+status = 301

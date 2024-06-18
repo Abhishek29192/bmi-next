@@ -1,17 +1,17 @@
-const mockGetClickableActionFromUrl = jest.fn();
-jest.mock("../Link", () => {
-  const originalModule = jest.requireActual("../Link");
-
-  return {
-    ...originalModule,
-    getClickableActionFromUrl: mockGetClickableActionFromUrl
-  };
-});
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import DocumentDownloadSection from "../DocumentDownloadSection";
+
+jest.mock("../link/utils", () => {
+  const originalModule = jest.requireActual("../link/utils");
+  const mockGetClickableActionFromUrl = jest.fn();
+  return {
+    ...originalModule,
+    getClickableActionFromUrl: mockGetClickableActionFromUrl
+  };
+});
 
 const mockDescriptionText =
   "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s";

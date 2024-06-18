@@ -7,53 +7,57 @@ const sharedESRules = [
   { exists: { field: "name" } }
 ];
 
-export const getTileFilters = (pitches: number[]) => ({
-  must: [
-    ...sharedESRules,
-    {
-      match: {
-        "GENERALINFORMATION$PRODUCTTYPE.code": ProductType.tile
-      }
-    },
-    { exists: { field: "MEASUREMENTS$LENGTH" } },
-    { exists: { field: "TILESATTRIBUTES$MINIMUMBATTENSPACING" } },
-    { exists: { field: "TILESATTRIBUTES$RIDGESPACE" } },
-    { exists: { field: "TILESATTRIBUTES$AVERAGEDECKWIDTH" } },
-    { exists: { field: "GENERALINFORMATION$MATERIALS" } },
-    { exists: { field: "APPEARANCEATTRIBUTES$COLOUR" } }
-  ],
-  filter: pitches.flatMap((pitchValue) => [
-    {
-      range: {
-        "battenSpacings.maxAngle": {
-          gte: pitchValue
+export const getTileFilters = (pitches: number[]) => {
+  const minPitch = Math.min(...pitches);
+  const maxPitch = Math.max(...pitches);
+
+  return {
+    must: [
+      ...sharedESRules,
+      {
+        match: {
+          "GENERALINFORMATION$PRODUCTTYPE.code": ProductType.tile
+        }
+      },
+      { exists: { field: "MEASUREMENTS$LENGTH" } },
+      { exists: { field: "TILESATTRIBUTES$MINIMUMBATTENSPACING" } },
+      { exists: { field: "TILESATTRIBUTES$RIDGESPACE" } },
+      { exists: { field: "TILESATTRIBUTES$AVERAGEDECKWIDTH" } },
+      { exists: { field: "GENERALINFORMATION$MATERIALS" } },
+      { exists: { field: "APPEARANCEATTRIBUTES$COLOUR" } }
+    ],
+    filter: [
+      {
+        range: {
+          "battenSpacings.maxAngle": {
+            gte: maxPitch
+          }
+        }
+      },
+      {
+        range: {
+          "battenSpacings.minAngle": {
+            lte: minPitch
+          }
+        }
+      },
+      {
+        range: {
+          "TILESATTRIBUTES$RIDGESPACEENDANGLE.value": {
+            gte: maxPitch
+          }
+        }
+      },
+      {
+        range: {
+          "TILESATTRIBUTES$RIDGESPACESTARTANGLE.value": {
+            lte: minPitch
+          }
         }
       }
-    },
-    {
-      range: {
-        "battenSpacings.minAngle": {
-          lte: pitchValue
-        }
-      }
-    },
-    {
-      range: {
-        "TILESATTRIBUTES$RIDGESPACEENDANGLE.value": {
-          gte: pitchValue,
-          lt: 90
-        }
-      }
-    },
-    {
-      range: {
-        "TILESATTRIBUTES$RIDGESPACESTARTANGLE.value": {
-          lte: pitchValue
-        }
-      }
-    }
-  ])
-});
+    ]
+  };
+};
 
 export const getProductsQuery = (pitches: number[], tileMaterial: string) => {
   const tileFilters = getTileFilters(pitches);
@@ -88,31 +92,18 @@ export const getProductsQuery = (pitches: number[], tileMaterial: string) => {
                 { exists: { field: "MEASUREMENTS$LENGTH" } },
                 { exists: { field: "UNDERLAYATTRIBUTES$OVERLAP" } }
               ],
-              filter: pitches.map((pitch) => ({
-                range: {
-                  "UNDERLAYATTRIBUTES$MINSUPPORTEDPITCH.value": {
-                    lte: pitch
+              filter: [
+                {
+                  range: {
+                    "UNDERLAYATTRIBUTES$MINSUPPORTEDPITCH.value": {
+                      lte: Math.min(...pitches)
+                    }
                   }
                 }
-              }))
-            }
-          },
-          {
-            bool: {
-              must: [
-                ...sharedESRules,
-                {
-                  terms: {
-                    "GENERALINFORMATION$PRODUCTTYPE.code.keyword": [
-                      ProductType.gutter,
-                      ProductType.gutterHook
-                    ]
-                  }
-                },
-                { exists: { field: "MEASUREMENTS$LENGTH" } }
               ]
             }
-          }
+          },
+          { ...guttersEsQuery }
         ]
       }
     }
@@ -139,3 +130,20 @@ export const constructQueryForProductReferences = (
     }
   }
 });
+
+const guttersEsQuery = {
+  bool: {
+    must: [
+      ...sharedESRules,
+      {
+        terms: {
+          "GENERALINFORMATION$PRODUCTTYPE.code.keyword": [
+            ProductType.gutter,
+            ProductType.gutterHook
+          ]
+        }
+      },
+      { exists: { field: "MEASUREMENTS$LENGTH" } }
+    ]
+  }
+};

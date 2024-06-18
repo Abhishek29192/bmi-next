@@ -9,12 +9,9 @@ import {
   SystemLayer,
   Video
 } from "@bmi/firestore-types";
-import {
-  ApprovalStatus,
-  Asset as PimAsset,
-  System as PimSystem
-} from "@bmi/pim-types";
+import { ApprovalStatus } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl } from "@bmi/utils";
+import type { Asset as PimAsset, System as PimSystem } from "@bmi/pim-types";
 import { systemIgnorableAttributes } from "./ignorableFeatureCodes.js";
 import {
   filterClassifications,

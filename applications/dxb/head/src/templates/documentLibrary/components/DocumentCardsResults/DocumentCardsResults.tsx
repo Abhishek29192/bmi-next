@@ -1,19 +1,11 @@
+import DocumentCard from "@bmi-digital/components/document-card";
 import Grid from "@bmi-digital/components/grid";
-import OverviewCard, {
-  OverviewCardProps
-} from "@bmi-digital/components/overview-card";
 import { ContentfulDocument } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import React from "react";
 import BrandLogo from "../../../../components/BrandLogo";
-import {
-  CopyToClipboard,
-  DownloadDocumentButton
-} from "../../../../components/DocumentSimpleTableResultCommon";
-import Image from "../../../../components/Image";
 import { useSiteContext } from "../../../../components/Site";
-import withGTM from "../../../../utils/google-tag-manager";
-import { Actions, Divider } from "./styles";
+import createImageProps from "../../../../components/image/createImageProps";
 
 type Props = {
   documents: ContentfulDocument[];
@@ -21,8 +13,6 @@ type Props = {
 
 const DocumentCardsResults = ({ documents }: Props) => {
   const { getMicroCopy } = useSiteContext();
-
-  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
     <Grid container spacing={3} data-testid="document-cards-results-grid">
@@ -35,38 +25,43 @@ const DocumentCardsResults = ({ documents }: Props) => {
             lg={6}
             xl={4}
           >
-            <GTMOverviewCard
-              clickableArea="body"
-              action={{
-                model: "download",
-                href: `https:${document.asset.file.url}`,
-                ...(document.noIndex && { rel: "noindex" })
-              }}
-              hasActions
+            <DocumentCard
+              id={document.id}
+              href={`https:${document.asset.file.url}`}
+              noIndex={true}
               title={document.title}
               media={
-                document.featuredMedia && <Image {...document.featuredMedia} />
+                document.featuredMedia &&
+                createImageProps(document.featuredMedia)
               }
-              brandImageSource={
-                document.BRAND && <BrandLogo brandName={document.BRAND?.name} />
+              brandLogo={
+                document.BRAND ? (
+                  <BrandLogo brandName={document.BRAND.name} />
+                ) : undefined
               }
               gtm={{
                 id: "cta-click1",
                 label: getMicroCopy(microCopy.DOCUMENT_LIBRARY_CARD_DOWNLOAD),
                 action: document.asset.file.url
               }}
-              footer={
-                <Actions>
-                  <CopyToClipboard
-                    id={document.id}
-                    url={document.asset.file.url}
-                    size="large"
-                    title={document.title}
-                  />
-                  <Divider />
-                  <DownloadDocumentButton document={document} size="large" />
-                </Actions>
-              }
+              copyAccessibilityLabel={getMicroCopy(
+                microCopy.DOCUMENT_LIBRARY_COPY_LINK_ACCESSIBILITY_LABEL
+              )}
+              copyLinkTooltip={getMicroCopy(
+                microCopy.DOCUMENT_LIBRARY_COPY_LINK_TOOLTIP_TITLE
+              )}
+              linkCopiedTooltip={getMicroCopy(
+                microCopy.DOCUMENT_LIBRARY_LINK_COPIED_TOOLTIP_TITLE
+              )}
+              downloadAccessibilityLabel={getMicroCopy(
+                microCopy.DOCUMENT_LIBRARY_DOWNLOAD_ACCESSIBILITY_LABEL
+              )}
+              downloadTooltip={getMicroCopy(
+                microCopy.DOCUMENT_LIBRARY_DOWNLOAD_TOOLTIP_TITLE
+              )}
+              clipboardErrorMessage={getMicroCopy(
+                microCopy.COPY_LINK_ERROR_MESSAGE
+              )}
             />
           </Grid>
         );

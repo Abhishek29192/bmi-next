@@ -17,8 +17,8 @@ import {
 } from "@testing-library/react";
 import React from "react";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
+import { DataTypeEnum } from "../../../../components/link/types";
 import createImageData from "../../../../__tests__/helpers/ImageDataHelper";
-import { DataTypeEnum, NavigationData } from "../../../../components/Link";
 import { Data as SiteData } from "../../../../components/Site";
 import { Config, ConfigProvider } from "../../../../contexts/ConfigProvider";
 import ProductListerPage, {
@@ -26,6 +26,7 @@ import ProductListerPage, {
   Data as PlpPageInfoData,
   Props
 } from "../product-lister-page";
+import type { NavigationData } from "applications/dxb/head/src/components/link/types";
 
 window.alert = jest.fn();
 
@@ -617,5 +618,69 @@ describe("ProductListerPage template", () => {
     expect(window.alert).toHaveBeenCalledWith(
       "You cannot search on the preview environment."
     );
+  });
+
+  it("should render a product image if mainImage is defined", async () => {
+    const imageSrc = "example-main-image";
+    pageData.initialProducts = [
+      { ...productWithVariantAndBase, mainImage: imageSrc }
+    ];
+    renderWithStylesAndLocationProvider(pageData, pageContext, {
+      isBrandProviderEnabled: false,
+      isLegacyFiltersUsing: false
+    });
+    await screen.findByText(heroTitle);
+
+    const image = screen.getByTestId("tappable-card-media");
+    expect(image).toHaveAttribute("src", imageSrc);
+  });
+
+  it("should use the base product name as the image alt text, if defined", async () => {
+    const baseProductName = "example-base-product-name";
+    pageData.initialProducts = [
+      {
+        ...productWithVariantAndBase,
+        baseProduct: { code: "1234", name: baseProductName }
+      }
+    ];
+    renderWithStylesAndLocationProvider(pageData, pageContext, {
+      isBrandProviderEnabled: false,
+      isLegacyFiltersUsing: false
+    });
+    await screen.findByText(heroTitle);
+
+    const image = screen.getByTestId("tappable-card-media");
+    expect(image).toHaveAttribute("alt", baseProductName);
+  });
+
+  it("should use the variant product name, if the base product name is not defined, as the image alt text", async () => {
+    const variantProductName = "example-variant-product-name";
+    pageData.initialProducts = [
+      {
+        ...productWithVariantAndBase,
+        baseProduct: { code: "1234", name: undefined },
+        name: variantProductName
+      }
+    ];
+    renderWithStylesAndLocationProvider(pageData, pageContext, {
+      isBrandProviderEnabled: false,
+      isLegacyFiltersUsing: false
+    });
+    await screen.findByText(heroTitle);
+
+    const image = screen.getByTestId("tappable-card-media");
+    expect(image).toHaveAttribute("alt", variantProductName);
+  });
+
+  it("should render the product default svg if mainImage is not defined", async () => {
+    pageData.initialProducts = [
+      { ...productWithVariantAndBase, mainImage: undefined }
+    ];
+    renderWithStylesAndLocationProvider(pageData, pageContext, {
+      isBrandProviderEnabled: false,
+      isLegacyFiltersUsing: false
+    });
+    await screen.findByText(heroTitle);
+    expect(screen.getByTestId("tappable-card-media")).toMatchSnapshot();
   });
 });

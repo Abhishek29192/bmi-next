@@ -13,7 +13,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class=" css-yp2ab5"
+          class=" css-1rdonej"
           data-testid="hubspot-form-Test-form"
           id="bmi-hubspot-form-form-1"
         />
@@ -36,7 +36,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class=" css-yp2ab5"
+          class=" css-1rdonej"
           data-testid="hubspot-form-Test-form"
           id="bmi-hubspot-form-form-1"
         />
@@ -59,7 +59,7 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class=" css-yp2ab5"
+          class=" css-1rdonej"
           data-testid="hubspot-form-Test-form"
           id="bmi-hubspot-form-form-1"
         />
@@ -94,11 +94,11 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-text"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
                   for="text"
                   id="text-label"
@@ -106,7 +106,7 @@ exports[`FormSection component renders correctly 1`] = `
                   Text
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1fd4s4x-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-19nh7hx-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <input
                     aria-invalid="false"
@@ -137,11 +137,11 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-textarea"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
                   for="textarea"
                   id="textarea-label"
@@ -149,7 +149,7 @@ exports[`FormSection component renders correctly 1`] = `
                   Textarea
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline css-vk24td-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline css-16v8cbf-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <textarea
                     aria-invalid="false"
@@ -187,11 +187,11 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-email"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
                   for="email"
                   id="email-label"
@@ -199,14 +199,14 @@ exports[`FormSection component renders correctly 1`] = `
                   Email
                   <span
                     aria-hidden="true"
-                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk css-kpo12b-MuiFormLabel-asterisk"
                   >
                      
                     *
                   </span>
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1fd4s4x-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-19nh7hx-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <input
                     aria-invalid="false"
@@ -240,7 +240,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-108emsj-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -504,13 +504,13 @@ exports[`FormSection component renders correctly 1`] = `
                 class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                 >
                   Select
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1tnxenj-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1t0xxcq-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                 >
                   <div
                     aria-controls=":r3:"
@@ -557,7 +557,7 @@ exports[`FormSection component renders correctly 1`] = `
                   </fieldset>
                 </div>
                 <p
-                  class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-t5lzr8-MuiFormHelperText-root"
+                  class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-vozphu-MuiFormHelperText-root"
                 />
               </div>
             </div>
@@ -566,15 +566,15 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth css-1axd2jt-MuiFormControl-root"
               >
                 <div>
                   <label
                     for="form-1-upload"
                   >
-                    <span
+                    <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
-                      role="button"
+                      data-testid="button"
                       tabindex="0"
                       type="button"
                     >
@@ -593,7 +593,7 @@ exports[`FormSection component renders correctly 1`] = `
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </span>
+                    </button>
                   </label>
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
@@ -660,7 +660,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-108emsj-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -704,7 +704,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-108emsj-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -748,10 +748,9 @@ exports[`FormSection component renders correctly 1`] = `
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="true"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               disabled=""
               tabindex="-1"
@@ -785,24 +784,22 @@ exports[`FormSection component renders correctly 1`] = `
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>
@@ -825,7 +822,7 @@ exports[`FormSection component renders correctly for dialog 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-dialog css-yp2ab5"
+          class="FormSection-dialog css-1rdonej"
           data-testid="hubspot-form-Test-form"
           id="bmi-hubspot-form-section-1"
         />
@@ -860,7 +857,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-108emsj-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -898,12 +895,11 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                         data-testid="label-Data-Protection-Policy-anchor-link"
                         href="https://google.co.uk"
-                        rel="noopener"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         target="_blank"
                       >
-                        <span>
-                          Data Protection Policy
-                        </span>
+                        Data Protection Policy
                       </a>
                     </div>
                   </span>
@@ -915,7 +911,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-108emsj-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -953,11 +949,8 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                         data-testid="label-Another-Data-Protection-Policy-anchor-link"
                         href="https://www.bmigroup.com"
-                        target="_blank"
                       >
-                        <span>
-                          Another Data Protection Policy
-                        </span>
+                        Another Data Protection Policy
                       </a>
                     </div>
                   </span>
@@ -969,10 +962,9 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
@@ -1008,24 +1000,22 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>
@@ -1060,7 +1050,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                class="MuiFormControl-root css-108emsj-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1097,10 +1087,9 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
@@ -1136,24 +1125,22 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>
@@ -1188,11 +1175,11 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-email"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="email"
                   id="email-label"
@@ -1200,14 +1187,14 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                   Email
                   <span
                     aria-hidden="true"
-                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk css-kpo12b-MuiFormLabel-asterisk"
                   >
                      
                     *
                   </span>
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1fd4s4x-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-19nh7hx-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <input
                     aria-invalid="false"
@@ -1241,10 +1228,9 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
@@ -1280,24 +1266,22 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>
@@ -1332,11 +1316,11 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-textFieldError css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-textFieldError css-4f2n8r-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-email"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="email"
                   id="email-label"
@@ -1344,14 +1328,14 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                   Email
                   <span
                     aria-hidden="true"
-                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk Mui-error css-wgai2y-MuiFormLabel-asterisk"
+                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk Mui-error css-kpo12b-MuiFormLabel-asterisk"
                   >
                      
                     *
                   </span>
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-47wlsu-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-ap5aq2-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <input
                     aria-describedby="email-helper-text"
@@ -1369,10 +1353,9 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium TextField-error css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium TextField-error css-1lpwohh-MuiSvgIcon-root"
                       data-testid="ErrorIcon"
                       focusable="false"
-                      style="color: red;"
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -1396,7 +1379,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                   </fieldset>
                 </div>
                 <p
-                  class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled Mui-required css-t5lzr8-MuiFormHelperText-root"
+                  class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled Mui-required css-vozphu-MuiFormHelperText-root"
                   id="email-helper-text"
                 >
                   MC: errors.emailInvalid
@@ -1408,10 +1391,9 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="true"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               disabled=""
               tabindex="-1"
@@ -1445,24 +1427,22 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>
@@ -1623,10 +1603,9 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
@@ -1662,24 +1641,22 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Personvernregler
-            </span>
+            Personvernregler
           </a>
            og 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Vilkår for bruk
-            </span>
+            Vilkår for bruk
           </a>
            gjelder.
         </p>
@@ -1840,10 +1817,9 @@ exports[`FormSection component test multiply options in a checkbox group without
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
@@ -1879,24 +1855,22 @@ exports[`FormSection component test multiply options in a checkbox group without
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Personvernregler
-            </span>
+            Personvernregler
           </a>
            og 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Vilkår for bruk
-            </span>
+            Vilkår for bruk
           </a>
            gjelder.
         </p>
@@ -1931,15 +1905,15 @@ exports[`FormSection component test upload input with large file 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth css-1axd2jt-MuiFormControl-root"
               >
                 <div>
                   <label
                     for="form-1-upload"
                   >
-                    <span
+                    <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
-                      role="button"
+                      data-testid="button"
                       tabindex="0"
                       type="button"
                     >
@@ -1958,7 +1932,7 @@ exports[`FormSection component test upload input with large file 1`] = `
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </span>
+                    </button>
                   </label>
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
@@ -1997,7 +1971,7 @@ exports[`FormSection component test upload input with large file 1`] = `
                       class="Upload-fileInfoWrapper"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-10ngm3f-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-10nwr0j-MuiTypography-root"
                         data-testid="typography"
                       >
                         fileName
@@ -2011,7 +1985,7 @@ exports[`FormSection component test upload input with large file 1`] = `
                     </div>
                     <button
                       aria-label="Remove file"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1er3kcz-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-6yram3-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="file-delete"
                       tabindex="0"
                       type="button"
@@ -2040,10 +2014,9 @@ exports[`FormSection component test upload input with large file 1`] = `
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
@@ -2079,24 +2052,22 @@ exports[`FormSection component test upload input with large file 1`] = `
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>
@@ -2131,15 +2102,15 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth css-1axd2jt-MuiFormControl-root"
               >
                 <div>
                   <label
                     for="form-1-upload"
                   >
-                    <span
+                    <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
-                      role="button"
+                      data-testid="button"
                       tabindex="0"
                       type="button"
                     >
@@ -2158,7 +2129,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </span>
+                    </button>
                   </label>
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
@@ -2185,10 +2156,9 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
@@ -2224,24 +2194,22 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>
@@ -2276,15 +2244,15 @@ exports[`FormSection component test upload input with small file 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth css-1axd2jt-MuiFormControl-root"
               >
                 <div>
                   <label
                     for="form-1-upload"
                   >
-                    <span
+                    <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth css-jjjt4a-MuiButtonBase-root-MuiButton-root"
-                      role="button"
+                      data-testid="button"
                       tabindex="0"
                       type="button"
                     >
@@ -2303,7 +2271,7 @@ exports[`FormSection component test upload input with small file 1`] = `
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </span>
+                    </button>
                   </label>
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
@@ -2342,7 +2310,7 @@ exports[`FormSection component test upload input with small file 1`] = `
                       class="Upload-fileInfoWrapper"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-10ngm3f-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-10nwr0j-MuiTypography-root"
                         data-testid="typography"
                       >
                         fileName
@@ -2365,7 +2333,7 @@ exports[`FormSection component test upload input with small file 1`] = `
                     </div>
                     <button
                       aria-label="Remove file"
-                      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1er3kcz-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-6yram3-MuiButtonBase-root-MuiIconButton-root"
                       data-testid="file-delete"
                       tabindex="0"
                       type="button"
@@ -2394,10 +2362,9 @@ exports[`FormSection component test upload input with small file 1`] = `
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="children"
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="Test form"
-              data-gtm="{"id":"form-button1","label":"children","action":"Test form"}"
+              data-gtm="{"id":"form-button1","action":"Test form","label":"children"}"
               data-testid="contentful-form-section-Test-form-submit-button"
               tabindex="0"
               type="submit"
@@ -2433,24 +2400,22 @@ exports[`FormSection component test upload input with small file 1`] = `
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Privacy Policy
-            </span>
+            Privacy Policy
           </a>
            and 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Terms of Service
-            </span>
+            Terms of Service
           </a>
            apply.
         </p>

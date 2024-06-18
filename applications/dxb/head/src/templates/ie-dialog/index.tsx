@@ -55,12 +55,8 @@ const IEDialog = ({ data }: { data: { contentfulSite: SiteData } }) => {
 
           <div className={classes["IEDialog-actions"]}>
             <Button
-              action={{
-                model: "htmlLink",
-                href: ieDialogData.ieDialogActionLink,
-                target: "_blank",
-                rel: "noopener noreferrer"
-              }}
+              href={ieDialogData.ieDialogActionLink ?? undefined}
+              external
               endIcon={<ArrowForwardIcon />}
             >
               {ieDialogData.ieDialogActionLabel}

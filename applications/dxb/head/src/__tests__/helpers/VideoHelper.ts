@@ -1,5 +1,5 @@
-import { ContentfulVideoData } from "../../components/Video";
 import createImageData from "./ImageDataHelper";
+import type { ContentfulVideoData } from "../../components/video/types";
 
 const createVideoData = (
   video?: Partial<ContentfulVideoData>

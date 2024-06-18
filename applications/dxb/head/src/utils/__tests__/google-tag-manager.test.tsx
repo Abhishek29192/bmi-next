@@ -9,7 +9,7 @@ const pushToDataLayer = GTM.pushToDataLayer;
 const useGTM = GTM.useGTM;
 
 jest.mock("react", () => ({
-  ...(jest.requireActual("react") as any),
+  ...jest.requireActual("react"),
   useContext: mockContext
 }));
 
@@ -74,7 +74,9 @@ describe("withGTM", () => {
       render(<GtmComponent />);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual("No GTM data provided.");
+      if (error instanceof Error) {
+        expect(error.message).toStrictEqual("No GTM data provided {}.");
+      }
     }
   });
 

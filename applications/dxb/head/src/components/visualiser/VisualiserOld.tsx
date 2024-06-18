@@ -8,7 +8,6 @@ import SelectTile from "@bmi-digital/components/icon/SelectTile";
 import SelectWallColour from "@bmi-digital/components/icon/SelectWallColour";
 import ShareIcon from "@bmi-digital/components/icon/Share";
 import TileColour from "@bmi-digital/components/icon/TileColour";
-import Logo from "@bmi-digital/components/logo";
 import BMI from "@bmi-digital/components/logo/Bmi";
 import ToggleCard from "@bmi-digital/components/toggle-card";
 import Typography from "@bmi-digital/components/typography";
@@ -392,7 +391,6 @@ const SharePopover = ({ shareWidget }: { shareWidget: ReactNode }) => {
   return (
     <StyledSharePopover ref={shareAnchor}>
       <StyledShareButton
-        isIconButton
         variant="text"
         accessibilityLabel={getMicroCopy(
           microCopy.sharePopover.accessibilityLabel
@@ -478,10 +476,6 @@ const Visualiser = ({
     }
   }, [state, open]);
 
-  const handleOnClose = () => {
-    onClose();
-  };
-
   const handleOnClick = useCallback(
     ({
       type,
@@ -535,14 +529,17 @@ const Visualiser = ({
   return (
     <StyledContainerDialog
       open={open}
-      onCloseClick={handleOnClose}
-      onBackdropClick={handleOnClose}
+      onCloseClick={onClose}
+      onBackdropClick={onClose}
       maxWidth="xl"
       className={classes.root}
       containerClassName={classes.content}
     >
       {shareWidget && (
-        <ContainerDialog.Header className={classes.header}>
+        <ContainerDialog.Header
+          className={classes.header}
+          onCloseClick={onClose}
+        >
           <SharePopover shareWidget={shareWidget} />
         </ContainerDialog.Header>
       )}
@@ -557,12 +554,7 @@ const Visualiser = ({
             <Grid xs={10} sm={6} md={5} lg={4}>
               <Card square={true}>
                 <CardContent>
-                  <Logo
-                    source={BMI}
-                    width="60"
-                    height="60"
-                    className={classes.detailsLogo}
-                  />
+                  <BMI width="60" height="60" className={classes.detailsLogo} />
                   <Typography
                     variant="h5"
                     component="h3"
@@ -586,7 +578,7 @@ const Visualiser = ({
                             productPath: activeColour.path
                           }
                         });
-                        handleOnClose();
+                        onClose();
                       }}
                     >
                       {getMicroCopy(microCopy.readMore)}

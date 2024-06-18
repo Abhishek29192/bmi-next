@@ -98,7 +98,7 @@ export type PIMTile = {
   thicknessReduction?: number;
   invert?: boolean;
   invertY?: boolean;
-  mainImage: string;
+  mainImage?: string;
   path: string;
 };
 

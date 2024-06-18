@@ -1,4 +1,4 @@
-import {
+import type {
   Category,
   Classification,
   FeatureUnit,
@@ -26,7 +26,7 @@ export const findMainImage = (images: Image[]) => {
   if (imageSources.length && imageSources[0].mainSource) {
     return imageSources[0].mainSource;
   }
-  return "";
+  return undefined;
 };
 
 const groupImages = (images: readonly Image[]): Image[][] =>

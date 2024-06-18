@@ -1,7 +1,7 @@
 import Button from "@bmi-digital/components/button";
 import Grid from "@bmi-digital/components/grid";
 import Section from "@bmi-digital/components/section";
-import TrainingCard from "@bmi-digital/components/training-card";
+import TrainingDetailsCard from "@bmi-digital/components/training-details-card";
 import Typography from "@bmi-digital/components/typography";
 import { alpha, styled } from "@mui/material/styles";
 
@@ -14,13 +14,7 @@ export const Wrapper = styled("div")(({ theme }) => ({
   background: theme.colours.white
 }));
 
-export const TrainingInfoContainer = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down("lg")]: {
-    flexDirection: "column-reverse"
-  }
-}));
-
-export const Title = styled(Typography)({
+export const Title = styled(Typography)(({ theme }) => ({
   lineHeight: 1.2,
   "&::after": {
     marginLeft: "1px"
@@ -28,8 +22,18 @@ export const Title = styled(Typography)({
   "&>svg": {
     display: "block",
     marginBottom: "24px"
+  },
+
+  [theme.breakpoints.down("lg")]: {
+    display: "none"
   }
-});
+}));
+
+export const TrainingCode = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("lg")]: {
+    display: "none"
+  }
+}));
 
 export const CourseDescription = styled("div")(({ theme }) => ({
   margin: "1rem 0",
@@ -93,6 +97,20 @@ export const CourseDescription = styled("div")(({ theme }) => ({
 
   "& a": {
     color: theme.colours.cyan400
+  },
+
+  [theme.breakpoints.down("lg")]: {
+    margin: 0,
+    padding: "6px 0 30px",
+
+    // An alternative for :first-child as it is not SSR friendly
+    "&>*": {
+      "&:not(& + *)": {
+        marginTop: 0
+      }
+    },
+
+    "&>:last-child": { marginBottom: 0 }
   }
 }));
 
@@ -186,21 +204,19 @@ export const EnrollButton = styled(Button)({
   width: "100%"
 });
 
-export const TrainingCardFooterButton = styled(Button)({
-  width: "100%"
-});
-
 export const StyledCardGrid = styled(Grid)(({ theme }) => ({
   paddingBottom: "36px",
+  display: "none",
 
   [theme.breakpoints.up("lg")]: {
+    display: "block",
     position: "sticky",
     height: "max-content",
     paddingBottom: "30px"
   }
 }));
 
-export const StyledTrainingCard = styled(TrainingCard)({
+export const StyledTrainingCard = styled(TrainingDetailsCard)({
   height: "auto"
 });
 
@@ -214,4 +230,10 @@ export const TooltipPopper = styled("div")(({ theme }) => ({
   lineHeight: "17px",
   marginBottom: "6px",
   overflowWrap: "anywhere"
+}));
+
+export const MobileTrainingInfoGrid = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.up("lg")]: {
+    display: "none"
+  }
 }));

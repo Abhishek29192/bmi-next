@@ -7,7 +7,7 @@ import React from "react";
 import LeadBlockSection, {
   Data as LeadBlockSectionProps
 } from "../LeadBlockSection";
-import { DataTypeEnum } from "../Link";
+import { DataTypeEnum } from "../link/types";
 
 const leadBlockSectionData: LeadBlockSectionProps = {
   __typename: "ContentfulLeadBlockSection",
@@ -26,7 +26,7 @@ const leadBlockSectionData: LeadBlockSectionProps = {
     type: DataTypeEnum.Internal,
     parameters: null,
     dialogContent: null,
-    linkedPage: null,
+    linkedPage: { path: "/link-label-path" },
     hubSpotCTAID: null
   },
   postItCard: {
@@ -96,21 +96,20 @@ describe("LeadBlockSection", () => {
     expect(screen.getByText("MC: page.jumpToSection")).toBeInTheDocument();
   });
 
-  it("renders correct gtm-data for postItCard", () => {
+  it("renders correct gtm-data on the linkSectionLabel anchor link", () => {
     render(
       <ThemeProvider>
         <LeadBlockSection data={{ ...leadBlockSectionData }} />
       </ThemeProvider>
     );
-    const expectedGTMData = JSON.stringify({
-      id: "cta-click1",
-      label: "PostItCard heading-5 - PostItCard Label",
-      action: "contact-us/"
-    });
-    expect(
-      screen
-        .getByRole("button", { name: "PostItCard Label" })
-        .getAttribute("data-gtm")
-    ).toEqual(expectedGTMData);
+
+    const linkSectionLabel = screen.getByTestId(
+      "anchor-link-Link-Section-Label"
+    );
+
+    expect(linkSectionLabel).toHaveAttribute(
+      "data-gtm",
+      '{"id":"cta-click1","action":"//link-label-path/","label":"Link Section Label"}'
+    );
   });
 });

@@ -25,6 +25,7 @@ import {
   RidgeOption,
   VentilationHood
 } from "../types";
+import { devLog } from "../../../utils/devLog";
 import en from "./samples/copy/en.json";
 
 const dimensions = {
@@ -218,9 +219,8 @@ const gutterHook = createESProduct({
   ]
 });
 
-const angle = 30;
 const variant = {
-  ...transformClassificationAttributes([tile], ProductType.tile, [angle])[0],
+  ...transformClassificationAttributes([tile], ProductType.tile)[0],
   packSize: 1,
   ridgeOptions: transformClassificationAttributes([ridgeTile]) as RidgeOption[],
   ventilationHoodOptions: transformClassificationAttributes([
@@ -360,6 +360,10 @@ jest.mock("../_Results", () => {
     default: Results
   };
 });
+
+jest.mock("../../../utils/devLog", () => ({
+  devLog: jest.fn()
+}));
 
 let renderedStep: string;
 const stepProps: Record<string, StepProps> = {};
@@ -869,6 +873,35 @@ describe("PitchedRoofCalculatorSteps component", () => {
       gutterSelection
     );
     expect(mockedES).toHaveBeenCalledTimes(3);
+  });
+
+  it("logs a corresponding error if a request to get products after selecting a material fails", async () => {
+    const error = new Error("Expected error");
+    mockedES = jest
+      .spyOn(elasticSearch, "queryElasticSearch")
+      .mockRejectedValue(error);
+
+    render(
+      <PitchedRoofCalculatorSteps
+        selected={CalculatorSteps.SelectTileCategory}
+        setSelected={setSelected}
+        calculatorConfig={{
+          hubSpotFormId: "mock",
+          roofShapes: [],
+          needHelpSection: {
+            __typename: "ContentfulTitleWithContent",
+            title: "",
+            name: "",
+            content: { raw: "", references: [] }
+          }
+        }}
+      />
+    );
+    await stepProps[CalculatorSteps.SelectTileCategory].nextButtonOnClick!(
+      createFormEvent(),
+      { tileMaterial: "Clay" }
+    );
+    expect(devLog).toHaveBeenCalledWith("Failed to fetch data", error);
   });
 });
 

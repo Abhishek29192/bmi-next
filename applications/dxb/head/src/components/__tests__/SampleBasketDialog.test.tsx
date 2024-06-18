@@ -7,7 +7,6 @@ import {
   Sample
 } from "../../contexts/SampleBasketContext";
 import { local } from "../../utils/storage";
-import { getClickableActionFromUrl } from "../Link";
 import SampleBasketDialog from "../SampleBasketDialog";
 import { SiteContextProvider } from "../Site";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
@@ -115,9 +114,7 @@ describe("SampleBasketDialog component", () => {
   });
 
   it("should navigate to sample order section", () => {
-    const basketAction = getClickableActionFromUrl({
-      assetUrl: "/no/sample-basket/"
-    });
+    const basketUrl = "/no/sample-basket/";
 
     render(
       <ThemeProvider>
@@ -125,7 +122,7 @@ describe("SampleBasketDialog component", () => {
           <BasketContextProvider>
             <SampleBasketDialog
               title="Basket title"
-              basketAction={basketAction}
+              basketUrl={basketUrl}
               maximumSamples={3}
             />
           </BasketContextProvider>

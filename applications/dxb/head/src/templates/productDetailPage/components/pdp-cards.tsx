@@ -1,21 +1,27 @@
 import CTACard from "@bmi-digital/components/cta-card";
-import Grid, { GridSize } from "@bmi-digital/components/grid";
+import Grid from "@bmi-digital/components/grid";
 import Section from "@bmi-digital/components/section";
 import React from "react";
-import Image from "../../../components/Image";
-import { getCTA } from "../../../components/Link";
-import { Data as SiteData } from "../../../components/Site";
-import Video from "../../../components/Video";
+import { DefaultImage } from "@bmi-digital/components";
+import { getCTA } from "../../../components/link/utils";
+import {
+  CTACardPageInfoData,
+  CTACardPromoData
+} from "../../../components/types/CTACardTypes";
+import createImageProps from "../../../components/image/createImageProps";
+import createVideoProps from "../../../components/video/createVideoProps";
+import type { Data as SiteData } from "../../../components/Site";
+import type { Data as ResourcesData } from "../../../components/Resources";
 
-interface PdpCardsProps {
+export type PdpCardsProps = {
   resources: {
-    pdpCards: SiteData["resources"]["pdpCards"];
-    pdpCardsTitle: SiteData["resources"]["pdpCardsTitle"];
+    pdpCards: (CTACardPromoData | CTACardPageInfoData)[];
+    pdpCardsTitle: NonNullable<ResourcesData["pdpCardsTitle"]>;
   };
-  countryCode: string;
-}
+  countryCode: SiteData["countryCode"];
+};
 
-export const PdpCardsSection = ({
+const PdpCardsSection = ({
   resources: { pdpCards, pdpCardsTitle },
   countryCode
 }: PdpCardsProps) => (
@@ -35,19 +41,18 @@ export const PdpCardsSection = ({
               xs={12}
               sm={6}
               md={4}
-              lg={(12 / Math.max(cards.length, 3)) as GridSize}
+              lg={12 / Math.max(cards.length, 3)}
             >
               <CTACard
                 title={title}
                 media={
-                  featuredVideo ? (
-                    <Video {...featuredVideo} />
-                  ) : featuredMedia ? (
-                    <Image {...featuredMedia} />
-                  ) : undefined
+                  featuredVideo
+                    ? createVideoProps(featuredVideo)
+                    : createImageProps(featuredMedia) || {
+                        component: DefaultImage
+                      }
                 }
-                clickableArea={featuredVideo ? "heading" : "full"}
-                action={cta?.action}
+                {...cta}
               />
             </Grid>
           );
@@ -56,3 +61,5 @@ export const PdpCardsSection = ({
     </Grid>
   </Section>
 );
+
+export default PdpCardsSection;

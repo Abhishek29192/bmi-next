@@ -1,23 +1,22 @@
-import Button from "@bmi-digital/components/button";
 import Section from "@bmi-digital/components/section";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import Villain, { VillainProps } from "@bmi-digital/components/villain";
-import { MicroCopyValues, microCopy } from "@bmi/microcopies";
+import { microCopy, MicroCopyValues } from "@bmi/microcopies";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
-import Image from "./Image";
-import Link, { getCTA } from "./Link";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
-import Video from "./Video";
 import {
   DescriptionGrid,
   DescriptionTypoMultiLine
 } from "./styles/SyndicateSection.styles";
 
+import ButtonLink from "./link/ButtonLink";
+import createImageProps from "./image/createImageProps";
+import createVideoProps from "./video/createVideoProps";
 import type { Data as PageInfoData } from "./PageInfo";
 import type { Data as PromoData } from "./Promo";
 
@@ -52,25 +51,15 @@ const SyndicateSection = ({
       variables?: Record<string, string>
     ) => string
   ) => {
-    const cta = getCTA(
-      data,
-      countryCode,
-      getMicroCopy(microCopy.PAGE_LINK_LABEL)
-    );
-
-    if (data.__typename == "ContentfulPromo" && data.cta) {
+    if (data.cta) {
+      const label =
+        data.__typename == "ContentfulPromo"
+          ? getMicroCopy(microCopy.PAGE_LINK_LABEL)
+          : data.cta.label;
       return (
-        <Link component={Button} variant="opaqueOutlined" data={data.cta}>
-          {data.cta.label}
-        </Link>
-      );
-    }
-
-    if (cta && cta.action) {
-      return (
-        <Button action={cta.action} variant="opaqueOutlined">
-          {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
-        </Button>
+        <ButtonLink data={{ ...data.cta, label }} variant="opaqueOutlined">
+          {label}
+        </ButtonLink>
       );
     }
 
@@ -87,11 +76,15 @@ const SyndicateSection = ({
           ) : (
             transformHyphens(data.subtitle)
           ),
-          media: data.featuredVideo ? (
-            <Video {...data.featuredVideo} />
-          ) : data.featuredMedia ? (
-            <Image {...data.featuredMedia} size="cover" isMobile={isMobile} />
-          ) : undefined,
+          media: data.featuredVideo
+            ? createVideoProps(data.featuredVideo)
+            : data.featuredMedia
+              ? createImageProps({
+                  ...data.featuredMedia,
+                  size: "cover",
+                  isMobile
+                })
+              : undefined,
           cta: getCallToAction(data, countryCode, getMicroCopy)
         };
       }),

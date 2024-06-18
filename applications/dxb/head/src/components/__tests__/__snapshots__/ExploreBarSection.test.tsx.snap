@@ -14,35 +14,39 @@ exports[`ExploreBarSection component renders correctly 1`] = `
       >
         <nav
           aria-labelledby="explore-bar"
-          class="css-v7bjwn"
+          class="css-cfvaxj"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 css-ramvgg-MuiTypography-root"
             data-testid="typography"
             id="explore-bar"
           >
             Lorem ipsum
           </h2>
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1clvr55-MuiButtonBase-root-MuiButton-root"
+          <a
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+            data-gtm="{"id":"cta-click1","action":"link-to-page","label":"String"}"
+            data-testid="button"
+            href="link-to-page"
             tabindex="0"
-            type="button"
           >
-            String
+            Lorem ipsum
             <span
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1clvr55-MuiButtonBase-root-MuiButton-root"
+          </a>
+          <a
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+            data-gtm="{"id":"cta-click1","action":"link-to-page-2","label":"Another string"}"
+            data-testid="button"
+            href="link-to-page-2"
             tabindex="0"
-            type="button"
           >
-            Another string
+            Lorem ipsum
             <span
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
-          </button>
+          </a>
         </nav>
       </div>
     </div>

@@ -1,258 +1,251 @@
-import {
-  CompanyDetailProps,
-  RoofProLevel
-} from "@bmi-digital/components/company-details";
-import React from "react";
+import { CompanyDetailProps } from "@bmi-digital/components/company-details";
+import { GTM } from "@bmi-digital/components";
+import { microCopy } from "@bmi/microcopies";
 import { Service } from "..";
-import { devLog } from "../../../utils/devLog";
-import { getClickableActionFromUrl } from "../../Link";
+import { GetMicroCopy } from "../../MicroCopy";
 import { EntryTypeEnum } from "../../Service";
 import { EVENT_CAT_ID_LINK_CLICKS, GOOGLE_MAPS_URL } from "../constants";
-import { SocialMediaLinks } from "./SocialMediaLinks/SocialMediaLinks";
+import { getSocialMediaGtm } from "../utils/getSocialMediaGtm";
+import type { LatLngLiteral as GoogleLatLngLiteral } from "@bmi-digital/components/google-api";
 
 const { ROOFER_TYPE, MERCHANT_TYPE, BRANCH_TYPE } = EntryTypeEnum;
 
-interface Props {
-  (
-    sectionType: EntryTypeEnum | undefined,
-    service: Service,
-    countryCode: string,
-    localizationCb: (s: string) => string,
-    isAddressHidden: boolean,
-    googleURLLatLng: string
-  ): CompanyDetailProps[];
-}
+type GetServiceDataGTMProps = {
+  service: Service;
+  sectionType: EntryTypeEnum;
+  link: string;
+  localisedLabel: string;
+};
 
-export const createCompanyDetails: Props = (
-  sectionType,
+const getServiceDataGTM = ({
   service,
-  countryCode,
-  localizationCb,
-  isAddressHidden,
-  googleURLLatLng
-) => {
-  if (!service) {
-    return;
-  }
-
-  if (![BRANCH_TYPE, MERCHANT_TYPE, ROOFER_TYPE].includes(sectionType)) {
-    devLog("Invalid section type passed to service locator:", sectionType);
-    return [];
-  }
-  const localization = {
-    globalAddress: localizationCb("global.address"),
-    distanceLabel: localizationCb("findARoofer.distanceLabel"),
-    directionsLabel: localizationCb("findARoofer.getDirectionsLabel"),
-    globalTelephone: localizationCb("global.telephone"),
-    globalEmail: localizationCb("global.email"),
-    globalWebsite: localizationCb("global.website"),
-    faxLabel: localizationCb("global.fax"),
-    rooferWebsiteLabel: localizationCb("findARoofer.websiteLabel"),
-    merchantWebsiteLabel: localizationCb("findAMerchant.websiteLabel"),
-    branchWebsiteLabel: localizationCb("findABranch.websiteLabel"),
-    roofTypeLabel: localizationCb("findARoofer.roofTypeLabel"),
-    certificationLabel: localizationCb("findARoofer.certificationLabel"),
-    socialMediaLabel: localizationCb("findARoofer.socialMediaLabel")
-  };
-
-  const getServiceDataGTM = (action: string, linkOrButtonText?: string) => {
-    const serviceType =
-      (service.serviceTypes?.length &&
-        service.serviceTypes?.length > 0 &&
-        service.serviceTypes[0].name) ||
-      service.entryType;
-    const label = `${service.name} - ${service.address}${
-      service.certification ? ` - ${service.certification}` : ""
-    } - ${serviceType}`;
-    if (sectionType !== ROOFER_TYPE) {
-      return {
-        id: EVENT_CAT_ID_LINK_CLICKS,
-        label: `${label}${linkOrButtonText ? ` - ${linkOrButtonText}` : ""}`,
-        action
-      };
-    } else {
-      return { id: EVENT_CAT_ID_LINK_CLICKS, label, action };
-    }
-  };
-
-  const getSocialMedia = (): CompanyDetailProps | undefined => {
-    const socialMedia = [
-      service.facebook,
-      service.linkedIn,
-      service.twitter,
-      service.instagram
-    ];
-
-    if (socialMedia.every((channel) => !channel)) {
-      return;
-    }
-
+  sectionType,
+  link,
+  localisedLabel
+}: GetServiceDataGTMProps): GTM => {
+  const label = `${service.name} - ${service.address}${
+    service.certification ? ` - ${service.certification}` : ""
+  } - ${service.serviceTypes?.[0].name || service.entryType}`;
+  if (sectionType !== ROOFER_TYPE) {
     return {
-      type: "content",
-      label: localization.socialMediaLabel,
-      text: <SocialMediaLinks service={service} />
+      id: EVENT_CAT_ID_LINK_CLICKS,
+      label: `${label} - ${localisedLabel}`,
+      action: link
     };
+  }
+  return { id: EVENT_CAT_ID_LINK_CLICKS, label, action: link };
+};
+
+type GetAddressProps = {
+  service: Service;
+  getMicroCopy: GetMicroCopy;
+  sectionType: EntryTypeEnum;
+  centre?: GoogleLatLngLiteral;
+};
+
+const getAddress = ({
+  service,
+  getMicroCopy,
+  sectionType,
+  centre
+}: GetAddressProps): CompanyDetailProps["address"] => {
+  const localisedLabel = getMicroCopy(microCopy.GLOBAL_ADDRESS);
+  const link = `${GOOGLE_MAPS_URL}${
+    centre ? `${centre.lat},+${centre.lng}/` : ""
+  }${encodeURI(service.address)}/`;
+  return {
+    address: service.address,
+    link: link,
+    gtm: getServiceDataGTM({ service, sectionType, link, localisedLabel })
   };
+};
 
-  const getWebsiteLabelMicrocopy = (entryType: EntryTypeEnum) => {
-    switch (entryType) {
-      case ROOFER_TYPE:
-        return localization.rooferWebsiteLabel;
-      case MERCHANT_TYPE:
-        return localization.merchantWebsiteLabel;
-      case BRANCH_TYPE:
-        return localization.branchWebsiteLabel;
-      default:
-        return undefined;
-    }
+const getPhone = (
+  service: Service,
+  getMicroCopy: GetMicroCopy,
+  sectionType: EntryTypeEnum
+): CompanyDetailProps["phone"] => {
+  if (!service.phone) {
+    return undefined;
+  }
+
+  const localisedLabel = getMicroCopy(microCopy.GLOBAL_TELEPHONE);
+  const link = `tel:${service.phone}`;
+  return {
+    phone: service.phone,
+    label: localisedLabel,
+    gtm: getServiceDataGTM({ service, sectionType, link, localisedLabel })
   };
+};
 
-  const websiteWithProtocol: string =
-    !service.website || service.website.startsWith("http")
-      ? service.website
-      : `https://${service.website}`;
+const getEmail = (
+  service: Service,
+  getMicroCopy: GetMicroCopy,
+  sectionType: EntryTypeEnum
+): CompanyDetailProps["email"] => {
+  if (!service.email) {
+    return undefined;
+  }
 
-  const websiteLabelMicrocopy = getWebsiteLabelMicrocopy(service.entryType);
+  const localisedLabel = getMicroCopy(microCopy.GLOBAL_EMAIL);
+  const link = `mailto:${service.email}`;
+  return {
+    email: service.email,
+    label: localisedLabel,
+    gtm: getServiceDataGTM({ service, sectionType, link, localisedLabel })
+  };
+};
 
-  const actions = {
-    address: getClickableActionFromUrl({
-      url: `${GOOGLE_MAPS_URL}${googleURLLatLng}/${encodeURI(
-        service.address
-      )}/`,
-      countryCode,
-      label: localization.globalAddress,
-      gtmData: getServiceDataGTM(
-        `${GOOGLE_MAPS_URL}${googleURLLatLng}/${encodeURI(service.address)}/`,
-        localization.globalAddress
-      )
+const getWebsiteLabelMicrocopy = (
+  entryType: EntryTypeEnum,
+  getMicroCopy: GetMicroCopy
+) => {
+  switch (entryType) {
+    case ROOFER_TYPE:
+      return getMicroCopy(microCopy.FIND_A_ROOFER_WEBSITE_LABEL);
+    case MERCHANT_TYPE:
+      return getMicroCopy(microCopy.FIND_A_MERCHANT_WESBITE_LABEL);
+    case BRANCH_TYPE:
+      return getMicroCopy(microCopy.FIND_A_BRANCH_WESBITE_LABEL);
+  }
+};
+
+const getWebsite = (
+  service: Service,
+  getMicroCopy: GetMicroCopy,
+  sectionType: EntryTypeEnum
+): CompanyDetailProps["website"] => {
+  if (!service.website) {
+    return undefined;
+  }
+
+  const link = service.website.startsWith("http")
+    ? service.website
+    : `https://${service.website}`;
+
+  const localisedLabel = getWebsiteLabelMicrocopy(
+    service.entryType,
+    getMicroCopy
+  );
+  return {
+    text: service.websiteLinkAsLabel ? localisedLabel : new URL(link).hostname,
+    website: link,
+    gtm: getServiceDataGTM({
+      service,
+      sectionType,
+      link,
+      localisedLabel
     }),
-    phone: getClickableActionFromUrl({
-      url: `tel:${service.phone}`,
-      countryCode,
-      label: localization.globalTelephone,
-      gtmData: getServiceDataGTM(
-        `tel:${service.phone}`,
-        localization.globalTelephone
-      )
+    label: localisedLabel
+  };
+};
+
+const getSocialMedia = (
+  service: Service,
+  getMicroCopy: GetMicroCopy
+): CompanyDetailProps["socialMedia"] => {
+  const socialMedia = [
+    service.facebook,
+    service.linkedIn,
+    service.twitter,
+    service.instagram
+  ];
+
+  if (socialMedia.every((channel) => !channel)) {
+    return undefined;
+  }
+
+  return {
+    label: getMicroCopy(microCopy.FIND_A_ROOFER_SOCIAL_MEDIA_LABEL),
+    ...(service.facebook && {
+      facebook: {
+        handle: service.facebook,
+        gtm: getSocialMediaGtm({ channel: "facebook", service })
+      }
     }),
-    website: getClickableActionFromUrl({
-      url: websiteWithProtocol,
-      countryCode,
-      label: websiteLabelMicrocopy,
-      gtmData: getServiceDataGTM(websiteWithProtocol, websiteLabelMicrocopy)
+    ...(service.linkedIn && {
+      linkedIn: {
+        handle: service.linkedIn,
+        gtm: getSocialMediaGtm({ channel: "linkedIn", service })
+      }
     }),
-    email: getClickableActionFromUrl({
-      url: `mailto:${service.email}`,
-      countryCode,
-      label: localization.globalEmail,
-      gtmData: getServiceDataGTM(
-        `mailto:${service.email}`,
-        localization.globalEmail
-      )
+    ...(service.twitter && {
+      twitter: {
+        handle: service.twitter,
+        gtm: getSocialMediaGtm({ channel: "twitter", service })
+      }
+    }),
+    ...(service.instagram && {
+      instagram: {
+        handle: service.instagram,
+        gtm: getSocialMediaGtm({ channel: "instagram", service })
+      }
     })
   };
+};
 
-  const address = {
-    type: "address",
-    display: "contentOnly",
-    text: service.address,
-    label: localization.globalAddress,
-    action: actions.address
+const getFax = (fax: Service["fax"], getMicroCopy: GetMicroCopy) =>
+  fax
+    ? {
+        fax: fax,
+        label: getMicroCopy(microCopy.GLOBAL_FAX)
+      }
+    : undefined;
+
+const getType = (service: Service, getMicroCopy: GetMicroCopy) =>
+  service.serviceTypes && service.serviceTypes.length
+    ? {
+        label: getMicroCopy(microCopy.FIND_A_ROOFER_ROOF_TYPE_LABEL),
+        text: service.serviceTypes
+          .map((serviceType) => serviceType.name)
+          .join(", ")
+      }
+    : undefined;
+
+type CreateCompanyDetailsProps = {
+  sectionType: EntryTypeEnum;
+  service: Service;
+  getMicroCopy: GetMicroCopy;
+  centre?: GoogleLatLngLiteral;
+};
+
+export const createCompanyDetails = ({
+  sectionType,
+  service,
+  getMicroCopy,
+  centre
+}: CreateCompanyDetailsProps): CompanyDetailProps => {
+  return {
+    summary: service.summary,
+    address: getAddress({
+      service,
+      getMicroCopy,
+      sectionType,
+      centre
+    }),
+    distance:
+      typeof service.distance === "number"
+        ? {
+            text: `${Math.floor(service.distance) / 1000}km`,
+            label: getMicroCopy(microCopy.FIND_A_ROOFER_DISTANCE_LABEL)
+          }
+        : undefined,
+    phone: getPhone(service, getMicroCopy, sectionType),
+    email: getEmail(service, getMicroCopy, sectionType),
+    website: getWebsite(service, getMicroCopy, sectionType),
+    roofProLevel:
+      sectionType === ROOFER_TYPE && service.certification
+        ? {
+            label: getMicroCopy(microCopy.FIND_A_ROOFER_CERTIFICATION_LABEL),
+            level: service.certification
+          }
+        : undefined,
+    fax:
+      sectionType === BRANCH_TYPE
+        ? getFax(service.fax, getMicroCopy)
+        : undefined,
+    content:
+      sectionType === ROOFER_TYPE ? getType(service, getMicroCopy) : undefined,
+    socialMedia: getSocialMedia(service, getMicroCopy)
   };
-
-  const distance = service.distance
-    ? {
-        type: "distance",
-        display: "label",
-        text: `${Math.floor(service.distance) / 1000}km`,
-        label: localization.distanceLabel
-      }
-    : undefined;
-
-  const phone = service.phone
-    ? {
-        type: "phone",
-        display: "label",
-        text: service.phone,
-        action: actions.phone,
-        label: localization.globalTelephone
-      }
-    : undefined;
-
-  const email = service.email
-    ? {
-        type: "email",
-        display: "label",
-        text: service.email,
-        action: actions.email,
-        label: localization.globalEmail
-      }
-    : undefined;
-
-  const website = websiteWithProtocol
-    ? {
-        type: "website",
-        display: "label",
-        text: service.websiteLinkAsLabel
-          ? websiteLabelMicrocopy
-          : new URL(websiteWithProtocol).hostname,
-        action: actions.website,
-        label: localization.globalWebsite
-      }
-    : undefined;
-
-  const fax = service.fax
-    ? {
-        type: "content",
-        text: service.fax,
-        label: localization.faxLabel
-      }
-    : undefined;
-
-  const type =
-    service.serviceTypes && service.serviceTypes.length
-      ? {
-          type: "roofType",
-          label: localization.roofTypeLabel,
-          text: (
-            <b>
-              {service.serviceTypes
-                .map((serviceType) => serviceType.name)
-                .join(", ")}
-            </b>
-          )
-        }
-      : undefined;
-
-  const certification = service.certification
-    ? {
-        type: "roofProLevel",
-        label: localization.certificationLabel,
-        level: service.certification.toLowerCase() as RoofProLevel
-      }
-    : undefined;
-
-  const details = [];
-
-  if (!isAddressHidden) {
-    details.push(address);
-  }
-
-  if (sectionType === ROOFER_TYPE) {
-    details.push(certification);
-  }
-
-  details.push(distance, phone);
-
-  if (sectionType === BRANCH_TYPE) {
-    details.push(fax);
-  }
-
-  details.push(email, website, getSocialMedia());
-
-  if (sectionType === ROOFER_TYPE) {
-    details.push(type);
-  }
-
-  return details.filter((detail) => !!detail);
 };

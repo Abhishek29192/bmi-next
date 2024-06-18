@@ -1,5 +1,5 @@
-import { Link } from "gatsby";
 import React from "react";
+import AnchorLink from "@bmi-digital/components/anchor-link";
 import {
   StyledHeader,
   StyledContainer,
@@ -11,13 +11,13 @@ const BmiHeader = () => {
   return (
     <StyledHeader elevation={3} square>
       <StyledContainer>
-        <Link
-          to={
+        <AnchorLink
+          href={
             "/" + (typeof window !== "undefined" ? window.location.search : "")
           }
         >
           <StyledLogo />
-        </Link>
+        </AnchorLink>
         <StyledText variant="h5">Bitumen Flat Roof Estimator</StyledText>
       </StyledContainer>
     </StyledHeader>

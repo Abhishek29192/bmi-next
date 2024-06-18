@@ -1,10 +1,6 @@
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
+import AnchorLink from "@bmi-digital/components/anchor-link";
 import Button from "@bmi-digital/components/button";
 import DownloadList from "@bmi-digital/components/download-list";
-import { useIsClient } from "@bmi-digital/components/hooks";
-import Icon from "@bmi-digital/components/icon";
 import IconList from "@bmi-digital/components/icon-list";
 import CheckIcon from "@bmi-digital/components/icon/Check";
 import Launch from "@bmi-digital/components/icon/ExternalLink";
@@ -19,12 +15,10 @@ import React, { useRef, useState } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
 import { Product } from "../types/pim";
 import withGTM from "../utils/google-tag-manager";
-import memoize from "../utils/memoize";
 import { transformImages } from "../utils/product-details-transforms";
 import AssetsIframe from "./AssetsIframe";
 import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { getClickableActionFromUrl, isExternalUrl } from "./Link";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import { DocumentDisplayFormatType } from "./Resources";
 import RichText, { RichTextData } from "./RichText";
@@ -42,13 +36,9 @@ import {
   classes
 } from "./styles/ProductLeadBlock.styles";
 
-const StyledBlueCheckIcon = styled(Icon)(({ theme }) => ({
+const StyledBlueCheckIcon = styled(CheckIcon)(({ theme }) => ({
   color: theme.colours.accent300
 }));
-
-const BlueCheckIcon = () => {
-  return <StyledBlueCheckIcon source={CheckIcon} />;
-};
 
 type Props = {
   product: Product;
@@ -71,8 +61,6 @@ const GTMTab = withGTM<TabProps>(Tab, {
   label: "label"
 });
 
-const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
-
 const ProductLeadBlock = ({
   product,
   sidebarItems,
@@ -82,15 +70,13 @@ const ProductLeadBlock = ({
   pdpSpecificationDescription,
   documentDisplayFormat
 }: Props) => {
-  const { isClient } = useIsClient();
   const { documentDownloadMaxLimit } = useConfig();
-  const { getMicroCopy, countryCode } = useSiteContext();
+  const { getMicroCopy } = useSiteContext();
   const [page, setPage] = useState(1);
   const [documents, setDocuments] = useState(
     product.productDocuments.slice(0, 24)
   );
   const resultsElement = useRef<HTMLDivElement>(null);
-  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   const count = Math.ceil(product.productDocuments.length / DOCUMENTS_PER_PAGE);
   const handlePageChange = (_: React.ChangeEvent<unknown>, page: number) => {
@@ -123,12 +109,10 @@ const ProductLeadBlock = ({
           <LeadBlock>
             <LeadBlock.Content>
               <LeadBlock.Content.Section>
-                {isClient && (
-                  <StyledProductDescription
-                    component="div"
-                    dangerouslySetInnerHTML={{ __html: product.description }}
-                  />
-                )}
+                <StyledProductDescription
+                  component="div"
+                  dangerouslySetInnerHTML={{ __html: product.description }}
+                />
               </LeadBlock.Content.Section>
 
               {(product.guaranteesAndWarrantiesImages.length > 0 ||
@@ -156,30 +140,22 @@ const ProductLeadBlock = ({
                   {product.guaranteesAndWarrantiesLinks.length > 0 &&
                     product.guaranteesAndWarrantiesLinks.map((item, i) => (
                       <div key={`link-${i}`}>
-                        <GTMAnchorLink
-                          action={memoizedGetClickableActionFromUrl(
-                            {
-                              isSSR: !isClient,
-                              url: item.url,
-                              countryCode,
-                              label: item.name
-                            },
-                            []
-                          )}
+                        <AnchorLink
+                          href={item.url}
                           gtm={{
                             id: "cta-click1",
                             label: item.name,
                             action: item.url
                           }}
-                          iconEnd
-                          isExternal={isExternalUrl(item.url)}
+                          iconPosition="end"
+                          external
                           className={classes["inline-link"]}
                           data-testid={`guarantee-inline-link${
                             item.name ? `-${replaceSpaces(item.name)}` : ""
                           }`}
                         >
                           {item.name}
-                        </GTMAnchorLink>
+                        </AnchorLink>
                       </div>
                     ))}
                 </LeadBlock.Content.Section>
@@ -208,12 +184,8 @@ const ProductLeadBlock = ({
                       <StyledDocumentSpan key={`award-doc-${i}`}>
                         <Button
                           variant="outlined"
-                          action={{
-                            model: "htmlLink",
-                            href: item.url,
-                            target: "_blank",
-                            rel: "noopener noreferrer"
-                          }}
+                          href={item.url}
+                          external
                           endIcon={<Launch />}
                         >
                           {item.name}
@@ -238,7 +210,7 @@ const ProductLeadBlock = ({
                         {product.productBenefits.map((feature, index) => (
                           <IconList.Item
                             key={`product-benefits-${index}`}
-                            icon={BlueCheckIcon()}
+                            icon={<StyledBlueCheckIcon />}
                             title={feature}
                             isCompact
                           />

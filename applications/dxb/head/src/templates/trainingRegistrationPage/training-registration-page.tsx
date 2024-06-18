@@ -1,7 +1,8 @@
 import Section from "@bmi-digital/components/section";
-import { isDefined } from "@bmi/utils";
 import { graphql } from "gatsby";
 import React, { useMemo, useState } from "react";
+import { isDefined } from "@bmi/utils";
+import type { Training } from "@bmi/elasticsearch-types";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Page, { Data as PageData } from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
@@ -15,6 +16,56 @@ import { useRegistration } from "./hooks/useRegistration";
 import { useShowWarningModal } from "./hooks/useShowWarningModal";
 import { FormStatus, type TrainingRegistrationPageProps } from "./types";
 import type { BreadcrumbItem } from "../../types/pim";
+
+const useBreadcrumbs = (
+  contentfulTrainingRegistrationPage: TrainingRegistrationPageProps["data"]["contentfulTrainingRegistrationPage"],
+  contentfulTrainingListerPage: TrainingRegistrationPageProps["data"]["contentfulTrainingListerPage"],
+  training?: Training
+): BreadcrumbItem[] => {
+  return useMemo(() => {
+    const registrationPageBreadcrumbs = updateBreadcrumbTitleFromContentful(
+      contentfulTrainingRegistrationPage.breadcrumbs,
+      contentfulTrainingRegistrationPage.breadcrumbTitle
+    );
+    const currentPageBreadcrumb =
+      registrationPageBreadcrumbs[registrationPageBreadcrumbs.length - 1];
+
+    const trainingPageBreadcrumb: BreadcrumbItem | undefined = training && {
+      id: training.courseId.toString(),
+      label: training.courseName,
+      slug: `t/${training.courseSlug}`
+    };
+
+    const trainingListerPageBreadcrumb: BreadcrumbItem | undefined =
+      contentfulTrainingListerPage
+        ? {
+            ...contentfulTrainingListerPage.breadcrumbs[
+              contentfulTrainingListerPage.breadcrumbs.length - 1
+            ],
+            slug: contentfulTrainingListerPage.path
+          }
+        : undefined;
+
+    return [
+      trainingListerPageBreadcrumb,
+      trainingPageBreadcrumb,
+      currentPageBreadcrumb
+    ].filter(isDefined);
+  }, [
+    training,
+    contentfulTrainingRegistrationPage,
+    contentfulTrainingListerPage
+  ]);
+};
+
+const getPageData = (breadcrumbs: BreadcrumbItem[], path: string): PageData => {
+  return {
+    breadcrumbs,
+    signupBlock: null,
+    seo: { noIndex: true, metaTitle: null, metaDescription: null },
+    path
+  };
+};
 
 const TrainingRegistrationPage = ({
   data: {
@@ -32,42 +83,13 @@ const TrainingRegistrationPage = ({
     isSubmitting
   });
 
-  const breadcrumbs: BreadcrumbItem[] = useMemo(() => {
-    const currentPageBreadcrumb = [
-      ...updateBreadcrumbTitleFromContentful(
-        contentfulTrainingRegistrationPage.breadcrumbs,
-        contentfulTrainingRegistrationPage.breadcrumbTitle
-      )
-    ].pop();
-
-    const trainingPageBreadcrumb = training && {
-      id: training.courseId.toString(),
-      label: training.courseName,
-      slug: `/t/${training.courseSlug}`
-    };
-
-    const trainingListerPageBreadcrumb = contentfulTrainingListerPage && {
-      ...[...contentfulTrainingListerPage.breadcrumbs].pop(),
-      slug: contentfulTrainingListerPage.path
-    };
-
-    return [
-      trainingListerPageBreadcrumb,
-      trainingPageBreadcrumb,
-      currentPageBreadcrumb
-    ].filter(isDefined);
-  }, [
-    training,
+  const breadcrumbs = useBreadcrumbs(
     contentfulTrainingRegistrationPage,
-    contentfulTrainingListerPage
-  ]);
+    contentfulTrainingListerPage,
+    training
+  );
 
-  const pageData: PageData = {
-    breadcrumbs,
-    signupBlock: null,
-    seo: { noIndex: true, metaTitle: null, metaDescription: null },
-    path
-  };
+  const pageData = getPageData(breadcrumbs, path);
 
   return (
     <Page

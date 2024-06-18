@@ -1,35 +1,41 @@
-import { useIsClient } from "@bmi-digital/components";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Button from "@bmi-digital/components/button";
+import { useIsClient } from "@bmi-digital/components/hooks";
 import HeaderComponent from "@bmi-digital/components/header";
 import HidePrint from "@bmi-digital/components/hide-print";
+import IconButton from "@bmi-digital/components/icon-button";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import { RegionCode } from "@bmi-digital/components/language-selection";
-import { TabProps } from "@bmi-digital/components/tabs";
 import { microCopy } from "@bmi/microcopies";
-import Tab from "@mui/material/Tab";
-import { Link, graphql, withPrefix } from "gatsby";
+import { graphql, Link, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
 import AuthService from "../auth/service";
-import Image from "../components/Image";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import useAuth from "../hooks/useAuth";
 import { constructUrlWithPrevPage } from "../templates/myAccountPage/utils";
 import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
-import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
+import { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
+import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
+import Image from "./image/Image";
 import Icon from "./Icon";
-import {
+import RichText from "./RichText";
+import SampleBasketDialog from "./SampleBasketDialog";
+import { Data as SiteData, useSiteContext } from "./Site";
+import { getCTA } from "./link/utils";
+import type { RichTextData } from "./RichText";
+import type { IconButtonProps } from "@bmi-digital/components/icon-button";
+import type { ButtonProps } from "@bmi-digital/components/button";
+import type { Data as PageInfoData } from "./PageInfo";
+import type {
   Data as LinkData,
   NavigationData,
-  NavigationItem,
-  getCTA
-} from "./Link";
-import { Data as PageInfoData } from "./PageInfo";
-import RichText, { RichTextData } from "./RichText";
-import SampleBasketDialog from "./SampleBasketDialog";
-import { useSiteContext } from "./Site";
+  NavigationItem
+} from "./link/types";
 import type { GetMicroCopy } from "./MicroCopy";
+import type { NavigationList } from "@bmi-digital/components/navigation";
+import type { Data as PromoData } from "./Promo";
+import type { HeaderProps } from "@bmi-digital/components/header";
 
 type ParseNavigationProps = {
   navigationItems: (NavigationData | NavigationItem | LinkData)[];
@@ -38,7 +44,14 @@ type ParseNavigationProps = {
   isClient?: boolean;
 };
 
-const getPromoSection = (promo, countryCode, getMicroCopy) => {
+type GetPromoSectionProps = {
+  promo: PromoData;
+  countryCode: SiteData["countryCode"];
+  getMicroCopy: GetMicroCopy;
+};
+
+const getPromoSection = (props: GetPromoSectionProps) => {
+  const { promo, countryCode, getMicroCopy } = props;
   const cta = getCTA(
     promo,
     countryCode,
@@ -54,8 +67,42 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
     },
     { label: promo.title || promo.name, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),
-    ...(cta ? [cta] : [])
+    ...(cta ? [{ label: promo.cta?.label || promo.name, action: cta }] : [])
   ];
+};
+
+const useHeaderAuthData = () => {
+  const { isLoginEnabled } = useConfig();
+  const { isLoggedIn, profile } = useAuth();
+  const { getMicroCopy, accountPage, countryCode } = useSiteContext();
+
+  const authHeaderProps: HeaderProps["auth"] = useMemo(() => {
+    if (!isLoginEnabled || !accountPage) {
+      return;
+    }
+
+    return {
+      isLoggedIn: Boolean(isLoggedIn && profile),
+      myAccountBtnLabel: getMicroCopy(microCopy.MY_ACCOUNT_LABEL),
+      myAccountBtnAction: {
+        to: getPathWithCountryCode(countryCode, accountPage?.slug),
+        component: Link
+      },
+      loginBtnLabel: getMicroCopy(microCopy.LOG_IN_LABEL_BTN),
+      loginButtonAction: { onClick: AuthService.login },
+      logoutBtnLabel: getMicroCopy(microCopy.LOG_OUT_LABEL_BTN),
+      logoutButtonAction: { onClick: AuthService.logout }
+    };
+  }, [
+    isLoggedIn,
+    profile,
+    getMicroCopy,
+    isLoginEnabled,
+    accountPage,
+    countryCode
+  ]);
+
+  return authHeaderProps;
 };
 
 const parseNavigation = ({
@@ -63,7 +110,7 @@ const parseNavigation = ({
   countryCode,
   getMicroCopy,
   isClient
-}: ParseNavigationProps) => {
+}: ParseNavigationProps): NavigationList[] => {
   if (!navigationItems || navigationItems.length === 0) {
     return [];
   }
@@ -83,9 +130,13 @@ const parseNavigation = ({
         ...(promos &&
           promos.length && {
             footer: promos.flatMap((promo) =>
-              getPromoSection(promo, countryCode, getMicroCopy)
+              getPromoSection({ promo, countryCode, getMicroCopy })
             )
-          })
+          }),
+        gtm: {
+          id: "nav-main-menu",
+          label: label
+        }
       };
 
       return result.concat(navItem);
@@ -125,9 +176,8 @@ const parseNavigation = ({
 
       if (linkedPage) {
         action = {
-          model: "routerLink",
           to: getPathWithCountryCode(countryCode, linkedPage.path),
-          linkComponent: Link
+          component: Link
         };
       } else if (url) {
         const href =
@@ -135,7 +185,6 @@ const parseNavigation = ({
             ? constructUrlWithPrevPage(url)
             : url;
         action = {
-          model: "htmlLink",
           href
         };
       }
@@ -144,27 +193,18 @@ const parseNavigation = ({
         label,
         ...(iconName && { icon: <Icon name={iconName} /> }),
         isLabelHidden,
-        action
+        action,
+        gtm: {
+          id: "nav-main-menu",
+          label: label,
+          action: stringifyToObject(action?.to) || action?.href
+        }
       });
     }
 
     return result;
   }, []);
 };
-
-const GTMSearchButton = withGTM<ButtonProps>(Button, {
-  label: "accessibilityLabel"
-});
-const GTMNavigationButton = withGTM<ButtonProps>(Button, {
-  label: "children"
-});
-const GTMNavigationTab = withGTM<TabProps>(Tab, {
-  label: "label"
-});
-const GTMNavigationUtilityButton = withGTM<ButtonProps>(Button, {
-  label: "children"
-});
-const GTMCloseButton = withGTM<ButtonProps>(Button);
 
 const onCountrySelection = (label: string, code: string) =>
   pushToDataLayer({ id: "nav-country-selector", label: label, action: code });
@@ -219,22 +259,21 @@ const Header = ({
   const language = useMemo(
     () =>
       languages
-        .reduce((acc, { menu }) => acc.concat(menu), [])
+        .reduce<(typeof languages)[0]["menu"]>(
+          (acc, { menu }) => acc.concat(menu),
+          []
+        )
         .find((l) => l.code === countryCode),
     [languages, countryCode]
   );
 
-  const { getMicroCopy, accountPage } = useSiteContext();
-  const {
-    isGatsbyDisabledElasticSearch,
-    isSampleOrderingEnabled,
-    isLoginEnabled
-  } = useConfig();
+  const { getMicroCopy } = useSiteContext();
+  const { isGatsbyDisabledElasticSearch, isSampleOrderingEnabled } =
+    useConfig();
   const {
     basketState: { products: productsInBasket }
   } = useBasketContext();
-
-  const { isLoggedIn, profile } = useAuth();
+  const authHeaderProps = useHeaderAuthData();
 
   if (!navigationData || !utilitiesData) {
     return null;
@@ -247,43 +286,6 @@ const Header = ({
     isClient
   });
 
-  if (isLoginEnabled) {
-    if (isLoggedIn && profile) {
-      utilities.push(
-        {
-          label: getMicroCopy(microCopy.MY_ACCOUNT_LABEL),
-          action: {
-            model: "routerLink",
-            to: getPathWithCountryCode(countryCode, accountPage?.slug),
-            linkComponent: Link,
-            "data-testid": "my-acc"
-          }
-        },
-        {
-          label: getMicroCopy(microCopy.LOG_OUT_LABEL_BTN),
-          action: {
-            model: "default",
-            onClick: () => {
-              AuthService.logout();
-            },
-            "data-testid": "logout"
-          }
-        }
-      );
-    } else {
-      utilities.push({
-        label: getMicroCopy(microCopy.LOG_IN_LABEL_BTN),
-        action: {
-          model: "default",
-          onClick: () => {
-            AuthService.login();
-          },
-          "data-testid": "login"
-        }
-      });
-    }
-  }
-
   const navigation = parseNavigation({
     navigationItems: navigationData.links,
     countryCode,
@@ -291,9 +293,9 @@ const Header = ({
     isClient
   });
 
-  const basketCta =
+  const basketUrl =
     sampleBasketLink &&
-    getCTA(sampleBasketLink, countryCode, sampleBasketLink?.slug);
+    getPathWithCountryCode(countryCode, sampleBasketLink.slug);
 
   const newActiveLabel =
     checkIfActiveLabelInParentNode(lastNavigationLabel, navigationData) ||
@@ -315,24 +317,22 @@ const Header = ({
           utilities={utilities}
           navigation={navigation}
           logoAction={{
-            model: "routerLink",
-            linkComponent: Link,
+            component: Link,
             to: getPathWithCountryCode(countryCode, "")
           }}
           logoLabel={getMicroCopy(microCopy.GLOBAL_LOGO_LABEL)}
           activeNavLabel={newActiveLabel}
           closeLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
-          tabComponent={(props: TabProps) => (
-            <GTMNavigationTab gtm={{ id: "nav-main-menu" }} {...props} />
-          )}
-          searchButtonComponent={(props: ButtonProps) => (
-            <GTMSearchButton gtm={{ id: "search1" }} {...props} />
-          )}
+          searchGtm={{
+            id: "search1",
+            label: getMicroCopy(microCopy.SEARCH_LABEL)
+          }}
           navUtilityLinkButton={(props: ButtonProps) => (
-            <GTMNavigationUtilityButton
+            <Button
               gtm={{
                 id: "nav-top-utilities-bar",
-                action: props["action"]?.to || props["action"]?.href
+                action: stringifyToObject(props.to) || props.href,
+                label: React.Children.toArray(props.children).join("")
               }}
               {...props}
             />
@@ -344,7 +344,7 @@ const Header = ({
               ? (props: { toggleCart: () => void }) => (
                   <SampleBasketDialog
                     title={sampleBasketLink.sections[0].title}
-                    basketAction={basketCta?.action}
+                    basketUrl={basketUrl}
                     maximumSamples={maximumSamples}
                     {...props}
                   />
@@ -352,10 +352,10 @@ const Header = ({
               : null
           }
           navigationButtonComponent={(props: ButtonProps) => (
-            <GTMNavigationButton
+            <Button
               gtm={{
                 id: "nav-main-menu",
-                action: props["action"]?.["to"], // TODO: Fix this when we fix the withClickable lack of typing
+                action: stringifyToObject(props.to),
                 label:
                   typeof props.children !== "string"
                     ? props.accessibilityLabel
@@ -364,7 +364,7 @@ const Header = ({
               {...props}
             />
           )}
-          promoButtonComponent={(props: ButtonProps) => (
+          promoButtonComponent={({ startIcon, ...props }: ButtonProps) => (
             <Button
               {...props}
               variant="outlined"
@@ -373,8 +373,8 @@ const Header = ({
               style={{ marginLeft: 16, marginBottom: 15 }}
             />
           )}
-          closeButtonComponent={(props: ButtonProps) => (
-            <GTMCloseButton
+          closeButtonComponent={(props: IconButtonProps) => (
+            <IconButton
               gtm={{
                 id: "nav-country-selector",
                 label: "close panel",
@@ -392,6 +392,7 @@ const Header = ({
           openLabel={getMicroCopy(microCopy.MENU_OPEN)}
           mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
           mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
+          auth={authHeaderProps}
         />
       )}
     />

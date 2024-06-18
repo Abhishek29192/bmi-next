@@ -3,15 +3,19 @@ import MediaGallery, { MediaData } from "@bmi-digital/components/media-gallery";
 import ProductOverviewPane, {
   ProductOverviewPaneProps
 } from "@bmi-digital/components/product-overview-pane";
+import DefaultImage from "@bmi-digital/components/resources/DefaultImage";
+import Tag from "@bmi-digital/components/tag";
 import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
 import { microCopy } from "@bmi/microcopies";
-import { GoodBetterBest } from "@bmi/pim-types";
 import React, { useContext } from "react";
+import type { GoodBetterBest } from "@bmi/pim-types";
 import { useConfig } from "../contexts/ConfigProvider";
-import DefaultImage from "../images/DefaultImage.svg";
+import {
+  getLevel,
+  goodBetterBestLabels
+} from "../utils/getGoodBetterBestLabel";
 import withGTM from "../utils/google-tag-manager";
 import BrandLogo from "./BrandLogo";
-import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
 import {
@@ -24,7 +28,7 @@ export type Data = {
   name: string;
   brandCode?: string;
   nobb: string | null;
-  images: readonly MediaData[];
+  images: readonly MediaData[] | null;
   attributes: ProductOverviewPaneProps["attributes"] | null;
   variantCode: string;
   isRecaptchaShown?: boolean;
@@ -107,9 +111,9 @@ const ProductOverview = ({
   };
 
   const visualiserMedia = getVisualiserMedia();
-  const media: MediaData[] = [...images, ...videos];
+  const media: MediaData[] = [...(images || []), ...(videos || [])];
 
-  if (visualiserMedia) {
+  if (visualiserMedia && images) {
     media.push({
       ...visualiserMedia,
       ...images[0]
@@ -117,7 +121,7 @@ const ProductOverview = ({
   }
 
   if (media.length === 0) {
-    media.push({ media: <DefaultImage /> });
+    media.push({ media: { component: DefaultImage } });
   }
 
   return (
@@ -133,12 +137,23 @@ const ProductOverview = ({
             videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
             visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
             visualiserText={getMicroCopy(microCopy.MEDIA_VISUALIZER_TEXT)}
-            tag={<GoodBetterBestIndicator indicatorType={goodBetterBest} />}
+            tag={
+              goodBetterBest && (
+                <Tag
+                  level={getLevel(goodBetterBest)}
+                  // eslint-disable-next-line security/detect-object-injection
+                  label={getMicroCopy(goodBetterBestLabels[goodBetterBest])}
+                  rounded
+                />
+              )
+            }
           />
         </Grid>
         <Grid xs={12} md={12} lg={4}>
           <ProductOverviewPane
-            brandLogo={<BrandLogo brandName={brandCode} />}
+            brandLogo={
+              brandCode ? <BrandLogo brandName={brandCode} /> : undefined
+            }
             name={name}
             nobb={nobb}
             thumbnailComponent={(props: ThumbnailProps) => (

@@ -76,8 +76,8 @@ describe("404 page tests", () => {
 
       const errorPageData = {
         ...errorData,
-        title: null,
-        subtitle: null,
+        title: undefined,
+        subtitle: undefined,
         cta: {
           ...errorData.cta,
           label: null

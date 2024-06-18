@@ -1,59 +1,29 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render } from "@testing-library/react";
 import React from "react";
-import createImageData from "../../../__tests__/helpers/ImageDataHelper";
-import { Data as PageInfoData } from "../../../components/PageInfo";
-import { Data as PromoData } from "../../../components/Promo";
-import { ContentfulVideoData } from "../../../components/Video";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import { PdpCardsSection } from "../components/pdp-cards";
+import PdpCardsSection from "../components/pdp-cards";
+import createVideoData from "../../../__tests__/helpers/VideoHelper";
+import createImageData from "../../../__tests__/helpers/ImageDataHelper";
+import { createInternalLinkData } from "../../../__tests__/helpers/LinkHelper";
 
-const { resources: mockResources, countryCode } = createMockSiteData();
-
-const createMockVideo = (
-  mockVideo?: Partial<ContentfulVideoData>
-): ContentfulVideoData => ({
-  __typename: "ContentfulVideo",
-  title: "",
-  label: "mockLabel",
-  subtitle: null,
-  videoUrl: "https://www.youtube.com/watch?v=testId",
-  videoRatio: null,
-  previewMedia: null,
-  defaultYouTubePreviewImage: "https://i.ytimg.com/vi/testId/maxresdefault.jpg",
-  ...mockVideo
-});
-
-const createCard = (includeVideo = false): PromoData | PageInfoData => {
-  return {
-    __typename: "ContentfulProductListerPage",
-    id: "4f6c8de7-22be-5631-b334-024ca098ae57",
-    title: "Zanda Arktis ",
-    subtitle:
-      "Zanda Arctic is our most durable concrete roof tile. To make the roof tile really durable and resistant to weather and wind, we have cast in quartz and color pigments. Then we painted it twice.",
-    brandLogo: "Zanda",
-    slug: "zanda-arktis",
-    path: "zanda-arktis/",
-    tags: null,
-    featuredVideo: includeVideo && createMockVideo(),
-    featuredMedia: createImageData(),
-    date: "",
-    rawDate: null
-  };
-};
+const { countryCode } = createMockSiteData();
+const pdpCardsTitle = "example-pdp-cards-title";
 
 describe("PdpCardsSection", () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-  it("should render correctly", () => {
-    const card = createCard();
+  it("renders the video component when a featuredVideo is defined (Promo Data)", () => {
     const { baseElement } = render(
       <ThemeProvider>
         <PdpCardsSection
           resources={{
-            pdpCards: [card],
-            pdpCardsTitle: mockResources!.pdpCardsTitle
+            pdpCards: [
+              {
+                title: "Promo Card with Video",
+                featuredVideo: createVideoData(),
+                path: "promo-video/"
+              }
+            ],
+            pdpCardsTitle: pdpCardsTitle
           }}
           countryCode={countryCode}
         />
@@ -62,14 +32,19 @@ describe("PdpCardsSection", () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it("should render CTACard with video", () => {
-    const card = createCard(true);
+  it("renders the image component when a featuredImage is defined (PageInfo Data)", () => {
     const { baseElement } = render(
       <ThemeProvider>
         <PdpCardsSection
           resources={{
-            pdpCards: [card],
-            pdpCardsTitle: mockResources!.pdpCardsTitle
+            pdpCards: [
+              {
+                title: "PageInfo Card with Image",
+                featuredMedia: createImageData(),
+                cta: createInternalLinkData()
+              }
+            ],
+            pdpCardsTitle: pdpCardsTitle
           }}
           countryCode={countryCode}
         />

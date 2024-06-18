@@ -1,4 +1,5 @@
 import { styled } from "@mui/material/styles";
+import { classes as embeddedLinkClasses } from "./EmbeddedLink.styles";
 
 const PREFIX = "RichText";
 export const classes = {
@@ -17,7 +18,7 @@ export const StyledRichText = styled("div")(({ theme }) => ({
       marginLeft: "8px"
     },
 
-    "& .embeddedLink": {
+    [`& .${embeddedLinkClasses.embeddedLink}`]: {
       display: "block",
       width: "max-content",
       maxWidth: "100%"

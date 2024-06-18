@@ -1,7 +1,3 @@
-# Settings in the [build] context are global and are applied to all contexts
-# unless otherwise overridden by more specific contexts.
-
-
 # if no redirects are found, fall back to relevant root page
 
 [[redirects]]

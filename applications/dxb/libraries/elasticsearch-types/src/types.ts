@@ -1,4 +1,4 @@
-import { CourseType } from "@bmi/docebo-types";
+import { CategoryType, CourseType } from "@bmi/docebo-types";
 import type {
   ApprovalStatus,
   Asset,
@@ -22,17 +22,16 @@ export type ProductReference = ReferenceTarget & {
   type: ProductReferenceType;
 };
 
+export type Distance = {
+  value: number;
+  unit: string;
+};
+
 export type BattenSpacing = {
   minAngle: number;
   maxAngle: number;
-  battenDistance: {
-    value: number;
-    unit: string;
-  };
-  firstRowBattenDistance: {
-    value: number;
-    unit: string;
-  };
+  battenDistance: Distance;
+  firstRowBattenDistance: Distance;
 };
 
 export type Product = {
@@ -54,7 +53,7 @@ export type Product = {
   productScoringWeightInt: number;
   variantScoringWeightInt: number;
   totalVariantCount: number;
-  mainImage: string;
+  mainImage?: string;
   path: string;
   subTitle: string;
   productReferences?: ProductReference[];
@@ -187,10 +186,10 @@ export type Training = {
   courseId: number;
   courseName: string;
   courseSlug: string;
-  courseCode?: string;
+  courseCode: string;
   courseType: CourseType;
   courseImg?: string;
-  category: string;
+  category: CategoryType;
   onSale: boolean;
   price: number;
   currency: string;

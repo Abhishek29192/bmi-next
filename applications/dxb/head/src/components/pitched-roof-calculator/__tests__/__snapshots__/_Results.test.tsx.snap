@@ -562,7 +562,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alert css-18zndtv"
+        class="ColorPair-alert css-10qwebg"
         data-testid="alert-banner"
       >
         <div
@@ -600,7 +600,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alabaster css-18zndtv"
+        class="ColorPair-alabaster css-10qwebg"
         data-testid="alert-banner"
       >
         <div
@@ -1203,7 +1203,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alert css-18zndtv"
+        class="ColorPair-alert css-10qwebg"
         data-testid="alert-banner"
       >
         <div
@@ -1241,7 +1241,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alabaster css-18zndtv"
+        class="ColorPair-alabaster css-10qwebg"
         data-testid="alert-banner"
       >
         <div
@@ -1870,7 +1870,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alert css-18zndtv"
+        class="ColorPair-alert css-10qwebg"
         data-testid="alert-banner"
       >
         <div
@@ -1908,7 +1908,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alabaster css-18zndtv"
+        class="ColorPair-alabaster css-10qwebg"
         data-testid="alert-banner"
       >
         <div
@@ -2461,7 +2461,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alert css-18zndtv"
+        class="ColorPair-alert css-10qwebg"
         data-testid="alert-banner"
       >
         <div
@@ -2499,7 +2499,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alabaster css-18zndtv"
+        class="ColorPair-alabaster css-10qwebg"
         data-testid="alert-banner"
       >
         <div
@@ -3002,7 +3002,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alert css-18zndtv"
+        class="ColorPair-alert css-10qwebg"
         data-testid="alert-banner"
       >
         <div
@@ -3040,7 +3040,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       class="Alert-first css-16vbf92"
     >
       <div
-        class="ColorPair-alabaster css-18zndtv"
+        class="ColorPair-alabaster css-10qwebg"
         data-testid="alert-banner"
       >
         <div

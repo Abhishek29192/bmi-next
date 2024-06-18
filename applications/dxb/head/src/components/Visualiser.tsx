@@ -13,17 +13,17 @@ import ShareWidgetSection, {
 } from "./ShareWidgetSection";
 import { useSiteContext } from "./Site";
 import { HouseType, Tile } from "./visualiser/Types";
-import { Parameters } from "./visualiser/Visualiser";
 import no from "./visualiser/data/copy/no.json";
 import sidingsSetData from "./visualiser/data/sidings.json";
 import tilesSetData from "./visualiser/data/tiles.json";
+import type { Parameters } from "./visualiser/Visualiser";
 
 const Visualiser = React.lazy(() => import("./visualiser/Visualiser"));
 const VisualiserOld = React.lazy(() => import("./visualiser/VisualiserOld"));
 
 type Context = {
   isOpen: boolean;
-  open?: (params?: Record<string, unknown>) => void;
+  open?: (params: Record<string, unknown> | null) => void;
 };
 
 const GtmEventsMap = {

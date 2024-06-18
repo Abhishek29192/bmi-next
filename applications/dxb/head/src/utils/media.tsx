@@ -1,9 +1,10 @@
-import { MediaData } from "@bmi-digital/components/media-gallery";
-import React from "react";
-import Image, { Data as ImageData } from "../components/Image";
-import Video, { Data as VideoData } from "../components/Video";
+import createImageProps from "../components/image/createImageProps";
+import createVideoProps from "../components/video/createVideoProps";
+import type { MediaData } from "@bmi-digital/components/media-gallery";
+import type { Data as ImageData } from "../components/image/types";
+import type { Data as VideoData } from "../components/video/types";
 
-export const getJpgImage = (ogImageUrl?: string) => {
+export const getJpgImage = (ogImageUrl?: string): string | undefined => {
   if (
     ogImageUrl?.includes("//images.ctfassets.net/") &&
     !ogImageUrl.includes("fm=")
@@ -46,7 +47,7 @@ export const transformMediaSrc = (
     switch (item.__typename) {
       case "ContentfulImage":
         return {
-          media: <Image {...item} />,
+          media: createImageProps(item),
           thumbnail: item.image.thumbnail?.images.fallback?.src,
           caption: item.caption?.caption || undefined,
           altText: item.altText || undefined,
@@ -54,7 +55,7 @@ export const transformMediaSrc = (
         };
       case "ContentfulVideo":
         return {
-          media: <Video {...item} />,
+          media: createVideoProps(item),
           thumbnail:
             item.previewMedia?.image?.thumbnail?.images.fallback?.src ||
             item.defaultYouTubePreviewImage,
@@ -64,7 +65,7 @@ export const transformMediaSrc = (
         };
       case "PimVideo":
         return {
-          media: <Video {...item} />,
+          media: createVideoProps(item),
           thumbnail: item.defaultYouTubePreviewImage,
           caption: item.title || undefined,
           isVideo: true

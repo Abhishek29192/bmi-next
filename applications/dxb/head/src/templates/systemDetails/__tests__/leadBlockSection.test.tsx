@@ -9,7 +9,7 @@ import {
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { renderWithProviders } from "../../../__tests__/renderWithProviders";
-import { DataTypeEnum, Data as LinkData } from "../../../components/Link";
+import { DataTypeEnum, Data as LinkData } from "../../../components/link/types";
 import LeadBlockSection from "../leadBlockSection";
 
 const leadBlockSectionName = "lead Block section";

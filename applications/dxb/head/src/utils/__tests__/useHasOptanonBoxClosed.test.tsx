@@ -1,4 +1,3 @@
-import * as hooks from "@bmi-digital/components/hooks";
 import { CookieHookOptions } from "@lilib/hooks";
 import { renderHook } from "@testing-library/react-hooks";
 import { useHasOptanonBoxClosed } from "../../utils/useHasOptanonBoxClosed";
@@ -13,9 +12,6 @@ jest.mock("@lilib/hooks", () => ({
   ) => useCookie(name, options)
 }));
 
-const useClientSpy = jest.spyOn(hooks, "useIsClient");
-useClientSpy.mockImplementation(() => ({ isClient: true, key: "" }));
-
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
@@ -24,8 +20,6 @@ beforeEach(() => {
 describe("when isClient = true", () => {
   describe("And configuredCookieClasses is an empty list", () => {
     it("should return hasAcceptedOptanonCookie = true", async () => {
-      useClientSpy.mockImplementation(() => ({ isClient: true, key: "" }));
-
       const configuredClasses = [] as string[];
       const { result } = renderHook(() =>
         useHasOptanonBoxClosed(configuredClasses)
@@ -42,7 +36,6 @@ describe("when isClient = true", () => {
           "2023-04-03T16:44:45.955Z",
           () => ""
         ]);
-        useClientSpy.mockImplementation(() => ({ isClient: true, key: "" }));
 
         const configuredClasses = ["CC001"];
         const { result } = renderHook(() =>
@@ -57,7 +50,6 @@ describe("when isClient = true", () => {
     describe("And OptanonAlertBoxClosed cookie returns empty value", () => {
       it("should return hasAcceptedOptanonCookie = false", async () => {
         useCookie.mockImplementation(() => ["", () => ""]);
-        useClientSpy.mockImplementation(() => ({ isClient: true, key: "" }));
 
         const configuredClasses = ["CC001"];
         const { result } = renderHook(() =>
@@ -68,14 +60,5 @@ describe("when isClient = true", () => {
         expect(hasAcceptedOptanonCookie).toEqual(false);
       });
     });
-  });
-});
-
-describe("when isClient = false", () => {
-  it("should return hasAcceptedOptanonCookie = false", async () => {
-    useClientSpy.mockImplementation(() => ({ isClient: false, key: "" }));
-    const { result } = renderHook(() => useHasOptanonBoxClosed([]));
-    const { hasAcceptedOptanonCookie } = result.current;
-    expect(hasAcceptedOptanonCookie).toEqual(false);
   });
 });

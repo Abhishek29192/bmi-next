@@ -1,15 +1,16 @@
-import { Calender, Price } from "@bmi-digital/components/icon";
+import Calender from "@bmi-digital/components/icon/Calender";
+import TollOutlined from "@bmi-digital/components/icon/TollOutlined";
 import Section from "@bmi-digital/components/section";
-import {
-  trainingCategoriesIcon,
-  trainingTypeIcon
-} from "@bmi-digital/components/training-card";
 import { Training } from "@bmi/elasticsearch-types";
-import { MicroCopyValues, microCopy } from "@bmi/microcopies";
+import { microCopy } from "@bmi/microcopies";
 import React from "react";
 import { useSiteContext } from "../../../components/Site";
-import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
+import { trainingCategoriesIcon } from "../../../constants/trainingCategoriesIcon";
+import { trainingTypeIcon } from "../../../constants/trainingTypeIcon";
+import { trainingCategoryMicroCopies } from "../../../constants/trainingCategoryMicroCopies";
+import { trainingTypeMicroCopies } from "../../../constants/trainingTypeMicroCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
+import { getPriceLabel } from "../../../utils/trainingUtils";
 import {
   StyledIcon,
   TrainingDataContainer,
@@ -26,11 +27,10 @@ type Props = {
 const TrainingRegistrationHeader = ({ training }: Props) => {
   const {
     courseName,
-    courseId,
+    courseCode,
     courseType,
     category,
     currencySymbol,
-    onSale,
     startDate,
     price
   } = training;
@@ -56,9 +56,9 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
       <TrainingDataContainer>
         <TrainingDetailContainer>
           <TrainingLabel>
-            {getMicroCopy(microCopy.TRAINING_ID_LABEL)}
+            {getMicroCopy(microCopy.TRAINING_CODE_LABEL)}
           </TrainingLabel>
-          <TrainingDesc data-testid="training-id">{courseId}</TrainingDesc>
+          <TrainingDesc data-testid="training-code">{courseCode}</TrainingDesc>
         </TrainingDetailContainer>
         <TrainingSeparation />
         <TrainingDetailContainer>
@@ -66,10 +66,10 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
             {getMicroCopy(microCopy.FILTER_LABELS_CATEGORY)}
           </TrainingLabel>
           <TrainingDesc data-testid="training-category">
-            <StyledIcon
-              source={trainingCategoriesIcon[category.toUpperCase()]}
-            />
-            {getMicroCopy(trainingCategoryMicroCopies[category.toUpperCase()])}
+            {/* eslint-disable-next-line security/detect-object-injection */}
+            <StyledIcon source={trainingCategoriesIcon[category]} />
+            {/* eslint-disable-next-line security/detect-object-injection */}
+            {getMicroCopy(trainingCategoryMicroCopies[category])}
           </TrainingDesc>
         </TrainingDetailContainer>
         <TrainingSeparation />
@@ -78,8 +78,10 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
             {getMicroCopy(microCopy.TRAINING_REGISTRATION_TYPE)}
           </TrainingLabel>
           <TrainingDesc data-testid="training-type">
-            <StyledIcon source={trainingTypeIcon[String(courseType)]} />
-            {getMicroCopy(`trainingType.${courseType}` as MicroCopyValues)}
+            {/* eslint-disable-next-line security/detect-object-injection */}
+            <StyledIcon source={trainingTypeIcon[courseType]} />
+            {/* eslint-disable-next-line security/detect-object-injection */}
+            {getMicroCopy(trainingTypeMicroCopies[courseType])}
           </TrainingDesc>
         </TrainingDetailContainer>
         <TrainingSeparation />
@@ -88,10 +90,12 @@ const TrainingRegistrationHeader = ({ training }: Props) => {
             {getMicroCopy(microCopy.TRAINING_REGISTRATION_COST)}
           </TrainingLabel>
           <TrainingDesc data-testid="training-price">
-            <StyledIcon source={Price} />
-            {onSale
-              ? `${currencySymbol}${price}`
-              : getMicroCopy(microCopy.TRAINING_PRICE_FREE)}
+            <StyledIcon source={TollOutlined} />
+            {getPriceLabel(
+              price,
+              currencySymbol,
+              getMicroCopy(microCopy.TRAINING_PRICE_FREE)
+            )}
           </TrainingDesc>
         </TrainingDetailContainer>
         <TrainingSeparation />

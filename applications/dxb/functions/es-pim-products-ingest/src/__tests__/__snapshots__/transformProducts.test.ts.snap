@@ -1351,7 +1351,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
     "images": [],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
-    "mainImage": "",
+    "mainImage": undefined,
     "measurementValue": "",
     "name": "name",
     "path": "/p/name-glossy-concrete-3464354221",

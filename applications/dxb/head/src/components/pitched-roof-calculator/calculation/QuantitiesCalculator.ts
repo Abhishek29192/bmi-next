@@ -55,7 +55,7 @@ export const calculateBattensForFaces = (
 ): FaceWithBattens[] =>
   faces.map((face) => ({
     ...face,
-    battens: battenCalc(face.vertices, mainTileVariant)
+    battens: battenCalc(face.vertices, face.pitch, mainTileVariant)
   }));
 
 export const convertProductRowToResultsRow = ({

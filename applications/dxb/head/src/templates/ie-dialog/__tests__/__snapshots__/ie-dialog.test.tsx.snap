@@ -30,7 +30,7 @@ exports[`IEDialog component renders correctly 1`] = `
           class="IEDialogStyles-IEDialog-body css-96lqid"
         >
           <div
-            class="RichText-root css-1u73y0t"
+            class="RichText-root css-1lf5op0"
           >
             <h3
               class="MuiTypography-root MuiTypography-h3 RichText-title css-2221f6-MuiTypography-root"
@@ -51,8 +51,10 @@ exports[`IEDialog component renders correctly 1`] = `
         >
           <a
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+            data-testid="button"
             href="http://localhost"
-            rel="noopener noreferrer"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             tabindex="0"
             target="_blank"
           >

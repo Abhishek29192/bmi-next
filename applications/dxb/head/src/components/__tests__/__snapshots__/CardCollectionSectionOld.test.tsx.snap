@@ -1,0 +1,2679 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardCollectionSection component Renders correctly When dialogContent link is provided 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1zddvc"
+      data-testid="card-collection-section-test-title"
+    >
+      <div
+        class="Section-root Section-pearl css-10chrh8"
+        data-testid="section"
+      >
+        <div
+          class=" css-ze8cyt"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
+              data-testid="card-collection-section-title"
+            >
+              test title
+            </h2>
+            <div
+              class="RichText-root css-1lf5op0"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
+                data-testid="typography"
+              >
+                test rich text
+              </p>
+            </div>
+            <h3
+              class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
+              data-testid="card-collection-section-card-group-title"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="css-1t22xmr"
+            >
+              <div
+                class="css-ijcfq2"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2019","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Badgers","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <button
+                aria-disabled="true"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1jffuok-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                MC: global.clearAll
+              </button>
+            </div>
+            <div
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+              data-testid="grid-container"
+            >
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-testid="card-collection-section-item-test"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          1 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-testid="highlight-card-footer-cta-test"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium CardCollectionSectionStyles-link css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
+              data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"string"}"
+              data-testid="external-button-link-string"
+              href="https://www.external.co.uk"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
+              tabindex="0"
+              target="_blank"
+            >
+              string
+              <span
+                class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="ArrowForwardIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CardCollectionSection component Sorts correctly By default 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1zddvc"
+      data-testid="card-collection-section-test-title"
+    >
+      <div
+        class="Section-root Section-pearl css-10chrh8"
+        data-testid="section"
+      >
+        <div
+          class=" css-ze8cyt"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
+              data-testid="card-collection-section-title"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
+              data-testid="card-collection-section-card-group-title"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="css-1t22xmr"
+            >
+              <div
+                class="css-ijcfq2"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2006","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2006
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2019","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Badgers","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Mushrooms","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <button
+                aria-disabled="true"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1jffuok-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                MC: global.clearAll
+              </button>
+            </div>
+            <div
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+              data-testid="grid-container"
+            >
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-1234"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                    data-testid="card-collection-section-item-Villain-1"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                      data-testid="highlight-card-footer-cta-Villain-1"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-testid="card-collection-section-item-test"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          1 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-testid="highlight-card-footer-cta-test"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 2"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-testid="card-collection-section-item-test-2"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 2
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          2 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-2"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 3"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-testid="card-collection-section-item-test-3"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 3
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          3 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-3"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CardCollectionSection component Sorts correctly By newest date first 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1zddvc"
+      data-testid="card-collection-section-test-title"
+    >
+      <div
+        class="Section-root Section-pearl css-10chrh8"
+        data-testid="section"
+      >
+        <div
+          class=" css-ze8cyt"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
+              data-testid="card-collection-section-title"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
+              data-testid="card-collection-section-card-group-title"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="css-1t22xmr"
+            >
+              <div
+                class="css-ijcfq2"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2006","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2006
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2019","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Badgers","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Mushrooms","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <button
+                aria-disabled="true"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1jffuok-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                MC: global.clearAll
+              </button>
+            </div>
+            <div
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+              data-testid="grid-container"
+            >
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 3"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-testid="card-collection-section-item-test-3"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 3
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          3 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-3"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 2"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-testid="card-collection-section-item-test-2"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 2
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          2 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-2"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-testid="card-collection-section-item-test"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          1 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-testid="highlight-card-footer-cta-test"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-1234"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                    data-testid="card-collection-section-item-Villain-1"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                      data-testid="highlight-card-footer-cta-Villain-1"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CardCollectionSection component Sorts correctly By oldest date first 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1zddvc"
+      data-testid="card-collection-section-test-title"
+    >
+      <div
+        class="Section-root Section-pearl css-10chrh8"
+        data-testid="section"
+      >
+        <div
+          class=" css-ze8cyt"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
+              data-testid="card-collection-section-title"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
+              data-testid="card-collection-section-card-group-title"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="css-1t22xmr"
+            >
+              <div
+                class="css-ijcfq2"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2006","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2006
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2019","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Badgers","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Mushrooms","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <button
+                aria-disabled="true"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1jffuok-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                MC: global.clearAll
+              </button>
+            </div>
+            <div
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+              data-testid="grid-container"
+            >
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-testid="card-collection-section-item-test"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          1 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-testid="highlight-card-footer-cta-test"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 2"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-testid="card-collection-section-item-test-2"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 2
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          2 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-2"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 3"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-testid="card-collection-section-item-test-3"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 3
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          3 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-3"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-1234"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                    data-testid="card-collection-section-item-Villain-1"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                      data-testid="highlight-card-footer-cta-Villain-1"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CardCollectionSection component single & multiple row display renders correctly on a multiple row when displaySingleRow is null 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1zddvc"
+      data-testid="card-collection-section-test-title"
+    >
+      <div
+        class="Section-root Section-pearl css-10chrh8"
+        data-testid="section"
+      >
+        <div
+          class=" css-ze8cyt"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
+              data-testid="card-collection-section-title"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
+              data-testid="card-collection-section-card-group-title"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="css-1t22xmr"
+            >
+              <div
+                class="css-ijcfq2"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2006","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2006
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2019","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Badgers","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Mushrooms","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <button
+                aria-disabled="true"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1jffuok-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                MC: global.clearAll
+              </button>
+            </div>
+            <div
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+              data-testid="grid-container"
+            >
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-testid="card-collection-section-item-test"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          1 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-testid="highlight-card-footer-cta-test"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 2"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-testid="card-collection-section-item-test-2"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 2
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          2 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-2"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 3"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-testid="card-collection-section-item-test-3"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 3
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          3 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-3"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-1234"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                    data-testid="card-collection-section-item-Villain-1"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                      data-testid="highlight-card-footer-cta-Villain-1"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CardCollectionSection component single & multiple row display renders correctly on a multiple row when displaySingleRow is set to false 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1zddvc"
+      data-testid="card-collection-section-test-title"
+    >
+      <div
+        class="Section-root Section-pearl css-10chrh8"
+        data-testid="section"
+      >
+        <div
+          class=" css-ze8cyt"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
+              data-testid="card-collection-section-title"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
+              data-testid="card-collection-section-card-group-title"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="css-1t22xmr"
+            >
+              <div
+                class="css-ijcfq2"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2006","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2006
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2019","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Badgers","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Mushrooms","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <button
+                aria-disabled="true"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1jffuok-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                MC: global.clearAll
+              </button>
+            </div>
+            <div
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+              data-testid="grid-container"
+            >
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-testid="card-collection-section-item-test"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          1 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-testid="highlight-card-footer-cta-test"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 2"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-testid="card-collection-section-item-test-2"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 2
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          2 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-2"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-test 3"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-testid="card-collection-section-item-test-3"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        test 3
+                      </h4>
+                      <div
+                        class="css-8xl60i"
+                      >
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                          data-testid="tappable-card-body-date"
+                        >
+                          3 June 2021
+                        </h6>
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-testid="highlight-card-footer-cta-test-3"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 MuiGrid2-grid-xl-3 css-1riydk5-MuiGrid2-root"
+                data-testid="card-collection-grid-item-visible-1234"
+              >
+                <div
+                  class="TappableCard-root ColorPair-white css-963r91"
+                  data-testid="tappable-card-box"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                    data-testid="card-collection-section-item-Villain-1"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        Villain 1
+                      </h4>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                      data-testid="highlight-card-footer-cta-Villain-1"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="ArrowForwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
+                      </span>
+                      a string
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CardCollectionSection component single & multiple row display renders correctly on a single row 1`] = `
+<body>
+  <div>
+    <div
+      class="css-1zddvc"
+      data-testid="card-collection-section-test-title"
+    >
+      <div
+        class="Section-root Section-pearl css-10chrh8"
+        data-testid="section"
+      >
+        <div
+          class=" css-ze8cyt"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
+              data-testid="card-collection-section-title"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
+              data-testid="card-collection-section-card-group-title"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="css-1t22xmr"
+            >
+              <div
+                class="css-ijcfq2"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2006","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2006
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"2019","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Badgers","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-colorWhite Chip-default css-9l3mjc-MuiButtonBase-root-MuiChip-root"
+                  data-gtm="{"id":"selector-cards1","label":"Mushrooms","action":"Selector – Cards Filter"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <button
+                aria-disabled="true"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1jffuok-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                MC: global.clearAll
+              </button>
+            </div>
+            <div
+              class="Carousel-wrapperShowOffScreen Carousel-wrapperGutter css-xi64lz"
+            >
+              <div
+                class="Carousel-opacity Carousel-carouselGutter css-xeumfy"
+                data-testid="carousel"
+              >
+                <div
+                  data-testid="carousel-swipable-slide"
+                  style="overflow-x: hidden;"
+                >
+                  <div
+                    class="react-swipeable-view-container"
+                    style="flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
+                  >
+                    <div
+                      aria-hidden="false"
+                      class="Carousel-swipeableSlide"
+                      data-swipeable="true"
+                      style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    >
+                      <div
+                        class="Carousel-page"
+                      >
+                        <div
+                          class="Carousel-slide"
+                          data-test-class-name="slide"
+                          data-testid="carousel-slide"
+                          style="width: 100%;"
+                        >
+                          <div
+                            class="TappableCard-root ColorPair-white css-963r91"
+                            data-testid="tappable-card-box"
+                          >
+                            <button
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                              data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                              data-testid="card-collection-section-item-test"
+                              tabindex="0"
+                              type="button"
+                            >
+                              <div
+                                class="TappableCard-body css-c6k36h"
+                              >
+                                <h4
+                                  class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                                  data-testid="tappable-card-body-title"
+                                >
+                                  test
+                                </h4>
+                                <div
+                                  class="css-8xl60i"
+                                >
+                                  <h6
+                                    class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                                    data-testid="tappable-card-body-date"
+                                  >
+                                    1 June 2021
+                                  </h6>
+                                </div>
+                              </div>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                            <div
+                              class="TappableCard-footer css-1rg9dq1"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                                data-testid="highlight-card-footer-cta-test"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="ArrowForwardIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                                a string
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="Carousel-swipeableSlide"
+                      data-swipeable="true"
+                      style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    >
+                      <div
+                        class="Carousel-page"
+                      >
+                        <div
+                          class="Carousel-slide"
+                          data-test-class-name="slide"
+                          data-testid="carousel-slide"
+                          style="width: 100%;"
+                        >
+                          <div
+                            class="TappableCard-root ColorPair-white css-963r91"
+                            data-testid="tappable-card-box"
+                          >
+                            <button
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                              data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                              data-testid="card-collection-section-item-test-2"
+                              tabindex="0"
+                              type="button"
+                            >
+                              <div
+                                class="TappableCard-body css-c6k36h"
+                              >
+                                <h4
+                                  class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                                  data-testid="tappable-card-body-title"
+                                >
+                                  test 2
+                                </h4>
+                                <div
+                                  class="css-8xl60i"
+                                >
+                                  <h6
+                                    class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                                    data-testid="tappable-card-body-date"
+                                  >
+                                    2 June 2021
+                                  </h6>
+                                </div>
+                              </div>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                            <div
+                              class="TappableCard-footer css-1rg9dq1"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                                data-testid="highlight-card-footer-cta-test-2"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="ArrowForwardIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                                a string
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="Carousel-swipeableSlide"
+                      data-swipeable="true"
+                      style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    >
+                      <div
+                        class="Carousel-page"
+                      >
+                        <div
+                          class="Carousel-slide"
+                          data-test-class-name="slide"
+                          data-testid="carousel-slide"
+                          style="width: 100%;"
+                        >
+                          <div
+                            class="TappableCard-root ColorPair-white css-963r91"
+                            data-testid="tappable-card-box"
+                          >
+                            <button
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                              data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                              data-testid="card-collection-section-item-test-3"
+                              tabindex="0"
+                              type="button"
+                            >
+                              <div
+                                class="TappableCard-body css-c6k36h"
+                              >
+                                <h4
+                                  class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                                  data-testid="tappable-card-body-title"
+                                >
+                                  test 3
+                                </h4>
+                                <div
+                                  class="css-8xl60i"
+                                >
+                                  <h6
+                                    class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                                    data-testid="tappable-card-body-date"
+                                  >
+                                    3 June 2021
+                                  </h6>
+                                </div>
+                              </div>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                            <div
+                              class="TappableCard-footer css-1rg9dq1"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                                data-testid="highlight-card-footer-cta-test-3"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="ArrowForwardIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                                a string
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="Carousel-swipeableSlide"
+                      data-swipeable="true"
+                      style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    >
+                      <div
+                        class="Carousel-page"
+                      >
+                        <div
+                          class="Carousel-slide"
+                          data-test-class-name="slide"
+                          data-testid="carousel-slide"
+                          style="width: 100%;"
+                        >
+                          <div
+                            class="TappableCard-root ColorPair-white css-963r91"
+                            data-testid="tappable-card-box"
+                          >
+                            <button
+                              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                              data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                              data-testid="card-collection-section-item-Villain-1"
+                              tabindex="0"
+                              type="button"
+                            >
+                              <div
+                                class="TappableCard-body css-c6k36h"
+                              >
+                                <h4
+                                  class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                                  data-testid="tappable-card-body-title"
+                                >
+                                  Villain 1
+                                </h4>
+                              </div>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                            <div
+                              class="TappableCard-footer css-1rg9dq1"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                                data-gtm="{"id":"cta-click1","label":"Villain 1 - a string"}"
+                                data-testid="highlight-card-footer-cta-Villain-1"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="ArrowForwardIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                                a string
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                aria-label="Move right"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge ArrowControl-right css-5ixb4q-MuiButtonBase-root-MuiIconButton-root"
+                data-testid="carousel-controls-right"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium ArrowControl-chevron css-i4bv87-MuiSvgIcon-root"
+                  data-testid="KeyboardArrowRightIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

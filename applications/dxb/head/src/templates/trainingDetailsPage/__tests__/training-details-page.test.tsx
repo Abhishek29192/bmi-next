@@ -5,7 +5,7 @@ import {
   History,
   LocationProvider
 } from "@reach/router";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import {
   createSession,
@@ -40,10 +40,12 @@ jest.mock("../components/RegistrationCompletedDialog", () => ({
 
 const useIsClientMock = jest.fn();
 
-jest.mock("@bmi-digital/components", () => ({
-  ...jest.requireActual("@bmi-digital/components"),
+jest.mock("@bmi-digital/components/hooks", () => ({
   useIsClient: () => useIsClientMock()
 }));
+
+const scrollIntoViewMock = jest.fn();
+window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
 
 window.history.replaceState = jest.fn();
 
@@ -91,29 +93,18 @@ describe("Training DetailsPage", () => {
     renderTrainingDetailsPage({
       course
     });
-    expect(screen.getByTestId("training-id")).toBeInTheDocument();
+    expect(screen.getAllByTestId("training-code")[0]).toBeInTheDocument();
     expect(screen.getByTestId("breadcrumbs-section-top")).toBeInTheDocument();
     expect(
       screen.getByTestId("breadcrumbs-section-bottom")
     ).toBeInTheDocument();
-    expect(
-      screen.getByTestId("training-card-sticky-container")
-    ).toBeInTheDocument();
-    expect(screen.getByTestId("training-name")).toBeInTheDocument();
+    expect(screen.getAllByTestId("training-name")[0]).toBeInTheDocument();
     expect(screen.getByTestId("training-description")).toBeInTheDocument();
     expect(screen.getByTestId("sessions-title")).toBeInTheDocument();
     expect(screen.getByRole("banner")).toBeInTheDocument();
-    expect(screen.getByText("MC: training.price.free")).toBeInTheDocument();
     expect(
       screen.getByText("Success training registration modal")
     ).toBeInTheDocument();
-  });
-
-  it("should render training id label if code does not exists for course", () => {
-    renderTrainingDetailsPage({
-      course: createTraining({ code: undefined })
-    });
-    expect(screen.queryByTestId("training-id")).not.toBeInTheDocument();
   });
 
   it("should not render sessions if no sessions available for the course", () => {
@@ -161,13 +152,6 @@ describe("Training DetailsPage", () => {
     expect(screen.getByTestId("no-available-sessions")).toBeInTheDocument();
   });
 
-  it("should render price if provided", () => {
-    renderTrainingDetailsPage({
-      course: createTraining({ price: "100" })
-    });
-    expect(screen.getByText("€100")).toBeInTheDocument();
-  });
-
   it("replaces history state if 'showResultsModal' is set to true", () => {
     const historyMemorySource = createMemorySource("/no/t/course-slug-name");
     historyMemorySource.history.pushState({ showResultsModal: true }, "", "");
@@ -199,5 +183,58 @@ describe("Training DetailsPage", () => {
     expect(screen.getByTestId("progress-indicator")).toBeInTheDocument();
     expect(screen.queryByTestId("sessions-container")).not.toBeInTheDocument();
     expect(screen.getByTestId("no-available-sessions")).toBeInTheDocument();
+  });
+
+  it("calls 'scrollIntoView' on 'Scroll to sessions' button click", () => {
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
+    renderTrainingDetailsPage({
+      course: createTraining({
+        sessions: [createSession({ date_start: sessionStartDate.getTime() })]
+      })
+    });
+
+    fireEvent.click(screen.getByTestId("scroll-to-available-sessions-button"));
+    expect(scrollIntoViewMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("the sticky footer button should be disabled if the are no sessions planned for the future", () => {
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() - 3600);
+    renderTrainingDetailsPage({
+      course: createTraining({
+        sessions: [createSession({ date_start: sessionStartDate.getTime() })]
+      })
+    });
+
+    expect(
+      screen.getByTestId("scroll-to-available-sessions-button")
+    ).toBeDisabled();
+  });
+
+  it("the sticky footer button should be disabled if the are no sessions", () => {
+    renderTrainingDetailsPage({
+      course: createTraining({
+        sessions: []
+      })
+    });
+
+    expect(
+      screen.getByTestId("scroll-to-available-sessions-button")
+    ).toBeDisabled();
+  });
+
+  it("the sticky footer button should not be disabled if there are available sessions", () => {
+    const sessionStartDate = new Date();
+    sessionStartDate.setSeconds(sessionStartDate.getSeconds() + 3600);
+    renderTrainingDetailsPage({
+      course: createTraining({
+        sessions: [createSession({ date_start: sessionStartDate.getTime() })]
+      })
+    });
+
+    expect(
+      screen.getByTestId("scroll-to-available-sessions-button")
+    ).not.toBeDisabled();
   });
 });

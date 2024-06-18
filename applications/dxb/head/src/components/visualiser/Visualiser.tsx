@@ -7,7 +7,6 @@ import SelectTile from "@bmi-digital/components/icon/SelectTile";
 import SelectWallColour from "@bmi-digital/components/icon/SelectWallColour";
 import ShareIcon from "@bmi-digital/components/icon/Share";
 import TileColour from "@bmi-digital/components/icon/TileColour";
-import Logo from "@bmi-digital/components/logo";
 import BMI from "@bmi-digital/components/logo/Bmi";
 import ToggleCard from "@bmi-digital/components/toggle-card";
 import Typography from "@bmi-digital/components/typography";
@@ -374,7 +373,6 @@ const SharePopover = ({ shareWidget }: { shareWidget: ReactNode }) => {
   return (
     <StyledSharePopover ref={shareAnchor}>
       <StyledShareButton
-        isIconButton
         variant="text"
         accessibilityLabel={getMicroCopy(
           microCopy.sharePopover.accessibilityLabel
@@ -479,10 +477,6 @@ const Visualiser = ({
     }
   }, [state, open]);
 
-  const handleOnClose = () => {
-    onClose();
-  };
-
   const handleOnClick = useCallback(
     ({
       type,
@@ -541,12 +535,12 @@ const Visualiser = ({
   return (
     <StyledContainerDialog
       open={open}
-      onCloseClick={handleOnClose}
-      onBackdropClick={handleOnClose}
+      onCloseClick={onClose}
+      onBackdropClick={onClose}
       maxWidth="xl"
       containerClassName={classes.content}
     >
-      <ContainerDialog.Header className={classes.header}>
+      <ContainerDialog.Header className={classes.header} onCloseClick={onClose}>
         {shareWidget && <SharePopover shareWidget={shareWidget} />}
       </ContainerDialog.Header>
       <div className={classnames(classes.container, classes.viewer)}>
@@ -557,12 +551,7 @@ const Visualiser = ({
         )}
         <div className={classes.details}>
           <div className={classes.detailsContainer}>
-            <Logo
-              source={BMI}
-              width="60"
-              height="60"
-              className={classes.detailsLogo}
-            />
+            <BMI width="60" height="60" className={classes.detailsLogo} />
             <div>
               <Typography
                 variant="h5"

@@ -3,7 +3,8 @@ import createClassification, {
   createFeatureValue
 } from "./ClassificationHelper";
 import createImage from "./ImageHelper";
-import { VariantOption, ApprovalStatus } from "./types";
+import { ApprovalStatus } from "./types";
+import type { VariantOption } from "./types";
 
 export const createFullyPopulatedVariantOption = (
   variantOption?: Partial<VariantOption>

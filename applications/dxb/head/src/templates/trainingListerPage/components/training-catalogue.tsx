@@ -1,16 +1,19 @@
 import Grid from "@bmi-digital/components/grid";
 import AddIcon from "@bmi-digital/components/icon/Add";
 import RemoveIcon from "@bmi-digital/components/icon/Remove";
-import TrainingCard from "@bmi-digital/components/training-card";
+import TrainingCatalogueCard from "@bmi-digital/components/training-catalogue-card";
 import { Training } from "@bmi/elasticsearch-types";
-import { MicroCopyValues, microCopy } from "@bmi/microcopies";
-import ButtonBase from "@mui/material/ButtonBase";
+import { microCopy } from "@bmi/microcopies";
+import { Link } from "gatsby";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useSiteContext } from "../../../components/Site";
-import { trainingCategoryMicroCopies } from "../../../constants/trainingConstants";
+import { trainingCategoryMicroCopies } from "../../../constants/trainingCategoryMicroCopies";
+import { trainingTypeMicroCopies } from "../../../constants/trainingTypeMicroCopies";
 import { getSearchParams } from "../../../utils/filters";
+import getCategoryType from "../../../utils/getCategoryType";
 import { getPathWithCountryCode } from "../../../utils/path";
 import { SHOW_MORE_LIMIT } from "../constants";
+import getTrainingPreviewImage from "../helpers/getTrainingPreviewImage";
 import {
   Description,
   ItemsCount,
@@ -121,41 +124,40 @@ const TrainingCatalogue = ({
             lg={4}
             key={`${catalogueData.id}-${training.courseSlug}`}
           >
-            <TrainingCard
-              buttonComponent={(props) => (
-                <ButtonBase
-                  {...props}
-                  data-testid="training-card"
-                  href={`${getPathWithCountryCode(
-                    countryCode,
-                    `/t/${training.courseSlug}`
-                  )}${getSearchParams()}`}
-                />
-              )}
+            <TrainingCatalogueCard
+              to={`${getPathWithCountryCode(
+                countryCode,
+                `/t/${training.courseSlug}`
+              )}${getSearchParams()}`}
+              component={Link}
+              data-testid="training-card"
               category={{
-                type: training.category,
+                type: getCategoryType(training.category),
                 label: getMicroCopy(
-                  trainingCategoryMicroCopies[training.category.toUpperCase()]
+                  trainingCategoryMicroCopies[training.category]
                 )
               }}
               title={training.courseName}
-              subtitle={`${getMicroCopy(microCopy.TRAINING_ID_LABEL)} ${
+              subtitle={`${getMicroCopy(microCopy.TRAINING_CODE_LABEL)} ${
                 training.courseCode
               }`}
               trainingType={{
                 type: training.courseType,
                 label: getMicroCopy(
-                  `trainingType.${training.courseType}` as MicroCopyValues
+                  trainingTypeMicroCopies[training.courseType]
                 )
               }}
-              media={
-                <img
-                  data-testid="training-preview-image"
-                  src={training.courseImg || defaultImageUrl}
-                  alt={training.courseName}
-                />
+              price={
+                Number(training.price) > 0
+                  ? `${training.currencySymbol}${training.price}`
+                  : getMicroCopy(microCopy.TRAINING_PRICE_FREE)
               }
-              footerButtonLabel={getMicroCopy(
+              media={getTrainingPreviewImage(
+                training.courseImg,
+                defaultImageUrl,
+                training.courseName
+              )}
+              ctaLabel={getMicroCopy(
                 microCopy.TRAINING_LISTER_PAGE_VIEW_TRAINING
               )}
             />

@@ -6,7 +6,7 @@ exports[`Page component renders correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-s8wkol-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -26,7 +26,8 @@ exports[`Page component renders correctly 1`] = `
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-top-utilities-bar","label":"string","action":"link-to-page"}"
+                  data-gtm="{"id":"nav-top-utilities-bar","action":"link-to-page","label":"string"}"
+                  data-testid="button"
                   href="link-to-page"
                   tabindex="0"
                   target="_blank"
@@ -36,24 +37,6 @@ exports[`Page component renders correctly 1`] = `
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
-              </li>
-              <li
-                class="Header-navItem"
-                data-testid="utilities-link-MC:-login.label.btn"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
-                  data-testid="login"
-                  tabindex="0"
-                  target="_blank"
-                  type="button"
-                >
-                  MC: login.label.btn
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
               </li>
               <li
                 class="Header-navItem"
@@ -95,7 +78,7 @@ exports[`Page component renders correctly 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -149,7 +132,7 @@ exports[`Page component renders correctly 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Albania flag"
@@ -174,7 +157,7 @@ exports[`Page component renders correctly 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Österreich flag"
@@ -199,7 +182,7 @@ exports[`Page component renders correctly 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="United Kingdom flag"
@@ -237,7 +220,8 @@ exports[`Page component renders correctly 1`] = `
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="Header-logoLink"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                data-testid="anchor-link"
                 href="/uk/"
               >
                 <svg
@@ -279,10 +263,9 @@ exports[`Page component renders correctly 1`] = `
                       role="tablist"
                     >
                       <a
-                        aria-label="Get in touch"
                         aria-selected="false"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                        data-gtm="{"id":"nav-main-menu"}"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
+                        data-gtm="{"id":"nav-main-menu","label":"Get in touch"}"
                         data-testid="header-navigation-tab-0"
                         href="tel:+4401234567890"
                         role="tab"
@@ -294,10 +277,9 @@ exports[`Page component renders correctly 1`] = `
                         />
                       </a>
                       <a
-                        aria-label="About BMI"
                         aria-selected="false"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                        data-gtm="{"id":"nav-main-menu"}"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
+                        data-gtm="{"id":"nav-main-menu","label":"About BMI"}"
                         data-testid="header-navigation-tab-1"
                         href="/uk/landing-page/"
                         role="tab"
@@ -309,10 +291,9 @@ exports[`Page component renders correctly 1`] = `
                         />
                       </a>
                       <a
-                        aria-label="string"
                         aria-selected="false"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
-                        data-gtm="{"id":"nav-main-menu"}"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
+                        data-gtm="{"id":"nav-main-menu","label":"string","action":"link-to-page"}"
                         data-testid="header-navigation-tab-2"
                         href="link-to-page"
                         role="tab"
@@ -337,7 +318,7 @@ exports[`Page component renders correctly 1`] = `
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -359,7 +340,7 @@ exports[`Page component renders correctly 1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -392,11 +373,12 @@ exports[`Page component renders correctly 1`] = `
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -426,7 +408,7 @@ exports[`Page component renders correctly 1`] = `
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
             data-testid="search-close-button"
             tabindex="0"
             type="button"
@@ -465,7 +447,7 @@ exports[`Page component renders correctly 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-r109q4"
+        class="css-an2sjs"
         data-testid="footer"
       >
         <div
@@ -477,19 +459,7 @@ exports[`Page component renders correctly 1`] = `
             <div
               class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-3g646c-MuiGrid2-root"
               data-testid="grid-container"
-            >
-              <div
-                class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
-              >
-                <h4
-                  class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  string
-                </h4>
-              </div>
-            </div>
+            />
             <div
               class="Footer-secondaryNavigation"
             >
@@ -516,13 +486,15 @@ exports[`Page component renders correctly 1`] = `
               </div>
               <ul
                 class="Footer-listInline css-p4h7lm"
+                data-testid="footer-secondary-navigation-item-container"
               >
                 <li
                   class="Footer-listItem"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"string","action":"link-to-page"}"
+                    data-gtm="{"id":"nav-footer1","action":"link-to-page","label":"string"}"
+                    data-testid="footer-navigation-button-string"
                     href="link-to-page"
                     tabindex="0"
                   >
@@ -537,7 +509,8 @@ exports[`Page component renders correctly 1`] = `
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"MC: global.sitemap","action":"/uk/sitemap/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/uk/sitemap/","label":"MC: global.sitemap"}"
+                    data-testid="footer-navigation-button-MC:-global.sitemap"
                     href="/uk/sitemap/"
                     tabindex="0"
                   >
@@ -611,6 +584,7 @@ exports[`Page component renders correctly 1`] = `
         aria-hidden="true"
         aria-label="Back to the top"
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-15xs9gd-MuiButtonBase-root-MuiButton-root"
+        data-testid="button"
         tabindex="-1"
         type="button"
       >

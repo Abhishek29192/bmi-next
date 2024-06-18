@@ -40,7 +40,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 data-testid="media-gallery-media-wrapper"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-clqrrf"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -67,9 +67,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                       type="image/webp"
                     />
                     <img
-                      __typename="ContentfulImage"
                       alt="alt text"
-                      caption="[object Object]"
                       data-gatsby-image-ssr=""
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -138,14 +136,14 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   style="right: 0px;"
                 >
                   <button
-                    class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-yh72z7-MuiButtonBase-root"
+                    class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-selected Thumbnail-large Thumbnail-selected css-1ebds7h-MuiButtonBase-root"
                     data-gtm="{"id":"media-gallery1","label":"alt text","action":"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"}"
                     data-testid="thumbnail-default"
                     tabindex="0"
                     type="button"
                   >
                     <div
-                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained  css-7mgsqw-Media"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1tdmq76"
                       data-gatsby-image-wrapper=""
                       style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                     >
@@ -172,9 +170,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                           type="image/webp"
                         />
                         <img
-                          __typename="ContentfulImage"
                           alt="alt text"
-                          caption="[object Object]"
                           data-gatsby-image-ssr=""
                           data-main-image=""
                           data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -195,7 +191,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                     </div>
                   </button>
                   <button
-                    class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-yh72z7-MuiButtonBase-root"
+                    class="MuiButtonBase-root MediaGallery-thumbnail Thumbnail-large css-1ebds7h-MuiButtonBase-root"
                     data-gtm="{"id":"media-gallery1","label":"label","action":"//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"}"
                     data-testid="thumbnail-video"
                     style="background-image: url(//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png);"
@@ -285,7 +281,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
               class="css-hix1c1"
             >
               <div
-                class="RichText-root RichText-no-bottom-margin css-1u73y0t"
+                class="RichText-root RichText-no-bottom-margin css-1lf5op0"
               >
                 <h2
                   class="MuiTypography-root MuiTypography-h2 RichText-title css-1gn4sxn-MuiTypography-root"
@@ -315,7 +311,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
                 data-testid="media-gallery-media-wrapper"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-1kr98xg-Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapperCover MediaGallery-mainImageWrapperdefault css-clqrrf"
                   data-gatsby-image-wrapper=""
                   style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -342,9 +338,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
                       type="image/webp"
                     />
                     <img
-                      __typename="ContentfulImage"
                       alt="alt text"
-                      caption="[object Object]"
                       data-gatsby-image-ssr=""
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"

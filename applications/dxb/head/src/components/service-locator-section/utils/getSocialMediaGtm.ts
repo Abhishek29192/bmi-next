@@ -1,5 +1,5 @@
-import { GTM } from "../../../utils/google-tag-manager";
-import { Service } from "../index";
+import type { GTM } from "@bmi-digital/components";
+import type { Service } from "../index";
 
 export interface Props {
   service: Service;

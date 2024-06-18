@@ -6,7 +6,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -27,6 +27,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a dealer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -44,6 +45,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a roofer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -61,6 +63,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Partner portal"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -78,6 +81,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"News"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -94,7 +98,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-top-utilities-bar","label":"Contact Us","action":"/en/kontakt-oss/"}"
+                  data-gtm="{"id":"nav-top-utilities-bar","action":"/en/kontakt-oss/","label":"Contact Us"}"
+                  data-testid="button"
                   href="/en/kontakt-oss/"
                   tabindex="0"
                   target="_blank"
@@ -145,7 +150,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -199,7 +204,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Albania flag"
@@ -224,7 +229,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Österreich flag"
@@ -249,7 +254,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="United Kingdom flag"
@@ -274,7 +279,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="English flag"
@@ -312,7 +317,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="Header-logoLink"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
@@ -535,7 +541,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -557,7 +563,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -590,11 +596,12 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -624,7 +631,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
             data-testid="search-close-button"
             tabindex="0"
             type="button"
@@ -675,7 +682,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               >
                 <nav
                   aria-label="breadcrumbs"
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -684,18 +691,18 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                         data-testid="bread-crumb-Home"
                         href="/en/"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                          class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                             data-testid="ArrowBackIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -724,32 +731,12 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     <li
                       class="MuiBreadcrumbs-li"
                     >
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      <span
+                        class="Breadcrumbs-lastBreadcrumb"
                         data-testid="bread-crumb-breadcrumbTitle"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
                       >
-                        <span
-                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                            data-testid="ArrowBackIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                            />
-                          </svg>
-                        </span>
-                        <span>
-                          breadcrumbTitle
-                        </span>
-                      </button>
+                        breadcrumbTitle
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -760,7 +747,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               >
                 <nav
                   aria-label="breadcrumbs"
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -769,18 +756,18 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                         data-testid="bread-crumb-Home"
                         href="/en/"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                          class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                             data-testid="ArrowBackIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -820,11 +807,12 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 Simple page subtitle
               </div>
               <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium Hero-cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium Hero-cta css-lzzhs-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"ctaLabel"}"
                 data-testid="hero-cta"
                 href="https://www.external.co.uk"
-                rel="noopener noreferrer"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
                 target="_blank"
               >
@@ -850,19 +838,104 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class=" css-1u0o7jv"
+              class=" css-18y77ls"
               data-testid="share-widget"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h6 css-3vdgqd-MuiTypography-root"
-                data-testid="typography"
+                data-testid="share-widget-title"
               >
-                ShareWidgetSectionTitle
+                Share Now
                 :
               </h6>
               <ul
                 class="ShareWidget-iconList"
-              />
+              >
+                <li>
+                  <div
+                    aria-label="MC: share.copy"
+                    class=" MuiBox-root css-2bzkxd"
+                    data-mui-internal-clone-element="true"
+                    data-testid="tooltip"
+                  >
+                    <button
+                      aria-label="MC: share.copy"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                      data-gtm="{"id":"cta-share1","label":"MC: share.copy","action":"copy"}"
+                      data-testid="copy-to-clipboard-button-MC:-share.copy"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-wtoo7u-MuiSvgIcon-root"
+                        data-testid="ContentCopyIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <button
+                    aria-label="MC: share.linkedIn"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-channel="linkedin"
+                    data-gtm="{"id":"cta-share1","label":"MC: share.linkedIn","action":"linkedin"}"
+                    data-testid="icon-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7qbg91-MuiSvgIcon-root"
+                      data-testid="share-widget-icon-linkedin"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    aria-label="MC: share.pinterest"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-channel="pinterest"
+                    data-gtm="{"id":"cta-share1","label":"MC: share.pinterest","action":"pinterest"}"
+                    data-testid="icon-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7qbg91-MuiSvgIcon-root"
+                      data-testid="share-widget-icon-pinterest"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.04 21.54c.96.29 1.93.46 2.96.46a10 10 0 0 0 10-10A10 10 0 0 0 12 2 10 10 0 0 0 2 12c0 4.25 2.67 7.9 6.44 9.34-.09-.78-.18-2.07 0-2.96l1.15-4.94s-.29-.58-.29-1.5c0-1.38.86-2.41 1.84-2.41.86 0 1.26.63 1.26 1.44 0 .86-.57 2.09-.86 3.27-.17.98.52 1.84 1.52 1.84 1.78 0 3.16-1.9 3.16-4.58 0-2.4-1.72-4.04-4.19-4.04-2.82 0-4.48 2.1-4.48 4.31 0 .86.28 1.73.74 2.3.09.06.09.14.06.29l-.29 1.09c0 .17-.11.23-.28.11-1.28-.56-2.02-2.38-2.02-3.85 0-3.16 2.24-6.03 6.56-6.03 3.44 0 6.12 2.47 6.12 5.75 0 3.44-2.13 6.2-5.18 6.2-.97 0-1.92-.52-2.26-1.13l-.67 2.37c-.23.86-.86 2.01-1.29 2.7v-.03z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -904,7 +977,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="css-yz3zls"
                     />
                     <div
-                      class="css-zi24z1"
+                      class="css-a5n36n"
                     />
                   </nav>
                 </div>
@@ -924,19 +997,104 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class=" css-1u0o7jv"
+              class=" css-18y77ls"
               data-testid="share-widget"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h6 css-3vdgqd-MuiTypography-root"
-                data-testid="typography"
+                data-testid="share-widget-title"
               >
-                ShareWidgetSectionTitle
+                Share Now
                 :
               </h6>
               <ul
                 class="ShareWidget-iconList"
-              />
+              >
+                <li>
+                  <div
+                    aria-label="MC: share.copy"
+                    class=" MuiBox-root css-2bzkxd"
+                    data-mui-internal-clone-element="true"
+                    data-testid="tooltip"
+                  >
+                    <button
+                      aria-label="MC: share.copy"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                      data-gtm="{"id":"cta-share1","label":"MC: share.copy","action":"copy"}"
+                      data-testid="copy-to-clipboard-button-MC:-share.copy"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-wtoo7u-MuiSvgIcon-root"
+                        data-testid="ContentCopyIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <button
+                    aria-label="MC: share.linkedIn"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-channel="linkedin"
+                    data-gtm="{"id":"cta-share1","label":"MC: share.linkedIn","action":"linkedin"}"
+                    data-testid="icon-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7qbg91-MuiSvgIcon-root"
+                      data-testid="share-widget-icon-linkedin"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    aria-label="MC: share.pinterest"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-channel="pinterest"
+                    data-gtm="{"id":"cta-share1","label":"MC: share.pinterest","action":"pinterest"}"
+                    data-testid="icon-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7qbg91-MuiSvgIcon-root"
+                      data-testid="share-widget-icon-pinterest"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.04 21.54c.96.29 1.93.46 2.96.46a10 10 0 0 0 10-10A10 10 0 0 0 12 2 10 10 0 0 0 2 12c0 4.25 2.67 7.9 6.44 9.34-.09-.78-.18-2.07 0-2.96l1.15-4.94s-.29-.58-.29-1.5c0-1.38.86-2.41 1.84-2.41.86 0 1.26.63 1.26 1.44 0 .86-.57 2.09-.86 3.27-.17.98.52 1.84 1.52 1.84 1.78 0 3.16-1.9 3.16-4.58 0-2.4-1.72-4.04-4.19-4.04-2.82 0-4.48 2.1-4.48 4.31 0 .86.28 1.73.74 2.3.09.06.09.14.06.29l-.29 1.09c0 .17-.11.23-.28.11-1.28-.56-2.02-2.38-2.02-3.85 0-3.16 2.24-6.03 6.56-6.03 3.44 0 6.12 2.47 6.12 5.75 0 3.44-2.13 6.2-5.18 6.2-.97 0-1.92-.52-2.26-1.13l-.67 2.37c-.23.86-.86 2.01-1.29 2.7v-.03z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -966,18 +1124,59 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class=" ColorPair-secondary1 css-137fghv"
-                  type="button"
+                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
+                  data-testid="tappable-card-box"
                 >
-                  <h4
-                    class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
-                    data-testid="typography"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-testid="nba-card-Action-1"
+                    tabindex="0"
+                    type="button"
                   >
-                    Action 1
-                  </h4>
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        Action 1
+                      </h4>
+                      <div
+                        class="TappableCard-text"
+                        data-testid="tappable-card-body-description"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                          data-testid="typography"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                   <div
-                    class="css-4osezd"
-                  />
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                      data-testid="anchor-link"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                      Action 1
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -996,10 +1195,10 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           >
             <nav
               aria-labelledby="explore-bar"
-              class="css-v7bjwn"
+              class="css-cfvaxj"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-ramvgg-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -1025,7 +1224,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1034,18 +1233,18 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                       data-testid="bread-crumb-Home"
                       href="/en/"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="ArrowBackIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1074,32 +1273,12 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   <li
                     class="MuiBreadcrumbs-li"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                    <span
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
+                      breadcrumbTitle
+                    </span>
                   </li>
                 </ol>
               </nav>
@@ -1110,7 +1289,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1119,18 +1298,18 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                       data-testid="bread-crumb-Home"
                       href="/en/"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="ArrowBackIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1161,7 +1340,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       class="css-1orozkz"
     >
       <div
-        class="ColorPair-blue800 css-1pt14k0"
+        class="ColorPair-blue800 css-1d0x0e2"
       >
         <div>
           <div
@@ -1256,7 +1435,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-r109q4"
+        class="css-an2sjs"
         data-testid="footer"
       >
         <div
@@ -1279,6 +1458,11 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 >
                   Contact Us
                 </h4>
+                <nav>
+                  <ul
+                    class="css-p4h7lm"
+                  />
+                </nav>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
@@ -1299,7 +1483,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Story","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Story"}"
+                        data-testid="footer-navigation-button-Our-Story"
                         href="#"
                         tabindex="0"
                       >
@@ -1314,7 +1499,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Brands","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Brands"}"
+                        data-testid="footer-navigation-button-Our-Brands"
                         href="#"
                         tabindex="0"
                       >
@@ -1329,7 +1515,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Values"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Our Values"}"
+                        data-testid="footer-navigation-button-Our-Values"
                         tabindex="0"
                         type="button"
                       >
@@ -1344,7 +1531,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Sustainability","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Sustainability"}"
+                        data-testid="footer-navigation-button-Sustainability"
                         href="#"
                         tabindex="0"
                       >
@@ -1376,7 +1564,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI RoofPro"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"BMI RoofPro"}"
+                        data-testid="footer-navigation-button-BMI-RoofPro"
                         tabindex="0"
                         type="button"
                       >
@@ -1391,7 +1580,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Team Icopal"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Team Icopal"}"
+                        data-testid="footer-navigation-button-Team-Icopal"
                         tabindex="0"
                         type="button"
                       >
@@ -1406,7 +1596,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Training","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Training"}"
+                        data-testid="footer-navigation-button-Training"
                         href="#"
                         tabindex="0"
                       >
@@ -1421,7 +1612,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Mediabank","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Mediabank"}"
+                        data-testid="footer-navigation-button-Mediabank"
                         href="#"
                         tabindex="0"
                       >
@@ -1453,7 +1645,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Diversity","action":"/en/mangfold/"}"
+                        data-gtm="{"id":"nav-footer1","action":"/en/mangfold/","label":"Diversity"}"
+                        data-testid="footer-navigation-button-Diversity"
                         href="/en/mangfold/"
                         tabindex="0"
                       >
@@ -1468,9 +1661,11 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI Job Board","action":"https://bmi.jobboard.io/"}"
+                        data-gtm="{"id":"nav-footer1","action":"https://bmi.jobboard.io/","label":"BMI Job Board"}"
+                        data-testid="footer-navigation-button-BMI-Job-Board"
                         href="https://bmi.jobboard.io/"
-                        rel="noopener noreferrer"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
                         target="_blank"
                       >
@@ -1510,13 +1705,15 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               </div>
               <ul
                 class="Footer-listInline css-p4h7lm"
+                data-testid="footer-secondary-navigation-item-container"
               >
                 <li
                   class="Footer-listItem"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Cookies","action":"/en/bruk-av-informasjonskapsler/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/bruk-av-informasjonskapsler/","label":"Cookies"}"
+                    data-testid="footer-navigation-button-Cookies"
                     href="/en/bruk-av-informasjonskapsler/"
                     tabindex="0"
                   >
@@ -1531,7 +1728,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Sitemap"}"
+                    data-gtm="{"id":"nav-footer1","action":"undefined","label":"Sitemap"}"
+                    data-testid="footer-navigation-button-Sitemap"
                     tabindex="0"
                     type="button"
                   >
@@ -1546,7 +1744,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"MC: global.sitemap","action":"/en/sitemap/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/sitemap/","label":"MC: global.sitemap"}"
+                    data-testid="footer-navigation-button-MC:-global.sitemap"
                     href="/en/sitemap/"
                     tabindex="0"
                   >
@@ -1620,6 +1819,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
         aria-hidden="true"
         aria-label="Back to the top"
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-15xs9gd-MuiButtonBase-root-MuiButton-root"
+        data-testid="button"
         tabindex="-1"
         type="button"
       >
@@ -1649,7 +1849,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1670,6 +1870,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a dealer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -1687,6 +1888,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a roofer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -1704,6 +1906,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Partner portal"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -1721,6 +1924,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"News"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -1737,7 +1941,8 @@ exports[`Simple page renders correctly with full data 1`] = `
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-top-utilities-bar","label":"Contact Us","action":"/en/kontakt-oss/"}"
+                  data-gtm="{"id":"nav-top-utilities-bar","action":"/en/kontakt-oss/","label":"Contact Us"}"
+                  data-testid="button"
                   href="/en/kontakt-oss/"
                   tabindex="0"
                   target="_blank"
@@ -1788,7 +1993,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -1842,7 +2047,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Albania flag"
@@ -1867,7 +2072,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Österreich flag"
@@ -1892,7 +2097,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="United Kingdom flag"
@@ -1917,7 +2122,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="English flag"
@@ -1955,7 +2160,8 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="Header-logoLink"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
@@ -2178,7 +2384,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -2200,7 +2406,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -2233,11 +2439,12 @@ exports[`Simple page renders correctly with full data 1`] = `
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -2267,7 +2474,7 @@ exports[`Simple page renders correctly with full data 1`] = `
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
             data-testid="search-close-button"
             tabindex="0"
             type="button"
@@ -2318,7 +2525,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               >
                 <nav
                   aria-label="breadcrumbs"
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2327,18 +2534,18 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                         data-testid="bread-crumb-Home"
                         href="/en/"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                          class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                             data-testid="ArrowBackIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -2367,32 +2574,12 @@ exports[`Simple page renders correctly with full data 1`] = `
                     <li
                       class="MuiBreadcrumbs-li"
                     >
-                      <button
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      <span
+                        class="Breadcrumbs-lastBreadcrumb"
                         data-testid="bread-crumb-breadcrumbTitle"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
                       >
-                        <span
-                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                            data-testid="ArrowBackIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                            />
-                          </svg>
-                        </span>
-                        <span>
-                          breadcrumbTitle
-                        </span>
-                      </button>
+                        breadcrumbTitle
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -2403,7 +2590,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               >
                 <nav
                   aria-label="breadcrumbs"
-                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                 >
                   <ol
                     class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2412,18 +2599,18 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="MuiBreadcrumbs-li"
                     >
                       <a
-                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                         data-testid="bread-crumb-Home"
                         href="/en/"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                          class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                             data-testid="ArrowBackIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -2463,11 +2650,12 @@ exports[`Simple page renders correctly with full data 1`] = `
                 Simple page subtitle
               </div>
               <a
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium Hero-cta css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-outlinedDarkBg MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium Hero-cta css-lzzhs-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"cta-click1","action":"https://www.external.co.uk","label":"ctaLabel"}"
                 data-testid="hero-cta"
                 href="https://www.external.co.uk"
-                rel="noopener noreferrer"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
                 tabindex="0"
                 target="_blank"
               >
@@ -2481,7 +2669,7 @@ exports[`Simple page renders correctly with full data 1`] = `
         </div>
       </div>
       <div
-        class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-7mgsqw-Media"
+        class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image css-1tdmq76"
         data-gatsby-image-wrapper=""
         style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
       >
@@ -2541,19 +2729,104 @@ exports[`Simple page renders correctly with full data 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class=" css-1u0o7jv"
+              class=" css-18y77ls"
               data-testid="share-widget"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h6 css-3vdgqd-MuiTypography-root"
-                data-testid="typography"
+                data-testid="share-widget-title"
               >
-                ShareWidgetSectionTitle
+                Share Now
                 :
               </h6>
               <ul
                 class="ShareWidget-iconList"
-              />
+              >
+                <li>
+                  <div
+                    aria-label="MC: share.copy"
+                    class=" MuiBox-root css-2bzkxd"
+                    data-mui-internal-clone-element="true"
+                    data-testid="tooltip"
+                  >
+                    <button
+                      aria-label="MC: share.copy"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                      data-gtm="{"id":"cta-share1","label":"MC: share.copy","action":"copy"}"
+                      data-testid="copy-to-clipboard-button-MC:-share.copy"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-wtoo7u-MuiSvgIcon-root"
+                        data-testid="ContentCopyIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <button
+                    aria-label="MC: share.linkedIn"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-channel="linkedin"
+                    data-gtm="{"id":"cta-share1","label":"MC: share.linkedIn","action":"linkedin"}"
+                    data-testid="icon-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7qbg91-MuiSvgIcon-root"
+                      data-testid="share-widget-icon-linkedin"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    aria-label="MC: share.pinterest"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-channel="pinterest"
+                    data-gtm="{"id":"cta-share1","label":"MC: share.pinterest","action":"pinterest"}"
+                    data-testid="icon-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7qbg91-MuiSvgIcon-root"
+                      data-testid="share-widget-icon-pinterest"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.04 21.54c.96.29 1.93.46 2.96.46a10 10 0 0 0 10-10A10 10 0 0 0 12 2 10 10 0 0 0 2 12c0 4.25 2.67 7.9 6.44 9.34-.09-.78-.18-2.07 0-2.96l1.15-4.94s-.29-.58-.29-1.5c0-1.38.86-2.41 1.84-2.41.86 0 1.26.63 1.26 1.44 0 .86-.57 2.09-.86 3.27-.17.98.52 1.84 1.52 1.84 1.78 0 3.16-1.9 3.16-4.58 0-2.4-1.72-4.04-4.19-4.04-2.82 0-4.48 2.1-4.48 4.31 0 .86.28 1.73.74 2.3.09.06.09.14.06.29l-.29 1.09c0 .17-.11.23-.28.11-1.28-.56-2.02-2.38-2.02-3.85 0-3.16 2.24-6.03 6.56-6.03 3.44 0 6.12 2.47 6.12 5.75 0 3.44-2.13 6.2-5.18 6.2-.97 0-1.92-.52-2.26-1.13l-.67 2.37c-.23.86-.86 2.01-1.29 2.7v-.03z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -2580,7 +2853,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   class="css-1i3mc0y"
                 >
                   <div
-                    class="RichText-root RichText-no-bottom-margin css-1u73y0t"
+                    class="RichText-root RichText-no-bottom-margin css-1lf5op0"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2596,7 +2869,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 data-testid="lead-block-card"
               >
                 <div
-                  class="ColorPair-pearl css-1pt14k0"
+                  class="ColorPair-pearl css-1d0x0e2"
                 >
                   <div
                     class="css-1qwqwtx"
@@ -2622,12 +2895,10 @@ exports[`Simple page renders correctly with full data 1`] = `
                             <a
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-black css-1ogz5y4-MuiTypography-root-MuiLink-root"
                               data-gtm="{"id":"cta-click1","label":"Hurtignavigering - ContentfulCardCollectionSectionTitle","action":"#contentfulcardcollectionsectiontitle"}"
-                              data-testid="anchor-link"
+                              data-testid="anchor-link-Hurtignavigering"
                               href="#contentfulcardcollectionsectiontitle"
                             >
-                              <span>
-                                ContentfulCardCollectionSectionTitle
-                              </span>
+                              ContentfulCardCollectionSectionTitle
                             </a>
                           </div>
                         </div>
@@ -2645,7 +2916,7 @@ exports[`Simple page renders correctly with full data 1`] = `
         style="margin-top: -150px; padding-top: 150px;"
       >
         <div
-          class="css-1gmujki"
+          class="css-1zddvc"
           data-testid="card-collection-section-ContentfulCardCollectionSectionTitle"
         >
           <div
@@ -2660,12 +2931,12 @@ exports[`Simple page renders correctly with full data 1`] = `
               >
                 <h2
                   class="MuiTypography-root MuiTypography-h2 Typography-underline css-8cj2y3-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="card-collection-section-title"
                 >
                   ContentfulCardCollectionSectionTitle
                 </h2>
                 <div
-                  class="RichText-root css-1u73y0t"
+                  class="RichText-root css-1lf5op0"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -2687,85 +2958,112 @@ exports[`Simple page renders correctly with full data 1`] = `
                     data-testid="card-collection-grid-item-visible-id"
                   >
                     <div
-                      class=" MuiBox-root css-179egsz"
-                      data-testid="overview-card-box"
+                      class="TappableCard-root ColorPair-white css-963r91"
+                      data-testid="tappable-card-box"
                     >
                       <div
-                        class="OverviewCard-main"
-                        data-testid="overview-card-main"
+                        class="TappableCard-headerPicture TappableCard-headerVideo css-117k2n5"
+                        data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
+                        data-testid="tappable-card-media"
                       >
                         <div
-                          class="OverviewCard-headerPicture css-1moer0t-Media"
-                          data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
-                          data-testid="youtube-dialog-wrapper"
+                          aria-label="BMI Group VIDEO LABEL"
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+                          data-testid="thumbnail"
+                          role="button"
+                          tabindex="0"
                         >
+                          <img
+                            alt="BMI Group VIDEO LABEL"
+                            class="css-qri583"
+                            data-testid="youtube-preview-image"
+                            draggable="false"
+                            src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
+                          />
+                          <span
+                            class="css-1ptr1nd"
+                          >
+                            BMI Group VIDEO LABEL
+                          </span>
                           <div
                             aria-label="BMI Group VIDEO LABEL"
-                            class="YoutubeVideo-thumbnail css-14jkchm"
-                            classes="[object Object]"
-                            component="button"
-                            data-testid="thumbnail"
-                            type="button"
-                            variant="contained"
+                            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                            data-testid="thumbnail-button"
+                            role="button"
+                            tabindex="0"
                           >
-                            <img
-                              alt="BMI Group VIDEO LABEL"
-                              class="YoutubeVideo-previewImage"
-                              data-testid="youtube-preview-image"
-                              src="https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
-                            />
-                            <span
-                              class="css-1ptr1nd"
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="PlayArrowIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
                             >
-                              BMI Group VIDEO LABEL
-                            </span>
-                            <div
-                              aria-label="BMI Group VIDEO LABEL"
-                              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
-                              data-testid="thumbnail-button"
-                              role="button"
-                              tabindex="0"
-                              type="button"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                data-testid="PlayArrowIcon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M8 5v14l11-7z"
-                                />
-                              </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              <path
+                                d="M8 5v14l11-7z"
                               />
-                            </div>
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
                           </div>
-                        </div>
-                        <div
-                          class="OverviewCard-body"
-                        >
-                          <div
-                            class="OverviewCard-brandLogo OverviewCard-negative"
-                          />
-                          <h4
-                            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-                            data-testid="overview-card-body-title"
-                          >
-                            BMI test video on PROMO
-                          </h4>
-                          <div
-                            class="OverviewCard-text css-kl66ak"
-                            data-testid="overview-card-body-description"
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
                         </div>
                       </div>
+                      <button
+                        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                        data-gtm="{"id":"cta-click1","label":"BMI test video on PROMO - Testing"}"
+                        data-testid="card-collection-section-item-BMI-test-video-on-PROMO"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <div
+                          class="TappableCard-body css-c6k36h"
+                        >
+                          <h4
+                            class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                            data-testid="tappable-card-body-title"
+                          >
+                            BMI test video on PROMO
+                          </h4>
+                        </div>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
                       <div
-                        class="OverviewCard-clickable css-1cyx9t4"
-                        data-testid="overview-card-body-footer"
-                      />
+                        class="TappableCard-footer css-1rg9dq1"
+                      >
+                        <button
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                          data-gtm="{"id":"cta-click1","label":"BMI test video on PROMO - Testing"}"
+                          data-testid="highlight-card-footer-cta-BMI-test-video-on-PROMO"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="ArrowForwardIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                              />
+                            </svg>
+                          </span>
+                          Testing
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2811,7 +3109,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="css-yz3zls"
                     />
                     <div
-                      class="css-zi24z1"
+                      class="css-a5n36n"
                     />
                   </nav>
                 </div>
@@ -2831,19 +3129,104 @@ exports[`Simple page renders correctly with full data 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class=" css-1u0o7jv"
+              class=" css-18y77ls"
               data-testid="share-widget"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h6 css-3vdgqd-MuiTypography-root"
-                data-testid="typography"
+                data-testid="share-widget-title"
               >
-                ShareWidgetSectionTitle
+                Share Now
                 :
               </h6>
               <ul
                 class="ShareWidget-iconList"
-              />
+              >
+                <li>
+                  <div
+                    aria-label="MC: share.copy"
+                    class=" MuiBox-root css-2bzkxd"
+                    data-mui-internal-clone-element="true"
+                    data-testid="tooltip"
+                  >
+                    <button
+                      aria-label="MC: share.copy"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                      data-gtm="{"id":"cta-share1","label":"MC: share.copy","action":"copy"}"
+                      data-testid="copy-to-clipboard-button-MC:-share.copy"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-wtoo7u-MuiSvgIcon-root"
+                        data-testid="ContentCopyIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <button
+                    aria-label="MC: share.linkedIn"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-channel="linkedin"
+                    data-gtm="{"id":"cta-share1","label":"MC: share.linkedIn","action":"linkedin"}"
+                    data-testid="icon-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7qbg91-MuiSvgIcon-root"
+                      data-testid="share-widget-icon-linkedin"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    aria-label="MC: share.pinterest"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-42 IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    data-channel="pinterest"
+                    data-gtm="{"id":"cta-share1","label":"MC: share.pinterest","action":"pinterest"}"
+                    data-testid="icon-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7qbg91-MuiSvgIcon-root"
+                      data-testid="share-widget-icon-pinterest"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.04 21.54c.96.29 1.93.46 2.96.46a10 10 0 0 0 10-10A10 10 0 0 0 12 2 10 10 0 0 0 2 12c0 4.25 2.67 7.9 6.44 9.34-.09-.78-.18-2.07 0-2.96l1.15-4.94s-.29-.58-.29-1.5c0-1.38.86-2.41 1.84-2.41.86 0 1.26.63 1.26 1.44 0 .86-.57 2.09-.86 3.27-.17.98.52 1.84 1.52 1.84 1.78 0 3.16-1.9 3.16-4.58 0-2.4-1.72-4.04-4.19-4.04-2.82 0-4.48 2.1-4.48 4.31 0 .86.28 1.73.74 2.3.09.06.09.14.06.29l-.29 1.09c0 .17-.11.23-.28.11-1.28-.56-2.02-2.38-2.02-3.85 0-3.16 2.24-6.03 6.56-6.03 3.44 0 6.12 2.47 6.12 5.75 0 3.44-2.13 6.2-5.18 6.2-.97 0-1.92-.52-2.26-1.13l-.67 2.37c-.23.86-.86 2.01-1.29 2.7v-.03z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -2873,18 +3256,59 @@ exports[`Simple page renders correctly with full data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class=" ColorPair-secondary1 css-137fghv"
-                  type="button"
+                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
+                  data-testid="tappable-card-box"
                 >
-                  <h4
-                    class="MuiTypography-root MuiTypography-h4 css-u0svqn-MuiTypography-root"
-                    data-testid="typography"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-testid="nba-card-Action-1"
+                    tabindex="0"
+                    type="button"
                   >
-                    Action 1
-                  </h4>
+                    <div
+                      class="TappableCard-body css-c6k36h"
+                    >
+                      <h4
+                        class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
+                        data-testid="tappable-card-body-title"
+                      >
+                        Action 1
+                      </h4>
+                      <div
+                        class="TappableCard-text"
+                        data-testid="tappable-card-body-description"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                          data-testid="typography"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                   <div
-                    class="css-4osezd"
-                  />
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                      data-testid="anchor-link"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                      Action 1
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2903,10 +3327,10 @@ exports[`Simple page renders correctly with full data 1`] = `
           >
             <nav
               aria-labelledby="explore-bar"
-              class="css-v7bjwn"
+              class="css-cfvaxj"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h6 css-1jvwmj5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-ramvgg-MuiTypography-root"
                 data-testid="typography"
                 id="explore-bar"
               >
@@ -2932,7 +3356,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -2941,18 +3365,18 @@ exports[`Simple page renders correctly with full data 1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                       data-testid="bread-crumb-Home"
                       href="/en/"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="ArrowBackIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -2981,32 +3405,12 @@ exports[`Simple page renders correctly with full data 1`] = `
                   <li
                     class="MuiBreadcrumbs-li"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                    <span
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
+                      breadcrumbTitle
+                    </span>
                   </li>
                 </ol>
               </nav>
@@ -3017,7 +3421,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -3026,18 +3430,18 @@ exports[`Simple page renders correctly with full data 1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                       data-testid="bread-crumb-Home"
                       href="/en/"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="ArrowBackIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -3068,7 +3472,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       class="css-1orozkz"
     >
       <div
-        class="ColorPair-blue800 css-1pt14k0"
+        class="ColorPair-blue800 css-1d0x0e2"
       >
         <div>
           <div
@@ -3163,7 +3567,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-r109q4"
+        class="css-an2sjs"
         data-testid="footer"
       >
         <div
@@ -3186,6 +3590,11 @@ exports[`Simple page renders correctly with full data 1`] = `
                 >
                   Contact Us
                 </h4>
+                <nav>
+                  <ul
+                    class="css-p4h7lm"
+                  />
+                </nav>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
@@ -3206,7 +3615,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Story","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Story"}"
+                        data-testid="footer-navigation-button-Our-Story"
                         href="#"
                         tabindex="0"
                       >
@@ -3221,7 +3631,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Brands","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Brands"}"
+                        data-testid="footer-navigation-button-Our-Brands"
                         href="#"
                         tabindex="0"
                       >
@@ -3236,7 +3647,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Values"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Our Values"}"
+                        data-testid="footer-navigation-button-Our-Values"
                         tabindex="0"
                         type="button"
                       >
@@ -3251,7 +3663,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Sustainability","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Sustainability"}"
+                        data-testid="footer-navigation-button-Sustainability"
                         href="#"
                         tabindex="0"
                       >
@@ -3283,7 +3696,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI RoofPro"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"BMI RoofPro"}"
+                        data-testid="footer-navigation-button-BMI-RoofPro"
                         tabindex="0"
                         type="button"
                       >
@@ -3298,7 +3712,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Team Icopal"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Team Icopal"}"
+                        data-testid="footer-navigation-button-Team-Icopal"
                         tabindex="0"
                         type="button"
                       >
@@ -3313,7 +3728,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Training","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Training"}"
+                        data-testid="footer-navigation-button-Training"
                         href="#"
                         tabindex="0"
                       >
@@ -3328,7 +3744,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Mediabank","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Mediabank"}"
+                        data-testid="footer-navigation-button-Mediabank"
                         href="#"
                         tabindex="0"
                       >
@@ -3360,7 +3777,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Diversity","action":"/en/mangfold/"}"
+                        data-gtm="{"id":"nav-footer1","action":"/en/mangfold/","label":"Diversity"}"
+                        data-testid="footer-navigation-button-Diversity"
                         href="/en/mangfold/"
                         tabindex="0"
                       >
@@ -3375,9 +3793,11 @@ exports[`Simple page renders correctly with full data 1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI Job Board","action":"https://bmi.jobboard.io/"}"
+                        data-gtm="{"id":"nav-footer1","action":"https://bmi.jobboard.io/","label":"BMI Job Board"}"
+                        data-testid="footer-navigation-button-BMI-Job-Board"
                         href="https://bmi.jobboard.io/"
-                        rel="noopener noreferrer"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
                         target="_blank"
                       >
@@ -3417,13 +3837,15 @@ exports[`Simple page renders correctly with full data 1`] = `
               </div>
               <ul
                 class="Footer-listInline css-p4h7lm"
+                data-testid="footer-secondary-navigation-item-container"
               >
                 <li
                   class="Footer-listItem"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Cookies","action":"/en/bruk-av-informasjonskapsler/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/bruk-av-informasjonskapsler/","label":"Cookies"}"
+                    data-testid="footer-navigation-button-Cookies"
                     href="/en/bruk-av-informasjonskapsler/"
                     tabindex="0"
                   >
@@ -3438,7 +3860,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Sitemap"}"
+                    data-gtm="{"id":"nav-footer1","action":"undefined","label":"Sitemap"}"
+                    data-testid="footer-navigation-button-Sitemap"
                     tabindex="0"
                     type="button"
                   >
@@ -3453,7 +3876,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"MC: global.sitemap","action":"/en/sitemap/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/sitemap/","label":"MC: global.sitemap"}"
+                    data-testid="footer-navigation-button-MC:-global.sitemap"
                     href="/en/sitemap/"
                     tabindex="0"
                   >
@@ -3527,6 +3951,7 @@ exports[`Simple page renders correctly with full data 1`] = `
         aria-hidden="true"
         aria-label="Back to the top"
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-15xs9gd-MuiButtonBase-root-MuiButton-root"
+        data-testid="button"
         tabindex="-1"
         type="button"
       >

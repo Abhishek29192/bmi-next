@@ -1,25 +1,15 @@
-import { useIsClient } from "@bmi-digital/components";
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import { ClickableAction } from "@bmi-digital/components/clickable";
+import AnchorLink from "@bmi-digital/components/anchor-link";
 import ExpandableLinksTextCard from "@bmi-digital/components/expandable-links-text-card";
-import AddIcon from "@bmi-digital/components/icon/Add";
-import RemoveIcon from "@bmi-digital/components/icon/Remove";
 import MasonryGrid from "@bmi-digital/components/masonry-grid";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
-import withGTM from "../utils/google-tag-manager";
-import memoize from "../utils/memoize";
-import {
-  Data as LinkData,
-  NavigationData,
-  getClickableActionFromUrl
-} from "./Link";
 import { useSiteContext } from "./Site";
+import { toAnchorLinkActionProps } from "./link/utils";
+import type { ExpandableLinksTextCardsProps } from "@bmi-digital/components/expandable-links-text-card";
+import type { AnchorLinkProps } from "@bmi-digital/components/anchor-link";
+import type { Data as LinkData, NavigationData } from "./link/types";
 
 export type Data = {
   __typename: "ContentfulLinkColumnsSection";
@@ -27,43 +17,9 @@ export type Data = {
   columns: NavigationData[];
 };
 
-const GTMButton = withGTM<ButtonProps>(Button);
-const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
-
 const LinkColumnsSection = ({ data }: { data: Data }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const { isClient } = useIsClient();
   const { title, columns } = data;
-  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
-
-  const renderOpenButton = (title: string) => (
-    <GTMButton
-      variant="outlined"
-      style={{ marginTop: "24px" }}
-      endIcon={<AddIcon />}
-      gtm={{
-        id: "cta-click1",
-        action: "Expand choice of links",
-        label: `${title} - ${getMicroCopy(microCopy.GLOBAL_VIEW_MORE)}`
-      }}
-    >
-      {getMicroCopy(microCopy.GLOBAL_VIEW_MORE)}
-    </GTMButton>
-  );
-  const renderCloseButton = (title: string) => (
-    <GTMButton
-      variant="outlined"
-      style={{ marginTop: "24px" }}
-      endIcon={<RemoveIcon />}
-      gtm={{
-        id: "cta-click1",
-        action: "Decrease choice of links",
-        label: `${title} - ${getMicroCopy(microCopy.GLOBAL_VIEW_LESS)}`
-      }}
-    >
-      {getMicroCopy(microCopy.GLOBAL_VIEW_LESS)}
-    </GTMButton>
-  );
 
   return (
     <Section backgroundColor="pearl" data-testid="link-columns-section">
@@ -71,48 +27,29 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
       <MasonryGrid>
         {columns &&
           columns.map(({ label, links }, index) => {
-            const linksWithActions = (links || [])
+            const linksWithActions: ExpandableLinksTextCardsProps["links"] = (
+              links || []
+            )
               .filter((link) => link.__typename === "ContentfulLink")
-              .map(
-                (
-                  link: LinkData
-                ): {
-                  action: ClickableAction | undefined;
-                  label: string;
-                } => {
-                  const action = memoizedGetClickableActionFromUrl(
-                    {
-                      isSSR: !isClient,
-                      linkedPage: link.linkedPage,
-                      url: link.url,
-                      countryCode,
-                      assetUrl: link.asset
-                        ? `https:${link.asset?.file?.url}`
-                        : undefined,
-                      label: link.label
-                    },
-                    []
-                  );
-
-                  return {
-                    action,
-                    label: link.label
-                  };
-                }
-              );
+              .map((link: LinkData) => {
+                return {
+                  ...toAnchorLinkActionProps(link, countryCode),
+                  label: link.label
+                };
+              });
 
             return (
               <ExpandableLinksTextCard
                 key={`${label}-${index}`}
-                title={label || ""}
+                title={label ? label : undefined}
+                openButtonLabel={getMicroCopy(microCopy.GLOBAL_VIEW_MORE)}
+                closeButtonLabel={getMicroCopy(microCopy.GLOBAL_VIEW_LESS)}
                 links={linksWithActions}
-                openButton={renderOpenButton(label || "")}
-                closeButton={renderCloseButton(label || "")}
                 anchorLinkComponent={(props: AnchorLinkProps) => (
-                  <GTMAnchorLink
+                  <AnchorLink
                     gtm={{
                       id: "cta-click1",
-                      action: props.action?.href,
+                      action: props.href,
                       label: `${label} - ${props.children}`
                     }}
                     {...props}

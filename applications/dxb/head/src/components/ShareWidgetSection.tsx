@@ -1,11 +1,12 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
 import Section from "@bmi-digital/components/section";
-import ShareWidget from "@bmi-digital/components/share-widget";
+import ShareWidget, {
+  ShareWidgetProps
+} from "@bmi-digital/components/share-widget";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import React from "react";
-import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
+import type { GetMicroCopy } from "./MicroCopy";
 
 export type Data = {
   __typename: "ShareWidgetSection";
@@ -22,72 +23,76 @@ export type Data = {
   twitter: boolean | null;
 };
 
-const GTMButton = withGTM<ButtonProps>(Button, {
-  label: "accessibilityLabel",
-  action: "data-channel"
-});
+export type Props = {
+  data: Data;
+  hasNoPadding?: boolean;
+  "data-testid"?: string;
+};
+
+const createChannelData = (
+  getMicroCopy: GetMicroCopy,
+  data: Props["data"]
+): ShareWidgetProps["channels"] => {
+  const { copy, email, facebook, linkedin, pinterest, twitter } = data;
+
+  const socialMediaTypes = [
+    { type: "copy", value: copy, microCopyKey: microCopy.SHARE_COPY },
+    { type: "email", value: email, microCopyKey: microCopy.SHARE_EMAIL },
+    {
+      type: "linkedin",
+      value: linkedin,
+      microCopyKey: microCopy.SHARE_LINKEDIN
+    },
+    { type: "twitter", value: twitter, microCopyKey: microCopy.SHARE_TWITTER },
+    {
+      type: "facebook",
+      value: facebook,
+      microCopyKey: microCopy.SHARE_FACEBOOK
+    },
+    {
+      type: "pinterest",
+      value: pinterest,
+      microCopyKey: microCopy.SHARE_PINTEREST
+    }
+  ];
+
+  return socialMediaTypes
+    .filter(({ value }) => value)
+    .map(({ type, microCopyKey }) => ({
+      type,
+      label: getMicroCopy(microCopyKey),
+      gtm: {
+        id: "cta-share1",
+        label: getMicroCopy(microCopyKey),
+        action: type
+      }
+    })) as ShareWidgetProps["channels"];
+};
 
 const ShareWidgetSection = ({
-  data: {
-    __typename,
+  data,
+  hasNoPadding,
+  "data-testid": dataTestId
+}: Props) => {
+  const {
     title,
     message,
     clipboardSuccessMessage,
     clipboardErrorMessage,
-    isLeftAligned,
-    ...channels
-  },
-  hasNoPadding,
-  "data-testid": dataTestId
-}: {
-  data: Data;
-  hasNoPadding?: boolean;
-  "data-testid"?: string;
-}) => {
+    isLeftAligned
+  } = data;
   const { getMicroCopy } = useSiteContext();
-  const availableChannels = [
-    { type: "copy" as const, label: getMicroCopy(microCopy.SHARE_COPY) },
-    {
-      type: "email" as const,
-      label: getMicroCopy(microCopy.SHARE_EMAIL),
-      apiUrl: "mailto:?body={{href}}&subject={{message}}"
-    },
-    {
-      type: "linkedin" as const,
-      label: getMicroCopy(microCopy.SHARE_LINKEDIN),
-      apiUrl: "https://www.linkedin.com/sharing/share-offsite/?url={{href}}"
-    },
-    {
-      type: "twitter" as const,
-      label: getMicroCopy(microCopy.SHARE_TWITTER),
-      apiUrl: "https://twitter.com/intent/tweet?text={{message}}&url={{href}}"
-    },
-    {
-      type: "facebook" as const,
-      label: getMicroCopy(microCopy.SHARE_FACEBOOK),
-      apiUrl:
-        "https://www.facebook.com/sharer/sharer.php?u={{href}}&display=popup"
-    },
-    {
-      type: "pinterest" as const,
-      label: getMicroCopy(microCopy.SHARE_PINTEREST),
-      apiUrl: "https://www.pinterest.com/pin/create/button/?url={{href}}"
-    }
-  ];
 
   return (
     <Section
       backgroundColor="white"
       spacing="none"
       hasNoPadding={hasNoPadding}
-      data-testid={dataTestId ? dataTestId : "share-widget-section"}
+      data-testid={dataTestId || "share-widget-section"}
     >
       <ShareWidget
         title={title}
-        message={message ?? undefined}
-        buttonComponent={(props: ButtonProps) => (
-          <GTMButton gtm={{ id: "cta-share1" }} {...props} />
-        )}
+        message={message}
         clipboardSuccessMessage={
           clipboardSuccessMessage ||
           getMicroCopy(microCopy.SHARE_CLIPBOARD_SUCCESS)
@@ -96,10 +101,8 @@ const ShareWidgetSection = ({
           clipboardErrorMessage ||
           getMicroCopy(microCopy.SHARE_CLIPBOARD_FAILURE)
         }
-        isLeftAligned={isLeftAligned ?? undefined}
-        channels={availableChannels.filter(
-          (channel) => channels[channel.type] && channel
-        )}
+        isLeftAligned={isLeftAligned}
+        channels={createChannelData(getMicroCopy, data)}
       />
     </Section>
   );

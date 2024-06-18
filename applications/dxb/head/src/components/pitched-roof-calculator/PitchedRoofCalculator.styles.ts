@@ -1,5 +1,5 @@
 import ContainerDialog from "@bmi-digital/components/container-dialog";
-import Logo from "@bmi-digital/components/logo";
+import BMI from "@bmi-digital/components/logo/Bmi";
 import { iconButtonClasses } from "@mui/material/IconButton";
 import LinearProgress from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
@@ -43,7 +43,7 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
   }
 }));
 
-export const StyledLogo = styled(Logo)(({ theme }) => ({
+export const StyledLogo = styled(BMI)(({ theme }) => ({
   width: "80px",
   height: "80px",
 

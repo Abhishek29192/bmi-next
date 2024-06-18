@@ -15,8 +15,7 @@ export const getDefaultFormValues = (data: TrainingRegistrationPageData) => ({
   [data.phoneNumber]: "",
   [data.competentChamber]: "",
   [data.bmiSystemPartnerClubTitle]: data.isMemberOfBmiLabel,
-  //'}' will be removed from the field name after switching to common components v2
-  [`${data.discoverySourceOther}-textfield}`]: "",
+  [`${data.discoverySourceOther}-textfield`]: "",
   [data.discoverySourceTitle]: data.discoverySourceBrochure,
   [data.comment]: "",
   consent: undefined,

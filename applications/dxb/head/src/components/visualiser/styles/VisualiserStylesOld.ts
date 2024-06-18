@@ -1,5 +1,5 @@
-import Button from "@bmi-digital/components/button";
 import ContainerDialog from "@bmi-digital/components/container-dialog";
+import IconButton from "@bmi-digital/components/icon-button";
 import { iconButtonClasses } from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 
@@ -156,7 +156,7 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
   }
 }));
 
-export const StyledShareButton = styled(Button)(({ theme }) => ({
+export const StyledShareButton = styled(IconButton)(({ theme }) => ({
   width: "48px",
   height: "48px",
   minWidth: "unset"

@@ -1,14 +1,12 @@
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
-import LocationCard, {
-  LocationCardDetailProps
-} from "@bmi-digital/components/location-card";
-import MicroCopy from "@bmi-digital/components/micro-copy";
+import LocationDetails, {
+  LocationDetailProps
+} from "@bmi-digital/components/location-details";
 import { graphql } from "gatsby";
 import React from "react";
-import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "@bmi/microcopies";
+import { GetMicroCopy } from "./MicroCopy";
 import RichText, { RichTextData } from "./RichText";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   __typename: "ContentfulContactDetails";
@@ -19,45 +17,64 @@ export type Data = {
   otherInformation: RichTextData | null;
 };
 
-type Details = readonly [LocationCardDetailProps, ...LocationCardDetailProps[]];
+type Details = readonly [LocationDetailProps, ...LocationDetailProps[]];
 
 export const getDetails = (
+  getMicroCopy: GetMicroCopy,
   address: string | null,
   phoneNumber: string | null,
-  email: string | null
-): Details | undefined => {
-  const addressLine: [LocationCardDetailProps] | undefined = address
+  email: string | null,
+  gtmLabel?: string
+) => {
+  const addressLine: [LocationDetailProps] | undefined = address
     ? [
         {
           type: "address",
           text: address,
           action: {
-            model: "htmlLink",
             href: `https://maps.google.com/maps?q=${address}`,
-            target: "_blank",
-            rel: "noopener noreferrer"
+            external: true,
+            gtm: {
+              id: "cta-click1",
+              action: `https://maps.google.com/maps?q=${address}`,
+              label: gtmLabel ? `${gtmLabel} - ${address}` : address
+            }
           },
-          label: <MicroCopy path="global.address" />
+          label: getMicroCopy(microCopy.GLOBAL_ADDRESS)
         }
       ]
     : undefined;
-  const phoneNumberLine: [LocationCardDetailProps] | undefined = phoneNumber
+  const phoneNumberLine: [LocationDetailProps] | undefined = phoneNumber
     ? [
         {
           type: "phone",
           text: phoneNumber,
-          action: { model: "htmlLink", href: `tel:${phoneNumber}` },
-          label: <MicroCopy path="global.telephone" />
+          action: {
+            href: `tel:${phoneNumber}`,
+            gtm: {
+              id: "cta-click1",
+              action: `tel:${phoneNumber}`,
+              label: gtmLabel ? `${gtmLabel} - ${phoneNumber}` : phoneNumber
+            }
+          },
+          label: getMicroCopy(microCopy.GLOBAL_TELEPHONE)
         }
       ]
     : undefined;
-  const emailLine: [LocationCardDetailProps] | undefined = email
+  const emailLine: [LocationDetailProps] | undefined = email
     ? [
         {
           type: "email",
           text: email,
-          action: { model: "htmlLink", href: `mailto:${email}` },
-          label: <MicroCopy path="global.email" />
+          action: {
+            href: `mailto:${email}`,
+            gtm: {
+              id: "cta-click1",
+              action: `mailto:${email}`,
+              label: gtmLabel ? `${gtmLabel} - ${email}` : email
+            }
+          },
+          label: getMicroCopy(microCopy.GLOBAL_EMAIL)
         }
       ]
     : undefined;
@@ -65,6 +82,7 @@ export const getDetails = (
   if (!addressLine && !phoneNumberLine && !emailLine) {
     return undefined;
   }
+
   return [
     ...(addressLine || []),
     ...(phoneNumberLine || []),
@@ -73,45 +91,31 @@ export const getDetails = (
 };
 
 const IntegratedLocationCard = ({
-  anchorComponent,
   data,
-  isFlat,
   gtmLabel
 }: {
   data: Data;
-  isFlat?: boolean;
-  anchorComponent?: React.ComponentType<any>; // TODO
   gtmLabel?: string;
 }): React.ReactElement => {
   const { title, address, phoneNumber, email, otherInformation } = data;
-  const details = getDetails(address, phoneNumber, email);
-
-  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
-    label: "children"
-  });
+  const { getMicroCopy } = useSiteContext();
+  const details = getDetails(
+    getMicroCopy,
+    address,
+    phoneNumber,
+    email,
+    gtmLabel
+  );
 
   return (
-    <LocationCard
+    <LocationDetails
       title={title}
       details={details}
       footNote={
         otherInformation ? (
           <RichText document={otherInformation} hasNoBottomMargin />
-        ) : null
+        ) : undefined
       }
-      isFlat={isFlat}
-      anchorComponent={(props: AnchorLinkProps) => (
-        <GTMAnchorLink
-          gtm={{
-            id: "cta-click1",
-            action: props?.action?.href,
-            label:
-              gtmLabel &&
-              `${gtmLabel}${props?.children ? ` - ${props.children}` : ""}`
-          }}
-          {...props}
-        />
-      )}
     />
   );
 };

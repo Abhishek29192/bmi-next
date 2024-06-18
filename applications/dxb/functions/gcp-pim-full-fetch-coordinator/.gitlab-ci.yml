@@ -1,3 +1,8 @@
+spec:
+  inputs:
+    preceding_job:
+---
+
 lint_gcp-pim-full-fetch-coordinator:
   extends: .lint_function
   variables:
@@ -76,6 +81,9 @@ deploy_gcp-pim-full-fetch-coordinator:
   needs:
     - job: package_gcp-pim-full-fetch-coordinator
       artifacts: true
+    - job: $[[ inputs.preceding_job ]]
+      artifacts: false
+      optional: true
   rules:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
