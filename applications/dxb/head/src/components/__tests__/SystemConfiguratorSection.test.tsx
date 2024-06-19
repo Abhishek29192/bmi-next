@@ -810,6 +810,60 @@ describe("SystemConfiguratorSection component", () => {
     expect(screen.queryByTestId("qrst")).toBeNull();
   });
 
+  it("renders recommendedSystems if no systemProperties provided", async () => {
+    fetchMock.mockResolvedValue(
+      getFetchResponse({
+        __typename: "ContentfulSystemConfiguratorResult",
+        title: "Result Title",
+        description: { raw: JSON.stringify(richTextRaw), references: null },
+        recommendedSystems: ["abcd", "efgh"]
+      })
+    );
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [
+          {
+            _source: {
+              ...createRelatedSystem({ code: "abcd", name: "abcd name" })
+            }
+          },
+          {
+            _source: {
+              ...createRelatedSystem({ code: "efgh", name: "efgh name" })
+            }
+          }
+        ],
+        total: {
+          value: 2
+        }
+      }
+    });
+
+    render(
+      <ThemeProvider>
+        <SiteContextProvider value={getMockSiteContext("no")}>
+          <LocationProvider>
+            <SystemConfiguratorSection
+              data={{ ...initialData, systemProperties: null }}
+            />
+          </LocationProvider>
+        </SiteContextProvider>
+      </ThemeProvider>
+    );
+
+    const label = await screen.findByLabelText("Answer 1b title");
+    fireEvent.click(label);
+
+    await screen.findByRole("progressbar");
+    await screen.findByText("Result Title");
+    await screen.findByText("abcd name");
+
+    expect(mockQueryES).toHaveBeenCalledTimes(1);
+
+    expect(screen.getByTestId("abcd")).toBeInTheDocument();
+    expect(screen.getByTestId("efgh")).toBeInTheDocument();
+  });
+
   it("redirect to 404 page if no matches to pimSystem code", async () => {
     fetchMock.mockResolvedValue(
       getFetchResponse({
