@@ -30,7 +30,7 @@ exports[`ExploreBarSection component renders correctly 1`] = `
             href="link-to-page"
             tabindex="0"
           >
-            Lorem ipsum
+            String
             <span
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
@@ -42,7 +42,7 @@ exports[`ExploreBarSection component renders correctly 1`] = `
             href="link-to-page-2"
             tabindex="0"
           >
-            Lorem ipsum
+            Another string
             <span
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
