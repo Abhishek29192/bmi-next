@@ -47,7 +47,7 @@ export type Data = {
   label: string;
   description: RichTextData | null;
   question: QuestionData;
-  systemProperties: string[];
+  systemProperties: string[] | null;
 };
 
 export type NextStepData = {
@@ -86,7 +86,7 @@ export type TitleWithContentData = DefaultTitleWithContentData & {
 export type ResultData = EntryData & {
   __typename: "ContentfulSystemConfiguratorResult";
   recommendedSystems: string[] | null;
-  systemProperties: string[];
+  systemProperties: string[] | null;
 };
 
 type SystemConfiguratorSectionState = {
@@ -422,7 +422,7 @@ const SystemConfiguratorResult = ({
                     data-testid={system.code}
                     key={`${system.code}-${id}`}
                     system={system}
-                    systemPropertiesToDisplay={systemProperties}
+                    systemPropertiesToDisplay={systemProperties || []}
                     countryCode={countryCode}
                     gtm={{
                       id: "system-configurator01-results",
