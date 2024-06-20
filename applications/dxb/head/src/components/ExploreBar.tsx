@@ -20,7 +20,7 @@ const IntegratedExploreBar = ({ data }: { data: Data }) => {
       heading={label}
       links={
         links.map<ButtonProps>((link) => ({
-          children: label,
+          children: link.label,
           ...toButtonActionProps(link, countryCode)
         })) as [ButtonProps, ...ButtonProps[]]
       }

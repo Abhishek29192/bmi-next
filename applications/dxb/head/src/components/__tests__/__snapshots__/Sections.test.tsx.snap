@@ -2698,7 +2698,7 @@ exports[`Sections component renders correctly 1`] = `
               href="link-to-page"
               tabindex="0"
             >
-              Explore
+              string
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
