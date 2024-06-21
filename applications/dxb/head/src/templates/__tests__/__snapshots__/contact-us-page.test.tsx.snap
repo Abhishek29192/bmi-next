@@ -2152,7 +2152,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"http://localhost:8080/asset.pdf","label":"Link label"}"
-                    data-testid="nba-card-Promo-NBA-Title"
+                    data-testid="nba-card-Contentful-Promo-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
                     referrerpolicy="no-referrer"
@@ -2167,7 +2167,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Promo NBA Title
+                        Contentful Promo Title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -2177,7 +2177,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
                         >
-                          Promo NBA Subtitle
+                          Contentful Promo Subtitle
                         </p>
                       </div>
                     </div>
@@ -2205,7 +2205,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                           d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                         />
                       </svg>
-                      Promo NBA Title
+                      Link label
                     </a>
                   </div>
                 </div>
@@ -2218,12 +2218,11 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                    data-testid="nba-card-Page-Info-NBA-Title"
-                    href="/en/en/page-info/path/"
+                    data-testid="nba-card-example-title"
                     tabindex="0"
+                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -2232,7 +2231,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Page Info NBA Title
+                        example-title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -2241,38 +2240,13 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         <p
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
-                        >
-                          Page Info NBA Subtitle
-                        </p>
+                        />
                       </div>
                     </div>
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
-                  <div
-                    class="TappableCard-footer css-1rg9dq1"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                      data-testid="anchor-link"
-                      href="/en/en/page-info/path/"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
-                        data-testid="internal"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                        />
-                      </svg>
-                      Page Info NBA Title
-                    </a>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -5066,7 +5040,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"http://localhost:8080/asset.pdf","label":"Link label"}"
-                    data-testid="nba-card-Promo-NBA-Title"
+                    data-testid="nba-card-Contentful-Promo-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
                     referrerpolicy="no-referrer"
@@ -5081,7 +5055,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Promo NBA Title
+                        Contentful Promo Title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -5091,7 +5065,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
                         >
-                          Promo NBA Subtitle
+                          Contentful Promo Subtitle
                         </p>
                       </div>
                     </div>
@@ -5119,7 +5093,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                           d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                         />
                       </svg>
-                      Promo NBA Title
+                      Link label
                     </a>
                   </div>
                 </div>
@@ -5132,12 +5106,11 @@ exports[`Contact us page render Sections correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                    data-testid="nba-card-Page-Info-NBA-Title"
-                    href="/en/en/page-info/path/"
+                    data-testid="nba-card-example-title"
                     tabindex="0"
+                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -5146,7 +5119,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Page Info NBA Title
+                        example-title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -5155,38 +5128,13 @@ exports[`Contact us page render Sections correctly 1`] = `
                         <p
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
-                        >
-                          Page Info NBA Subtitle
-                        </p>
+                        />
                       </div>
                     </div>
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
-                  <div
-                    class="TappableCard-footer css-1rg9dq1"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                      data-testid="anchor-link"
-                      href="/en/en/page-info/path/"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
-                        data-testid="internal"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                        />
-                      </svg>
-                      Page Info NBA Title
-                    </a>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -7977,7 +7925,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"http://localhost:8080/asset.pdf","label":"Link label"}"
-                    data-testid="nba-card-Promo-NBA-Title"
+                    data-testid="nba-card-Contentful-Promo-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
                     referrerpolicy="no-referrer"
@@ -7992,7 +7940,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Promo NBA Title
+                        Contentful Promo Title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -8002,7 +7950,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
                         >
-                          Promo NBA Subtitle
+                          Contentful Promo Subtitle
                         </p>
                       </div>
                     </div>
@@ -8030,7 +7978,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                           d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                         />
                       </svg>
-                      Promo NBA Title
+                      Link label
                     </a>
                   </div>
                 </div>
@@ -8043,12 +7991,11 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                    data-testid="nba-card-Page-Info-NBA-Title"
-                    href="/en/en/page-info/path/"
+                    data-testid="nba-card-example-title"
                     tabindex="0"
+                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -8057,7 +8004,7 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Page Info NBA Title
+                        example-title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -8066,38 +8013,13 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                         <p
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
-                        >
-                          Page Info NBA Subtitle
-                        </p>
+                        />
                       </div>
                     </div>
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
-                  <div
-                    class="TappableCard-footer css-1rg9dq1"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                      data-testid="anchor-link"
-                      href="/en/en/page-info/path/"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
-                        data-testid="internal"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                        />
-                      </svg>
-                      Page Info NBA Title
-                    </a>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -10891,7 +10813,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"http://localhost:8080/asset.pdf","label":"Link label"}"
-                    data-testid="nba-card-Promo-NBA-Title"
+                    data-testid="nba-card-Contentful-Promo-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
                     referrerpolicy="no-referrer"
@@ -10906,7 +10828,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Promo NBA Title
+                        Contentful Promo Title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -10916,7 +10838,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
                         >
-                          Promo NBA Subtitle
+                          Contentful Promo Subtitle
                         </p>
                       </div>
                     </div>
@@ -10944,7 +10866,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                           d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                         />
                       </svg>
-                      Promo NBA Title
+                      Link label
                     </a>
                   </div>
                 </div>
@@ -10957,12 +10879,11 @@ exports[`Contact us page render iframe correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                    data-testid="nba-card-Page-Info-NBA-Title"
-                    href="/en/en/page-info/path/"
+                    data-testid="nba-card-example-title"
                     tabindex="0"
+                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -10971,7 +10892,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Page Info NBA Title
+                        example-title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -10980,38 +10901,13 @@ exports[`Contact us page render iframe correctly 1`] = `
                         <p
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
-                        >
-                          Page Info NBA Subtitle
-                        </p>
+                        />
                       </div>
                     </div>
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
-                  <div
-                    class="TappableCard-footer css-1rg9dq1"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                      data-testid="anchor-link"
-                      href="/en/en/page-info/path/"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
-                        data-testid="internal"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                        />
-                      </svg>
-                      Page Info NBA Title
-                    </a>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -13805,7 +13701,7 @@ exports[`Contact us page render location correctly 1`] = `
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"http://localhost:8080/asset.pdf","label":"Link label"}"
-                    data-testid="nba-card-Promo-NBA-Title"
+                    data-testid="nba-card-Contentful-Promo-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
                     referrerpolicy="no-referrer"
@@ -13820,7 +13716,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Promo NBA Title
+                        Contentful Promo Title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -13830,7 +13726,7 @@ exports[`Contact us page render location correctly 1`] = `
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
                         >
-                          Promo NBA Subtitle
+                          Contentful Promo Subtitle
                         </p>
                       </div>
                     </div>
@@ -13858,7 +13754,7 @@ exports[`Contact us page render location correctly 1`] = `
                           d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                         />
                       </svg>
-                      Promo NBA Title
+                      Link label
                     </a>
                   </div>
                 </div>
@@ -13871,12 +13767,11 @@ exports[`Contact us page render location correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                    data-testid="nba-card-Page-Info-NBA-Title"
-                    href="/en/en/page-info/path/"
+                    data-testid="nba-card-example-title"
                     tabindex="0"
+                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -13885,7 +13780,7 @@ exports[`Contact us page render location correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Page Info NBA Title
+                        example-title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -13894,38 +13789,13 @@ exports[`Contact us page render location correctly 1`] = `
                         <p
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
-                        >
-                          Page Info NBA Subtitle
-                        </p>
+                        />
                       </div>
                     </div>
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
-                  <div
-                    class="TappableCard-footer css-1rg9dq1"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                      data-testid="anchor-link"
-                      href="/en/en/page-info/path/"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
-                        data-testid="internal"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                        />
-                      </svg>
-                      Page Info NBA Title
-                    </a>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -16719,7 +16589,7 @@ exports[`Contact us page renders correctly 1`] = `
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","action":"http://localhost:8080/asset.pdf","label":"Link label"}"
-                    data-testid="nba-card-Promo-NBA-Title"
+                    data-testid="nba-card-Contentful-Promo-Title"
                     download=""
                     href="http://localhost:8080/asset.pdf"
                     referrerpolicy="no-referrer"
@@ -16734,7 +16604,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Promo NBA Title
+                        Contentful Promo Title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -16744,7 +16614,7 @@ exports[`Contact us page renders correctly 1`] = `
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
                         >
-                          Promo NBA Subtitle
+                          Contentful Promo Subtitle
                         </p>
                       </div>
                     </div>
@@ -16772,7 +16642,7 @@ exports[`Contact us page renders correctly 1`] = `
                           d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                         />
                       </svg>
-                      Promo NBA Title
+                      Link label
                     </a>
                   </div>
                 </div>
@@ -16785,12 +16655,11 @@ exports[`Contact us page renders correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                    data-testid="nba-card-Page-Info-NBA-Title"
-                    href="/en/en/page-info/path/"
+                    data-testid="nba-card-example-title"
                     tabindex="0"
+                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -16799,7 +16668,7 @@ exports[`Contact us page renders correctly 1`] = `
                         class="MuiTypography-root MuiTypography-h4 TappableCard-title TappableCard-noBrandLogo css-xr1f2j-MuiTypography-root"
                         data-testid="tappable-card-body-title"
                       >
-                        Page Info NBA Title
+                        example-title
                       </h4>
                       <div
                         class="TappableCard-text"
@@ -16808,38 +16677,13 @@ exports[`Contact us page renders correctly 1`] = `
                         <p
                           class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
                           data-testid="typography"
-                        >
-                          Page Info NBA Subtitle
-                        </p>
+                        />
                       </div>
                     </div>
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
-                  <div
-                    class="TappableCard-footer css-1rg9dq1"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
-                      data-gtm="{"id":"cta-click1","action":"/en/en/page-info/path/","label":"Page Info NBA Title"}"
-                      data-testid="anchor-link"
-                      href="/en/en/page-info/path/"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
-                        data-testid="internal"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                        />
-                      </svg>
-                      Page Info NBA Title
-                    </a>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
