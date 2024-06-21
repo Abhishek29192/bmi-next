@@ -820,7 +820,7 @@ exports[`Search Page Template render correctly 1`] = `
                       class="InputGroup-lockedxs css-14zqdme"
                     >
                       <div
-                        class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                        class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                         data-testid="search-input-text"
                       >
                         <label
@@ -904,7 +904,7 @@ exports[`Search Page Template render correctly 1`] = `
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -920,7 +920,7 @@ exports[`Search Page Template render correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1001,7 +1001,7 @@ exports[`Search Page Template render correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1082,7 +1082,7 @@ exports[`Search Page Template render correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"

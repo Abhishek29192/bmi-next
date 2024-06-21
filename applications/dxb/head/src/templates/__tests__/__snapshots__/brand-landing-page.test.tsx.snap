@@ -800,7 +800,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -937,7 +937,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -1003,7 +1003,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -1120,7 +1120,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -1213,7 +1213,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -1482,7 +1482,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1498,7 +1498,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1579,7 +1579,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1660,7 +1660,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -2675,7 +2675,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -2807,7 +2807,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -2873,7 +2873,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -3115,7 +3115,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -3131,7 +3131,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -3212,7 +3212,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -3293,7 +3293,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -4308,7 +4308,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -4457,7 +4457,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -4523,7 +4523,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -4588,7 +4588,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -4681,7 +4681,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -4950,7 +4950,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -4966,7 +4966,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -5047,7 +5047,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -5128,7 +5128,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -6143,7 +6143,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -6273,7 +6273,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -6339,7 +6339,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -6453,7 +6453,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -6546,7 +6546,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -6815,7 +6815,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -6831,7 +6831,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -6912,7 +6912,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -6993,7 +6993,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -8008,7 +8008,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -8140,7 +8140,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -8206,7 +8206,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -8320,7 +8320,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -8413,7 +8413,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -8652,7 +8652,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -8668,7 +8668,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -8749,7 +8749,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -8830,7 +8830,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -9845,7 +9845,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -9977,7 +9977,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -10043,7 +10043,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -10157,7 +10157,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -10250,7 +10250,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -10519,7 +10519,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -10535,7 +10535,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -10616,7 +10616,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -10697,7 +10697,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -11712,7 +11712,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -11844,7 +11844,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -11910,7 +11910,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -12024,7 +12024,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -12117,7 +12117,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -12386,7 +12386,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -12402,7 +12402,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -12483,7 +12483,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -12564,7 +12564,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -13579,7 +13579,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -13721,7 +13721,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -13787,7 +13787,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -13901,7 +13901,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -13994,7 +13994,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -14263,7 +14263,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -14279,7 +14279,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -14360,7 +14360,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -14441,7 +14441,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -15456,7 +15456,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -15600,7 +15600,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -15666,7 +15666,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -15780,7 +15780,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -15873,7 +15873,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -16142,7 +16142,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -16158,7 +16158,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -16239,7 +16239,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -16320,7 +16320,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -17335,7 +17335,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -17479,7 +17479,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -17545,7 +17545,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -17659,7 +17659,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -17752,7 +17752,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -18021,7 +18021,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -18037,7 +18037,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -18118,7 +18118,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -18199,7 +18199,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"

@@ -1190,7 +1190,7 @@ exports[`Document Library page renders correctly  1`] = `
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1206,7 +1206,7 @@ exports[`Document Library page renders correctly  1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1287,7 +1287,7 @@ exports[`Document Library page renders correctly  1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1368,7 +1368,7 @@ exports[`Document Library page renders correctly  1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"

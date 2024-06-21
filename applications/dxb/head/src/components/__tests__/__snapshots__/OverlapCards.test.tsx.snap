@@ -21,7 +21,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-1uq8xbz"
+              class="TappableCard-root ColorPair-white css-122w5jm"
               data-testid="tappable-card-box"
             >
               <a
@@ -111,7 +111,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-1uq8xbz"
+              class="TappableCard-root ColorPair-white css-122w5jm"
               data-testid="tappable-card-box"
             >
               <a
@@ -201,7 +201,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-1uq8xbz"
+              class="TappableCard-root ColorPair-white css-122w5jm"
               data-testid="tappable-card-box"
             >
               <div
@@ -357,7 +357,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-1uq8xbz"
+              class="TappableCard-root ColorPair-white css-122w5jm"
               data-testid="tappable-card-box"
             >
               <a
@@ -447,7 +447,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-1uq8xbz"
+              class="TappableCard-root ColorPair-white css-122w5jm"
               data-testid="tappable-card-box"
             >
               <a
@@ -537,7 +537,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-white css-1uq8xbz"
+              class="TappableCard-root ColorPair-white css-122w5jm"
               data-testid="tappable-card-box"
             >
               <div

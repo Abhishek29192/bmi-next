@@ -685,7 +685,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 class=" css-xi64lz"
               >
                 <div
-                  class="Carousel-opacity Carousel-swipeable css-xeumfy"
+                  class="Carousel-opacity Carousel-swipeable css-12i4c4k"
                   data-testid="carousel"
                 >
                   <div
@@ -784,7 +784,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     class="InputGroup-lockedxs css-14zqdme"
                   >
                     <div
-                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+                      class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
                       data-testid="search-input-text"
                     >
                       <label
@@ -850,7 +850,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               class=" css-xi64lz"
             >
               <div
-                class="Carousel-swipeable css-xeumfy"
+                class="Carousel-swipeable css-12i4c4k"
                 data-testid="carousel"
               >
                 <div
@@ -967,7 +967,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -1057,7 +1057,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -1147,7 +1147,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-1uq8xbz"
+                  class="TappableCard-root ColorPair-white css-122w5jm"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -1521,7 +1521,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1537,7 +1537,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1618,7 +1618,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1699,7 +1699,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
