@@ -24,11 +24,12 @@ const IntegratedOverlapCards = ({ data }: { data: Data }) => {
       <Container>
         <Grid spacing={3} container justifyContent="center">
           {data.map(({ title, featuredMedia, featuredVideo, ...rest }, key) => {
-            const cta = getCTA(rest, countryCode, title);
+            const cardTitle = title || ""; // TODO: DXB-7055 title can't be null
+            const cta = getCTA(rest, countryCode, cardTitle);
             return (
               <StyledGrid key={key} xs={12} sm={6} md={5} lg={3}>
                 <CTACard
-                  title={title}
+                  title={cardTitle}
                   media={
                     featuredVideo
                       ? createVideoProps({

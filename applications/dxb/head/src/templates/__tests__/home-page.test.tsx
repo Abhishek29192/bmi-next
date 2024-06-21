@@ -71,16 +71,19 @@ describe("Home Page Template", () => {
     {
       title: "Call to action",
       path: "some-page",
-      featuredMedia: createImageData()
+      featuredMedia: createImageData(),
+      featuredVideo: null
     },
     {
       title: "Call to action",
       path: "some-page",
-      featuredMedia: createImageData()
+      featuredMedia: createImageData(),
+      featuredVideo: null
     },
     {
       title: "Card with Video",
       path: "some-page",
+      featuredMedia: null,
       featuredVideo: {
         __typename: "ContentfulVideo",
         title: "video title",
