@@ -28,7 +28,7 @@ exports[`PdpCardsSection renders the default image component when neither a feat
               data-testid="grid-item"
             >
               <div
-                class="TappableCard-root ColorPair-white css-1uq8xbz"
+                class="TappableCard-root ColorPair-white css-122w5jm"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -119,7 +119,7 @@ exports[`PdpCardsSection renders the image component when a featuredImage is def
               data-testid="grid-item"
             >
               <div
-                class="TappableCard-root ColorPair-white css-1uq8xbz"
+                class="TappableCard-root ColorPair-white css-122w5jm"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -240,7 +240,7 @@ exports[`PdpCardsSection renders the video component when a featuredVideo is def
               data-testid="grid-item"
             >
               <div
-                class="TappableCard-root ColorPair-white css-1uq8xbz"
+                class="TappableCard-root ColorPair-white css-122w5jm"
                 data-testid="tappable-card-box"
               >
                 <div

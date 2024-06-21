@@ -1262,7 +1262,7 @@ exports[`Sections component renders correctly 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
@@ -1547,7 +1547,7 @@ exports[`Sections component renders correctly 1`] = `
                 class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                   data-testid="company-autocomplete"
                 >
                   <label
@@ -1853,7 +1853,7 @@ exports[`Sections component renders correctly 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-ip7vfl"
+                            class="css-oxw5r2"
                             data-testid="company-details-root"
                           >
                             <div
@@ -1942,7 +1942,7 @@ exports[`Sections component renders correctly 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-ip7vfl"
+                            class="css-oxw5r2"
                             data-testid="company-details-root"
                           >
                             <div
@@ -2741,7 +2741,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-first-name"
                 >
                   <label
@@ -2794,7 +2794,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-second-names"
                 >
                   <label
@@ -2847,7 +2847,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-email"
                 >
                   <label
@@ -2900,7 +2900,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-company"
                 >
                   <label
@@ -2943,7 +2943,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-telephone"
                 >
                   <label
@@ -3115,7 +3115,7 @@ exports[`Sections component renders correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                   data-testid="text-field-message"
                 >
                   <label

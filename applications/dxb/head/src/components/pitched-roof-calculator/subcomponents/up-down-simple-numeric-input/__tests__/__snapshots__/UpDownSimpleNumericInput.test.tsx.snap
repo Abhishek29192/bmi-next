@@ -28,7 +28,7 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
       />
     </button>
     <div
-      class="MuiFormControl-root MuiTextField-root css-1cbf6xl-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
@@ -78,7 +78,7 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
     data-testid="up-down-simple-numeric-input-buttons-wrapper"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root css-1cbf6xl-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div
@@ -171,7 +171,7 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
       />
     </button>
     <div
-      class="MuiFormControl-root MuiTextField-root css-1cbf6xl-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
       data-testid="up-down-simple-numeric-input-text-field"
     >
       <div

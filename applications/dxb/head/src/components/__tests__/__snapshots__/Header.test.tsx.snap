@@ -2014,7 +2014,7 @@ exports[`Header component toggles search 1`] = `
             class="InputGroup-lockedxs css-14zqdme"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root InputGroup-input css-k5tp9j-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root InputGroup-input css-1wblv4e-MuiFormControl-root-MuiTextField-root"
               data-testid="search-input-text"
             >
               <label
