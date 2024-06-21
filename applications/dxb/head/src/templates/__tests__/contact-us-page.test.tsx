@@ -10,9 +10,8 @@ import { SourceType } from "../../components/types/FormSectionTypes";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import ContactUsPage, { Data } from "../contact-us-page";
-import createPromoNBA, {
-  createPageInfoNBA
-} from "../../__tests__/helpers/NextBestActionsHelper";
+import createPromoData from "../../__tests__/helpers/PromoHelper";
+import createPageInfoData from "../../__tests__/helpers/PageInfoHelper";
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: SiteData } = {
@@ -27,7 +26,7 @@ describe("Contact us page", () => {
       date: null,
       rawDate: null,
       tags: [{ title: "Test page type tag", type: "Page type" }],
-      nextBestActions: [createPromoNBA(), createPageInfoNBA()],
+      nextBestActions: [createPromoData(), createPageInfoData()],
       featuredMedia: null,
       featuredVideo: {
         __typename: "ContentfulVideo",
@@ -332,10 +331,10 @@ describe("Contact us page", () => {
 
     expect(container).toMatchSnapshot();
     expect(screen.getByText("Mer informasjon")).toBeTruthy();
-    expect(screen.getByTestId("nba-card-Promo-NBA-Title")).toBeInTheDocument();
     expect(
-      screen.getByTestId("nba-card-Page-Info-NBA-Title")
+      screen.getByTestId("nba-card-Contentful-Promo-Title")
     ).toBeInTheDocument();
+    expect(screen.getByTestId("nba-card-example-title")).toBeInTheDocument();
   });
 
   it("render first slide featuredMedia instead when no featuredVideo", () => {
