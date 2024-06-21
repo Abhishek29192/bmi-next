@@ -295,7 +295,7 @@ const Header = ({
 
   const basketUrl =
     sampleBasketLink &&
-    getPathWithCountryCode(countryCode, sampleBasketLink.slug);
+    getPathWithCountryCode(countryCode, sampleBasketLink.path);
 
   const newActiveLabel =
     checkIfActiveLabelInParentNode(lastNavigationLabel, navigationData) ||
