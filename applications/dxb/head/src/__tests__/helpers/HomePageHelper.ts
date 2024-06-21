@@ -13,12 +13,14 @@ const createHomePageData = (
   overlapCards: [
     {
       title: "Promo Card with Video",
+      featuredMedia: null,
       featuredVideo: createVideoData(),
       path: "promo-video/"
     },
     {
       title: "PageInfo Card with Image",
       featuredMedia: createImageData(),
+      featuredVideo: null,
       cta: createInternalLinkData()
     }
   ],

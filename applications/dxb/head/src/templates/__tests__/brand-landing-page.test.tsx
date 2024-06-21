@@ -104,6 +104,7 @@ describe("Brand Landing Page Template", () => {
       {
         title: "Call to action",
         path: "some-page",
+        featuredMedia: null,
         featuredVideo: {
           __typename: "ContentfulVideo",
           title: "featuredVideo",
@@ -119,6 +120,7 @@ describe("Brand Landing Page Template", () => {
       {
         title: "Call to action",
         path: "some-page",
+        featuredMedia: null,
         featuredVideo: {
           __typename: "ContentfulVideo",
           title: "featuredVideo",
