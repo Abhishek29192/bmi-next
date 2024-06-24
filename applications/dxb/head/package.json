@@ -40,7 +40,6 @@
     "@bmi/gatsby-plugin-sitemap": "workspace:*",
     "@bmi/gatsby-source-docebo": "workspace:*",
     "@bmi/gatsby-source-firestore": "workspace:*",
-    "@bmi/gatsby-source-hubspot-forms": "workspace:*",
     "@bmi/microcopies": "workspace:*",
     "@bmi/utils": "workspace:*",
     "@contentful/rich-text-react-renderer": "^15.19.0",

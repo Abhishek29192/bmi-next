@@ -95,15 +95,7 @@ updates:
     directory: "/applications/dxb/libraries/functions-recaptcha"
     schedule:
       interval: "weekly"
-  ###################################
-  # gatsby-source-hubspot-forms
-  ###################################
-  - package-ecosystem: "npm"
-    registries:
-      - npm-npmjs
-    directory: "/applications/dxb/libraries/gatsby-source-hubspot-forms"
-    schedule:
-      interval: "weekly"
+
   ###################################
   # gatsby-plugin-leadoo
   ###################################
@@ -140,15 +132,7 @@ updates:
     directory: "/applications/dxb/libraries/utils"
     schedule:
       interval: "weekly"
-  ###################################
-  # gatsby-plugin-google-tagmanager
-  ###################################
-  - package-ecosystem: "npm"
-    registries:
-      - npm-npmjs
-    directory: "/applications/dxb/libraries/gatsby-plugin-google-tagmanager"
-    schedule:
-      interval: "weekly"
+
   ###################################
   # gatsby-plugin-firestore
   ###################################

@@ -23,9 +23,6 @@
       "path": "../libraries/gatsby-plugin-elasticsearch"
     },
     {
-      "path": "../libraries/gatsby-plugin-google-tagmanager"
-    },
-    {
       "path": "../libraries/gatsby-plugin-leadoo"
     },
     {

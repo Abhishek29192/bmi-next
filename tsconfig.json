@@ -129,9 +129,6 @@
       "path": "applications/dxb/libraries/gatsby-plugin-elasticsearch"
     },
     {
-      "path": "applications/dxb/libraries/gatsby-plugin-google-tagmanager"
-    },
-    {
       "path": "applications/dxb/libraries/gatsby-plugin-leadoo"
     },
     {

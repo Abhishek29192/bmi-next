@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import React from "react";
 import { ConfigProvider, useConfig } from "../ConfigProvider";
 
 const TestComponent = () => {
@@ -195,7 +194,6 @@ describe("ConfigProvider", () => {
       key: "gcpFormSubmitEndpoint",
       env: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
     },
-    { key: "hubspotApiUrl", env: "GATSBY_HUBSPOT_API_URL" },
     { key: "gcpApsisEndpoint", env: "GATSBY_GCP_APSIS_ENDPOINT" },
     {
       key: "webtoolsCalculatorDataUrl",

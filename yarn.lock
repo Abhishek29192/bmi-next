@@ -2879,17 +2879,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@bmi/gatsby-source-hubspot-forms@workspace:*, @bmi/gatsby-source-hubspot-forms@workspace:applications/dxb/libraries/gatsby-source-hubspot-forms":
-  version: 0.0.0-use.local
-  resolution: "@bmi/gatsby-source-hubspot-forms@workspace:applications/dxb/libraries/gatsby-source-hubspot-forms"
-  dependencies:
-    axios: ^1.6.4
-    eslint: ^8.56.0
-  peerDependencies:
-    gatsby: ">=3"
-  languageName: unknown
-  linkType: soft
-
 "@bmi/gcp-apsis-integration@workspace:applications/dxb/functions/gcp-apsis-integration":
   version: 0.0.0-use.local
   resolution: "@bmi/gcp-apsis-integration@workspace:applications/dxb/functions/gcp-apsis-integration"
@@ -3688,7 +3677,6 @@ __metadata:
     "@bmi/gatsby-plugin-sitemap": "workspace:*"
     "@bmi/gatsby-source-docebo": "workspace:*"
     "@bmi/gatsby-source-firestore": "workspace:*"
-    "@bmi/gatsby-source-hubspot-forms": "workspace:*"
     "@bmi/microcopies": "workspace:*"
     "@bmi/utils": "workspace:*"
     "@contentful/rich-text-react-renderer": ^15.19.0
@@ -11196,7 +11184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.6.4, axios@npm:^1.6.5":
+"axios@npm:^1.6.5":
   version: 1.6.8
   resolution: "axios@npm:1.6.8"
   dependencies:

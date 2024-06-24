@@ -13,7 +13,6 @@ export interface Config {
   documentDownloadEndpoint?: string;
   gcpFormUploadEndpoint?: string;
   gcpFormSubmitEndpoint?: string;
-  hubspotApiUrl?: string;
   gcpApsisEndpoint?: string;
   isCountryCodeProhibited: boolean;
   webtoolsCalculatorDataUrl?: string;
@@ -60,7 +59,6 @@ const envConfig = (): Config => ({
   documentDownloadEndpoint: process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
   gcpFormUploadEndpoint: process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT,
   gcpFormSubmitEndpoint: process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
-  hubspotApiUrl: process.env.GATSBY_HUBSPOT_API_URL,
   gcpApsisEndpoint: process.env.GATSBY_GCP_APSIS_ENDPOINT,
   isCountryCodeProhibited: convertStrToBool(
     process.env.GATSBY_DONT_USE_COUNTRY_CODE
