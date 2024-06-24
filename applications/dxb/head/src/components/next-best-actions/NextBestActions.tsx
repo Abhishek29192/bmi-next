@@ -11,19 +11,7 @@ import type { Data as PageInfoData } from "../PageInfo";
 import type { Data as PromoData } from "../Promo";
 import type { DarkColor } from "@bmi-digital/components/color-pair";
 
-export type Data = (NextBestActionsPromoData | NextBestActionsPageInfoData)[];
-
-export type NextBestActionsPromoData = {
-  title: NonNullable<PromoData["title"]>;
-  subtitle: NonNullable<PromoData["subtitle"]>;
-  cta: NonNullable<PromoData["cta"]>;
-};
-
-export type NextBestActionsPageInfoData = {
-  title: PageInfoData["title"];
-  subtitle: NonNullable<PageInfoData["subtitle"]>;
-  path: NonNullable<PageInfoData["path"]>;
-};
+export type Data = (PromoData | PageInfoData)[];
 
 const indexToBackgroundMap: DarkColor[] = [
   "secondary1",
@@ -32,9 +20,15 @@ const indexToBackgroundMap: DarkColor[] = [
   "secondary4"
 ];
 
+const getTitle = (data: PromoData | PageInfoData) => {
+  if (data.__typename === "ContentfulPromo") {
+    return transformHyphens(data.title || data.name);
+  }
+  return transformHyphens(data.title);
+};
+
 const NextBestActions = ({ data }: { data: Data }) => {
   const { getMicroCopy, countryCode } = useSiteContext();
-
   return (
     <Section
       backgroundColor="alabaster"
@@ -42,20 +36,20 @@ const NextBestActions = ({ data }: { data: Data }) => {
     >
       <Section.Title>{getMicroCopy(microCopy.NBA_TITLE)}</Section.Title>
       <Grid container spacing={3}>
-        {data.map(({ title, subtitle, ...rest }, index) => {
-          const cta = getCTA(rest, countryCode, title);
-          const transformHyphensTitle = transformHyphens(title);
+        {data.map((cardData, index) => {
+          const transformedTitle = getTitle(cardData);
+          const cta = getCTA(cardData, countryCode, transformedTitle);
 
           return (
             <Grid xs={12} md={4} lg={3} key={`nba-${index}`}>
               <NBACard
                 // eslint-disable-next-line security/detect-object-injection
                 color={indexToBackgroundMap[index]}
-                title={transformHyphensTitle}
-                description={transformHyphens(subtitle)}
-                ctaLabel={transformHyphensTitle}
-                data-testid={`nba-card-${replaceSpaces(transformHyphensTitle)}`}
-                {...cta}
+                title={transformedTitle}
+                description={transformHyphens(cardData.subtitle)} // TODO: DXB-7055 Description can't be null
+                ctaLabel={cardData.cta?.label}
+                data-testid={`nba-card-${replaceSpaces(transformedTitle)}`}
+                {...cta} // TODO: DXB-7055 CTA can't be null
               />
             </Grid>
           );

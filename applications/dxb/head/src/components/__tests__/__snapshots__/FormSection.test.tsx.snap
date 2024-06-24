@@ -94,7 +94,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-text"
               >
                 <label
@@ -137,7 +137,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-textarea"
               >
                 <label
@@ -187,7 +187,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-email"
               >
                 <label
@@ -1175,7 +1175,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-email"
               >
                 <label
@@ -1316,7 +1316,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-textFieldError css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-textFieldError css-ratepl-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-email"
               >
                 <label

@@ -30,7 +30,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
@@ -368,7 +368,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-ip7vfl"
+                          class="css-oxw5r2"
                           data-testid="company-details-root"
                         >
                           <div

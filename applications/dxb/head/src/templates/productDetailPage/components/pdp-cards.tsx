@@ -34,7 +34,8 @@ const PdpCardsSection = ({
     <Grid container spacing={3}>
       {pdpCards.map(
         ({ title, featuredVideo, featuredMedia, ...data }, index, cards) => {
-          const cta = getCTA(data, countryCode, title);
+          const cardTitle = title || ""; // TODO: DXB-7055 title can't be null
+          const cta = getCTA(data, countryCode, cardTitle);
           return (
             <Grid
               key={`card-${index}`}
@@ -44,13 +45,15 @@ const PdpCardsSection = ({
               lg={12 / Math.max(cards.length, 3)}
             >
               <CTACard
-                title={title}
+                title={cardTitle}
                 media={
                   featuredVideo
                     ? createVideoProps(featuredVideo)
-                    : createImageProps(featuredMedia) || {
-                        component: DefaultImage
-                      }
+                    : featuredMedia
+                      ? createImageProps(featuredMedia)
+                      : {
+                          component: DefaultImage
+                        }
                 }
                 {...cta}
               />

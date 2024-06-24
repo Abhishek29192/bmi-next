@@ -2298,7 +2298,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -2314,7 +2314,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -2395,7 +2395,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -2476,7 +2476,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -4854,7 +4854,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -4870,7 +4870,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -4951,7 +4951,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -5032,7 +5032,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -7412,7 +7412,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -7428,7 +7428,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -7509,7 +7509,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -7590,7 +7590,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -9968,7 +9968,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -9984,7 +9984,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -10065,7 +10065,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -10146,7 +10146,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -12484,7 +12484,7 @@ exports[`SystemDetailsPage template component should render without specificatio
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -12500,7 +12500,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -12581,7 +12581,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -12662,7 +12662,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -15040,7 +15040,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -15056,7 +15056,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -15137,7 +15137,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -15218,7 +15218,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -17720,7 +17720,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -17736,7 +17736,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -17817,7 +17817,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -17898,7 +17898,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"

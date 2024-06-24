@@ -1033,17 +1033,20 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
       {
         title: "Zanda Arktis ",
         path: "zanda-arktis/",
-        featuredMedia: createImageData()
+        featuredMedia: createImageData(),
+        featuredVideo: null
       },
       {
         title: "Stone roof tiles",
         path: "roof-tiles/stone-roof-tiles/",
-        featuredMedia: createImageData()
+        featuredMedia: createImageData(),
+        featuredVideo: null
       },
       {
         title: "Concrete roof tiles",
         path: "roof-tiles/betongtakstein/",
-        featuredMedia: createImageData()
+        featuredMedia: createImageData(),
+        featuredVideo: null
       }
     ],
     pdpExploreBar: {

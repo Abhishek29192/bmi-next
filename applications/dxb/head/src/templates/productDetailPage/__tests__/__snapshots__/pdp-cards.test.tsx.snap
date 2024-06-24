@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PdpCardsSection renders the image component when a featuredImage is defined (PageInfo Data) 1`] = `
+exports[`PdpCardsSection renders the default image component when neither a featuredVideo nor a featuredImage is defined (PageInfo Data) 1`] = `
 <body>
   <div>
     <div
@@ -28,7 +28,98 @@ exports[`PdpCardsSection renders the image component when a featuredImage is def
               data-testid="grid-item"
             >
               <div
-                class="TappableCard-root ColorPair-white css-1uq8xbz"
+                class="TappableCard-root ColorPair-white css-122w5jm"
+                data-testid="tappable-card-box"
+              >
+                <a
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                  data-gtm="{"id":"cta-click1","action":"/en/linked/page/path/","label":"Link label"}"
+                  data-testid="tappable-card-main"
+                  href="/en/linked/page/path/"
+                  tabindex="0"
+                >
+                  <svg
+                    class="TappableCard-headerPicture css-k77jxl"
+                    data-testid="tappable-card-media"
+                    draggable="false"
+                    viewBox="0 0 920 440"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h920v440H0z"
+                      fill="none"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M527.74 259.414 420.853 152.526h91.832c8.28 0 15.055 6.775 15.055 15.055zm-2.253 36.131-7.527-7.527H407.309c-8.28 0-15.054-6.774-15.054-15.054V162.313l-7.528-7.528 9.786-9.785 140.76 140.76zm-29.363-30.109-29.356-29.356-14.302 18.065-18.818-22.582-26.345 33.873z"
+                      fill="#CCC"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  <div
+                    class="TappableCard-body css-c6k36h"
+                  >
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 TappableCard-title TappableCard-noBrandLogo css-87i4k3-MuiTypography-root"
+                      data-testid="tappable-card-body-title"
+                    >
+                      PageInfo Card with Image
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19yhj5l-MuiSvgIcon-root"
+                        data-testid="ArrowForwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </h5>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`PdpCardsSection renders the image component when a featuredImage is defined and featuredVideo is null (PageInfo Data) 1`] = `
+<body>
+  <div>
+    <div
+      class="PdpCardsSection Section-root Section-alabaster css-10chrh8"
+      data-testid="pdp-cards-section"
+    >
+      <div
+        class=" css-ze8cyt"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h2 Typography-underline css-1gn4sxn-MuiTypography-root"
+            data-testid="typography"
+          >
+            example-pdp-cards-title
+          </h2>
+          <div
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
+            data-testid="grid-container"
+          >
+            <div
+              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-4 Grid-item css-j0lfek-MuiGrid2-root"
+              data-testid="grid-item"
+            >
+              <div
+                class="TappableCard-root ColorPair-white css-122w5jm"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -149,7 +240,7 @@ exports[`PdpCardsSection renders the video component when a featuredVideo is def
               data-testid="grid-item"
             >
               <div
-                class="TappableCard-root ColorPair-white css-1uq8xbz"
+                class="TappableCard-root ColorPair-white css-122w5jm"
                 data-testid="tappable-card-box"
               >
                 <div

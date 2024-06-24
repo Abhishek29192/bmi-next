@@ -282,7 +282,7 @@ exports[`SampleBasketSection component should render form after complete button 
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-4f2n8r-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-text"
               >
                 <label

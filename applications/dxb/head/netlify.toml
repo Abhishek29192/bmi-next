@@ -23,3 +23,6 @@ package = "../libraries/netlify-plugin-group-proxy"
 
 [dev]
 command = "yarn workspace @bmi/head dev:full"
+
+[build]
+ignore = "false"

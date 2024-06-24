@@ -164,7 +164,7 @@ const config = {
   },
   ...(process.env.IS_NETLIFY && {
     adapter: adapter.default({
-      excludeDatastoreFromEngineFunction: false,
+      excludeDatastoreFromEngineFunction: true,
       imageCDN: false
     })
   }),
