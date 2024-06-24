@@ -7,7 +7,7 @@ import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as SlideData } from "../../components/Promo";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import HomePage, { Props as HomePageData, HomepageData } from "../home-page";
+import HomePage, { HomepageData, Props as HomePageData } from "../home-page";
 
 let isGatsbyDisabledElasticSearch: boolean;
 let isLoginEnabled: boolean;
@@ -270,6 +270,21 @@ describe("Home Page Template", () => {
     expect(
       screen.getByText(brandsData[0].subtitle as string)
     ).toBeInTheDocument();
+  });
+
+  it("render page without brands", () => {
+    data.contentfulHomePage.brands = [];
+
+    renderWithRouter(
+      <ThemeProvider>
+        <HomePage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.queryByTestId("brands")).not.toBeInTheDocument();
   });
 
   it("render page with overlapCardsData", () => {
