@@ -40,7 +40,6 @@ import getCookie from "../utils/getCookie";
 import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";
-import HiddenInput from "./HiddenInput";
 import ProgressIndicator from "./ProgressIndicator";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
@@ -286,25 +285,6 @@ const Input = ({
           )}
         />
       );
-    case "hubspot-text":
-      return (
-        <>
-          <Typography>
-            <span dangerouslySetInnerHTML={{ __html: label }}></span>
-          </Typography>
-          <HiddenInput name={name} value={label} />
-        </>
-      );
-    case "hubspot-checkbox":
-      return (
-        <Checkbox
-          name={name}
-          label={<span dangerouslySetInnerHTML={{ __html: label }}></span>}
-          isRequired={required}
-        />
-      );
-    case "hubspot-hidden":
-      return <HiddenInput name={name} value={label} />;
     case "textarea":
     case "text":
     default:
@@ -530,8 +510,7 @@ const FormSection = ({
   isDialog = false,
   "data-testid": dataTestId
 }: FormSectionProps) => {
-  const { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId } =
-    useConfig();
+  const { isPreviewMode, gcpFormSubmitEndpoint } = useConfig();
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -620,113 +599,6 @@ const FormSection = ({
     setIsSubmitting(false);
   };
 
-  //This function right now is not used. Left here only for future extend of Hubspot usage
-  const handleHubSpotSubmit = async (
-    event: FormEvent<HTMLFormElement>,
-    values: Record<string, InputValue>
-  ) => {
-    event.preventDefault();
-
-    if (isPreviewMode) {
-      alert("You cannot submit a form on a preview environment.");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    const valuesArray = Object.entries(values).map(([name, value]) => ({
-      name,
-      value
-    }));
-
-    const valuesWithoutLegaConsent = valuesArray.filter(
-      (field) => field.name.substring(0, 9) !== "hs-legal-"
-    );
-
-    const hsLegalFields = valuesArray
-      .filter((field) => field.name.substring(0, 9) === "hs-legal-")
-      .reduce((acc, cur) => {
-        return { ...acc, [cur.name]: cur.value };
-      }, {});
-
-    const hsPayload = {
-      fields: valuesWithoutLegaConsent,
-      context: {
-        pageUri: window.location.href
-      }
-    };
-
-    const getLegalOptions = (hsLegalFields: { [key: string]: InputValue }) => {
-      if (hsLegalFields["hs-legal-isLegitimateInterest"]) {
-        return {
-          legitimateInterest: {
-            value: true,
-            subscriptionTypeId: hsLegalFields["hs-legal-communicationTypeId"],
-            legalBasis: "LEAD",
-            text: hsLegalFields["hs-legal-privacyPolicyText"]
-          }
-        };
-      }
-      if (hsLegalFields["hs-legal-communication"]) {
-        return {
-          consent: {
-            consentToProcess:
-              hsLegalFields["hs-legal-processingConsentType"] || true,
-            text: hsLegalFields["hs-legal-processingConsentText"],
-            communications: [
-              {
-                value: hsLegalFields["hs-legal-communication"],
-                subscriptionTypeId:
-                  hsLegalFields["hs-legal-communicationTypeId"],
-                text: hsLegalFields["hs-legal-communicationConsentText"]
-              }
-            ]
-          }
-        };
-      }
-    };
-
-    try {
-      const response = await fetch(
-        `${hubspotApiUrl}${hubSpotId}/${hubSpotFormGuid}`,
-        {
-          method: "POST",
-          body: JSON.stringify({
-            ...hsPayload,
-            ...(hsLegalFields
-              ? {
-                  legalConsentOptions: getLegalOptions(hsLegalFields)
-                }
-              : {})
-          }),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-
-      if (successRedirect) {
-        router.push(
-          successRedirect.url ||
-            getPathWithCountryCode(
-              countryCode,
-              successRedirect.linkedPage?.path
-            )
-        );
-      } else {
-        router.push("/");
-      }
-    } catch (error) {
-      logger.error({ message: (error as Error).message });
-    }
-
-    setIsSubmitting(false);
-  };
-
   if (source === SourceType.HubSpot && hubSpotFormGuid) {
     return (
       <HubspotForm
@@ -766,12 +638,7 @@ const FormSection = ({
       )}
       {inputs ? (
         <StyledForm
-          onSubmit={
-            // TODO Handle/remove after HubSpot mapping has been decided
-            source === SourceType.HubSpot && hubSpotFormGuid
-              ? handleHubSpotSubmit
-              : handleSubmit
-          }
+          onSubmit={handleSubmit}
           rightAlignButton
           data-testid={dataTestId}
         >
