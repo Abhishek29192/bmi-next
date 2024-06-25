@@ -4,16 +4,19 @@ import { microCopy } from "@bmi/microcopies";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
-import { createExternalLinkData } from "../../__tests__/helpers/LinkHelper";
+import createLinkData, {
+  createExternalLinkData
+} from "../../__tests__/helpers/LinkHelper";
 import BasketContext from "../../contexts/SampleBasketContext";
 import Header from "../Header";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
-import { Data as PageInfoData } from "../PageInfo";
-import { Data as PromoData } from "../Promo";
 import { DataTypeEnum, NavigationData } from "../link/types";
 import createAuth0IdTokenPayload from "../../templates/myAccountPage/__tests__/helpers/Auth0IdTokenPayloadHelper";
 import { SiteContextProvider } from "../Site";
+import createPageInfoData from "../../__tests__/helpers/PageInfoHelper";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
+import type { Data as PromoData } from "../Promo";
+import type { Data as PageInfoData } from "../PageInfo";
 import type { useAuthType } from "../../hooks/useAuth";
 
 let isGatsbyDisabledElasticSearch: boolean;
@@ -91,25 +94,16 @@ const card1: PromoData = {
   brandLogo: null,
   tags: null,
   featuredMedia: createImageData(),
-  cta: null,
+  cta: createLinkData(),
   featuredVideo: null,
   backgroundColor: null
 };
-const card2: PromoData = {
-  __typename: "ContentfulPromo",
+const card2: PageInfoData = createPageInfoData({
   id: "card2",
-  name: "cardName2",
-  title: null,
-  subtitle: null,
-  body: null,
-  brandLogo: null,
-  tags: null,
-  featuredMedia: createImageData(),
-  cta: null,
-  featuredVideo: null,
-  backgroundColor: null
-};
-const promos: PromoData[] = [card1, card2];
+  path: "/gb/card2"
+});
+
+const promos: NavigationData["promos"] = [card1, card2];
 
 const navigationData: NavigationData = {
   __typename: "ContentfulNavigation",
@@ -134,8 +128,7 @@ const navigationData: NavigationData = {
           dialogContent: null,
           hubSpotCTAID: null
         }
-      ],
-      promos
+      ]
     },
     {
       __typename: "ContentfulNavigationItem",
@@ -161,8 +154,24 @@ const navigationData: NavigationData = {
           parameters: null,
           dialogContent: null,
           hubSpotCTAID: null
+        },
+        {
+          __typename: "ContentfulLink",
+          id: "",
+          label: "Another Page",
+          url: null,
+          isLabelHidden: null,
+          icon: null,
+          linkedPage: {
+            path: "another-page"
+          },
+          type: DataTypeEnum.Internal,
+          parameters: null,
+          dialogContent: null,
+          hubSpotCTAID: null
         }
-      ]
+      ],
+      promos
     },
     createExternalLinkData({
       icon: null,
@@ -245,6 +254,36 @@ describe("Header component", () => {
       </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("renders the promos correctly", async () => {
+    render(
+      <ThemeProvider>
+        <Header
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          maximumSamples={3}
+        />
+      </ThemeProvider>
+    );
+
+    const aboutBmiMenuButton = screen.getByLabelText("About BMI");
+    fireEvent.click(aboutBmiMenuButton);
+
+    expect(
+      screen.getByRole("heading", { name: card1.title! })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: card1.cta!.label })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: card2.title })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: `MC: ${microCopy.PAGE_LINK_LABEL}` })
+    ).toBeInTheDocument();
   });
 
   it("renders correctly when flag doesn't exist", () => {
