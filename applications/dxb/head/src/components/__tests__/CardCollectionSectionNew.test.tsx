@@ -10,21 +10,54 @@ import type { Data as CardCollectionSectionData } from "../CardCollectionSection
 
 describe("Card Collection Item Component", () => {
   describe("Text Card", () => {
-    it("should render the 'name' prop as the title text if the card data is of Contentful Promo type", () => {
+    it("should render the 'title' prop as the title text if the card data is of Contentful Promo type", () => {
       renderWithProviders(
         <CardCollectionSection
-          data={createCardCollectionSection({ cardType: "Text Card" })}
+          data={createCardCollectionSection({
+            cardType: "Text Card",
+            cards: [
+              createPromoData({
+                name: "Contentful Promo Name",
+                title: "Contentful Promo Title"
+              })
+            ]
+          })}
         />
       );
 
       const promoCard = screen.getByTestId(
-        "card-collection-section-item-Contentful-Promo-data"
+        "card-collection-section-item-Contentful-Promo-Title"
       );
       const promoCardTitle = within(promoCard).getByTestId(
         "tappable-card-body-title"
       );
 
-      expect(promoCardTitle).toHaveTextContent("Contentful Promo data");
+      expect(promoCardTitle).toHaveTextContent("Contentful Promo Title");
+    });
+
+    it("should render the 'name' prop as the title text if the card data is of Contentful Promo type and title doesn't exist", () => {
+      renderWithProviders(
+        <CardCollectionSection
+          data={createCardCollectionSection({
+            cardType: "Text Card",
+            cards: [
+              createPromoData({
+                name: "Contentful Promo Name",
+                title: null
+              })
+            ]
+          })}
+        />
+      );
+
+      const promoCard = screen.getByTestId(
+        "card-collection-section-item-Contentful-Promo-Name"
+      );
+      const promoCardTitle = within(promoCard).getByTestId(
+        "tappable-card-body-title"
+      );
+
+      expect(promoCardTitle).toHaveTextContent("Contentful Promo Name");
     });
 
     it("should render the 'title' prop as the title text if the card data is not of Contentful Page Info type", () => {
@@ -52,7 +85,7 @@ describe("Card Collection Item Component", () => {
       );
 
       const pageInfoCard = screen.getByTestId(
-        "card-collection-section-item-Contentful-Promo-data"
+        "card-collection-section-item-Contentful-Promo-Title"
       );
       const pageInfoCardSubtitle = within(pageInfoCard).getByTestId(
         "tappable-card-body-description"
@@ -165,7 +198,7 @@ describe("Card Collection Item Component", () => {
         "card-collection-section-item-example-title"
       );
       const promoCard = screen.getByTestId(
-        "card-collection-section-item-Contentful-Promo-data"
+        "card-collection-section-item-Contentful-Promo-Title"
       );
 
       expect(pageInfoCard.tagName).toBe("A");
@@ -189,7 +222,7 @@ describe("Card Collection Item Component", () => {
         "card-collection-section-item-example-title"
       );
       const promoCard = screen.queryByTestId(
-        "card-collection-section-item-Contentful-Promo-data"
+        "card-collection-section-item-Contentful-Promo-Title"
       );
 
       expect(pageInfoCard!.tagName).toBe("BUTTON");
@@ -220,7 +253,7 @@ describe("Card Collection Item Component", () => {
       );
 
       const promoCardFooterCta = screen.getByTestId(
-        "text-card-footer-cta-Contentful-Promo-data"
+        "text-card-footer-cta-Contentful-Promo-Title"
       );
 
       expect(pageInfoCardFooterCta).toHaveTextContent(/example-card-label/);
@@ -240,7 +273,7 @@ describe("Card Collection Item Component", () => {
       );
       expect(promoCardFooterCta).toHaveAttribute(
         "data-gtm",
-        '{"id":"cta-click1","label":"Contentful Promo data - example-card-label","action":"http://localhost:8080/asset.pdf"}'
+        '{"id":"cta-click1","label":"Contentful Promo Title - example-card-label","action":"http://localhost:8080/asset.pdf"}'
       );
     });
 
@@ -255,11 +288,11 @@ describe("Card Collection Item Component", () => {
       );
 
       const pageInfoCardFooterCta = screen.getByTestId(
-        "text-card-footer-cta-Contentful-Promo-data"
+        "text-card-footer-cta-Contentful-Promo-Title"
       );
 
       expect(pageInfoCardFooterCta).toHaveTextContent(
-        /example-card-label-with-Contentful Promo data/
+        /example-card-label-with-Contentful Promo Title/
       );
     });
 
@@ -274,7 +307,7 @@ describe("Card Collection Item Component", () => {
       );
 
       const promoCardFooterCta = screen.getByTestId(
-        "text-card-footer-cta-Contentful-Promo-data"
+        "text-card-footer-cta-Contentful-Promo-Title"
       );
 
       expect(promoCardFooterCta).toHaveTextContent(/Link label/);
@@ -291,7 +324,7 @@ describe("Card Collection Item Component", () => {
       );
 
       const promoCardFooterCta = screen.getByTestId(
-        "text-card-footer-cta-Contentful-Promo-data"
+        "text-card-footer-cta-Contentful-Promo-Title"
       );
 
       expect(promoCardFooterCta.textContent).toBe("example-card\u00ADlabel");
@@ -364,21 +397,54 @@ describe("Card Collection Item Component", () => {
 
   types.forEach((type) => {
     describe(type, () => {
-      it("should render the 'name' prop as the title text if the card data is of Contentful Promo type", () => {
+      it("should render the 'title' prop as the title text if the card data is of Contentful Promo type", () => {
         renderWithProviders(
           <CardCollectionSection
-            data={createCardCollectionSection({ cardType: type })}
+            data={createCardCollectionSection({
+              cardType: type,
+              cards: [
+                createPromoData({
+                  name: "Contentful Promo Name",
+                  title: "Contentful Promo Title"
+                })
+              ]
+            })}
           />
         );
 
         const promoCard = screen.getByTestId(
-          "card-collection-section-item-Contentful-Promo-data"
+          "card-collection-section-item-Contentful-Promo-Title"
         );
         const promoCardTitle = within(promoCard).getByTestId(
           "tappable-card-body-title"
         );
 
-        expect(promoCardTitle).toHaveTextContent("Contentful Promo data");
+        expect(promoCardTitle).toHaveTextContent("Contentful Promo Title");
+      });
+
+      it("should render the 'name' prop as the title text if the card data is of Contentful Promo type  and title doesn't exist", () => {
+        renderWithProviders(
+          <CardCollectionSection
+            data={createCardCollectionSection({
+              cardType: type,
+              cards: [
+                createPromoData({
+                  name: "Contentful Promo Name",
+                  title: null
+                })
+              ]
+            })}
+          />
+        );
+
+        const promoCard = screen.getByTestId(
+          "card-collection-section-item-Contentful-Promo-Name"
+        );
+        const promoCardTitle = within(promoCard).getByTestId(
+          "tappable-card-body-title"
+        );
+
+        expect(promoCardTitle).toHaveTextContent("Contentful Promo Name");
       });
 
       it("should render the 'title' prop as the title text if the card data is not of Contentful Page Info type", () => {
@@ -406,7 +472,7 @@ describe("Card Collection Item Component", () => {
         );
 
         const pageInfoCard = screen.getByTestId(
-          "card-collection-section-item-Contentful-Promo-data"
+          "card-collection-section-item-Contentful-Promo-Title"
         );
         const pageInfoCardSubtitle = within(pageInfoCard).getByTestId(
           "tappable-card-body-description"
@@ -488,7 +554,7 @@ describe("Card Collection Item Component", () => {
         );
 
         const promoCard = screen.getByTestId(
-          "card-collection-section-item-Contentful-Promo-data"
+          "card-collection-section-item-Contentful-Promo-Title"
         );
         const promoCardMedia = within(promoCard).getByTestId(
           "tappable-card-media"
@@ -522,7 +588,7 @@ describe("Card Collection Item Component", () => {
         );
 
         const promoCard = screen.getByTestId(
-          "card-collection-section-item-Contentful-Promo-data"
+          "card-collection-section-item-Contentful-Promo-Title"
         );
         const promoCardBrandLogo = within(promoCard).getByTestId(
           "tappable-card-body-brand-logo"
@@ -637,7 +703,7 @@ describe("Card Collection Item Component", () => {
           "card-collection-section-item-example-title"
         );
         const promoCard = screen.getByTestId(
-          "card-collection-section-item-Contentful-Promo-data"
+          "card-collection-section-item-Contentful-Promo-Title"
         );
 
         expect(pageInfoCard.tagName).toBe("A");
@@ -661,7 +727,7 @@ describe("Card Collection Item Component", () => {
           "card-collection-section-item-example-title"
         );
         const promoCard = screen.queryByTestId(
-          "card-collection-section-item-Contentful-Promo-data"
+          "card-collection-section-item-Contentful-Promo-Title"
         );
 
         expect(pageInfoCard!.tagName).toBe("BUTTON");
@@ -694,7 +760,7 @@ describe("Card Collection Item Component", () => {
         const promoCardFooterCta = screen.getByTestId(
           `${type
             .replace(/\s/g, "-")
-            .toLowerCase()}-footer-cta-Contentful-Promo-data`
+            .toLowerCase()}-footer-cta-Contentful-Promo-Title`
         );
 
         expect(pageInfoCardFooterCta).toHaveTextContent(/example-card-label/);
@@ -714,7 +780,7 @@ describe("Card Collection Item Component", () => {
         );
         expect(promoCardFooterCta).toHaveAttribute(
           "data-gtm",
-          '{"id":"cta-click1","label":"Contentful Promo data - example-card-label","action":"http://localhost:8080/asset.pdf"}'
+          '{"id":"cta-click1","label":"Contentful Promo Title - example-card-label","action":"http://localhost:8080/asset.pdf"}'
         );
       });
 
@@ -731,11 +797,11 @@ describe("Card Collection Item Component", () => {
         const pageInfoCardFooterCta = screen.getByTestId(
           `${type
             .replace(/\s/g, "-")
-            .toLowerCase()}-footer-cta-Contentful-Promo-data`
+            .toLowerCase()}-footer-cta-Contentful-Promo-Title`
         );
 
         expect(pageInfoCardFooterCta).toHaveTextContent(
-          /example-card-label-with-Contentful Promo data/
+          /example-card-label-with-Contentful Promo Title/
         );
       });
 
@@ -752,7 +818,7 @@ describe("Card Collection Item Component", () => {
         const promoCardFooterCta = screen.getByTestId(
           `${type
             .replace(/\s/g, "-")
-            .toLowerCase()}-footer-cta-Contentful-Promo-data`
+            .toLowerCase()}-footer-cta-Contentful-Promo-Title`
         );
 
         expect(promoCardFooterCta).toHaveTextContent(/Link label/);
@@ -771,7 +837,7 @@ describe("Card Collection Item Component", () => {
         const promoCardFooterCta = screen.getByTestId(
           `${type
             .replace(/\s/g, "-")
-            .toLowerCase()}-footer-cta-Contentful-Promo-data`
+            .toLowerCase()}-footer-cta-Contentful-Promo-Title`
         );
 
         expect(promoCardFooterCta.textContent).toBe("example-card\u00ADlabel");

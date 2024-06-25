@@ -26,12 +26,12 @@ import { Data as LinkData } from "./link/types";
 import { getCTA } from "./link/utils";
 import {
   CardCollectionSectionContainer,
+  classes,
   StyledChips,
   StyledClearAllButton,
   StyledGroupChips,
   StyledShowMoreGrid,
-  StyledTitle,
-  classes
+  StyledTitle
 } from "./styles/CardCollectionSectionStyles";
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
@@ -131,7 +131,10 @@ const CardCollectionItem = (props: CardCollectionItemProps) => {
 const MemoedCardCollectionItem = memo(CardCollectionItem);
 
 const transformCard = (card: Card, countryCode: string) => ({
-  title: card.__typename === "ContentfulPromo" ? card.name : card.title,
+  title:
+    card.__typename === "ContentfulPromo"
+      ? card.title || card.name
+      : card.title,
   subtitle: card.subtitle ? card.subtitle : undefined,
   link: getCTA(card, countryCode),
   featuredMedia: card.featuredMedia,
