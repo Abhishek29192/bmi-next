@@ -8,6 +8,7 @@ import { microCopy } from "@bmi/microcopies";
 import { Link, graphql } from "gatsby";
 import React, { useMemo } from "react";
 import { BreadcrumbItem } from "../types/pim";
+import { useConfig, Config } from "../contexts/ConfigProvider";
 import { Context, useSiteContext } from "./Site";
 
 export type Data = BreadcrumbItem[];
@@ -23,10 +24,11 @@ type BreadcrumbProps = Omit<
 
 const getHomePageBreadcrumb = (
   countryCode: Context["countryCode"],
-  homePage: Context["homePage"]
+  homePage: Context["homePage"],
+  isCountryCodeProhibited: Config["isCountryCodeProhibited"]
 ): LinkedBreadcrumbProps => {
   const label = transformHyphens(homePage.title);
-  const url = `/${countryCode}/`;
+  const url = isCountryCodeProhibited ? "/" : `/${countryCode}/`;
 
   return {
     label,
@@ -44,13 +46,26 @@ type BreadcrumbParams = {
   concatenateUrls: BreadcrumbProps["concatenateUrls"];
   countryCode: Context["countryCode"];
   homePage: Context["homePage"];
+  isCountryCodeProhibited: Config["isCountryCodeProhibited"];
 };
 
 const getBreadcrumbsItem = (
   props: BreadcrumbParams
 ): [BaseProps["linkedBreadcrumbItems"], BaseProps["lastBreadcrumbItem"]] => {
-  const { data, concatenateUrls, countryCode, homePage } = props;
-  const homePageBreadcrumb = getHomePageBreadcrumb(countryCode, homePage);
+  const {
+    data,
+    concatenateUrls,
+    countryCode,
+    homePage,
+    isCountryCodeProhibited
+  } = props;
+
+  const homePageBreadcrumb = getHomePageBreadcrumb(
+    countryCode,
+    homePage,
+    isCountryCodeProhibited
+  );
+
   const lastBreadcrumb: LastBreadcrumbItemProps = {
     label: transformHyphens(data[data.length - 1].label)
   };
@@ -75,7 +90,9 @@ const getBreadcrumbsItem = (
         : `${item.slug}`;
 
       const label = transformHyphens(item.label);
-      const url = `/${countryCode}/${slug}`;
+      const url = isCountryCodeProhibited
+        ? `/${slug}`
+        : `/${countryCode}/${slug}`;
 
       return {
         label,
@@ -98,9 +115,17 @@ const IntegratedBreadcrumbs = ({
   ...rest
 }: BreadcrumbProps) => {
   const { countryCode, homePage, getMicroCopy } = useSiteContext();
+  const { isCountryCodeProhibited } = useConfig();
   const [breadcrumbsItems, currentBreadcrumb] = useMemo(
-    () => getBreadcrumbsItem({ data, concatenateUrls, countryCode, homePage }),
-    [data, concatenateUrls, countryCode, homePage]
+    () =>
+      getBreadcrumbsItem({
+        data,
+        concatenateUrls,
+        countryCode,
+        homePage,
+        isCountryCodeProhibited
+      }),
+    [data, concatenateUrls, countryCode, homePage, isCountryCodeProhibited]
   );
 
   return (

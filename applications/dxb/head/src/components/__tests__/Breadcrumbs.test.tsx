@@ -3,6 +3,7 @@ import React from "react";
 import createBreadcrumbItem from "../../__tests__/helpers/BreadcrumbItemHelper";
 import { renderWithProviders } from "../../__tests__/renderWithProviders";
 import IntegratedBreadcrumbs, { Data } from "../Breadcrumbs";
+import { ConfigProvider } from "../../contexts/ConfigProvider";
 
 const breadcrumbs: Data = [
   createBreadcrumbItem({ id: "1", label: "Monier", slug: "monier" }),
@@ -89,14 +90,35 @@ describe("Breadcrumbs component", () => {
   });
 
   describe("First breadcrumb item", () => {
-    it("sets the href attribute to the countrycode value", () => {
-      renderWithProviders(<IntegratedBreadcrumbs data={breadcrumbs} />, {
-        countryCode: "no",
-        homePage: { title: "home-page" }
-      });
+    it("sets the href attribute to the countrycode value when countryCode is not prohibited", () => {
+      renderWithProviders(
+        <ConfigProvider configOverride={{ isCountryCodeProhibited: false }}>
+          <IntegratedBreadcrumbs data={breadcrumbs} />
+        </ConfigProvider>,
+        {
+          countryCode: "no",
+          homePage: { title: "home-page" }
+        }
+      );
       expect(screen.getByTestId("bread-crumb-home-page")).toHaveAttribute(
         "href",
         "/no/"
+      );
+    });
+
+    it("sets the href attribute to a forward slash when the countryCode is prohibited", () => {
+      renderWithProviders(
+        <ConfigProvider configOverride={{ isCountryCodeProhibited: true }}>
+          <IntegratedBreadcrumbs data={breadcrumbs} />
+        </ConfigProvider>,
+        {
+          countryCode: "grp",
+          homePage: { title: "home-page" }
+        }
+      );
+      expect(screen.getByTestId("bread-crumb-home-page")).toHaveAttribute(
+        "href",
+        "/"
       );
     });
 
@@ -120,24 +142,50 @@ describe("Breadcrumbs component", () => {
       );
     });
 
-    it("sets the gtm attribute correctly, removing hyphens in the label if present", () => {
-      renderWithProviders(<IntegratedBreadcrumbs data={breadcrumbs} />, {
-        countryCode: "no",
-        homePage: { title: "home{-} page" }
-      });
+    it("sets the gtm attribute correctly when the countryCode is not prohibited, removing hyphens in the label if present", () => {
+      renderWithProviders(
+        <ConfigProvider configOverride={{ isCountryCodeProhibited: false }}>
+          <IntegratedBreadcrumbs data={breadcrumbs} />
+        </ConfigProvider>,
+        {
+          countryCode: "no",
+          homePage: { title: "home{-} page" }
+        }
+      );
       expect(screen.getByTestId("bread-crumb-home­-page")).toHaveAttribute(
         "data-gtm",
         '{"id":"cta-click1","action":"/no/","label":"home­ page"}'
       );
     });
+
+    it("sets the gtm attribute correctly when the countryCode is prohibited, removing hyphens in the label if present", () => {
+      renderWithProviders(
+        <ConfigProvider configOverride={{ isCountryCodeProhibited: true }}>
+          <IntegratedBreadcrumbs data={breadcrumbs} />
+        </ConfigProvider>,
+        {
+          countryCode: "grp",
+          homePage: { title: "home{-} page" }
+        }
+      );
+      expect(screen.getByTestId("bread-crumb-home­-page")).toHaveAttribute(
+        "data-gtm",
+        '{"id":"cta-click1","action":"/","label":"home­ page"}'
+      );
+    });
   });
 
   describe("Middle breadcrumbs items", () => {
-    it("sets the href attribute to the countrycode with path", () => {
-      renderWithProviders(<IntegratedBreadcrumbs data={breadcrumbs} />, {
-        countryCode: "no",
-        homePage: { title: "home-page" }
-      });
+    it("sets the href attribute to the countrycode with path when countryCode is not prohibited", () => {
+      renderWithProviders(
+        <ConfigProvider configOverride={{ isCountryCodeProhibited: false }}>
+          <IntegratedBreadcrumbs data={breadcrumbs} />
+        </ConfigProvider>,
+        {
+          countryCode: "no",
+          homePage: { title: "home-page" }
+        }
+      );
 
       const breadcrumbsElement = screen.getByTestId("breadcrumbs");
       const breadCrumbRedTiles1 = within(breadcrumbsElement).getByTestId(
@@ -155,6 +203,36 @@ describe("Breadcrumbs component", () => {
       expect(breadCrumbRedTiles1).toHaveAttribute(
         "href",
         "/no/monier/tiles/red-tiles1"
+      );
+    });
+
+    it("omits the countrycode slug if countrycode is prohibited", () => {
+      renderWithProviders(
+        <ConfigProvider configOverride={{ isCountryCodeProhibited: true }}>
+          <IntegratedBreadcrumbs data={breadcrumbs} />
+        </ConfigProvider>,
+        {
+          countryCode: "grp",
+          homePage: { title: "home-page" }
+        }
+      );
+
+      const breadcrumbsElement = screen.getByTestId("breadcrumbs");
+      const breadCrumbRedTiles1 = within(breadcrumbsElement).getByTestId(
+        "bread-crumb-Red-Tiles1"
+      );
+
+      expect(screen.getByTestId("bread-crumb-Monier")).toHaveAttribute(
+        "href",
+        "/monier"
+      );
+      expect(screen.getByTestId("bread-crumb-Tiles")).toHaveAttribute(
+        "href",
+        "/monier/tiles"
+      );
+      expect(breadCrumbRedTiles1).toHaveAttribute(
+        "href",
+        "/monier/tiles/red-tiles1"
       );
     });
 
@@ -301,7 +379,7 @@ describe("Breadcrumbs component", () => {
       expect(breadCrumbRedTiles1).toHaveTextContent("Red\u00ADTiles1");
     });
 
-    it("sets the gtm attribute correctly, removing hyphens in the label if present", () => {
+    it("sets the gtm attribute correctly when the countrycode is not prohibited, removing hyphens in the label if present", () => {
       const breadcrumbs: Data = [
         createBreadcrumbItem({
           id: "1",
@@ -325,10 +403,15 @@ describe("Breadcrumbs component", () => {
         })
       ];
 
-      renderWithProviders(<IntegratedBreadcrumbs data={breadcrumbs} />, {
-        countryCode: "no",
-        homePage: { title: "home-page" }
-      });
+      renderWithProviders(
+        <ConfigProvider configOverride={{ isCountryCodeProhibited: false }}>
+          <IntegratedBreadcrumbs data={breadcrumbs} />
+        </ConfigProvider>,
+        {
+          countryCode: "no",
+          homePage: { title: "home-page" }
+        }
+      );
 
       const breadcrumbsElement = screen.getByTestId("breadcrumbs");
       const breadCrumbRedTiles1 = within(breadcrumbsElement).getByTestId(
@@ -346,6 +429,59 @@ describe("Breadcrumbs component", () => {
       expect(breadCrumbRedTiles1).toHaveAttribute(
         "data-gtm",
         '{"id":"cta-click1","action":"/no/monier-tiles/green-tiles/red-tiles1","label":"Red Tiles1"}'
+      );
+    });
+
+    it("sets the gtm attribute correctly when countrycode is prohibited, removing hyphens in the label if present", () => {
+      const breadcrumbs: Data = [
+        createBreadcrumbItem({
+          id: "1",
+          label: "Monier{-} Tiles",
+          slug: "monier-tiles"
+        }),
+        createBreadcrumbItem({
+          id: "2",
+          label: "Green{-}Tiles",
+          slug: "green-tiles"
+        }),
+        createBreadcrumbItem({
+          id: "3",
+          label: "Red Tiles1",
+          slug: "red-tiles1"
+        }),
+        createBreadcrumbItem({
+          id: "4",
+          label: "Red Tiles2",
+          slug: "red-tiles2"
+        })
+      ];
+
+      renderWithProviders(
+        <ConfigProvider configOverride={{ isCountryCodeProhibited: true }}>
+          <IntegratedBreadcrumbs data={breadcrumbs} />
+        </ConfigProvider>,
+        {
+          countryCode: "grp",
+          homePage: { title: "home-page" }
+        }
+      );
+
+      const breadcrumbsElement = screen.getByTestId("breadcrumbs");
+      const breadCrumbRedTiles1 = within(breadcrumbsElement).getByTestId(
+        "bread-crumb-Red-Tiles1"
+      );
+
+      expect(screen.getByTestId("bread-crumb-Monier­-Tiles")).toHaveAttribute(
+        "data-gtm",
+        '{"id":"cta-click1","action":"/monier-tiles","label":"Monier­ Tiles"}'
+      );
+      expect(screen.getByTestId("bread-crumb-Green­Tiles")).toHaveAttribute(
+        "data-gtm",
+        '{"id":"cta-click1","action":"/monier-tiles/green-tiles","label":"Green­Tiles"}'
+      );
+      expect(breadCrumbRedTiles1).toHaveAttribute(
+        "data-gtm",
+        '{"id":"cta-click1","action":"/monier-tiles/green-tiles/red-tiles1","label":"Red Tiles1"}'
       );
     });
   });
