@@ -1,28 +1,24 @@
 import Button from "@bmi-digital/components/button";
 import Grid from "@bmi-digital/components/grid";
 import AddIcon from "@bmi-digital/components/icon/Add";
-import OverviewCard, {
-  OverviewCardProps
-} from "@bmi-digital/components/overview-card";
+import RelatedProductCard from "@bmi-digital/components/related-product-card";
 import Section from "@bmi-digital/components/section";
 import Tabs from "@bmi-digital/components/tabs";
 import { microCopy } from "@bmi/microcopies";
 import Tab, { TabProps } from "@mui/material/Tab";
 import { graphql, Link } from "gatsby";
 import React, { useMemo, useState } from "react";
-import DefaultImage from "../images/DefaultImage.svg";
 import { RelatedProduct } from "../types/pim";
+import {
+  getLevel,
+  goodBetterBestLabels
+} from "../utils/getGoodBetterBestLabel";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { mapClassificationValues } from "../utils/product-details-transforms";
-import { renderMedia } from "../utils/renderMedia";
 import BrandLogo from "./BrandLogo";
-import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 import { useSiteContext } from "./Site";
-import {
-  StyledLoadMoreWrapper,
-  StyledReadMoreAnchor
-} from "./styles/RelatedProducts.styles";
+import { StyledLoadMoreWrapper } from "./styles/RelatedProducts.styles";
 
 /**
  * Groups resolved product category paths by the 2nd last category in the path
@@ -37,8 +33,6 @@ const groupProductsByGroup = (
     });
     return tabs;
   }, {});
-
-const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
 const ProductListing = ({
   countryCode,
@@ -67,7 +61,9 @@ const ProductListing = ({
     <>
       <Grid container spacing={3}>
         {products.slice(0, numberShown).map((product) => {
-          const brandLogo = <BrandLogo brandName={product.brand?.code} />;
+          const brandLogo = product.brand?.code ? (
+            <BrandLogo brandName={product.brand.code} />
+          ) : undefined;
           const productUrl = getPathWithCountryCode(countryCode, product.path);
 
           const uniqueClassifications = mapClassificationValues(product);
@@ -84,49 +80,39 @@ const ProductListing = ({
               md={6}
               lg={3}
             >
-              <GTMOverviewCard
+              <RelatedProductCard
                 title={product.name}
-                titleVariant="h5"
                 subtitle={uniqueClassifications}
-                subtitleVariant="h6"
-                imageSize="contain"
+                label={getMicroCopy(microCopy.PDP_NOBB_LABEL)}
+                value={product.externalProductCode ?? undefined}
                 media={
-                  renderMedia(product.masterImage?.mainSource, altText) || (
-                    <DefaultImage />
-                  )
+                  product.masterImage?.mainSource
+                    ? {
+                        src: product.masterImage.mainSource,
+                        alt: altText
+                      }
+                    : undefined
                 }
                 tag={
-                  <GoodBetterBestIndicator
-                    indicatorType={product.goodBetterBest}
-                  />
+                  product.goodBetterBest && {
+                    level: getLevel(product.goodBetterBest),
+                    label: getMicroCopy(
+                      goodBetterBestLabels[product.goodBetterBest]
+                    )
+                  }
                 }
-                brandImageSource={brandLogo}
-                action={{
-                  model: "routerLink",
-                  linkComponent: Link,
-                  to: productUrl
-                }}
+                brandLogo={brandLogo}
+                component={Link}
+                to={productUrl}
                 gtm={{
                   id: "cta-click1",
                   label: gtmLabel,
                   action: productUrl
                 }}
-                footer={
-                  <StyledReadMoreAnchor component="span" iconEnd>
-                    {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS)}
-                  </StyledReadMoreAnchor>
-                }
-              >
-                {product.externalProductCode !== null &&
-                product.externalProductCode !== "" ? (
-                  <>
-                    {getMicroCopy(microCopy.PDP_NOBB_LABEL)}:{" "}
-                    <b>{product.externalProductCode}</b>
-                  </>
-                ) : (
-                  ""
+                ctaLabel={getMicroCopy(
+                  microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS
                 )}
-              </GTMOverviewCard>
+              />
             </Grid>
           );
         })}

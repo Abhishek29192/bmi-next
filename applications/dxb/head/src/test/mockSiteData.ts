@@ -1,7 +1,7 @@
 import { RegionCode } from "@bmi-digital/components/language-selection";
 import createImageData from "../__tests__/helpers/ImageDataHelper";
-import { DataTypeEnum } from "../components/Link";
 import { Data as SiteData } from "../components/Site";
+import { DataTypeEnum } from "../components/link/types";
 
 export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
   node_locale: "en-GB",
@@ -752,7 +752,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         __typename: "ContentfulNavigation",
         label: "Contact Us",
         link: null,
-        links: null
+        links: []
       },
       {
         __typename: "ContentfulNavigation",
@@ -1031,54 +1031,22 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
     pdpCardsTitle: "Tips and Information",
     pdpCards: [
       {
-        __typename: "ContentfulProductListerPage",
-        id: "4f6c8de7-22be-5631-b334-024ca098ae57",
         title: "Zanda Arktis ",
-        subtitle:
-          "Zanda Arctic is our most durable concrete roof tile. To make the roof tile really durable and resistant to weather and wind, we have cast in quartz and color pigments. Then we painted it twice.",
-        brandLogo: "Zanda",
-        slug: "zanda-arktis",
         path: "zanda-arktis/",
-        date: null,
-        rawDate: null,
-        tags: null,
-        featuredVideo: null,
-        featuredMedia: createImageData()
+        featuredMedia: createImageData(),
+        featuredVideo: null
       },
       {
-        __typename: "ContentfulSimplePage",
-        id: "71846648-f4f3-59b6-8763-43740703c8d8",
         title: "Stone roof tiles",
-        subtitle:
-          " Brick is a clean and very durable natural material that only gets more beautiful with age. Brick roof tiles actually have a lifespan of over 75 years!",
-        brandLogo: "Monier",
-        slug: "stone-roof-tiles",
         path: "roof-tiles/stone-roof-tiles/",
-        date: null,
-        rawDate: null,
-        tags: [
-          {
-            title: "Roof Tile",
-            type: "Group"
-          }
-        ],
-        featuredVideo: null,
-        featuredMedia: createImageData()
+        featuredMedia: createImageData(),
+        featuredVideo: null
       },
       {
-        __typename: "ContentfulSimplePage",
-        id: "65e9f69a-fbb8-5bc5-96cb-9b660002d2c6",
         title: "Concrete roof tiles",
-        subtitle:
-          " Concrete is a natural, strong and easy-to-handle material. Our Zanda concrete roof tiles are easy to lay and give you a very durable and weather-resistant roof that is easy to maintain.",
-        brandLogo: "Zanda",
-        slug: "betongtakstein",
         path: "roof-tiles/betongtakstein/",
-        date: null,
-        rawDate: null,
-        tags: null,
-        featuredVideo: null,
-        featuredMedia: createImageData()
+        featuredMedia: createImageData(),
+        featuredVideo: null
       }
     ],
     pdpExploreBar: {

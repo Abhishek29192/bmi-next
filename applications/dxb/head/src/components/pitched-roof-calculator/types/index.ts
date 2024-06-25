@@ -1,4 +1,4 @@
-import { Product as ESProduct } from "@bmi/elasticsearch-types";
+import { BattenSpacing, Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Data as TitleWithContentProps } from "../../TitleWithContent";
 
 export type RangeValue = {
@@ -81,8 +81,7 @@ export interface Tile
     Omit<ReferencedTileProducts, keyof VergeOption> {
   color: string;
   brokenBond: boolean;
-  maxBattenSpacing: number;
-  eaveGauge: number;
+  battenSpacings: BattenSpacing[];
   ridgeSpacing: number;
   minBattenSpacing: number;
   coverWidth: number;

@@ -349,8 +349,8 @@ describe("main with isPublished false and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -427,8 +427,8 @@ describe("main with isPublished false and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -508,8 +508,8 @@ describe("main with isPublished false and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -601,8 +601,8 @@ describe("main with isPublished false and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -716,8 +716,8 @@ describe("main with isPublished false and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -835,8 +835,8 @@ describe("main with isPublished false and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate1.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate1.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate1.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate1.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate1.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -848,8 +848,8 @@ describe("main with isPublished false and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate2.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate2.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate2.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate2.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate2.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -1200,8 +1200,8 @@ describe("main with isPublished true and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -1279,8 +1279,8 @@ describe("main with isPublished true and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -1375,8 +1375,8 @@ describe("main with isPublished true and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -1483,8 +1483,8 @@ describe("main with isPublished true and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -1616,8 +1616,8 @@ describe("main with isPublished true and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -1753,8 +1753,8 @@ describe("main with isPublished true and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -1890,8 +1890,8 @@ describe("main with isPublished true and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -2032,8 +2032,8 @@ describe("main with isPublished true and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate1.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate1.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate1.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate1.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate1.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -2045,8 +2045,8 @@ describe("main with isPublished true and isConsolidated false", () => {
           "en-GB": newMicrocopyToCreate2.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate2.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate2.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate2.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate2.fields.key["en-US"]}`
         }
       },
       metadata: undefined
@@ -2615,8 +2615,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -2717,8 +2717,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -2822,8 +2822,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -2939,8 +2939,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -3078,8 +3078,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -3221,8 +3221,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate1.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate1.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate1.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate1.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate1.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -3244,8 +3244,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate2.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate2.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate2.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate2.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate2.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -3430,8 +3430,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -3453,8 +3453,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -3639,8 +3639,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreateForTag1!.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreateForTag1!.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreateForTag1!.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreateForTag1!.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreateForTag1!.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -3662,8 +3662,8 @@ describe("main with isPublished false and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreateForTag2!.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreateForTag2!.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreateForTag2!.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreateForTag2!.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreateForTag2!.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -4186,8 +4186,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -4290,8 +4290,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -4411,8 +4411,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -4544,8 +4544,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -4702,8 +4702,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -4864,8 +4864,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -5027,8 +5027,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -5197,8 +5197,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate1.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate1.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate1.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate1.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate1.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -5220,8 +5220,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate2.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate2.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate2.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate2.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate2.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -5455,8 +5455,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -5478,8 +5478,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreate.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreate.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -5775,8 +5775,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreateForTag1!.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreateForTag1!.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreateForTag1!.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreateForTag1!.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreateForTag1!.fields.key["en-US"]}`
         }
       },
       metadata: {
@@ -5798,8 +5798,8 @@ describe("main with isPublished true and isConsolidated true", () => {
           "en-GB": newMicrocopyToCreateForTag2!.fields.key["en-US"]
         },
         value: {
-          "en-US": newMicrocopyToCreateForTag2!.fields.key["en-US"],
-          "en-GB": newMicrocopyToCreateForTag2!.fields.key["en-US"]
+          "en-US": `MC: ${newMicrocopyToCreateForTag2!.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreateForTag2!.fields.key["en-US"]}`
         }
       },
       metadata: {

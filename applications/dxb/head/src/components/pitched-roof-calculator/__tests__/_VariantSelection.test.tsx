@@ -6,22 +6,22 @@ import VariantSelection from "../_VariantSelection";
 import { AnalyticsContext } from "../helpers/analytics";
 import { MicroCopy } from "../helpers/microCopy";
 import { Tile } from "../types";
-import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
+import { createTile } from "./helpers/createTile";
 
 const tiles: Tile[] = [
-  {
-    ...createProduct<Tile>({ name: "first product" }),
+  createTile({
+    name: "first product",
     brokenBond: false,
     color: "Red color",
     packSize: 15
-  },
-  {
-    ...createProduct<Tile>({ name: "second product" }),
+  }),
+  createTile({
+    name: "second product",
     brokenBond: false,
     color: "Black color",
     packSize: 20
-  }
+  })
 ];
 
 const pushEvent = jest.fn();

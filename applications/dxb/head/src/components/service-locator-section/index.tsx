@@ -1,4 +1,3 @@
-import { CompanyDetailProps } from "@bmi-digital/components/company-details";
 import GoogleApi, {
   Google,
   GeocoderResult as GoogleGeocoderResult,
@@ -12,15 +11,8 @@ import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
-import { Data as ContentfulImageData } from "../Image";
-import RichText, { RichTextData } from "../RichText";
-import {
-  EntryTypeEnum,
-  Data as ServiceData,
-  ServiceTypeFilter,
-  ServiceTypesPrefixesEnum
-} from "../Service";
-import { Data as ServiceType } from "../ServiceType";
+import RichText from "../RichText";
+import { EntryTypeEnum, ServiceTypesPrefixesEnum } from "../Service";
 import { useSiteContext } from "../Site";
 import {
   SearchLocationBlock,
@@ -43,7 +35,6 @@ import {
   getTypesFromServices,
   sortServices
 } from "./helpers";
-
 import {
   Body,
   Controls,
@@ -52,10 +43,16 @@ import {
   StyledTabs,
   classes
 } from "./styles/styles";
+import type { CompanyDetailProps } from "@bmi-digital/components/company-details";
+import type { Data as ServiceType } from "../ServiceType";
+import type { Data as ServiceData, ServiceTypeFilter } from "../Service";
+import type { RichTextData } from "../RichText";
+import type { Data as ContentfulImageData } from "../image/types";
 
-export type Service = Omit<ServiceData, "companyLogo"> & {
+export type Service = Omit<ServiceData, "companyLogo" | "summary"> & {
   distance?: number;
   companyLogo?: ContentfulImageData;
+  summary?: string;
 };
 
 export type Data = {
@@ -95,7 +92,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const shouldEnableSearch = sectionType !== EntryTypeEnum.BRANCH_TYPE;
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
-  const { getMicroCopy, countryCode } = useSiteContext();
+  const { getMicroCopy } = useSiteContext();
   const windowLocation = useLocation();
 
   const params = new URLSearchParams(windowLocation.search);
@@ -111,8 +108,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   );
   const [showResultList, setShowResultList] = useState(showDefaultResultList);
   const [googleApi, setGoogleApi] = useState<Google>(null);
-  const [selectedRoofer, setSelectedRoofer] = useState<Service>(null);
-  const [centre, setCentre] = useState<GoogleLatLngLiteral>();
+  const [selectedRoofer, setSelectedRoofer] = useState<Service | null>(null);
+  const [centre, setCentre] = useState<GoogleLatLngLiteral | undefined>();
   const [zoom, setZoom] = useState<number>(
     initialMapZoom || DEFAULT_LEVEL_ZOOM
   );
@@ -169,7 +166,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       (services || [])
         .reduce(filterServices(centre, activeFilters, activeSearchString), [])
         .sort(sortServices(centre)),
-    [activeFilters, activeSearchString, centre]
+    [activeFilters, activeSearchString, centre, services]
   );
 
   const markers = useMemo(
@@ -215,35 +212,21 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setSelectedRoofer(null);
     setZoom(location ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
     setCentre(
-      location
-        ? {
-            lat: location.geometry.location.lat(),
-            lng: location.geometry.location.lng()
-          }
-        : null
+      location && {
+        lat: location.geometry.location.lat(),
+        lng: location.geometry.location.lng()
+      }
     );
   };
 
   const clearRooferAndResetMap = () => {
     setSelectedRoofer(null);
     setZoom(centre ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
-    setCentre(centre || null);
+    setCentre(centre);
   };
 
-  const getCompanyDetails = (
-    service: Service,
-    isAddressHidden?: boolean
-  ): CompanyDetailProps[] => {
-    const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
-
-    return createCompanyDetails(
-      sectionType,
-      service,
-      countryCode,
-      getMicroCopy,
-      isAddressHidden,
-      googleURLLatLng
-    );
+  const getCompanyDetails = (service: Service): CompanyDetailProps => {
+    return createCompanyDetails({ sectionType, service, getMicroCopy, centre });
   };
 
   const getMicroCopyPrefix = (serviceType: EntryTypeEnum) => {
@@ -312,7 +295,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     // there were no matching queries in querystring
     // hence remove all querystring from user and make the url '/find-a-roofer/' again
     if (matchingRooferTypes.length === 0) {
-      history.replaceState(null, null, windowLocation.pathname);
+      history.replaceState(null, "", windowLocation.pathname);
     } else {
       // show result list panel on page load if selected chips exist
       matchingRooferTypes.forEach((serviceType: ServiceType) => {
@@ -341,12 +324,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     if (filteredChips.length > 0) {
       const queryParams = new URLSearchParams(windowLocation.search);
       queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
-      history.replaceState(null, null, "?" + queryParams.toString());
+      history.replaceState(null, "", "?" + queryParams.toString());
     }
     if (filteredChips.length === 0 && isUserAction) {
       // Remove the query if there are no selected chips
       // otherwise url will look like `/?chip=`
-      history.replaceState(null, null, windowLocation.pathname);
+      history.replaceState(null, "", windowLocation.pathname);
     }
   }, [activeFilters]);
 

@@ -35,6 +35,13 @@ Authorization: Bearer {{contentfulDeliveryToken}}
 
 ###
 
+# @name Preview - Get entry by ID
+@id=5x8uAuSGpYpoACttwBfvF8
+GET https://preview.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/{{id}}
+Authorization: Bearer {{contentfulPreviewToken}}
+
+###
+
 # @name Get all assets
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/assets/
 Authorization: Bearer {{contentfulToken}}
@@ -176,3 +183,16 @@ Authorization: Bearer {{contentfulDeliveryToken}}
 @sync_token=w7Ese3kdwpMbMhhgw7QAUsKiw6bCiwHCgMKzCsKmwobCl8KHZsKlRsOMwqMrbsORwoDDtF3Dkhg0HG_Dr21ewqk2XsKHABNOUsOjW8KVdEXCj8KmwqpLwp_DmMOmKMOnWTxow43DnQnDqsKGwqbDiA3CuirCrMOQZBzDgD08wpLCm8KYLCQUMMOFwo7DicKdwqgHTsO4PElDw6jDmnHDj3IEw4Fjw63DuSfCpXxpw4rDvXjDhMO_ch_ClsOsJm3CrDlSXzjDocKPSEpcwqrCsMKlwo_DgHtLJhTCqcOPw4ISw5fCjRDCjsKcB8OvwpVDwq3Cg09hJzFoUTDCq8KQw4M_Ej83
 GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/sync?sync_token={{sync_token}}
 Authorization: Bearer {{contentfulDeliveryToken}}
+
+###
+
+# @name Get all environment aliases
+GET https://api.contentful.com/spaces/{{spaceId}}/environment_aliases
+Authorization: Bearer {{contentfulToken}}
+
+###
+
+# @name Get environment alias
+@environmentAliasId=pre-production
+GET https://api.contentful.com/spaces/{{spaceId}}/environment_aliases/{{environmentAliasId}}
+Authorization: Bearer {{contentfulToken}}

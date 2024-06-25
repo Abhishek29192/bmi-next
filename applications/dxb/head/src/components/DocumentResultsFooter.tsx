@@ -1,4 +1,3 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
 import Container from "@bmi-digital/components/container";
 import DownloadList, {
   DownloadListContext,
@@ -25,7 +24,6 @@ import {
   useShowMobileTable
 } from "../utils/documentUtils";
 import getCookie from "../utils/getCookie";
-import withGTM from "../utils/google-tag-manager";
 import useHasScrollbar from "../utils/useHasScrollbar";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
@@ -60,9 +58,6 @@ type Props = {
   sticky?: boolean;
   format?: Format;
 };
-
-const GTMButton = withGTM<ButtonProps>(Button);
-
 export const handleDownloadClick = async (
   list: Record<string, any>,
   config: Config,
@@ -198,16 +193,14 @@ const DownloadDocumentsButton = () => {
   return (
     <DownloadList.Button
       disabled={!size || maxSizeExceeded}
-      component={(props: ButtonProps) => (
-        <GTMButton
-          gtm={{
-            id: "download3-button1",
-            label: Array.isArray(props.children) ? props.children[0] : "",
-            action: memoisedDocumentAction
-          }}
-          {...props}
-        />
-      )}
+      gtm={{
+        id: "download3-button1",
+        label: downloadButtonLabel.replace(
+          "({{count}})",
+          `(${selectedItemsCount.toString()})`
+        ),
+        action: memoisedDocumentAction
+      }}
       label={downloadButtonLabel}
       onClick={handleButtonClick}
       data-testid="document-table-download-button"

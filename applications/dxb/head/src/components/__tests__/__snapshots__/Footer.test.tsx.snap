@@ -6,7 +6,7 @@ exports[`Footer component renders correctly 1`] = `
     class=" css-bnck4c-HidePrint"
   >
     <div
-      class=" css-r109q4"
+      class="css-an2sjs"
       data-testid="footer"
     >
       <div
@@ -21,7 +21,7 @@ exports[`Footer component renders correctly 1`] = `
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="footer-main-navigation-item-container"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -38,12 +38,13 @@ exports[`Footer component renders correctly 1`] = `
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"nav-footer1","label":"+44 (0) 1234567890","action":"tel:+4401234567890"}"
+                      data-gtm="{"id":"nav-footer1","action":"tel:+4401234567890","label":"+44 (0) 1234567890"}"
+                      data-testid="footer-navigation-button-+44-(0)-1234567890"
                       href="tel:+4401234567890"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
@@ -68,7 +69,7 @@ exports[`Footer component renders correctly 1`] = `
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="footer-main-navigation-item-container"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -85,7 +86,8 @@ exports[`Footer component renders correctly 1`] = `
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"nav-footer1","label":"Our story","action":"/uk/landing-page/"}"
+                      data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Our story"}"
+                      data-testid="footer-navigation-button-Our-story"
                       href="/uk/landing-page/"
                       tabindex="0"
                     >
@@ -125,13 +127,15 @@ exports[`Footer component renders correctly 1`] = `
             </div>
             <ul
               class="Footer-listInline css-p4h7lm"
+              data-testid="footer-secondary-navigation-item-container"
             >
               <li
                 class="Footer-listItem"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-footer1","label":"Our story","action":"/uk/landing-page/"}"
+                  data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Our story"}"
+                  data-testid="footer-navigation-button-Our-story"
                   href="/uk/landing-page/"
                   tabindex="0"
                 >
@@ -146,7 +150,8 @@ exports[`Footer component renders correctly 1`] = `
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-footer1","label":"global.sitemap","action":"/uk/sitemap/"}"
+                  data-gtm="{"id":"nav-footer1","action":"/uk/sitemap/","label":"global.sitemap"}"
+                  data-testid="footer-navigation-button-global.sitemap"
                   href="/uk/sitemap/"
                   tabindex="0"
                 >
@@ -222,7 +227,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
     class=" css-bnck4c-HidePrint"
   >
     <div
-      class=" css-r109q4"
+      class="css-an2sjs"
       data-testid="footer"
     >
       <div
@@ -237,7 +242,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
           >
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="footer-main-navigation-item-container"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -254,12 +259,13 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"nav-footer1","label":"+44 (0) 1234567890","action":"tel:+4401234567890"}"
+                      data-gtm="{"id":"nav-footer1","action":"tel:+4401234567890","label":"+44 (0) 1234567890"}"
+                      data-testid="footer-navigation-button-+44-(0)-1234567890"
                       href="tel:+4401234567890"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
@@ -284,7 +290,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="footer-main-navigation-item-container"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -301,7 +307,8 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"nav-footer1","label":"Our story","action":"/uk/landing-page/"}"
+                      data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Our story"}"
+                      data-testid="footer-navigation-button-Our-story"
                       href="/uk/landing-page/"
                       tabindex="0"
                     >
@@ -341,27 +348,52 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
             </div>
             <ul
               class="Footer-listInline css-p4h7lm"
+              data-testid="footer-secondary-navigation-item-container"
             >
               <li
                 class="Footer-listItem"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-footer1","label":"Icopal brand","action":"/uk/landing-page/"}"
+                  data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Icopal brand"}"
+                  data-testid="footer-navigation-button-Icopal-brand"
                   href="/uk/landing-page/"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                    class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                   >
                     <svg
-                      viewBox="0 0 154 100"
-                      xml:space="preserve"
+                      viewBox="0 0 216 100"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M154 26h-7.66v37.67H154V26ZM7.66 35.262H0V63.67h7.66V35.262ZM7.66 26H0v7.213h7.66V26ZM59.765 56.545c-3.919 0-7.214-3.294-7.214-7.213 0-3.918 3.295-7.213 7.214-7.213 3.92 0 7.215 3.295 7.215 7.213 0 4.097-3.296 7.213-7.215 7.213Zm0-21.907A14.748 14.748 0 0 0 44.98 49.421a14.748 14.748 0 0 0 14.785 14.783c8.195 0 14.786-6.59 14.786-14.783a14.748 14.748 0 0 0-14.786-14.783ZM33.668 50.579c-.623 3.918-4.364 6.59-8.283 5.877-3.92-.623-6.591-4.363-5.879-8.282.713-3.918 4.364-6.59 8.284-5.877 2.939.534 5.344 2.76 5.878 5.788h7.66c-.89-8.104-8.105-14.07-16.21-13.358-8.106.802-14.073 8.015-13.36 16.03.8 8.104 8.015 14.07 16.032 13.358 7.125-.623 12.825-6.323 13.36-13.536h-7.482ZM141.709 49.332c0-8.193-6.681-14.783-14.786-14.783-8.194 0-14.785 6.68-14.785 14.783 0 8.104 6.68 14.783 14.785 14.783 1.871 0 3.741-.445 5.433-1.069v-8.994c-2.583 2.939-7.125 3.384-10.064.801-2.94-2.582-3.385-7.124-.802-10.063 2.583-2.938 7.125-3.384 10.065-.801 1.603 1.425 2.494 3.384 2.494 5.432v14.07h7.57V49.333h.09ZM93.166 34.638c-8.105 0-14.785 6.59-14.785 14.783V74h7.57V49.332c0-4.007 3.207-7.302 7.215-7.302s7.304 3.206 7.304 7.213c0 4.008-3.207 7.302-7.215 7.302-2.227 0-4.275-.89-5.611-2.493v8.994c1.781.802 3.563 1.069 5.433 1.069 8.194 0 14.785-6.679 14.785-14.783 0-8.193-6.502-14.694-14.696-14.694Z"
-                        fill="#009FE3"
+                        d="M216 16H205.256V69.3655H216V16Z"
+                        fill="#0085CF"
+                      />
+                      <path
+                        d="M10.7438 29.1206H0V69.3655H10.7438V29.1206Z"
+                        fill="#0085CF"
+                      />
+                      <path
+                        d="M10.7438 16H0V26.2189H10.7438V16Z"
+                        fill="#0085CF"
+                      />
+                      <path
+                        d="M83.8265 59.2727C78.3297 59.2727 73.7073 54.6048 73.7073 49.0538C73.7073 43.5028 78.3297 38.8349 83.8265 38.8349C89.3233 38.8349 93.9456 43.5028 93.9456 49.0538C93.9456 54.8571 89.3233 59.2727 83.8265 59.2727ZM83.8265 28.2375C72.3331 28.2375 63.0885 37.5733 63.0885 49.18C63.0885 60.7866 72.3331 70.1224 83.8265 70.1224C95.3198 70.1224 104.564 60.7866 104.564 49.18C104.564 37.5733 95.3198 28.2375 83.8265 28.2375Z"
+                        fill="#0085CF"
+                      />
+                      <path
+                        d="M47.2227 50.82C46.3482 56.3711 41.1012 60.1558 35.6044 59.1466C30.1076 58.2634 26.3597 52.9647 27.3592 47.4137C28.3586 41.8627 33.4806 38.0779 38.9774 39.0872C43.1001 39.8442 46.4731 42.9981 47.2227 47.2876H57.9665C56.7172 35.807 46.598 27.3544 35.2296 28.3636C23.8612 29.4991 15.491 39.718 16.4905 51.0724C17.6148 62.5529 27.734 71.0056 38.9774 69.9963C48.9717 69.1132 56.967 61.039 57.7166 50.82H47.2227Z"
+                        fill="#0085CF"
+                      />
+                      <path
+                        d="M198.76 49.0538C198.76 37.4471 189.39 28.1113 178.022 28.1113C166.529 28.1113 157.284 37.5733 157.284 49.0538C157.284 60.5343 166.654 69.9963 178.022 69.9963C180.645 69.9963 183.269 69.3655 185.643 68.4824V55.7403C182.02 59.9035 175.648 60.5343 171.526 56.8757C167.403 53.2171 166.778 46.7829 170.401 42.6197C174.024 38.4564 180.396 37.8256 184.518 41.4842C186.767 43.5028 188.016 46.2783 188.016 49.18C188.016 49.18 188.016 49.18 188.016 49.3061V69.1132H198.635V49.0538H198.76Z"
+                        fill="#0085CF"
+                      />
+                      <path
+                        d="M130.674 28.2375C119.306 28.2375 109.936 37.5733 109.936 49.18V84H120.555V49.0538C120.555 43.3766 125.053 38.7087 130.674 38.7087C136.296 38.7087 140.918 43.2505 140.918 48.9276C140.918 54.6048 136.421 59.2727 130.799 59.2727C127.676 59.2727 124.803 58.0111 122.929 55.7403V68.4824C125.427 69.6178 127.926 69.9963 130.549 69.9963C142.043 69.9963 151.287 60.5343 151.287 49.0538C151.287 37.4471 142.168 28.2375 130.674 28.2375Z"
+                        fill="#0085CF"
                       />
                     </svg>
                   </span>
@@ -376,7 +408,8 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-footer1","label":"global.sitemap","action":"/uk/sitemap/"}"
+                  data-gtm="{"id":"nav-footer1","action":"/uk/sitemap/","label":"global.sitemap"}"
+                  data-testid="footer-navigation-button-global.sitemap"
                   href="/uk/sitemap/"
                   tabindex="0"
                 >

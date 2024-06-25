@@ -30,24 +30,21 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
 
 const data: Data = [
   {
-    __typename: "ContentfulSimplePage",
     title: "Call to action",
     path: "some-page",
     featuredMedia: createImageData(),
     featuredVideo: null
   },
   {
-    __typename: "ContentfulSimplePage",
     title: "Call to action",
     path: "some-page",
     featuredMedia: createImageData(),
     featuredVideo: null
   },
   {
-    __typename: "ContentfulSimplePage",
     title: "Card with Video",
     path: "some-page",
-    featuredMedia: createImageData(),
+    featuredMedia: null,
     featuredVideo: {
       __typename: "ContentfulVideo",
       title: "video title",

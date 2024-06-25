@@ -1,33 +1,29 @@
 import Button from "@bmi-digital/components/button";
 import Grid from "@bmi-digital/components/grid";
 import AddIcon from "@bmi-digital/components/icon/Add";
-import CheckMarkIcon from "@bmi-digital/components/icon/Check";
-import OverviewCard, {
-  OverviewCardProps
-} from "@bmi-digital/components/overview-card";
 import Section, {
   BackgroundColor as SectionBackgroundColor
 } from "@bmi-digital/components/section";
+import SystemResultsCard from "@bmi-digital/components/system-results-card";
 import { replaceSpaces } from "@bmi-digital/components/utils";
-import { System as EsSystem } from "@bmi/elasticsearch-types";
+import { System as EsSystem, SystemAttribute } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
-import { graphql, Link } from "gatsby";
-import uniqueId from "lodash-es/uniqueId";
+import { Link, graphql } from "gatsby";
 import React, { useState } from "react";
 import { RelatedSystem } from "../types/pim";
-import withGTM, { GTM } from "../utils/google-tag-manager";
+import {
+  getLevel,
+  goodBetterBestLabels
+} from "../utils/getGoodBetterBestLabel";
+
 import { getPathWithCountryCode } from "../utils/path";
-import { renderMedia } from "../utils/renderMedia";
 import BrandLogo from "./BrandLogo";
-import GoodBetterBestIndicator from "./GoodBetterBestIndicator";
 import { useSiteContext } from "./Site";
 import {
   StyledLoadMoreWrapper,
-  StyledReadMoreButton,
-  StyledSystemPropertyContainer,
-  StyledSystemPropertyItem,
   StyledTitle
 } from "./styles/RelatedSystems.styles";
+import type { GTM } from "@bmi-digital/components/types";
 
 export type SystemCardProps = {
   system: RelatedSystem | EsSystem;
@@ -48,58 +44,34 @@ const isEsSystem = (system: RelatedSystem | EsSystem): system is EsSystem =>
 const getFilteredSystemPropertyValuesList = (
   system: RelatedSystem | EsSystem,
   systemPropertiesToDisplay: string[]
-) => {
-  if (!isEsSystem(system)) {
-    return null;
+): string[] => {
+  if (systemPropertiesToDisplay.length === 0 || !isEsSystem(system)) {
+    return [];
   }
 
-  if (systemPropertiesToDisplay.length === 0) {
-    return null;
-  }
-
-  let filteredSystemAttributes = system.systemAttributes || [];
-
-  if (systemPropertiesToDisplay && systemPropertiesToDisplay.length !== 0) {
-    filteredSystemAttributes = filteredSystemAttributes.filter((attr) =>
+  const filteredSystemAttributes = (system.systemAttributes || []).filter(
+    (attr) =>
       systemPropertiesToDisplay.some(
         (syspProp) =>
-          attr.code.includes(syspProp) || attr.name.includes(syspProp)
+          attr.code.includes(syspProp) || attr.name?.includes(syspProp)
       )
-    );
-  }
+  );
 
-  const topThreePropertiesToDisplay = systemPropertiesToDisplay
-    .reduce((accSystemAttributes, currentAttribute) => {
+  return systemPropertiesToDisplay
+    .reduce<SystemAttribute[]>((accSystemAttributes, currentAttribute) => {
       return [
         ...accSystemAttributes,
         ...filteredSystemAttributes.filter(
           (systemAttributeObj) =>
             systemAttributeObj.code.includes(currentAttribute) ||
-            systemAttributeObj.name.includes(currentAttribute)
+            systemAttributeObj.name?.includes(currentAttribute)
         )
       ];
     }, [])
-    .reduce((acc, curSystemAttrObj) => {
+    .reduce<string[]>((acc, curSystemAttrObj) => {
       return [...acc, ...curSystemAttrObj.values];
     }, [])
     .slice(0, 3);
-
-  if (topThreePropertiesToDisplay.length === 0) {
-    return null;
-  }
-  return (
-    <StyledSystemPropertyContainer data-testid="systemProperties">
-      {topThreePropertiesToDisplay.map((attrVal) => (
-        <StyledSystemPropertyItem
-          key={uniqueId()}
-          data-testid="systemPropItemPanel"
-        >
-          <CheckMarkIcon />
-          {attrVal}
-        </StyledSystemPropertyItem>
-      ))}
-    </StyledSystemPropertyContainer>
-  );
 };
 
 export const SystemCard = ({
@@ -116,7 +88,6 @@ export const SystemCard = ({
   const systemUrl = getSystemUrl(countryCode, path);
   const mainImage =
     system.masterImage?.mainSource || system.galleryImages[0]?.mainSource;
-  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
     <Grid
@@ -127,45 +98,32 @@ export const SystemCard = ({
         dataTestId ? dataTestId : `system-card-${replaceSpaces(system.code)}`
       }
     >
-      <GTMOverviewCard
+      <SystemResultsCard
         title={system.name}
-        titleVariant="h5"
-        imageSize="contain"
-        media={renderMedia(mainImage, system.name)}
-        tag={<GoodBetterBestIndicator indicatorType={system.goodBetterBest} />}
-        brandImageSource={
-          <BrandLogo
-            brandName={
-              typeof system.brand === "string"
-                ? system.brand
-                : system.brand?.code
-            }
-          />
+        media={mainImage ? { src: mainImage, alt: system.name } : undefined}
+        tag={
+          system.goodBetterBest && {
+            level: getLevel(system.goodBetterBest),
+            label: getMicroCopy(goodBetterBestLabels[system.goodBetterBest])
+          }
         }
-        action={{
-          model: "routerLink",
-          linkComponent: Link,
-          to: systemUrl
-        }}
+        brandLogo={
+          system.brand?.code ? (
+            <BrandLogo brandName={system.brand.code} />
+          ) : undefined
+        }
         gtm={gtm}
-        footer={
-          <StyledReadMoreButton variant="outlined">
-            {getMicroCopy(microCopy.SDP_SYSTEM_READ_MORE)}
-          </StyledReadMoreButton>
-        }
-        isHighlighted={isHighlighted}
+        ctaLabel={getMicroCopy(microCopy.SDP_SYSTEM_READ_MORE)}
+        component={Link}
+        to={systemUrl}
+        highlighted={isHighlighted}
+        description={system.shortDescription ?? undefined}
+        systemProperties={getFilteredSystemPropertyValuesList(
+          system,
+          systemPropertiesToDisplay
+        )}
         {...rest}
-      >
-        <div>
-          {system.shortDescription}
-
-          {systemPropertiesToDisplay &&
-            getFilteredSystemPropertyValuesList(
-              system,
-              systemPropertiesToDisplay
-            )}
-        </div>
-      </GTMOverviewCard>
+      />
     </Grid>
   );
 };

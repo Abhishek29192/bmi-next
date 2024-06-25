@@ -858,10 +858,10 @@ describe("CLONE tests", () => {
 
   describe("findMainImage tests", () => {
     describe("when Images are empty array", () => {
-      it("should return empty string", () => {
+      it("should return undefined", () => {
         const result = findMainImage([]);
 
-        expect(result).toEqual("");
+        expect(result).toBeUndefined();
       });
     });
     describe("when Images are NOT empty array", () => {
@@ -888,7 +888,7 @@ describe("CLONE tests", () => {
             ];
             const result = findMainImage(images);
 
-            expect(result).toEqual("");
+            expect(result).toBeUndefined();
           });
         });
 

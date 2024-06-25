@@ -88,64 +88,11 @@ exports[`TeamList component renders correctly 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
                   </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TeamList component renders correctly when incomplete 1`] = `
-<div>
-  <div>
-    <div>
-      <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
-        data-testid="grid-container"
-      >
-        <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
-          data-testid="grid-item"
-        >
-          <div
-            class="css-1ye4j0i"
-            data-testid="profile-card"
-          >
-            <div
-              class="css-1mx28pi"
-            >
-              <div
-                class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-10ncf94-MuiAvatar-root"
-                data-testid="profile-card-head-picture"
-              >
-                <img
-                  loading="lazy"
-                  style="object-fit: cover; object-position: center;"
-                />
-              </div>
-            </div>
-            <div
-              class="EqualHeights-contentBox css-1kjwaal"
-            >
-              <div
-                class="css-pbr3p6"
-                data-testid="profile-card-body"
-                style="height: auto;"
-              >
-                <div>
-                  <strong
-                    class="MuiTypography-root MuiTypography-h5  css-1lhxn1g-MuiTypography-root"
-                    data-testid="profile-card-body-name"
-                  />
                 </div>
               </div>
             </div>
@@ -245,7 +192,7 @@ exports[`TeamList component renders correctly with links 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -258,10 +205,19 @@ exports[`TeamList component renders correctly with links 1`] = `
               data-testid="profile-card-footer"
             >
               <span
-                class="css-qsbrz0"
+                class="css-1y6ycuv"
                 data-testid="profile-card-row"
               >
-                Contact us
+                <a
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  data-gtm="{"id":"cta-click1","action":"href","label":"Name - Contact us"}"
+                  data-testid="profile-card-row-action"
+                  referrerpolicy="no-referrer"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Contact us
+                </a>
               </span>
             </div>
           </div>
@@ -360,7 +316,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -450,7 +406,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -540,7 +496,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -630,7 +586,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -720,7 +676,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -810,7 +766,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -900,7 +856,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -990,7 +946,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title
@@ -1080,7 +1036,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root MuiTypography-body2 css-isqx83-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-z8kh23-MuiTypography-root"
                     data-testid="profile-card-body-title"
                   >
                     Job Title

@@ -6,9 +6,9 @@
 lint_head:
   extends: .lint_yarn_workspace
   rules:
-    - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main_workspace, rules ]
-    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     ROOT_DIR: "applications/dxb/head"
     WORKSPACE: "@bmi/head"
@@ -16,9 +16,9 @@ lint_head:
 compile_head:
   extends: .compile_yarn_workspace
   rules:
-    - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main_workspace, rules ]
-    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
@@ -26,9 +26,9 @@ compile_head:
 enforce_no_new_errors_head:
   stage: build
   rules:
-    - !reference [ .ignore_release_mrs, rules ]
-    - !reference [ .run_for_changes_on_main_workspace, rules ]
-    - !reference [ .run_for_changes_on_mr_workspace, rules ]
+    - !reference [.ignore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main_workspace, rules]
+    - !reference [.run_for_changes_on_mr_workspace, rules]
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
@@ -38,17 +38,17 @@ enforce_no_new_errors_head:
     - output=$(yarn workspace @bmi/head tsc --strict --pretty || true)
     - number_of_errors=$(echo $output | grep -o "Found [0-9]\+ errors" | awk -F'[^0-9]+' '{print $2}')
     - 'echo "Number of errors: $number_of_errors"'
-    - '[ $number_of_errors -gt 959 ] && exit 1 || exit 0'
+    - "[ $number_of_errors -gt 815 ] && exit 1 || exit 0"
 
 test_head:
   extends: .test_yarn_workspace
   rules:
-    - !reference [ .ignore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/head/**/*
         - yarn.lock
-    - if: !reference [ .run_for_changes_on_mr_workspace, rules, if ]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - applications/dxb/head/**/*
         - yarn.lock
@@ -61,11 +61,11 @@ test_head:
 test_mr_coverage_head:
   extends: .test_mr_coverage_yarn_workspace
   rules:
-    - !reference [ .ignore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main_workspace, rules, if ]
+    - !reference [.ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:
         - applications/dxb/head/**/*
-    - if: !reference [ .run_for_changes_on_mr_workspace, rules, if ]
+    - if: !reference [.run_for_changes_on_mr_workspace, rules, if]
       changes:
         - applications/dxb/head/**/*
   variables:
@@ -77,10 +77,10 @@ test_mr_coverage_head:
 
 wait_until_head_deployed_to_gatsby:
   stage: deploy
-  image: !reference [ .node-full-image, image ]
+  image: !reference [.node-full-image, image]
   rules:
-    - !reference [ .ignore_renovate_mrs, rules ]
-    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [.ignore_renovate_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - "applications/dxb/contentful-migrate/**/*"
@@ -88,8 +88,8 @@ wait_until_head_deployed_to_gatsby:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
-  needs: [ ]
-  cache: { }
+  needs: []
+  cache: {}
   timeout: 15m
   script:
     - applications/dxb/head/scripts/gatsby-cloud-mr-url.sh
@@ -102,8 +102,8 @@ wait_until_head_deployed_to_gatsby:
   stage: post deploy
   rules:
     - when: never
-  image: !reference [ .owasp-image, image ]
-  cache: { }
+  image: !reference [.owasp-image, image]
+  cache: {}
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
@@ -123,9 +123,9 @@ wait_until_head_deployed_to_gatsby:
   stage: post deploy
   rules:
     - when: never
-  image: !reference [ .owasp-image, image ]
+  image: !reference [.owasp-image, image]
   timeout: 3h
-  cache: { }
+  cache: {}
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
@@ -146,8 +146,8 @@ wait_until_head_deployed_to_gatsby:
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
-    - !reference [ .ignore_renovate_mrs, rules ]
-    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [.ignore_renovate_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - "applications/dxb/contentful-migrate/**/*"
@@ -202,8 +202,8 @@ baseline_scan_head_prod:
     NETLIFY_PWD: "$LIGHTHOUSE_PWD"
   rules:
     - when: never
-  image: !reference [ .cypress-image, image ]
-  cache: { }
+  image: !reference [.cypress-image, image]
+  cache: {}
   script:
     - |
       yarn install # puppeteer requires "Chrome for Testing" to be downloaded
@@ -221,8 +221,8 @@ baseline_scan_head_prod:
 lighthouseci_scan_head_preview:
   extends: .lighthouse_scan
   rules:
-    - !reference [ .ignore_renovate_mrs, rules ]
-    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [.ignore_renovate_mrs, rules]
+    - !reference [.ignore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - "applications/dxb/contentful-migrate/**/*"
@@ -261,11 +261,11 @@ lighthouseci_scan_head:
     - if: "$WHICH_SCHEDULE == 'lighthouseci_scan_head'"
 
 .clear_gatsby_cloud_cache:
-  image: !reference [ .curl, image ]
+  image: !reference [.curl, image]
   rules:
     - if: '$WHICH_SCHEDULE == "clear_gatsby_cloud_cache"'
-  needs: [ ]
-  cache: { }
+  needs: []
+  cache: {}
   script:
     - "curl -X POST https://webhook.gatsbyjs.com/hooks/builds/trigger/${SITE_ID} --header 'x-gatsby-cache: false'"
     - "curl -X POST https://webhook.gatsbyjs.com/hooks/builds/trigger/${SITE_ID} --header 'x-gatsby-cache: false' --header 'x-runner-type: PREVIEW'"

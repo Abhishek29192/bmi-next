@@ -3,11 +3,11 @@
 exports[`RawTextField component does not display rightAdornment if provided and error is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -15,7 +15,7 @@ exports[`RawTextField component does not display rightAdornment if provided and 
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1w5v8j3-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-y7k1w0-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
@@ -54,11 +54,11 @@ exports[`RawTextField component does not display rightAdornment if provided and 
 exports[`RawTextField component renders correctly 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -66,7 +66,7 @@ exports[`RawTextField component renders correctly 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-sgh62v-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
@@ -98,11 +98,11 @@ exports[`RawTextField component renders correctly 1`] = `
 exports[`RawTextField component renders correctly if error is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -110,7 +110,7 @@ exports[`RawTextField component renders correctly if error is true 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-sgh62v-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
@@ -142,11 +142,11 @@ exports[`RawTextField component renders correctly if error is true 1`] = `
 exports[`RawTextField component renders correctly if errorText is populated 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -154,7 +154,7 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-sgh62v-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-describedby="email-helper-text"
@@ -181,7 +181,7 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
       </fieldset>
     </div>
     <p
-      class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
+      class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-vozphu-MuiFormHelperText-root"
       id="email-helper-text"
     >
       errorText
@@ -193,11 +193,11 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
 exports[`RawTextField component renders correctly if helperText is populated 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -205,7 +205,7 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-sgh62v-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-describedby="email-helper-text"
@@ -232,7 +232,7 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
       </fieldset>
     </div>
     <p
-      class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
+      class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-vozphu-MuiFormHelperText-root"
       id="email-helper-text"
     >
       helperText
@@ -244,11 +244,11 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
 exports[`RawTextField component renders correctly if isRequired is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -256,7 +256,7 @@ exports[`RawTextField component renders correctly if isRequired is true 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-sgh62v-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
@@ -288,11 +288,11 @@ exports[`RawTextField component renders correctly if isRequired is true 1`] = `
 exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -300,7 +300,7 @@ exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-sgh62v-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
@@ -332,11 +332,11 @@ exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
 exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1mkbcp8-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -344,7 +344,7 @@ exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-y462qo-MuiInputBase-root-MuiFilledInput-root"
+      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-18sqayi-MuiInputBase-root-MuiFilledInput-root"
     >
       <input
         aria-invalid="false"
@@ -364,11 +364,11 @@ exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
 exports[`RawTextField component renders correctly if variant === outlined 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -376,7 +376,7 @@ exports[`RawTextField component renders correctly if variant === outlined 1`] = 
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-sgh62v-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
@@ -408,11 +408,11 @@ exports[`RawTextField component renders correctly if variant === outlined 1`] = 
 exports[`RawTextField component renders correctly with leftAdornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField-leftAdornment css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root TextField-leftAdornment css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -420,7 +420,7 @@ exports[`RawTextField component renders correctly with leftAdornment 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1w5v8j3-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-y7k1w0-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
@@ -459,11 +459,11 @@ exports[`RawTextField component renders correctly with leftAdornment 1`] = `
 exports[`RawTextField component renders correctly with rightAdornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root css-i5fr79-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-gt5h9l-MuiFormControl-root-MuiTextField-root"
     data-testid="text-field-email"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -471,7 +471,7 @@ exports[`RawTextField component renders correctly with rightAdornment 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1w5v8j3-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-y7k1w0-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"

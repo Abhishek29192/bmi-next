@@ -1,6 +1,5 @@
 import ContainerDialog from "@bmi-digital/components/container-dialog";
 import { useIsClient } from "@bmi-digital/components/hooks";
-import brandLogo from "@bmi-digital/components/logo/Bmi";
 import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import ProgressIndicator from "../ProgressIndicator";
@@ -74,6 +73,16 @@ const PitchedRoofCalculator = ({
     </StyledSpinner>
   );
 
+  const onCloseClick = useCallback(() => {
+    pushEvent({
+      event: "dxb.button_click",
+      id: "rc-close",
+      label: "Close Roof Calculator",
+      action: "selected"
+    });
+    onClose();
+  }, [onClose, pushEvent]);
+
   return (
     <AnalyticsContext.Provider value={pushEvent}>
       <StyledContainerDialog
@@ -81,15 +90,7 @@ const PitchedRoofCalculator = ({
           selected === CalculatorSteps.YourSolutionContains ? "white" : "pearl"
         }
         open={isOpen}
-        onCloseClick={() => {
-          pushEvent({
-            event: "dxb.button_click",
-            id: "rc-close",
-            label: "Close Roof Calculator",
-            action: "selected"
-          });
-          onClose();
-        }}
+        onCloseClick={onCloseClick}
         maxWidth="xl"
         containerClassName={classes.dialogContent}
         allowOverflow={false}
@@ -97,8 +98,11 @@ const PitchedRoofCalculator = ({
           // Disabling close on backdrop click
         }}
       >
-        <ContainerDialog.Header className={classes.modalHeader}>
-          <StyledLogo source={brandLogo} />
+        <ContainerDialog.Header
+          className={classes.modalHeader}
+          onCloseClick={onCloseClick}
+        >
+          <StyledLogo />
           <StyledLinearProgress value={progress} variant="determinate" />
         </ContainerDialog.Header>
         <div className={classes.dialogBody}>

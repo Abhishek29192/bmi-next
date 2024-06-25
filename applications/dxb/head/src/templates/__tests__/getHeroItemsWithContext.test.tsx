@@ -1,13 +1,13 @@
 import { microCopy } from "@bmi/microcopies";
-import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
-import Image from "../../components/Image";
-import { DataTypeEnum, Data as LinkData } from "../../components/Link";
-import { Data as SlideData } from "../../components/Promo";
 import { Context as SiteContext } from "../../components/Site";
-import Video, { ContentfulVideoData } from "../../components/Video";
 import { getMockSiteContext } from "../../components/__tests__/utils/SiteContextProvider";
+import { DataTypeEnum } from "../../components/link/types";
 import { getHeroItemsWithContext } from "../helpers/getHeroItemsWithContext";
+import type { Data as LinkData } from "../../components/link/types";
+import type { Data as SlideData } from "../../components/Promo";
+import type { ContentfulVideoData } from "../../components/video/types";
 import type { Data as PageInfoData } from "../../components/PageInfo";
 
 const context: SiteContext = {
@@ -82,9 +82,21 @@ describe("getHeroItemsWithContext", () => {
     expect(result.length).toBe(1);
     expect(result[0].title).toEqual(slide.title);
     expect(result[0].children).toEqual(slide.subtitle);
-    expect(result[0].media).toEqual(
-      <Video {...featuredVideo} data-testid={"hero-video"} />
-    );
+    expect(result[0].media).toEqual({
+      "data-testid": "hero-video",
+      embedHeight: 0,
+      embedWidth: 0,
+      label: "label",
+      layout: "dialog",
+      previewImageSource: "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg",
+      subtitle: null,
+      videoUrl: "https://www.youtube.com/watch?v=youtubeId",
+      dataGTM: {
+        action: "Play",
+        id: "cta-click--video-youtube",
+        label: "https://www.youtube.com/watch?v=youtubeId-label"
+      }
+    });
     expect(result[0].cta).toBeTruthy();
   });
 
@@ -97,14 +109,38 @@ describe("getHeroItemsWithContext", () => {
     expect(result.length).toBe(1);
     expect(result[0].title).toEqual(slide.title);
     expect(result[0].children).toEqual(slide.subtitle);
-    expect(result[0].media).toEqual(
-      <Image
-        {...slide.featuredMedia}
-        size="cover"
-        data-testid={"hero-image"}
-        loading="eager"
-      />
-    );
+    expect(result[0].media).toEqual({
+      alt: "Image alt text",
+      className: undefined,
+      component: GatsbyImage,
+      "data-testid": "hero-image",
+      draggable: false,
+      image: {
+        backgroundColor: "#484848",
+        height: 720,
+        images: {
+          fallback: {
+            sizes: "(min-width: 948px) 948px, 100vw",
+            src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
+            srcSet:
+              "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+          },
+          sources: [
+            {
+              sizes: "(min-width: 948px) 948px, 100vw",
+              srcSet:
+                "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
+              type: "image/webp"
+            }
+          ]
+        },
+        layout: "constrained",
+        width: 948
+      },
+      loading: "eager",
+      objectFit: "cover",
+      objectPosition: "0% 0%"
+    });
     expect(result[0].cta).toBeTruthy();
   });
 

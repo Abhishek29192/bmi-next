@@ -11,8 +11,7 @@ const createGallerySectionImage = (
     gatsbyImageData: createGatsbyImageData(),
     thumbnail: createGatsbyImageData(),
     file: {
-      fileName: "Lorem ipsum",
-      url: "//images.asset.jpg"
+      fileName: "Lorem ipsum"
     }
   },
   caption: {

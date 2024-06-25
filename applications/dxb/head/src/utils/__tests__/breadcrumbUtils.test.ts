@@ -1,75 +1,37 @@
-import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
-import { DataTypeEnum, NavigationData } from "../../components/Link";
+import createBreadcrumbItem from "../../__tests__/helpers/BreadcrumbItemHelper";
+import { DataTypeEnum, NavigationData } from "../../components/link/types";
 import {
   checkIfActiveLabelInParentNode,
   updateBreadcrumbTitleFromContentful
 } from "../breadcrumbUtils";
 
 describe("updateBreadcrumbTitleFromContentful function", () => {
-  it("should update title of breadcrumb by contentful if updated title exist and should not be truncated if the length less than 20 characters", () => {
-    const mockBreadcrumbs: BreadcrumbsData = [
-      {
-        label: "label-mock",
-        id: "id-mock",
-        slug: "slug-mock"
-      }
-    ];
-    const mockBreadcrumbTitle: string | null = "mock-breadcrumb";
+  const breadcrumbs = [
+    createBreadcrumbItem(),
+    createBreadcrumbItem(),
+    createBreadcrumbItem()
+  ];
+
+  it("should replace the last breadcrumb item's label with the breadcrumbTitle when defined and return the new breadcrumb array", () => {
+    const mockBreadcrumbTitle = "mock-breadcrumb-title";
 
     const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
-      mockBreadcrumbs,
+      breadcrumbs,
       mockBreadcrumbTitle
     );
-    const result = [
-      {
-        ...mockBreadcrumbs[0],
-        label: mockBreadcrumbTitle
-      }
-    ];
+
+    const result = [...breadcrumbs];
+    result[result.length - 1].label = mockBreadcrumbTitle;
 
     expect(enhancedBreadcrumbs).toEqual(result);
   });
-  it("should update title of breadcrumb by contentful if updated title exist and truncate it, if it is more than 20 characters and add '...' at the end", () => {
-    const mockBreadcrumbs: BreadcrumbsData = [
-      {
-        label: "label-mock",
-        id: "id-mock",
-        slug: "slug-mock"
-      }
-    ];
-    const mockBreadcrumbTitle: string | null = "mock-breadcrumb-title";
-    const mockBreadcrumbTitleTruncated = "mock-breadcrumb-tit...";
 
+  it("should not replace the last breadcrumb item's label with the breadcrumbTitle if null and return the original breadcrumb array", () => {
     const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
-      mockBreadcrumbs,
-      mockBreadcrumbTitle
+      breadcrumbs,
+      null
     );
-    const result = [
-      {
-        ...mockBreadcrumbs[0],
-        label: mockBreadcrumbTitleTruncated
-      }
-    ];
-
-    expect(enhancedBreadcrumbs).toEqual(result);
-  });
-  it("should not update title of breadcrumb by contentful if updated title does not exist", () => {
-    const mockBreadcrumbs: BreadcrumbsData = [
-      {
-        label: "label-mock",
-        id: "id-mock",
-        slug: "slug-mock"
-      }
-    ];
-    const mockBreadcrumbTitle: string | null = null;
-
-    const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
-      mockBreadcrumbs,
-      mockBreadcrumbTitle
-    );
-    const result = [...mockBreadcrumbs];
-
-    expect(enhancedBreadcrumbs).toEqual(result);
+    expect(enhancedBreadcrumbs).toEqual(breadcrumbs);
   });
 });
 

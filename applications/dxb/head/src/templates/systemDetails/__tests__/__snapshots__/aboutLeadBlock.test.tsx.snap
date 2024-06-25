@@ -50,7 +50,8 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
           data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
           data-testid="specification-button"
           href="http://localhost:8000/asset-real-file-name.pdf"
-          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           tabindex="0"
           target="_blank"
         >
@@ -81,7 +82,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-pearl css-1pt14k0"
+        class="ColorPair-pearl css-1d0x0e2"
       >
         <div
           class="css-1qwqwtx"
@@ -116,7 +117,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -177,7 +178,8 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
           data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
           data-testid="specification-button"
           href="http://localhost:8000/asset-real-file-name.pdf"
-          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           tabindex="0"
           target="_blank"
         >
@@ -208,7 +210,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-pearl css-1pt14k0"
+        class="ColorPair-pearl css-1d0x0e2"
       >
         <div
           class="css-1qwqwtx"
@@ -243,7 +245,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -324,7 +326,8 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
           data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
           data-testid="specification-button"
           href="http://localhost:8000/asset-real-file-name.pdf"
-          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           tabindex="0"
           target="_blank"
         >
@@ -355,7 +358,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-pearl css-1pt14k0"
+        class="ColorPair-pearl css-1d0x0e2"
       >
         <div
           class="css-1qwqwtx"
@@ -390,7 +393,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -471,7 +474,8 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
           data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
           data-testid="specification-button"
           href="http://localhost:8000/asset-real-file-name.pdf"
-          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           tabindex="0"
           target="_blank"
         >
@@ -502,7 +506,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-pearl css-1pt14k0"
+        class="ColorPair-pearl css-1d0x0e2"
       >
         <div
           class="css-1qwqwtx"
@@ -520,7 +524,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -601,7 +605,8 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
           data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
           data-testid="specification-button"
           href="http://localhost:8000/asset-real-file-name.pdf"
-          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           tabindex="0"
           target="_blank"
         >
@@ -693,7 +698,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-pearl css-1pt14k0"
+        class="ColorPair-pearl css-1d0x0e2"
       >
         <div
           class="css-1qwqwtx"
@@ -728,7 +733,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -809,7 +814,8 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
           data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
           data-testid="specification-button"
           href="http://localhost:8000/asset-real-file-name.pdf"
-          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           tabindex="0"
           target="_blank"
         >
@@ -840,7 +846,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-pearl css-1pt14k0"
+        class="ColorPair-pearl css-1d0x0e2"
       >
         <div
           class="css-1qwqwtx"
@@ -858,7 +864,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -939,7 +945,8 @@ exports[`AboutLeadBlock tests should render 1`] = `
           data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
           data-testid="specification-button"
           href="http://localhost:8000/asset-real-file-name.pdf"
-          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           tabindex="0"
           target="_blank"
         >
@@ -970,7 +977,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-pearl css-1pt14k0"
+        class="ColorPair-pearl css-1d0x0e2"
       >
         <div
           class="css-1qwqwtx"
@@ -1005,7 +1012,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>
@@ -1050,7 +1057,8 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
           data-gtm="{"id":"cta-click1","label":"asset-name","action":"http://localhost:8000/asset-real-file-name.pdf"}"
           data-testid="specification-button"
           href="http://localhost:8000/asset-real-file-name.pdf"
-          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          rel="noreferrer"
           tabindex="0"
           target="_blank"
         >
@@ -1081,7 +1089,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-pearl css-1pt14k0"
+        class="ColorPair-pearl css-1d0x0e2"
       >
         <div
           class="css-1qwqwtx"
@@ -1116,7 +1124,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
               class="css-eler5f"
             >
               <div
-                class="RichText-root css-1u73y0t"
+                class="RichText-root css-1lf5op0"
               />
             </div>
           </div>

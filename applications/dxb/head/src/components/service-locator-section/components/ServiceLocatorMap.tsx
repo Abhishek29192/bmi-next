@@ -19,7 +19,6 @@ import {
   CompanyLogo,
   ProductDetailsCard,
   ProductDetailsCardBody,
-  ProductDetailsCardSummary,
   StyledServiceLocatorMap,
   companyLogoClasses,
   productDetailsCardClasses
@@ -29,14 +28,11 @@ export interface MapProps {
   initialMapCentre: { lat: number; lon: number };
   markers: MarkerOptionsWithData<Service>[];
   zoom: number;
-  selectedRoofer: Service;
+  selectedRoofer: Service | null;
   handleMarkerClick: (service: Service) => void;
   clearRooferAndResetMap: () => void;
   centre: GoogleLatLngLiteral;
-  getCompanyDetails: (
-    service: Service,
-    isAddressHidden?: boolean
-  ) => CompanyDetailProps[];
+  getCompanyDetails: (service: Service) => CompanyDetailProps;
 }
 
 export const ServiceLocatorMap = ({
@@ -75,6 +71,7 @@ export const ServiceLocatorMap = ({
                 selectedRoofer.companyLogo && (
                   <CompanyLogo
                     className={companyLogoClasses.card}
+                    data-testid={`service-locator-service-details-card-logo-${selectedRoofer.id}`}
                     {...selectedRoofer.companyLogo}
                   />
                 )
@@ -82,7 +79,6 @@ export const ServiceLocatorMap = ({
               title={selectedRoofer.name}
               action={
                 <CloseBtn
-                  isIconButton
                   variant="text"
                   accessibilityLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
                   onClick={clearRooferAndResetMap}
@@ -92,13 +88,7 @@ export const ServiceLocatorMap = ({
               }
             />
             <ProductDetailsCardBody>
-              <CompanyDetails details={getCompanyDetails(selectedRoofer)}>
-                {selectedRoofer.summary && (
-                  <ProductDetailsCardSummary>
-                    {selectedRoofer.summary}
-                  </ProductDetailsCardSummary>
-                )}
-              </CompanyDetails>
+              <CompanyDetails {...getCompanyDetails(selectedRoofer)} />
             </ProductDetailsCardBody>
           </ProductDetailsCard>
         )}

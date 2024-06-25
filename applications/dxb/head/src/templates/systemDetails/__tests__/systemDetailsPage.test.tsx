@@ -35,7 +35,6 @@ const systemDetailsMockData = createSystem({
     })
   ]
 });
-jest.mock("gatsby");
 
 const withProviders = ({
   customConfig = { isBrandProviderEnabled: true },
@@ -69,7 +68,7 @@ describe("SystemDetailsPage template component", () => {
         callback(0);
         return 0;
       });
-    local.setItem("isAlreadyShownAlert", null);
+    local.setItem("isAlreadyShownAlert", "");
   });
 
   afterEach(() => {
@@ -325,5 +324,57 @@ describe("SystemDetailsPage template component", () => {
         screen.getByText("optional-related-product-1")
       ).toBeInTheDocument();
     });
+  });
+});
+
+describe("Media Gallery", () => {
+  it("should render the media gallery component, with the masterImage as the first media asset if provided", () => {
+    withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            system: createSystem({
+              masterImage: {
+                mainSource: "exampleMasterImage.jpg",
+                altText: "example-master-image-alt-text",
+                thumbnail: "example-thumbnail-text"
+              }
+            }),
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemCode: systemCode,
+            siteId
+          }}
+        />
+      )
+    });
+    expect(screen.getByTestId("media-gallery-root")).toMatchSnapshot();
+  });
+
+  it("should render the media gallery component without the masterImage, if it's not provided", () => {
+    withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            system: createSystem({
+              masterImage: undefined
+            }),
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemCode: systemCode,
+            siteId
+          }}
+        />
+      )
+    });
+    expect(screen.getByTestId("media-gallery-root")).toMatchSnapshot();
   });
 });

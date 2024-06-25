@@ -6,7 +6,7 @@ exports[`Document Library page renders correctly  1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -27,6 +27,7 @@ exports[`Document Library page renders correctly  1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a dealer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -44,6 +45,7 @@ exports[`Document Library page renders correctly  1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a roofer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -61,6 +63,7 @@ exports[`Document Library page renders correctly  1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Partner portal"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -78,6 +81,7 @@ exports[`Document Library page renders correctly  1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"News"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -94,7 +98,8 @@ exports[`Document Library page renders correctly  1`] = `
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-top-utilities-bar","label":"Contact Us","action":"/en/kontakt-oss/"}"
+                  data-gtm="{"id":"nav-top-utilities-bar","action":"/en/kontakt-oss/","label":"Contact Us"}"
+                  data-testid="button"
                   href="/en/kontakt-oss/"
                   tabindex="0"
                   target="_blank"
@@ -104,24 +109,6 @@ exports[`Document Library page renders correctly  1`] = `
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
-              </li>
-              <li
-                class="Header-navItem"
-                data-testid="utilities-link-MC:-login.label.btn"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-top-utilities-bar","label":"MC: login.label.btn"}"
-                  data-testid="login"
-                  tabindex="0"
-                  target="_blank"
-                  type="button"
-                >
-                  MC: login.label.btn
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
               </li>
               <li
                 class="Header-navItem"
@@ -163,7 +150,7 @@ exports[`Document Library page renders correctly  1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -217,7 +204,7 @@ exports[`Document Library page renders correctly  1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Albania flag"
@@ -242,7 +229,7 @@ exports[`Document Library page renders correctly  1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Österreich flag"
@@ -267,7 +254,7 @@ exports[`Document Library page renders correctly  1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="United Kingdom flag"
@@ -292,7 +279,7 @@ exports[`Document Library page renders correctly  1`] = `
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="English flag"
@@ -330,7 +317,8 @@ exports[`Document Library page renders correctly  1`] = `
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="Header-logoLink"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
@@ -553,7 +541,7 @@ exports[`Document Library page renders correctly  1`] = `
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -575,7 +563,7 @@ exports[`Document Library page renders correctly  1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -608,11 +596,12 @@ exports[`Document Library page renders correctly  1`] = `
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -642,7 +631,7 @@ exports[`Document Library page renders correctly  1`] = `
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
             data-testid="search-close-button"
             tabindex="0"
             type="button"
@@ -721,7 +710,7 @@ exports[`Document Library page renders correctly  1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -730,18 +719,18 @@ exports[`Document Library page renders correctly  1`] = `
                         class="MuiBreadcrumbs-li"
                       >
                         <a
-                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                           data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                           data-testid="bread-crumb-Home"
                           href="/en/"
                           tabindex="0"
                         >
                           <span
-                            class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                            class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                               data-testid="ArrowBackIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -770,32 +759,12 @@ exports[`Document Library page renders correctly  1`] = `
                       <li
                         class="MuiBreadcrumbs-li"
                       >
-                        <button
-                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                        <span
+                          class="Breadcrumbs-lastBreadcrumb"
                           data-testid="bread-crumb-breadcrumbTitle"
-                          disabled=""
-                          tabindex="-1"
-                          type="button"
                         >
-                          <span
-                            class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                              data-testid="ArrowBackIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                              />
-                            </svg>
-                          </span>
-                          <span>
-                            breadcrumbTitle
-                          </span>
-                        </button>
+                          breadcrumbTitle
+                        </span>
                       </li>
                     </ol>
                   </nav>
@@ -806,7 +775,7 @@ exports[`Document Library page renders correctly  1`] = `
                 >
                   <nav
                     aria-label="breadcrumbs"
-                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root Breadcrumbs-darkThemed css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
                   >
                     <ol
                       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -815,18 +784,18 @@ exports[`Document Library page renders correctly  1`] = `
                         class="MuiBreadcrumbs-li"
                       >
                         <a
-                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                           data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                           data-testid="bread-crumb-Home"
                           href="/en/"
                           tabindex="0"
                         >
                           <span
-                            class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                            class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                               data-testid="ArrowBackIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -915,7 +884,7 @@ exports[`Document Library page renders correctly  1`] = `
                       data-testid="accordion"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1su22ks-MuiPaper-root-MuiAccordion-root"
+                        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1dvnk40-MuiPaper-root-MuiAccordion-root"
                         data-testid="accordion-item"
                       >
                         <div
@@ -975,7 +944,7 @@ exports[`Document Library page renders correctly  1`] = `
                                   >
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                                        class="MuiFormControl-root css-108emsj-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1016,7 +985,7 @@ exports[`Document Library page renders correctly  1`] = `
                                     </div>
                                     <div>
                                       <div
-                                        class="MuiFormControl-root css-1r7uzi1-MuiFormControl-root"
+                                        class="MuiFormControl-root css-108emsj-MuiFormControl-root"
                                       >
                                         <label
                                           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1090,7 +1059,7 @@ exports[`Document Library page renders correctly  1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1099,18 +1068,18 @@ exports[`Document Library page renders correctly  1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                       data-testid="bread-crumb-Home"
                       href="/en/"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="ArrowBackIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1139,32 +1108,12 @@ exports[`Document Library page renders correctly  1`] = `
                   <li
                     class="MuiBreadcrumbs-li"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                    <span
+                      class="Breadcrumbs-lastBreadcrumb"
                       data-testid="bread-crumb-breadcrumbTitle"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
-                          data-testid="ArrowBackIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                          />
-                        </svg>
-                      </span>
-                      <span>
-                        breadcrumbTitle
-                      </span>
-                    </button>
+                      breadcrumbTitle
+                    </span>
                   </li>
                 </ol>
               </nav>
@@ -1175,7 +1124,7 @@ exports[`Document Library page renders correctly  1`] = `
             >
               <nav
                 aria-label="breadcrumbs"
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-124dm6a-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1ul7n0d-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1184,18 +1133,18 @@ exports[`Document Library page renders correctly  1`] = `
                     class="MuiBreadcrumbs-li"
                   >
                     <a
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-wadgr1-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-link Breadcrumbs-startIcon css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","action":"/en/","label":"Home"}"
                       data-testid="bread-crumb-Home"
                       href="/en/"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eqm4f6-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                           data-testid="ArrowBackIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1226,7 +1175,7 @@ exports[`Document Library page renders correctly  1`] = `
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-r109q4"
+        class="css-an2sjs"
         data-testid="footer"
       >
         <div
@@ -1241,7 +1190,7 @@ exports[`Document Library page renders correctly  1`] = `
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1249,10 +1198,15 @@ exports[`Document Library page renders correctly  1`] = `
                 >
                   Contact Us
                 </h4>
+                <nav>
+                  <ul
+                    class="css-p4h7lm"
+                  />
+                </nav>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1269,7 +1223,8 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Story","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Story"}"
+                        data-testid="footer-navigation-button-Our-Story"
                         href="#"
                         tabindex="0"
                       >
@@ -1284,7 +1239,8 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Brands","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Brands"}"
+                        data-testid="footer-navigation-button-Our-Brands"
                         href="#"
                         tabindex="0"
                       >
@@ -1299,7 +1255,8 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Values"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Our Values"}"
+                        data-testid="footer-navigation-button-Our-Values"
                         tabindex="0"
                         type="button"
                       >
@@ -1314,7 +1271,8 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Sustainability","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Sustainability"}"
+                        data-testid="footer-navigation-button-Sustainability"
                         href="#"
                         tabindex="0"
                       >
@@ -1329,7 +1287,7 @@ exports[`Document Library page renders correctly  1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1346,7 +1304,8 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI RoofPro"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"BMI RoofPro"}"
+                        data-testid="footer-navigation-button-BMI-RoofPro"
                         tabindex="0"
                         type="button"
                       >
@@ -1361,7 +1320,8 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Team Icopal"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Team Icopal"}"
+                        data-testid="footer-navigation-button-Team-Icopal"
                         tabindex="0"
                         type="button"
                       >
@@ -1376,7 +1336,8 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Training","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Training"}"
+                        data-testid="footer-navigation-button-Training"
                         href="#"
                         tabindex="0"
                       >
@@ -1391,7 +1352,8 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Mediabank","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Mediabank"}"
+                        data-testid="footer-navigation-button-Mediabank"
                         href="#"
                         tabindex="0"
                       >
@@ -1406,7 +1368,7 @@ exports[`Document Library page renders correctly  1`] = `
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1423,7 +1385,8 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Diversity","action":"/en/mangfold/"}"
+                        data-gtm="{"id":"nav-footer1","action":"/en/mangfold/","label":"Diversity"}"
+                        data-testid="footer-navigation-button-Diversity"
                         href="/en/mangfold/"
                         tabindex="0"
                       >
@@ -1438,9 +1401,11 @@ exports[`Document Library page renders correctly  1`] = `
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI Job Board","action":"https://bmi.jobboard.io/"}"
+                        data-gtm="{"id":"nav-footer1","action":"https://bmi.jobboard.io/","label":"BMI Job Board"}"
+                        data-testid="footer-navigation-button-BMI-Job-Board"
                         href="https://bmi.jobboard.io/"
-                        rel="noopener noreferrer"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
                         target="_blank"
                       >
@@ -1480,13 +1445,15 @@ exports[`Document Library page renders correctly  1`] = `
               </div>
               <ul
                 class="Footer-listInline css-p4h7lm"
+                data-testid="footer-secondary-navigation-item-container"
               >
                 <li
                   class="Footer-listItem"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Cookies","action":"/en/bruk-av-informasjonskapsler/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/bruk-av-informasjonskapsler/","label":"Cookies"}"
+                    data-testid="footer-navigation-button-Cookies"
                     href="/en/bruk-av-informasjonskapsler/"
                     tabindex="0"
                   >
@@ -1501,7 +1468,8 @@ exports[`Document Library page renders correctly  1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Sitemap"}"
+                    data-gtm="{"id":"nav-footer1","action":"undefined","label":"Sitemap"}"
+                    data-testid="footer-navigation-button-Sitemap"
                     tabindex="0"
                     type="button"
                   >
@@ -1516,7 +1484,8 @@ exports[`Document Library page renders correctly  1`] = `
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"MC: global.sitemap","action":"/en/sitemap/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/sitemap/","label":"MC: global.sitemap"}"
+                    data-testid="footer-navigation-button-MC:-global.sitemap"
                     href="/en/sitemap/"
                     tabindex="0"
                   >
@@ -1590,6 +1559,7 @@ exports[`Document Library page renders correctly  1`] = `
         aria-hidden="true"
         aria-label="Back to the top"
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-15xs9gd-MuiButtonBase-root-MuiButton-root"
+        data-testid="button"
         tabindex="-1"
         type="button"
       >
@@ -1623,31 +1593,28 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
     data-testid="grid-item"
   >
     <div
-      class="OverviewCard-clickable MuiBox-root css-179egsz"
-      data-testid="overview-card-box"
+      class="TappableCard-root ColorPair-white css-963r91"
+      data-testid="tappable-card-box"
     >
       <a
-        class="MuiButtonBase-root OverviewCard-main css-10d1a0h-MuiButtonBase-root"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
-        data-testid="overview-card-main"
+        data-testid="tappable-card-main"
         href="https:http://localhost:9000/asset-filename.jpg"
-        rel="noopener noreferrer"
+        referrerpolicy="no-referrer"
+        rel="noreferrer noindex"
         tabindex="0"
         target="_blank"
       >
-        <a
-          class="MuiButtonBase-root OverviewCard-body css-10d1a0h-MuiButtonBase-root"
-          data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
-          href="https:http://localhost:9000/asset-filename.jpg"
-          rel="noopener noreferrer"
-          tabindex="0"
-          target="_blank"
+        <div
+          class="TappableCard-body css-c6k36h"
         >
           <div
-            class="OverviewCard-brandLogo"
+            class="TappableCard-brandLogo css-p11bhc"
+            data-testid="tappable-card-body-brand-logo"
           >
             <svg
-              class=" css-1bpjlyv"
+              class=" css-1l1ul6h"
               data-testid="brand-logo"
               preserveAspectRatio="xMinYMin"
               viewBox="0 0 244 100"
@@ -1661,50 +1628,44 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
             </svg>
           </div>
           <h4
-            class="MuiTypography-root MuiTypography-h4 OverviewCard-title css-1x9euu8-MuiTypography-root"
-            data-testid="overview-card-body-title"
+            class="MuiTypography-root MuiTypography-h4 TappableCard-title css-xr1f2j-MuiTypography-root"
+            data-testid="tappable-card-body-title"
           >
             contentful document title
           </h4>
-          <div
-            class="OverviewCard-text css-kl66ak"
-            data-testid="overview-card-body-description"
-          />
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </a>
+        </div>
         <span
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </a>
       <div
-        class="OverviewCard-clickable css-1cyx9t4"
-        data-testid="overview-card-body-footer"
+        class="TappableCard-footer css-1rg9dq1"
       >
         <div
-          class="css-1elv8vm"
+          class="css-6ask67"
         >
           <div
             aria-label="MC: document.library.copyLink.tooltip.title"
-            class="MuiBox-root css-mvc5fa"
+            class=" MuiBox-root css-2bzkxd"
             data-mui-internal-clone-element="true"
             data-testid="tooltip"
           >
             <button
-              aria-label="Copy contentful document title"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
-              data-testid="document-table-actions-copy-url-contentful-document-id"
+              aria-label="MC: document.library.copyLink.accessibility.label"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="copy-to-clipboard-button-contentful-document-id"
               tabindex="0"
               type="button"
             >
               <svg
-                class="css-afm3c7"
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                data-testid="ContentCopyIcon"
+                focusable="false"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                  d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                 />
               </svg>
               <span
@@ -1715,37 +1676,34 @@ exports[`Document Library page should render DocumentCardsResults correctly if s
           <div
             class="css-b7sks0"
           />
-          <div
-            aria-label="MC: document.library.download.tooltip.title"
-            class=""
+          <a
+            aria-label="MC: document.library.download.accessibility.label"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+            data-gtm="{"id":"cta-click1","label":"MC: documentLibrary.card.download","action":"http://localhost:9000/asset-filename.jpg"}"
             data-mui-internal-clone-element="true"
-            data-testid="tooltip"
+            data-testid="download-document-button-contentful-document-id"
+            download=""
+            href="https:http://localhost:9000/asset-filename.jpg"
+            referrerpolicy="no-referrer"
+            rel="noreferrer noindex"
+            tabindex="0"
+            target="_blank"
           >
-            <a
-              aria-label="Download contentful document title"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-large Button-text MuiIconButton-sizeLarge css-swmm17-MuiButtonBase-root-MuiIconButton-root"
-              data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
-              data-testid="document-table-actions-download-contentful-document-id"
-              href="http://localhost:9000/asset-filename.jpg"
-              rel="noopener noreferrer"
-              tabindex="0"
-              target="_blank"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+              data-testid="DownloadIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                class="css-afm3c7"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              <path
+                d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
               />
-            </a>
-          </div>
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -1766,7 +1724,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
       data-testid="table"
     >
       <thead
-        class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+        class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
         data-testid="table-head"
       >
         <tr
@@ -1777,7 +1735,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1840,11 +1798,11 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           data-testid="document-table-row-pim-document-id"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1882,20 +1840,24 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
+              download=""
               href="http://localhost:9000/document.pdf"
-              rel="noopener noreferrer"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
-                  class="download-icon css-z6lod7"
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                   fill="none"
+                  focusable="false"
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -1922,7 +1884,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 </svg>
               </span>
               <p
-                class="css-1cigd93"
+                class="css-1dqo7n"
               >
                 pim document title
               </p>
@@ -1932,69 +1894,68 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             </a>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-size-pim-document-id"
           >
             1 B
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-actions-pim-document-id"
           >
             <div
               class="css-1kto1mf"
             >
-              <div
-                aria-label="MC: document.library.download.tooltip.title"
-                class=""
+              <a
+                aria-label="MC: document.library.download.accessibility.label"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                 data-mui-internal-clone-element="true"
-                data-testid="tooltip"
+                data-testid="download-document-button-pim-document-id"
+                download=""
+                href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
+                tabindex="0"
+                target="_blank"
               >
-                <a
-                  aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                  data-testid="document-table-actions-download-pim-document-id"
-                  href="http://localhost:9000/document.pdf"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                  data-testid="DownloadIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                   />
-                </a>
-              </div>
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-mvc5fa"
+                class=" MuiBox-root css-2bzkxd"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
                 <button
-                  aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-testid="document-table-actions-copy-url-pim-document-id"
+                  aria-label="MC: document.library.copyLink.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-testid="copy-to-clipboard-button-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                    data-testid="ContentCopyIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                     />
                   </svg>
                   <span
@@ -2024,7 +1985,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
       data-testid="table"
     >
       <thead
-        class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+        class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
         data-testid="table-head"
       >
         <tr
@@ -2035,7 +1996,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2098,11 +2059,11 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           data-testid="document-table-row-contentful-document-id"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
             data-testid="document-table-add-contentful-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2140,22 +2101,25 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-contentful-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
               data-testid="document-table-download-image/jpeg-button"
+              download=""
               href="http://localhost:9000/asset-filename.jpg"
-              rel="noopener noreferrer"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
-                  class="download-icon css-z6lod7"
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                   fill="none"
+                  focusable="false"
                   viewBox="0 0 48 48"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     d="M30.78 5H12.55v38H42V15.858L30.78 5z"
@@ -2180,7 +2144,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 </svg>
               </span>
               <p
-                class="css-1cigd93"
+                class="css-1dqo7n"
               >
                 contentful document title
               </p>
@@ -2190,69 +2154,68 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             </a>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-size-contentful-document-id"
           >
             1 B
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-actions-contentful-document-id"
           >
             <div
               class="css-1kto1mf"
             >
-              <div
-                aria-label="MC: document.library.download.tooltip.title"
-                class=""
+              <a
+                aria-label="MC: document.library.download.accessibility.label"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                 data-mui-internal-clone-element="true"
-                data-testid="tooltip"
+                data-testid="download-document-button-contentful-document-id"
+                download=""
+                href="http://localhost:9000/asset-filename.jpg"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
+                tabindex="0"
+                target="_blank"
               >
-                <a
-                  aria-label="Download contentful document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
-                  data-testid="document-table-actions-download-contentful-document-id"
-                  href="http://localhost:9000/asset-filename.jpg"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                  data-testid="DownloadIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                   />
-                </a>
-              </div>
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-mvc5fa"
+                class=" MuiBox-root css-2bzkxd"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
                 <button
-                  aria-label="Copy contentful document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-testid="document-table-actions-copy-url-contentful-document-id"
+                  aria-label="MC: document.library.copyLink.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-testid="copy-to-clipboard-button-contentful-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                    data-testid="ContentCopyIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                     />
                   </svg>
                   <span
@@ -2282,7 +2245,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
       data-testid="table"
     >
       <thead
-        class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+        class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
         data-testid="table-head"
       >
         <tr
@@ -2293,7 +2256,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2356,11 +2319,11 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           data-testid="document-table-row-pim-document-id"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2398,20 +2361,24 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
               data-testid="document-table-download-application/pdf-button"
+              download=""
               href="https://url/"
-              rel="noopener noreferrer"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
-                  class="download-icon css-z6lod7"
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                   fill="none"
+                  focusable="false"
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -2438,7 +2405,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 </svg>
               </span>
               <p
-                class="css-1cigd93"
+                class="css-1dqo7n"
               >
                 pim document title
               </p>
@@ -2448,69 +2415,68 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             </a>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-size-pim-document-id"
           >
             111.11 kB
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-actions-pim-document-id"
           >
             <div
               class="css-1kto1mf"
             >
-              <div
-                aria-label="MC: document.library.download.tooltip.title"
-                class=""
+              <a
+                aria-label="MC: document.library.download.accessibility.label"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
                 data-mui-internal-clone-element="true"
-                data-testid="tooltip"
+                data-testid="download-document-button-pim-document-id"
+                download=""
+                href="https://url/"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
+                tabindex="0"
+                target="_blank"
               >
-                <a
-                  aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
-                  data-testid="document-table-actions-download-pim-document-id"
-                  href="https://url/"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                  data-testid="DownloadIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                   />
-                </a>
-              </div>
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-mvc5fa"
+                class=" MuiBox-root css-2bzkxd"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
                 <button
-                  aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-testid="document-table-actions-copy-url-pim-document-id"
+                  aria-label="MC: document.library.copyLink.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-testid="copy-to-clipboard-button-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                    data-testid="ContentCopyIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                     />
                   </svg>
                   <span
@@ -2540,7 +2506,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
       data-testid="table"
     >
       <thead
-        class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+        class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
         data-testid="table-head"
       >
         <tr
@@ -2551,7 +2517,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2614,11 +2580,11 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           data-testid="document-table-row-contentful-document-id"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
             data-testid="document-table-add-contentful-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2656,22 +2622,25 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-contentful-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
               data-testid="document-table-download-image/jpeg-button"
+              download=""
               href="http://localhost:9000/asset-filename.jpg"
-              rel="noopener noreferrer"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
-                  class="download-icon css-z6lod7"
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                   fill="none"
+                  focusable="false"
                   viewBox="0 0 48 48"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     d="M30.78 5H12.55v38H42V15.858L30.78 5z"
@@ -2696,7 +2665,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 </svg>
               </span>
               <p
-                class="css-1cigd93"
+                class="css-1dqo7n"
               >
                 contentful document title
               </p>
@@ -2706,69 +2675,68 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             </a>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-size-contentful-document-id"
           >
             1 B
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-actions-contentful-document-id"
           >
             <div
               class="css-1kto1mf"
             >
-              <div
-                aria-label="MC: document.library.download.tooltip.title"
-                class=""
+              <a
+                aria-label="MC: document.library.download.accessibility.label"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
                 data-mui-internal-clone-element="true"
-                data-testid="tooltip"
+                data-testid="download-document-button-contentful-document-id"
+                download=""
+                href="http://localhost:9000/asset-filename.jpg"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
+                tabindex="0"
+                target="_blank"
               >
-                <a
-                  aria-label="Download contentful document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/asset-filename.jpg"}"
-                  data-testid="document-table-actions-download-contentful-document-id"
-                  href="http://localhost:9000/asset-filename.jpg"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                  data-testid="DownloadIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                   />
-                </a>
-              </div>
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-mvc5fa"
+                class=" MuiBox-root css-2bzkxd"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
                 <button
-                  aria-label="Copy contentful document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-testid="document-table-actions-copy-url-contentful-document-id"
+                  aria-label="MC: document.library.copyLink.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-testid="copy-to-clipboard-button-contentful-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                    data-testid="ContentCopyIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                     />
                   </svg>
                   <span
@@ -2798,7 +2766,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
       data-testid="table"
     >
       <thead
-        class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+        class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
         data-testid="table-head"
       >
         <tr
@@ -2809,7 +2777,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2872,11 +2840,11 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           data-testid="document-table-row-pim-document-id"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2914,20 +2882,24 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
               data-testid="document-table-download-application/pdf-button"
+              download=""
               href="https://url/"
-              rel="noopener noreferrer"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
-                  class="download-icon css-z6lod7"
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                   fill="none"
+                  focusable="false"
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -2954,7 +2926,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 </svg>
               </span>
               <p
-                class="css-1cigd93"
+                class="css-1dqo7n"
               >
                 pim document title
               </p>
@@ -2964,69 +2936,68 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             </a>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-size-pim-document-id"
           >
             111.11 kB
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-actions-pim-document-id"
           >
             <div
               class="css-1kto1mf"
             >
-              <div
-                aria-label="MC: document.library.download.tooltip.title"
-                class=""
+              <a
+                aria-label="MC: document.library.download.accessibility.label"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
                 data-mui-internal-clone-element="true"
-                data-testid="tooltip"
+                data-testid="download-document-button-pim-document-id"
+                download=""
+                href="https://url/"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
+                tabindex="0"
+                target="_blank"
               >
-                <a
-                  aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
-                  data-testid="document-table-actions-download-pim-document-id"
-                  href="https://url/"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                  data-testid="DownloadIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                   />
-                </a>
-              </div>
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-mvc5fa"
+                class=" MuiBox-root css-2bzkxd"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
                 <button
-                  aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-testid="document-table-actions-copy-url-pim-document-id"
+                  aria-label="MC: document.library.copyLink.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-testid="copy-to-clipboard-button-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                    data-testid="ContentCopyIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                     />
                   </svg>
                   <span
@@ -3056,7 +3027,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
       data-testid="table"
     >
       <thead
-        class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+        class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
         data-testid="table-head"
       >
         <tr
@@ -3067,7 +3038,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3130,11 +3101,11 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           data-testid="document-table-row-pim-document-id"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3172,20 +3143,24 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
+              download=""
               href="http://localhost:9000/document.pdf"
-              rel="noopener noreferrer"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
-                  class="download-icon css-z6lod7"
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                   fill="none"
+                  focusable="false"
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -3212,7 +3187,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 </svg>
               </span>
               <p
-                class="css-1cigd93"
+                class="css-1dqo7n"
               >
                 pim document title
               </p>
@@ -3222,69 +3197,68 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             </a>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-size-pim-document-id"
           >
             1 B
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-actions-pim-document-id"
           >
             <div
               class="css-1kto1mf"
             >
-              <div
-                aria-label="MC: document.library.download.tooltip.title"
-                class=""
+              <a
+                aria-label="MC: document.library.download.accessibility.label"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                 data-mui-internal-clone-element="true"
-                data-testid="tooltip"
+                data-testid="download-document-button-pim-document-id"
+                download=""
+                href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
+                tabindex="0"
+                target="_blank"
               >
-                <a
-                  aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                  data-testid="document-table-actions-download-pim-document-id"
-                  href="http://localhost:9000/document.pdf"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                  data-testid="DownloadIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                   />
-                </a>
-              </div>
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-mvc5fa"
+                class=" MuiBox-root css-2bzkxd"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
                 <button
-                  aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-testid="document-table-actions-copy-url-pim-document-id"
+                  aria-label="MC: document.library.copyLink.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-testid="copy-to-clipboard-button-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                    data-testid="ContentCopyIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                     />
                   </svg>
                   <span
@@ -3314,7 +3288,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
       data-testid="table"
     >
       <thead
-        class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+        class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
         data-testid="table-head"
       >
         <tr
@@ -3325,7 +3299,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3388,11 +3362,11 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           data-testid="document-table-row-pim-document-id"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3430,20 +3404,24 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
+              download=""
               href="http://localhost:9000/document.pdf"
-              rel="noopener noreferrer"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
-                  class="download-icon css-z6lod7"
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                   fill="none"
+                  focusable="false"
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -3470,7 +3448,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 </svg>
               </span>
               <p
-                class="css-1cigd93"
+                class="css-1dqo7n"
               >
                 pim document title
               </p>
@@ -3480,69 +3458,68 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             </a>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-size-pim-document-id"
           >
             1 B
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-actions-pim-document-id"
           >
             <div
               class="css-1kto1mf"
             >
-              <div
-                aria-label="MC: document.library.download.tooltip.title"
-                class=""
+              <a
+                aria-label="MC: document.library.download.accessibility.label"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                 data-mui-internal-clone-element="true"
-                data-testid="tooltip"
+                data-testid="download-document-button-pim-document-id"
+                download=""
+                href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
+                tabindex="0"
+                target="_blank"
               >
-                <a
-                  aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                  data-testid="document-table-actions-download-pim-document-id"
-                  href="http://localhost:9000/document.pdf"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                  data-testid="DownloadIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                   />
-                </a>
-              </div>
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-mvc5fa"
+                class=" MuiBox-root css-2bzkxd"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
                 <button
-                  aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-testid="document-table-actions-copy-url-pim-document-id"
+                  aria-label="MC: document.library.copyLink.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-testid="copy-to-clipboard-button-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                    data-testid="ContentCopyIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                     />
                   </svg>
                   <span
@@ -3572,7 +3549,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
       data-testid="table"
     >
       <thead
-        class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+        class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
         data-testid="table-head"
       >
         <tr
@@ -3583,7 +3560,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3658,11 +3635,11 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
           data-testid="document-table-row-pim-document-id"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3700,20 +3677,24 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
+              download=""
               href="http://localhost:9000/document.pdf"
-              rel="noopener noreferrer"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
-                  class="download-icon css-z6lod7"
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                   fill="none"
+                  focusable="false"
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -3740,7 +3721,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
                 </svg>
               </span>
               <p
-                class="css-1cigd93"
+                class="css-1dqo7n"
               >
                 pim document title
               </p>
@@ -3750,7 +3731,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             </a>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-productStatus-pim-document-id"
           >
             <span
@@ -3760,75 +3741,74 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             </span>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-validityDate-pim-document-id"
           >
             -
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-size-pim-document-id"
           >
             1 B
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-actions-pim-document-id"
           >
             <div
               class="css-1kto1mf"
             >
-              <div
-                aria-label="MC: document.library.download.tooltip.title"
-                class=""
+              <a
+                aria-label="MC: document.library.download.accessibility.label"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                 data-mui-internal-clone-element="true"
-                data-testid="tooltip"
+                data-testid="download-document-button-pim-document-id"
+                download=""
+                href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
+                tabindex="0"
+                target="_blank"
               >
-                <a
-                  aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                  data-testid="document-table-actions-download-pim-document-id"
-                  href="http://localhost:9000/document.pdf"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                  data-testid="DownloadIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                   />
-                </a>
-              </div>
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-mvc5fa"
+                class=" MuiBox-root css-2bzkxd"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
                 <button
-                  aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-testid="document-table-actions-copy-url-pim-document-id"
+                  aria-label="MC: document.library.copyLink.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-testid="copy-to-clipboard-button-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                    data-testid="ContentCopyIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                     />
                   </svg>
                   <span
@@ -3858,7 +3838,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
       data-testid="table"
     >
       <thead
-        class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+        class="MuiTableHead-root ColorPair-pearl css-18d9kuw-MuiTableHead-root"
         data-testid="table-head"
       >
         <tr
@@ -3869,7 +3849,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             scope="col"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3944,11 +3924,11 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
           data-testid="document-table-row-pim-document-id"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-hsmwoy-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-5ikp07-MuiTableCell-root"
             data-testid="document-table-add-pim-document-id"
           >
             <div
-              class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+              class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3986,20 +3966,24 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             data-testid="document-table-title-pim-document-id"
           >
             <a
-              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-186oh1r-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  css-tu2ie8-MuiButtonBase-root-MuiButton-root"
               data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
               data-testid="document-table-download-application/pdf-button"
+              download=""
               href="http://localhost:9000/document.pdf"
-              rel="noopener noreferrer"
+              referrerpolicy="no-referrer"
+              rel="noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
-                  class="download-icon css-z6lod7"
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                   fill="none"
+                  focusable="false"
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -4026,7 +4010,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
                 </svg>
               </span>
               <p
-                class="css-1cigd93"
+                class="css-1dqo7n"
               >
                 pim document title
               </p>
@@ -4036,7 +4020,7 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             </a>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-productStatus-pim-document-id"
           >
             <span
@@ -4046,75 +4030,74 @@ exports[`Document Library page should render DocumentSimpleTableResults if sourc
             </span>
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-validityDate-pim-document-id"
           >
             -
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-size-pim-document-id"
           >
             1 B
           </td>
           <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
+            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lc2bdw-MuiTableCell-root"
             data-testid="document-table-actions-pim-document-id"
           >
             <div
               class="css-1kto1mf"
             >
-              <div
-                aria-label="MC: document.library.download.tooltip.title"
-                class=""
+              <a
+                aria-label="MC: document.library.download.accessibility.label"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
                 data-mui-internal-clone-element="true"
-                data-testid="tooltip"
+                data-testid="download-document-button-pim-document-id"
+                download=""
+                href="http://localhost:9000/document.pdf"
+                referrerpolicy="no-referrer"
+                rel="noreferrer"
+                tabindex="0"
+                target="_blank"
               >
-                <a
-                  aria-label="Download pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-gtm="{"id":"download1","label":"Download","action":"http://localhost:9000/document.pdf"}"
-                  data-testid="document-table-actions-download-pim-document-id"
-                  href="http://localhost:9000/document.pdf"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                  data-testid="DownloadIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                   />
-                </a>
-              </div>
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
               <div
                 aria-label="MC: document.library.copyLink.tooltip.title"
-                class="MuiBox-root css-mvc5fa"
+                class=" MuiBox-root css-2bzkxd"
                 data-mui-internal-clone-element="true"
                 data-testid="tooltip"
               >
                 <button
-                  aria-label="Copy pim document title"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                  data-testid="document-table-actions-copy-url-pim-document-id"
+                  aria-label="MC: document.library.copyLink.accessibility.label"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  data-testid="copy-to-clipboard-button-pim-document-id"
                   tabindex="0"
                   type="button"
                 >
                   <svg
-                    class="document-simple-table-results-actionIconSmall css-afm3c7"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                    data-testid="ContentCopyIcon"
+                    focusable="false"
                     viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                     />
                   </svg>
                   <span
@@ -4144,12 +4127,12 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
       data-testid="accordion"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-ldqf96-MuiPaper-root-MuiAccordion-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-15trjob-MuiPaper-root-MuiAccordion-root"
         data-testid="tech-table-accordion-item-product-base-code"
       >
         <div
           aria-expanded="false"
-          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1luoz50-MuiButtonBase-root-MuiAccordionSummary-root"
+          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-zdeuoz-MuiButtonBase-root-MuiAccordionSummary-root"
           data-gtm="{"id":"selector-accordion1","label":"product-base-code","action":"Selector – Accordion"}"
           data-testid="accordion-summary"
           role="button"
@@ -4160,7 +4143,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
           >
             <div>
               <div
-                class="MuiFormControl-root css-kbvs16-MuiFormControl-root"
+                class="MuiFormControl-root css-ddsy15-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4233,20 +4216,24 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                   class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-188s0du-MuiAccordionDetails-root"
                 >
                   <a
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1g897i8-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1pvdcui-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
                     data-testid="document-table-download-application/pdf-button"
+                    download=""
                     href="https://url/"
-                    rel="noopener noreferrer"
+                    referrerpolicy="no-referrer"
+                    rel="noreferrer"
                     tabindex="0"
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                      class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
-                        class="download-icon css-z6lod7"
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium download-icon css-1azjn1g-MuiSvgIcon-root"
                         fill="none"
+                        focusable="false"
                         viewBox="0 0 48 48"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4273,7 +4260,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                       </svg>
                     </span>
                     <p
-                      class="css-1cigd93"
+                      class="css-1dqo7n"
                     >
                       asset type name
                     </p>
@@ -4291,7 +4278,7 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                       :
                     </span>
                     <span
-                      class="css-jcllbd"
+                      class="css-ackcrd"
                       data-testid="tech-results-accordion-size-pim-document-id"
                     >
                       111.11 kB
@@ -4303,61 +4290,60 @@ exports[`Document Library page should render DocumentTechnicalTableResults corre
                     <div
                       class="MuiBox-root css-38zrbw"
                     >
-                      <div
-                        aria-label="MC: document.library.download.tooltip.title"
-                        class=""
+                      <a
+                        aria-label="MC: document.library.download.accessibility.label"
+                        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge  css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                        data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
                         data-mui-internal-clone-element="true"
-                        data-testid="tooltip"
+                        data-testid="download-document-button-pim-document-id"
+                        download=""
+                        href="https://url/"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
+                        tabindex="0"
+                        target="_blank"
                       >
-                        <a
-                          aria-label="Download pim document title"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                          data-gtm="{"id":"download1","label":"Download","action":"https://url"}"
-                          data-testid="document-table-actions-download-pim-document-id"
-                          href="https://url/"
-                          rel="noopener noreferrer"
-                          tabindex="0"
-                          target="_blank"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1k8q05r-MuiSvgIcon-root"
+                          data-testid="DownloadIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            class="document-simple-table-results-actionIconSmall css-afm3c7"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                              fill="currentColor"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          <path
+                            d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
                           />
-                        </a>
-                      </div>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
                     </div>
                     <div
                       class="MuiBox-root css-enhvy5"
                     >
                       <div
                         aria-label="MC: document.library.copyLink.tooltip.title"
-                        class="MuiBox-root css-mvc5fa"
+                        class=" MuiBox-root css-2bzkxd"
                         data-mui-internal-clone-element="true"
                         data-testid="tooltip"
                       >
                         <button
-                          aria-label="Copy pim document title"
-                          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-small Button-text MuiIconButton-sizeLarge css-1vk2tp6-MuiButtonBase-root-MuiIconButton-root"
-                          data-testid="document-table-actions-copy-url-pim-document-id"
+                          aria-label="MC: document.library.copyLink.accessibility.label"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-text MuiIconButton-sizeLarge css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                          data-testid="copy-to-clipboard-button-pim-document-id"
                           tabindex="0"
                           type="button"
                         >
                           <svg
-                            class="document-simple-table-results-actionIconSmall css-afm3c7"
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-y1o0nu-MuiSvgIcon-root"
+                            data-testid="ContentCopyIcon"
+                            focusable="false"
                             viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              d="M15.0786 3.99902H6.86837C6.11356 4.0012 5.50221 4.6036 5.5 5.34736V14.7857H6.86837V5.34736H15.0786V3.99902ZM17.1327 6.69556H9.60665C8.85184 6.69794 8.24049 7.35835 8.23828 8.17373V18.5209C8.24049 19.3363 8.85184 19.9967 9.60665 19.9991H17.1327C17.8875 19.9967 18.4989 19.3363 18.5011 18.5209V8.17373C18.4989 7.35835 17.8875 6.69794 17.1327 6.69556ZM17.1315 18.521H9.60547V8.17383H17.1315V18.521Z"
+                              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
                             />
                           </svg>
                           <span

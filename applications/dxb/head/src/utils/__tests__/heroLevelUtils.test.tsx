@@ -1,8 +1,9 @@
 import React from "react";
-import { Data as ContentfulImageData } from "../../components/Image";
-import { DataTypeEnum, Data as LinkData } from "../../components/Link";
-import Video, { ContentfulVideoData } from "../../components/Video";
+import { DataTypeEnum } from "../../components/link/types";
 import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
+import type { Data as ContentfulImageData } from "../../components/image/types";
+import type { Data as LinkData } from "../../components/link/types";
+import type { ContentfulVideoData } from "../../components/video/types";
 
 const mockBreadCrumbs = [
   { id: "id-mock", label: "mock-breadcrumb", slug: "slug-mock" }
@@ -94,10 +95,16 @@ describe("generateHeroProps test", () => {
       })
     );
 
-    expect(result.media!.props).toEqual({
-      ...featuredMedia,
-      size: "cover",
-      loading: "eager"
+    expect(result.media).toEqual({
+      alt: "Lorem ipsum",
+      className: undefined,
+      "data-testid": undefined,
+      loading: "eager",
+      src: "//images.asset.jpg",
+      style: {
+        objectFit: "cover",
+        objectPosition: "center"
+      }
     });
 
     expect((result.cta as React.ReactElement).props).toEqual(
@@ -124,7 +131,21 @@ describe("generateHeroProps test", () => {
       })
     );
 
-    expect(result.media).toEqual(<Video {...featureVideo} />);
+    expect(result.media).toEqual({
+      "data-testid": undefined,
+      embedHeight: 0,
+      embedWidth: 0,
+      label: featureVideo.label,
+      layout: "dialog",
+      previewImageSource: featureVideo.defaultYouTubePreviewImage,
+      subtitle: featureVideo.subtitle,
+      videoUrl: featureVideo.videoUrl,
+      dataGTM: {
+        action: "Play",
+        id: "cta-click--video-youtube",
+        label: "https://youtu.be/TDNEwZbm_Nk-video label"
+      }
+    });
 
     expect((result.cta as React.ReactElement).props).toEqual(
       expect.objectContaining({

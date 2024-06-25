@@ -1,3 +1,8 @@
+spec:
+  inputs:
+    preceding_job:
+---
+
 lint_gatsby-cloud-build-proxy:
   extends: .lint_function
   variables:
@@ -32,6 +37,9 @@ deploy_gatsby-cloud-build-proxy:
   needs:
     - job: package_gatsby-cloud-build-proxy
       artifacts: true
+    - job: $[[ inputs.preceding_job ]]
+      artifacts: false
+      optional: true
   variables:
     FUNCTION_NAME: "gatsby-cloud-build-proxy"
     ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"

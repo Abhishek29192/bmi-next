@@ -1,6 +1,3 @@
-# Settings in the [build] context are global and are applied to all contexts
-# unless otherwise overridden by more specific contexts.
-
 [[redirects]]
  from="/za-specialisti/za-vas-maistori/podgotovka-za-pokrivave-na-pokriva/"
  to="https://www.bmigroup.com/bg/за-вас-майстори/подготовка-за-покриваен-на-покрива/"

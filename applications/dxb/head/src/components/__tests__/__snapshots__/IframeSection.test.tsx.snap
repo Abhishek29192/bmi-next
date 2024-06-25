@@ -19,7 +19,7 @@ exports[`IframeSection component renders correctly 1`] = `
           iFrame Section
         </h2>
         <div
-          class="RichText-root RichText-no-bottom-margin css-1u73y0t"
+          class="RichText-root RichText-no-bottom-margin css-7764n5"
         >
           <p
             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"

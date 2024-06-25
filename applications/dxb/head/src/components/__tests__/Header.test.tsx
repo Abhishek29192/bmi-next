@@ -7,10 +7,14 @@ import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import { createExternalLinkData } from "../../__tests__/helpers/LinkHelper";
 import BasketContext from "../../contexts/SampleBasketContext";
 import Header from "../Header";
-import { DataTypeEnum, NavigationData } from "../Link";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import { Data as PageInfoData } from "../PageInfo";
 import { Data as PromoData } from "../Promo";
+import { DataTypeEnum, NavigationData } from "../link/types";
+import createAuth0IdTokenPayload from "../../templates/myAccountPage/__tests__/helpers/Auth0IdTokenPayloadHelper";
+import { SiteContextProvider } from "../Site";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
+import type { useAuthType } from "../../hooks/useAuth";
 
 let isGatsbyDisabledElasticSearch: boolean;
 let isSampleOrderingEnabled: boolean;
@@ -31,12 +35,33 @@ jest.mock("../../contexts/ConfigProvider", () => ({
   })
 }));
 
+const mockUseAuth = jest.fn<useAuthType, [useAuthType]>();
+jest.mock("../../hooks/useAuth", () => ({
+  __esModule: true,
+  default: (args: useAuthType) => mockUseAuth(args)
+}));
+
+const loginMock = jest.fn();
+const logoutMock = jest.fn();
+jest.mock("../../auth/service", () => ({
+  __esModule: true,
+  default: {
+    login: () => loginMock(),
+    logout: () => logoutMock()
+  }
+}));
+
 beforeEach(() => {
   jest.useFakeTimers();
   isGatsbyDisabledElasticSearch = false;
   isSampleOrderingEnabled = true;
   isLoginEnabled = true;
   useIsClientMock.mockReturnValue({ isClient: true });
+  mockUseAuth.mockReturnValue({
+    isLoggedIn: false,
+    isLoading: false,
+    profile: undefined
+  });
 });
 
 afterEach(() => {
@@ -221,6 +246,7 @@ describe("Header component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   it("renders correctly when flag doesn't exist", () => {
     const { container } = render(
       <ThemeProvider>
@@ -278,7 +304,9 @@ describe("Header component", () => {
       </ThemeProvider>
     );
 
-    expect(screen.queryByTestId("search-button")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("search-submit-button")
+    ).not.toBeInTheDocument();
   });
 
   it("shows sample basket icon", () => {
@@ -357,6 +385,82 @@ describe("Header component", () => {
     );
 
     expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+  });
+
+  it("applies a gtm attribute to the navigation tab component when a Contentful Link type", () => {
+    render(
+      <ThemeProvider>
+        <Header
+          countryCode="en"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          maximumSamples={3}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId("header-navigation-tab-2")).toHaveAttribute(
+      "data-gtm",
+      JSON.stringify({
+        id: "nav-main-menu",
+        label: "inTouchLink",
+        action: "https://www.external.co.uk"
+      })
+    );
+  });
+
+  it("applies a gtm attribute to the navigation tab component when a Contentful Navigation type", () => {
+    render(
+      <ThemeProvider>
+        <Header
+          countryCode="en"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          maximumSamples={3}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId("header-navigation-tab-0")).toHaveAttribute(
+      "data-gtm",
+      JSON.stringify({
+        id: "nav-main-menu",
+        label: "Get in touch"
+      })
+    );
+  });
+
+  it("applies a gtm attribute to the search button, using the SEARCH LABEL microCopy as the GTM label", () => {
+    render(
+      <ThemeProvider>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          maximumSamples={3}
+        />
+      </ThemeProvider>
+    );
+
+    const searchLabel = getMicroCopy(microCopy.SEARCH_LABEL);
+
+    const searchButton = screen.getByLabelText(searchLabel);
+
+    expect(searchButton).toBeTruthy();
+
+    fireEvent.click(searchButton);
+
+    expect(screen.getByTestId("search-submit-button")).toHaveAttribute(
+      "data-gtm",
+      JSON.stringify({
+        id: "search1",
+        label: "MC: search.label"
+      })
+    );
   });
 });
 
@@ -442,5 +546,304 @@ describe("Intouch link behavior", () => {
     const expectedHref = "https://www.external.co.uk";
 
     expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
+  });
+});
+
+describe("Login", () => {
+  it("should not render 'Login' button if isLoginEnabled === false", () => {
+    isLoginEnabled = false;
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: { slug: "account" }
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+    expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
+  });
+
+  it("should render 'Login' button if isLoginEnabled === true", () => {
+    isLoginEnabled = true;
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: { slug: "account" }
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+    expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+  });
+
+  it("should not render 'Login' button if account is not provided", () => {
+    isLoginEnabled = false;
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: null
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+    expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
+  });
+
+  it("should not render 'Login' button if a user is logged in", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: true,
+      profile: createAuth0IdTokenPayload(),
+      isLoading: false
+    });
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: { slug: "account" }
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+    expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
+  });
+
+  it("should render 'Login' button if isLoggedIn === true but profile === undefined", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: true,
+      profile: undefined,
+      isLoading: false
+    });
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: { slug: "account" }
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+    expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+  });
+
+  it("should render 'Login' button if isLoggedIn === false but profile provided", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: false,
+      profile: createAuth0IdTokenPayload(),
+      isLoading: false
+    });
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: { slug: "account" }
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+    expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+  });
+
+  it("should call AuthService.login if a user clicks 'Login' button", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: false,
+      profile: undefined,
+      isLoading: false
+    });
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: { slug: "account" }
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+
+    fireEvent.click(screen.getByText("MC: login.label.btn"));
+    expect(loginMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("should render 'Logout' and 'My account' buttons if a user is logged in", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: true,
+      profile: createAuth0IdTokenPayload(),
+      isLoading: false
+    });
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: { slug: "account" }
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+    expect(screen.getByText("MC: logout.label.btn")).toBeInTheDocument();
+    expect(screen.getByText("MC: my.account.label")).toBeInTheDocument();
+  });
+
+  it("should call AuthService.logout if a user clicks 'Logout' button", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: true,
+      profile: createAuth0IdTokenPayload(),
+      isLoading: false
+    });
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: { slug: "account" }
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+
+    fireEvent.click(screen.getByText("MC: logout.label.btn"));
+    expect(logoutMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("should render 'My account' button with 'href' attribute", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: true,
+      profile: createAuth0IdTokenPayload(),
+      isLoading: false
+    });
+
+    render(
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          accountPage: { slug: "account" }
+        }}
+      >
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="no"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            maximumSamples={3}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
+      </SiteContextProvider>
+    );
+
+    expect(screen.getByText("MC: my.account.label")).toHaveAttribute(
+      "href",
+      "/no/account/"
+    );
   });
 });

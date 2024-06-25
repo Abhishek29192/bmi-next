@@ -52,7 +52,7 @@ export const createMarker = (selectedRoofer: Service | null) => {
 };
 
 export const getDistanceSort = (
-  centre: LatLngLiteral | null,
+  centre: LatLngLiteral | undefined,
   serviceA: Service,
   serviceB: Service
 ): number => {
@@ -63,7 +63,7 @@ export const getDistanceSort = (
   return distanceSort;
 };
 
-export const sortServices = (centre: LatLngLiteral | null) => {
+export const sortServices = (centre: LatLngLiteral | undefined) => {
   return (serviceA: Service, serviceB: Service): number => {
     if (getDistanceSort(centre, serviceA, serviceB) === 0) {
       const serviceNameA = serviceA.name.toLowerCase();
@@ -112,7 +112,7 @@ export const typeFilter = (
 };
 
 export const filterServices = (
-  centre: LatLngLiteral | null,
+  centre: LatLngLiteral | undefined,
   activeFilters: ServiceTypeFilter,
   activeSearchString: string
 ): ((carry: Service[], current: Service) => Service[]) => {

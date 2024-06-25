@@ -8,8 +8,7 @@ import {
 } from "@bmi/elasticsearch-types";
 import fetchMockJest from "fetch-mock-jest";
 import mediaQuery from "css-mediaquery";
-import { waitFor } from "@testing-library/react";
-import { screen, render } from "@testing-library/react";
+import { screen, render, waitFor } from "@testing-library/react";
 import { ApprovalStatus } from "@bmi/pim-types";
 import createPimDocument, {
   createPseudoZipDocument

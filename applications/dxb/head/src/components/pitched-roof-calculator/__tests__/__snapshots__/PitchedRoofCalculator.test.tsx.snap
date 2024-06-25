@@ -30,7 +30,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         class="PitchedRoofCalculator-modalHeader css-1wp1i2i"
       >
         <svg
-          class="css-449p86"
+          class="css-178un4f"
           viewBox="0 0 250 250"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -60,7 +60,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         </span>
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1kq9uad-MuiButtonBase-root-MuiIconButton-root"
           data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"
@@ -131,7 +131,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         class="PitchedRoofCalculator-modalHeader css-1wp1i2i"
       >
         <svg
-          class="css-449p86"
+          class="css-178un4f"
           viewBox="0 0 250 250"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -161,7 +161,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         </span>
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1kq9uad-MuiButtonBase-root-MuiIconButton-root"
           data-testid="container-dialog-header-close-button"
           tabindex="0"
           type="button"

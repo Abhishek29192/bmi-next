@@ -1,11 +1,5 @@
 #!/bin/bash
 
-which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
-eval $(ssh-agent -s)
-ssh-add <(echo "$SSH_PRIV_KEY_ENCODED" | base64 -d)
-mkdir -p ~/.ssh
-ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
-
 merge_preprod () {
   git checkout master && \
   git merge pre-production && \
@@ -35,9 +29,7 @@ merge_prod () {
   merge_preprod
 }
 
-git clone git@gitlab.com:bmi-digital/dxb.git && cd dxb
-git remote rm origin
-git remote add origin https://auto-merge:$TOKEN_AUTO_MERGE@gitlab.com/bmi-digital/dxb.git
+git clone https://auto-merge:$TOKEN_AUTO_MERGE@gitlab.com/bmi-digital/dxb.git && cd dxb
 git fetch
 git config user.email "gitlab-runner@not-existing.com"
 git config user.name "Gitlab Runner"

@@ -1,39 +1,29 @@
-import { useIsClient } from "@bmi-digital/components";
 import ExploreBar from "@bmi-digital/components/explore-bar";
 import { graphql } from "gatsby";
 import React from "react";
-import memoize from "../utils/memoize";
-import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
+import { toButtonActionProps } from "./link/utils";
+import type { Data as LinkData } from "./link/types";
+import type { ButtonProps } from "@bmi-digital/components/button";
 
 export type Data = {
   label: string;
-  links: LinkData[];
+  links: [LinkData, ...LinkData[]];
 };
 
 const IntegratedExploreBar = ({ data }: { data: Data }) => {
   const { countryCode } = useSiteContext();
   const { label, links } = data;
-  const { isClient } = useIsClient();
-  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   return (
     <ExploreBar
       heading={label}
-      links={links.map(({ label, linkedPage, url, asset }) => ({
-        label,
-        action: memoizedGetClickableActionFromUrl(
-          {
-            isSSR: !isClient,
-            linkedPage,
-            url,
-            countryCode,
-            assetUrl: asset?.file?.url,
-            label
-          },
-          []
-        )
-      }))}
+      links={
+        links.map<ButtonProps>((link) => ({
+          children: link.label,
+          ...toButtonActionProps(link, countryCode)
+        })) as [ButtonProps, ...ButtonProps[]]
+      }
     />
   );
 };

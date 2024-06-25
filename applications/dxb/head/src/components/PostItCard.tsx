@@ -1,16 +1,12 @@
-import { useIsClient } from "@bmi-digital/components";
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
+import AnchorLink from "@bmi-digital/components/anchor-link";
+import Button from "@bmi-digital/components/button";
 import PostItCard from "@bmi-digital/components/post-it-card";
 import Typography from "@bmi-digital/components/typography";
 import { graphql } from "gatsby";
 import React from "react";
-import withGTM from "../utils/google-tag-manager";
-import memoize from "../utils/memoize";
-import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
+import { type Data as LinkData } from "./link/types";
+import { toAnchorLinkActionProps, toButtonActionProps } from "./link/utils";
 
 export type Props = {
   cardTheme: "pearl" | "blue900";
@@ -29,17 +25,12 @@ export type Data = {
   linkType: "button" | "link" | null;
 };
 
-const GTMButton = withGTM<ButtonProps>(Button);
-const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
-
 const IntegratedPostItCard = ({
   cardTheme,
   cardSections,
   Component = PostItCard
 }: Props) => {
   const { countryCode } = useSiteContext();
-  const { isClient } = useIsClient();
-  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   return (
     <Component color={cardTheme}>
@@ -65,46 +56,27 @@ const IntegratedPostItCard = ({
             {link && (
               <Component.Action>
                 {linkType === "button" ? (
-                  <GTMButton
+                  <Button
                     {...(cardTheme === "blue900"
                       ? { hasDarkBackground: true, variant: "outlined" }
                       : {})}
-                    action={memoizedGetClickableActionFromUrl(
-                      {
-                        isSSR: !isClient,
-                        linkedPage: link.linkedPage,
-                        url: link.url,
-                        countryCode,
-                        label: link.label
-                      },
-                      []
-                    )}
+                    {...toButtonActionProps(link, countryCode)}
                     gtm={{
                       id: "cta-click1",
                       label: `${title} - ${link.label}`
                     }}
                   >
                     {link.label}
-                  </GTMButton>
+                  </Button>
                 ) : (
-                  <GTMAnchorLink
-                    action={memoizedGetClickableActionFromUrl(
-                      {
-                        isSSR: !isClient,
-                        linkedPage: link.linkedPage,
-                        url: link.url,
-                        countryCode,
-                        label: link.label
-                      },
-                      []
-                    )}
-                    gtm={{
-                      id: "cta-click1",
+                  <AnchorLink
+                    {...toAnchorLinkActionProps({
+                      ...link,
                       label: `${title} - ${link.label}`
-                    }}
+                    })}
                   >
                     {link.label}
-                  </GTMAnchorLink>
+                  </AnchorLink>
                 )}
               </Component.Action>
             )}

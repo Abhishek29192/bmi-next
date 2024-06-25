@@ -60,7 +60,6 @@ type Props = {
   projectInformationProps: {
     header: string;
   };
-  navigate: (to: string) => void;
   backButtonLabel: string;
   calculateButtonLabel: string;
 };
@@ -75,7 +74,6 @@ const InputView = ({
   treeFieldsDisplay,
   measurementsProps,
   projectInformationProps,
-  navigate,
   backButtonLabel,
   calculateButtonLabel
 }: Props) => (
@@ -110,7 +108,7 @@ const InputView = ({
         <Button
           startIcon={<ArrowBackIcon />}
           variant="outlined"
-          onClick={() => navigate("/" + window.location.search)}
+          href={`/${window.location.search}`}
           className="item"
         >
           {backButtonLabel}

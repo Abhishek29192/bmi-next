@@ -1,4 +1,4 @@
-import Logo from "@bmi-digital/components/logo";
+import Logo from "@bmi-digital/components/logo/Logo";
 import Pagination from "@bmi-digital/components/pagination";
 import Typography from "@bmi-digital/components/typography";
 import { styled } from "@mui/material/styles";

@@ -1,5 +1,10 @@
 "use strict";
 
+//Applies same time zone for all tests
+//So our tests will run in same timezone or all developers
+//Regardless the local time
+process.env.TZ = "UTC";
+
 module.exports = {
   coverageDirectory: "coverage",
   coverageReporters: ["json", "lcov", "text", "text-summary", "cobertura"],

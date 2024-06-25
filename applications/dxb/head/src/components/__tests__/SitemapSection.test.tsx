@@ -1,8 +1,9 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { DataTypeEnum, Data as LinkData, NavigationData } from "../Link";
 import SitemapSection from "../SitemapSection";
+import { DataTypeEnum } from "../link/types";
+import type { Data as LinkData, NavigationData } from "../link/types";
 
 describe("SitemapSection component", () => {
   it("renders correctly", () => {

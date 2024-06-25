@@ -1,13 +1,7 @@
 import { ClickableAction } from "@bmi-digital/components/clickable";
 import { ButtonBaseActions } from "@mui/material/ButtonBase";
 import React, { createContext, useContext } from "react";
-
-export type GTM = {
-  id: string;
-  event?: string;
-  label?: string;
-  action?: string | null;
-};
+import type { GTM } from "@bmi-digital/components";
 
 type Props = {
   action?: (ClickableAction | Omit<ButtonBaseActions, "focusVisible">) & {
@@ -129,27 +123,28 @@ export default function withGTM<P>(
     const id =
       gtm?.id ||
       (propsToGtmMap.id === "children" && String(children)) ||
-      (props[propsToGtmMap.id] && String(props[propsToGtmMap.id])) ||
+      (props[propsToGtmMap.id as keyof typeof props] &&
+        String(props[propsToGtmMap.id as keyof typeof props])) ||
       gtmDataset?.id;
     // eslint-disable-next-line security/detect-object-injection
     const gtmId = idMap[id] || id;
 
     const getMediaLabel = (props) => {
       const { isVideo } = props;
-      if (propsToGtmMap.label === "media") {
+      if (propsToGtmMap.label === "media" && props[propsToGtmMap.label]) {
         return isVideo
-          ? String(props[propsToGtmMap.label].props.label)
-          : String(props[propsToGtmMap.label].props.alt);
+          ? props[propsToGtmMap.label].label
+          : props[propsToGtmMap.label].alt;
       }
       return false;
     };
 
     const getMediaAction = (props) => {
       const { isVideo } = props;
-      if (propsToGtmMap.action === "media") {
+      if (propsToGtmMap.action === "media" && props[propsToGtmMap.action]) {
         return isVideo
-          ? String(props["imageSource"])
-          : String(props[propsToGtmMap.action].props.src);
+          ? props[propsToGtmMap.action].videoUrl
+          : props[propsToGtmMap.action].src;
       }
       return false;
     };
@@ -158,17 +153,26 @@ export default function withGTM<P>(
       gtm?.label ||
       getMediaLabel(props) ||
       (propsToGtmMap.label === "children" && String(children)) ||
-      (props[propsToGtmMap.label] && String(props[propsToGtmMap.label])) ||
+      (props[propsToGtmMap.label as keyof typeof props] &&
+        String(props[propsToGtmMap.label as keyof typeof props])) ||
       gtmDataset?.label;
+
     const gtmAction =
       gtm?.action ||
       getMediaAction(props) ||
       (propsToGtmMap.action === "children" && String(children)) ||
-      (props[propsToGtmMap.action] && String(props[propsToGtmMap.action])) ||
+      (props[propsToGtmMap.action as keyof typeof props] &&
+        String(props[propsToGtmMap.action as keyof typeof props])) ||
       gtmDataset?.action;
 
     if (!gtmId && !gtmLabel && !gtmAction) {
-      throw new Error("No GTM data provided.");
+      throw new Error(
+        `No GTM data provided ${JSON.stringify({
+          gtm,
+          action,
+          to: props["to"]
+        })}.`
+      );
     }
 
     const dataGtm = {

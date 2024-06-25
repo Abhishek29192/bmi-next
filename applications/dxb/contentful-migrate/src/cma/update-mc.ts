@@ -161,9 +161,13 @@ const createNewMicrocopies = async (
         allLocaleCodes.map((locale: string) => [locale, entry])
       );
 
+      const valueForLocales = Object.fromEntries(
+        allLocaleCodes.map((locale: string) => [locale, `MC: ${entry}`])
+      );
+
       const fields = {
         key: keyForLocales,
-        value: keyForLocales
+        value: valueForLocales
       };
 
       if (marketTag) {

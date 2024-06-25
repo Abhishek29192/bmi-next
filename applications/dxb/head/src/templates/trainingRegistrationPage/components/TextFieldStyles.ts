@@ -1,9 +1,9 @@
-import { touchRippleClasses } from "@mui/material/ButtonBase";
-import Button from "@bmi-digital/components/button";
-import { styled, alpha } from "@mui/material/styles";
+import IconButton from "@bmi-digital/components/icon-button";
 import CancelIcon from "@bmi-digital/components/icon/Cancel";
+import { touchRippleClasses } from "@mui/material/ButtonBase";
+import { alpha, styled } from "@mui/material/styles";
 
-export const StyledButton = styled(Button)(({ theme }) => ({
+export const StyledIconButton = styled(IconButton)(({ theme }) => ({
   marginRight: "-14px",
   position: "relative",
   "&:hover": {

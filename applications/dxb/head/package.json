@@ -40,7 +40,7 @@
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",
     "@auth0/auth0-react": "^2.2.4",
-    "@bmi-digital/components": "^1.68.4",
+    "@bmi-digital/components": "^4.2.7",
     "@bmi-digital/react-pdf-maker": "^1.7.6",
     "@bmi-digital/styles": "^1.7.6",
     "@bmi-digital/svg-import": "^1.7.6",
@@ -71,6 +71,7 @@
     "auth0-js": "^9.24.1",
     "browserify-zlib": "^0.2.0",
     "classnames": "^2.5.1",
+    "content-security-policy-parser": "^0.6.0",
     "contentful-resolve-response": "^1.8.1",
     "css-mediaquery": "^0.1.2",
     "file-saver": "^2.0.5",

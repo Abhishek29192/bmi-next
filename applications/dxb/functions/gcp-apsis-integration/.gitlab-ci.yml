@@ -1,3 +1,8 @@
+spec:
+  inputs:
+    preceding_job:
+---
+
 lint_gcp-apsis-integration:
   extends: .lint_function
   variables:
@@ -32,6 +37,9 @@ deploy_gcp-apsis-integration:
   needs:
     - job: package_gcp-apsis-integration
       artifacts: true
+    - job: $[[ inputs.preceding_job ]]
+      artifacts: false
+      optional: true
   variables:
     FUNCTION_NAME: "gcp-apsis-integration"
     ROOT_DIR: "applications/dxb/functions/gcp-apsis-integration"

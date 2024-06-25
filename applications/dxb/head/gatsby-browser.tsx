@@ -3,7 +3,7 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import React from "react";
 import { ConfigProvider } from "./src/contexts/ConfigProvider";
 import "./src/styles/global.css";
-import { modifyTheme } from "./src/styles/modifyTheme";
+import { theme } from "./src/styles/modifyTheme";
 import type { GatsbyBrowser } from "gatsby";
 
 export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
@@ -12,7 +12,7 @@ export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
   return (
     /*providers with static data*/
     <ConfigProvider>
-      <ThemeProvider modifyTheme={modifyTheme}>
+      <ThemeProvider theme={theme}>
         <HubspotProvider async={false} addToHead={true}>
           {element}
         </HubspotProvider>

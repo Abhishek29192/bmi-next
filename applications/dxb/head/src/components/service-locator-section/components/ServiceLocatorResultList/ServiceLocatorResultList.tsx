@@ -1,12 +1,8 @@
 import CompanyDetails, {
   CompanyDetailProps,
-  RoofProLevel
+  roofProLevelIconSourceMap
 } from "@bmi-digital/components/company-details";
-import RoofProElite from "@bmi-digital/components/logo/RoofProElite";
-import RoofProExpert from "@bmi-digital/components/logo/RoofProExpert";
-import RoofProPartnerSmall from "@bmi-digital/components/logo/RoofProPartnerSmall";
 import Typography from "@bmi-digital/components/typography";
-import { SVGImport } from "@bmi-digital/svg-import";
 import { microCopy } from "@bmi/microcopies";
 import React from "react";
 import { useSiteContext } from "../../../Site";
@@ -32,19 +28,10 @@ export interface Props {
   onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
   page: number;
   pageCount: number;
-  getCompanyDetails: (
-    service: Service,
-    isAddressHidden?: boolean
-  ) => CompanyDetailProps[];
+  getCompanyDetails: (service: Service) => CompanyDetailProps;
   selectedRoofer: Service;
   shouldListCertification: boolean;
 }
-
-const iconSourceMap: Record<RoofProLevel, SVGImport> = {
-  expert: RoofProExpert,
-  partner: RoofProPartnerSmall,
-  elite: RoofProElite
-};
 
 export const ServiceLocatorResultList = ({
   onListItemClick,
@@ -90,7 +77,7 @@ export const ServiceLocatorResultList = ({
                       :
                       <RoofProLogo
                         source={
-                          iconSourceMap[service.certification.toLowerCase()]
+                          roofProLevelIconSourceMap[service.certification]
                         }
                       />
                     </RoofProCertification>
@@ -99,14 +86,12 @@ export const ServiceLocatorResultList = ({
               }
             >
               <CompanyDetails
-                details={getCompanyDetails(service, true)?.filter(
-                  (detail) => detail.type !== "roofProLevel"
-                )}
-              >
-                {service.summary ? (
-                  <Typography>{service.summary}</Typography>
-                ) : null}
-              </CompanyDetails>
+                {...{
+                  ...getCompanyDetails(service),
+                  address: undefined,
+                  roofProLevel: undefined
+                }}
+              />
             </GTMIntegratedLinkCard>
           ))}
       </List>

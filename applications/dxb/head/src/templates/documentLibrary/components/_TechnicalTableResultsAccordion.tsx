@@ -18,7 +18,6 @@ import {
 import { useSiteContext } from "../../../components/Site";
 import {
   getFileSizeByDocumentType,
-  getFileUrlByDocumentType,
   getIsLinkDocument
 } from "../../../utils/documentUtils";
 import withGTM from "../../../utils/google-tag-manager";
@@ -177,7 +176,7 @@ const MobileDocumentTechnicalTableResults = ({
                       <Box p="12px" pr={0}>
                         <CopyToClipboard
                           id={asset.id}
-                          url={getFileUrlByDocumentType(asset)}
+                          href={asset.url}
                           title={asset.title}
                         />
                       </Box>

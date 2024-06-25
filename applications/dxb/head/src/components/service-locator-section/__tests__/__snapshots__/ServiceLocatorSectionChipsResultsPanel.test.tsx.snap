@@ -30,11 +30,11 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               class="MuiAutocomplete-root css-1h51icj-MuiAutocomplete-root"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                 data-testid="company-autocomplete"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1qpdil-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14obnqh-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
                   for="company-autocomplete"
                   id="company-autocomplete-label"
@@ -42,20 +42,19 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   MC: findARoofer.companyFieldLabel
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-1bm0ay4-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiAutocomplete-inputRoot css-8h4j9y-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <svg
-                    class="css-vhaxby"
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s09m79-MuiSvgIcon-root"
+                    focusable="false"
                     viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h16v16H0z"
                       fill="none"
                     />
-                    <g
-                      fill="currentColor"
-                    >
+                    <g>
                       <path
                         d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
                       />
@@ -123,13 +122,15 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               </span>
             </div>
             <button
+              aria-disabled="true"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-v9qqu-MuiButtonBase-root-MuiButton-root"
+              data-testid="button"
               disabled=""
               tabindex="-1"
               type="button"
             >
               <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
               >
                 <svg
                   aria-hidden="true"
@@ -231,7 +232,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg css-uj6ct4"
+          class="Tabs-secondary Tabs-visibleUntillg css-602gvl"
           data-testid="tabs"
         >
           <div>
@@ -297,7 +298,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               </div>
             </div>
             <hr
-              class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+              class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
             />
           </div>
           <div
@@ -316,7 +317,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 class="css-1sptzt8"
               >
                 <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
                   data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
@@ -367,108 +368,37 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-hvci11"
+                          class="css-oxw5r2"
                           data-testid="company-details-root"
                         >
                           <div
-                            class="css-xdees7"
+                            class="css-1v8x7dw"
                           >
                             <dl
-                              class="css-1uk1gs8"
+                              class="css-38o98x"
+                              data-testid="company-details-list"
                             >
                               <div
-                                class="css-1nzacgw"
-                                data-testid="company-details-phone"
-                                type="phone"
+                                class="css-t1t5ij"
+                                data-testid="company-details-content"
                               >
                                 <dt
-                                  class="css-fah0r0"
+                                  class="css-12bzmaa"
                                 >
-                                  <p
-                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
-                                    data-testid="typography"
-                                  >
-                                    MC: global.telephone
-                                  </p>
-                                </dt>
-                                <dd
-                                  class="css-bp47jm"
-                                >
-                                  phone 1
-                                </dd>
-                              </div>
-                              <div
-                                class="css-1nzacgw"
-                                data-testid="company-details-email"
-                                type="email"
-                              >
-                                <dt
-                                  class="css-fah0r0"
-                                >
-                                  <p
-                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
-                                    data-testid="typography"
-                                  >
-                                    MC: global.email
-                                  </p>
-                                </dt>
-                                <dd
-                                  class="css-bp47jm"
-                                >
-                                  test@test.com
-                                </dd>
-                              </div>
-                              <div
-                                class="css-1nzacgw"
-                                data-testid="company-details-website"
-                                type="website"
-                              >
-                                <dt
-                                  class="css-fah0r0"
-                                >
-                                  <p
-                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
-                                    data-testid="typography"
-                                  >
-                                    MC: global.website
-                                  </p>
-                                </dt>
-                                <dd
-                                  class="css-bp47jm"
-                                >
-                                  www.test.com
-                                </dd>
-                              </div>
-                              <div
-                                class="css-1nzacgw"
-                                data-testid="company-details-roofType"
-                                type="roofType"
-                              >
-                                <dt
-                                  class="css-fah0r0"
-                                >
-                                  <p
-                                    class="MuiTypography-root MuiTypography-body1  css-1vkur9x-MuiTypography-root"
+                                  <h6
+                                    class="MuiTypography-root MuiTypography-h6  css-mqc7k2-MuiTypography-root"
                                     data-testid="typography"
                                   >
                                     MC: findARoofer.roofTypeLabel
-                                  </p>
+                                  </h6>
                                 </dt>
                                 <dd
-                                  class="css-bp47jm"
+                                  class="css-1uk1gs8"
                                 >
-                                  <b>
-                                    Flat Roof, Pitched Roof, Flat Roof 1, Pitched Roof 2
-                                  </b>
+                                  Flat Roof, Pitched Roof, Flat Roof 1, Pitched Roof 2
                                 </dd>
                               </div>
                             </dl>
-                            <p
-                              class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
-                              data-testid="typography"
-                            >
-                              roofer summary
-                            </p>
                           </div>
                         </div>
                       </div>

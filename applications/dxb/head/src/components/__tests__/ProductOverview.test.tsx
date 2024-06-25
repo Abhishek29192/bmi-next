@@ -1,28 +1,30 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import ProductOverview from "../ProductOverview";
+import type { Data } from "../ProductOverview";
 
 describe("ProductOverview component", () => {
-  const data = {
+  const data: Data = {
     name: "name",
     brandCode: "brandName",
     nobb: null,
     images: [
       {
-        media: (
-          <img src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg" />
-        ),
+        media: {
+          src: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg",
+          alt: "Lorem ipsum"
+        },
         thumbnail: "",
         caption: "This is image caption",
         altText: "test alt text",
         isVideo: false
       },
       {
-        media: (
-          <img src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg" />
-        ),
+        media: {
+          src: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg",
+          alt: "Lorem ipsum"
+        },
         thumbnail: "",
         caption: "This is image caption 1",
         altText: "test alt text 1",
@@ -31,16 +33,15 @@ describe("ProductOverview component", () => {
     ],
     videos: [
       {
-        media: (
-          <YoutubeVideo
-            label="test video"
-            videoUrl="https://youtu.be/A-RfHC91Ewc"
-            embedHeight={720}
-            embedWidth={1280}
-            layout="dialog"
-            previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
-          />
-        ),
+        media: {
+          label: "test video",
+          videoUrl: "https://youtu.be/A-RfHC91Ewc",
+          embedHeight: 720,
+          embedWidth: 1280,
+          layout: "dialog",
+          previewImageSource:
+            "https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+        },
         thumbnail: "",
         caption: "This is videos caption",
         isVideo: true
@@ -49,8 +50,7 @@ describe("ProductOverview component", () => {
     attributes: null,
     isRecaptchaShown: true,
     variantCode: "variant1",
-    isNavigationToVisualiserAvailable: false,
-    color: "dark grey"
+    isNavigationToVisualiserAvailable: false
   };
 
   it("renders with default image if there are no images, videos nor visualiser media", () => {

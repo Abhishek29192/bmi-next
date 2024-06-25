@@ -1,6 +1,3 @@
-# Settings in the [build] context are global and are applied to all contexts
-# unless otherwise overridden by more specific contexts.
-
 [[redirects]]
  from="/homepage-2/modifikovane-asfaltove-pasy/"
  to="https://www.bmigroup.com/sk/bmi-icopal/?utm_source=icopal.sk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"

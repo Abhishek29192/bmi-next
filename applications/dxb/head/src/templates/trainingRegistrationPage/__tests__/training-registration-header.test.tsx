@@ -1,56 +1,100 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { createTraining } from "@bmi/elasticsearch-types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import TrainingRegistrationHeader from "../components/TrainingRegistrationHeader";
 
-const esIndexNameTrainings = "dxb-all-trainings_read";
-
 describe("Training Registration Header component", () => {
-  it("should render correctly if all data is available", async () => {
-    const training = createTraining({
-      onSale: true,
-      price: 1000,
-      startDate: new Date("2023-12-29 00:00:00").getTime()
-    });
+  it("should render the title correctly", () => {
+    const training = createTraining();
     render(
       <ThemeProvider>
-        <ConfigProvider
-          configOverride={{
-            esIndexNameTrainings: esIndexNameTrainings
-          }}
-        >
-          <TrainingRegistrationHeader training={training} />
-        </ConfigProvider>
+        <TrainingRegistrationHeader training={training} />
       </ThemeProvider>
     );
-
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      `${training.courseName} MC: training.registration`
-    );
-    expect(screen.getByTestId("training-id")).toBeInTheDocument();
-    expect(screen.getByTestId("training-category")).toBeInTheDocument();
-    expect(screen.getByTestId("training-type")).toBeInTheDocument();
-    expect(screen.getByTestId("training-price")).toBeInTheDocument();
-    expect(screen.getByText("€1000")).toBeInTheDocument();
-    expect(screen.getByTestId("training-start-date")).toBeInTheDocument();
+    expect(
+      screen.getByText(`${training.courseName} MC: training.registration`)
+    ).toBeInTheDocument();
   });
 
-  it("should render component with 'FREE' if training is not on sale", async () => {
-    const training = createTraining({ onSale: false });
+  it("should render training code correctly", () => {
+    const training = createTraining();
     render(
       <ThemeProvider>
-        <ConfigProvider
-          configOverride={{
-            esIndexNameTrainings: esIndexNameTrainings
-          }}
-        >
-          <TrainingRegistrationHeader training={training} />
-        </ConfigProvider>
+        <TrainingRegistrationHeader training={training} />
       </ThemeProvider>
     );
+    expect(screen.getByText(training.courseCode)).toBeInTheDocument();
+  });
 
+  it("should render training category correctly", () => {
+    render(
+      <ThemeProvider>
+        <TrainingRegistrationHeader
+          training={createTraining({ category: "Pitched" })}
+        />
+      </ThemeProvider>
+    );
+    expect(
+      screen.getByText("MC: trainingCategory.pitched")
+    ).toBeInTheDocument();
+  });
+
+  it("should render training type correctly", () => {
+    render(
+      <ThemeProvider>
+        <TrainingRegistrationHeader
+          training={createTraining({ courseType: "elearning" })}
+        />
+      </ThemeProvider>
+    );
+    expect(screen.getByText("MC: trainingType.elearning")).toBeInTheDocument();
+  });
+
+  it("should render price correctly if training is paid", () => {
+    render(
+      <ThemeProvider>
+        <TrainingRegistrationHeader
+          training={createTraining({
+            price: 100,
+            currencySymbol: "€",
+            onSale: true
+          })}
+        />
+      </ThemeProvider>
+    );
+    expect(screen.getByText("€100")).toBeInTheDocument();
+  });
+
+  it("should render price correctly if training is free", () => {
+    render(
+      <ThemeProvider>
+        <TrainingRegistrationHeader
+          training={createTraining({
+            price: 0,
+            onSale: false
+          })}
+        />
+      </ThemeProvider>
+    );
     expect(screen.getByText("MC: training.price.free")).toBeInTheDocument();
+  });
+
+  it("should render training start date correctly", () => {
+    const startDate = new Date(1703800800000);
+
+    render(
+      <ThemeProvider>
+        <TrainingRegistrationHeader
+          training={createTraining({ startDate: startDate.getTime() })}
+        />
+      </ThemeProvider>
+    );
+    expect(
+      /** The idea of startDate.getDate() is to keep the test green
+       * for different timezones. The date will change
+       * depending on the timezone and as a result the test will fail */
+      screen.getByText(`${startDate.getDate()}. desember 2023`)
+    ).toBeInTheDocument();
   });
 });

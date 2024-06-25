@@ -22,7 +22,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
         </h2>
         <div>
           <div
-            class="Tabs-secondary css-kmsk3c"
+            class="Tabs-secondary css-iid5p5"
             data-testid="tabs"
           >
             <div>
@@ -114,7 +114,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                 </div>
               </div>
               <hr
-                class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
               />
             </div>
             <div
@@ -133,86 +133,87 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
                   data-testid="grid-item"
                 >
-                  <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
-                    data-testid="overview-card-box"
-                    href="/en/path/"
-                    tabindex="0"
+                  <div
+                    class="TappableCard-root ColorPair-white css-963r91"
+                    data-testid="tappable-card-box"
                   >
-                    <div
-                      class="OverviewCard-main"
-                      data-testid="overview-card-main"
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
+                      data-testid="tappable-card-main"
+                      href="/en/path/"
+                      tabindex="0"
                     >
                       <img
                         alt="Shadow Black, Gloss, 6x7x8symbol name"
-                        class="OverviewCard-headerPicture css-10hd0hb-Media"
+                        class="TappableCard-headerPicture css-k77jxl"
+                        data-testid="tappable-card-media"
+                        draggable="false"
                         src="http://localhost:8000"
                       />
                       <div
-                        class="OverviewCard-body"
+                        class="TappableCard-body css-c6k36h"
                       >
                         <div
-                          class="OverviewCard-brandLogo OverviewCard-negative"
+                          class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                          data-testid="tappable-card-body-brand-logo"
                         />
                         <h5
-                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                          data-testid="overview-card-body-title"
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                          data-testid="tappable-card-body-title"
                         >
                           name
                         </h5>
-                        <h6
-                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
-                          data-testid="overview-card-body-subtitle"
+                        <h5
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-text css-1lhxn1g-MuiTypography-root"
+                          data-testid="tappable-card-body-subtitle"
                         >
                           Shadow Black, Gloss, 6x7x8symbol
-                        </h6>
+                        </h5>
                         <div
-                          class="OverviewCard-text css-kl66ak"
-                          data-testid="overview-card-body-description"
+                          class="TappableCard-text"
+                          data-testid="tappable-card-body-description"
                         >
-                          MC: pdp.nobb.label
-                          :
-                           
-                          <b>
-                            external-product-code
-                          </b>
+                          <p
+                            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                            data-testid="typography"
+                          >
+                            MC: pdp.nobb.label
+                            : 
+                            <b>
+                              external-product-code
+                            </b>
+                          </p>
                         </div>
                       </div>
-                      <div
-                        class="css-iicyj8"
-                      />
-                    </div>
-                    <div
-                      class="OverviewCard-clickable css-1cyx9t4"
-                      data-testid="overview-card-body-footer"
-                    >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
+                    <div
+                      class="TappableCard-footer css-1rg9dq1"
+                    >
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
+                        data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        type="button"
+                        href="/en/path/"
                       >
-                        <span>
-                          MC: pdp.relatedProducts.viewDetails
-                        </span>
+                        MC: pdp.relatedProducts.viewDetails
                         <svg
                           aria-hidden="true"
-                          class=" css-1r2mexx"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
                           data-testid="internal"
                           focusable="false"
-                          viewBox="0 0 16 16"
-                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                           />
                         </svg>
-                      </span>
+                      </a>
                     </div>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -246,7 +247,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
         </h2>
         <div>
           <div
-            class="Tabs-secondary css-kmsk3c"
+            class="Tabs-secondary css-iid5p5"
             data-testid="tabs"
           >
             <div>
@@ -338,7 +339,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                 </div>
               </div>
               <hr
-                class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
               />
             </div>
             <div
@@ -357,242 +358,221 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
                   data-testid="grid-item"
                 >
-                  <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
-                    data-testid="overview-card-box"
-                    href="/en/path/"
-                    tabindex="0"
+                  <div
+                    class="TappableCard-root ColorPair-white css-963r91"
+                    data-testid="tappable-card-box"
                   >
-                    <div
-                      class="OverviewCard-main"
-                      data-testid="overview-card-main"
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
+                      data-testid="tappable-card-main"
+                      href="/en/path/"
+                      tabindex="0"
                     >
                       <img
                         alt="Shadow Black, Gloss, 6x7x8symbol name"
-                        class="OverviewCard-headerPicture css-10hd0hb-Media"
+                        class="TappableCard-headerPicture css-k77jxl"
+                        data-testid="tappable-card-media"
+                        draggable="false"
                         src="http://localhost:8000"
                       />
                       <div
-                        class="OverviewCard-body"
+                        class="TappableCard-body css-c6k36h"
                       >
-                        <div
-                          class="OverviewCard-brandLogo OverviewCard-negative"
-                        />
                         <h5
-                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                          data-testid="overview-card-body-title"
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-title TappableCard-noBrandLogo css-87i4k3-MuiTypography-root"
+                          data-testid="tappable-card-body-title"
                         >
                           name
                         </h5>
-                        <h6
-                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
-                          data-testid="overview-card-body-subtitle"
+                        <h5
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-text css-1lhxn1g-MuiTypography-root"
+                          data-testid="tappable-card-body-subtitle"
                         >
                           Shadow Black, Gloss, 6x7x8symbol
-                        </h6>
+                        </h5>
                         <div
-                          class="OverviewCard-text css-kl66ak"
-                          data-testid="overview-card-body-description"
+                          class="TappableCard-text"
+                          data-testid="tappable-card-body-description"
                         >
-                          MC: pdp.nobb.label
-                          :
-                           
-                          <b>
-                            external-product-code
-                          </b>
+                          <p
+                            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                            data-testid="typography"
+                          >
+                            MC: pdp.nobb.label
+                            : 
+                            <b>
+                              external-product-code
+                            </b>
+                          </p>
                         </div>
                       </div>
-                      <div
-                        class="css-iicyj8"
-                      />
-                    </div>
-                    <div
-                      class="OverviewCard-clickable css-1cyx9t4"
-                      data-testid="overview-card-body-footer"
-                    >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
+                    <div
+                      class="TappableCard-footer css-1rg9dq1"
+                    >
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
+                        data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        type="button"
+                        href="/en/path/"
                       >
-                        <span>
-                          MC: pdp.relatedProducts.viewDetails
-                        </span>
+                        MC: pdp.relatedProducts.viewDetails
                         <svg
                           aria-hidden="true"
-                          class=" css-1r2mexx"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
                           data-testid="internal"
                           focusable="false"
-                          viewBox="0 0 16 16"
-                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                           />
                         </svg>
-                      </span>
+                      </a>
                     </div>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </a>
+                  </div>
                 </div>
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
                   data-testid="grid-item"
                 >
-                  <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
-                    data-testid="overview-card-box"
-                    href="/en/path/"
-                    tabindex="0"
+                  <div
+                    class="TappableCard-root ColorPair-white css-963r91"
+                    data-testid="tappable-card-box"
                   >
-                    <div
-                      class="OverviewCard-main"
-                      data-testid="overview-card-main"
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
+                      data-testid="tappable-card-main"
+                      href="/en/path/"
+                      tabindex="0"
                     >
                       <img
                         alt="Shadow Black, Gloss, 6x7x8symbol name"
-                        class="OverviewCard-headerPicture css-10hd0hb-Media"
+                        class="TappableCard-headerPicture css-k77jxl"
+                        data-testid="tappable-card-media"
+                        draggable="false"
                         src="http://localhost:8000"
                       />
                       <div
-                        class="OverviewCard-body"
+                        class="TappableCard-body css-c6k36h"
                       >
                         <div
-                          class="OverviewCard-brandLogo OverviewCard-negative"
+                          class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                          data-testid="tappable-card-body-brand-logo"
                         />
                         <h5
-                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                          data-testid="overview-card-body-title"
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                          data-testid="tappable-card-body-title"
                         >
                           name
                         </h5>
-                        <h6
-                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
-                          data-testid="overview-card-body-subtitle"
+                        <h5
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-text css-1lhxn1g-MuiTypography-root"
+                          data-testid="tappable-card-body-subtitle"
                         >
                           Shadow Black, Gloss, 6x7x8symbol
-                        </h6>
-                        <div
-                          class="OverviewCard-text css-kl66ak"
-                          data-testid="overview-card-body-description"
-                        />
+                        </h5>
                       </div>
-                      <div
-                        class="css-iicyj8"
-                      />
-                    </div>
-                    <div
-                      class="OverviewCard-clickable css-1cyx9t4"
-                      data-testid="overview-card-body-footer"
-                    >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
+                    <div
+                      class="TappableCard-footer css-1rg9dq1"
+                    >
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
+                        data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        type="button"
+                        href="/en/path/"
                       >
-                        <span>
-                          MC: pdp.relatedProducts.viewDetails
-                        </span>
+                        MC: pdp.relatedProducts.viewDetails
                         <svg
                           aria-hidden="true"
-                          class=" css-1r2mexx"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
                           data-testid="internal"
                           focusable="false"
-                          viewBox="0 0 16 16"
-                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                           />
                         </svg>
-                      </span>
+                      </a>
                     </div>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </a>
+                  </div>
                 </div>
                 <div
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
                   data-testid="grid-item"
                 >
-                  <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
-                    data-testid="overview-card-box"
-                    href="/en/path/"
-                    tabindex="0"
+                  <div
+                    class="TappableCard-root ColorPair-white css-963r91"
+                    data-testid="tappable-card-box"
                   >
-                    <div
-                      class="OverviewCard-main"
-                      data-testid="overview-card-main"
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
+                      data-testid="tappable-card-main"
+                      href="/en/path/"
+                      tabindex="0"
                     >
                       <img
                         alt="Shadow Black, Gloss, 6x7x8symbol name"
-                        class="OverviewCard-headerPicture css-10hd0hb-Media"
+                        class="TappableCard-headerPicture css-k77jxl"
+                        data-testid="tappable-card-media"
+                        draggable="false"
                         src="http://localhost:8000"
                       />
                       <div
-                        class="OverviewCard-body"
+                        class="TappableCard-body css-c6k36h"
                       >
-                        <div
-                          class="OverviewCard-brandLogo OverviewCard-negative"
-                        />
                         <h5
-                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                          data-testid="overview-card-body-title"
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-title TappableCard-noBrandLogo css-87i4k3-MuiTypography-root"
+                          data-testid="tappable-card-body-title"
                         >
                           name
                         </h5>
-                        <h6
-                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
-                          data-testid="overview-card-body-subtitle"
+                        <h5
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-text css-1lhxn1g-MuiTypography-root"
+                          data-testid="tappable-card-body-subtitle"
                         >
                           Shadow Black, Gloss, 6x7x8symbol
-                        </h6>
-                        <div
-                          class="OverviewCard-text css-kl66ak"
-                          data-testid="overview-card-body-description"
-                        />
+                        </h5>
                       </div>
-                      <div
-                        class="css-iicyj8"
-                      />
-                    </div>
-                    <div
-                      class="OverviewCard-clickable css-1cyx9t4"
-                      data-testid="overview-card-body-footer"
-                    >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
+                    <div
+                      class="TappableCard-footer css-1rg9dq1"
+                    >
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
+                        data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        type="button"
+                        href="/en/path/"
                       >
-                        <span>
-                          MC: pdp.relatedProducts.viewDetails
-                        </span>
+                        MC: pdp.relatedProducts.viewDetails
                         <svg
                           aria-hidden="true"
-                          class=" css-1r2mexx"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
                           data-testid="internal"
                           focusable="false"
-                          viewBox="0 0 16 16"
-                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                           />
                         </svg>
-                      </span>
+                      </a>
                     </div>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -624,7 +604,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
         </h2>
         <div>
           <div
-            class="Tabs-secondary css-kmsk3c"
+            class="Tabs-secondary css-iid5p5"
             data-testid="tabs"
           >
             <div>
@@ -716,7 +696,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                 </div>
               </div>
               <hr
-                class="MuiDivider-root MuiDivider-fullWidth css-13koodp-MuiDivider-root"
+                class="MuiDivider-root MuiDivider-fullWidth css-16sd96l-MuiDivider-root"
               />
             </div>
             <div
@@ -735,86 +715,87 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                   class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-3 Grid-item css-1coitkr-MuiGrid2-root"
                   data-testid="grid-item"
                 >
-                  <a
-                    class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-rctto-MuiButtonBase-root"
-                    data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
-                    data-testid="overview-card-box"
-                    href="/en/path/"
-                    tabindex="0"
+                  <div
+                    class="TappableCard-root ColorPair-white css-963r91"
+                    data-testid="tappable-card-box"
                   >
-                    <div
-                      class="OverviewCard-main"
-                      data-testid="overview-card-main"
+                    <a
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                      data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
+                      data-testid="tappable-card-main"
+                      href="/en/path/"
+                      tabindex="0"
                     >
                       <img
                         alt="Shadow Black, Gloss, 6x7x8symbol name"
-                        class="OverviewCard-headerPicture css-10hd0hb-Media"
+                        class="TappableCard-headerPicture css-k77jxl"
+                        data-testid="tappable-card-media"
+                        draggable="false"
                         src="http://localhost:8000"
                       />
                       <div
-                        class="OverviewCard-body"
+                        class="TappableCard-body css-c6k36h"
                       >
                         <div
-                          class="OverviewCard-brandLogo OverviewCard-negative"
+                          class="TappableCard-brandLogo TappableCard-negative css-p11bhc"
+                          data-testid="tappable-card-body-brand-logo"
                         />
                         <h5
-                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title css-1lhxn1g-MuiTypography-root"
-                          data-testid="overview-card-body-title"
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-title css-87i4k3-MuiTypography-root"
+                          data-testid="tappable-card-body-title"
                         >
                           name
                         </h5>
-                        <h6
-                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1nuwz6u-MuiTypography-root"
-                          data-testid="overview-card-body-subtitle"
+                        <h5
+                          class="MuiTypography-root MuiTypography-h5 TappableCard-text css-1lhxn1g-MuiTypography-root"
+                          data-testid="tappable-card-body-subtitle"
                         >
                           Shadow Black, Gloss, 6x7x8symbol
-                        </h6>
+                        </h5>
                         <div
-                          class="OverviewCard-text css-kl66ak"
-                          data-testid="overview-card-body-description"
+                          class="TappableCard-text"
+                          data-testid="tappable-card-body-description"
                         >
-                          MC: pdp.nobb.label
-                          :
-                           
-                          <b>
-                            external-product-code
-                          </b>
+                          <p
+                            class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                            data-testid="typography"
+                          >
+                            MC: pdp.nobb.label
+                            : 
+                            <b>
+                              external-product-code
+                            </b>
+                          </p>
                         </div>
                       </div>
-                      <div
-                        class="css-iicyj8"
-                      />
-                    </div>
-                    <div
-                      class="OverviewCard-clickable css-1cyx9t4"
-                      data-testid="overview-card-body-footer"
-                    >
                       <span
-                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-98j4id-MuiTypography-root-MuiLink-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
+                    <div
+                      class="TappableCard-footer css-1rg9dq1"
+                    >
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
+                        data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        type="button"
+                        href="/en/path/"
                       >
-                        <span>
-                          MC: pdp.relatedProducts.viewDetails
-                        </span>
+                        MC: pdp.relatedProducts.viewDetails
                         <svg
                           aria-hidden="true"
-                          class=" css-1r2mexx"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
                           data-testid="internal"
                           focusable="false"
-                          viewBox="0 0 16 16"
-                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
                           />
                         </svg>
-                      </span>
+                      </a>
                     </div>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>

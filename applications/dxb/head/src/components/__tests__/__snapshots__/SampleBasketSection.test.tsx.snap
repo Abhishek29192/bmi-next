@@ -13,7 +13,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="RichText-root css-1u73y0t"
+          class="RichText-root css-1lf5op0"
         >
           <p
             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -23,74 +23,64 @@ exports[`SampleBasketSection component renders correctly 1`] = `
           </p>
         </div>
         <div
-          class="css-1yyiycy"
+          class="css-15l37u8"
         >
-          <button
-            class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-rctto-MuiButtonBase-root"
-            data-testid="overview-card-box"
-            tabindex="0"
-            type="button"
+          <div
+            class="SampleBasketSectionProducts-product-wrapper TappableCard-root ColorPair-white css-963r91"
+            data-testid="tappable-card-box"
           >
-            <div
-              class="OverviewCard-main"
-              data-testid="overview-card-main"
+            <a
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+              data-testid="shopping-cart-product-sample-1"
+              href="/no/sample-1-details/"
+              tabindex="0"
             >
               <img
                 alt="sample-1"
-                class="SampleBasketSectionProducts-product-image OverviewCard-headerPicture css-7mgsqw-Media"
+                class="SampleBasketSectionProducts-product-image TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                data-testid="tappable-card-media"
+                draggable="false"
                 loading="lazy"
                 src="http://localhost:8000/image-real-file-name.jpg"
                 style="object-fit: contain; object-position: center;"
               />
               <div
-                class="OverviewCard-body"
+                class="TappableCard-body css-c6k36h"
               >
-                <h4
-                  class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1x9euu8-MuiTypography-root"
-                  data-testid="overview-card-body-title"
-                />
-                <div
-                  class="OverviewCard-text OverviewCard-withoutMargin css-kl66ak"
-                  data-testid="overview-card-body-description"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6 TappableCard-title TappableCard-noBrandLogo css-1vw7jv4-MuiTypography-root"
+                  data-testid="tappable-card-body-title"
                 >
-                  <div
-                    class="SampleBasketSectionProducts-product"
+                  sample-1
+                </h6>
+                <h6
+                  class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                  data-testid="tappable-card-body-subtitle"
+                >
+                  green | rough
+                </h6>
+                <div
+                  class="TappableCard-text"
+                  data-testid="tappable-card-body-description"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                    data-testid="product-sample-card-description"
                   >
-                    <div
-                      class="SampleBasketSectionProducts-product-description"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
-                        data-testid="typography"
-                      >
-                        sample-1
-                      </p>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-color css-1o02bdp-MuiTypography-root"
-                        data-testid="typography"
-                      >
-                        green | rough
-                      </p>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-size css-1o02bdp-MuiTypography-root"
-                        data-testid="typography"
-                      >
-                        1x2x3 mm
-                      </p>
-                    </div>
-                  </div>
+                    1x2x3 mm
+                  </p>
                 </div>
               </div>
-              <div
-                class="css-iicyj8"
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </div>
+            </a>
             <div
-              class="OverviewCard-clickable css-1cyx9t4"
-              data-testid="overview-card-body-footer"
+              class="TappableCard-footer css-1rg9dq1"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium SampleBasketSectionProducts-product-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
                 tabindex="0"
                 type="button"
               >
@@ -115,10 +105,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
                 />
               </button>
             </div>
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
+          </div>
         </div>
         <div
           class="css-1sw7om6"
@@ -169,7 +156,7 @@ exports[`SampleBasketSection component should render form after complete button 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="RichText-root css-1u73y0t"
+          class="RichText-root css-1lf5op0"
         >
           <p
             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-jia7v4-MuiTypography-root"
@@ -179,74 +166,64 @@ exports[`SampleBasketSection component should render form after complete button 
           </p>
         </div>
         <div
-          class="css-1yyiycy"
+          class="css-15l37u8"
         >
-          <button
-            class="MuiButtonBase-root OverviewCard-clickable SampleBasketSectionProducts-product-wrapper MuiBox-root css-rctto-MuiButtonBase-root"
-            data-testid="overview-card-box"
-            tabindex="0"
-            type="button"
+          <div
+            class="SampleBasketSectionProducts-product-wrapper TappableCard-root ColorPair-white css-963r91"
+            data-testid="tappable-card-box"
           >
-            <div
-              class="OverviewCard-main"
-              data-testid="overview-card-main"
+            <a
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+              data-testid="shopping-cart-product-sample-1"
+              href="/no/sample-1-details/"
+              tabindex="0"
             >
               <img
                 alt="sample-1"
-                class="SampleBasketSectionProducts-product-image OverviewCard-headerPicture css-7mgsqw-Media"
+                class="SampleBasketSectionProducts-product-image TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                data-testid="tappable-card-media"
+                draggable="false"
                 loading="lazy"
                 src="http://localhost:8000/image-real-file-name.jpg"
                 style="object-fit: contain; object-position: center;"
               />
               <div
-                class="OverviewCard-body"
+                class="TappableCard-body css-c6k36h"
               >
-                <h4
-                  class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1x9euu8-MuiTypography-root"
-                  data-testid="overview-card-body-title"
-                />
-                <div
-                  class="OverviewCard-text OverviewCard-withoutMargin css-kl66ak"
-                  data-testid="overview-card-body-description"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6 TappableCard-title TappableCard-noBrandLogo css-1vw7jv4-MuiTypography-root"
+                  data-testid="tappable-card-body-title"
                 >
-                  <div
-                    class="SampleBasketSectionProducts-product"
+                  sample-1
+                </h6>
+                <h6
+                  class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                  data-testid="tappable-card-body-subtitle"
+                >
+                  green | rough
+                </h6>
+                <div
+                  class="TappableCard-text"
+                  data-testid="tappable-card-body-description"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
+                    data-testid="product-sample-card-description"
                   >
-                    <div
-                      class="SampleBasketSectionProducts-product-description"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-title css-1o02bdp-MuiTypography-root"
-                        data-testid="typography"
-                      >
-                        sample-1
-                      </p>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-color css-1o02bdp-MuiTypography-root"
-                        data-testid="typography"
-                      >
-                        green | rough
-                      </p>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 SampleBasketSectionProducts-product-size css-1o02bdp-MuiTypography-root"
-                        data-testid="typography"
-                      >
-                        1x2x3 mm
-                      </p>
-                    </div>
-                  </div>
+                    1x2x3 mm
+                  </p>
                 </div>
               </div>
-              <div
-                class="css-iicyj8"
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </div>
+            </a>
             <div
-              class="OverviewCard-clickable css-1cyx9t4"
-              data-testid="overview-card-body-footer"
+              class="TappableCard-footer css-1rg9dq1"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium SampleBasketSectionProducts-product-button css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
                 tabindex="0"
                 type="button"
               >
@@ -271,10 +248,7 @@ exports[`SampleBasketSection component should render form after complete button 
                 />
               </button>
             </div>
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
+          </div>
         </div>
       </div>
     </div>
@@ -308,11 +282,11 @@ exports[`SampleBasketSection component should render form after complete button 
               data-testid="grid-item"
             >
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-ratepl-MuiFormControl-root-MuiTextField-root"
                 data-testid="text-field-text"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1htrypi-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="false"
                   for="text"
                   id="text-label"
@@ -320,7 +294,7 @@ exports[`SampleBasketSection component should render form after complete button 
                   Text
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1fd4s4x-MuiInputBase-root-MuiOutlinedInput-root"
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-19nh7hx-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <input
                     aria-invalid="false"
@@ -351,10 +325,9 @@ exports[`SampleBasketSection component should render form after complete button 
             class="Form-buttonWrapper"
           >
             <button
-              aria-label="samples ordering basket form submitted"
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Form-button css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-              data-action="sample-1-green-rough-1x2x3 mm"
-              data-gtm="{"id":"form-button1","label":"samples ordering basket form submitted","action":"sample-1-green-rough-1x2x3 mm"}"
+              data-gtm="{"id":"form-button1","action":"sample-1-green-rough-1x2x3 mm","label":"samples ordering basket form submitted"}"
               data-testid="contentful-form-section-Complete-form-submit-button"
               tabindex="0"
               type="submit"
@@ -390,24 +363,22 @@ exports[`SampleBasketSection component should render form after complete button 
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-privacy-policy-link"
             href="https://policies.google.com/privacy?hl=no-nb"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Personvernregler
-            </span>
+            Personvernregler
           </a>
            og 
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
             data-testid="recaptcha-terms-of-service-link"
             href="https://policies.google.com/terms?hl=no-nb"
-            rel="noreferrer noopener"
+            referrerpolicy="no-referrer"
+            rel="noreferrer"
             target="_blank"
           >
-            <span>
-              Vilkår for bruk
-            </span>
+            Vilkår for bruk
           </a>
            gjelder.
         </p>

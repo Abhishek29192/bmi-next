@@ -129,6 +129,38 @@ describe("KeyAssetTypesDownloadSection component", () => {
       expect(devLog).not.toHaveBeenCalled();
     });
 
+    it("should open the document in a new tab and apply security attributes to the button", async () => {
+      const document = createPimDocument({
+        url: "http://localhost:8000/document.pdf"
+      });
+      document.assetType = {
+        code: "AAT",
+        pimCode: "AAT",
+        name: "AAT",
+        id: "AAT"
+      };
+      const assetDocuments = [
+        {
+          assetType: document.assetType.pimCode!,
+          documents: [document]
+        }
+      ];
+
+      render(
+        <ThemeProvider>
+          <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+        </ThemeProvider>
+      );
+
+      const downloadButton = screen.getByTestId(
+        `${document.assetType.pimCode}Download`
+      );
+
+      expect(downloadButton).toHaveAttribute("rel", "noreferrer");
+      expect(downloadButton).toHaveAttribute("referrerpolicy", "no-referrer");
+      expect(downloadButton).toHaveAttribute("target", "_blank");
+    });
+
     it("should render link with https prefix for single document without protocol", async () => {
       const document = createPimDocument({
         url: "localhost:8000/document.pdf"

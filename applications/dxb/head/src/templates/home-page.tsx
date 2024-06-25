@@ -1,32 +1,31 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
 import CarouselHero from "@bmi-digital/components/carousel-hero";
 import { useIsClient } from "@bmi-digital/components/hooks";
 import Search from "@bmi-digital/components/search";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
-import React from "react";
-import Brands, { Data as BrandData } from "../components/Brands";
-import OverlapCards, {
-  Data as OverlapCardData
-} from "../components/OverlapCards";
-import Page, { Data as PageData } from "../components/Page";
-import Sections, { Data as SectionsData } from "../components/Sections";
-import { Data as SiteData } from "../components/Site";
+import React, { useMemo } from "react";
+import Brands from "../components/Brands";
+import OverlapCards from "../components/OverlapCards";
+import Page from "../components/Page";
+import Sections from "../components/Sections";
 import WelcomeDialog from "../components/WelcomeDialog";
 import { useConfig } from "../contexts/ConfigProvider";
-import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { getHeroItemsWithContext } from "./helpers/getHeroItemsWithContext";
+import type { Data as OverlapCardData } from "../components/OverlapCards";
+import type { Data as BrandData } from "../components/Brands";
+import type { Data as PageData } from "../components/Page";
+import type { Data as SiteData } from "../components/Site";
+import type { Data as SectionsData } from "../components/Sections";
 import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
 
 export type HomepageData = {
   __typename: "ContentfulHomePage";
   title: string;
-  slides: readonly (SlideData | PageInfoData)[];
+  slides: readonly [SlideData | PageInfoData, ...(SlideData | PageInfoData)[]];
   overlapCards: OverlapCardData | null;
-  brands: BrandData[];
-  spaBrands: BrandData[];
+  brands: [BrandData, ...BrandData[]] | null;
   sections: SectionsData | null;
 } & PageData;
 
@@ -49,19 +48,20 @@ const HomePage = ({ data, pageContext }: Props) => {
     brands,
     sections,
     signupBlock,
-    spaBrands,
     seo
   } = data.contentfulHomePage;
-  const pageData: PageData = {
-    breadcrumbs: null,
-    signupBlock,
-    seo,
-    path: data.contentfulHomePage.path
-  };
+  const pageData: PageData = useMemo(
+    () => ({
+      breadcrumbs: null,
+      signupBlock,
+      seo,
+      path: data.contentfulHomePage.path
+    }),
+    [data.contentfulHomePage.path, seo, signupBlock]
+  );
   const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
     data.contentfulSite.resources || {};
 
-  const GTMButton = withGTM<ButtonProps>(Button);
   const { isGatsbyDisabledElasticSearch } = useConfig();
   const { isClient } = useIsClient();
 
@@ -70,8 +70,8 @@ const HomePage = ({ data, pageContext }: Props) => {
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
-      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={slides?.[0]?.featuredMedia?.image?.file.url}
+      variantCodeToPathMap={pageContext.variantCodeToPathMap}
+      ogImageUrl={slides[0].featuredMedia?.image?.file.url}
       pageType="homePage"
     >
       {({ siteContext }) => {
@@ -87,15 +87,10 @@ const HomePage = ({ data, pageContext }: Props) => {
             >
               {!isGatsbyDisabledElasticSearch && (
                 <Search
-                  buttonComponent={(props) => (
-                    <GTMButton
-                      gtm={{
-                        id: "search2",
-                        label: getMicroCopy(microCopy.SEARCH_LABEL)
-                      }}
-                      {...props}
-                    />
-                  )}
+                  gtm={{
+                    id: "search2",
+                    label: getMicroCopy(microCopy.SEARCH_LABEL)
+                  }}
                   action={getPathWithCountryCode(countryCode, "search")}
                   label={getMicroCopy(microCopy.SEARCH_LABEL)}
                   placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}
@@ -103,24 +98,26 @@ const HomePage = ({ data, pageContext }: Props) => {
               )}
             </CarouselHero>
             {overlapCards && <OverlapCards data={overlapCards} />}
-            {spaBrands?.length ? (
-              <Brands data={spaBrands} spaBrand />
-            ) : brands?.length ? (
-              <Brands data={brands} />
-            ) : null}
-            {sections && <Sections data={sections} pageTypename={__typename} />}
-            {isClient &&
-            welcomeDialogTitle &&
-            welcomeDialogBody &&
-            welcomeDialogBrands ? (
-              <WelcomeDialog
-                data={{
-                  welcomeDialogTitle,
-                  welcomeDialogBody,
-                  welcomeDialogBrands
-                }}
+            {brands && <Brands data={brands} />}
+            {sections && (
+              <Sections
+                data-testid="homepage-sections"
+                data={sections}
+                pageTypename={__typename}
               />
-            ) : null}
+            )}
+            {isClient &&
+              welcomeDialogTitle &&
+              welcomeDialogBody &&
+              welcomeDialogBrands && (
+                <WelcomeDialog
+                  data={{
+                    welcomeDialogTitle,
+                    welcomeDialogBody,
+                    welcomeDialogBrands
+                  }}
+                />
+              )}
           </>
         );
       }}
@@ -148,9 +145,6 @@ export const pageQuery = graphql`
       }
       brands {
         ...BrandFragment
-      }
-      spaBrands {
-        ...SPABrandFragment
       }
       sections {
         ...SectionsFragment

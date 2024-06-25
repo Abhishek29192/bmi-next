@@ -1,6 +1,15 @@
-import { DimensionsValues } from "../types/roof";
+import type { DimensionsValues } from "../types/roof";
 
-const getPitchValues = (dimensions: DimensionsValues) =>
+const getPitchValues = ({ protrusions, ...dimensions }: DimensionsValues) => {
+  const mainRoofPitchValues = getPitchFromDimensions(dimensions);
+
+  const protrusionPitchValues =
+    protrusions?.flatMap(getPitchFromDimensions) || [];
+
+  return [...mainRoofPitchValues, ...protrusionPitchValues];
+};
+
+const getPitchFromDimensions = (dimensions: DimensionsValues) =>
   Object.keys(dimensions)
     .filter((key) => key.startsWith("P"))
     // eslint-disable-next-line security/detect-object-injection

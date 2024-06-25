@@ -39,7 +39,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
                   value="protrusion01"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-pzk80i-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -119,7 +119,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
                   value="protrusion02"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-pzk80i-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
@@ -209,7 +209,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
                   value="protrusion03"
                 />
                 <div
-                  class="MuiButtonBase-root CardInput-card css-6rgev3-MuiButtonBase-root"
+                  class="MuiButtonBase-root CardInput-card css-pzk80i-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >

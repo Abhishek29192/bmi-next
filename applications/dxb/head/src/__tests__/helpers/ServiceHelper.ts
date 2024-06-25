@@ -1,7 +1,29 @@
 import { EntryTypeEnum } from "../../components/Service";
 import { Service } from "../../components/service-locator-section";
+import createImageData from "./ImageDataHelper";
 
-const createRoofer = (service?: Partial<Service>): Service => ({
+export const createFullyPopulatedService = (
+  service?: Partial<Service>
+): Service => ({
+  ...createService(),
+  phone: "01234567890",
+  email: "test@test.com",
+  website: "http://localhost",
+  facebook: "facebook",
+  linkedIn: "linkedin",
+  instagram: "instagram",
+  twitter: "twitter",
+  fax: "01234567891",
+  serviceTypes: [{ __typename: "ContentfulServiceType", name: "Pitched Roof" }],
+  certification: "Elite",
+  summary: "Contentful service summary",
+  websiteLinkAsLabel: false,
+  companyLogo: createImageData(),
+  distance: 10,
+  ...service
+});
+
+const createService = (service?: Partial<Service>): Service => ({
   __typename: "ContentfulService",
   entryType: EntryTypeEnum.ROOFER_TYPE,
   id: "roofer_id",
@@ -11,21 +33,19 @@ const createRoofer = (service?: Partial<Service>): Service => ({
     lon: 0
   },
   address: "address 1",
-  phone: "phone 1",
-  email: "test@test.com",
-  website: "www.test.com",
+  phone: null,
+  email: null,
+  website: null,
   facebook: null,
   linkedIn: null,
   instagram: null,
   twitter: null,
-  fax: "fax 1",
-  companyLogo: undefined,
+  fax: null,
   serviceTypes: null,
   certification: null,
-  summary: "roofer summary",
-  distance: 10,
-  websiteLinkAsLabel: false,
+  summary: undefined,
+  websiteLinkAsLabel: null,
   ...service
 });
 
-export default createRoofer;
+export default createService;

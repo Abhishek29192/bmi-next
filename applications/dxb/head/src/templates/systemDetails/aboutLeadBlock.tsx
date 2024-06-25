@@ -1,39 +1,25 @@
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
+import AnchorLink from "@bmi-digital/components/anchor-link";
+import Button from "@bmi-digital/components/button";
 import { useIsClient } from "@bmi-digital/components/hooks";
 import IconList from "@bmi-digital/components/icon-list";
-import CheckIcon from "@bmi-digital/components/icon/Check";
 import Launch from "@bmi-digital/components/icon/ExternalLink";
 import LeadBlock from "@bmi-digital/components/lead-block";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { Asset } from "@bmi/pim-types";
 import React from "react";
+import type { Asset } from "@bmi/pim-types";
 import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
-import {
-  getClickableActionFromUrl,
-  isExternalUrl
-} from "../../components/Link";
 import RichText from "../../components/RichText";
 import { useSiteContext } from "../../components/Site";
-import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
-import { System } from "../../types/pim";
-import withGTM from "../../utils/google-tag-manager";
-import memoize from "../../utils/memoize";
+import { isExternalUrl } from "../../components/link/utils";
 import { StyledLeadBlock, classes } from "./styles/aboutLeadBlockStyles";
-
-const GTMButton = withGTM<ButtonProps>(Button);
+import type { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
+import type { System } from "../../types/pim";
 
 type Props = {
   system: System;
   sidebarItem?: ContentfulTitleWithContent;
-};
-
-const BlueCheckIcon = () => {
-  return <StyledBlueCheckIconInter source={CheckIcon} />;
 };
 
 const LeadBlockCardContent = ({
@@ -50,7 +36,7 @@ const LeadBlockCardContent = ({
         {contents.map((value, index) => (
           <IconList.Item
             key={index}
-            icon={BlueCheckIcon()}
+            icon={<StyledBlueCheckIconInter />}
             title={value}
             isCompact
           />
@@ -62,15 +48,13 @@ const LeadBlockCardContent = ({
 
 const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
   const { isClient } = useIsClient();
-  const { getMicroCopy, countryCode } = useSiteContext();
-  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+  const { getMicroCopy } = useSiteContext();
   const isImageAsset = (asset: Asset) => {
     return (
       asset.realFileName?.indexOf(".jpg") > -1 ||
       asset.realFileName?.indexOf(".png") > -1
     );
   };
-  const memoizedGetClickableActionFromUrl = memoize(getClickableActionFromUrl);
 
   const guaranteesAndWarrantiesLinks =
     system.guaranteesAndWarrantiesLinks?.filter(
@@ -118,22 +102,14 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
             ))}
             {guaranteesAndWarrantiesLinks?.map((item, i) => (
               <div key={`link-${i}`}>
-                <GTMAnchorLink
-                  action={memoizedGetClickableActionFromUrl(
-                    {
-                      isSSR: !isClient,
-                      url: item.url,
-                      countryCode,
-                      label: item.name
-                    },
-                    []
-                  )}
+                <AnchorLink
+                  href={item.url}
                   gtm={{
                     id: "cta-click1",
                     label: item.name,
                     action: item.url
                   }}
-                  iconEnd
+                  iconPosition="end"
                   {...(isExternalUrl(item.url) ? { isExternal: true } : {})}
                   className={classes.inlineLink}
                   data-testid={`guarantee-inline-link${
@@ -141,7 +117,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                   }`}
                 >
                   {item.name}
-                </GTMAnchorLink>
+                </AnchorLink>
               </div>
             ))}
           </LeadBlock.Content.Section>
@@ -174,14 +150,10 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
               {getMicroCopy(microCopy.SDP_LEAD_BLOCK_SPECIFICATION)}
             </LeadBlock.Content.Heading>
 
-            <GTMButton
+            <Button
               variant="outlined"
-              action={{
-                model: "htmlLink",
-                href: system.specification.url,
-                target: "_blank",
-                rel: "noopener noreferrer"
-              }}
+              href={system.specification.url}
+              external
               endIcon={<Launch />}
               gtm={{
                 id: "cta-click1",
@@ -191,7 +163,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
               data-testid="specification-button"
             >
               {system.specification.name}
-            </GTMButton>
+            </Button>
           </LeadBlock.Content.Section>
         )}
       </LeadBlock.Content>

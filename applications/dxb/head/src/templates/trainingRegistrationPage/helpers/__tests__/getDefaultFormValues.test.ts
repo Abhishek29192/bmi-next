@@ -21,7 +21,7 @@ describe("getDefaultFormValues helper", () => {
       [trainingRegistrationPageData.competentChamber]: "",
       [trainingRegistrationPageData.bmiSystemPartnerClubTitle]:
         trainingRegistrationPageData.isMemberOfBmiLabel,
-      [`${trainingRegistrationPageData.discoverySourceOther}-textfield}`]: "",
+      [`${trainingRegistrationPageData.discoverySourceOther}-textfield`]: "",
       [trainingRegistrationPageData.discoverySourceTitle]:
         trainingRegistrationPageData.discoverySourceBrochure,
       [trainingRegistrationPageData.comment]: "",

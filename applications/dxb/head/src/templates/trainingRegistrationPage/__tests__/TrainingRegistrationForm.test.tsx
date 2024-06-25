@@ -5,7 +5,7 @@ import { microCopy } from "@bmi/microcopies";
 import { LocationProvider } from "@reach/router";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
-import fetchMockJest = require("fetch-mock-jest");
+import fetchMockJest from "fetch-mock-jest";
 import { fallbackGetMicroCopy as getMicroCopy } from "../../../components/MicroCopy";
 import { SiteContextProvider } from "../../../components/Site";
 import { getMockSiteContext } from "../../../components/__tests__/utils/SiteContextProvider";
@@ -50,7 +50,8 @@ beforeEach(() => {
 
 afterEach(() => {
   jest.clearAllMocks();
-  jest.resetAllMocks();
+  jest.resetModules();
+  getCookieMock.mockReturnValue(undefined);
 });
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -373,6 +374,200 @@ describe("TrainingRegistrationForm", () => {
       )
     );
     expect(executeRecaptchaMock).not.toHaveBeenCalled();
+  }, 10000);
+
+  it("should send discovery source value as 'Other' if a user selects 'Other' option but does not type any text", async () => {
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: "OK"
+    });
+
+    renderTrainingRegistrationPage();
+
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.firstName, {
+        exact: false
+      }),
+      { target: { value: "First name" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.lastName, {
+        exact: false
+      }),
+      { target: { value: "Last name" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.email, {
+        exact: false
+      }),
+      { target: { value: "test@bmigroup.com" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.position, {
+        exact: false
+      }),
+      { target: { value: "Developer" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.street, {
+        exact: false
+      }),
+      { target: { value: "Street name" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.postalCode, {
+        exact: false
+      }),
+      { target: { value: "Postal code" } }
+    );
+    fireEvent.click(
+      screen.getByText(trainingRegistrationPageData.discoverySourceOther)
+    );
+    fireEvent.click(screen.getByTestId("terms-of-use-checkbox"));
+    fireEvent.click(screen.getByTestId("consent-text-checkbox"));
+
+    fireEvent.click(
+      screen.getByText(trainingRegistrationPageData.registerButton)
+    );
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "",
+            recipients: "test@bmigroup.com",
+            values: {
+              "MC: training.emailTrainingLabel":
+                "training code - training name, session name",
+              "MC: training.emailStartDateLabel": "28/12/2023, 22:00:00",
+              "MC: training.emailTermsOfUseLabel": String.fromCodePoint(0x2713),
+              "MC: training.emailDataConsentLabel":
+                String.fromCodePoint(0x2713),
+              Salutation: "Mr",
+              "First name": "First name",
+              "Last name": "Last name",
+              Email: "test@bmigroup.com",
+              Position: "Developer",
+              Street: "Street name",
+              "Postal code": "Postal code",
+              "Are you a member of the [BMI SystemPartner Club](https://fake-url.com/) (subject to a fee)?":
+                "Yes",
+              "How did you find out about this event": "Other"
+            },
+            emailSubjectFormat: "Sample subject IT-TEST08"
+          }),
+          headers: {
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json"
+          }
+        }
+      )
+    );
+  }, 10000);
+
+  it("should use the text typed in 'Other' text field as a value for discovery source field if 'Other' option selected", async () => {
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: "OK"
+    });
+
+    renderTrainingRegistrationPage();
+
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.firstName, {
+        exact: false
+      }),
+      { target: { value: "First name" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.lastName, {
+        exact: false
+      }),
+      { target: { value: "Last name" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.email, {
+        exact: false
+      }),
+      { target: { value: "test@bmigroup.com" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.position, {
+        exact: false
+      }),
+      { target: { value: "Developer" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.street, {
+        exact: false
+      }),
+      { target: { value: "Street name" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(trainingRegistrationPageData.postalCode, {
+        exact: false
+      }),
+      { target: { value: "Postal code" } }
+    );
+    fireEvent.click(
+      screen.getByText(trainingRegistrationPageData.discoverySourceOther)
+    );
+    fireEvent.change(
+      screen.getByLabelText(
+        trainingRegistrationPageData.discoverySourceSpecifyOther
+      ),
+      { target: { value: "Discovery source value" } }
+    );
+    fireEvent.click(screen.getByTestId("terms-of-use-checkbox"));
+    fireEvent.click(screen.getByTestId("consent-text-checkbox"));
+
+    fireEvent.click(
+      screen.getByText(trainingRegistrationPageData.registerButton)
+    );
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "",
+            recipients: "test@bmigroup.com",
+            values: {
+              "MC: training.emailTrainingLabel":
+                "training code - training name, session name",
+              "MC: training.emailStartDateLabel": "28/12/2023, 22:00:00",
+              "MC: training.emailTermsOfUseLabel": String.fromCodePoint(0x2713),
+              "MC: training.emailDataConsentLabel":
+                String.fromCodePoint(0x2713),
+              Salutation: "Mr",
+              "First name": "First name",
+              "Last name": "Last name",
+              Email: "test@bmigroup.com",
+              Position: "Developer",
+              Street: "Street name",
+              "Postal code": "Postal code",
+              "Are you a member of the [BMI SystemPartner Club](https://fake-url.com/) (subject to a fee)?":
+                "Yes",
+              "How did you find out about this event": "Discovery source value"
+            },
+            emailSubjectFormat: "Sample subject IT-TEST08"
+          }),
+          headers: {
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json"
+          }
+        }
+      )
+    );
   }, 10000);
 
   it("renders extra participants section", () => {

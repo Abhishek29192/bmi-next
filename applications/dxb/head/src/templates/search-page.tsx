@@ -2,7 +2,6 @@ import Container from "@bmi-digital/components/container";
 import { PLPFilterResponse } from "@bmi-digital/components/filters";
 import Hero from "@bmi-digital/components/hero";
 import { useIsClient } from "@bmi-digital/components/hooks";
-import Icon from "@bmi-digital/components/icon";
 import Article from "@bmi-digital/components/icon/Article";
 import Folder from "@bmi-digital/components/icon/Folder";
 import Tile from "@bmi-digital/components/icon/Tile";
@@ -10,15 +9,13 @@ import { QUERY_KEY } from "@bmi-digital/components/search";
 import Section from "@bmi-digital/components/section";
 import Tabs from "@bmi-digital/components/tabs";
 import { microCopy } from "@bmi/microcopies";
-import SvgIcon from "@mui/material/SvgIcon";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useState } from "react";
+import { graphql } from "gatsby";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
-import NextBestActions from "../components/NextBestActions";
 import Page from "../components/Page";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
@@ -33,6 +30,7 @@ import SearchTabPanelProducts, {
   getCount as getProductsCount
 } from "../components/SearchTabProducts";
 import { Data as SiteData } from "../components/Site";
+import NextBestActions from "../components/next-best-actions/NextBestActions";
 import { useConfig } from "../contexts/ConfigProvider";
 import { getSearchTabUrl, setSearchTabUrl } from "../utils/filters";
 
@@ -115,21 +113,21 @@ const SearchPage = ({ pageContext, data }: Props) => {
       heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_PRODUCTS),
       count: 0,
       hasBeenDisplayed: false,
-      icon: <SvgIcon component={Tile} />
+      icon: <Tile />
     },
     documents: {
       component: SearchTabPanelDocuments,
       heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_DOCUMENTS),
       count: 0,
       hasBeenDisplayed: false,
-      icon: <Icon source={Folder} />
+      icon: <Folder />
     },
     pages: {
       component: SearchTabPanelPages,
       heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_PAGES),
       count: 0,
       hasBeenDisplayed: false,
-      icon: <Icon source={Article} />
+      icon: <Article />
     }
   });
 

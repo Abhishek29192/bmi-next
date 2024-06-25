@@ -8,12 +8,12 @@ import React, { useMemo } from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Filters from "../../components/FiltersSidebar";
-import Image from "../../components/Image";
 import { generateGetMicroCopy } from "../../components/MicroCopy";
 import Page from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import Scrim from "../../components/Scrim";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
+import createImageProps from "../../components/image/createImageProps";
 import TrainingCatalogue from "./components/training-catalogue";
 import TrainingNoResults from "./components/training-no-results";
 import { useTrainings } from "./hooks/useTrainings";
@@ -87,7 +87,11 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
       <Hero
         level={1}
         title={title}
-        media={<Image {...featuredMedia} size="cover" loading="eager" />}
+        media={createImageProps({
+          ...featuredMedia,
+          size: "cover",
+          loading: "eager"
+        })}
         breadcrumbs={
           <BackToResults isDarkThemed data-testid="breadcrumbs-hero-section">
             <Breadcrumbs

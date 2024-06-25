@@ -1,8 +1,9 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { createTraining } from "@bmi/elasticsearch-types";
 import { LocationProvider } from "@reach/router";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import React from "react";
+import { sectionClasses } from "@bmi-digital/components/section";
 import createBreadcrumbItem from "../../../__tests__/helpers/BreadcrumbItemHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { trainingRegistrationPageData } from "../__mocks__/trainingRegistrationPage";
@@ -11,21 +12,25 @@ import TrainingRegistrationPage from "../training-registration-page";
 import type { UseRegistration } from "../hooks/useRegistration";
 import type { TrainingRegistrationPageProps } from "../types";
 
-const defaultProps: TrainingRegistrationPageProps = {
-  data: {
-    contentfulSite: createMockSiteData(),
-    contentfulTrainingRegistrationPage: trainingRegistrationPageData,
-    contentfulTrainingListerPage: {
-      path: "/no/training-lister-page",
-      breadcrumbs: [
-        createBreadcrumbItem({
-          label: "Training lister page",
-          slug: "training-lister-page"
-        })
-      ]
+let defaultProps: TrainingRegistrationPageProps;
+
+beforeEach(() => {
+  defaultProps = {
+    data: {
+      contentfulSite: createMockSiteData(),
+      contentfulTrainingRegistrationPage: trainingRegistrationPageData,
+      contentfulTrainingListerPage: {
+        path: "training-lister-page",
+        breadcrumbs: [
+          createBreadcrumbItem({
+            label: "Training lister page",
+            slug: "training-lister-page"
+          })
+        ]
+      }
     }
-  }
-};
+  };
+});
 
 jest.mock("../components/TrainingRegistrationHeader", () => ({
   __esModule: true,
@@ -151,5 +156,312 @@ describe("TrainingRegistrationPage", () => {
     );
 
     expect(screen.getByText("Warning Dialog")).toBeInTheDocument();
+  });
+
+  describe("Breadcrumbs", () => {
+    describe("Top", () => {
+      it("should render with a white background", () => {
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbSection = screen.getByTestId("breadcrumbs-section-top");
+        expect(breadcrumbSection).toHaveClass(sectionClasses.white);
+      });
+
+      it("should render the current page breadcrumb item correctly when the breadcrumb title is defined", () => {
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-top");
+        const currentBreadcrumbWithTitle = within(
+          breadcrumbsElement
+        ).getByTestId("bread-crumb-Training-Registration-Page");
+
+        expect(currentBreadcrumbWithTitle).toHaveTextContent(
+          /Training Registration Page/
+        );
+      });
+
+      it("should render the current page breadcrumb item correctly when the breadcrumb title is undefined", () => {
+        defaultProps.data.contentfulTrainingRegistrationPage.breadcrumbTitle =
+          null;
+
+        defaultProps.data.contentfulTrainingRegistrationPage.breadcrumbs = [
+          {
+            id: "2",
+            label: "breadcrumb-example-label",
+            slug: "breadcrumb-example-slug"
+          }
+        ];
+
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-top");
+        const currentBreadcrumbWithTitle = within(
+          breadcrumbsElement
+        ).getByTestId("bread-crumb-breadcrumb-example-label");
+
+        expect(currentBreadcrumbWithTitle).toHaveTextContent(
+          /breadcrumb-example-label/
+        );
+      });
+
+      it("should render the training page breadcrumb item correctly when training is defined", () => {
+        useRegistrationResults.training = createTraining();
+
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-top");
+        const trainingPageBreadcrumb = within(breadcrumbsElement).getByTestId(
+          "bread-crumb-training-name"
+        );
+
+        expect(trainingPageBreadcrumb).toHaveTextContent(
+          useRegistrationResults.training.courseName
+        );
+        expect(trainingPageBreadcrumb).toHaveAttribute(
+          "href",
+          "/en/t/training-slug"
+        );
+        expect(trainingPageBreadcrumb).toHaveAttribute(
+          "data-gtm",
+          '{"id":"cta-click1","action":"/en/t/training-slug","label":"training name"}'
+        );
+      });
+
+      it("should not render the training page breadcrumb item when training is undefined", () => {
+        useRegistrationResults.training = undefined;
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-top");
+        const trainingPageBreadcrumb = within(breadcrumbsElement).queryByTestId(
+          "bread-crumb-training-name"
+        );
+
+        expect(trainingPageBreadcrumb).not.toBeInTheDocument();
+      });
+
+      it("should render the training lister page breadcrumb item correctly when contentfulTrainingListerPage is defined", () => {
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-top");
+        const trainingListerPageBreadcrumb = within(
+          breadcrumbsElement
+        ).getByTestId("bread-crumb-Training-lister-page");
+
+        expect(trainingListerPageBreadcrumb).toHaveTextContent(
+          /Training lister pag\.\.\./
+        );
+        expect(trainingListerPageBreadcrumb).toHaveAttribute(
+          "href",
+          "/en/training-lister-page"
+        );
+        expect(trainingListerPageBreadcrumb).toHaveAttribute(
+          "data-gtm",
+          '{"id":"cta-click1","action":"/en/training-lister-page","label":"Training lister page"}'
+        );
+      });
+
+      it("should not render the training lister page breadcrumb item when contentfulTrainingListerPage is null", () => {
+        defaultProps.data.contentfulTrainingListerPage = null;
+
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-top");
+        const trainingListerPageBreadcrumb = within(
+          breadcrumbsElement
+        ).queryByTestId("bread-crumb-Training-lister-page");
+
+        expect(trainingListerPageBreadcrumb).not.toBeInTheDocument();
+      });
+    });
+
+    describe("Bottom", () => {
+      it("should render with a white background", () => {
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbSection = screen.getByTestId(
+          "breadcrumbs-section-bottom"
+        );
+        expect(breadcrumbSection).toHaveClass(sectionClasses.white);
+      });
+
+      it("should render the current page breadcrumb item correctly when the breadcrumb title is defined", () => {
+        defaultProps.data.contentfulTrainingRegistrationPage.breadcrumbTitle =
+          "Training Registration Page";
+
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-bottom");
+        const currentBreadcrumbWithTitle = within(
+          breadcrumbsElement
+        ).getByTestId("bread-crumb-Training-Registration-Page");
+
+        expect(currentBreadcrumbWithTitle).toHaveTextContent(
+          /Training Registration Page/
+        );
+      });
+
+      it("should render the current page breadcrumb item correctly when the breadcrumb title is undefined", () => {
+        defaultProps.data.contentfulTrainingRegistrationPage.breadcrumbTitle =
+          null;
+
+        defaultProps.data.contentfulTrainingRegistrationPage.breadcrumbs = [
+          {
+            id: "2",
+            label: "breadcrumb-example-label",
+            slug: "breadcrumb-example-slug"
+          }
+        ];
+
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-bottom");
+        const currentBreadcrumbWithTitle = within(
+          breadcrumbsElement
+        ).getByTestId("bread-crumb-breadcrumb-example-label");
+
+        expect(currentBreadcrumbWithTitle).toHaveTextContent(
+          /breadcrumb-example-label/
+        );
+      });
+
+      it("should render the training page breadcrumb item correctly when training is defined", () => {
+        useRegistrationResults.training = createTraining();
+
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-bottom");
+        const trainingPageBreadcrumb = within(breadcrumbsElement).getByTestId(
+          "bread-crumb-training-name"
+        );
+
+        expect(trainingPageBreadcrumb).toHaveTextContent(
+          useRegistrationResults.training.courseName
+        );
+        expect(trainingPageBreadcrumb).toHaveAttribute(
+          "href",
+          "/en/t/training-slug"
+        );
+        expect(trainingPageBreadcrumb).toHaveAttribute(
+          "data-gtm",
+          '{"id":"cta-click1","action":"/en/t/training-slug","label":"training name"}'
+        );
+      });
+
+      it("should not render the training page breadcrumb item when training is undefined", () => {
+        useRegistrationResults.training = undefined;
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-bottom");
+        const trainingPageBreadcrumb = within(breadcrumbsElement).queryByTestId(
+          "bread-crumb-training-name"
+        );
+
+        expect(trainingPageBreadcrumb).not.toBeInTheDocument();
+      });
+
+      it("should render the training lister page breadcrumb item correctly when contentfulTrainingListerPage is defined", () => {
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-bottom");
+        const trainingListerPageBreadcrumb = within(
+          breadcrumbsElement
+        ).getByTestId("bread-crumb-Training-lister-page");
+
+        expect(trainingListerPageBreadcrumb).toHaveTextContent(
+          /Training lister pag\.\.\./
+        );
+        expect(trainingListerPageBreadcrumb).toHaveAttribute(
+          "href",
+          "/en/training-lister-page"
+        );
+        expect(trainingListerPageBreadcrumb).toHaveAttribute(
+          "data-gtm",
+          '{"id":"cta-click1","action":"/en/training-lister-page","label":"Training lister page"}'
+        );
+      });
+
+      it("should not render the training lister page breadcrumb item when contentfulTrainingListerPage is null", () => {
+        defaultProps.data.contentfulTrainingListerPage = null;
+
+        render(
+          <ThemeProvider>
+            <LocationProvider>
+              <TrainingRegistrationPage {...defaultProps} />
+            </LocationProvider>
+          </ThemeProvider>
+        );
+        const breadcrumbsElement = screen.getByTestId("breadcrumbs-bottom");
+        const trainingListerPageBreadcrumb = within(
+          breadcrumbsElement
+        ).queryByTestId("bread-crumb-Training-lister-page");
+
+        expect(trainingListerPageBreadcrumb).not.toBeInTheDocument();
+      });
+    });
   });
 });

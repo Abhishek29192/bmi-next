@@ -70,7 +70,7 @@ const TeamSection = ({ data, className }: Props) => {
               {data.teamCategories.map((category, index) => (
                 <Tabs.TabPanel
                   className={classes.tabPanel}
-                  key={category.id}
+                  key={index}
                   heading={category.title}
                   index={index}
                 >
@@ -89,7 +89,11 @@ const TeamSection = ({ data, className }: Props) => {
               <TeamCategorySection
                 key={category.id}
                 title={category.title}
-                description={index === 0 && category.description}
+                description={
+                  index === 0 && category.description
+                    ? category.description
+                    : null
+                }
                 team_member={category.team_member}
               />
             ))

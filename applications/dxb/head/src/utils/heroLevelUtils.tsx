@@ -1,12 +1,14 @@
-import Button from "@bmi-digital/components/button";
 import { HeroProps } from "@bmi-digital/components/hero";
 import { SpotlightHeroProps } from "@bmi-digital/components/spotlight-hero";
 import { transformHyphens } from "@bmi-digital/components/utils";
 import React from "react";
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
-import Image, { Data as ContentfulImageData } from "../components/Image";
-import Link, { Data as LinkData } from "../components/Link";
-import Video, { Data as VideoData } from "../components/Video";
+import { Data as ContentfulImageData } from "../components/image/types";
+import { Data as VideoData } from "../components/video/types";
+import ButtonLink from "../components/link/ButtonLink";
+import { Data as LinkData } from "../components/link/types";
+import createImageProps from "../components/image/createImageProps";
+import createVideoProps from "../components/video/createVideoProps";
 
 type LevelMap = {
   [key: string]: 1 | 2 | 3;
@@ -40,26 +42,21 @@ export const generateHeroProps = (
   subtitle: string | null,
   featuredVideo: VideoData | null,
   featuredMedia: ContentfulImageData | null,
-  cta?: LinkData
+  cta: LinkData | null
 ): HeroProps | SpotlightHeroProps => {
   return {
     title: transformHyphens(title),
     level,
     children: subtitle,
-    media: featuredVideo ? (
-      <Video {...featuredVideo} />
-    ) : featuredMedia ? (
-      <Image {...featuredMedia} size="cover" loading="eager" />
-    ) : undefined,
-    cta:
-      cta &&
-      React.createElement(
-        Link,
-        {
-          component: Button,
-          data: cta
-        },
-        cta.label
-      )
+    media: featuredVideo
+      ? createVideoProps(featuredVideo)
+      : featuredMedia
+        ? createImageProps({
+            ...featuredMedia,
+            size: "cover",
+            loading: "eager"
+          })
+        : undefined,
+    cta: cta ? <ButtonLink data={cta}>{cta.label}</ButtonLink> : undefined
   };
 };

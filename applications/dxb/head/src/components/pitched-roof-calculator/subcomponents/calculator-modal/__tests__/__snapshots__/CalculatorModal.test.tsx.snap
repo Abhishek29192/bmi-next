@@ -35,7 +35,7 @@ exports[`CalculatorModal component renders closed 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="CalculatorModal-headerSide CalculatorModal-logo css-gn1fhj"
+              class="CalculatorModal-headerSide CalculatorModal-logo"
             />
             <div
               class="CalculatorModal-headerCentre"
@@ -44,7 +44,8 @@ exports[`CalculatorModal component renders closed 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="0"
               type="button"
             >
@@ -123,7 +124,7 @@ exports[`CalculatorModal component renders correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="CalculatorModal-headerSide CalculatorModal-logo css-gn1fhj"
+              class="CalculatorModal-headerSide CalculatorModal-logo"
             />
             <div
               class="CalculatorModal-headerCentre"
@@ -132,7 +133,8 @@ exports[`CalculatorModal component renders correctly 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="0"
               type="button"
             >
@@ -212,7 +214,7 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-87lb9q"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -233,7 +235,8 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="0"
               type="button"
             >
@@ -313,7 +316,7 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-87lb9q"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -334,7 +337,8 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="0"
               type="button"
             >
@@ -413,7 +417,7 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-87lb9q"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -434,7 +438,8 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="0"
               type="button"
             >
@@ -513,7 +518,7 @@ exports[`CalculatorModal component renders with className 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-87lb9q"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -534,7 +539,8 @@ exports[`CalculatorModal component renders with className 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="0"
               type="button"
             >
@@ -613,7 +619,7 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-87lb9q"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -634,7 +640,8 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="0"
               type="button"
             >
@@ -713,7 +720,7 @@ exports[`CalculatorModal component renders with no logo 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="CalculatorModal-headerSide CalculatorModal-logo css-634maq"
+              class="CalculatorModal-headerSide CalculatorModal-logo css-87lb9q"
               viewBox="0 0 250 250"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -736,7 +743,8 @@ exports[`CalculatorModal component renders with no logo 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="0"
               type="button"
             >
@@ -815,7 +823,7 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl CalculatorModal-headerCentre css-15p7r21-MuiContainer-root"
           >
             <svg
-              class="CalculatorModal-headerSide CalculatorModal-logo css-gn1fhj"
+              class="CalculatorModal-headerSide CalculatorModal-logo"
             />
             <div
               class="CalculatorModal-headerCentre"
@@ -824,7 +832,8 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge CalculatorModal-headerSide CalculatorModal-iconButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="icon-button"
               tabindex="0"
               type="button"
             >

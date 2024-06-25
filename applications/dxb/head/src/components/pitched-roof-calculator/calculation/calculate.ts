@@ -1,5 +1,6 @@
-import { Tile, VergeOption } from "../types";
-import { Face, FaceWithBattens, Point, Vertex } from "../types/roof";
+import { getSpacingByPitch } from "../helpers/getSpacingValue";
+import type { Tile, VergeOption } from "../types";
+import type { Face, FaceWithBattens, Point, Vertex } from "../types/roof";
 
 const calculatePolygonArea = (vertices: Point[]) => {
   let area = 0;
@@ -23,21 +24,30 @@ export const calculateArea = (faces: Face[]) => {
   return area;
 };
 
-export const battenCalc = (vertices: Vertex[], mainTileVariant: Tile) => {
+export const battenCalc = (
+  vertices: Vertex[],
+  pitch: number,
+  mainTileVariant: Tile
+) => {
   const allBattens = [];
+  const battenSpacing = getSpacingByPitch(
+    mainTileVariant.battenSpacings,
+    pitch
+  );
+
   // Get rafter length by taking highest y of all points
   const rafterLength = vertices.reduce(
     (prev, curr) => (prev < curr.y ? curr.y : prev),
     0
   );
   // Store list of battens. First batten should account for correct overhang, from height of tile and overhang.
-  const firstBatten = mainTileVariant.eaveGauge;
+  const firstBatten = battenSpacing.eaveGauge;
   // Calculate the remaining space in the roof with the first batten position and ridge space
   const remainingSpace =
     rafterLength - firstBatten - mainTileVariant.ridgeSpacing;
   // Find the number of battens that are needed at max gauge by finding how many will fit at max gauge and round up by one
   const battenCount = Math.ceil(
-    remainingSpace / mainTileVariant.maxBattenSpacing
+    remainingSpace / battenSpacing.maxBattenSpacing
   );
 
   // Find the adjusted even spacing and check that this is within min gauge

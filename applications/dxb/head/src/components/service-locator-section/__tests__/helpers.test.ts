@@ -111,7 +111,7 @@ describe("helpers functions", () => {
     });
   });
   describe("sortServices", () => {
-    const mockServiceA = createService({ name: "serviceA_name" });
+    const mockServiceA = createService({ name: "serviceA_name", distance: 10 });
     const mockServiceB = createService({ name: "serviceB_name", distance: 5 });
     it("should return distance between two services if centre !== null", () => {
       const sortResult = sortServices({ lat: 50, lng: 60 })(
@@ -119,7 +119,7 @@ describe("helpers functions", () => {
         mockServiceB
       );
       expect(sortResult).toStrictEqual(
-        mockServiceA.distance! - mockServiceB.distance!
+        mockServiceA.distance - mockServiceB.distance
       );
     });
     describe("centre = null", () => {
@@ -306,7 +306,7 @@ describe("helpers functions", () => {
     });
   });
   describe("getResultDataGtm", () => {
-    const serviceMock = createService({ certification: "expert" });
+    const serviceMock = createService({ certification: "Expert" });
     const { name, address, certification, serviceTypes, entryType } =
       serviceMock;
     it("should return dataGtm object with map pin ID if isMarker === true", () => {

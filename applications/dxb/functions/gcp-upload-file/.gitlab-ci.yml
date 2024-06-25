@@ -1,3 +1,8 @@
+spec:
+  inputs:
+    preceding_job:
+---
+
 lint_gcp-upload-file:
   extends: .lint_function
   variables:
@@ -32,6 +37,9 @@ deploy_gcp-upload-file:
   needs:
     - job: package_gcp-upload-file
       artifacts: true
+    - job: $[[ inputs.preceding_job ]]
+      artifacts: false
+      optional: true
   variables:
     FUNCTION_NAME: "gcp-upload-file"
     ROOT_DIR: "applications/dxb/functions/gcp-upload-file"

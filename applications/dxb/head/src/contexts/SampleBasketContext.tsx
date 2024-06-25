@@ -73,7 +73,7 @@ export const basketReducer = (
   switch (type) {
     case ACTION_TYPES.BASKET_ADD: {
       const productExist = state.products.find(
-        (product) => product.code === payload.code
+        (product) => product.code === payload?.code
       );
       if (productExist) {
         return state;
@@ -84,7 +84,7 @@ export const basketReducer = (
     case ACTION_TYPES.BASKET_REMOVE:
       return {
         products: state.products.filter(
-          (product) => product.code !== payload.code
+          (product) => product.code !== payload?.code
         )
       };
     case ACTION_TYPES.BASKET_REPLACE:

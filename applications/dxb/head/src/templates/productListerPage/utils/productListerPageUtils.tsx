@@ -1,20 +1,18 @@
 import { Filter } from "@bmi-digital/components/filters";
 import Grid from "@bmi-digital/components/grid";
-import OverviewCard, {
-  OverviewCardProps
-} from "@bmi-digital/components/overview-card";
+import ProductOverviewCard from "@bmi-digital/components/product-overview-card";
 import { microCopy } from "@bmi/microcopies";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
 import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import BrandLogo from "../../../components/BrandLogo";
-import GoodBetterBestIndicator from "../../../components/GoodBetterBestIndicator";
-import DefaultImage from "../../../images/DefaultImage.svg";
 import { getSearchParams } from "../../../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
-import withGTM from "../../../utils/google-tag-manager";
+import {
+  getLevel,
+  goodBetterBestLabels
+} from "../../../utils/getGoodBetterBestLabel";
 import { getPathWithCountryCode } from "../../../utils/path";
-import { FooterAnchorLink } from "../styles";
 import type { Context as SiteContext } from "../../../components/Site";
 import type { PageContextType } from "../components/product-lister-page";
 
@@ -32,8 +30,6 @@ export const resolveFilters = (filters: readonly Filter[]) => {
       return filter;
     });
 };
-
-const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
 export const renderProducts = (
   products: EsProduct[],
@@ -55,55 +51,41 @@ export const renderProducts = (
 
     return (
       <Grid
-        key={`${product?.code}-${variant.code}`}
+        key={`${product.code}-${variant.code}`}
         xs={12}
         md={6}
         lg={4}
         xl={filters.length ? 4 : 3}
       >
-        <GTMOverviewCard
-          title={product?.name}
-          titleVariant="h5"
-          subtitle={variant.subTitle}
-          subtitleVariant="h6"
+        <ProductOverviewCard
+          title={product.name || variant.name}
+          subtitle={moreOptionsAvailable || variant.subTitle}
+          description={variant.shortDescription}
           tag={
-            <GoodBetterBestIndicator indicatorType={variant.goodBetterBest} />
+            variant.goodBetterBest && {
+              level: getLevel(variant.goodBetterBest),
+              label: getMicroCopy(goodBetterBestLabels[variant.goodBetterBest])
+            }
           }
           media={
-            mainImage ? (
-              <img src={mainImage} alt={product?.name} />
-            ) : (
-              <DefaultImage />
-            )
+            mainImage
+              ? { src: mainImage, alt: product.name || variant.name }
+              : undefined
           }
-          imageSize="contain"
-          brandImageSource={<BrandLogo brandName={variant.brandCode} />}
-          action={{
-            model: "routerLink",
-            linkComponent: GatsbyLink,
-            to: productUrl
-          }}
+          brandLogo={
+            variant.brandCode ? (
+              <BrandLogo brandName={variant.brandCode} />
+            ) : undefined
+          }
           gtm={{
             id: "cta-click1",
             action: productUrl,
             label: getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)
           }}
-          footer={
-            <FooterAnchorLink
-              action={{
-                model: "routerLink",
-                linkComponent: GatsbyLink,
-                to: productUrl
-              }}
-              iconEnd
-            >
-              {getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
-            </FooterAnchorLink>
-          }
-          moreOptionsAvailable={moreOptionsAvailable}
-        >
-          {variant.shortDescription}
-        </GTMOverviewCard>
+          ctaLabel={getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
+          component={GatsbyLink}
+          to={productUrl}
+        />
       </Grid>
     );
   });

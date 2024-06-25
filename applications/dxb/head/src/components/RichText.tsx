@@ -1,8 +1,6 @@
 /* eslint-disable react/display-name */
-import { useIsClient } from "@bmi-digital/components";
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
+import { useIsClient } from "@bmi-digital/components/hooks";
+import AnchorLink from "@bmi-digital/components/anchor-link";
 import Typography from "@bmi-digital/components/typography";
 import { transformHyphens } from "@bmi-digital/components/utils";
 import { Options } from "@contentful/rich-text-react-renderer";
@@ -18,7 +16,6 @@ import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import { constructUrlWithPrevPage } from "../templates/myAccountPage/utils";
-import withGTM from "../utils/google-tag-manager";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedInline from "./EmbeddedInline";
@@ -35,10 +32,9 @@ type Settings = {
   gtmLabel?: React.ReactNode;
 };
 
-const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
-
 const getOptions = (settings: Settings, isClient: boolean): Options => {
   const { underlineHeadings = [], gtmLabel } = settings;
+
   return {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node, children) => {
@@ -106,7 +102,7 @@ const getOptions = (settings: Settings, isClient: boolean): Options => {
       [BLOCKS.EMBEDDED_ASSET]: (node: Block) => (
         <EmbeddedAssetBlock node={node} className="embedded-asset" />
       ),
-      [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
+      [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: string) => (
         <InlineHyperlink
           node={node}
           gtmLabel={gtmLabel}
@@ -115,10 +111,10 @@ const getOptions = (settings: Settings, isClient: boolean): Options => {
           {children}
         </InlineHyperlink>
       ),
-      [INLINES.ASSET_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
+      [INLINES.ASSET_HYPERLINK]: (node: Inline, children: string) => (
         <InlineHyperlink node={node}>{children}</InlineHyperlink>
       ),
-      [INLINES.HYPERLINK]: (node: Inline, children: React.ReactNode) => {
+      [INLINES.HYPERLINK]: (node: Inline, children: string) => {
         const { uri } = node.data;
         const href =
           isClient && uri.includes(process.env.GATSBY_INTOUCH_ORIGIN)
@@ -126,13 +122,9 @@ const getOptions = (settings: Settings, isClient: boolean): Options => {
             : uri;
 
         return (
-          <GTMAnchorLink
-            action={{
-              model: "htmlLink",
-              href,
-              target: "_blank",
-              rel: "noopener noreferrer"
-            }}
+          <AnchorLink
+            href={href}
+            external
             gtm={{
               id: "cta-click1",
               label: gtmLabel
@@ -144,7 +136,7 @@ const getOptions = (settings: Settings, isClient: boolean): Options => {
             data-testid={"rich-text-hyperlink"}
           >
             {children}
-          </GTMAnchorLink>
+          </AnchorLink>
         );
       },
       [INLINES.EMBEDDED_ENTRY]: (node: Inline) => (

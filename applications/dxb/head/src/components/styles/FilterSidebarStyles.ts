@@ -1,5 +1,5 @@
 import Button from "@bmi-digital/components/button";
-import Icon from "@bmi-digital/components/icon";
+import Filter from "@bmi-digital/components/icon/Filter";
 import Drawer from "@mui/material/Drawer";
 import { alpha, styled } from "@mui/material/styles";
 
@@ -10,7 +10,7 @@ export const classes = {
   filterIconTitle: `${PREFIX}-filterIcon-title`
 };
 
-export const StyledFilterIcon = styled(Icon)(({ theme }) => ({
+export const StyledFilterIcon = styled(Filter)(({ theme }) => ({
   width: "24px",
   marginRight: "12px",
   path: {

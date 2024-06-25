@@ -1,3 +1,8 @@
+spec:
+  inputs:
+    preceding_job:
+---
+
 lint_gcp-pim-message-handler:
   extends: .lint_function
   variables:
@@ -66,6 +71,9 @@ deploy_gcp-pim-message-handler:
   needs:
     - job: package_gcp-pim-message-handler
       artifacts: true
+    - job: $[[ inputs.preceding_job ]]
+      artifacts: false
+      optional: true
   rules:
     - if: !reference [.run_for_changes_on_main_workspace, rules, if]
       changes:

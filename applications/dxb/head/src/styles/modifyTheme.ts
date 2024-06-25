@@ -1,14 +1,17 @@
-import { ThemeOptions } from "@bmi-digital/components/theme-provider";
+import { ThemeOptions, getTheme } from "@bmi-digital/components/theme-provider";
 
-export const modifyTheme = (theme: ThemeOptions): ThemeOptions => {
+const modifyTheme = (theme: ThemeOptions): ThemeOptions => {
   return {
     ...theme,
     components: {
+      ...theme.components,
       MuiCssBaseline: {
         styleOverrides: `
               ${theme.components?.MuiCssBaseline?.styleOverrides}
-              body { background-color: ${theme.colours.alabasterA} !important}  `
+              body { background-color: ${theme.colours.white} !important}  `
       }
     }
   };
 };
+
+export const theme = getTheme(modifyTheme);

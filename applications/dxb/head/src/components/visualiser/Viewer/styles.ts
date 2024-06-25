@@ -1,4 +1,4 @@
-import Icon from "@bmi-digital/components/icon";
+import Icon from "@bmi-digital/components/icon/Icon";
 import { styled } from "@mui/material/styles";
 import { tooltipClasses } from "@mui/material/Tooltip";
 

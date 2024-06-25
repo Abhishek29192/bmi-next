@@ -6,7 +6,7 @@ exports[`404 page tests When error page data is partially populated renders plac
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -27,6 +27,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a dealer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -44,6 +45,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a roofer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -61,6 +63,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Partner portal"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -78,6 +81,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"News"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -94,7 +98,8 @@ exports[`404 page tests When error page data is partially populated renders plac
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-top-utilities-bar","label":"Contact Us","action":"/en/kontakt-oss/"}"
+                  data-gtm="{"id":"nav-top-utilities-bar","action":"/en/kontakt-oss/","label":"Contact Us"}"
+                  data-testid="button"
                   href="/en/kontakt-oss/"
                   tabindex="0"
                   target="_blank"
@@ -145,7 +150,7 @@ exports[`404 page tests When error page data is partially populated renders plac
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -199,7 +204,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Albania flag"
@@ -224,7 +229,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Österreich flag"
@@ -249,7 +254,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="United Kingdom flag"
@@ -274,7 +279,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="English flag"
@@ -312,7 +317,8 @@ exports[`404 page tests When error page data is partially populated renders plac
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="Header-logoLink"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
@@ -535,7 +541,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -557,7 +563,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -590,11 +596,12 @@ exports[`404 page tests When error page data is partially populated renders plac
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -624,7 +631,7 @@ exports[`404 page tests When error page data is partially populated renders plac
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
             data-testid="search-close-button"
             tabindex="0"
             type="button"
@@ -658,7 +665,7 @@ exports[`404 page tests When error page data is partially populated renders plac
       data-testid="brand-colors-provider"
     >
       <div
-        class=" Section-root Section-white css-1obptq1"
+        class=" Section-root Section-white css-169jmoe"
         data-testid="promo-section"
       >
         <div
@@ -698,8 +705,9 @@ exports[`404 page tests When error page data is partially populated renders plac
                   </p>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","action":"/en/https:/somewhere.com/","label":"Error:404.cta.label"}"
-                    href="/en/https:/somewhere.com/"
+                    data-gtm="{"id":"cta-click1","action":"/en/https://somewhere.com/","label":"Error:404.cta.label"}"
+                    data-testid="button"
+                    href="/en/https://somewhere.com/"
                     tabindex="0"
                   >
                     Error:404.cta.label
@@ -715,7 +723,8 @@ exports[`404 page tests When error page data is partially populated renders plac
               >
                 <img
                   alt="alt-text-img"
-                  class="PromoSection-image css-7mgsqw-Media"
+                  class="PromoSection-image css-1tdmq76"
+                  draggable="false"
                   loading="lazy"
                   src="https://nowhere.com"
                   style="object-fit: cover; object-position: center;"
@@ -730,7 +739,7 @@ exports[`404 page tests When error page data is partially populated renders plac
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-r109q4"
+        class="css-an2sjs"
         data-testid="footer"
       >
         <div
@@ -745,7 +754,7 @@ exports[`404 page tests When error page data is partially populated renders plac
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -753,10 +762,15 @@ exports[`404 page tests When error page data is partially populated renders plac
                 >
                   Contact Us
                 </h4>
+                <nav>
+                  <ul
+                    class="css-p4h7lm"
+                  />
+                </nav>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -773,7 +787,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Story","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Story"}"
+                        data-testid="footer-navigation-button-Our-Story"
                         href="#"
                         tabindex="0"
                       >
@@ -788,7 +803,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Brands","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Brands"}"
+                        data-testid="footer-navigation-button-Our-Brands"
                         href="#"
                         tabindex="0"
                       >
@@ -803,7 +819,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Values"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Our Values"}"
+                        data-testid="footer-navigation-button-Our-Values"
                         tabindex="0"
                         type="button"
                       >
@@ -818,7 +835,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Sustainability","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Sustainability"}"
+                        data-testid="footer-navigation-button-Sustainability"
                         href="#"
                         tabindex="0"
                       >
@@ -833,7 +851,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -850,7 +868,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI RoofPro"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"BMI RoofPro"}"
+                        data-testid="footer-navigation-button-BMI-RoofPro"
                         tabindex="0"
                         type="button"
                       >
@@ -865,7 +884,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Team Icopal"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Team Icopal"}"
+                        data-testid="footer-navigation-button-Team-Icopal"
                         tabindex="0"
                         type="button"
                       >
@@ -880,7 +900,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Training","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Training"}"
+                        data-testid="footer-navigation-button-Training"
                         href="#"
                         tabindex="0"
                       >
@@ -895,7 +916,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Mediabank","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Mediabank"}"
+                        data-testid="footer-navigation-button-Mediabank"
                         href="#"
                         tabindex="0"
                       >
@@ -910,7 +932,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -927,7 +949,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Diversity","action":"/en/mangfold/"}"
+                        data-gtm="{"id":"nav-footer1","action":"/en/mangfold/","label":"Diversity"}"
+                        data-testid="footer-navigation-button-Diversity"
                         href="/en/mangfold/"
                         tabindex="0"
                       >
@@ -942,9 +965,11 @@ exports[`404 page tests When error page data is partially populated renders plac
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI Job Board","action":"https://bmi.jobboard.io/"}"
+                        data-gtm="{"id":"nav-footer1","action":"https://bmi.jobboard.io/","label":"BMI Job Board"}"
+                        data-testid="footer-navigation-button-BMI-Job-Board"
                         href="https://bmi.jobboard.io/"
-                        rel="noopener noreferrer"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
                         target="_blank"
                       >
@@ -984,13 +1009,15 @@ exports[`404 page tests When error page data is partially populated renders plac
               </div>
               <ul
                 class="Footer-listInline css-p4h7lm"
+                data-testid="footer-secondary-navigation-item-container"
               >
                 <li
                   class="Footer-listItem"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Cookies","action":"/en/bruk-av-informasjonskapsler/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/bruk-av-informasjonskapsler/","label":"Cookies"}"
+                    data-testid="footer-navigation-button-Cookies"
                     href="/en/bruk-av-informasjonskapsler/"
                     tabindex="0"
                   >
@@ -1005,7 +1032,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Sitemap"}"
+                    data-gtm="{"id":"nav-footer1","action":"undefined","label":"Sitemap"}"
+                    data-testid="footer-navigation-button-Sitemap"
                     tabindex="0"
                     type="button"
                   >
@@ -1020,7 +1048,8 @@ exports[`404 page tests When error page data is partially populated renders plac
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"MC: global.sitemap","action":"/en/sitemap/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/sitemap/","label":"MC: global.sitemap"}"
+                    data-testid="footer-navigation-button-MC:-global.sitemap"
                     href="/en/sitemap/"
                     tabindex="0"
                   >
@@ -1094,6 +1123,7 @@ exports[`404 page tests When error page data is partially populated renders plac
         aria-hidden="true"
         aria-label="Back to the top"
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-15xs9gd-MuiButtonBase-root-MuiButton-root"
+        data-testid="button"
         tabindex="-1"
         type="button"
       >
@@ -1123,7 +1153,7 @@ exports[`404 page tests When site data and error page data are fully populated r
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-s8wkol-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1144,6 +1174,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a dealer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -1161,6 +1192,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Find a roofer"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -1178,6 +1210,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"Partner portal"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -1195,6 +1228,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 <button
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-top-utilities-bar","label":"News"}"
+                  data-testid="button"
                   tabindex="0"
                   target="_blank"
                   type="button"
@@ -1211,7 +1245,8 @@ exports[`404 page tests When site data and error page data are fully populated r
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                  data-gtm="{"id":"nav-top-utilities-bar","label":"Contact Us","action":"/en/kontakt-oss/"}"
+                  data-gtm="{"id":"nav-top-utilities-bar","action":"/en/kontakt-oss/","label":"Contact Us"}"
+                  data-testid="button"
                   href="/en/kontakt-oss/"
                   tabindex="0"
                   target="_blank"
@@ -1262,7 +1297,7 @@ exports[`404 page tests When site data and error page data are fully populated r
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-gtm="{"id":"nav-country-selector","label":"close panel","action":"close panel"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -1316,7 +1351,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Albania flag"
@@ -1341,7 +1376,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="Österreich flag"
@@ -1366,7 +1401,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="United Kingdom flag"
@@ -1391,7 +1426,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+                        class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
                         <img
                           alt="English flag"
@@ -1429,7 +1464,8 @@ exports[`404 page tests When site data and error page data are fully populated r
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="Header-logoLink"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
@@ -1652,7 +1688,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -1674,7 +1710,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -1707,11 +1743,12 @@ exports[`404 page tests When site data and error page data are fully populated r
       />
       <div
         class="Header-drawer Header-navDrawer"
+        data-testid="nav-drawer"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -1741,7 +1778,7 @@ exports[`404 page tests When site data and error page data are fully populated r
         >
           <button
             aria-label="MC: global.close"
-            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-closeButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
             data-testid="search-close-button"
             tabindex="0"
             type="button"
@@ -1775,7 +1812,7 @@ exports[`404 page tests When site data and error page data are fully populated r
       data-testid="brand-colors-provider"
     >
       <div
-        class=" Section-root Section-white css-1obptq1"
+        class=" Section-root Section-white css-169jmoe"
         data-testid="promo-section"
       >
         <div
@@ -1815,8 +1852,9 @@ exports[`404 page tests When site data and error page data are fully populated r
                   </p>
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","action":"/en/https:/somewhere.com/","label":"click here to go somewhere"}"
-                    href="/en/https:/somewhere.com/"
+                    data-gtm="{"id":"cta-click1","action":"/en/https://somewhere.com/","label":"click here to go somewhere"}"
+                    data-testid="button"
+                    href="/en/https://somewhere.com/"
                     tabindex="0"
                   >
                     click here to go somewhere
@@ -1832,7 +1870,8 @@ exports[`404 page tests When site data and error page data are fully populated r
               >
                 <img
                   alt="alt-text-img"
-                  class="PromoSection-image css-7mgsqw-Media"
+                  class="PromoSection-image css-1tdmq76"
+                  draggable="false"
                   loading="lazy"
                   src="https://nowhere.com"
                   style="object-fit: cover; object-position: center;"
@@ -1847,7 +1886,7 @@ exports[`404 page tests When site data and error page data are fully populated r
       class=" css-bnck4c-HidePrint"
     >
       <div
-        class=" css-r109q4"
+        class="css-an2sjs"
         data-testid="footer"
       >
         <div
@@ -1862,7 +1901,7 @@ exports[`404 page tests When site data and error page data are fully populated r
             >
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1870,10 +1909,15 @@ exports[`404 page tests When site data and error page data are fully populated r
                 >
                   Contact Us
                 </h4>
+                <nav>
+                  <ul
+                    class="css-p4h7lm"
+                  />
+                </nav>
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1890,7 +1934,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Story","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Story"}"
+                        data-testid="footer-navigation-button-Our-Story"
                         href="#"
                         tabindex="0"
                       >
@@ -1905,7 +1950,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Brands","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Our Brands"}"
+                        data-testid="footer-navigation-button-Our-Brands"
                         href="#"
                         tabindex="0"
                       >
@@ -1920,7 +1966,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Our Values"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Our Values"}"
+                        data-testid="footer-navigation-button-Our-Values"
                         tabindex="0"
                         type="button"
                       >
@@ -1935,7 +1982,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Sustainability","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Sustainability"}"
+                        data-testid="footer-navigation-button-Sustainability"
                         href="#"
                         tabindex="0"
                       >
@@ -1950,7 +1998,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1967,7 +2015,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI RoofPro"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"BMI RoofPro"}"
+                        data-testid="footer-navigation-button-BMI-RoofPro"
                         tabindex="0"
                         type="button"
                       >
@@ -1982,7 +2031,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Team Icopal"}"
+                        data-gtm="{"id":"nav-footer1","action":"undefined","label":"Team Icopal"}"
+                        data-testid="footer-navigation-button-Team-Icopal"
                         tabindex="0"
                         type="button"
                       >
@@ -1997,7 +2047,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Training","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Training"}"
+                        data-testid="footer-navigation-button-Training"
                         href="#"
                         tabindex="0"
                       >
@@ -2012,7 +2063,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Mediabank","action":"#"}"
+                        data-gtm="{"id":"nav-footer1","action":"#","label":"Mediabank"}"
+                        data-testid="footer-navigation-button-Mediabank"
                         href="#"
                         tabindex="0"
                       >
@@ -2027,7 +2079,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </div>
               <div
                 class="MuiGrid2-root MuiGrid2-direction-xs-row Grid-item css-27y2fm-MuiGrid2-root"
-                data-testid="grid-item"
+                data-testid="footer-main-navigation-item-container"
               >
                 <h4
                   class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -2044,7 +2096,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"Diversity","action":"/en/mangfold/"}"
+                        data-gtm="{"id":"nav-footer1","action":"/en/mangfold/","label":"Diversity"}"
+                        data-testid="footer-navigation-button-Diversity"
                         href="/en/mangfold/"
                         tabindex="0"
                       >
@@ -2059,9 +2112,11 @@ exports[`404 page tests When site data and error page data are fully populated r
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                        data-gtm="{"id":"nav-footer1","label":"BMI Job Board","action":"https://bmi.jobboard.io/"}"
+                        data-gtm="{"id":"nav-footer1","action":"https://bmi.jobboard.io/","label":"BMI Job Board"}"
+                        data-testid="footer-navigation-button-BMI-Job-Board"
                         href="https://bmi.jobboard.io/"
-                        rel="noopener noreferrer"
+                        referrerpolicy="no-referrer"
+                        rel="noreferrer"
                         tabindex="0"
                         target="_blank"
                       >
@@ -2101,13 +2156,15 @@ exports[`404 page tests When site data and error page data are fully populated r
               </div>
               <ul
                 class="Footer-listInline css-p4h7lm"
+                data-testid="footer-secondary-navigation-item-container"
               >
                 <li
                   class="Footer-listItem"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Cookies","action":"/en/bruk-av-informasjonskapsler/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/bruk-av-informasjonskapsler/","label":"Cookies"}"
+                    data-testid="footer-navigation-button-Cookies"
                     href="/en/bruk-av-informasjonskapsler/"
                     tabindex="0"
                   >
@@ -2122,7 +2179,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"Sitemap"}"
+                    data-gtm="{"id":"nav-footer1","action":"undefined","label":"Sitemap"}"
+                    data-testid="footer-navigation-button-Sitemap"
                     tabindex="0"
                     type="button"
                   >
@@ -2137,7 +2195,8 @@ exports[`404 page tests When site data and error page data are fully populated r
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"nav-footer1","label":"MC: global.sitemap","action":"/en/sitemap/"}"
+                    data-gtm="{"id":"nav-footer1","action":"/en/sitemap/","label":"MC: global.sitemap"}"
+                    data-testid="footer-navigation-button-MC:-global.sitemap"
                     href="/en/sitemap/"
                     tabindex="0"
                   >
@@ -2211,6 +2270,7 @@ exports[`404 page tests When site data and error page data are fully populated r
         aria-hidden="true"
         aria-label="Back to the top"
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-15xs9gd-MuiButtonBase-root-MuiButton-root"
+        data-testid="button"
         tabindex="-1"
         type="button"
       >

@@ -7,21 +7,20 @@ import { AnalyticsContext } from "../helpers/analytics";
 import { MicroCopy } from "../helpers/microCopy";
 import {
   RidgeOption,
-  Tile,
   VentilationHood,
   VergeOption,
   WidthBasedProduct
 } from "../types";
 import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
+import { createTile } from "./helpers/createTile";
 
-const tileVariant = createProduct<Tile>({
+const tileVariant = createTile({
   color: "red",
   category: "category",
   coverWidth: 20,
   brokenBond: false,
-  maxBattenSpacing: 35,
-  eaveGauge: 23,
+  battenSpacings: [],
   ridgeSpacing: 5,
   minBattenSpacing: 18,
   length: 30,

@@ -1,12 +1,12 @@
 import Button from "@bmi-digital/components/button";
-import { ClickableAction } from "@bmi-digital/components/clickable";
-import Icon from "@bmi-digital/components/icon";
+import IconButton from "@bmi-digital/components/icon-button";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import Close from "@bmi-digital/components/icon/Close";
 import DeleteIcon from "@bmi-digital/components/icon/Delete";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
+import { Link } from "gatsby";
 import React from "react";
 import {
   ACTION_TYPES,
@@ -33,12 +33,12 @@ import {
 
 const SampleBasketDialog = ({
   title,
-  basketAction,
+  basketUrl,
   maximumSamples,
   toggleCart
 }: {
   title?: string | null;
-  basketAction?: ClickableAction;
+  basketUrl?: string;
   maximumSamples: number | null;
   toggleCart?: () => void;
 }) => {
@@ -49,7 +49,10 @@ const SampleBasketDialog = ({
 
   const { getMicroCopy } = useSiteContext();
 
-  const removeFromBasket = (event: Event, payload: Sample) => {
+  const removeFromBasket = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    payload: Sample
+  ) => {
     event.stopPropagation();
     basketDispatch({
       type: ACTION_TYPES.BASKET_REMOVE,
@@ -62,11 +65,10 @@ const SampleBasketDialog = ({
       <TopContainer data-testid={"shopping-cart-dialog-header-container"}>
         <CloseButton
           accessibilityLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
-          isIconButton
           onClick={toggleCart}
           data-testid={"shopping-cart-dialog-close-button"}
         >
-          <Icon source={Close} />
+          <Close />
         </CloseButton>
         <Typography
           variant="h3"
@@ -131,26 +133,26 @@ const SampleBasketDialog = ({
               </ProductSize>
             </InfoContainer>
             <ProductButtonContainer>
-              <Button
+              <IconButton
                 accessibilityLabel={getMicroCopy(
                   microCopy.PDP_OVERVIEW_REMOVE_SAMPLE
                 )}
                 variant="text"
-                isIconButton
-                onClick={(event: Event) => removeFromBasket(event, product)}
+                onClick={(event) => removeFromBasket(event, product)}
                 data-testid={`shopping-cart-dialog-remove-product-${replaceSpaces(
                   product.name
                 )}`}
               >
-                <Icon source={DeleteIcon} />
-              </Button>
+                <DeleteIcon />
+              </IconButton>
             </ProductButtonContainer>
           </Product>
         ))}
       </ProductList>
       <CartActions data-testid={"shopping-cart-dialog-actions"}>
         <Button
-          action={basketAction}
+          component={Link}
+          to={basketUrl}
           endIcon={<ArrowForwardIcon />}
           data-testid={"shopping-cart-dialog-complete-order-button"}
         >

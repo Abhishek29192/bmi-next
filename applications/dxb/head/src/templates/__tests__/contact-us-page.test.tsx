@@ -10,6 +10,8 @@ import { SourceType } from "../../components/types/FormSectionTypes";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import ContactUsPage, { Data } from "../contact-us-page";
+import createPromoData from "../../__tests__/helpers/PromoHelper";
+import createPageInfoData from "../../__tests__/helpers/PageInfoHelper";
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: SiteData } = {
@@ -24,36 +26,7 @@ describe("Contact us page", () => {
       date: null,
       rawDate: null,
       tags: [{ title: "Test page type tag", type: "Page type" }],
-      nextBestActions: [
-        {
-          __typename: "ContentfulPromo",
-          id: "osyfb64chkucgrh76we",
-          name: "Action 1",
-          title: "Action 1",
-          subtitle: null,
-          body: null,
-          brandLogo: null,
-          tags: null,
-          featuredMedia: null,
-          cta: null,
-          featuredVideo: null,
-          backgroundColor: null
-        },
-        {
-          __typename: "ContentfulPromo",
-          id: "q345789naetw9ny84",
-          name: "Action 2",
-          title: "Action 2",
-          subtitle: null,
-          body: null,
-          brandLogo: null,
-          tags: null,
-          featuredMedia: null,
-          cta: null,
-          featuredVideo: null,
-          backgroundColor: null
-        }
-      ],
+      nextBestActions: [createPromoData(), createPageInfoData()],
       featuredMedia: null,
       featuredVideo: {
         __typename: "ContentfulVideo",
@@ -303,7 +276,7 @@ describe("Contact us page", () => {
   it("render iframe correctly", () => {
     const { container } = renderWithRouter(
       <ThemeProvider>
-        <ContactUsPage data={data} pageContext={null} />
+        <ContactUsPage data={data} pageContext={{}} />
       </ThemeProvider>
     );
 
@@ -358,8 +331,10 @@ describe("Contact us page", () => {
 
     expect(container).toMatchSnapshot();
     expect(screen.getByText("Mer informasjon")).toBeTruthy();
-    expect(screen.getByText("Action 1")).toBeTruthy();
-    expect(screen.getByText("Action 2")).toBeTruthy();
+    expect(
+      screen.getByTestId("nba-card-Contentful-Promo-Title")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("nba-card-example-title")).toBeInTheDocument();
   });
 
   it("render first slide featuredMedia instead when no featuredVideo", () => {

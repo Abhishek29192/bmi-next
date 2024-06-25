@@ -1,4 +1,5 @@
-import { Product, VariantOption, ApprovalStatus } from "@bmi/pim-types";
+import { ApprovalStatus } from "@bmi/pim-types";
+import type { Product, VariantOption } from "@bmi/pim-types";
 
 type ApprovalOrDiscontinuedProduct<T> = T & {
   approvalStatus: ApprovalStatus.Approved | ApprovalStatus.Discontinued;

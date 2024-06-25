@@ -1,5 +1,5 @@
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
-import { DataTypeEnum } from "../../../components/Link";
+import { DataTypeEnum } from "../../../components/link/types";
 import { Data as SignUpBlockData } from "../../../components/SignupBlock";
 import { SourceType } from "../../../components/types/FormSectionTypes";
 import { PageContextType } from "../../productListerPage/components/product-lister-page";

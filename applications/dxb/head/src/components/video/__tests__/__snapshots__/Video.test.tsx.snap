@@ -1,0 +1,964 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video Layout should render correctly when layout is dialog 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <img
+        alt="Video label"
+        class="css-qri583"
+        data-testid="youtube-preview-image"
+        draggable="false"
+        src="http://localhost:8080/default-image.jpg"
+      />
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video Layout should render correctly when layout is in-place 1`] = `
+<div>
+  <div
+    class="YoutubeVideo-inPlace css-uagn6w"
+    data-testid="youtube-inplace-wrapper"
+  >
+    <react-player
+      classname="css-adv66b"
+      data-testid="youtube-inplace-react-player"
+      height="0"
+      loop="true"
+      muted="true"
+      width="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`Video Preview Media should render correctly if 'file.url' is undefined 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-qri583"
+        data-gatsby-image-wrapper=""
+        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+      >
+        <div
+          style="max-width: 948px; display: block;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
+            style="max-width: 100%; display: block; position: static;"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          data-placeholder-image=""
+          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+        />
+        <picture>
+          <source
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+            sizes="(min-width: 948px) 948px, 100vw"
+            type="image/webp"
+          />
+          <img
+            alt="Image alt text"
+            data-gatsby-image-ssr=""
+            data-main-image=""
+            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+            decoding="async"
+            draggable="false"
+            loading="lazy"
+            sizes="(min-width: 948px) 948px, 100vw"
+            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+          />
+        </picture>
+        <noscript />
+        <script
+          type="module"
+        >
+          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+        </script>
+      </div>
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video Preview Media should render correctly if 'focalPoint' is null 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-qri583"
+        data-gatsby-image-wrapper=""
+        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+      >
+        <div
+          style="max-width: 948px; display: block;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
+            style="max-width: 100%; display: block; position: static;"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          data-placeholder-image=""
+          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+        />
+        <picture>
+          <source
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+            sizes="(min-width: 948px) 948px, 100vw"
+            type="image/webp"
+          />
+          <img
+            alt="Image alt text"
+            data-gatsby-image-ssr=""
+            data-main-image=""
+            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+            decoding="async"
+            draggable="false"
+            loading="lazy"
+            sizes="(min-width: 948px) 948px, 100vw"
+            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+          />
+        </picture>
+        <noscript />
+        <script
+          type="module"
+        >
+          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+        </script>
+      </div>
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video Preview Media should render correctly if 'gatsbyImageData' is undefined 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <img
+        alt="Image alt text"
+        class="css-qri583"
+        draggable="false"
+        loading="lazy"
+        src="/example.url"
+        style="object-fit: cover; object-position: center;"
+      />
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video Preview Media should render correctly if 'loading' is eager 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-qri583"
+        data-gatsby-image-wrapper=""
+        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+      >
+        <div
+          style="max-width: 948px; display: block;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
+            style="max-width: 100%; display: block; position: static;"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          data-placeholder-image=""
+          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+        />
+        <picture>
+          <source
+            sizes="(min-width: 948px) 948px, 100vw"
+            srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+            type="image/webp"
+          />
+          <img
+            alt="Image alt text"
+            data-gatsby-image-ssr=""
+            data-main-image=""
+            decoding="async"
+            draggable="false"
+            loading="eager"
+            sizes="(min-width: 948px) 948px, 100vw"
+            src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+            srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+          />
+        </picture>
+        <noscript />
+        <script
+          type="module"
+        >
+          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+        </script>
+      </div>
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video Preview Media should render correctly if 'loading' is undefined 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-qri583"
+        data-gatsby-image-wrapper=""
+        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+      >
+        <div
+          style="max-width: 948px; display: block;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
+            style="max-width: 100%; display: block; position: static;"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          data-placeholder-image=""
+          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+        />
+        <picture>
+          <source
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+            sizes="(min-width: 948px) 948px, 100vw"
+            type="image/webp"
+          />
+          <img
+            alt="Image alt text"
+            data-gatsby-image-ssr=""
+            data-main-image=""
+            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+            decoding="async"
+            draggable="false"
+            loading="lazy"
+            sizes="(min-width: 948px) 948px, 100vw"
+            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+          />
+        </picture>
+        <noscript />
+        <script
+          type="module"
+        >
+          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+        </script>
+      </div>
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video Preview Media should render correctly if 'thumbnail' is undefined 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-qri583"
+        data-gatsby-image-wrapper=""
+        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+      >
+        <div
+          style="max-width: 948px; display: block;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
+            style="max-width: 100%; display: block; position: static;"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          data-placeholder-image=""
+          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+        />
+        <picture>
+          <source
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+            sizes="(min-width: 948px) 948px, 100vw"
+            type="image/webp"
+          />
+          <img
+            alt="Image alt text"
+            data-gatsby-image-ssr=""
+            data-main-image=""
+            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+            decoding="async"
+            draggable="false"
+            loading="lazy"
+            sizes="(min-width: 948px) 948px, 100vw"
+            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+          />
+        </picture>
+        <noscript />
+        <script
+          type="module"
+        >
+          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+        </script>
+      </div>
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video Preview Media should render correctly if 'type' is descriptive 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-qri583"
+        data-gatsby-image-wrapper=""
+        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+      >
+        <div
+          style="max-width: 948px; display: block;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
+            style="max-width: 100%; display: block; position: static;"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          data-placeholder-image=""
+          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+        />
+        <picture>
+          <source
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+            sizes="(min-width: 948px) 948px, 100vw"
+            type="image/webp"
+          />
+          <img
+            alt="Image alt text"
+            data-gatsby-image-ssr=""
+            data-main-image=""
+            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+            decoding="async"
+            draggable="false"
+            loading="lazy"
+            sizes="(min-width: 948px) 948px, 100vw"
+            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: contain; object-position: center; opacity: 0;"
+          />
+        </picture>
+        <noscript />
+        <script
+          type="module"
+        >
+          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+        </script>
+      </div>
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video Preview Media should render correctly if 'type' is null 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-qri583"
+        data-gatsby-image-wrapper=""
+        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+      >
+        <div
+          style="max-width: 948px; display: block;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
+            style="max-width: 100%; display: block; position: static;"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          data-placeholder-image=""
+          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+        />
+        <picture>
+          <source
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+            sizes="(min-width: 948px) 948px, 100vw"
+            type="image/webp"
+          />
+          <img
+            alt="Image alt text"
+            data-gatsby-image-ssr=""
+            data-main-image=""
+            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+            decoding="async"
+            draggable="false"
+            loading="lazy"
+            sizes="(min-width: 948px) 948px, 100vw"
+            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+          />
+        </picture>
+        <noscript />
+        <script
+          type="module"
+        >
+          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+        </script>
+      </div>
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video renders correctly with everything populated 1`] = `
+<div>
+  <div
+    class="YoutubeVideo-inline example-classname css-g8q1iy"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="example-data-test-id"
+  >
+    <div>
+      <div
+        class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-qri583"
+        data-gatsby-image-wrapper=""
+        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
+      >
+        <div
+          style="max-width: 948px; display: block;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;charset=utf-8,%3Csvg%20height='720'%20width='948'%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E"
+            style="max-width: 100%; display: block; position: static;"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          data-placeholder-image=""
+          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+        />
+        <picture>
+          <source
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+            sizes="(min-width: 948px) 948px, 100vw"
+            type="image/webp"
+          />
+          <img
+            alt="Image alt text"
+            data-gatsby-image-ssr=""
+            data-main-image=""
+            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+            decoding="async"
+            draggable="false"
+            loading="lazy"
+            sizes="(min-width: 948px) 948px, 100vw"
+            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+          />
+        </picture>
+        <noscript />
+        <script
+          type="module"
+        >
+          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
+        </script>
+      </div>
+      <div
+        class="YoutubeVideo-overlay"
+      >
+        <button
+          aria-label="Video label"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="icon-button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="PlayArrowIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 5v14l11-7z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+        <p
+          class="MuiTypography-root MuiTypography-body1 YoutubeVideo-subtitle css-1o02bdp-MuiTypography-root"
+          data-testid="typography"
+        >
+          Video subtitle
+        </p>
+      </div>
+    </div>
+    <div
+      style="opacity: 0; visibility: hidden; transition-delay: 500ms;"
+    >
+      <react-player
+        config="[object Object]"
+        controls="true"
+        data-testid="youtube-inline-react-player"
+        light="true"
+        playing="false"
+        url="http://localhost:8080/video.mp4"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video renders correctly with minimum populated 1`] = `
+<div>
+  <div
+    class="css-uagn6w"
+    data-gtm="{"id":"cta-click--video-youtube","label":"http://localhost:8080/video.mp4-Video label","action":"Play"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <div
+      aria-label="Video label"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium YoutubeVideo-thumbnail css-11nrv4h-MuiButtonBase-root-MuiButton-root"
+      data-testid="thumbnail"
+      role="button"
+      tabindex="0"
+    >
+      <img
+        alt="Video label"
+        class="css-qri583"
+        data-testid="youtube-preview-image"
+        draggable="false"
+        src="http://localhost:8080/default-image.jpg"
+      />
+      <span
+        class="css-1ptr1nd"
+      >
+        Video label
+      </span>
+      <div
+        aria-label="Video label"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge YoutubeVideo-playButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="PlayArrowIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;

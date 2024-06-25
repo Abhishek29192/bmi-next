@@ -1,4 +1,4 @@
-import { Product, System } from "@bmi/pim-types";
+import type { Product, System } from "@bmi/pim-types";
 
 export enum ObjType {
   System = "system",

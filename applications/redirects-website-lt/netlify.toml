@@ -1,6 +1,3 @@
-# Settings in the [build] context are global and are applied to all contexts
-# unless otherwise overridden by more specific contexts.
-
 [[redirects]]
  from="/zalias-stogas/"
  to="https://www.bmigroup.com/lt/naujienos/zalias-stogas/?utm_source=bmilietuva.lt&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
