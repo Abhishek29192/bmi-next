@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb PT ES redirects - blogs`,
     description: `Website for PT ES redirects - blogs`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsptesblogs.gatsbyjs.io`
+    siteUrl: `https://bmidxbredirectsptesblogs.netlify.app`
   },
   plugins: [
     {

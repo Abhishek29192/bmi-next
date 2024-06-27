@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb UK redirects - Redland`,
     description: `Website for UK redirects - Redland`,
     author: `bmi`,
-    siteUrl: `https://dxbredirectsukdedicatedredland.gatsbyjs.io`
+    siteUrl: `https://dxbredirectsukdedicatedredland.netlify.app`
   },
   plugins: [
     {

@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb DE redirects - wolfin-de`,
     description: `Website for redirects -  wolfin-de`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsdewolfinde.gatsbyjs.io`
+    siteUrl: `https://dxbredirectsgermanywolfinde.netlify.app`
   },
   plugins: [
     {

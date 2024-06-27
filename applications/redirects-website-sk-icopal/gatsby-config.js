@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb SK redirects - Slovakia Icopal`,
     description: `Website for SK redirects - Slovakia Icopal`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsslovakiaicopal.gatsbyjs.io`
+    siteUrl: `https://bmidxbredirectsslovakiaicopal.netlify.app`
   },
   plugins: [
     {

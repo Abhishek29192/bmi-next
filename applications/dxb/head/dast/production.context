@@ -5,7 +5,7 @@
         <desc/>
         <inscope>true</inscope>
         <incregexes>https://www.bmigroup.com.*</incregexes>
-        <incregexes>https://bmidxb.*prod.gatsbyjs.io.*</incregexes>
+        <incregexes>https://bmidxb.*prod.netlify.app.*</incregexes>
         <tech>
             <include>Language.JavaScript</include>
             <include>OS.Linux</include>

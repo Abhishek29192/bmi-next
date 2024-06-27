@@ -1,1 +1,1 @@
-# This site is not being redirected from https://bmidxbredirectsdewolfincom.gatsbyjs.io
+# This site is not being redirected from https://dxbredirectsgermanywolfincom.netlify.app
