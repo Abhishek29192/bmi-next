@@ -1,42 +1,83 @@
 ###
 
-# @name Get all entries
+# @name CMA - Get all entries
 
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/
 Authorization: Bearer {{contentfulToken}}
 
 ###
 
-# @name Get entries by content type
-@contentType=document
+# @name CDA - Get all entries
+GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries
+Authorization: Bearer {{contentfulDeliveryToken}}
+
+###
+
+# @name CMA - Get entries by content type
+< {%
+  request.variables.set("contentType", "document")
+%}
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type={{contentType}}
 Authorization: Bearer {{contentfulToken}}
 
 ###
 
-# @name Get entries by tag
-@tag=market__indonesia
+# @name CDA - Get entries by content type
+< {%
+  request.variables.set("contentType", "document")
+%}
+GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type={{contentType}}
+Authorization: Bearer {{contentfulDeliveryToken}}
+
+###
+
+# @name CMA - Get entries by tag
+< {%
+  request.variables.set("tag", "market__indonesia")
+%}
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?metadata.tags.sys.id[all]={{tag}}
 Authorization: Bearer {{contentfulToken}}
 
 ###
 
+# @name CMA - Get entries by tag
+@tag=market__indonesia
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/assets/?metadata.tags.sys.id[all]={{tag}}
+Authorization: Bearer {{contentfulToken}}
+
+###
+
+# @name CDA - Get entries by tag
+< {%
+  request.variables.set("tag", "market__indonesia")
+%}
+GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?metadata.tags.sys.id[all]={{tag}}
+Authorization: Bearer {{contentfulDeliveryToken}}
+
+###
+
 # @name CMA - Get entry by ID
-@id=40Z3K649zdfmvyffw08q3y
+< {%
+  request.variables.set("id", "40Z3K649zdfmvyffw08q3y")
+%}
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/{{id}}
 Authorization: Bearer {{contentfulToken}}
 
 ###
 
 # @name CDA - Get entry by ID
-@id=IE_4S7B0U7d6TXjIL7LabkipE
+< {%
+  request.variables.set("id", "40Z3K649zdfmvyffw08q3y")
+%}
 GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/{{id}}
 Authorization: Bearer {{contentfulDeliveryToken}}
 
 ###
 
 # @name Preview - Get entry by ID
-@id=5x8uAuSGpYpoACttwBfvF8
+< {%
+  request.variables.set("id", "40Z3K649zdfmvyffw08q3y")
+%}
 GET https://preview.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/{{id}}
 Authorization: Bearer {{contentfulPreviewToken}}
 
@@ -48,22 +89,19 @@ Authorization: Bearer {{contentfulToken}}
 
 ###
 
-# @name Get entries by tag
-@tag=market__indonesia
-GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/assets/?metadata.tags.sys.id[all]={{tag}}
-Authorization: Bearer {{contentfulToken}}
-
-###
-
 # @name Get asset by ID
-@id=fLLjny9mb7YYwMCX2nYXI
+< {%
+  request.variables.set("id", "fLLjny9mb7YYwMCX2nYXI")
+%}
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/assets/{{id}}
 Authorization: Bearer {{contentfulToken}}
 
 ###
 
 # @name Get system configurator next step
-@answerId=6WmMQzsO3A3yHy7rmihXC0
+< {%
+  request.variables.set("answerId", "6WmMQzsO3A3yHy7rmihXC0")
+%}
 POST https://graphql.contentful.com/content/v1/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}
 Content-Type: application/json
 Authorization: Bearer {{contentfulDeliveryToken}}
@@ -166,21 +204,27 @@ Authorization: Bearer {{contentfulDeliveryToken}}
 ###
 
 # @name Sync all data from sync token
-@sync_token=wonDrcKnRgcSOF4-wrDCgcKefWzCgsOxXQhzISXDm3fCoMOIw5fDk8OTw6zDsTzCkcO9UHDDtcKKworDjDVpwrJ5wrXDtcOjw4oNNlZpwqLDm8O6wo94w7fCm1VKSk7CmsKZIsKjw59-wqPDvRBLaMK8Y8OLJEUiPCIow4XDuA7CtCYhAn_CtVHCrMKZf8KTw7AAwoHDuX0qacK1bcO9wqluw5PCsjzCusKuwrpRDDYfwoDCsUlGb2nDpMOuw6TCkknDs8OlwoM_LMOOwq_Co8KDwofCp2kzwpJ5
+< {%
+  request.variables.set("sync_token", "wonDrcKnRgcSOF4-wrDCgcKefWzCgsOxXQhzISXDm3fCoMOIw5fDk8OTw6zDsTzCkcO9UHDDtcKKworDjDVpwrJ5wrXDtcOjw4oNNlZpwqLDm8O6wo94w7fCm1VKSk7CmsKZIsKjw59-wqPDvRBLaMK8Y8OLJEUiPCIow4XDuA7CtCYhAn_CtVHCrMKZf8KTw7AAwoHDuX0qacK1bcO9wqluw5PCsjzCusKuwrpRDDYfwoDCsUlGb2nDpMOuw6TCkknDs8OlwoM_LMOOwq_Co8KDwofCp2kzwpJ5")
+%}
 GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/sync?sync_token={{sync_token}}
 Authorization: Bearer {{contentfulDeliveryToken}}
 
 ###
 
 # @name Sync data by content type initial
-@content_type=page
+< {%
+  request.variables.set("content_type", "page")
+%}
 GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/sync?initial=true&type=Entry&content_type={{content_type}}
 Authorization: Bearer {{contentfulDeliveryToken}}
 
 ###
 
 # @name Sync data from sync token
-@sync_token=w7Ese3kdwpMbMhhgw7QAUsKiw6bCiwHCgMKzCsKmwobCl8KHZsKlRsOMwqMrbsORwoDDtF3Dkhg0HG_Dr21ewqk2XsKHABNOUsOjW8KVdEXCj8KmwqpLwp_DmMOmKMOnWTxow43DnQnDqsKGwqbDiA3CuirCrMOQZBzDgD08wpLCm8KYLCQUMMOFwo7DicKdwqgHTsO4PElDw6jDmnHDj3IEw4Fjw63DuSfCpXxpw4rDvXjDhMO_ch_ClsOsJm3CrDlSXzjDocKPSEpcwqrCsMKlwo_DgHtLJhTCqcOPw4ISw5fCjRDCjsKcB8OvwpVDwq3Cg09hJzFoUTDCq8KQw4M_Ej83
+< {%
+  request.variables.set("sync_token", "w7Ese3kdwpMbMhhgw7QAUsKiw6bCiwHCgMKzCsKmwobCl8KHZsKlRsOMwqMrbsORwoDDtF3Dkhg0HG_Dr21ewqk2XsKHABNOUsOjW8KVdEXCj8KmwqpLwp_DmMOmKMOnWTxow43DnQnDqsKGwqbDiA3CuirCrMOQZBzDgD08wpLCm8KYLCQUMMOFwo7DicKdwqgHTsO4PElDw6jDmnHDj3IEw4Fjw63DuSfCpXxpw4rDvXjDhMO_ch_ClsOsJm3CrDlSXzjDocKPSEpcwqrCsMKlwo_DgHtLJhTCqcOPw4ISw5fCjRDCjsKcB8OvwpVDwq3Cg09hJzFoUTDCq8KQw4M_Ej83")
+%}
 GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/sync?sync_token={{sync_token}}
 Authorization: Bearer {{contentfulDeliveryToken}}
 
@@ -193,6 +237,8 @@ Authorization: Bearer {{contentfulToken}}
 ###
 
 # @name Get environment alias
-@environmentAliasId=pre-production
+< {%
+  request.variables.set("environmentAliasId", "pre-production")
+%}
 GET https://api.contentful.com/spaces/{{spaceId}}/environment_aliases/{{environmentAliasId}}
 Authorization: Bearer {{contentfulToken}}
