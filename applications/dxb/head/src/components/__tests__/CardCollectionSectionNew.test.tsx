@@ -4,7 +4,6 @@ import CardCollectionSection from "../CardCollectionSection";
 import createPageInfoData from "../../__tests__/helpers/PageInfoHelper";
 import createPromoData from "../../__tests__/helpers/PromoHelper";
 import { renderWithProviders } from "../../__tests__/renderWithProviders";
-import createLinkData from "../../__tests__/helpers/LinkHelper";
 import createCardCollectionSection from "../../__tests__/helpers/CardCollectionSection";
 import type { Data as CardCollectionSectionData } from "../CardCollectionSection";
 
@@ -179,17 +178,12 @@ describe("Card Collection Item Component", () => {
       expect(pageInfoCardDate).not.toBeInTheDocument();
     });
 
-    it("should transform the cards into clickable links if cta is defined", () => {
+    it("should transform the cards into clickable links if a page or a promo with a cta", () => {
       renderWithProviders(
         <CardCollectionSection
           data={createCardCollectionSection({
             cardType: "Text Card",
-            cards: [
-              createPageInfoData({
-                cta: createLinkData()
-              }),
-              createPromoData()
-            ]
+            cards: [createPageInfoData(), createPromoData()]
           })}
         />
       );
@@ -208,25 +202,19 @@ describe("Card Collection Item Component", () => {
       expect(promoCard).toHaveAttribute("href");
     });
 
-    it("should not transform the cards into clickable links if cta is undefined", () => {
+    it("should not transform the cards into clickable links if cta is null for promos", () => {
       renderWithProviders(
         <CardCollectionSection
           data={createCardCollectionSection({
             cardType: "Text Card",
-            cards: [createPageInfoData(), createPromoData({ cta: null })]
+            cards: [createPromoData({ cta: null })]
           })}
         />
       );
 
-      const pageInfoCard = screen.queryByTestId(
-        "card-collection-section-item-example-title"
-      );
       const promoCard = screen.queryByTestId(
         "card-collection-section-item-Contentful-Promo-Title"
       );
-
-      expect(pageInfoCard!.tagName).toBe("BUTTON");
-      expect(pageInfoCard).not.toHaveAttribute("href");
 
       expect(promoCard!.tagName).toBe("BUTTON");
       expect(promoCard).not.toHaveAttribute("href");
@@ -238,12 +226,7 @@ describe("Card Collection Item Component", () => {
           data={createCardCollectionSection({
             cardType: "Text Card",
             cardLabel: "example-card-label",
-            cards: [
-              createPageInfoData({
-                cta: createLinkData()
-              }),
-              createPromoData()
-            ]
+            cards: [createPageInfoData(), createPromoData()]
           })}
         />
       );
@@ -259,11 +242,11 @@ describe("Card Collection Item Component", () => {
       expect(pageInfoCardFooterCta).toHaveTextContent(/example-card-label/);
       expect(pageInfoCardFooterCta).toHaveAttribute(
         "href",
-        "http://localhost:8080/asset.pdf"
+        "/no/example/path/"
       );
       expect(pageInfoCardFooterCta).toHaveAttribute(
         "data-gtm",
-        '{"id":"cta-click1","label":"example-title - example-card-label","action":"http://localhost:8080/asset.pdf"}'
+        '{"id":"cta-click1","label":"example-title - example-card-label","action":"/no/example/path/"}'
       );
 
       expect(promoCardFooterCta).toHaveTextContent(/example-card-label/);
@@ -358,7 +341,8 @@ describe("Card Collection Item Component", () => {
 
       const dataGTM = JSON.stringify({
         id: "cta-click1",
-        label: "example-title - example-card-label"
+        label: "example-title - example-card-label",
+        action: "/no/example/path/"
       });
 
       const pageInfoCard = screen.getByTestId(
@@ -379,7 +363,8 @@ describe("Card Collection Item Component", () => {
 
       const dataGTM = JSON.stringify({
         id: "cta-click1",
-        label: "example-title"
+        label: "example-title",
+        action: "/no/example/path/"
       });
 
       const pageInfoCard = screen.getByTestId(
@@ -684,17 +669,12 @@ describe("Card Collection Item Component", () => {
         expect(pageInfoCardDate).not.toBeInTheDocument();
       });
 
-      it("should transform the cards into clickable links if cta is defined", () => {
+      it("should transform the cards into clickable links if a page or a promo with a cta", () => {
         renderWithProviders(
           <CardCollectionSection
             data={createCardCollectionSection({
               cardType: type,
-              cards: [
-                createPageInfoData({
-                  cta: createLinkData()
-                }),
-                createPromoData()
-              ]
+              cards: [createPageInfoData(), createPromoData()]
             })}
           />
         );
@@ -713,25 +693,19 @@ describe("Card Collection Item Component", () => {
         expect(promoCard).toHaveAttribute("href");
       });
 
-      it("should not transform the cards into clickable links if cta is undefined", () => {
+      it("should not transform the cards into clickable links if cta is null for promos", () => {
         renderWithProviders(
           <CardCollectionSection
             data={createCardCollectionSection({
               cardType: type,
-              cards: [createPageInfoData(), createPromoData({ cta: null })]
+              cards: [createPromoData({ cta: null })]
             })}
           />
         );
 
-        const pageInfoCard = screen.queryByTestId(
-          "card-collection-section-item-example-title"
-        );
         const promoCard = screen.queryByTestId(
           "card-collection-section-item-Contentful-Promo-Title"
         );
-
-        expect(pageInfoCard!.tagName).toBe("BUTTON");
-        expect(pageInfoCard).not.toHaveAttribute("href");
 
         expect(promoCard!.tagName).toBe("BUTTON");
         expect(promoCard).not.toHaveAttribute("href");
@@ -743,12 +717,7 @@ describe("Card Collection Item Component", () => {
             data={createCardCollectionSection({
               cardType: type,
               cardLabel: "example-card-label",
-              cards: [
-                createPageInfoData({
-                  cta: createLinkData()
-                }),
-                createPromoData()
-              ]
+              cards: [createPageInfoData(), createPromoData()]
             })}
           />
         );
@@ -766,11 +735,11 @@ describe("Card Collection Item Component", () => {
         expect(pageInfoCardFooterCta).toHaveTextContent(/example-card-label/);
         expect(pageInfoCardFooterCta).toHaveAttribute(
           "href",
-          "http://localhost:8080/asset.pdf"
+          "/no/example/path/"
         );
         expect(pageInfoCardFooterCta).toHaveAttribute(
           "data-gtm",
-          '{"id":"cta-click1","label":"example-title - example-card-label","action":"http://localhost:8080/asset.pdf"}'
+          '{"id":"cta-click1","label":"example-title - example-card-label","action":"/no/example/path/"}'
         );
 
         expect(promoCardFooterCta).toHaveTextContent(/example-card-label/);
@@ -871,7 +840,8 @@ describe("Card Collection Item Component", () => {
 
         const dataGTM = JSON.stringify({
           id: "cta-click1",
-          label: "example-title - example-card-label"
+          label: "example-title - example-card-label",
+          action: "/no/example/path/"
         });
 
         const pageInfoCard = screen.getByTestId(
@@ -892,7 +862,8 @@ describe("Card Collection Item Component", () => {
 
         const dataGTM = JSON.stringify({
           id: "cta-click1",
-          label: "example-title"
+          label: "example-title",
+          action: "/no/example/path/"
         });
 
         const pageInfoCard = screen.getByTestId(

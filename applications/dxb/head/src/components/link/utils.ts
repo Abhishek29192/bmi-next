@@ -20,12 +20,10 @@ export const getCTA = (
     return toAnchorLinkActionProps(data.cta, countryCode);
   }
 
-  const { path } = data;
-  if (!path) {
-    return null;
-  }
-
-  const to = getPathWithCountryCode(countryCode, path).replace(/\/+/gi, "/");
+  const to = getPathWithCountryCode(countryCode, data.path).replace(
+    /\/+/gi,
+    "/"
+  );
   return {
     to: to,
     component: GatsbyLink,

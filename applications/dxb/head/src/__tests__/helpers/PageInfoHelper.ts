@@ -7,7 +7,7 @@ const createPageInfoData = (pageInfoData?: Partial<Data>): Data => ({
   subtitle: null,
   brandLogo: null,
   slug: "example/slug",
-  path: null,
+  path: "example/path",
   date: null,
   rawDate: null,
   tags: null,

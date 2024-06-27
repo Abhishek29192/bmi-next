@@ -56,21 +56,29 @@ const getPromoSection = (props: GetPromoSectionProps) => {
   const cta = getCTA(promo, countryCode, ctaLabelMicroCopy);
 
   const label =
-    promo.title ||
-    (promo.__typename === "ContentfulPromo" ? promo.name : undefined);
+    promo.__typename === "ContentfulPromo"
+      ? promo.title || promo.name
+      : promo.title;
+
+  const ctaLabel =
+    (promo.__typename === "ContentfulPromo" && promo.cta?.label) ||
+    ctaLabelMicroCopy;
+
   return [
-    {
-      label,
-      image: promo.featuredMedia ? (
-        <Image {...promo.featuredMedia} />
-      ) : undefined
-    },
+    ...(promo.featuredMedia
+      ? [
+          {
+            label,
+            image: <Image {...promo.featuredMedia} />
+          }
+        ]
+      : []),
     { label, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),
     ...(cta
       ? [
           {
-            label: promo.cta?.label || ctaLabelMicroCopy,
+            label: ctaLabel,
             action: cta
           }
         ]
