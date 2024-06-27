@@ -2,6 +2,7 @@ import { MediaData } from "@bmi-digital/components/media-gallery";
 import { ProductOverviewPaneProps } from "@bmi-digital/components/product-overview-pane";
 import DefaultImage from "@bmi-digital/components/resources/DefaultImage";
 import { Link } from "gatsby";
+import { replaceSpaces } from "@bmi-digital/components";
 import { isDefined } from "../../../libraries/utils/src";
 import { Image, Measurements, Product, RelatedVariant } from "../types/pim";
 import { getPathWithCountryCode } from "./path";
@@ -81,7 +82,8 @@ export const transformImages = (
         media: {
           src: mainSource,
           alt: altText,
-          loading: index === 0 ? "eager" : "lazy"
+          loading: index === 0 ? "eager" : "lazy",
+          "data-testid": `pim-image-${replaceSpaces(altText)}`
         },
         thumbnail: thumbnail ?? undefined
       }

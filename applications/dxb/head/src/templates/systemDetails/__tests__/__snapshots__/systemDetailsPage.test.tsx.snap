@@ -12,7 +12,7 @@ exports[`Media Gallery should render the media gallery component without the mas
     <img
       alt="Alt text"
       class="MediaGallery-mainImageWrappershort css-1smc134"
-      data-testid="media-gallery-media"
+      data-testid="pim-image-Alt-text"
       draggable="false"
       loading="eager"
       src="http://localhost:8000/image-main-source.jpg"
@@ -33,7 +33,7 @@ exports[`Media Gallery should render the media gallery component, with the maste
     <img
       alt="example-master-image-alt-text"
       class="MediaGallery-mainImageWrappershort css-1smc134"
-      data-testid="media-gallery-media"
+      data-testid="pim-image-example-master-image-alt-text"
       draggable="false"
       loading="eager"
       src="exampleMasterImage.jpg"
@@ -80,6 +80,7 @@ exports[`Media Gallery should render the media gallery component, with the maste
         <img
           alt="example-master-image-alt-text"
           class="css-1tdmq76"
+          data-testid="pim-image-example-master-image-alt-text"
           draggable="false"
           loading="eager"
           src="exampleMasterImage.jpg"
@@ -95,6 +96,7 @@ exports[`Media Gallery should render the media gallery component, with the maste
         <img
           alt="Alt text"
           class="css-1tdmq76"
+          data-testid="pim-image-Alt-text"
           draggable="false"
           loading="lazy"
           src="http://localhost:8000/image-main-source.jpg"
@@ -1183,7 +1185,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrappershort css-1smc134"
-                    data-testid="media-gallery-media"
+                    data-testid="pim-image-Alt-text"
                     draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
@@ -3739,7 +3741,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrappershort css-1smc134"
-                    data-testid="media-gallery-media"
+                    data-testid="pim-image-Alt-text"
                     draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
@@ -6296,7 +6298,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     <img
                       alt="Alt text"
                       class="MediaGallery-mainImageWrappershort css-1smc134"
-                      data-testid="media-gallery-media"
+                      data-testid="pim-image-Alt-text"
                       draggable="false"
                       loading="eager"
                       src="http://localhost:8000/image-main-source.jpg"
@@ -8853,7 +8855,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrappershort css-1smc134"
-                    data-testid="media-gallery-media"
+                    data-testid="pim-image-Alt-text"
                     draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
@@ -11409,7 +11411,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrappershort css-1smc134"
-                    data-testid="media-gallery-media"
+                    data-testid="pim-image-Alt-text"
                     draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
@@ -13925,7 +13927,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrappershort css-1smc134"
-                    data-testid="media-gallery-media"
+                    data-testid="pim-image-Alt-text"
                     draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
@@ -16481,7 +16483,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrappershort css-1smc134"
-                    data-testid="media-gallery-media"
+                    data-testid="pim-image-Alt-text"
                     draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"

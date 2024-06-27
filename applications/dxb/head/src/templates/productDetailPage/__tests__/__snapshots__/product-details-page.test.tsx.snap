@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Details Page Media Component should only render the galleryImage if galleryImages are defined and masterImage is null 1`] = `
+<div
+  class="css-2bw4l8"
+  data-testid="media-gallery-root"
+>
+  <div
+    class=" css-79elbk"
+    data-testid="media-gallery-media-wrapper"
+  >
+    <img
+      alt="example-gallery-image-alt-text"
+      class="MediaGallery-mainImageWrappershort css-1smc134"
+      data-testid="pim-image-example-gallery-image-alt-text"
+      draggable="false"
+      loading="eager"
+      src="http://localhost:8000/image-main-source.jpg"
+    />
+  </div>
+</div>
+`;
+
+exports[`Product Details Page Media Component should render the fallback image if both masterImage and galleryImages are not provided 1`] = `
+<div
+  class="css-2bw4l8"
+  data-testid="media-gallery-root"
+>
+  <div
+    class=" css-79elbk"
+    data-testid="media-gallery-media-wrapper"
+  >
+    <svg
+      class="MediaGallery-mainImageWrappershort css-1smc134"
+      data-testid="media-gallery-media"
+      draggable="false"
+      viewBox="0 0 920 440"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 0h920v440H0z"
+        fill="none"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M527.74 259.414 420.853 152.526h91.832c8.28 0 15.055 6.775 15.055 15.055zm-2.253 36.131-7.527-7.527H407.309c-8.28 0-15.054-6.774-15.054-15.054V162.313l-7.528-7.528 9.786-9.785 140.76 140.76zm-29.363-30.109-29.356-29.356-14.302 18.065-18.818-22.582-26.345 33.873z"
+        fill="#CCC"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+</div>
+`;
