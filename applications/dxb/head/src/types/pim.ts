@@ -233,9 +233,9 @@ export type Image = Omit<
   FirestoreImage,
   "mainSource" | "thumbnail" | "altText"
 > & {
-  mainSource: string | undefined;
+  mainSource: string;
   thumbnail: string | null;
-  altText: string | null;
+  altText: string;
 };
 
 export type Measurements = Omit<

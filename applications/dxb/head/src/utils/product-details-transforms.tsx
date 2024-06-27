@@ -74,9 +74,6 @@ export const transformImages = (
   images: readonly Image[]
 ): readonly MediaData[] => {
   return images.flatMap(({ mainSource, thumbnail, altText }, index) => {
-    if (!mainSource || !altText) {
-      return [];
-    }
     return [
       {
         media: {

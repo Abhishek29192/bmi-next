@@ -357,7 +357,7 @@ describe("transformProduct", () => {
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
           "masterImage": {
-            "altText": undefined,
+            "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": undefined,
           },
@@ -666,7 +666,7 @@ describe("transformProduct", () => {
           "isSampleOrderAllowed": true,
           "isVisualiserAvailable": false,
           "masterImage": {
-            "altText": undefined,
+            "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": undefined,
           },
@@ -1501,7 +1501,7 @@ describe("transformProduct", () => {
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
-              "altText": undefined,
+              "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
             },
@@ -2331,7 +2331,7 @@ describe("transformProduct", () => {
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
-              "altText": undefined,
+              "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
             },
@@ -3166,7 +3166,7 @@ describe("transformProduct", () => {
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
-              "altText": undefined,
+              "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
             },
@@ -4001,7 +4001,7 @@ describe("transformProduct", () => {
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
-              "altText": undefined,
+              "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
             },
@@ -4982,7 +4982,7 @@ describe("transformProduct", () => {
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
-              "altText": undefined,
+              "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
             },
@@ -5908,7 +5908,7 @@ describe("transformProduct", () => {
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
-              "altText": undefined,
+              "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
             },
@@ -6820,7 +6820,7 @@ describe("transformProduct", () => {
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
-              "altText": undefined,
+              "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
             },
@@ -8108,7 +8108,7 @@ describe("transformProduct", () => {
     );
   });
 
-  it("handles master images with missing image without format", async () => {
+  it("handles missing master image without format", async () => {
     const product = createProduct({
       images: [
         createImage({
@@ -8153,7 +8153,7 @@ describe("transformProduct", () => {
     expect(transformedProducts[0].masterImage).toEqual({
       mainSource: "http://localhost:8000",
       thumbnail: "http://localhost:8000",
-      altText: undefined
+      altText: "name"
     });
     expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
       "http://localhost:8000"
@@ -8181,7 +8181,7 @@ describe("transformProduct", () => {
     expect(transformedProducts[0].galleryImages).toEqual([]);
   });
 
-  it("handles gallery images with missing image without format", async () => {
+  it("handles gallery images with missing image and altText without format", async () => {
     const product = createProduct({
       images: [
         createImage({
@@ -8227,7 +8227,7 @@ describe("transformProduct", () => {
       {
         mainSource: "http://localhost:8000",
         thumbnail: "http://localhost:8000",
-        altText: undefined
+        altText: "name"
       }
     ]);
   });
@@ -10387,7 +10387,7 @@ describe("transformProduct", () => {
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
-              "altText": undefined,
+              "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
             },
@@ -11348,7 +11348,7 @@ describe("transformProduct", () => {
           "specificationIframeUrl": "http://localhost:8000",
           "techDrawings": [
             {
-              "altText": undefined,
+              "altText": "name",
               "mainSource": "http://localhost:8000",
               "thumbnail": undefined,
             },
@@ -14102,7 +14102,7 @@ describe("transformProduct", () => {
         "specificationIframeUrl": "http://localhost:8000",
         "techDrawings": [
           {
-            "altText": undefined,
+            "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": undefined,
           },
@@ -14937,7 +14937,7 @@ describe("transformProduct", () => {
         "specificationIframeUrl": "http://localhost:8000",
         "techDrawings": [
           {
-            "altText": undefined,
+            "altText": "name",
             "mainSource": "http://localhost:8000",
             "thumbnail": undefined,
           },
