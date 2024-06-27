@@ -50,6 +50,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     seo: null,
     path: product.path
   };
+
   const {
     maximumSamples,
     sampleBasketLink,
@@ -64,11 +65,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     return isSSR ? "" : window.location.search;
   }, [isSSR]);
 
-  const images =
-    product.masterImage &&
-    transformImages(
-      [product.masterImage, ...product.galleryImages].filter(Boolean)
-    );
+  const images = product.masterImage
+    ? transformImages([product.masterImage, ...product.galleryImages])
+    : transformImages([...product.galleryImages]);
 
   return (
     <Page

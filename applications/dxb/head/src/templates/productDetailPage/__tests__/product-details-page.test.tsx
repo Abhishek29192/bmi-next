@@ -7,6 +7,7 @@ import { Data as SiteData } from "../../../components/Site";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { Product } from "../../../types/pim";
 import ProductDetailsPage, { Props as PdpProps } from "../product-details-page";
+import createPimImage from "../../../__tests__/helpers/PimImageHelper";
 
 const mockPageContext: PdpProps["pageContext"] = {
   productCode: "test-product-code",
@@ -222,6 +223,7 @@ describe("Product Details Page", () => {
       )
     ).toBeInTheDocument();
   });
+
   it("shouldn't render PDP cards section if wasn't pvovided", () => {
     const contentfulSite = createMockSiteData({
       resources: {
@@ -286,5 +288,83 @@ describe("Product Details Page", () => {
         `${mockProduct.keyAssetDocuments![0].assetType}Download`
       )
     ).toBeInTheDocument();
+  });
+
+  describe("Media Component", () => {
+    it("should render both a masterImage and a galleryImage if both are defined", () => {
+      const product: Product = {
+        ...mockProduct,
+        masterImage: createPimImage({
+          altText: "example-master-image-alt-text"
+        }),
+        galleryImages: [
+          createPimImage({ altText: "example-gallery-image-alt-text" })
+        ]
+      };
+
+      renderPdpPage({ product });
+
+      expect(
+        screen.getAllByTestId("pim-image-example-master-image-alt-text")[0]
+      ).toBeInTheDocument();
+      expect(
+        screen.getAllByTestId("pim-image-example-gallery-image-alt-text")[0]
+      ).toBeInTheDocument();
+    });
+
+    it("should only render the galleryImage if galleryImages are defined and masterImage is null", () => {
+      const product: Product = {
+        ...mockProduct,
+        masterImage: null,
+        galleryImages: [
+          createPimImage({ altText: "example-gallery-image-alt-text" })
+        ]
+      };
+
+      renderPdpPage({ product });
+
+      expect(screen.getAllByTestId("media-gallery-root")[0]).toMatchSnapshot();
+      expect(
+        screen.getAllByTestId("pim-image-example-gallery-image-alt-text")[0]
+      ).toBeInTheDocument();
+    });
+
+    it("should render the fallback image if both masterImage and galleryImages are not provided", () => {
+      const product: Product = {
+        ...mockProduct,
+        masterImage: null,
+        galleryImages: []
+      };
+
+      renderPdpPage({ product });
+
+      expect(screen.getAllByTestId("media-gallery-root")[0]).toMatchSnapshot();
+    });
+
+    it("should filter out any null or undefined mainSource property values out of the image array", () => {
+      const product: Product = {
+        ...mockProduct,
+        masterImage: null,
+        galleryImages: [
+          createPimImage({ altText: "first-image" }),
+          createPimImage({ altText: "undefined-image", mainSource: undefined }),
+          createPimImage({ altText: "third-image" })
+        ]
+      };
+
+      renderPdpPage({ product });
+
+      expect(
+        screen.getAllByTestId("pim-image-first-image")[0]
+      ).toBeInTheDocument();
+
+      expect(screen.queryAllByTestId("pim-image-undefined-image").length).toBe(
+        0
+      );
+
+      expect(
+        screen.getAllByTestId("pim-image-third-image")[0]
+      ).toBeInTheDocument();
+    });
   });
 });

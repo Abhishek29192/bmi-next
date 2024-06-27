@@ -1421,7 +1421,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrapperdefault css-1smc134"
-                    data-testid="media-gallery-media"
+                    data-testid="pim-image-Alt-text"
                     draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
@@ -2544,7 +2544,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrapperdefault css-1smc134"
-                    data-testid="media-gallery-media"
+                    data-testid="pim-image-Alt-text"
                     draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
@@ -3140,7 +3140,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                   <img
                     alt="Alt text"
                     class="MediaGallery-mainImageWrapperdefault css-1smc134"
-                    data-testid="media-gallery-media"
+                    data-testid="pim-image-Alt-text"
                     draggable="false"
                     loading="eager"
                     src="http://localhost:8000/image-main-source.jpg"
@@ -5266,7 +5266,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
             <img
               alt="Alt text"
               class="MediaGallery-mainImageWrapperdefault css-1smc134"
-              data-testid="media-gallery-media"
+              data-testid="pim-image-Alt-text"
               draggable="false"
               loading="eager"
               src="http://localhost:8000/image-main-source.jpg"
