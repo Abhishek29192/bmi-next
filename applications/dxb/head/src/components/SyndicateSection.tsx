@@ -7,16 +7,16 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
+import Button from "@bmi-digital/components/button";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
 import {
   DescriptionGrid,
   DescriptionTypoMultiLine
 } from "./styles/SyndicateSection.styles";
-
-import ButtonLink from "./link/ButtonLink";
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
+import { getCTA } from "./link/utils";
 import type { Data as PageInfoData } from "./PageInfo";
 import type { Data as PromoData } from "./Promo";
 
@@ -24,8 +24,8 @@ export type Data = {
   __typename: "ContentfulSyndicateSection";
   title: string | null;
   description: {
-    description: string | null;
-  };
+    description: string;
+  } | null;
   villains: (PromoData | PageInfoData)[] | null;
   isReversed: boolean;
 };
@@ -51,15 +51,22 @@ const SyndicateSection = ({
       variables?: Record<string, string>
     ) => string
   ) => {
-    if (data.cta) {
-      const label =
-        data.__typename == "ContentfulPromo"
-          ? getMicroCopy(microCopy.PAGE_LINK_LABEL)
-          : data.cta.label;
+    const cta = getCTA(
+      data,
+      countryCode,
+      getMicroCopy(microCopy.PAGE_LINK_LABEL)
+    );
+
+    const label =
+      data.__typename == "ContentfulPromo" && data.cta
+        ? data.cta.label
+        : getMicroCopy(microCopy.PAGE_LINK_LABEL);
+
+    if (cta) {
       return (
-        <ButtonLink data={{ ...data.cta, label }} variant="opaqueOutlined">
+        <Button {...cta} variant="opaqueOutlined">
           {label}
-        </ButtonLink>
+        </Button>
       );
     }
 
@@ -104,7 +111,9 @@ const SyndicateSection = ({
           {description && (
             <DescriptionGrid container lg={8} xs={12}>
               <DescriptionTypoMultiLine>
-                <Typography>{description.description}</Typography>
+                <Typography data-testid={"syndicate-section-description"}>
+                  {description.description}
+                </Typography>
               </DescriptionTypoMultiLine>
             </DescriptionGrid>
           )}
@@ -135,7 +144,9 @@ const SyndicateSection = ({
       {description && (
         <DescriptionGrid container lg={8} xs={12}>
           <DescriptionTypoMultiLine>
-            <Typography>{description.description}</Typography>
+            <Typography data-testid={"syndicate-section-description"}>
+              {description.description}
+            </Typography>
           </DescriptionTypoMultiLine>
         </DescriptionGrid>
       )}
