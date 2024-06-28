@@ -42,7 +42,7 @@ export type Options = {
   "data-testid"?: string;
 };
 
-export type Props = Omit<Data, "__typename" | "image"> & {
+export type Props = Omit<Data, "image"> & {
   widths: ImageWidths;
   image: { file: { url: ImageData["file"]["url"] } };
 } & Options;

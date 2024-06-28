@@ -16,6 +16,11 @@ const createGenericImageProps = ({
     decoding: "async",
     loading,
     src,
+    ...(size && {
+      style: {
+        objectFit: size
+      }
+    }),
     ...props
   };
 };

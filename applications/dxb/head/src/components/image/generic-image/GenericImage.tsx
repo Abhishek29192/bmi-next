@@ -1,4 +1,5 @@
 import NextImage from "next/image";
+import React from "react";
 import { Props } from "./types";
 
 const createGenericImageProps = ({
@@ -15,6 +16,11 @@ const createGenericImageProps = ({
       decoding={"async"}
       loading={loading}
       src={src}
+      {...(size && {
+        style: {
+          objectFit: size
+        }
+      })}
       {...props}
     />
   );

@@ -1,3 +1,4 @@
+import React from "react";
 import ContentfulImage from "./contentful-image/ContentfulImage";
 import GenericImage from "./generic-image/GenericImage";
 import { Props } from "./types";
