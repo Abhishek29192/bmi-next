@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb NL redirects - Icopal`,
     description: `Website for NL redirects - Icopal`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsnlicopal.gatsbyjs.io`
+    siteUrl: `https://dxbredirectsnldedicatedicopal.netlify.app`
   },
   plugins: [
     {

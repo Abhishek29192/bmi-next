@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb NO Ventex redirects - Norway`,
     description: `Website for NO Ventex redirects - Norway`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsnoventex.gatsbyjs.io`
+    siteUrl: `https://dxbredirectsnorwayventex.netlify.app`
   },
   plugins: [
     {

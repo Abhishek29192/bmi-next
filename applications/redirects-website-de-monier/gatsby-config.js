@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb DE redirects - monier`,
     description: `Website for DE redirects - monier`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsdemonier.gatsbyjs.io`
+    siteUrl: `https://bmidxbredirectsdemonier.netlify.app`
   },
   plugins: [
     {

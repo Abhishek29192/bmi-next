@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb DE redirects - viva-line`,
     description: `Website for DE redirects -  viva-line`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsdevivaline.gatsbyjs.io`
+    siteUrl: `https://dxbredirectsgermanyvivaline.netlify.app`
   },
   plugins: [
     {

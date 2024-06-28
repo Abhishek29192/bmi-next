@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb CZ redirects - Czech Bramac`,
     description: `Website for CZ redirects - Czech Bramac`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsczechbramac.gatsbyjs.io`
+    siteUrl: `https://bmidxbredirectsczechbramac.netlify.app`
   },
   plugins: [
     {
