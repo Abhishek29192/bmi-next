@@ -89,12 +89,6 @@ describe("getCTA", () => {
     expect(cta!.to).toBe(`/no${normalizedPath}`);
   });
 
-  //  TODO: DXB-7055 - This is a bug
-  it("should return null if the path prop is null in PageInfoData", () => {
-    const cta = getCTA(createPageInfoData(), "no");
-    expect(cta).toBeNull();
-  });
-
   it("should apply a custom label to GTM object's label property, if defined, for PageInfoData links", () => {
     const cta = getCTA(
       createPageInfoData({ path: "/path" }),

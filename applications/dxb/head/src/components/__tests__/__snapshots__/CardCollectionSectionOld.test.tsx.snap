@@ -99,12 +99,12 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -129,16 +129,16 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -159,7 +159,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -383,12 +383,12 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -413,16 +413,16 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -443,7 +443,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -455,12 +455,12 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -485,16 +485,16 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -515,7 +515,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -527,12 +527,12 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -557,16 +557,16 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -587,7 +587,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -719,12 +719,12 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -749,16 +749,16 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -779,7 +779,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -791,12 +791,12 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -821,16 +821,16 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -851,7 +851,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -863,12 +863,12 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -893,16 +893,16 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -923,7 +923,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1117,12 +1117,12 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -1147,16 +1147,16 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1177,7 +1177,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1189,12 +1189,12 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -1219,16 +1219,16 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1249,7 +1249,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1261,12 +1261,12 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -1291,16 +1291,16 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1321,7 +1321,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1515,12 +1515,12 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -1545,16 +1545,16 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1575,7 +1575,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1587,12 +1587,12 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -1617,16 +1617,16 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1647,7 +1647,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1659,12 +1659,12 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -1689,16 +1689,16 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1719,7 +1719,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1913,12 +1913,12 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -1943,16 +1943,16 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -1973,7 +1973,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1985,12 +1985,12 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -2015,16 +2015,16 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -2045,7 +2045,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -2057,12 +2057,12 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   class="TappableCard-root ColorPair-white css-963r91"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                    data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                    data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
+                    href="/en/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -2087,16 +2087,16 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                   <div
                     class="TappableCard-footer css-1rg9dq1"
                   >
-                    <button
+                    <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                      data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                      data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
+                      href="/en/"
                       tabindex="0"
-                      type="button"
                     >
                       <span
                         class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -2117,7 +2117,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -2333,12 +2333,12 @@ exports[`CardCollectionSection component single & multiple row display renders c
                             class="TappableCard-root ColorPair-white css-963r91"
                             data-testid="tappable-card-box"
                           >
-                            <button
+                            <a
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                              data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                              data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                               data-testid="card-collection-section-item-test"
+                              href="/en/"
                               tabindex="0"
-                              type="button"
                             >
                               <div
                                 class="TappableCard-body css-c6k36h"
@@ -2363,16 +2363,16 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               <span
                                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                               />
-                            </button>
+                            </a>
                             <div
                               class="TappableCard-footer css-1rg9dq1"
                             >
-                              <button
+                              <a
                                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                                data-gtm="{"id":"cta-click1","label":"test - a string"}"
+                                data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                                 data-testid="highlight-card-footer-cta-test"
+                                href="/en/"
                                 tabindex="0"
-                                type="button"
                               >
                                 <span
                                   class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -2393,7 +2393,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
-                              </button>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -2418,12 +2418,12 @@ exports[`CardCollectionSection component single & multiple row display renders c
                             class="TappableCard-root ColorPair-white css-963r91"
                             data-testid="tappable-card-box"
                           >
-                            <button
+                            <a
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                              data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                              data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                               data-testid="card-collection-section-item-test-2"
+                              href="/en/"
                               tabindex="0"
-                              type="button"
                             >
                               <div
                                 class="TappableCard-body css-c6k36h"
@@ -2448,16 +2448,16 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               <span
                                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                               />
-                            </button>
+                            </a>
                             <div
                               class="TappableCard-footer css-1rg9dq1"
                             >
-                              <button
+                              <a
                                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                                data-gtm="{"id":"cta-click1","label":"test 2 - a string"}"
+                                data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                                 data-testid="highlight-card-footer-cta-test-2"
+                                href="/en/"
                                 tabindex="0"
-                                type="button"
                               >
                                 <span
                                   class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -2478,7 +2478,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
-                              </button>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -2503,12 +2503,12 @@ exports[`CardCollectionSection component single & multiple row display renders c
                             class="TappableCard-root ColorPair-white css-963r91"
                             data-testid="tappable-card-box"
                           >
-                            <button
+                            <a
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
-                              data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                              data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                               data-testid="card-collection-section-item-test-3"
+                              href="/en/"
                               tabindex="0"
-                              type="button"
                             >
                               <div
                                 class="TappableCard-body css-c6k36h"
@@ -2533,16 +2533,16 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               <span
                                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                               />
-                            </button>
+                            </a>
                             <div
                               class="TappableCard-footer css-1rg9dq1"
                             >
-                              <button
+                              <a
                                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
-                                data-gtm="{"id":"cta-click1","label":"test 3 - a string"}"
+                                data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                                 data-testid="highlight-card-footer-cta-test-3"
+                                href="/en/"
                                 tabindex="0"
-                                type="button"
                               >
                                 <span
                                   class="MuiButton-startIcon Button-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
@@ -2563,7 +2563,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
-                              </button>
+                              </a>
                             </div>
                           </div>
                         </div>

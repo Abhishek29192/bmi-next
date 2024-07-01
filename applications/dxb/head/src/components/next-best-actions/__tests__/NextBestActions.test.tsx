@@ -6,7 +6,6 @@ import { getMockSiteContext } from "../../__tests__/utils/SiteContextProvider";
 import NextBestActions from "../NextBestActions";
 import createPromoData from "../../../__tests__/helpers/PromoHelper";
 import createPageInfoData from "../../../__tests__/helpers/PageInfoHelper";
-import { createInternalLinkData } from "../../../__tests__/helpers/LinkHelper";
 
 describe("NextBestActions component", () => {
   it("renders correctly", () => {
@@ -17,7 +16,6 @@ describe("NextBestActions component", () => {
             data={[
               createPromoData(),
               createPageInfoData({
-                cta: createInternalLinkData(),
                 subtitle: "example-nba-subtitle"
               })
             ]}

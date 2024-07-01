@@ -273,11 +273,17 @@ describe("Header component", () => {
     fireEvent.click(aboutBmiMenuButton);
 
     expect(
+      screen.getByRole("img", { name: card1.featuredMedia!.altText })
+    ).toBeInTheDocument();
+    expect(
       screen.getByRole("heading", { name: card1.title! })
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: card1.cta!.label })
     ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("img", { name: card2.title! })
+    ).not.toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: card2.title })
     ).toBeInTheDocument();

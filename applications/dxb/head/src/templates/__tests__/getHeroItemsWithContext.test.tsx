@@ -5,7 +5,6 @@ import { Context as SiteContext } from "../../components/Site";
 import { getMockSiteContext } from "../../components/__tests__/utils/SiteContextProvider";
 import { DataTypeEnum } from "../../components/link/types";
 import { getHeroItemsWithContext } from "../helpers/getHeroItemsWithContext";
-import type { Data as LinkData } from "../../components/link/types";
 import type { Data as SlideData } from "../../components/Promo";
 import type { ContentfulVideoData } from "../../components/video/types";
 import type { Data as PageInfoData } from "../../components/PageInfo";
@@ -145,31 +144,12 @@ describe("getHeroItemsWithContext", () => {
   });
 
   it("should return data without cta prop", () => {
-    const result = getHeroItemsWithContext(context, [
-      { ...pageSlide, cta: null, path: null }
-    ]);
+    const result = getHeroItemsWithContext(context, [{ ...slide, cta: null }]);
     expect(result[0].cta).toBeFalsy();
   });
 
   it("should call getMicroCopy function if slide __typename is not ContentfulPromo", () => {
-    const cta: LinkData = {
-      __typename: "ContentfulLink",
-      id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
-      label: "slideCTA",
-      icon: null,
-      isLabelHidden: null,
-      url: null,
-      type: DataTypeEnum.Internal,
-      linkedPage: {
-        path: "roof-tiles/"
-      },
-      asset: null,
-      parameters: null,
-      dialogContent: null,
-      hubSpotCTAID: null
-    };
-
-    getHeroItemsWithContext(context, [{ ...pageSlide, cta }]);
+    getHeroItemsWithContext(context, [pageSlide]);
 
     expect(context.getMicroCopy).toHaveBeenCalledTimes(1);
     expect(context.getMicroCopy).toHaveBeenCalledWith(

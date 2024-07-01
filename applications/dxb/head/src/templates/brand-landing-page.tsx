@@ -30,6 +30,7 @@ import type { Data as PageInfoData } from "../components/PageInfo";
 
 type BrandLandingPageData = Omit<PageInfoData, "sections" | "featuredVideo"> &
   Omit<PageData, "breadcrumbs"> & {
+    cta: LinkData | null;
     description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
     overlapCards: OverlapCardData | null;

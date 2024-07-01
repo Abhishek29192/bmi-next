@@ -20,7 +20,7 @@ const indexToBackgroundMap: DarkColor[] = [
   "secondary4"
 ];
 
-const getTitle = (data: PromoData | PageInfoData) => {
+const getTitle = (data: PromoData | PageInfoData): string => {
   if (data.__typename === "ContentfulPromo") {
     return transformHyphens(data.title || data.name);
   }
@@ -39,6 +39,10 @@ const NextBestActions = ({ data }: { data: Data }) => {
         {data.map((cardData, index) => {
           const transformedTitle = getTitle(cardData);
           const cta = getCTA(cardData, countryCode, transformedTitle);
+          const ctaLabel =
+            cardData.__typename === "ContentfulPromo"
+              ? cardData.cta?.label
+              : transformedTitle;
 
           return (
             <Grid xs={12} md={4} lg={3} key={`nba-${index}`}>
@@ -47,7 +51,7 @@ const NextBestActions = ({ data }: { data: Data }) => {
                 color={indexToBackgroundMap[index]}
                 title={transformedTitle}
                 description={transformHyphens(cardData.subtitle)} // TODO: DXB-7055 Description can't be null
-                ctaLabel={cardData.cta?.label}
+                ctaLabel={ctaLabel}
                 data-testid={`nba-card-${replaceSpaces(transformedTitle)}`}
                 {...cta} // TODO: DXB-7055 CTA can't be null
               />
