@@ -21,6 +21,7 @@ import {
   Mime
 } from "@bmi/pim-types";
 import { generateHashFromString, isDefined } from "@bmi/utils";
+import { ImageFormat } from "@bmi/pim-types/src/types.js";
 
 export const filterClassifications = (
   mergedClassifications: readonly PimClassification[],
@@ -258,48 +259,62 @@ const mapExtensionToFormat: { [key: string]: Mime } = {
   jpeg: "image/jpeg",
   png: "image/png",
   svg: "image/svg+xml",
-  webp: "image/webp"
+  webp: "image/webp",
+  tiff: "image/tiff"
 };
 
-const getFormatFromFileName = (filename: string): Mime | undefined =>
+const getFormatFromFileName = (filename: string) =>
   mapExtensionToFormat[path.extname(filename).substring(1)];
 
 export const mapImages = (
   groupedImages: readonly PimImage[][],
   assetType: ImageAssetType
 ): Image[] => {
-  return groupedImages
-    .map((images) => {
-      let mainSource;
-      let thumbnail;
-      let altText;
-      images.forEach((image) => {
-        if (
-          image.assetType === assetType &&
-          image.format === "Product-Hero-Small-Desktop-Tablet"
-        ) {
-          mainSource = image.url;
-          return;
-        }
-        if (
-          image.assetType === assetType &&
-          image.format === "Product-Color-Selector-Mobile"
-        ) {
-          thumbnail = image.url;
-          return;
-        }
-        if (image.assetType === assetType && !image.format) {
-          altText = image.name;
-          return;
-        }
-      });
-      return {
-        mainSource,
-        thumbnail,
-        altText
-      };
-    })
-    .filter((image) => image.mainSource || image.thumbnail);
+  const result: Image[] = [];
+  groupedImages.map((images) => {
+    let mainSource;
+    let thumbnail;
+    let altText: string | undefined;
+    let imageName;
+    images.forEach((image) => {
+      if (image.assetType !== assetType) {
+        return;
+      }
+
+      if (!altText) {
+        altText = image.altText;
+      }
+      if (!image.format && !altText) {
+        altText = image.name;
+      }
+
+      imageName = image.name;
+
+      if (image.format === "Product-Hero-Small-Desktop-Tablet") {
+        mainSource = image.url;
+        return;
+      }
+      if (image.format === "Product-Color-Selector-Mobile") {
+        thumbnail = image.url;
+        return;
+      }
+    });
+
+    if (!mainSource) {
+      return;
+    }
+
+    if (!altText) {
+      altText = cleanImageName(imageName!);
+    }
+
+    result.push({
+      mainSource,
+      thumbnail,
+      altText
+    });
+  });
+  return result;
 };
 
 export const getVideoUrl = (url?: string) =>
@@ -308,3 +323,35 @@ export const getVideoUrl = (url?: string) =>
       ? url
       : `https://www.youtube.com/watch?v=${url}`
     : "";
+
+const imageFormat: ImageFormat[] = [
+  "Product-Hero-Small-Desktop-Tablet",
+  "Product-Hero-Large-Desktop",
+  "Product-Hero-Mobile",
+  "Product-Listing-Card-Large-Desktop",
+  "Product-Color-Selector-Mobile",
+  "Product-Color-Selector-Small-Desktop-Tablet",
+  "Product-Listing-Card-Small-Desktop-Tablet",
+  "Product-Color-Selector-Large-Desktop",
+  "Product-Listing-Card-Mobile",
+  "Web",
+  "Print"
+];
+
+// TODO: DXB-7950 - remove this logic once altText is mandatory in PIM
+export const cleanImageName = (imageName: string) => {
+  imageName = imageName.replace(`.${path.extname(imageName).substring(1)}`, "");
+
+  for (const format of imageFormat) {
+    if (imageName.startsWith(format)) {
+      imageName = imageName.replace(format, "");
+      break;
+    }
+  }
+
+  if (imageName.startsWith("_") || imageName.startsWith("-")) {
+    imageName = imageName.substring(1);
+  }
+
+  return imageName.replace(/[_-]/g, " ");
+};

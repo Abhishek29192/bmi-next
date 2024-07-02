@@ -340,31 +340,5 @@ describe("Product Details Page", () => {
 
       expect(screen.getAllByTestId("media-gallery-root")[0]).toMatchSnapshot();
     });
-
-    it("should filter out any null or undefined mainSource property values out of the image array", () => {
-      const product: Product = {
-        ...mockProduct,
-        masterImage: null,
-        galleryImages: [
-          createPimImage({ altText: "first-image" }),
-          createPimImage({ altText: "undefined-image", mainSource: undefined }),
-          createPimImage({ altText: "third-image" })
-        ]
-      };
-
-      renderPdpPage({ product });
-
-      expect(
-        screen.getAllByTestId("pim-image-first-image")[0]
-      ).toBeInTheDocument();
-
-      expect(screen.queryAllByTestId("pim-image-undefined-image").length).toBe(
-        0
-      );
-
-      expect(
-        screen.getAllByTestId("pim-image-third-image")[0]
-      ).toBeInTheDocument();
-    });
   });
 });
