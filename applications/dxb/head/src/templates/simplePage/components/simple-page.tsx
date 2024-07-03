@@ -35,6 +35,7 @@ import {
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
+import Protected from "../../../pages/protected";
 
 export type Data = Omit<PageInfoData, "sections"> &
   PageData & {
@@ -56,6 +57,7 @@ export type Data = Omit<PageInfoData, "sections"> &
     breadcrumbs: BreadcrumbsData;
     breadcrumbTitle: string;
     cta: LinkData | null;
+    isSimplePageProtected?: boolean;
   };
 
 export type Props = {
@@ -69,6 +71,7 @@ export type Props = {
 };
 
 const SimplePage = ({ data, pageContext }: Props) => {
+  const { contentfulSimplePage: simplePageData } = data;
   const {
     brandLogo,
     title,
@@ -117,63 +120,72 @@ const SimplePage = ({ data, pageContext }: Props) => {
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
     signupBlock: data.contentfulSimplePage.signupBlock,
-    seo,
+    seo: simplePageData.isSimplePageProtected
+      ? {
+          ...seo,
+          noIndex: true,
+          metaTitle: seo?.metaTitle ?? "",
+          metaDescription: seo?.metaDescription ?? ""
+        }
+      : seo,
     path: data.contentfulSimplePage.path
   };
 
   const isHeroKeyLine = Boolean(isBrandProviderEnabled && brandLogo);
 
   return (
-    <Page
-      brand={brandLogo}
-      title={title}
-      pageData={pageData}
-      siteData={data.contentfulSite}
-      variantCodeToPathMap={pageContext.variantCodeToPathMap}
-      ogImageUrl={featuredMedia?.image?.file.url}
-    >
-      {renderHero(heroProps, breadcrumbsNode, heroType, {
-        isHeroKeyLine: isHeroKeyLine
-      })}
-      <TableOfContent>
-        {shareWidget && (
-          <ShareWidgetSection
-            data={shareWidget}
-            data-testid="share-widget-section-top"
-          />
-        )}
-        {leadBlock && <LeadBlockSection data={leadBlock} />}
-        {sections && <Sections data={sections} startIndex={+!!leadBlock} />}
-        {linkColumns && <LinkColumnsSection data={linkColumns} />}
-        {shareWidget && (
-          <ShareWidgetSection
-            data={shareWidget}
-            data-testid="share-widget-section-bottom"
-          />
-        )}
-        {nextBestActions && <NextBestActions data={nextBestActions} />}
-        {exploreBar && (
+    <Protected isPageProtected={simplePageData.isSimplePageProtected}>
+      <Page
+        brand={brandLogo}
+        title={title}
+        pageData={pageData}
+        siteData={data.contentfulSite}
+        variantCodeToPathMap={pageContext.variantCodeToPathMap}
+        ogImageUrl={featuredMedia?.image?.file.url}
+      >
+        {renderHero(heroProps, breadcrumbsNode, heroType, {
+          isHeroKeyLine: isHeroKeyLine
+        })}
+        <TableOfContent>
+          {shareWidget && (
+            <ShareWidgetSection
+              data={shareWidget}
+              data-testid="share-widget-section-top"
+            />
+          )}
+          {leadBlock && <LeadBlockSection data={leadBlock} />}
+          {sections && <Sections data={sections} startIndex={+!!leadBlock} />}
+          {linkColumns && <LinkColumnsSection data={linkColumns} />}
+          {shareWidget && (
+            <ShareWidgetSection
+              data={shareWidget}
+              data-testid="share-widget-section-bottom"
+            />
+          )}
+          {nextBestActions && <NextBestActions data={nextBestActions} />}
+          {exploreBar && (
+            <Section
+              backgroundColor="alabaster"
+              data-testid="explorer-bar-section"
+            >
+              <ExploreBar data={exploreBar} />
+            </Section>
+          )}
           <Section
             backgroundColor="alabaster"
-            data-testid="explorer-bar-section"
+            isSlim
+            data-testid="breadcrumbs-section-bottom"
           >
-            <ExploreBar data={exploreBar} />
+            <BackToResults>
+              <Breadcrumbs
+                data={enhancedBreadcrumbs}
+                data-testid="simple-page-breadcrumbs-bottom"
+              />
+            </BackToResults>
           </Section>
-        )}
-        <Section
-          backgroundColor="alabaster"
-          isSlim
-          data-testid="breadcrumbs-section-bottom"
-        >
-          <BackToResults>
-            <Breadcrumbs
-              data={enhancedBreadcrumbs}
-              data-testid="simple-page-breadcrumbs-bottom"
-            />
-          </BackToResults>
-        </Section>
-      </TableOfContent>
-    </Page>
+        </TableOfContent>
+      </Page>
+    </Protected>
   );
 };
 
@@ -186,6 +198,7 @@ export const pageQuery = graphql`
       ...PageFragment
       ...BreadcrumbsFragment
       heroType
+      isSimplePageProtected
       cta {
         ...LinkFragment
       }

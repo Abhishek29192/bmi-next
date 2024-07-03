@@ -27,6 +27,24 @@ import {
 } from "../__mocks__/simplePage";
 import SimplePage, { Data, Props } from "../components/simple-page";
 import createShareWidgetData from "../../../__tests__/helpers/ShareWidgetHelper";
+import { useAuthType } from "../../../hooks/useAuth";
+
+const mockUseAuth = jest.fn<useAuthType, [useAuthType]>();
+jest.mock("../../../hooks/useAuth", () => ({
+  __esModule: true,
+  default: (args: useAuthType) => mockUseAuth(args)
+}));
+
+const loginMock = jest.fn();
+const logoutMock = jest.fn();
+
+jest.mock("../../../auth/service", () => ({
+  __esModule: true,
+  default: {
+    login: () => loginMock(),
+    logout: () => logoutMock()
+  }
+}));
 
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
@@ -75,7 +93,7 @@ const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
     }),
     sections: sections,
     nextBestActions: nextBestActions as NextBestActionsData,
-    exploreBar: exploreBarData as ExploreBarData,
+    exploreBar: exploreBarData as unknown as ExploreBarData,
     linkColumns: linkColumnsData as LinkColumnsSectionData,
     heroType: "Hierarchy",
     parentPage: null,
@@ -88,7 +106,8 @@ const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
     ],
     breadcrumbTitle: "breadcrumbTitle",
     cta: cta as LinkData,
-    featuredMedia: featuredMedia
+    featuredMedia: featuredMedia,
+    isSimplePageProtected: true
   },
   contentfulSite: createMockSiteData()
 };
@@ -103,6 +122,31 @@ describe("Simple page", () => {
   });
 
   it("renders correctly with full data", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: true, // Simulate user is logged in
+      isLoading: false,
+      profile: {
+        at_hash: "",
+        aud: "",
+        email: "",
+        email_verified: false,
+        "https://intouch/first_name": "",
+        "https://intouch/intouch_market_code": "",
+        "https://intouch/intouch_role": "",
+        "https://intouch/last_name": "",
+        exp: 0,
+        iat: 0,
+        iss: "",
+        name: "",
+        nickname: "",
+        nonce: "",
+        picture: "",
+        sid: "",
+        sub: "",
+        updated_at: ""
+      }
+    });
+
     const { container } = renderWithStylesAndLocationProvider(
       data,
       pageContext
@@ -110,7 +154,44 @@ describe("Simple page", () => {
     expect(container).toMatchSnapshot();
   });
 
+  it("will not render when not logged in, loading, and protected", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: false,
+      isLoading: false,
+      profile: undefined
+    });
+    const { container } = renderWithStylesAndLocationProvider(
+      data,
+      pageContext
+    );
+    expect(container).toBeEmptyDOMElement();
+  });
+
   it("renders correctly when heroType is Spotlight", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: true,
+      isLoading: false,
+      profile: {
+        at_hash: "",
+        aud: "",
+        email: "",
+        email_verified: false,
+        "https://intouch/first_name": "",
+        "https://intouch/intouch_market_code": "",
+        "https://intouch/intouch_role": "",
+        "https://intouch/last_name": "",
+        exp: 0,
+        iat: 0,
+        iss: "",
+        name: "",
+        nickname: "",
+        nonce: "",
+        picture: "",
+        sid: "",
+        sub: "",
+        updated_at: ""
+      }
+    });
     const customData = {
       ...data,
       contentfulSimplePage: {
@@ -145,5 +226,60 @@ describe("Simple page", () => {
       // eslint-disable-next-line testing-library/no-node-access -- head components can't be found with screen
       document.querySelector("[data-testid='meta-og-image']")
     ).not.toBeInTheDocument();
+  });
+
+  it("logs in when page is protected", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: false,
+      isLoading: false,
+      profile: undefined
+    });
+    const customData = {
+      ...data,
+      contentfulSimplePage: {
+        ...data.contentfulSimplePage,
+        isSimplePageProtected: true
+      }
+    };
+    renderWithStylesAndLocationProvider(customData, pageContext);
+
+    expect(loginMock).toHaveBeenCalled();
+  });
+
+  it("does not log in when not protected", () => {
+    jest.useFakeTimers();
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: true,
+      isLoading: false,
+      profile: {
+        at_hash: "",
+        aud: "",
+        email: "",
+        email_verified: false,
+        "https://intouch/first_name": "",
+        "https://intouch/intouch_market_code": "",
+        "https://intouch/intouch_role": "",
+        "https://intouch/last_name": "",
+        exp: 0,
+        iat: 0,
+        iss: "",
+        name: "",
+        nickname: "",
+        nonce: "",
+        picture: "",
+        sid: "",
+        sub: "",
+        updated_at: ""
+      }
+    });
+    const customData = {
+      ...data,
+      contentfulSimplePage: {
+        ...data.contentfulSimplePage,
+        isSimplePageProtected: false
+      }
+    };
+    renderWithStylesAndLocationProvider(customData, pageContext);
+    expect(loginMock).toHaveBeenCalled();
   });
 });

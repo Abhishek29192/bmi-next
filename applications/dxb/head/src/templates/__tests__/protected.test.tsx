@@ -29,7 +29,7 @@ describe("ProtectedPage Component", () => {
     });
 
     render(
-      <ProtectedPage>
+      <ProtectedPage isPageProtected={false}>
         <div>Protected Content</div>
       </ProtectedPage>
     );
@@ -42,11 +42,27 @@ describe("ProtectedPage Component", () => {
     mockUseAuth.mockReturnValue({ isLoggedIn: false, profile: null });
 
     render(
-      <ProtectedPage>
+      <ProtectedPage isPageProtected={true}>
         <div>Protected Content</div>
       </ProtectedPage>
     );
     expect(AuthService.login).toHaveBeenCalled();
     expect(screen.queryByText("Protected Content")).toBeNull();
+  });
+
+  it("should not call AuthService.login when user is not logged in and isProtected is false", () => {
+    mockUseAuth.mockReturnValue({
+      isLoggedIn: false,
+      profile: null,
+      isLoading: false
+    });
+
+    render(
+      <ProtectedPage isPageProtected={false}>
+        <div>Protected Content</div>
+      </ProtectedPage>
+    );
+    expect(AuthService.login).not.toHaveBeenCalled();
+    expect(screen.getByText("Protected Content")).toBeTruthy();
   });
 });
