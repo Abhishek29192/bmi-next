@@ -276,6 +276,7 @@ export const mapImages = (
     let thumbnail;
     let altText: string | undefined;
     let imageName;
+    let imageFormat;
     images.forEach((image) => {
       if (image.assetType !== assetType) {
         return;
@@ -285,10 +286,11 @@ export const mapImages = (
         altText = image.altText;
       }
       if (!image.format && !altText) {
-        altText = image.name;
+        altText = cleanImageName(image.name, image.format);
       }
 
       imageName = image.name;
+      imageFormat = image.format;
 
       if (image.format === "Product-Hero-Small-Desktop-Tablet") {
         mainSource = image.url;
@@ -305,7 +307,7 @@ export const mapImages = (
     }
 
     if (!altText) {
-      altText = cleanImageName(imageName!);
+      altText = cleanImageName(imageName!, imageFormat);
     }
 
     result.push({
@@ -324,32 +326,20 @@ export const getVideoUrl = (url?: string) =>
       : `https://www.youtube.com/watch?v=${url}`
     : "";
 
-const imageFormat: ImageFormat[] = [
-  "Product-Hero-Small-Desktop-Tablet",
-  "Product-Hero-Large-Desktop",
-  "Product-Hero-Mobile",
-  "Product-Listing-Card-Large-Desktop",
-  "Product-Color-Selector-Mobile",
-  "Product-Color-Selector-Small-Desktop-Tablet",
-  "Product-Listing-Card-Small-Desktop-Tablet",
-  "Product-Color-Selector-Large-Desktop",
-  "Product-Listing-Card-Mobile",
-  "Web",
-  "Print"
-];
-
 // TODO: DXB-7950 - remove this logic once altText is mandatory in PIM
-export const cleanImageName = (imageName: string) => {
+export const cleanImageName = (
+  imageName: string,
+  format: ImageFormat | undefined
+) => {
   imageName = imageName.replace(`.${path.extname(imageName).substring(1)}`, "");
 
-  for (const format of imageFormat) {
-    if (imageName.startsWith(format)) {
-      imageName = imageName.replace(format, "");
-      break;
-    }
+  if (format && imageName.startsWith(format)) {
+    imageName = imageName.replace(format, "");
   }
 
-  if (imageName.startsWith("_") || imageName.startsWith("-")) {
+  if (/^\s+/.test(imageName)) {
+    imageName = imageName.trimStart();
+  } else if (imageName.startsWith("_") || imageName.startsWith("-")) {
     imageName = imageName.substring(1);
   }
 
