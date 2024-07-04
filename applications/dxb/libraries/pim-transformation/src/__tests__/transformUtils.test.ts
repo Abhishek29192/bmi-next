@@ -152,36 +152,58 @@ describe("transformUtils tests", () => {
   describe("cleanImageName", () => {
     it(`should remove the file extension from the imageName, if present`, () => {
       const imageName = "30162812 Klebeasfalt.tiff";
-      expect(cleanImageName(imageName)).toBe("30162812 Klebeasfalt");
+      const format = "Product-Hero-Small-Desktop-Tablet";
+      expect(cleanImageName(imageName, format)).toBe("30162812 Klebeasfalt");
     });
 
     describe("imageFormat", () => {
       imageFormat.forEach((format) => {
-        it(`should remove the image format ${format} if present`, () => {
+        it(`should remove the image format ${format} if the format is defined`, () => {
           const imageName = `${format}_30162812 Klebeasfalt`;
-          expect(cleanImageName(imageName)).toBe("30162812 Klebeasfalt");
+          expect(cleanImageName(imageName, format)).toBe(
+            "30162812 Klebeasfalt"
+          );
         });
       });
     });
 
+    it("it should not remove the format if format is undefined", () => {
+      const imageName =
+        "Product-Hero-Small-Desktop-Tablet_30162812 Klebeasfalt";
+      const format = undefined;
+      expect(cleanImageName(imageName, format)).toBe(
+        "Product Hero Small Desktop Tablet 30162812 Klebeasfalt"
+      );
+    });
+
     it("it should remove any leading underscores and replace it with an empty string", () => {
       const imageName = "_30162812 Klebeasfalt";
-      expect(cleanImageName(imageName)).toBe("30162812 Klebeasfalt");
+      const format = "Product-Hero-Small-Desktop-Tablet";
+      expect(cleanImageName(imageName, format)).toBe("30162812 Klebeasfalt");
     });
 
     it("it should remove any leading hyphens and replace it with an empty string", () => {
       const imageName = "-30162812 Klebeasfalt";
-      expect(cleanImageName(imageName)).toBe("30162812 Klebeasfalt");
+      const format = "Product-Hero-Small-Desktop-Tablet";
+      expect(cleanImageName(imageName, format)).toBe("30162812 Klebeasfalt");
+    });
+
+    it("it should remove all leading spaces before the string", () => {
+      const imageName = "       30162812 Klebeasfalt";
+      const format = "Product-Hero-Small-Desktop-Tablet";
+      expect(cleanImageName(imageName, format)).toBe("30162812 Klebeasfalt");
     });
 
     it("it should replace any underscores in the middle of the string with a blank space", () => {
       const imageName = "bmi_zanda";
-      expect(cleanImageName(imageName)).toBe("bmi zanda");
+      const format = "Product-Hero-Small-Desktop-Tablet";
+      expect(cleanImageName(imageName, format)).toBe("bmi zanda");
     });
 
     it("it should replace any hyphens in the middle of the string with a blank space", () => {
       const imageName = "30162812-Klebeasfalt";
-      expect(cleanImageName(imageName)).toBe("30162812 Klebeasfalt");
+      const format = "Product-Hero-Small-Desktop-Tablet";
+      expect(cleanImageName(imageName, format)).toBe("30162812 Klebeasfalt");
     });
   });
 
@@ -191,6 +213,7 @@ describe("transformUtils tests", () => {
         [
           createImage({
             format: "Product-Hero-Small-Desktop-Tablet",
+            name: "Product-Hero-Small-Desktop-Tablet_30162812-Klebeasfalt.png",
             altText: "example-alt-text"
           })
         ]
@@ -206,6 +229,7 @@ describe("transformUtils tests", () => {
         [
           createImage({
             format: "Product-Hero-Small-Desktop-Tablet",
+            name: "Product-Hero-Small-Desktop-Tablet-Miljøbilde trend Web",
             altText: undefined
           })
         ]
@@ -213,7 +237,7 @@ describe("transformUtils tests", () => {
       const result = mapImages(pimImages, "MASTER_IMAGE");
 
       expect(result[0].mainSource).toBe("http://localhost:8000");
-      expect(result[0].altText).toBe("name");
+      expect(result[0].altText).toBe("Miljøbilde trend Web");
     });
 
     it("should not set a thumbnail property when image format is Product-Hero-Small-Desktop-Tablet", () => {
@@ -233,27 +257,35 @@ describe("transformUtils tests", () => {
       const pimImages: readonly Image[][] = [
         [
           createImage({
-            format: "Product-Hero-Small-Desktop-Tablet"
+            format: "Product-Hero-Small-Desktop-Tablet",
+            name: "Product-Hero-Small-Desktop-Tablet_30162812-Klebeasfalt.png",
+            altText: undefined
           }),
           createImage({
             format: undefined,
+            name: "Product-Hero-Small-Desktop-Tablet_bmi_zanda.png",
             altText: undefined
           })
         ]
       ];
 
       const result = mapImages(pimImages, "MASTER_IMAGE");
-      expect(result[0].altText).toBe("name");
+      expect(result[0].altText).toBe(
+        "Product Hero Small Desktop Tablet bmi zanda"
+      );
     });
 
     it("should correctly set the altText property when image format is undefined, one other image in the array has a mainSource defined and altText is defined", () => {
       const pimImages: readonly Image[][] = [
         [
           createImage({
-            format: "Product-Hero-Small-Desktop-Tablet"
+            format: "Product-Hero-Small-Desktop-Tablet",
+            name: "Product-Hero-Small-Desktop-Tablet_30162812-Klebeasfalt.png",
+            altText: undefined
           }),
           createImage({
             format: undefined,
+            name: "Product-Hero-Small-Desktop-Tablet_30162812-Klebeasfalt.png",
             altText: "example-alt-text"
           })
         ]
@@ -268,10 +300,12 @@ describe("transformUtils tests", () => {
         [
           createImage({
             format: "Product-Hero-Small-Desktop-Tablet",
+            name: "Product-Hero-Small-Desktop-Tablet_30162812-Klebeasfalt.png",
             altText: "example-alt-text"
           }),
           createImage({
             format: undefined,
+            name: "Product-Hero-Small-Desktop-Tablet_30162812-Klebeasfalt.png",
             altText: undefined
           })
         ]
@@ -302,19 +336,27 @@ describe("transformUtils tests", () => {
       const pimImages: readonly Image[][] = [
         [
           createImage({
-            format: "Product-Hero-Small-Desktop-Tablet"
+            format: "Product-Hero-Small-Desktop-Tablet",
+            name: "Product-Hero-Small-Desktop-Tablet_30162812-Klebeasfalt.png",
+            altText: undefined
           }),
           createImage({
-            format: "Product-Color-Selector-Mobile"
+            format: "Product-Color-Selector-Mobile",
+            name: "Product-Color-Selector-Mobile_bmi-zanda.png",
+            altText: undefined
           }),
           createImage({
-            format: undefined
+            format: undefined,
+            name: "Product-Hero-Small-Desktop-Tablet_bmi_icopal.png",
+            altText: undefined
           })
         ]
       ];
       const result = mapImages(pimImages, "MASTER_IMAGE");
 
-      expect(result[0].altText).toBe("name");
+      expect(result[0].altText).toBe(
+        "Product Hero Small Desktop Tablet bmi icopal"
+      );
       expect(result[0].mainSource).toBe("http://localhost:8000");
       expect(result[0].thumbnail).toBe("http://localhost:8000");
     });
