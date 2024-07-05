@@ -4,7 +4,7 @@
         <name>pre-production</name>
         <desc/>
         <inscope>true</inscope>
-        <incregexes>https://bmidxb.*preprod.gatsbyjs.io.*</incregexes>
+        <incregexes>https://bmidxb.*preprod.netlify.app.*</incregexes>
         <tech>
             <include>Language.JavaScript</include>
             <include>OS.Linux</include>

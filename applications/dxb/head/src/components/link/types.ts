@@ -3,6 +3,7 @@ import type { GTM } from "@bmi-digital/components/types";
 import type { IconName } from "../Icon";
 import type { Data as PromoData } from "../Promo";
 import type { SectionData } from "../Sections";
+import type { Data as PageInfoData } from "../PageInfo";
 
 type CustomisableButtonProps = Pick<
   ButtonProps,
@@ -131,6 +132,6 @@ export type NavigationData = {
   __typename: "ContentfulNavigation";
   label: string | null;
   link: Data | null;
-  promos?: PromoData[] | null;
+  promos?: (PromoData | PageInfoData)[] | null;
   links: (NavigationData | NavigationItem | Data)[];
 };

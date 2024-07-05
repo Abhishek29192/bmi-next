@@ -45,7 +45,7 @@ Authorization: Bearer {{pimToken}}
 # @name Get catalogs
 # @noRejectUnauthorized
 
-GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/catalogs
+GET {{pimCatalogApi}}/catalogs
 Content-Type: application/json
 Authorization: Bearer {{pimToken}}
 
@@ -54,7 +54,7 @@ Authorization: Bearer {{pimToken}}
 # @name Get feature values
 # @noRejectUnauthorized
 
-GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/featureValues
+GET {{pimCatalogApi}}/featureValues
 Content-Type: application/json
 Authorization: Bearer {{pimToken}}
 

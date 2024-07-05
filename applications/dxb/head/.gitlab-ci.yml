@@ -38,7 +38,7 @@ enforce_no_new_errors_head:
     - output=$(yarn workspace @bmi/head tsc --strict --pretty || true)
     - number_of_errors=$(echo $output | grep -o "Found [0-9]\+ errors" | awk -F'[^0-9]+' '{print $2}')
     - 'echo "Number of errors: $number_of_errors"'
-    - "[ $number_of_errors -gt 815 ] && exit 1 || exit 0"
+    - "[ $number_of_errors -gt 814 ] && exit 1 || exit 0"
 
 test_head:
   extends: .test_yarn_workspace
@@ -92,7 +92,7 @@ wait_until_head_deployed_to_gatsby:
   cache: {}
   timeout: 15m
   script:
-    - applications/dxb/head/scripts/gatsby-cloud-mr-url.sh
+    - applications/dxb/head/scripts/netlify-mr-url.sh
   artifacts:
     paths:
       - deploy_head
@@ -174,7 +174,7 @@ full_scan_head_qa:
   rules:
     - if: "$WHICH_SCHEDULE == 'full_scan_head_qa'"
   variables:
-    BASE_URL: https://dxbqa.gatsbyjs.io/no/
+    BASE_URL: https://dxbqa.netlify.app/no/
     ZAP_ENVIRONMENT: qa
 
 full_scan_head_pre_prod:

@@ -233,9 +233,9 @@ export type RelatedVariant = {
 };
 
 export type Image = {
-  mainSource?: string;
+  mainSource: string;
   thumbnail?: string;
-  altText?: string;
+  altText: string;
 };
 
 export type Video = {

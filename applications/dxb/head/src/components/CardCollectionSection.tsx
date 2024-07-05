@@ -75,10 +75,13 @@ const CardCollectionItem = (props: CardCollectionItemProps) => {
     date
   } = transformCard(card, countryCode);
 
-  let transformedCardLabel = label
-    ? label.replace(/{{title}}/g, title)
-    : card.cta?.label;
-  transformedCardLabel = transformHyphens(transformedCardLabel);
+  const transformedCardLabel = transformHyphens(
+    label
+      ? label.replace(/{{title}}/g, title)
+      : card.__typename === "ContentfulPromo"
+        ? card.cta?.label
+        : undefined
+  );
 
   if (type === "Text Card") {
     return (

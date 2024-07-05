@@ -91,7 +91,8 @@ export type Mime =
   | "image/jpeg"
   | "image/png"
   | "image/svg+xml"
-  | "image/webp";
+  | "image/webp"
+  | "image/tiff";
 
 export type Asset = {
   allowedToDownload: boolean;
@@ -131,7 +132,7 @@ export type Category = {
 
 export type ImageMime = "image/jpeg" | "image/png" | "image/tiff";
 
-type ImageFormat =
+export type ImageFormat =
   | "Product-Hero-Small-Desktop-Tablet"
   | "Product-Hero-Large-Desktop"
   | "Product-Hero-Mobile"
@@ -148,6 +149,7 @@ export type ImageAssetType = "TECHNICAL_DRAWINGS" | "MASTER_IMAGE" | "GALLERY";
 
 export type Image = {
   allowedToDownload: boolean;
+  altText?: string;
   assetType: ImageAssetType;
   containerId: string;
   fileSize: number;

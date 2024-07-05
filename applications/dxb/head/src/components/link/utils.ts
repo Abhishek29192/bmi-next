@@ -1,18 +1,14 @@
 import { Link as GatsbyLink } from "gatsby";
 import { getPathWithCountryCode } from "../../utils/path";
 import { DataTypeEnum } from "./types";
+import type { Data } from "./types";
 import type { AnchorLinkActionProps } from "@bmi-digital/components/anchor-link";
 import type { ButtonActionProps } from "@bmi-digital/components/button";
-import type { Data as SimplePageData } from "../../templates/simplePage/components/simple-page";
 import type { Data as PageInfoData } from "../PageInfo";
 import type { Data as PromoData } from "../Promo";
-import type { Data } from "./types";
 
 export const getCTA = (
-  data:
-    | Pick<PromoData, "cta">
-    | Pick<PageInfoData, "path">
-    | Pick<SimplePageData, "cta">,
+  data: Pick<PromoData, "cta"> | Pick<PageInfoData, "path">,
   countryCode: string,
   linkLabel?: string
 ): AnchorLinkActionProps | null => {
@@ -24,12 +20,10 @@ export const getCTA = (
     return toAnchorLinkActionProps(data.cta, countryCode);
   }
 
-  const { path } = data;
-  if (!path) {
-    return null;
-  }
-
-  const to = getPathWithCountryCode(countryCode, path).replace(/\/+/gi, "/");
+  const to = getPathWithCountryCode(countryCode, data.path).replace(
+    /\/+/gi,
+    "/"
+  );
   return {
     to: to,
     component: GatsbyLink,

@@ -1,11 +1,7 @@
-import MediaGallery from "@bmi-digital/components/media-gallery";
-import ThemeProvider from "@bmi-digital/components/theme-provider";
-import { render, screen } from "@testing-library/react";
-import React from "react";
 import createMeasurements from "../../__tests__/helpers/MeasurementsHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
-import { Product, RelatedVariant } from "../../types/pim";
+import { Product, RelatedVariant, Image } from "../../types/pim";
 import {
   getAllValues,
   getProductAttributes,
@@ -887,122 +883,66 @@ describe("product-details-transforms tests", () => {
     });
   });
 
-  describe("transformImages tests", () => {
-    const imgMainSource = "https://mainsource.com";
-    const imgMainSource2 = "https://mainsource2.com";
-    const imgAltText = "alt text1";
-    const imgAltText2 = "alt text2";
-
-    it("should not render an image if the mainSource property is not defined", () => {
-      const result = transformImages([
+  describe("transformImages", () => {
+    it("transforms an array of fully populated Firestore images into the correct MediaData type, with the first image in the array being eager loaded and all other images are lazy loaded", () => {
+      const fireStoreImages: readonly Image[] = [
         {
-          mainSource: undefined,
-          thumbnail: null,
-          altText: imgAltText
+          mainSource: "image-1-src",
+          altText: "image-1-altText",
+          thumbnail: "thumbnail-1-src"
         },
         {
-          mainSource: imgMainSource2,
-          thumbnail: null,
-          altText: imgAltText2
-        }
-      ]);
-
-      render(
-        <ThemeProvider>
-          <MediaGallery media={[...result]} />
-        </ThemeProvider>
-      );
-
-      const linkResult = screen.getAllByRole("img");
-      expect(linkResult).toHaveLength(1);
-      expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource2);
-      expect(linkResult[0].getAttribute("alt")).toEqual(imgAltText2);
-    });
-
-    it("should not render an image if the altText property is not defined", () => {
-      const result = transformImages([
-        {
-          mainSource: imgMainSource,
-          thumbnail: null,
-          altText: null
+          mainSource: "image-2-src",
+          altText: "image-2-altText",
+          thumbnail: "thumbnail-2-src"
         },
         {
-          mainSource: imgMainSource2,
-          thumbnail: null,
-          altText: imgAltText2
+          mainSource: "image-3-src",
+          altText: "image-3-altText",
+          thumbnail: "thumbnail-3-src"
         }
-      ]);
+      ];
 
-      render(
-        <ThemeProvider>
-          <MediaGallery media={[...result]} />
-        </ThemeProvider>
+      const result = transformImages(fireStoreImages);
+
+      expect(result[0]).toHaveProperty("media", {
+        src: "image-1-src",
+        "data-testid": "pim-image-image-1-altText",
+        loading: "eager",
+        alt: "image-1-altText"
+      });
+      expect(result[0]).toHaveProperty("thumbnail", "thumbnail-1-src");
+
+      expect(result[1]).toHaveProperty("media", {
+        src: "image-2-src",
+        "data-testid": "pim-image-image-2-altText",
+        loading: "lazy",
+        alt: "image-2-altText"
+      });
+      expect(result[1]).toHaveProperty("thumbnail", "thumbnail-2-src");
+
+      expect(result[2]).toHaveProperty("media", {
+        src: "image-3-src",
+        "data-testid": "pim-image-image-3-altText",
+        loading: "lazy",
+        alt: "image-3-altText"
+      });
+      expect(result[2]).toHaveProperty("thumbnail", "thumbnail-3-src");
+    });
+
+    it("should return an undefined thumbnail property if the Firestore thumbnail property is null", () => {
+      const fireStoreImages: readonly Image[] = [
+        {
+          mainSource: "image-1-src",
+          altText: "image-1-altText",
+          thumbnail: null
+        }
+      ];
+
+      expect(transformImages(fireStoreImages)[0]).toHaveProperty(
+        "thumbnail",
+        undefined
       );
-
-      const linkResult = screen.getAllByRole("img");
-      expect(linkResult).toHaveLength(1);
-      expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource2);
-      expect(linkResult[0].getAttribute("alt")).toEqual(imgAltText2);
-    });
-
-    describe("when single image is provided", () => {
-      it("should return transformed media data when mainSource and altText are provided", () => {
-        const imgMainSource = "https://mainsource.com";
-        const imgAltText = "alt text";
-        const result = transformImages([
-          {
-            mainSource: imgMainSource,
-            thumbnail: null,
-            altText: imgAltText
-          }
-        ]);
-
-        render(
-          <ThemeProvider>
-            <MediaGallery media={[...result]} />
-          </ThemeProvider>
-        );
-        const linkResult = screen.getAllByRole("img");
-        expect(linkResult).toHaveLength(1);
-        expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
-        expect(linkResult[0].getAttribute("alt")).toEqual(imgAltText);
-      });
-    });
-
-    describe("when multiple images are provided", () => {
-      it("should return multiple transformed media data", () => {
-        const imgMainSource = "https://mainsource.com";
-        const imgMainSource2 = "https://mainsource2.com";
-        const imgAltText = "alt text1";
-        const imgAltText2 = "alt text2";
-
-        const result = transformImages([
-          {
-            mainSource: imgMainSource,
-            thumbnail: null,
-            altText: imgAltText
-          },
-          {
-            mainSource: imgMainSource2,
-            thumbnail: null,
-            altText: imgAltText2
-          }
-        ]);
-
-        render(
-          <ThemeProvider>
-            <MediaGallery media={[...result]} />
-          </ThemeProvider>
-        );
-        const linkResult = screen.getAllByRole("img");
-        expect(linkResult).toHaveLength(3);
-        expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
-        expect(linkResult[1].getAttribute("src")).toEqual(imgMainSource);
-        expect(linkResult[2].getAttribute("src")).toEqual(imgMainSource2);
-        expect(linkResult[0].getAttribute("alt")).toEqual(imgAltText);
-        expect(linkResult[1].getAttribute("alt")).toEqual(imgAltText);
-        expect(linkResult[2].getAttribute("alt")).toEqual(imgAltText2);
-      });
     });
   });
 });

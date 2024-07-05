@@ -291,20 +291,34 @@ exports[`Header component renders correctly 1`] = `
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
-                    <a
+                    <button
+                      aria-controls="navigation-tabpanel-1"
+                      aria-label="About BMI"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"About BMI"}"
                       data-testid="header-navigation-tab-1"
-                      href="/gb/landing-page/"
+                      id="navigation-tab-1"
                       role="tab"
                       tabindex="-1"
+                      type="button"
                     >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTab-iconWrapper css-i4bv87-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        />
+                      </svg>
                       About BMI
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </a>
+                    </button>
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
@@ -746,20 +760,34 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
-                    <a
+                    <button
+                      aria-controls="navigation-tabpanel-1"
+                      aria-label="About BMI"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"About BMI"}"
                       data-testid="header-navigation-tab-1"
-                      href="/grp/landing-page/"
+                      id="navigation-tab-1"
                       role="tab"
                       tabindex="-1"
+                      type="button"
                     >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTab-iconWrapper css-i4bv87-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        />
+                      </svg>
                       About BMI
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </a>
+                    </button>
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
@@ -1201,20 +1229,34 @@ exports[`Header component shows sample basket icon 1`] = `
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
-                    <a
+                    <button
+                      aria-controls="navigation-tabpanel-1"
+                      aria-label="About BMI"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"About BMI"}"
                       data-testid="header-navigation-tab-1"
-                      href="/gb/landing-page/"
+                      id="navigation-tab-1"
                       role="tab"
                       tabindex="-1"
+                      type="button"
                     >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTab-iconWrapper css-i4bv87-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        />
+                      </svg>
                       About BMI
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </a>
+                    </button>
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
@@ -1847,20 +1889,34 @@ exports[`Header component toggles search 1`] = `
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
-                    <a
+                    <button
+                      aria-controls="navigation-tabpanel-1"
+                      aria-label="About BMI"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{"id":"nav-main-menu","label":"About BMI"}"
                       data-testid="header-navigation-tab-1"
-                      href="/gb/landing-page/"
+                      id="navigation-tab-1"
                       role="tab"
                       tabindex="-1"
+                      type="button"
                     >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTab-iconWrapper css-i4bv87-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        />
+                      </svg>
                       About BMI
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </a>
+                    </button>
                     <a
                       aria-selected="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-23ognm-MuiButtonBase-root-MuiButton-root-MuiButtonBase-root-MuiTab-root"

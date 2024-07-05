@@ -494,7 +494,7 @@ exports[`Sections component renders correctly 1`] = `
             >
               <p
                 class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
-                data-testid="typography"
+                data-testid="syndicate-section-description"
               >
                 string
               </p>
