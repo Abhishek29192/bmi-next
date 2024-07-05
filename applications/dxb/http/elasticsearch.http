@@ -38,8 +38,26 @@ Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
 
 ###
 
-# @name search All request
+# @name search All products request
 POST {{esHost}}/{{productsIndex}}/_search
+Content-Type: application/json
+Authorization: ApiKey {{esApiKey}}
+
+{}
+
+###
+
+# @name search All systems request
+POST {{esHost}}/{{systemsIndex}}/_search
+Content-Type: application/json
+Authorization: ApiKey {{esApiKey}}
+
+{}
+
+###
+
+# @name search All documents request
+POST {{esHost}}/{{documentsIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
 
