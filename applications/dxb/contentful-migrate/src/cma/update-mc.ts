@@ -248,6 +248,16 @@ const linkMicrocopiesToResources = async (
   }
 
   const resources = resourcesEntries.items[0];
+
+  if (!resources.fields.microCopy) {
+    const environment = await getEnvironment();
+    const allLocales = await environment.getLocales();
+    const allLocaleCodes = allLocales.items.map((locale) => locale.code);
+    resources.fields.microCopy = allLocaleCodes.reduce(
+      (acc, localeCode) => ({ ...acc, [localeCode]: [] }),
+      {}
+    );
+  }
   resources.fields.microCopy = Object.entries(
     resources.fields.microCopy as {
       [locale: string]: SysLink[];

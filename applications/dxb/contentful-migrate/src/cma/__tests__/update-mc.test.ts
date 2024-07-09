@@ -748,6 +748,113 @@ describe("main with isPublished false and isConsolidated false", () => {
     expect(mockCreatePublishBulkAction).not.toHaveBeenCalled();
   });
 
+  it("should create new microcopy if it doesn't exist without publishing it and attach to resource is resource doesn't have any existing linked microcopies", async () => {
+    const mockGetEnvironment = jest.fn<Space["getEnvironment"]>();
+    mockGetSpace.mockResolvedValueOnce(
+      createSpace({
+        getEnvironment: mockGetEnvironment
+      })
+    );
+    const mockGetEntries = jest.fn<Environment["getEntries"]>();
+    const mockGetLocales = jest.fn<Environment["getLocales"]>();
+    const mockCreateEntry = jest.fn<Environment["createEntry"]>();
+    const mockCreatePublishBulkAction =
+      jest.fn<Environment["createPublishBulkAction"]>();
+    mockGetEnvironment.mockResolvedValueOnce(
+      createEnvironment({
+        getEntries: mockGetEntries,
+        getLocales: mockGetLocales,
+        createEntry: mockCreateEntry,
+        createPublishBulkAction: mockCreatePublishBulkAction
+      })
+    );
+    const microcopies = Object.values(microCopy).map((microCopyKey) =>
+      createEntry({
+        fields: {
+          key: {
+            "en-US": microCopyKey
+          }
+        }
+      })
+    );
+    const newMicrocopyToCreate = microcopies.pop()!;
+    const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const resources = createEntry({
+      fields: {},
+      update: mockEntryUpdate
+    });
+    mockGetEntries
+      .mockResolvedValueOnce(
+        createCollection({
+          total: microcopies.length,
+          items: microcopies
+        })
+      )
+      .mockResolvedValueOnce(
+        createCollection({ total: 1, items: [resources] })
+      );
+    mockGetLocales.mockResolvedValue(
+      createCollection({
+        items: [
+          createLocale({ code: "en-US" }),
+          createLocale({ code: "en-GB" })
+        ]
+      })
+    );
+    mockCreateEntry.mockResolvedValueOnce(createEntry());
+
+    await main(false, false);
+
+    expect(mockGetSpace).toHaveBeenCalled();
+    expect(mockGetEnvironment).toHaveBeenCalled();
+    expect(mockGetEntries).toHaveBeenCalledTimes(2);
+    expect(mockGetEntries).toHaveBeenCalledWith({
+      content_type: "resource", // For some reason, microcopies have the ID resource in Contentful
+      skip: 0,
+      limit: KEYS_REQUEST_PAGE_SIZE
+    });
+    expect(mockGetEntries).toHaveBeenCalledWith({
+      content_type: "resources",
+      limit: 1
+    });
+    expect(mockGetLocales).toHaveBeenCalledTimes(2);
+    expect(mockCreateEntry).toHaveBeenCalledWith("resource", {
+      fields: {
+        key: {
+          "en-US": newMicrocopyToCreate.fields.key["en-US"],
+          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+        },
+        value: {
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
+        }
+      },
+      metadata: undefined
+    });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
+    expect(mockEntryUpdate).toHaveBeenCalled();
+    expect(mockCreatePublishBulkAction).not.toHaveBeenCalled();
+  });
+
   it("should create multiple new microcopies if they don't exist without publishing it", async () => {
     const mockGetEnvironment = jest.fn<Space["getEnvironment"]>();
     mockGetSpace.mockResolvedValueOnce(
@@ -1909,6 +2016,135 @@ describe("main with isPublished true and isConsolidated false", () => {
       ],
       "en-GB": [
         existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
+    expect(mockEntryUpdate).toHaveBeenCalled();
+    expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
+      entities: {
+        sys: { type: "Array" },
+        items: [
+          {
+            sys: {
+              linkType: "Entry",
+              type: "Link",
+              id: createdMicrocopy.sys.id,
+              version: createdMicrocopy.sys.version
+            }
+          }
+        ]
+      }
+    });
+    expect(mockWaitProcessing).toHaveBeenCalled();
+  });
+
+  it("should create new microcopy if it doesn't exist, publish it and attach to resource is resource doesn't have any existing linked microcopies", async () => {
+    const mockGetEnvironment = jest.fn<Space["getEnvironment"]>();
+    mockGetSpace.mockResolvedValueOnce(
+      createSpace({
+        getEnvironment: mockGetEnvironment
+      })
+    );
+    const mockGetEntries = jest.fn<Environment["getEntries"]>();
+    const mockGetLocales = jest.fn<Environment["getLocales"]>();
+    const mockCreateEntry = jest.fn<Environment["createEntry"]>();
+    const mockCreatePublishBulkAction =
+      jest.fn<Environment["createPublishBulkAction"]>();
+    mockGetEnvironment.mockResolvedValueOnce(
+      createEnvironment({
+        getEntries: mockGetEntries,
+        getLocales: mockGetLocales,
+        createEntry: mockCreateEntry,
+        createPublishBulkAction: mockCreatePublishBulkAction
+      })
+    );
+    const microcopies = Object.values(microCopy).map((microCopyKey) =>
+      createEntry({
+        fields: {
+          key: {
+            "en-US": microCopyKey
+          }
+        }
+      })
+    );
+    const newMicrocopyToCreate = microcopies.pop()!;
+    const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const resources = createEntry({
+      fields: {},
+      update: mockEntryUpdate
+    });
+    mockGetEntries
+      .mockResolvedValueOnce(
+        createCollection({
+          total: microcopies.length,
+          items: microcopies
+        })
+      )
+      .mockResolvedValueOnce(
+        createCollection({ total: 1, items: [resources] })
+      );
+    mockGetLocales.mockResolvedValue(
+      createCollection({
+        items: [
+          createLocale({ code: "en-US" }),
+          createLocale({ code: "en-GB" })
+        ]
+      })
+    );
+    const createdMicrocopy = createEntry();
+    mockCreateEntry.mockResolvedValueOnce(createdMicrocopy);
+    const mockWaitProcessing = jest.fn<BulkAction["waitProcessing"]>();
+    mockCreatePublishBulkAction.mockResolvedValueOnce(
+      createBulkAction({
+        waitProcessing: mockWaitProcessing
+      })
+    );
+
+    await main(true, false);
+
+    expect(mockGetSpace).toHaveBeenCalled();
+    expect(mockGetEnvironment).toHaveBeenCalled();
+    expect(mockGetEntries).toHaveBeenCalledTimes(2);
+    expect(mockGetEntries).toHaveBeenCalledWith({
+      content_type: "resource", // For some reason, microcopies have the ID resource in Contentful
+      skip: 0,
+      limit: KEYS_REQUEST_PAGE_SIZE
+    });
+    expect(mockGetEntries).toHaveBeenCalledWith({
+      content_type: "resources",
+      limit: 1
+    });
+    expect(mockGetLocales).toHaveBeenCalledTimes(2);
+    expect(mockCreateEntry).toHaveBeenCalledWith("resource", {
+      fields: {
+        key: {
+          "en-US": newMicrocopyToCreate.fields.key["en-US"],
+          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+        },
+        value: {
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
+        }
+      },
+      metadata: undefined
+    });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
         {
           sys: {
             type: "Link",
@@ -3107,6 +3343,137 @@ describe("main with isPublished false and isConsolidated true", () => {
       ],
       "en-GB": [
         existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ]
+    });
+    expect(mockEntryUpdate).toHaveBeenCalled();
+    expect(mockCreatePublishBulkAction).not.toHaveBeenCalled();
+  });
+
+  it("should create new microcopy if it doesn't exist without publish it and attach to resource is resource doesn't have any existing linked microcopies", async () => {
+    const mockGetEnvironment = jest.fn<Space["getEnvironment"]>();
+    mockGetSpace.mockResolvedValueOnce(
+      createSpace({
+        getEnvironment: mockGetEnvironment
+      })
+    );
+    const mockGetTags = jest.fn<Environment["getTags"]>();
+    const mockGetEntries = jest.fn<Environment["getEntries"]>();
+    const mockCreateEntry = jest.fn<Environment["createEntry"]>();
+    const mockGetLocales = jest.fn<Environment["getLocales"]>();
+    const mockCreatePublishBulkAction =
+      jest.fn<Environment["createPublishBulkAction"]>();
+    mockGetEnvironment.mockResolvedValueOnce(
+      createEnvironment({
+        getTags: mockGetTags,
+        getEntries: mockGetEntries,
+        createEntry: mockCreateEntry,
+        getLocales: mockGetLocales,
+        createPublishBulkAction: mockCreatePublishBulkAction
+      })
+    );
+    const tag = createTag({
+      sys: createTagSysProps({ id: "market__uk", visibility: "public" })
+    });
+    mockGetTags.mockResolvedValueOnce(
+      createCollection({
+        total: 1,
+        items: [tag]
+      })
+    );
+    const microcopies = Object.values(microCopy).map((microCopyKey) =>
+      createEntry({
+        fields: {
+          key: {
+            "en-US": microCopyKey
+          }
+        }
+      })
+    );
+    const newMicrocopyToCreate = microcopies.pop()!;
+    const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const resources = createEntry({
+      fields: {},
+      update: mockEntryUpdate
+    });
+    mockGetEntries
+      .mockResolvedValueOnce(
+        createCollection({
+          total: microcopies.length,
+          items: microcopies
+        })
+      )
+      .mockResolvedValueOnce(
+        createCollection({ total: 1, items: [resources] })
+      );
+    mockGetLocales.mockResolvedValue(
+      createCollection({
+        items: [
+          createLocale({ code: "en-US" }),
+          createLocale({ code: "en-GB" })
+        ]
+      })
+    );
+    mockCreateEntry.mockResolvedValueOnce(createEntry());
+
+    await main(false, true);
+
+    expect(mockGetSpace).toHaveBeenCalled();
+    expect(mockGetEnvironment).toHaveBeenCalled();
+    expect(mockGetTags).toHaveBeenCalledWith(undefined);
+    expect(mockGetEntries).toHaveBeenCalledTimes(2);
+    expect(mockGetEntries).toHaveBeenCalledWith({
+      content_type: "resource", // For some reason, microcopies have the ID resource in Contentful
+      skip: 0,
+      limit: KEYS_REQUEST_PAGE_SIZE,
+      "metadata.tags.sys.id[in]": tag.sys.id
+    });
+    expect(mockGetEntries).toHaveBeenCalledWith({
+      content_type: "resources",
+      limit: 1,
+      "metadata.tags.sys.id[in]": tag.sys.id
+    });
+    expect(mockGetLocales).toHaveBeenCalledTimes(2);
+    expect(mockCreateEntry).toHaveBeenCalledWith("resource", {
+      fields: {
+        key: {
+          "en-US": newMicrocopyToCreate.fields.key["en-US"],
+          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+        },
+        value: {
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
+        }
+      },
+      metadata: {
+        tags: [
+          {
+            sys: {
+              type: "Link",
+              linkType: "Tag",
+              id: tag.sys.id
+            }
+          }
+        ]
+      }
+    });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: newMicrocopyToCreate.sys.id
+          }
+        }
+      ],
+      "en-GB": [
         {
           sys: {
             type: "Link",
@@ -5056,6 +5423,161 @@ describe("main with isPublished true and isConsolidated true", () => {
       ],
       "en-GB": [
         existingMicrocopy,
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ]
+    });
+    expect(mockEntryUpdate).toHaveBeenCalled();
+    expect(mockCreatePublishBulkAction).toHaveBeenCalledWith({
+      entities: {
+        sys: { type: "Array" },
+        items: [
+          {
+            sys: {
+              linkType: "Entry",
+              type: "Link",
+              id: createdMicrocopy.sys.id,
+              version: createdMicrocopy.sys.version
+            }
+          }
+        ]
+      }
+    });
+    expect(mockWaitProcessing).toHaveBeenCalled();
+  });
+
+  it("should create new microcopy if it doesn't exist, publish it and attach to resource is resource doesn't have any existing linked microcopies", async () => {
+    const mockGetEnvironment = jest.fn<Space["getEnvironment"]>();
+    mockGetSpace.mockResolvedValueOnce(
+      createSpace({
+        getEnvironment: mockGetEnvironment
+      })
+    );
+    const mockGetTags = jest.fn<Environment["getTags"]>();
+    const mockGetEntries = jest.fn<Environment["getEntries"]>();
+    const mockCreateEntry = jest.fn<Environment["createEntry"]>();
+    const mockGetLocales = jest.fn<Environment["getLocales"]>();
+    const mockCreatePublishBulkAction =
+      jest.fn<Environment["createPublishBulkAction"]>();
+    mockGetEnvironment.mockResolvedValueOnce(
+      createEnvironment({
+        getTags: mockGetTags,
+        getEntries: mockGetEntries,
+        createEntry: mockCreateEntry,
+        getLocales: mockGetLocales,
+        createPublishBulkAction: mockCreatePublishBulkAction
+      })
+    );
+    const tag = createTag({
+      sys: createTagSysProps({ id: "market__uk", visibility: "public" })
+    });
+    mockGetTags.mockResolvedValueOnce(
+      createCollection({
+        total: 1,
+        items: [tag]
+      })
+    );
+    const microcopies = Object.values(microCopy).map((microCopyKey) =>
+      createEntry({
+        fields: {
+          key: {
+            "en-US": microCopyKey
+          }
+        }
+      })
+    );
+    const newMicrocopyToCreate = microcopies.pop()!;
+    const mockEntryUpdate = jest.fn<Entry["update"]>();
+    const resources = createEntry({
+      fields: {},
+      update: mockEntryUpdate
+    });
+    mockGetEntries
+      .mockResolvedValueOnce(
+        createCollection({
+          total: microcopies.length,
+          items: microcopies
+        })
+      )
+      .mockResolvedValueOnce(
+        createCollection({ total: 1, items: [resources] })
+      );
+    mockGetLocales.mockResolvedValue(
+      createCollection({
+        items: [
+          createLocale({ code: "en-US" }),
+          createLocale({ code: "en-GB" })
+        ]
+      })
+    );
+    const createdMicrocopy = createEntry({
+      sys: createEntryMetaSysProps({ id: "microcopy1" })
+    });
+    mockCreateEntry.mockResolvedValueOnce(createdMicrocopy);
+    const mockWaitProcessing = jest.fn<BulkAction["waitProcessing"]>();
+    mockCreatePublishBulkAction.mockResolvedValueOnce(
+      createBulkAction({
+        waitProcessing: mockWaitProcessing
+      })
+    );
+
+    await main(true, true);
+
+    expect(mockGetSpace).toHaveBeenCalled();
+    expect(mockGetEnvironment).toHaveBeenCalled();
+    expect(mockGetTags).toHaveBeenCalledWith(undefined);
+    expect(mockGetEntries).toHaveBeenCalledTimes(2);
+    expect(mockGetEntries).toHaveBeenCalledWith({
+      content_type: "resource", // For some reason, microcopies have the ID resource in Contentful
+      skip: 0,
+      limit: KEYS_REQUEST_PAGE_SIZE,
+      "metadata.tags.sys.id[in]": tag.sys.id
+    });
+    expect(mockGetEntries).toHaveBeenCalledWith({
+      content_type: "resources",
+      limit: 1,
+      "metadata.tags.sys.id[in]": tag.sys.id
+    });
+    expect(mockGetLocales).toHaveBeenCalledTimes(2);
+    expect(mockCreateEntry).toHaveBeenCalledWith("resource", {
+      fields: {
+        key: {
+          "en-US": newMicrocopyToCreate.fields.key["en-US"],
+          "en-GB": newMicrocopyToCreate.fields.key["en-US"]
+        },
+        value: {
+          "en-US": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`,
+          "en-GB": `MC: ${newMicrocopyToCreate.fields.key["en-US"]}`
+        }
+      },
+      metadata: {
+        tags: [
+          {
+            sys: {
+              type: "Link",
+              linkType: "Tag",
+              id: tag.sys.id
+            }
+          }
+        ]
+      }
+    });
+    expect(resources.fields.microCopy).toEqual({
+      "en-US": [
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: createdMicrocopy.sys.id
+          }
+        }
+      ],
+      "en-GB": [
         {
           sys: {
             type: "Link",
