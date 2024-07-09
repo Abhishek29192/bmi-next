@@ -25,7 +25,7 @@ export type HomepageData = {
   title: string;
   slides: readonly [SlideData | PageInfoData, ...(SlideData | PageInfoData)[]];
   overlapCards: OverlapCardData | null;
-  brands: [BrandData, ...BrandData[]] | null;
+  brands: BrandData[];
   sections: SectionsData | null;
 } & PageData;
 
@@ -98,7 +98,7 @@ const HomePage = ({ data, pageContext }: Props) => {
               )}
             </CarouselHero>
             {overlapCards && <OverlapCards data={overlapCards} />}
-            {brands && <Brands data={brands} />}
+            {brands.length > 0 && <Brands data={brands} />}
             {sections && (
               <Sections
                 data-testid="homepage-sections"
