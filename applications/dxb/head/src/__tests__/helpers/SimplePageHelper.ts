@@ -18,6 +18,7 @@ const createSimplePageData = (simplePage?: Partial<Data>): Data => ({
   breadcrumbs: [createBreadcrumbItem()],
   breadcrumbTitle: "example-breadcrumb-title",
   cta: null,
+  isSimplePageProtected: false,
   ...simplePage
 });
 

@@ -274,6 +274,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
                 categoryCodes
                 allowFilterBy
               }
+              ... on ContentfulSimplePage {
+                isSimplePageProtected
+              }
             }
           }
          accountPage {
@@ -330,6 +333,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
 
     ([site.homePage, ...site.pages] || []).forEach(async (page) => {
+      if (page.__typename === "ContentfulSimplePage") {
+        if (
+          page.isSimplePageProtected === true &&
+          !convertStrToBool(process.env.GATSBY_IS_LOGIN_ENABLED)
+        ) {
+          return;
+        }
+      }
+
       const component = componentMap[page.__typename];
 
       if (!component) {

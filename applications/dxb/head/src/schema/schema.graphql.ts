@@ -150,6 +150,7 @@ type ContentfulSimplePage implements ContentfulObject & ContentfulPage & Node @d
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   sampleBasketSection: ContentfulSampleBasketSection @link(from: "sampleBasketSection___NODE")
   cta: ContentfulLink @link(from: "cta___NODE")
+  isSimplePageProtected: Boolean!
 }
 
 type ContentfulContactUsPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
