@@ -2218,11 +2218,12 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
                     data-testid="nba-card-example-title"
+                    href="/en/example/path/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -2246,7 +2247,30 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                      data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
+                      data-testid="anchor-link"
+                      href="/en/example/path/"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                      example-title
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -5106,11 +5130,12 @@ exports[`Contact us page render Sections correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
                     data-testid="nba-card-example-title"
+                    href="/en/example/path/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -5134,7 +5159,30 @@ exports[`Contact us page render Sections correctly 1`] = `
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                      data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
+                      data-testid="anchor-link"
+                      href="/en/example/path/"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                      example-title
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -7991,11 +8039,12 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
                     data-testid="nba-card-example-title"
+                    href="/en/example/path/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -8019,7 +8068,30 @@ exports[`Contact us page render first slide featuredMedia instead when no featur
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                      data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
+                      data-testid="anchor-link"
+                      href="/en/example/path/"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                      example-title
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -10879,11 +10951,12 @@ exports[`Contact us page render iframe correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
                     data-testid="nba-card-example-title"
+                    href="/en/example/path/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -10907,7 +10980,30 @@ exports[`Contact us page render iframe correctly 1`] = `
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                      data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
+                      data-testid="anchor-link"
+                      href="/en/example/path/"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                      example-title
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -13767,11 +13863,12 @@ exports[`Contact us page render location correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
                     data-testid="nba-card-example-title"
+                    href="/en/example/path/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -13795,7 +13892,30 @@ exports[`Contact us page render location correctly 1`] = `
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                      data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
+                      data-testid="anchor-link"
+                      href="/en/example/path/"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                      example-title
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -16655,11 +16775,12 @@ exports[`Contact us page renders correctly 1`] = `
                   class="TappableCard-root ColorPair-secondary2 css-14grad6"
                   data-testid="tappable-card-box"
                 >
-                  <button
+                  <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
+                    data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
                     data-testid="nba-card-example-title"
+                    href="/en/example/path/"
                     tabindex="0"
-                    type="button"
                   >
                     <div
                       class="TappableCard-body css-c6k36h"
@@ -16683,7 +16804,30 @@ exports[`Contact us page renders correctly 1`] = `
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
+                  <div
+                    class="TappableCard-footer css-1rg9dq1"
+                  >
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
+                      data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
+                      data-testid="anchor-link"
+                      href="/en/example/path/"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1vtibze-MuiSvgIcon-root"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                      example-title
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

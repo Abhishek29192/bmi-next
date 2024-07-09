@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb HR redirects - Croatia`,
     description: `Website for HR redirects - Croatia`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectscroatia.gatsbyjs.io`
+    siteUrl: `https://bmidxbredirectscroatia.netlify.app`
   },
   plugins: [
     {

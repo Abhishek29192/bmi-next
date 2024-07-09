@@ -5,11 +5,14 @@ GET {{esHost}}/_cat/indices?pretty&s=index&v
 Content-Type: application/json
 Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
 
+###
+
 # @name get all aliases
 GET {{esHost}}/_cat/aliases?v&s=index:desc&h=alias,index
 Content-Type: application/json
 Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
 
+###
 
 # @name put alias on product index
 POST {{esHost}}/_aliases?pretty
@@ -33,6 +36,8 @@ Authorization: ApiKey {{esApiKeyFullCatCoOrdinator}}
   ]
 }
 
+###
+
 # @name search All request
 POST {{esHost}}/{{productsIndex}}/_search
 Content-Type: application/json
@@ -43,7 +48,9 @@ Authorization: ApiKey {{esApiKey}}
 ###
 
 # @name Product search request
-@term=Icopal_Gruenplast-PIR_dh_23
+< {%
+  request.variables.set("term", "Icopal_Gruenplast-PIR_dh_23")
+%}
 POST {{esHost}}/{{productsIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
@@ -119,7 +126,9 @@ Authorization: ApiKey {{esApiKey}}
 ### JIRA DXB-5317
 
 # @name Document search request
-@term=BMI Icopal Profiles Brochure
+< {%
+  request.variables.set("term", "BMI Icopal Profiles Brochure")
+%}
 POST {{esHost}}/{{documentsIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
@@ -194,7 +203,9 @@ Authorization: ApiKey {{esApiKey}}
 ###
 
 # @name Pages search request
-@term=Icopal
+< {%
+  request.variables.set("term", "Icopal")
+%}
 POST {{esHost}}/{{pagesIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
@@ -244,7 +255,9 @@ Authorization: ApiKey {{esApiKey}}
 ###
 
 # @name PLP request
-@category=NO_PRODUCTS
+< {%
+  request.variables.set("category", "NO_PRODUCTS")
+%}
 POST {{esHost}}/{{productsIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}

@@ -4,7 +4,6 @@ import type { Data as ImageData } from "./image/types";
 import type { Data as SampleBasketSectionData } from "./SampleBasketBase";
 import type { TagData } from "./Tag";
 import type { ContentfulVideoData } from "./video/types";
-import type { Data as LinkData } from "./link/types";
 
 export type Data = {
   __typename:
@@ -19,7 +18,7 @@ export type Data = {
   subtitle: string | null;
   brandLogo: Logo | null;
   slug: string;
-  path: string | null;
+  path: string;
   date: string | null;
   rawDate: string | null;
   tags: TagData[] | null;
@@ -27,7 +26,6 @@ export type Data = {
   featuredMedia: ImageData | null;
   featuredVideo: ContentfulVideoData | null;
   heroType?: string | null;
-  cta?: LinkData | null;
   sections?:
     | Omit<
         SampleBasketSectionData,

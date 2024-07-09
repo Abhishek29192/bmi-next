@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb FR redirects - dt siplat - fr`,
     description: `Website for redirects - dt-siplast-fr`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectsdtsiplastfr.gatsbyjs.io`
+    siteUrl: `https://dxbredirectsdtsiplastfr.netlify.app`
   },
   plugins: [
     {

@@ -70,10 +70,8 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
   );
 
   const images = system.masterImage
-    ? transformImages([system.masterImage, ...system.galleryImages]).filter(
-        isDefined
-      )
-    : transformImages([...system.galleryImages]).filter(isDefined);
+    ? transformImages([system.masterImage, ...system.galleryImages])
+    : transformImages([...system.galleryImages]);
 
   const videos = transformMediaSrc(system.videos).filter(isDefined);
 

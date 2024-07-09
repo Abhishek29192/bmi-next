@@ -4,7 +4,7 @@
         <name>qa</name>
         <desc/>
         <inscope>true</inscope>
-        <incregexes>https://dxbqa.gatsbyjs.io.*</incregexes>
+        <incregexes>https://dxbqa.netlify.app.*</incregexes>
         <tech>
             <include>Language.JavaScript</include>
             <include>OS.Linux</include>
@@ -61,9 +61,9 @@
             <pollunits>REQUESTS</pollunits>
             <loggedout>\QPlease enter your password to get access.\E</loggedout>
             <form>
-                <loginurl>https://dxbqa.gatsbyjs.io/</loginurl>
+                <loginurl>https://dxbqa.netlify.app/</loginurl>
                 <loginbody>username={%username%}&amp;password={%password%}</loginbody>
-                <loginpageurl>https://dxbqa.gatsbyjs.io/</loginpageurl>
+                <loginpageurl>https://dxbqa.netlify.app/</loginpageurl>
             </form>
         </authentication>
         <users>

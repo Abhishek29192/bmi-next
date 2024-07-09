@@ -25,6 +25,7 @@ import { Data as SiteData, useSiteContext } from "./Site";
 import { getCTA } from "./link/utils";
 import type { RichTextData } from "./RichText";
 import type { IconButtonProps } from "@bmi-digital/components/icon-button";
+import type { HeaderProps } from "@bmi-digital/components/header";
 import type { ButtonProps } from "@bmi-digital/components/button";
 import type { Data as PageInfoData } from "./PageInfo";
 import type {
@@ -35,7 +36,6 @@ import type {
 import type { GetMicroCopy } from "./MicroCopy";
 import type { NavigationList } from "@bmi-digital/components/navigation";
 import type { Data as PromoData } from "./Promo";
-import type { HeaderProps } from "@bmi-digital/components/header";
 
 type ParseNavigationProps = {
   navigationItems: (NavigationData | NavigationItem | LinkData)[];
@@ -45,29 +45,44 @@ type ParseNavigationProps = {
 };
 
 type GetPromoSectionProps = {
-  promo: PromoData;
+  promo: PromoData | PageInfoData;
   countryCode: SiteData["countryCode"];
   getMicroCopy: GetMicroCopy;
 };
 
 const getPromoSection = (props: GetPromoSectionProps) => {
   const { promo, countryCode, getMicroCopy } = props;
-  const cta = getCTA(
-    promo,
-    countryCode,
-    getMicroCopy(microCopy.PAGE_LINK_LABEL)
-  );
+  const ctaLabelMicroCopy = getMicroCopy(microCopy.PAGE_LINK_LABEL);
+  const cta = getCTA(promo, countryCode, ctaLabelMicroCopy);
+
+  const label =
+    promo.__typename === "ContentfulPromo"
+      ? promo.title || promo.name
+      : promo.title;
+
+  const ctaLabel =
+    (promo.__typename === "ContentfulPromo" && promo.cta?.label) ||
+    ctaLabelMicroCopy;
 
   return [
-    {
-      label: promo.title || promo.name,
-      image: promo.featuredMedia ? (
-        <Image {...promo.featuredMedia} />
-      ) : undefined
-    },
-    { label: promo.title || promo.name, isHeading: true },
+    ...(promo.featuredMedia
+      ? [
+          {
+            label,
+            image: <Image {...promo.featuredMedia} />
+          }
+        ]
+      : []),
+    { label, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),
-    ...(cta ? [{ label: promo.cta?.label || promo.name, action: cta }] : [])
+    ...(cta
+      ? [
+          {
+            label: ctaLabel,
+            action: cta
+          }
+        ]
+      : [])
   ];
 };
 

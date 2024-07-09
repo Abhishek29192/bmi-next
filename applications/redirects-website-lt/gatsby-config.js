@@ -5,7 +5,7 @@ module.exports = {
     title: `BMI dxb LT redirects - Lithuania`,
     description: `Website for EE redirects - Lithuania`,
     author: `bmi`,
-    siteUrl: `https://bmidxbredirectslithuania.gatsbyjs.io`
+    siteUrl: `https://bmidxbredirectslithuania.netlify.app`
   },
   plugins: [
     {
