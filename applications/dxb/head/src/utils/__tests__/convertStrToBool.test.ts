@@ -17,4 +17,14 @@ describe("convertStrToBool", () => {
     const result = convertStrToBool("test");
     expect(result).toEqual(false);
   });
+
+  it("should return false if argument is undefined", () => {
+    const result = convertStrToBool(undefined);
+    expect(result).toEqual(false);
+  });
+
+  it("should return false if argument is null", () => {
+    const result = convertStrToBool(null);
+    expect(result).toEqual(false);
+  });
 });

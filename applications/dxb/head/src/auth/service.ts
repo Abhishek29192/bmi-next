@@ -32,6 +32,8 @@ class Auth {
     // Save postLoginUrl so we can redirect user back to where they left off
     // after login screen
     localStorage.setItem("postLoginUrl", window.location.pathname);
+    localStorage.removeItem("showLoginToast");
+    localStorage.removeItem("showLogoutToast");
     this.auth0 &&
       this.auth0.authorize({
         market: process.env.GATSBY_SPACE_MARKET_CODE
@@ -47,6 +49,7 @@ class Auth {
 
             const postLoginUrl = localStorage.getItem("postLoginUrl");
             localStorage.removeItem("postLoginUrl");
+            localStorage.setItem("showLoginToast", "true");
             if (postLoginUrl) {
               navigate(postLoginUrl);
             }
@@ -120,6 +123,7 @@ class Auth {
     if (!this.isBrowser) {
       return;
     }
+    localStorage.setItem("showLogoutToast", "true");
     this.localLogout();
     this.auth0 &&
       this.auth0.logout({
