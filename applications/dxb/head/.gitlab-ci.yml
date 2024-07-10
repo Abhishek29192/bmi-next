@@ -174,7 +174,7 @@ full_scan_head_qa:
   rules:
     - if: "$WHICH_SCHEDULE == 'full_scan_head_qa'"
   variables:
-    BASE_URL: https://dxbqa.netlify.app/no/
+    BASE_URL: https://dxbqa.netlify.app/dxb/
     ZAP_ENVIRONMENT: qa
 
 full_scan_head_pre_prod:
@@ -241,15 +241,15 @@ lighthouseci_scan_head_preview:
       export base_url=$(cat deploy_head)
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
       export LIGHTHOUSE_URLS=(
-        "${base_url}/no/"
-        "${base_url}/no/contact-us/"
-        "${base_url}/no/aerodek-brand/"
-        "${base_url}/no/roof-products/"
-        "${base_url}/no/p/zanda-protector-normalstein-20x30x50-2877920698/"
-        "${base_url}/no/s/thermaweld-firesmart-warm-roof-ply-osb-safe2torch-282193240/"
-        "${base_url}/no/documentation-landing-page/technical-product-catalogues-for-automation/"
-        "${base_url}/no/find-a-merchant/"
-        "${base_url}/no/search/?q=zanda"
+        "${base_url}/dxb/"
+        "${base_url}/dxb/contact-us/"
+        "${base_url}/dxb/aerodek-brand/"
+        "${base_url}/dxb/roof-products/"
+        "${base_url}/dxb/p/zanda-protector-normalstein-20x30x50-2877920698/"
+        "${base_url}/dxb/s/thermaweld-firesmart-warm-roof-ply-osb-safe2torch-282193240/"
+        "${base_url}/dxb/documentation-landing-page/technical-product-catalogues-for-automation/"
+        "${base_url}/dxb/find-a-merchant/"
+        "${base_url}/dxb/search/?q=zanda"
       )
 
 # Should be set as a scheduled job for cron 0 2 * * 0 (2am every sunday) for QA

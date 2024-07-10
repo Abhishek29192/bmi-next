@@ -141,7 +141,6 @@ export const CompanyLogo = styled(Image)({
     height: "40px"
   },
   [`&.${companyLogoClasses.card}`]: {
-    marginBottom: "30px",
     height: "60px",
     maxWidth: "135px",
     img: {
