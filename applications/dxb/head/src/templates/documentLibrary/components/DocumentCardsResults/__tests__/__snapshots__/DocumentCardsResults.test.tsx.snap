@@ -11,7 +11,7 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="TappableCard-root ColorPair-white css-963r91"
+        class="TappableCard-root ColorPair-white css-1bloavi"
         data-testid="tappable-card-box"
       >
         <a
@@ -126,7 +126,7 @@ exports[`Brands component renders correctly 1`] = `
       data-testid="grid-item"
     >
       <div
-        class="TappableCard-root ColorPair-white css-963r91"
+        class="TappableCard-root ColorPair-white css-1bloavi"
         data-testid="tappable-card-box"
       >
         <a

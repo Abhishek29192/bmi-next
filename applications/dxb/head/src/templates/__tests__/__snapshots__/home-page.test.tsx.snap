@@ -967,7 +967,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -1057,7 +1057,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -1147,7 +1147,7 @@ exports[`Home Page Template render correctly with all data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div

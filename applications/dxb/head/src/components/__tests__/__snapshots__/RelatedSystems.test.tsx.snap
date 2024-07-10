@@ -28,7 +28,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -116,7 +116,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -265,7 +265,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -353,7 +353,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -472,7 +472,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -560,7 +560,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -679,7 +679,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -767,7 +767,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -886,7 +886,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -1005,7 +1005,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -1124,7 +1124,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
               data-testid="system-card-system-code"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -1222,7 +1222,7 @@ exports[`SystemCard renders correctly with related system 1`] = `
     data-testid="system-card-related-system-1"
   >
     <div
-      class="TappableCard-root ColorPair-white css-963r91"
+      class="TappableCard-root ColorPair-white css-1bloavi"
       data-testid="tappable-card-box"
     >
       <a

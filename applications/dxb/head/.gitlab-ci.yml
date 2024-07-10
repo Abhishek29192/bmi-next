@@ -165,7 +165,7 @@ baseline_scan_head_preview:
       [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
       export BASE_URL=$(cat deploy_head)
       [ -z "${BASE_URL}" ] && echo "Nothing deployed to test" && exit 0
-      export BASE_URL=${BASE_URL}/no
+      export BASE_URL=${BASE_URL}/dxb
 
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
 # SAST_DISABLED should be set to true

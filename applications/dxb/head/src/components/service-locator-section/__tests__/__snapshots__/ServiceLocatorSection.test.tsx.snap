@@ -385,7 +385,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -740,7 +740,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -808,7 +808,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -895,7 +895,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         class="MuiCardContent-root css-91qw9k-MuiCardContent-root"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -1332,7 +1332,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -1687,7 +1687,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -1755,7 +1755,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -2115,7 +2115,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -2387,7 +2387,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -2772,7 +2772,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -3157,7 +3157,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -3656,7 +3656,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -3754,7 +3754,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -3960,7 +3960,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -4058,7 +4058,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -4390,7 +4390,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -4458,7 +4458,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -4790,7 +4790,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -4858,7 +4858,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -5190,7 +5190,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -5258,7 +5258,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -5737,7 +5737,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -5826,7 +5826,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -6179,7 +6179,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -6247,7 +6247,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -6662,7 +6662,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -6751,7 +6751,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -7104,7 +7104,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -7193,7 +7193,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -7546,7 +7546,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -7878,7 +7878,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -8261,7 +8261,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -8614,7 +8614,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -8994,7 +8994,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -9356,7 +9356,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -9424,7 +9424,7 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -9789,7 +9789,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -10123,7 +10123,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -10210,7 +10210,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                         class="MuiCardContent-root css-91qw9k-MuiCardContent-root"
                       >
                         <div
-                          class="css-oxw5r2"
+                          class="css-1ysvavy"
                           data-testid="company-details-root"
                         >
                           <div
@@ -10556,7 +10556,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -11236,7 +11236,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -11304,7 +11304,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -11372,7 +11372,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div
@@ -12015,7 +12015,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                           class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="css-oxw5r2"
+                            class="css-1ysvavy"
                             data-testid="company-details-root"
                           >
                             <div

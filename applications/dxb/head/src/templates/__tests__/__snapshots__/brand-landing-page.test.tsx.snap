@@ -1120,7 +1120,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -1213,7 +1213,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -4588,7 +4588,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -4681,7 +4681,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -6453,7 +6453,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -6546,7 +6546,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -8320,7 +8320,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -8413,7 +8413,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -10157,7 +10157,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -10250,7 +10250,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -12024,7 +12024,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -12117,7 +12117,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -13901,7 +13901,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -13994,7 +13994,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -15780,7 +15780,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -15873,7 +15873,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -17659,7 +17659,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div
@@ -17752,7 +17752,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-122w5jm"
+                  class="TappableCard-root ColorPair-white css-ukk4p3"
                   data-testid="tappable-card-box"
                 >
                   <div

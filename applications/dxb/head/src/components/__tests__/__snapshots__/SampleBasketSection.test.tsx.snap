@@ -26,7 +26,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
           class="css-15l37u8"
         >
           <div
-            class="SampleBasketSectionProducts-product-wrapper TappableCard-root ColorPair-white css-963r91"
+            class="SampleBasketSectionProducts-product-wrapper TappableCard-root ColorPair-white css-1bloavi"
             data-testid="tappable-card-box"
           >
             <a
@@ -54,7 +54,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
                   sample-1
                 </h6>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 TappableCard-text TappableCard-subtitle css-1nuwz6u-MuiTypography-root"
                   data-testid="tappable-card-body-subtitle"
                 >
                   green | rough
@@ -169,7 +169,7 @@ exports[`SampleBasketSection component should render form after complete button 
           class="css-15l37u8"
         >
           <div
-            class="SampleBasketSectionProducts-product-wrapper TappableCard-root ColorPair-white css-963r91"
+            class="SampleBasketSectionProducts-product-wrapper TappableCard-root ColorPair-white css-1bloavi"
             data-testid="tappable-card-box"
           >
             <a
@@ -197,7 +197,7 @@ exports[`SampleBasketSection component should render form after complete button 
                   sample-1
                 </h6>
                 <h6
-                  class="MuiTypography-root MuiTypography-h6 TappableCard-text css-1nuwz6u-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h6 TappableCard-text TappableCard-subtitle css-1nuwz6u-MuiTypography-root"
                   data-testid="tappable-card-body-subtitle"
                 >
                   green | rough

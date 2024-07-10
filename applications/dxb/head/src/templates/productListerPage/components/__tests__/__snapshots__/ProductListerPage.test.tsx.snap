@@ -693,7 +693,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -1763,7 +1763,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -3079,7 +3079,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -4381,7 +4381,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -5630,7 +5630,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -8672,7 +8672,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -9960,7 +9960,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -11248,7 +11248,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -12571,7 +12571,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -13887,7 +13887,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -13917,12 +13917,12 @@ exports[`ProductListerPage template test handle change url by click on filters a
                             >
                               name
                             </h5>
-                            <h5
-                              class="MuiTypography-root MuiTypography-h5 TappableCard-text css-1lhxn1g-MuiTypography-root"
+                            <h6
+                              class="MuiTypography-root MuiTypography-h6 TappableCard-text TappableCard-subtitle css-1nuwz6u-MuiTypography-root"
                               data-testid="tappable-card-body-subtitle"
                             >
                               MC: plp.product.moreOptionsAvailable
-                            </h5>
+                            </h6>
                             <div
                               class="TappableCard-text"
                               data-testid="tappable-card-body-description"
@@ -15195,7 +15195,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15271,7 +15271,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15347,7 +15347,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15423,7 +15423,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15499,7 +15499,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15575,7 +15575,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15651,7 +15651,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15727,7 +15727,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15803,7 +15803,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15879,7 +15879,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -15955,7 +15955,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16031,7 +16031,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16107,7 +16107,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16183,7 +16183,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16259,7 +16259,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16335,7 +16335,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16411,7 +16411,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16487,7 +16487,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16563,7 +16563,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16639,7 +16639,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16715,7 +16715,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16791,7 +16791,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16867,7 +16867,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -16943,7 +16943,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17019,7 +17019,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17095,7 +17095,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17171,7 +17171,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17247,7 +17247,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17323,7 +17323,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -17399,7 +17399,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -18790,7 +18790,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -18866,7 +18866,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -18942,7 +18942,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19018,7 +19018,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19094,7 +19094,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19170,7 +19170,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19246,7 +19246,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19322,7 +19322,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19398,7 +19398,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19474,7 +19474,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19550,7 +19550,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19626,7 +19626,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19702,7 +19702,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19778,7 +19778,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19854,7 +19854,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -19930,7 +19930,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20006,7 +20006,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20082,7 +20082,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20158,7 +20158,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20234,7 +20234,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20310,7 +20310,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20386,7 +20386,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20462,7 +20462,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20538,7 +20538,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20614,7 +20614,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20690,7 +20690,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20766,7 +20766,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20842,7 +20842,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20918,7 +20918,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
@@ -20994,7 +20994,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       data-testid="grid-item"
                     >
                       <div
-                        class="TappableCard-root ColorPair-white css-963r91"
+                        class="TappableCard-root ColorPair-white css-1bloavi"
                         data-testid="tappable-card-box"
                       >
                         <a
