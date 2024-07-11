@@ -18,7 +18,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
     data-testid="grid-item"
   >
     <div
-      class="TappableCard-root ColorPair-white css-963r91"
+      class="TappableCard-root ColorPair-white css-1bloavi"
       data-testid="tappable-card-box"
     >
       <a
@@ -99,7 +99,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
     data-testid="grid-item"
   >
     <div
-      class="TappableCard-root ColorPair-white css-963r91"
+      class="TappableCard-root ColorPair-white css-1bloavi"
       data-testid="tappable-card-box"
     >
       <a

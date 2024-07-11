@@ -1124,7 +1124,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary1 css-154l1oj"
                   data-testid="tappable-card-box"
                 >
                   <button
@@ -2937,7 +2937,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                     data-testid="card-collection-grid-item-visible-id"
                   >
                     <div
-                      class="TappableCard-root ColorPair-white css-963r91"
+                      class="TappableCard-root ColorPair-white css-1bloavi"
                       data-testid="tappable-card-box"
                     >
                       <div
@@ -3235,7 +3235,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 data-testid="grid-item"
               >
                 <div
-                  class="TappableCard-root ColorPair-secondary1 css-14grad6"
+                  class="TappableCard-root ColorPair-secondary1 css-154l1oj"
                   data-testid="tappable-card-box"
                 >
                   <button

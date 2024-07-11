@@ -40,7 +40,7 @@
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",
     "@auth0/auth0-react": "^2.2.4",
-    "@bmi-digital/components": "^4.2.7",
+    "@bmi-digital/components": "^4.2.8",
     "@bmi-digital/react-pdf-maker": "^1.7.6",
     "@bmi-digital/styles": "^1.7.6",
     "@bmi-digital/svg-import": "^1.7.6",

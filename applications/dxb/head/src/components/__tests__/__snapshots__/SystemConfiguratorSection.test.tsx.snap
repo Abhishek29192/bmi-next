@@ -246,7 +246,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               data-testid="efgh"
             >
               <div
-                class="TappableCard-root TappableCard-highlighted ColorPair-white css-963r91"
+                class="TappableCard-root TappableCard-highlighted ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -590,7 +590,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               data-testid="efgh"
             >
               <div
-                class="TappableCard-root TappableCard-highlighted ColorPair-white css-963r91"
+                class="TappableCard-root TappableCard-highlighted ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3250,7 +3250,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="ijkl"
             >
               <div
-                class="TappableCard-root TappableCard-highlighted ColorPair-white css-963r91"
+                class="TappableCard-root TappableCard-highlighted ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3332,7 +3332,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="efgh"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3414,7 +3414,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="abcd"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3496,7 +3496,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               data-testid="mnop"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3827,7 +3827,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="ijkl"
             >
               <div
-                class="TappableCard-root TappableCard-highlighted ColorPair-white css-963r91"
+                class="TappableCard-root TappableCard-highlighted ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a
@@ -3915,7 +3915,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               data-testid="efgh"
             >
               <div
-                class="TappableCard-root ColorPair-white css-963r91"
+                class="TappableCard-root ColorPair-white css-1bloavi"
                 data-testid="tappable-card-box"
               >
                 <a

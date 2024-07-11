@@ -2066,7 +2066,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 data-testid="system-card-related-system-code"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-1bloavi"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -4622,7 +4622,7 @@ exports[`SystemDetailsPage template component should render the component 1`] = 
                 data-testid="system-card-related-system-code"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-1bloavi"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -7179,7 +7179,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                   data-testid="system-card-related-system-1"
                 >
                   <div
-                    class="TappableCard-root ColorPair-white css-963r91"
+                    class="TappableCard-root ColorPair-white css-1bloavi"
                     data-testid="tappable-card-box"
                   >
                     <a
@@ -9736,7 +9736,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 data-testid="system-card-related-system-code"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-1bloavi"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -12252,7 +12252,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                 data-testid="system-card-related-system-1"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-1bloavi"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -14808,7 +14808,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 data-testid="system-card-related-system-1"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-1bloavi"
                   data-testid="tappable-card-box"
                 >
                   <a
@@ -17488,7 +17488,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                 data-testid="system-card-related-system-1"
               >
                 <div
-                  class="TappableCard-root ColorPair-white css-963r91"
+                  class="TappableCard-root ColorPair-white css-1bloavi"
                   data-testid="tappable-card-box"
                 >
                   <a

@@ -27,7 +27,7 @@ exports[`NextBestActions component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-secondary1 css-14grad6"
+              class="TappableCard-root ColorPair-secondary1 css-154l1oj"
               data-testid="tappable-card-box"
             >
               <a
@@ -96,7 +96,7 @@ exports[`NextBestActions component renders correctly 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="TappableCard-root ColorPair-secondary2 css-14grad6"
+              class="TappableCard-root ColorPair-secondary2 css-154l1oj"
               data-testid="tappable-card-box"
             >
               <a
