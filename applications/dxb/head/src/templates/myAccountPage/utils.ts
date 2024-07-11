@@ -86,7 +86,7 @@ export const transformGlobalTools = (
 
 const getInTouchUrl = (inTouchPageUrl: string, currentPageUrl: string) => {
   return `${
-    process.env.GATSBY_INTOUCH_ORIGIN
+    process.env.NEXT_PUBLIC_INTOUCH_ORIGIN
   }${inTouchPageUrl}?prev_page=${encodeURIComponent(currentPageUrl)}`;
 };
 

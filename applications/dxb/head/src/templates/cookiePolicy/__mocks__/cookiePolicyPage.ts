@@ -1,8 +1,17 @@
+import { BLOCKS } from "@contentful/rich-text-types";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { DataTypeEnum } from "../../../components/link/types";
 import { Data as SignUpBlockData } from "../../../components/SignupBlock";
 import { SourceType } from "../../../components/types/FormSectionTypes";
 import { PageContextType } from "../../productListerPage/components/product-lister-page";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
+import type { Data as PromoData } from "../../../components/Promo";
+import type { Data as CookiePolicyPageData } from "../components/cookie-policy-page";
+import type { Data as LeadBlockData } from "../../../components/LeadBlockSection";
+import type { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
+import type { Data as LinkData } from "../../../components/link/types";
+import type { Data as LinksColumnSectionData } from "../../../components/LinkColumnsSection";
+import type { Data as ExploreBarData } from "../../../components/ExploreBar";
 
 export const pageContext: PageContextType = {
   allowFilterBy: [],
@@ -15,9 +24,9 @@ export const pageContext: PageContextType = {
   }
 };
 
-export const nextBestActions = [
+export const nextBestActions: PromoData[] = [
   {
-    __typename: "ContentfulPromo",
+    __typename: "Promo",
     id: "nextBestActionsId",
     name: "Action 1",
     title: "Action 1",
@@ -31,14 +40,35 @@ export const nextBestActions = [
     backgroundColor: null
   }
 ];
-export const sections = [
+export const sections: CookiePolicyPageData["sections"] = [
   {
-    __typename: "ContentfulCardCollectionSection",
-    title: "ContentfulCardCollectionSectionTitle",
-    description: {
-      raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"ContentfulCardCollectionSectionText","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-      references: []
-    },
+    __typename: "CardCollectionSection",
+    title: "Contentful CardCollection Section Title",
+    description: createRichText({
+      json: {
+        data: {},
+        content: [
+          {
+            data: {},
+            content: [
+              {
+                data: {},
+                marks: [],
+                value: "Contentful Card Collection Section Text",
+                nodeType: "text"
+              }
+            ],
+            nodeType: BLOCKS.PARAGRAPH
+          },
+          {
+            data: {},
+            content: [{ data: {}, marks: [], value: "", nodeType: "text" }],
+            nodeType: BLOCKS.PARAGRAPH
+          }
+        ],
+        nodeType: BLOCKS.DOCUMENT
+      }
+    }),
     cardType: "Highlight Card",
     cardLabel: "Testing",
     groupCards: true,
@@ -46,7 +76,7 @@ export const sections = [
     sortOrder: null,
     cards: [
       {
-        __typename: "ContentfulPromo",
+        __typename: "Promo",
         id: "id",
         name: "BMI test video on PROMO",
         title: "BMI test video on PROMO",
@@ -57,7 +87,7 @@ export const sections = [
         featuredMedia: null,
         cta: null,
         featuredVideo: {
-          __typename: "ContentfulVideo",
+          __typename: "Video",
           title: "BMI Group - We see further",
           label: "BMI Group VIDEO LABEL",
           subtitle:
@@ -78,18 +108,29 @@ export const sections = [
 ];
 export const featuredMedia = createImageData();
 
-export const leadBlockData = {
-  __typename: "ContentfulLeadBlockSection",
+export const leadBlockData: LeadBlockData = {
+  __typename: "LeadBlockSection",
   title: "ContentfulLeadBlockSectionTitle",
-  text: {
-    raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-    references: null
-  },
+  text: createRichText({
+    json: {
+      nodeType: BLOCKS.DOCUMENT,
+      data: {},
+      content: [
+        {
+          nodeType: BLOCKS.PARAGRAPH,
+          content: [
+            { nodeType: "text", value: "test rich text", marks: [], data: {} }
+          ],
+          data: {}
+        }
+      ]
+    }
+  }),
   link: null,
   postItCard: null
 };
 
-export const shareWidgetData = {
+export const shareWidgetData: ShareWidgetSectionData = {
   __typename: "ShareWidgetSection",
   title: "ShareWidgetSectionTitle",
   message: "ShareWidgetSectionMessage",
@@ -104,26 +145,32 @@ export const shareWidgetData = {
   twitter: null
 };
 
-export const exploreBarData = {
+export const exploreBarData: ExploreBarData = {
   label: "exploreBarDataLabel",
   links: []
 };
 
-export const linkColumnsData = {
-  __typename: "ContentfulLink",
+export const linkColumnsData: LinksColumnSectionData = {
+  __typename: "ContentfulLinkColumnsSection",
   title: "linkColumnsTitle",
   columns: [
     {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Link column title",
       link: null,
-      links: [{ type: "Heading", value: "Link column value" }]
+      links: [
+        {
+          __typename: "NavigationItem",
+          type: "Heading",
+          value: "Link column value"
+        }
+      ]
     }
   ]
 };
 
-export const cta = {
-  __typename: "ContentfulLink",
+export const cta: LinkData = {
+  __typename: "Link",
   id: "ctaId",
   label: "ctaLabel",
   icon: null,
@@ -133,16 +180,17 @@ export const cta = {
   type: DataTypeEnum.External,
   parameters: null,
   dialogContent: null,
-  hubSpotCTAID: null
+  hubSpotCTAID: null,
+  queryParams: null
 };
 
 export const signupBlock: SignUpBlockData = {
-  __typename: "ContentfulSignupBlock",
+  __typename: "SignupBlock",
   title: "signupBlockTitle",
-  description: { description: "description" },
+  signUpBlockDescription: "description",
   signupLabel: "submitButtonLabel",
   signupDialogContent: {
-    __typename: "ContentfulFormSection",
+    __typename: "Form",
     title: "Test form",
     showTitle: null,
     description: null,

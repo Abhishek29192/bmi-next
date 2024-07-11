@@ -2,22 +2,52 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { BLOCKS } from "@contentful/rich-text-types";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import LeadBlockSection, {
   Data as LeadBlockSectionProps
 } from "../LeadBlockSection";
 import { DataTypeEnum } from "../link/types";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
+import createLinkData from "../../__tests__/helpers/LinkHelper";
+
+const link = createLinkData({
+  __typename: "Link",
+  id: "6HsgkUrFwhZhOBRpuhl1LD",
+  label: "PostItCard Label",
+  type: DataTypeEnum.Internal,
+  linkedPage: {
+    path: "contact-us/"
+  }
+});
+const postItCardReferences = new Map();
+postItCardReferences.set(link.id, link);
 
 const leadBlockSectionData: LeadBlockSectionProps = {
-  __typename: "ContentfulLeadBlockSection",
+  __typename: "LeadBlockSection",
   title: "Lead block title",
-  text: {
-    raw: '{"nodeType":"paragraph","content":[{"nodeType":"text","value":"Text Section","marks":[],"data":{}}],"data":{}}',
-    references: []
-  },
+  text: createRichText({
+    json: {
+      nodeType: BLOCKS.DOCUMENT,
+      content: [
+        {
+          nodeType: BLOCKS.PARAGRAPH,
+          data: {},
+          content: [
+            {
+              data: {},
+              marks: [],
+              value: "Text Section",
+              nodeType: "text"
+            }
+          ]
+        }
+      ],
+      data: {}
+    },
+    references: new Map()
+  }),
   link: {
-    __typename: "ContentfulLink",
+    __typename: "Link",
     id: "link-id",
     label: "Link Section Label",
     icon: null,
@@ -27,50 +57,49 @@ const leadBlockSectionData: LeadBlockSectionProps = {
     parameters: null,
     dialogContent: null,
     linkedPage: { path: "/link-label-path" },
-    hubSpotCTAID: null
+    hubSpotCTAID: null,
+    queryParams: null
   },
-  postItCard: {
-    references: [
-      {
-        __typename: "ContentfulLink",
-        contentful_id: "6HsgkUrFwhZhOBRpuhl1LD",
-        id: "b48574ce-6067-541e-853d-e7824dd2ff3b",
-        label: "PostItCard Label",
-        type: "Internal",
-        linkedPage: {
-          path: "contact-us/"
-        }
-      } as ContentfulRichTextGatsbyReference
-    ],
-    raw: JSON.stringify({
-      nodeType: BLOCKS.PARAGRAPH,
+  postItCard: createRichText({
+    references: postItCardReferences,
+    json: {
+      nodeType: BLOCKS.DOCUMENT,
+      data: {},
       content: [
         {
-          data: {
-            target: {
-              sys: {
-                id: "6HsgkUrFwhZhOBRpuhl1LD",
-                type: "Link",
-                linkType: "Entry"
-              }
-            }
-          },
-          content: [],
-          nodeType: "embedded-entry-block"
-        },
-        {
+          nodeType: BLOCKS.PARAGRAPH,
           content: [
             {
-              marks: [],
-              value: "PostItCard heading-5",
-              nodeType: "text"
+              data: {
+                target: {
+                  sys: {
+                    id: "6HsgkUrFwhZhOBRpuhl1LD",
+                    type: "Link",
+                    linkType: "Entry"
+                  }
+                }
+              },
+              content: [],
+              nodeType: BLOCKS.EMBEDDED_ENTRY
+            },
+            {
+              content: [
+                {
+                  marks: [],
+                  value: "PostItCard heading-5",
+                  nodeType: "text",
+                  data: {}
+                }
+              ],
+              nodeType: BLOCKS.HEADING_5,
+              data: {}
             }
           ],
-          nodeType: "heading-5"
+          data: {}
         }
       ]
-    })
-  }
+    }
+  })
 };
 
 describe("LeadBlockSection", () => {

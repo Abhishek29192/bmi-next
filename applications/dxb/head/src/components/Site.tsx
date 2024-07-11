@@ -1,4 +1,3 @@
-import { graphql } from "gatsby";
 import React from "react";
 import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
 import type { AccountPage } from "../templates/myAccountPage/types";
@@ -39,10 +38,10 @@ export const SiteContextProvider = SiteContext.Provider;
 export const useSiteContext = () => React.useContext(SiteContext);
 
 export type Data = {
-  node_locale: string;
   homePage: {
-    title: string | null;
-  } | null;
+    title: string;
+    sys: { id: string };
+  };
   countryCode: string;
   footerMainNavigation: NavigationData | null;
   footerSecondaryNavigation: NavigationData | null;
@@ -53,41 +52,7 @@ export type Data = {
   pitchedRoofCalculatorConfig: CalculatorConfig | null;
   visualiserHouseTypes: HouseType[] | null;
   accountPage: AccountPage | null;
+  sys: {
+    locale: string;
+  };
 };
-
-export const query = graphql`
-  fragment SiteFragment on ContentfulSite {
-    node_locale
-    homePage {
-      title
-    }
-    countryCode
-    menuNavigation {
-      ...HeaderNavigationFragment
-    }
-    menuUtilities {
-      ...HeaderUtilitiesFragment
-    }
-    footerMainNavigation {
-      ...FooterMainNavigationFragment
-    }
-    footerSecondaryNavigation {
-      ...FooterSecondaryNavigationFragment
-    }
-    resources {
-      ...ResourcesFragment
-    }
-    regions {
-      ...RegionFragment
-    }
-    pitchedRoofCalculatorConfig {
-      ...PitchedRoofCalculatorFragment
-    }
-    visualiserHouseTypes {
-      ...VisualiserHouseFragment
-    }
-    accountPage {
-      slug
-    }
-  }
-`;

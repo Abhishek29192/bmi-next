@@ -1,3 +1,4 @@
+import React from "react";
 import AnchorLink from "@bmi-digital/components/anchor-link";
 import Typography from "@bmi-digital/components/typography";
 import NextLink from "next/link";

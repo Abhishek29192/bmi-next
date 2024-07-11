@@ -1,6 +1,5 @@
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
-import { graphql } from "gatsby";
 import React from "react";
 import { useHasOptanonBoxClosed } from "../utils/useHasOptanonBoxClosed";
 import { RichTextData } from "./RichText";
@@ -20,7 +19,7 @@ const cookieTypeToClassMap: CookieTypeToClass = {
 };
 
 export type Data = {
-  __typename: "ContentfulIframe";
+  __typename: "Iframe";
   title: string | null;
   summary: RichTextData | null;
   url: string;
@@ -68,15 +67,3 @@ const IframeSection = ({ data }: Props) => {
 };
 
 export default IframeSection;
-
-export const query = graphql`
-  fragment IframeSectionFragment on ContentfulIframe {
-    title
-    summary {
-      ...RichTextFragment
-    }
-    url
-    height
-    allowCookieClasses
-  }
-`;

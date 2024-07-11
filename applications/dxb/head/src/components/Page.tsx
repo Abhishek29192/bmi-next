@@ -1,6 +1,5 @@
 import BackToTop from "@bmi-digital/components/back-to-top";
 import MicroCopy from "@bmi-digital/components/micro-copy";
-import { graphql } from "gatsby";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useMemo } from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
@@ -72,7 +71,7 @@ const Page = ({
   pageType
 }: Props) => {
   const {
-    node_locale,
+    sys: { locale },
     countryCode,
     footerMainNavigation,
     footerSecondaryNavigation,
@@ -85,10 +84,9 @@ const Page = ({
     accountPage
   } = siteData;
   const { breadcrumbs, signupBlock, seo, path } = pageData;
-  const { gatsbyReCaptchaKey, gatsbyReCaptchaNet, visualizerAssetUrl } =
-    useConfig();
+  const { reCaptchaKey, reCaptchaNet, visualizerAssetUrl } = useConfig();
   const router = useRouter();
-  const reCaptchaNet = gatsbyReCaptchaNet === "true";
+  const useReCaptchaNet = reCaptchaNet === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
@@ -102,21 +100,21 @@ const Page = ({
 
   const siteContext = useMemo(
     () => ({
-      node_locale,
+      node_locale: locale,
       countryCode,
       homePage: siteData.homePage,
       getMicroCopy,
-      gatsbyReCaptchaKey,
-      reCaptchaNet,
+      reCaptchaKey,
+      reCaptchaNet: useReCaptchaNet,
       accountPage
     }),
     [
       accountPage,
       countryCode,
-      gatsbyReCaptchaKey,
+      reCaptchaKey,
       getMicroCopy,
-      node_locale,
-      reCaptchaNet,
+      locale,
+      useReCaptchaNet,
       siteData.homePage
     ]
   );
@@ -142,7 +140,7 @@ const Page = ({
   return (
     <div style={{ overflowX: "hidden", display: "contents" }}>
       <Head
-        htmlAttributes={{ lang: node_locale }}
+        htmlAttributes={{ lang: locale }}
         title={seoTitle}
         defer={false}
         ogImageUrl={ogImageUrl}
@@ -156,8 +154,8 @@ const Page = ({
       <SiteContextProvider value={siteContext}>
         <MicroCopy.Provider values={microCopyContext}>
           <GoogleReCaptchaProvider
-            reCaptchaKey={gatsbyReCaptchaKey}
-            useRecaptchaNet={reCaptchaNet}
+            reCaptchaKey={reCaptchaKey}
+            useRecaptchaNet={useReCaptchaNet}
             language={countryCode}
           >
             <ErrorBoundary fallbackRender={fallbackRender} onError={onError}>
@@ -178,7 +176,7 @@ const Page = ({
                   countryNavigationIntroduction={
                     resources?.countryNavigationIntroduction
                   }
-                  regions={regions}
+                  regions={regions!}
                   sampleBasketLink={resources?.sampleBasketLink ?? undefined}
                   maximumSamples={resources?.maximumSamples ?? null}
                 />
@@ -220,20 +218,3 @@ export default withErrorBoundary(Page, {
   FallbackComponent: FallbackComponent
   // Possible to log errors with onError method
 });
-
-export const query = graphql`
-  fragment PageFragment on ContentfulPage {
-    breadcrumbs {
-      id
-      label
-      slug
-    }
-    signupBlock {
-      ...SignupBlockFragment
-    }
-    seo {
-      ...SEOContentFragment
-    }
-    path
-  }
-`;

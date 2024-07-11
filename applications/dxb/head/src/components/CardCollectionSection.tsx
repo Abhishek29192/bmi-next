@@ -10,8 +10,7 @@ import TextCard from "@bmi-digital/components/text-card";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
-import { memo, useMemo, useState } from "react";
+import React, { memo, useMemo, useState } from "react";
 import { isDefined } from "@bmi/utils";
 import withGTM from "../utils/google-tag-manager";
 import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
@@ -42,7 +41,7 @@ import type { ImageWidths } from "./image/types";
 type Card = PageInfoData | PromoData;
 
 export type Data = {
-  __typename: "ContentfulCardCollectionSection";
+  __typename: "CardCollectionSection";
   title: string | null;
   description: RichTextData | null;
   cardType: "Highlight Card" | "Story Card" | "Text Card";
@@ -83,7 +82,7 @@ const CardCollectionItem = (props: CardCollectionItemProps) => {
   const transformedCardLabel = transformHyphens(
     label
       ? label.replace(/{{title}}/g, title)
-      : card.__typename === "ContentfulPromo"
+      : card.__typename === "Promo"
         ? card.cta?.label
         : undefined
   );
@@ -123,7 +122,7 @@ const CardCollectionItem = (props: CardCollectionItemProps) => {
           : featuredMedia
             ? createImageProps({
                 ...featuredMedia,
-                previewMediaWidths: mediaWidths
+                widths: mediaWidths
               })
             : undefined
       }
@@ -145,19 +144,15 @@ const CardCollectionItem = (props: CardCollectionItemProps) => {
 const MemoedCardCollectionItem = memo(CardCollectionItem);
 
 const transformCard = (card: Card, countryCode: string) => ({
-  title:
-    card.__typename === "ContentfulPromo"
-      ? card.title || card.name
-      : card.title,
+  title: card.__typename === "Promo" ? card.title || card.name : card.title,
   subtitle: card.subtitle ? card.subtitle : undefined,
   link: getCTA(card, countryCode),
   featuredMedia: card.featuredMedia,
   brandLogo: card.brandLogo,
-  featuredVideo: card.featuredVideo,
-  date:
-    card.__typename === "ContentfulSimplePage" && card.date
-      ? card.date
-      : undefined
+  featuredVideo: card.featuredVideo
+    ? { ...card.featuredVideo, previewMediaWidths: mediaWidths }
+    : undefined,
+  date: card.__typename === "Page" && card.date ? card.date : undefined
 });
 
 const moveRestKeyLast = (arr: string[]) => {
@@ -411,25 +406,3 @@ const CardCollectionSection = ({
 };
 
 export default CardCollectionSection;
-
-export const query = graphql`
-  fragment CardCollectionSectionFragment on ContentfulCardCollectionSection {
-    title
-    description {
-      ...RichTextFragment
-    }
-    cardType
-    cardLabel
-    groupCards
-    link {
-      ...LinkFragment
-    }
-    cards {
-      ...PromoCardFragment
-      ...PageInfoCardFragment
-    }
-    justifyCenter
-    displaySingleRow
-    sortOrder
-  }
-`;

@@ -919,9 +919,9 @@ describe("createCompanyDetails", () => {
       const service = createFullyPopulatedService({
         entryType: EntryTypeEnum.ROOFER_TYPE,
         serviceTypes: [
-          { __typename: "ContentfulServiceType", name: "Pitched Roof" },
-          { __typename: "ContentfulServiceType", name: "Flat Roof" },
-          { __typename: "ContentfulServiceType", name: "Solar Panels" }
+          { __typename: "ServiceType", name: "Pitched Roof" },
+          { __typename: "ServiceType", name: "Flat Roof" },
+          { __typename: "ServiceType", name: "Solar Panels" }
         ]
       });
 

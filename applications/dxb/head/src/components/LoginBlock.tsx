@@ -1,3 +1,4 @@
+import React from "react";
 import Button from "@bmi-digital/components/button";
 import { microCopy } from "@bmi/microcopies";
 import NextLink from "next/link";

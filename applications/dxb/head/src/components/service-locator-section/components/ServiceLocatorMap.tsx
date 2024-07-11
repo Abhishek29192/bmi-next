@@ -72,6 +72,7 @@ export const ServiceLocatorMap = ({
                   <CompanyLogo
                     className={companyLogoClasses.card}
                     data-testid={`service-locator-service-details-card-logo-${selectedRoofer.id}`}
+                    widths={[561, 321, 381, 446, 330]}
                     {...selectedRoofer.companyLogo}
                   />
                 )

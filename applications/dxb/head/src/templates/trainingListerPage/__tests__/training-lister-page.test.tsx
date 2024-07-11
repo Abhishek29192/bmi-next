@@ -3,6 +3,7 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { createTraining } from "@bmi/elasticsearch-types";
 import { screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { renderWithRouter } from "../../../test/renderWithRouter";
@@ -11,6 +12,7 @@ import TrainingCatalogue from "../components/training-catalogue";
 import { UseTrainings } from "../hooks/useTrainings";
 import TrainingListerPage from "../training-lister-page";
 import { TrainingListerPageProps } from "../types";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
 
 const breadcrumbs = [
   {
@@ -45,16 +47,16 @@ const props: TrainingListerPageProps = {
       breadcrumbTitle: "All trainings",
       featuredMedia: createImageData(),
       searchTips: {
-        __typename: "ContentfulTitleWithContent",
+        __typename: "TitleWithContent",
         title: "",
         name: "",
-        content: {
-          raw: JSON.stringify({
+        content: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: []
-          }),
-          references: []
-        }
+          }
+        })
       },
       path: "/all-trainings",
       seo: {

@@ -7,11 +7,11 @@ import { DataTypeEnum } from "../link/types";
 describe("ExploreBarSection component", () => {
   it("renders correctly", () => {
     const data: Data = {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Lorem ipsum",
       links: [
         {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "link",
           label: "String",
           icon: null,
@@ -21,10 +21,11 @@ describe("ExploreBarSection component", () => {
           type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         },
         {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "link2",
           label: "Another string",
           icon: null,
@@ -34,7 +35,8 @@ describe("ExploreBarSection component", () => {
           type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         },
         // This is how a nested Navigation comes through from Contentful
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -1,11 +1,13 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { Data as SDPSpecificationNotesData } from "../../../components/ContentfulSpecificationNotes";
 import { DataTypeEnum } from "../../../components/link/types";
 import { Classification, Feature } from "../../../types/pim";
 import Component from "../technicalSpecificationLeadBlock";
 import createCardCollectionSection from "../../../__tests__/helpers/CardCollectionSection";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
 
 const technicalSpecClassifications: Classification[] = [
   {
@@ -29,12 +31,23 @@ const specificationNotesData: SDPSpecificationNotesData = {
   __typename: "ContentfulSpecificationNotesWithCta",
   name: "specification notes name",
   title: "specification notes title",
-  description: {
-    raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-3","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-    references: []
-  },
+  description: createRichText({
+    json: {
+      nodeType: BLOCKS.DOCUMENT,
+      data: {},
+      content: [
+        {
+          nodeType: BLOCKS.HEADING_3,
+          content: [
+            { nodeType: "text", value: "test rich text", marks: [], data: {} }
+          ],
+          data: {}
+        }
+      ]
+    }
+  }),
   cta: {
-    __typename: "ContentfulLink",
+    __typename: "Link",
     id: "string",
     label: "ImALink",
     icon: null,
@@ -44,7 +57,8 @@ const specificationNotesData: SDPSpecificationNotesData = {
     type: DataTypeEnum.Dialog,
     parameters: null,
     dialogContent: createCardCollectionSection(),
-    hubSpotCTAID: null
+    hubSpotCTAID: null,
+    queryParams: null
   }
 };
 

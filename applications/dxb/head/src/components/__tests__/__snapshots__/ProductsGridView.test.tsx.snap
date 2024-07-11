@@ -25,7 +25,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?pathname=%2F"}"
         data-testid="tappable-card-main"
-        href="/no/name-code/?pathname=%2F"
+        href="/no/name-code?pathname=%2F"
         tabindex="0"
       >
         <img
@@ -71,7 +71,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
           data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?pathname=%2F"}"
           data-testid="anchor-link"
-          href="/no/name-code/?pathname=%2F"
+          href="/no/name-code?pathname=%2F"
         >
           MC: plp.product.viewDetails
           <svg
@@ -106,7 +106,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"}"
         data-testid="tappable-card-main"
-        href="/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
+        href="/no/name-code?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
         tabindex="0"
       >
         <img
@@ -152,7 +152,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
           data-gtm="{"id":"cta-click1","label":"MC: plp.product.viewDetails","action":"/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"}"
           data-testid="anchor-link"
-          href="/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
+          href="/no/name-code?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
         >
           MC: plp.product.viewDetails
           <svg

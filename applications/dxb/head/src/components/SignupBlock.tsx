@@ -3,7 +3,6 @@ import SignupBlock, {
   SignupBlockColor
 } from "@bmi-digital/components/signup-block";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
 import React, { useCallback, useMemo, useState } from "react";
 import { isValidEmail } from "../utils/emailUtils";
 import FormSection, { Data as FormData } from "./FormSection";
@@ -14,11 +13,9 @@ import {
 } from "./styles/SignupBlock.styles";
 
 export type Data = {
-  __typename: "ContentfulSignupBlock";
+  __typename: "SignupBlock";
   title: string;
-  description: {
-    description: string;
-  } | null;
+  signUpBlockDescription: string | null;
   signupLabel: string;
   signupDialogContent: FormData;
 };
@@ -90,13 +87,14 @@ const IntegratedSignupBlock = ({
     return null;
   }
 
-  const { title, description, signupLabel, signupDialogContent } = data;
+  const { title, signUpBlockDescription, signupLabel, signupDialogContent } =
+    data;
 
   return (
     <StyledIntegratedSignupBlock>
       <SignupBlock
         title={title}
-        description={description?.description}
+        description={signUpBlockDescription}
         inputCallToAction={signupLabel}
         color={theme || "blue800"}
         gtm={gtm}
@@ -147,16 +145,3 @@ const IntegratedSignupBlock = ({
 };
 
 export default IntegratedSignupBlock;
-
-export const query = graphql`
-  fragment SignupBlockFragment on ContentfulSignupBlock {
-    title
-    description {
-      description
-    }
-    signupLabel
-    signupDialogContent {
-      ...FormSectionFragment
-    }
-  }
-`;

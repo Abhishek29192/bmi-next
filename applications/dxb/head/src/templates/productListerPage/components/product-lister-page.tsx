@@ -64,9 +64,9 @@ import {
 } from "../utils/productListerPageUtils";
 
 const PAGE_SIZE = 24;
-const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
+const ES_INDEX_NAME = process.env.NEXT_PUBLIC_ES_INDEX_NAME_PRODUCTS;
 
-export type Data = PageInfoData &
+export type Data = Omit<PageInfoData, "__typename"> &
   PageData & {
     __typename: "ContentfulProductListerPage";
     allowFilterBy: string[] | null;

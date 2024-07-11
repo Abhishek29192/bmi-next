@@ -11,7 +11,9 @@ import { EntryTypeEnum } from "../Service";
 import { SiteContextProvider } from "../Site";
 import { DataTypeEnum } from "../link/types";
 import { SourceType } from "../types/FormSectionTypes";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
+import type { RichTextData } from "../RichText";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -32,7 +34,7 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const contentMock = JSON.stringify({
+const contentMock: RichTextData["json"] = {
   nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
@@ -50,7 +52,7 @@ const contentMock = JSON.stringify({
       data: {}
     }
   ]
-});
+};
 
 describe("Sections component", () => {
   it("renders correctly", () => {
@@ -60,13 +62,13 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
-            __typename: "ContentfulTitleWithContent",
+            __typename: "TitleWithContent",
             name: "hello",
             title: "hello",
-            content: {
-              raw: contentMock,
-              references: []
-            }
+            content: createRichText({
+              json: contentMock,
+              references: new Map()
+            })
           }
         ],
         title: "string",
@@ -77,25 +79,25 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
-            __typename: "ContentfulTitleWithContent",
+            __typename: "TitleWithContent",
             name: "hello",
             title: "hello",
-            content: {
-              raw: contentMock,
-              references: []
-            }
+            content: createRichText({
+              json: contentMock,
+              references: new Map()
+            })
           }
         ],
         title: "string",
         type: "Tabs"
       },
       {
-        __typename: "ContentfulSyndicateSection",
+        __typename: "VillainSection",
         title: "Title",
-        description: { description: "string" },
+        description: "string",
         villains: [
           {
-            __typename: "ContentfulPromo",
+            __typename: "Promo",
             id: "1234",
             name: "Villain 1",
             title: "Villain 1",
@@ -109,7 +111,7 @@ describe("Sections component", () => {
             backgroundColor: "White"
           },
           {
-            __typename: "ContentfulPromo",
+            __typename: "Promo",
             id: "3456",
             name: "Villain 2",
             title: "Villain 2",
@@ -126,7 +128,7 @@ describe("Sections component", () => {
         isReversed: false
       },
       {
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         title: "card collection section title",
         justifyCenter: false,
         displaySingleRow: false,
@@ -136,7 +138,7 @@ describe("Sections component", () => {
         cardType: "Story Card",
         sortOrder: null,
         link: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "00000000-0000-0000-0000-000000000000",
           label: "Contact us",
           icon: null,
@@ -148,11 +150,12 @@ describe("Sections component", () => {
           type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         },
         cards: [
           {
-            __typename: "ContentfulPromo",
+            __typename: "Promo",
             name: "promo title",
             title: "promo title",
             brandLogo: "AeroDek",
@@ -162,7 +165,7 @@ describe("Sections component", () => {
             featuredMedia: null,
             featuredVideo: null,
             cta: {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "00000000-0000-0000-0000-000000000000",
               label: "Contact us",
               icon: null,
@@ -174,7 +177,8 @@ describe("Sections component", () => {
               type: DataTypeEnum.Internal,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             },
             id: "00000000-0000-0000-0000-000000000000",
             backgroundColor: null
@@ -182,7 +186,7 @@ describe("Sections component", () => {
         ]
       },
       {
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         title: "card section title 2",
         justifyCenter: false,
         description: null,
@@ -194,7 +198,7 @@ describe("Sections component", () => {
         displaySingleRow: false,
         cards: [
           {
-            __typename: "ContentfulSimplePage",
+            __typename: "Page",
             id: "00000000-0000-0000-0000-000000000000",
             path: "path",
             slug: "slug",
@@ -210,7 +214,7 @@ describe("Sections component", () => {
         ]
       },
       {
-        __typename: "ContentfulPromo",
+        __typename: "Promo",
         id: "5678",
         name: "card section title 2",
         title: "card section title 2",
@@ -220,7 +224,7 @@ describe("Sections component", () => {
         tags: null,
         featuredMedia: null,
         cta: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "string",
           label: "string",
           icon: null,
@@ -230,10 +234,11 @@ describe("Sections component", () => {
           type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         },
         featuredVideo: {
-          __typename: "ContentfulVideo",
+          __typename: "Video",
           title: "Video",
           label: "Video",
           subtitle: null,
@@ -246,7 +251,7 @@ describe("Sections component", () => {
         backgroundColor: null
       },
       {
-        __typename: "ContentfulPromo",
+        __typename: "Promo",
         id: "5678",
         name: "card section title 2",
         title: "card section title 2",
@@ -268,14 +273,14 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulDocumentDownloadSection",
         title: "Document Downloads",
-        description: {
-          raw: contentMock,
-          references: []
-        },
+        description: createRichText({
+          json: contentMock,
+          references: new Map()
+        }),
         documents: []
       },
       {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         title: "Service Locator",
         showDefaultResultList: true,
@@ -287,7 +292,7 @@ describe("Sections component", () => {
         zoom: null
       },
       {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         title: "Service Locator - with services",
         showDefaultResultList: true,
@@ -298,16 +303,16 @@ describe("Sections component", () => {
             id: "roofer_1",
             name: "roofer 1",
             serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Pitched Roof" },
-              { __typename: "ContentfulServiceType", name: "Flat Roof" }
+              { __typename: "ServiceType", name: "Pitched Roof" },
+              { __typename: "ServiceType", name: "Flat Roof" }
             ]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
             serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Pitched Roof" },
-              { __typename: "ContentfulServiceType", name: "Flat Roof" }
+              { __typename: "ServiceType", name: "Pitched Roof" },
+              { __typename: "ServiceType", name: "Flat Roof" }
             ]
           })
         ],
@@ -316,15 +321,15 @@ describe("Sections component", () => {
         zoom: null
       },
       {
-        __typename: "ContentfulVideoSection",
+        __typename: "VideoSection",
         name: "Video section",
         title: "Section title",
-        description: {
-          raw: contentMock,
-          references: []
-        },
+        description: createRichText({
+          json: contentMock,
+          references: new Map()
+        }),
         video: {
-          __typename: "ContentfulVideo",
+          __typename: "Video",
           title: "Video title",
           label: "Video label",
           videoUrl: "https://www.youtube.com/watch?v=A-RfHC91Ewc",
@@ -342,21 +347,25 @@ describe("Sections component", () => {
           {
             id: "team-category-id-1",
             title: "Team Category 1",
-            description: {
-              raw: contentMock,
-              references: []
-            },
+            description: createRichText({
+              json: contentMock,
+              references: new Map()
+            }),
             team_member: [
               {
                 name: "Bob McBobbinson",
                 jobTitle: "CEO",
                 profileImage: {
+                  __typename: "Image",
+                  title: "Title",
                   altText: "alt text",
                   image: {
-                    file: {
-                      fileName: "test-filename",
-                      url: "https://testImage.jpg"
-                    }
+                    fileName: "test-filename",
+                    url: "https://testImage.jpg",
+                    contentType: "image/jpg",
+                    width: 100,
+                    height: 100,
+                    size: 100
                   }
                 },
                 links: []
@@ -373,21 +382,25 @@ describe("Sections component", () => {
           {
             id: "team-category-id-1",
             title: "Team Category 1",
-            description: {
-              raw: contentMock,
-              references: []
-            },
+            description: createRichText({
+              json: contentMock,
+              references: new Map()
+            }),
             team_member: [
               {
                 name: "Bob McBobbinson",
                 jobTitle: "CEO",
                 profileImage: {
+                  __typename: "Image",
+                  title: "Title",
                   altText: "alt text",
                   image: {
-                    file: {
-                      fileName: "test-filename",
-                      url: "https://testImage.jpg"
-                    }
+                    fileName: "test-filename",
+                    url: "https://testImage.jpg",
+                    contentType: "image/jpg",
+                    width: 100,
+                    height: 100,
+                    size: 100
                   }
                 },
                 links: []
@@ -403,12 +416,16 @@ describe("Sections component", () => {
                 name: "Johnny McJohnson",
                 jobTitle: "CEO",
                 profileImage: {
+                  __typename: "Image",
+                  title: "Title",
                   altText: "alt text",
                   image: {
-                    file: {
-                      fileName: "test-filename",
-                      url: "https://testImage.jpg"
-                    }
+                    fileName: "test-filename",
+                    url: "https://testImage.jpg",
+                    contentType: "image/jpg",
+                    width: 100,
+                    height: 100,
+                    size: 100
                   }
                 },
                 links: []
@@ -419,11 +436,11 @@ describe("Sections component", () => {
         backgroundColor: null
       },
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: "Explore",
         links: [
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "string",
             label: "string",
             icon: null,
@@ -433,12 +450,13 @@ describe("Sections component", () => {
             type: DataTypeEnum.Internal,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       },
       {
-        __typename: "ContentfulFormSection",
+        __typename: "Form",
 
         title: "Form section",
         showTitle: true,
@@ -571,7 +589,7 @@ describe("Sections component", () => {
         ],
         submitText: "Submit",
         successRedirect: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "ce304ce0-35f7-5738-9472-50beb3624ea8",
           label: "Thank you",
           icon: null,
@@ -584,7 +602,8 @@ describe("Sections component", () => {
           asset: null,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         },
         source: SourceType.Contentful,
         hubSpotFormGuid: null
@@ -606,12 +625,12 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
-            __typename: "ContentfulTitleWithContent",
+            __typename: "TitleWithContent",
             title: "hello",
-            content: {
-              raw: contentMock,
-              references: []
-            }
+            content: createRichText({
+              json: contentMock,
+              references: new Map()
+            })
           }
         ],
         title: "string",
@@ -622,19 +641,19 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
-            __typename: "ContentfulTitleWithContent",
+            __typename: "TitleWithContent",
             title: "hello",
-            content: {
-              raw: contentMock,
-              references: []
-            }
+            content: createRichText({
+              json: contentMock,
+              references: new Map()
+            })
           }
         ],
         title: "string",
         type: "Tabs"
       },
       {
-        __typename: "ContentfulSyndicateSection",
+        __typename: "VillainSection",
         title: "string"
       }
     ] as Data;
@@ -654,12 +673,12 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
-            __typename: "ContentfulTitleWithContent",
+            __typename: "TitleWithContent",
             title: "hello",
-            content: {
-              raw: contentMock,
-              references: []
-            }
+            content: createRichText({
+              json: contentMock,
+              references: new Map()
+            })
           }
         ],
         title: "string",
@@ -670,23 +689,23 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
-            __typename: "ContentfulTitleWithContent",
+            __typename: "TitleWithContent",
             title: "hello",
-            content: {
-              raw: contentMock,
-              references: []
-            }
+            content: createRichText({
+              json: contentMock,
+              references: new Map()
+            })
           }
         ],
         title: "string",
         type: "Tabs"
       },
       {
-        __typename: "ContentfulSyndicateSection",
+        __typename: "VillainSection",
         title: "Title",
         villains: [
           {
-            __typename: "ContentfulPromo",
+            __typename: "Promo",
             id: "1234",
             name: "Villain 1",
             title: "Villain 1",
@@ -716,10 +735,10 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulDocumentDownloadSection",
         title: "Document Downloads",
-        description: {
-          raw: contentMock,
-          references: []
-        },
+        description: createRichText({
+          json: contentMock,
+          references: new Map()
+        }),
         documents: []
       }
     ];
@@ -735,7 +754,7 @@ describe("Sections component", () => {
   it("renders alternate backgrounds for promos", () => {
     const data: Data = [
       {
-        __typename: "ContentfulPromo",
+        __typename: "Promo",
         id: "1",
         name: "Promo 1",
         title: "Promo 1",
@@ -749,7 +768,7 @@ describe("Sections component", () => {
         backgroundColor: null
       },
       {
-        __typename: "ContentfulPromo",
+        __typename: "Promo",
         id: "2",
         name: "Promo 2",
         title: "Promo 2",
@@ -763,27 +782,27 @@ describe("Sections component", () => {
         backgroundColor: null
       },
       {
-        __typename: "ContentfulPromo",
+        __typename: "Promo",
         id: "3",
         name: "Promo 3",
         title: "Promo 3",
         subtitle: null,
-        body: {
-          raw: JSON.stringify({
+        body: createRichText({
+          json: {
             nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {
-                nodeType: "heading-2",
+                nodeType: BLOCKS.HEADING_2,
                 content: [
                   { nodeType: "text", value: "Heading 2", marks: [], data: {} }
                 ],
                 data: {}
               }
             ]
-          }),
-          references: []
-        },
+          },
+          references: new Map()
+        }),
         brandLogo: null,
         tags: null,
         featuredMedia: null,
@@ -804,7 +823,7 @@ describe("Sections component", () => {
   it("render embedded script to the component", () => {
     const data: Data = [
       {
-        __typename: "ContentfulEmbeddedScriptSection",
+        __typename: "EmbeddedScriptSection",
         title: "Embedded Script",
         scriptSectionId: "test-id",
         url: "https://test-url",

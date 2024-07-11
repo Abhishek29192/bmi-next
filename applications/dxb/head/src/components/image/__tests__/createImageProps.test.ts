@@ -31,7 +31,7 @@ beforeEach(() => {
 describe("createImageProps", () => {
   it("should call createContentfulImageProps if it's a ContentfulImage", () => {
     const props = {
-      ...createImageData({ __typename: "ContentfulImage" }),
+      ...createImageData({ __typename: "Image" }),
       widths: [1, 2, 3, 4, 5] as ImageWidths
     };
     const customImageProps: CustomImageProps = {

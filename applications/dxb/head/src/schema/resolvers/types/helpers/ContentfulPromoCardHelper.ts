@@ -21,20 +21,29 @@ const createContentfulPromoCard = (
   },
   featuredVideo: null,
   featuredMedia: {
+    __typename: "Image",
+    title: "Title",
     altText: "alt-text-img",
     type: "Decorative",
     focalPoint: null,
-    image: { file: { fileName: "file1.jpg", url: "https://nowhere.com" } }
+    image: {
+      fileName: "file1.jpg",
+      url: "https://nowhere.com",
+      contentType: "image/jpeg",
+      width: 100,
+      height: 100,
+      size: 100
+    }
   },
   resources___NODE: [],
   metadata: { tags___NODE: [] },
   children: [],
   internal: {
-    type: "ContentfulPromo",
+    type: "Promo",
     contentDigest: "digest",
     owner: "contentful"
   },
-  __typename: "ContentfulPromo",
+  __typename: "Promo",
   ...contentfulPromo
 });
 

@@ -4,7 +4,7 @@ import createGatsbyImageData from "./GatsbyImageDataHelper";
 const createGallerySectionVideo = (
   gallerySectionVideo?: Partial<GallerySectionVideo>
 ): GallerySectionVideo => ({
-  __typename: "ContentfulVideo",
+  __typename: "Video",
   title: "featuredVideo",
   label: "label",
   subtitle: "ContentfulVideoSubtitle",

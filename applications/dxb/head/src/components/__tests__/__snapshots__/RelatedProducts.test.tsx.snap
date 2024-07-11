@@ -141,7 +141,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                       data-testid="tappable-card-main"
-                      href="/en/path/"
+                      href="/en/path"
                       tabindex="0"
                     >
                       <img
@@ -197,7 +197,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        href="/en/path/"
+                        href="/en/path"
                       >
                         MC: pdp.relatedProducts.viewDetails
                         <svg
@@ -366,7 +366,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                       data-testid="tappable-card-main"
-                      href="/en/path/"
+                      href="/en/path"
                       tabindex="0"
                     >
                       <img
@@ -418,7 +418,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        href="/en/path/"
+                        href="/en/path"
                       >
                         MC: pdp.relatedProducts.viewDetails
                         <svg
@@ -448,7 +448,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                       data-testid="tappable-card-main"
-                      href="/en/path/"
+                      href="/en/path"
                       tabindex="0"
                     >
                       <img
@@ -489,7 +489,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        href="/en/path/"
+                        href="/en/path"
                       >
                         MC: pdp.relatedProducts.viewDetails
                         <svg
@@ -519,7 +519,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                       data-testid="tappable-card-main"
-                      href="/en/path/"
+                      href="/en/path"
                       tabindex="0"
                     >
                       <img
@@ -556,7 +556,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        href="/en/path/"
+                        href="/en/path"
                       >
                         MC: pdp.relatedProducts.viewDetails
                         <svg
@@ -723,7 +723,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                       data-testid="tappable-card-main"
-                      href="/en/path/"
+                      href="/en/path"
                       tabindex="0"
                     >
                       <img
@@ -779,7 +779,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1c5pucp-MuiTypography-root-MuiLink-root"
                         data-gtm="{"id":"cta-click1","label":"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails","action":"/en/path/"}"
                         data-testid="anchor-link"
-                        href="/en/path/"
+                        href="/en/path"
                       >
                         MC: pdp.relatedProducts.viewDetails
                         <svg

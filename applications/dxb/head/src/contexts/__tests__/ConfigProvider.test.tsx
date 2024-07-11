@@ -1,3 +1,4 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import { ConfigProvider, useConfig } from "../ConfigProvider";
 
@@ -23,19 +24,19 @@ describe("ConfigProvider", () => {
     },
     {
       key: "isBrandProviderEnabled",
-      env: "GATSBY_ENABLE_BRAND_PROVIDER"
+      env: "NEXT_PUBLIC_ENABLE_BRAND_PROVIDER"
     },
     {
       key: "isV2VisualiserEnabled",
-      env: "GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR"
+      env: "NEXT_PUBLIC_ENABLE_V2_WEBTOOLS_VISUALISATOR"
     },
     {
       key: "isCountryCodeProhibited",
-      env: "GATSBY_DONT_USE_COUNTRY_CODE"
+      env: "NEXT_PUBLIC_DONT_USE_COUNTRY_CODE"
     },
     {
       key: "isWebToolsCalculatorEnabled",
-      env: "GATSBY_ENABLE_WEBTOOLS_CALCULATOR"
+      env: "NEXT_PUBLIC_ENABLE_WEBTOOLS_CALCULATOR"
     },
     {
       key: "isV2WebToolsCalculatorEnabled",
@@ -46,8 +47,8 @@ describe("ConfigProvider", () => {
       env: "GATSBY_USE_LEGACY_FILTERS"
     },
     {
-      key: "isGatsbyDisabledElasticSearch",
-      env: "GATSBY_DISABLE_SEARCH"
+      key: "isNextDisabledElasticSearch",
+      env: "NEXT_PUBLIC_DISABLE_SEARCH"
     },
     { key: "isSampleOrderingEnabled", env: "GATSBY_ENABLE_SAMPLE_ORDERING" },
     {
@@ -58,7 +59,7 @@ describe("ConfigProvider", () => {
       key: "enableProductClassificationAttributeOrdering",
       env: "GATSBY_ENABLE_PRODUCT_CLASSIFICATION_ATTRIBUTE_ORDERING"
     },
-    { key: "isLoginEnabled", env: "GATSBY_IS_LOGIN_ENABLED" },
+    { key: "isLoginEnabled", env: "NEXT_PUBLIC_IS_LOGIN_ENABLED" },
     {
       key: "excludeLocalisedAlternate",
       env: "GATSBY_EXCLUDE_LOCALISED_ALTERNATE"
@@ -175,12 +176,12 @@ describe("ConfigProvider", () => {
 
   describe.each([
     { key: "googleTagManagerID", env: "GOOGLE_TAGMANAGER_ID" },
-    { key: "hubSpotId", env: "GATSBY_HUBSPOT_ID" },
-    { key: "gatsbyReCaptchaKey", env: "GATSBY_RECAPTCHA_KEY" },
-    { key: "gatsbyReCaptchaNet", env: "GATSBY_RECAPTCHA_NET" },
+    { key: "hubSpotId", env: "NEXT_PUBLIC_HUBSPOT_ID" },
+    { key: "reCaptchaKey", env: "NEXT_PUBLIC_RECAPTCHA_KEY" },
+    { key: "reCaptchaNet", env: "NEXT_PUBLIC_RECAPTCHA_NET" },
     {
       key: "visualizerAssetUrl",
-      env: "GATSBY_VISUALISER_ASSETS_URL"
+      env: "NEXT_PUBLIC_VISUALISER_ASSETS_URL"
     },
     {
       key: "documentDownloadEndpoint",
@@ -188,11 +189,11 @@ describe("ConfigProvider", () => {
     },
     {
       key: "gcpFormUploadEndpoint",
-      env: "GATSBY_GCP_FORM_UPLOAD_ENDPOINT"
+      env: "NEXT_PUBLIC_GCP_FORM_UPLOAD_ENDPOINT"
     },
     {
       key: "gcpFormSubmitEndpoint",
-      env: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+      env: "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT"
     },
     { key: "gcpApsisEndpoint", env: "GATSBY_GCP_APSIS_ENDPOINT" },
     {
@@ -210,14 +211,14 @@ describe("ConfigProvider", () => {
       invalidValue: "not-a-number",
       customValue: 50
     },
-    { key: "googleApiKey", env: "GATSBY_GOOGLE_API_KEY" },
+    { key: "googleApiKey", env: "NEXT_PUBLIC_GOOGLE_API_KEY" },
     {
       key: "esIndexNameSystem",
       env: "GATSBY_ES_INDEX_NAME_SYSTEMS"
     },
     {
       key: "esIndexNameProduct",
-      env: "GATSBY_ES_INDEX_NAME_PRODUCTS"
+      env: "NEXT_PUBLIC_ES_INDEX_NAME_PRODUCTS"
     },
     {
       key: "gcpSystemConfiguratorEndpoint",

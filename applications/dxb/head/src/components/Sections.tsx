@@ -1,6 +1,5 @@
 import TableOfContent from "@bmi-digital/components/table-of-content";
 import { replaceSpaces } from "@bmi-digital/components/utils";
-import { graphql } from "gatsby";
 import React, { createContext, useMemo } from "react";
 import CardCollectionSection, {
   Data as CardCollectionSectionData
@@ -73,25 +72,25 @@ export type SectionsProps = {
 };
 
 export const sectionsMap = {
-  ContentfulFormSection: FormSection,
+  Form: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
-  ContentfulSyndicateSection: SyndicateSection,
-  ContentfulCarouselSection: CarouselSection,
-  ContentfulCardCollectionSection: CardCollectionSection,
-  ContentfulNavigation: ExploreBarSection,
-  ContentfulTitleWithContent: TitleWithContentSection,
-  ContentfulPromo: PromoSection,
+  VillainSection: SyndicateSection,
+  CarouselSection: CarouselSection,
+  CardCollectionSection: CardCollectionSection,
+  Navigation: ExploreBarSection,
+  TitleWithContent: TitleWithContentSection,
+  Promo: PromoSection,
   ContentfulMediaGallerySection: MediaGallerySection,
   ContentfulDocumentDownloadSection: DocumentDownloadSection,
-  ContentfulServiceLocatorSection: ServiceLocatorSection,
-  ContentfulVideoSection: VideoSection,
-  ContentfulIframe: IframeSection,
+  ServiceLocatorSection: ServiceLocatorSection,
+  VideoSection: VideoSection,
+  Iframe: IframeSection,
   ContentfulSystemConfiguratorSection: SystemConfiguratorSection,
   ContentfulTeamSection: TeamSection,
-  ContentfulSampleBasketSection: SampleBasketSection,
-  ContentfulSignupBlock: SignupBlock,
-  ContentfulLeadBlockSection: LeadBlockSection,
-  ContentfulEmbeddedScriptSection: EmbeddedScriptSection
+  SampleBasketSection: SampleBasketSection,
+  SignupBlock: SignupBlock,
+  LeadBlockSection: LeadBlockSection,
+  EmbeddedScriptSection: EmbeddedScriptSection
 };
 
 type DisplayProps = {
@@ -111,7 +110,7 @@ type ThemeOptions = "cardCollectionRowType";
 type Theme = Partial<Record<ThemeOptions, unknown>>;
 
 const pageTypenameToThemeMap: Record<string, Theme> = {
-  ContentfulHomePage: {
+  HomePage: {
     cardCollectionRowType: "single-row"
   }
 };
@@ -119,13 +118,13 @@ const pageTypenameToThemeMap: Record<string, Theme> = {
 const createThemeMap = (data: SectionsProps["data"]): Context => {
   return data.reduce<Context>((carry, section, index) => {
     const previousSection = data[index - 1];
-    if (section.__typename !== "ContentfulPromo") {
+    if (section.__typename !== "Promo") {
       return carry;
     }
 
     const { id, backgroundColor } = section;
 
-    if (previousSection?.__typename !== "ContentfulPromo") {
+    if (previousSection?.__typename !== "Promo") {
       return {
         ...carry,
         [id]: {
@@ -161,9 +160,7 @@ const Sections = (props: SectionsProps) => {
         const Component: React.ElementType = sectionsMap[section.__typename];
         const title =
           // TODO: Nav could do with a refactor to align title/label/name fields.
-          section.__typename === "ContentfulNavigation"
-            ? section.label
-            : section.title;
+          section.__typename === "Navigation" ? section.label : section.title;
 
         const sectionId = `section-${index}`;
         const sectionComponent = (
@@ -194,31 +191,31 @@ const Sections = (props: SectionsProps) => {
 
 export default Sections;
 
-export const query = graphql`
-  fragment SectionsFragment on ContentfulSection {
-    __typename
-    ...ExploreBarSectionFragment
-    ...FormSectionFragment
-    ...TabsOrAccordionSectionFragment
-    ...SyndicateSectionFragment
-    ...CarouselSectionFragment
-    ...CardCollectionSectionFragment
-    ...TitleWithContentSectionFragment
-    ...PromoSectionFragment
-    ...MediaGallerySectionFragment
-    ...DocumentDownloadSectionFragment
-    ...ServiceLocatorSectionFragment
-    ...VideoSectionFragment
-    ...IframeSectionFragment
-    ...SystemConfiguratorSectionFragment
-    ...TeamSectionFragment
-    ...SampleBasketSectionFragment
-    ...SignupBlockFragment
-    ...LeadBlockSectionFragment
-    ...EmbeddedScriptSectionFragment
-  }
-  fragment DialogSectionsFragment on ContentfulSection {
-    __typename
-    ...FormSectionFragmentNonRecursive
-  }
-`;
+// export const query = graphql`
+//   fragment SectionsFragment on ContentfulSection {
+//     __typename
+//     ...ExploreBarSectionFragment
+//     ...FormSectionFragment
+//     ...TabsOrAccordionSectionFragment
+//     ...SyndicateSectionFragment
+//     ...CarouselSectionFragment
+//     ...CardCollectionSectionFragment
+//     ...TitleWithContentSectionFragment
+//     ...PromoSectionFragment
+//     ...MediaGallerySectionFragment
+//     ...DocumentDownloadSectionFragment
+//     ...ServiceLocatorSectionFragment
+//     ...VideoSectionFragment
+//     ...IframeSectionFragment
+//     ...SystemConfiguratorSectionFragment
+//     ...TeamSectionFragment
+//     ...SampleBasketSectionFragment
+//     ...SignupBlockFragment
+//     ...LeadBlockSectionFragment
+//     ...EmbeddedScriptSectionFragment
+//   }
+//   fragment DialogSectionsFragment on ContentfulSection {
+//     __typename
+//     ...FormSectionFragmentNonRecursive
+//   }
+// `;

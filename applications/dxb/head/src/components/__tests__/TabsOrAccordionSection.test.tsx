@@ -3,9 +3,11 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import TabsOrAccordionSection, { Data } from "../TabsOrAccordionSection";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 import type { TitleWithContentData } from "../SystemConfiguratorSection";
+import type { RichTextData } from "../RichText";
 
-const contentMock = JSON.stringify({
+const contentMock: RichTextData["json"] = {
   nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
@@ -23,7 +25,7 @@ const contentMock = JSON.stringify({
       data: {}
     }
   ]
-});
+};
 
 type GetDummyDataType = {
   name: TitleWithContentData["name"];
@@ -37,13 +39,12 @@ const getDummyData = ({ name, title, type }: GetDummyDataType): Data => {
     description: { description: "string" },
     items: [
       {
-        __typename: "ContentfulTitleWithContent",
+        __typename: "TitleWithContent",
         name: name,
         title: title,
-        content: {
-          raw: contentMock,
-          references: []
-        }
+        content: createRichText({
+          json: contentMock
+        })
       }
     ],
     title: "string",

@@ -18,7 +18,7 @@ const uniqueSellingPropositions = ["feature 1", "feature 2"];
 const ctaLabel = "cta label";
 const backToYourSelectionLabel = "MC: sdp.leadBlock.backToYourSelection";
 const linkData: LinkData = {
-  __typename: "ContentfulLink",
+  __typename: "Link",
   id: "string",
   label: ctaLabel,
   icon: null,
@@ -28,7 +28,8 @@ const linkData: LinkData = {
   type: DataTypeEnum.External,
   parameters: null,
   dialogContent: null,
-  hubSpotCTAID: null
+  hubSpotCTAID: null,
+  queryParams: null
 };
 
 describe("LeadBlockSection tests", () => {

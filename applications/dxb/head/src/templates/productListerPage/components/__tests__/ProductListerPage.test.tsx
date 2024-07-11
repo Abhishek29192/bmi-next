@@ -63,12 +63,12 @@ const pageInfo: PlpPageInfoData = {
 };
 
 const mockNavigation: NavigationData = {
-  __typename: "ContentfulNavigation",
+  __typename: "Navigation",
   label: "Main navigation",
   link: null,
   links: [
     {
-      __typename: "ContentfulLink",
+      __typename: "Link",
       id: "string",
       label: "string",
       icon: null,
@@ -78,15 +78,17 @@ const mockNavigation: NavigationData = {
       type: DataTypeEnum.External,
       parameters: null,
       dialogContent: null,
-      hubSpotCTAID: null
+      hubSpotCTAID: null,
+      queryParams: null
     }
   ]
 };
 
 const siteData: SiteData = {
-  node_locale: "en-US",
+  sys: { locale: "en-US" },
   homePage: {
-    title: "Home page title"
+    title: "Home page title",
+    sys: { id: "home-page-id" }
   },
   countryCode: "uk",
   footerMainNavigation: mockNavigation,

@@ -1,39 +1,41 @@
 import { RegionCode } from "@bmi-digital/components/language-selection";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createImageData from "../__tests__/helpers/ImageDataHelper";
 import { Data as SiteData } from "../components/Site";
 import { DataTypeEnum } from "../components/link/types";
+import createRichText from "../__tests__/helpers/RichTextHelper";
 
 export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
-  node_locale: "en-GB",
   homePage: {
-    title: "Home"
+    title: "Home",
+    sys: { id: "home-page-id" }
   },
   countryCode: "en",
   menuNavigation: {
-    __typename: "ContentfulNavigation",
+    __typename: "Navigation",
     label: null,
     link: null,
     links: [
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         link: null,
         label: "Products",
         promos: null,
         links: [
           {
-            __typename: "ContentfulNavigationItem",
+            __typename: "NavigationItem",
             type: "Heading",
             value: "Select category"
           },
           {
-            __typename: "ContentfulNavigation",
+            __typename: "Navigation",
             link: null,
             label: "Roof",
             links: [
               {
-                __typename: "ContentfulNavigation",
+                __typename: "Navigation",
                 link: {
-                  __typename: "ContentfulLink",
+                  __typename: "Link",
                   id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
                   label: "All Stone Roofs",
                   icon: null,
@@ -46,12 +48,13 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                   asset: null,
                   parameters: null,
                   dialogContent: null,
-                  hubSpotCTAID: null
+                  hubSpotCTAID: null,
+                  queryParams: null
                 },
                 label: "Stone Roofs",
                 links: [
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "7574ab07-2da6-576f-ae16-38a2bd67f504",
                     label: "Roof tiles",
                     icon: "Monier",
@@ -64,10 +67,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                     asset: null,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   },
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "719ee372-c653-5682-9826-2b2335ead187",
                     label: "Concrete roof tiles",
                     icon: "Zanda",
@@ -80,17 +84,18 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                     asset: null,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   }
                 ]
               },
               {
-                __typename: "ContentfulNavigation",
+                __typename: "Navigation",
                 link: null,
                 label: "Steel Roof Tiles",
                 links: [
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "2f26190b-ddf7-5049-bf4e-94e42d5da569",
                     label: "Quadro Plus",
                     icon: "AeroDek",
@@ -103,14 +108,15 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                     asset: null,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   }
                 ]
               },
               {
-                __typename: "ContentfulNavigation",
+                __typename: "Navigation",
                 link: {
-                  __typename: "ContentfulLink",
+                  __typename: "Link",
                   id: "3939848d-20c8-50ab-b138-3e9373bbc3e8",
                   label: "All Shingle",
                   icon: null,
@@ -123,12 +129,13 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                   asset: null,
                   parameters: null,
                   dialogContent: null,
-                  hubSpotCTAID: null
+                  hubSpotCTAID: null,
+                  queryParams: null
                 },
                 label: "Shingle",
                 links: [
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "c60e6a41-4d7e-5c39-89d9-ad3e95a90386",
                     label: "Type S",
                     icon: "Icopal",
@@ -141,17 +148,18 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                     asset: null,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   }
                 ]
               },
               {
-                __typename: "ContentfulNavigation",
+                __typename: "Navigation",
                 link: null,
                 label: "Flat Roof Accessories",
                 links: [
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "e28a28d0-8070-5396-a879-36df320626bf",
                     label: " Roof ladder",
                     icon: null,
@@ -164,24 +172,25 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                     asset: null,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   }
                 ]
               }
             ]
           },
           {
-            __typename: "ContentfulNavigationItem",
+            __typename: "NavigationItem",
             type: "Separator",
             value: null
           },
           {
-            __typename: "ContentfulNavigationItem",
+            __typename: "NavigationItem",
             type: "Heading",
             value: "Our Brands"
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "43aea1a4-6ff6-50ec-ab34-ca021df398dd",
             label: "Icopal",
             icon: "Icopal",
@@ -192,10 +201,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "004038f9-8d99-56a1-ae22-de32ffa718c3",
             label: "Zanda",
             icon: "Zanda",
@@ -206,10 +216,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "9d85c312-d806-530a-bbf5-3b2b1769f0ea",
             label: "Monier",
             icon: "Monier",
@@ -220,10 +231,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "6f861efe-5cfe-59c6-8028-f26bb379e7d3",
             label: "AeroDek",
             icon: "AeroDek",
@@ -234,18 +246,19 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       },
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         link: null,
         label: "Systems",
         promos: null,
         links: [
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "c6f3af7d-3cc0-568c-9873-80032f17e451",
             label: "Pitched Roof",
             icon: null,
@@ -256,10 +269,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "69fb6407-3394-5d1a-acbe-5576047282e5",
             label: "Flat roof",
             icon: null,
@@ -270,10 +284,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "2eb3f1db-56e4-5ada-aadd-33e3bda1199f",
             label: "Membranes",
             icon: null,
@@ -284,10 +299,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "b548b98d-374f-50d1-af1b-3ee3db15dad4",
             label: "Sealing systems",
             icon: null,
@@ -298,18 +314,19 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       },
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         link: null,
         label: "Brands",
         promos: null,
         links: [
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "2d3e7dfd-e7dd-5daa-b1a0-43fe2a43ae32",
             label: "Icopal",
             icon: "Icopal",
@@ -322,10 +339,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "24ce0a99-92b2-58d4-a1d7-243ab165b57b",
             label: "AeroDek",
             icon: "AeroDek",
@@ -338,10 +356,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "c92656e4-dfff-53c2-a7cb-3262870dd4d1",
             label: "Zanda",
             icon: "Zanda",
@@ -354,20 +373,21 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       },
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         link: null,
         label: "Tips and Inspiration",
         promos: null,
         links: [
           {
-            __typename: "ContentfulNavigation",
+            __typename: "Navigation",
             link: {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "96c6b49f-5860-5d68-bf46-77fcef667d22",
               label: "All Inspiration",
               icon: null,
@@ -380,12 +400,13 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
               asset: null,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             },
             label: "Inspiration",
             links: [
               {
-                __typename: "ContentfulLink",
+                __typename: "Link",
                 id: "5dd9482e-51c5-5e00-aec8-1d97209db24f",
                 label: "Homeowners",
                 icon: null,
@@ -396,10 +417,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                 asset: null,
                 parameters: null,
                 dialogContent: null,
-                hubSpotCTAID: null
+                hubSpotCTAID: null,
+                queryParams: null
               },
               {
-                __typename: "ContentfulLink",
+                __typename: "Link",
                 id: "943d7846-32e7-5439-bc93-c7d6c995a4a7",
                 label: "Professionals",
                 icon: null,
@@ -410,10 +432,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                 asset: null,
                 parameters: null,
                 dialogContent: null,
-                hubSpotCTAID: null
+                hubSpotCTAID: null,
+                queryParams: null
               },
               {
-                __typename: "ContentfulLink",
+                __typename: "Link",
                 id: "49ecb67d-9068-56b3-8fe2-b868b59ebc5d",
                 label: "Commercial building",
                 icon: null,
@@ -424,10 +447,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                 asset: null,
                 parameters: null,
                 dialogContent: null,
-                hubSpotCTAID: null
+                hubSpotCTAID: null,
+                queryParams: null
               },
               {
-                __typename: "ContentfulLink",
+                __typename: "Link",
                 id: "46fd4485-8202-5018-bc1e-cd9fa20da771",
                 label: "Architect and engineer",
                 icon: null,
@@ -438,17 +462,18 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                 asset: null,
                 parameters: null,
                 dialogContent: null,
-                hubSpotCTAID: null
+                hubSpotCTAID: null,
+                queryParams: null
               }
             ]
           },
           {
-            __typename: "ContentfulNavigation",
+            __typename: "Navigation",
             link: null,
             label: "Construction tips",
             links: [
               {
-                __typename: "ContentfulLink",
+                __typename: "Link",
                 id: "f7b14dae-daf8-53a9-8e8e-84c72dd9f8be",
                 label: "For Professionals",
                 icon: null,
@@ -459,15 +484,16 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                 asset: null,
                 parameters: null,
                 dialogContent: null,
-                hubSpotCTAID: null
+                hubSpotCTAID: null,
+                queryParams: null
               },
               {
-                __typename: "ContentfulNavigation",
+                __typename: "Navigation",
                 link: null,
                 label: "For the self-builder",
                 links: [
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "40fa5ece-fd7f-5d88-b9a5-6084ade9631c",
                     label: "Build houses",
                     icon: null,
@@ -478,10 +504,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                     asset: null,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   },
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "ed62c72e-6393-5792-bb5a-af791b48ef21",
                     label: "Build cottage",
                     icon: null,
@@ -492,10 +519,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                     asset: null,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   },
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "2d536078-5925-5601-97b4-ad8d86944a3e",
                     label: "Build terrace",
                     icon: null,
@@ -506,10 +534,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                     asset: null,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   },
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "dcb75981-3fb5-586b-b85f-a00137eb9fb6",
                     label: "Build garage",
                     icon: null,
@@ -520,12 +549,13 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                     asset: null,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   }
                 ]
               },
               {
-                __typename: "ContentfulLink",
+                __typename: "Link",
                 id: "992ff943-a7c2-5988-ab31-7ff754250cd5",
                 label: "Other construction tips",
                 icon: null,
@@ -536,12 +566,13 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
                 asset: null,
                 parameters: null,
                 dialogContent: null,
-                hubSpotCTAID: null
+                hubSpotCTAID: null,
+                queryParams: null
               }
             ]
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "e511fa50-4a12-5f68-9085-12a0bffaddce",
             label: "News",
             icon: null,
@@ -552,18 +583,19 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       },
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         link: null,
         label: "Support",
         promos: null,
         links: [
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "e8528008-431c-59ee-bcfc-be1d0b030d13",
             label: "Roof Calculator",
             icon: null,
@@ -574,10 +606,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "548b555a-e008-595f-8226-30394c89c540",
             label: "FAQs",
             icon: null,
@@ -590,10 +623,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "acba91a3-6d3f-5057-8f93-41a09160619f",
             label: "Puja's test page",
             icon: null,
@@ -606,18 +640,19 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       },
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         link: null,
         label: "Documentation",
         promos: null,
         links: [
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "61a1c13d-371e-51db-829d-d42f6c7ba81f",
             label: "All Documentation",
             icon: null,
@@ -628,10 +663,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "c2f50f54-ac65-59a7-9914-a41f04e02bd6",
             label: "Test Doc Lib",
             icon: null,
@@ -642,10 +678,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "3ff52935-c003-58e0-93c4-34721230d0dc",
             label: "What our roofers say",
             icon: null,
@@ -658,19 +695,20 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       }
     ]
   },
   menuUtilities: {
-    __typename: "ContentfulNavigation",
+    __typename: "Navigation",
     label: "Shortcuts",
     link: null,
     links: [
       {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "1ee019cc-0400-5ca1-a185-e14974398f47",
         label: "Find a dealer",
         icon: null,
@@ -681,10 +719,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         asset: null,
         parameters: null,
         dialogContent: null,
-        hubSpotCTAID: null
+        hubSpotCTAID: null,
+        queryParams: null
       },
       {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "2e2b1a9b-2092-5660-9c99-3caa6503667e",
         label: "Find a roofer",
         icon: null,
@@ -695,10 +734,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         asset: null,
         parameters: null,
         dialogContent: null,
-        hubSpotCTAID: null
+        hubSpotCTAID: null,
+        queryParams: null
       },
       {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "e734a870-8c96-51ee-952a-a524bcccb1ff",
         label: "Partner portal",
         icon: null,
@@ -709,10 +749,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         asset: null,
         parameters: null,
         dialogContent: null,
-        hubSpotCTAID: null
+        hubSpotCTAID: null,
+        queryParams: null
       },
       {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "bd3f6ea3-3f12-5c64-b005-94f7ac7ee665",
         label: "News",
         icon: null,
@@ -723,10 +764,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         asset: null,
         parameters: null,
         dialogContent: null,
-        hubSpotCTAID: null
+        hubSpotCTAID: null,
+        queryParams: null
       },
       {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "a2184bd5-9fa4-52ef-b615-d3c57b5ba1c9",
         label: "Contact Us",
         icon: null,
@@ -739,28 +781,29 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         asset: null,
         parameters: null,
         dialogContent: null,
-        hubSpotCTAID: null
+        hubSpotCTAID: null,
+        queryParams: null
       }
     ]
   },
   footerMainNavigation: {
-    __typename: "ContentfulNavigation",
+    __typename: "Navigation",
     label: "Contact Us",
     link: null,
     links: [
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: "Contact Us",
         link: null,
         links: []
       },
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: "About BMI",
         link: null,
         links: [
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "a10e464f-cad1-58ee-b112-31cf35f6d0f2",
             label: "Our Story",
             icon: null,
@@ -771,10 +814,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "e56eb951-d327-51a9-8dbb-07bfffdd20b5",
             label: "Our Brands",
             icon: null,
@@ -785,10 +829,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "039ebd1d-0288-5daa-95d4-d391771f93d8",
             label: "Our Values",
             icon: null,
@@ -799,10 +844,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "4c91d4b2-d319-5d10-9c42-936eb321c737",
             label: "Sustainability",
             icon: null,
@@ -813,17 +859,18 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       },
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: " Our portals",
         link: null,
         links: [
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "081cdd16-3770-528e-a64f-614d9d98c1d4",
             label: "BMI RoofPro",
             icon: null,
@@ -834,10 +881,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "b6d4ab50-efe8-5d42-bf2c-6ff76e9035c2",
             label: "Team Icopal",
             icon: null,
@@ -848,10 +896,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "30daa69e-579c-5b39-842c-479e933ebc63",
             label: "Training",
             icon: null,
@@ -862,10 +911,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "59ba5f73-5d87-5e2e-9a3d-fadb7fb88405",
             label: "Mediabank",
             icon: null,
@@ -876,17 +926,18 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       },
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: "Careers",
         link: null,
         links: [
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "adfaa2f0-7aa3-51e2-87fa-9a0f6089c362",
             label: "Diversity",
             icon: null,
@@ -899,10 +950,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           },
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "6d376f80-8886-51b1-ac48-b7367ad419d6",
             label: "BMI Job Board",
             icon: null,
@@ -913,19 +965,20 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
             asset: null,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       }
     ]
   },
   footerSecondaryNavigation: {
-    __typename: "ContentfulNavigation",
+    __typename: "Navigation",
     label: "Secondary Navigation ",
     link: null,
     links: [
       {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "2a20ec46-b622-5ac7-a8bf-5e7c7ec742f8",
         label: "Cookies",
         icon: null,
@@ -938,10 +991,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         asset: null,
         parameters: null,
         dialogContent: null,
-        hubSpotCTAID: null
+        hubSpotCTAID: null,
+        queryParams: null
       },
       {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "fe05f6e2-0481-5f69-88c4-40a06efa691e",
         label: "Sitemap",
         icon: null,
@@ -952,7 +1006,8 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
         asset: null,
         parameters: null,
         dialogContent: null,
-        hubSpotCTAID: null
+        hubSpotCTAID: null,
+        queryParams: null
       }
     ]
   },
@@ -1053,7 +1108,7 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
       label: "Nyttige linker:",
       links: [
         {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "67eed339-b3c3-55f2-9003-44e3a0289a75",
           label: "Zanda Arktis",
           icon: null,
@@ -1066,10 +1121,11 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
           asset: null,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         },
         {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "c4414200-48b9-5167-876a-6427f9fbc0b1",
           label: "All roof tiles",
           icon: null,
@@ -1082,7 +1138,8 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
           asset: null,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       ]
     },
@@ -1112,7 +1169,8 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
       parameters: null,
       type: DataTypeEnum.Internal,
       url: null,
-      __typename: "ContentfulLink"
+      __typename: "Link",
+      queryParams: null
     },
     sdpShareWidget: {
       __typename: "ShareWidgetSection",
@@ -1137,15 +1195,26 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
     searchPageNextBestActions: null,
     searchPageExploreBar: null,
     errorFourOFour: {
-      __typename: "ContentfulPromo",
+      __typename: "Promo",
       id: "46950b8b-b119-5f10-abc3-86b0f7d84fcd",
       title: "404",
       name: "404",
       subtitle: "not found",
-      body: {
-        raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"oops","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-        references: []
-      },
+      body: createRichText({
+        json: {
+          data: {},
+          content: [
+            {
+              data: {},
+              content: [
+                { data: {}, marks: [], value: "oops", nodeType: "text" }
+              ],
+              nodeType: BLOCKS.PARAGRAPH
+            }
+          ],
+          nodeType: BLOCKS.DOCUMENT
+        }
+      }),
       brandLogo: null,
       tags: null,
       cta: null,
@@ -1154,15 +1223,31 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
       featuredMedia: createImageData()
     },
     errorGeneral: {
-      __typename: "ContentfulPromo",
+      __typename: "Promo",
       id: "941aacf4-2fb7-5283-88cc-255612c1c7e6",
       title: "oops",
       name: "oops",
       subtitle: "something went wrong",
-      body: {
-        raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"please try again","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-        references: []
-      },
+      body: createRichText({
+        json: {
+          data: {},
+          content: [
+            {
+              data: {},
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "please try again",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: BLOCKS.PARAGRAPH
+            }
+          ],
+          nodeType: BLOCKS.DOCUMENT
+        }
+      }),
       brandLogo: null,
       tags: null,
       cta: null,
@@ -1203,5 +1288,6 @@ export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
   pitchedRoofCalculatorConfig: null,
   visualiserHouseTypes: null,
   accountPage: null,
+  sys: { locale: "en-GB" },
   ...siteData
 });

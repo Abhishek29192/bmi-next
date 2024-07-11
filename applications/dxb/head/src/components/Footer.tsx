@@ -1,10 +1,10 @@
+import React from "react";
 import Footer, {
   MenuItem as FooterMenuItem
 } from "@bmi-digital/components/footer";
 import HidePrint from "@bmi-digital/components/hide-print";
 import { microCopy } from "@bmi/microcopies";
 import { isDefined } from "@bmi/utils";
-import { graphql } from "gatsby";
 import NextLink from "next/link";
 import { getPathWithCountryCode } from "../utils/path";
 import Icon from "./Icon";
@@ -19,7 +19,7 @@ const parseNavigation = (
 ): FooterMenuItem[] => {
   return navigationItems
     .map<FooterMenuItem | undefined>((navigationItem) => {
-      if (navigationItem.__typename === "ContentfulLink") {
+      if (navigationItem.__typename === "Link") {
         const { label, icon, isLabelHidden } = navigationItem;
 
         const { download, ...actionProps } = toAnchorLinkActionProps(
@@ -54,7 +54,7 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
   const main: MainNavigationItem[] | undefined = mainNavigation?.links
     .map<MainNavigationItem | undefined>((link) => {
-      if (link.__typename === "ContentfulNavigation") {
+      if (link.__typename === "Navigation") {
         return {
           subHeading: link.label,
           // TODO: Shouldn't really type cast this, but it will require a
@@ -98,31 +98,3 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
 };
 
 export default BmiFooter;
-
-export const query = graphql`
-  fragment FooterMainNavigationFragment on ContentfulNavigation {
-    label
-    links {
-      __typename
-      ... on ContentfulLink {
-        ...LinkFragment
-      }
-      ... on ContentfulNavigation {
-        label
-        links {
-          ... on ContentfulLink {
-            ...LinkFragment
-          }
-        }
-      }
-    }
-  }
-  fragment FooterSecondaryNavigationFragment on ContentfulNavigation {
-    label
-    links {
-      ... on ContentfulLink {
-        ...LinkFragment
-      }
-    }
-  }
-`;

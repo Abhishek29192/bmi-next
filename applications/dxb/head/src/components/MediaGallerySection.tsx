@@ -5,7 +5,6 @@ import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import { GallerySectionMedias, transformMediaSrc } from "../utils/media";
@@ -69,15 +68,15 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
 
 export default IntegratedMediaGallerySection;
 
-export const query = graphql`
-  fragment MediaGallerySectionFragment on ContentfulMediaGallerySection {
-    title
-    longDescription {
-      ...RichTextFragment
-    }
-    medias {
-      ...ImageGallerySlideFragment
-      ...VideoGallerySlideFragment
-    }
-  }
-`;
+// export const query = graphql`
+//   fragment MediaGallerySectionFragment on ContentfulMediaGallerySection {
+//     title
+//     longDescription {
+//       ...RichTextFragment
+//     }
+//     medias {
+//       ...ImageGallerySlideFragment
+//       ...VideoGallerySlideFragment
+//     }
+//   }
+// `;

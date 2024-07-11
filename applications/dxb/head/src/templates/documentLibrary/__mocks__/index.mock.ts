@@ -74,7 +74,7 @@ export const createData = (
   contentfulSite: SiteData;
 } => ({
   contentfulDocumentLibraryPage: {
-    __typename: "ContentfulDocumentLibraryPage",
+    __typename: "DocumentLibraryPage",
     id: "id",
     title: "title",
     subtitle: null,

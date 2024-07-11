@@ -30,17 +30,17 @@ describe("Footer component", () => {
       <MockSiteContext>
         <Footer
           mainNavigation={{
-            __typename: "ContentfulNavigation",
+            __typename: "Navigation",
             label: "Main",
             link: null,
             links: [
               {
-                __typename: "ContentfulNavigation",
+                __typename: "Navigation",
                 label: "Get in touch",
                 link: null,
                 links: [
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "",
                     label: "+44 (0) 1234567890",
                     url: "tel:+4401234567890",
@@ -50,17 +50,18 @@ describe("Footer component", () => {
                     type: DataTypeEnum.Internal,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   }
                 ]
               },
               {
-                __typename: "ContentfulNavigation",
+                __typename: "Navigation",
                 label: "About BMI",
                 link: null,
                 links: [
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "",
                     label: "Our story",
                     url: null,
@@ -72,19 +73,20 @@ describe("Footer component", () => {
                     type: DataTypeEnum.Internal,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   }
                 ]
               }
             ]
           }}
           secondaryNavigation={{
-            __typename: "ContentfulNavigation",
+            __typename: "Navigation",
             label: "About BMI",
             link: null,
             links: [
               {
-                __typename: "ContentfulLink",
+                __typename: "Link",
                 id: "",
                 label: "Our story",
                 url: null,
@@ -96,7 +98,8 @@ describe("Footer component", () => {
                 type: DataTypeEnum.Internal,
                 parameters: null,
                 dialogContent: null,
-                hubSpotCTAID: null
+                hubSpotCTAID: null,
+                queryParams: null
               }
             ]
           }}
@@ -110,17 +113,17 @@ describe("Footer component", () => {
       <MockSiteContext>
         <Footer
           mainNavigation={{
-            __typename: "ContentfulNavigation",
+            __typename: "Navigation",
             label: "Main",
             link: null,
             links: [
               {
-                __typename: "ContentfulNavigation",
+                __typename: "Navigation",
                 label: "Get in touch",
                 link: null,
                 links: [
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "",
                     label: "+44 (0) 1234567890",
                     url: "tel:+4401234567890",
@@ -130,17 +133,18 @@ describe("Footer component", () => {
                     type: DataTypeEnum.Internal,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   }
                 ]
               },
               {
-                __typename: "ContentfulNavigation",
+                __typename: "Navigation",
                 label: "About BMI",
                 link: null,
                 links: [
                   {
-                    __typename: "ContentfulLink",
+                    __typename: "Link",
                     id: "",
                     label: "Our story",
                     url: null,
@@ -152,19 +156,20 @@ describe("Footer component", () => {
                     type: DataTypeEnum.Internal,
                     parameters: null,
                     dialogContent: null,
-                    hubSpotCTAID: null
+                    hubSpotCTAID: null,
+                    queryParams: null
                   }
                 ]
               }
             ]
           }}
           secondaryNavigation={{
-            __typename: "ContentfulNavigation",
+            __typename: "Navigation",
             label: "Brands",
             link: null,
             links: [
               {
-                __typename: "ContentfulLink",
+                __typename: "Link",
                 id: "",
                 label: "Icopal brand",
                 url: null,
@@ -176,7 +181,8 @@ describe("Footer component", () => {
                 type: DataTypeEnum.Internal,
                 parameters: null,
                 dialogContent: null,
-                hubSpotCTAID: null
+                hubSpotCTAID: null,
+                queryParams: null
               }
             ]
           }}

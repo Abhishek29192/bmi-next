@@ -16,7 +16,7 @@ export const getJpgImage = (ogImageUrl?: string): string | undefined => {
 };
 
 export type GallerySectionImage = Omit<ImageData, "image"> & {
-  __typename: "ContentfulImage";
+  __typename: "Image";
   caption?: {
     caption: string;
   } | null;
@@ -24,7 +24,7 @@ export type GallerySectionImage = Omit<ImageData, "image"> & {
 };
 
 export type GallerySectionVideo = Omit<VideoData, "previewMedia"> & {
-  __typename: "ContentfulVideo";
+  __typename: "Video";
   previewMedia: VideoData["previewMedia"] & {
     image: ImageData["image"];
   };
@@ -49,20 +49,19 @@ export const transformMediaSrc = (
 ): MediaData[] => {
   return media.map((item) => {
     switch (item.__typename) {
-      case "ContentfulImage":
+      case "Image":
         return {
           media: createContentfulImageProps({ ...item, widths: mediaWidths }),
-          thumbnail: item.image.file.url,
+          thumbnail: item.image.url,
           caption: item.caption?.caption || undefined,
           altText: item.altText || undefined,
           isVideo: false
         };
-      case "ContentfulVideo":
+      case "Video":
         return {
           media: createVideoProps({ ...item, previewMediaWidths: mediaWidths }),
           thumbnail:
-            item.previewMedia?.image.file.url ||
-            item.defaultYouTubePreviewImage,
+            item.previewMedia?.image.url || item.defaultYouTubePreviewImage,
           caption: item.subtitle || undefined,
           altText: item.label,
           isVideo: true

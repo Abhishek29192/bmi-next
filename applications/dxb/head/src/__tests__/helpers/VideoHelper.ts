@@ -4,7 +4,7 @@ import type { ContentfulVideoData } from "../../components/video/types";
 const createVideoData = (
   video?: Partial<ContentfulVideoData>
 ): ContentfulVideoData => ({
-  __typename: "ContentfulVideo",
+  __typename: "Video",
   title: "Video title",
   label: "Video label",
   subtitle: "Video subtitle",

@@ -26,7 +26,7 @@ exports[`Header component renders correctly 1`] = `
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-top-utilities-bar","action":"/gb/landing-page/","label":"Our story"}"
                 data-testid="button"
-                href="/gb/landing-page/"
+                href="/gb/landing-page"
                 tabindex="0"
                 target="_blank"
               >
@@ -238,7 +238,7 @@ exports[`Header component renders correctly 1`] = `
               aria-label="MC: global.logoLabel"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
-              href="/gb/"
+              href="/gb"
             >
               <svg
                 class="css-15idaqd"
@@ -497,7 +497,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-top-utilities-bar","action":"/grp/landing-page/","label":"Our story"}"
                 data-testid="button"
-                href="/grp/landing-page/"
+                href="/grp/landing-page"
                 tabindex="0"
                 target="_blank"
               >
@@ -709,7 +709,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               aria-label="MC: global.logoLabel"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
-              href="/grp/"
+              href="/grp"
             >
               <svg
                 class="css-15idaqd"
@@ -968,7 +968,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-top-utilities-bar","action":"/gb/landing-page/","label":"Our story"}"
                 data-testid="button"
-                href="/gb/landing-page/"
+                href="/gb/landing-page"
                 tabindex="0"
                 target="_blank"
               >
@@ -1180,7 +1180,7 @@ exports[`Header component shows sample basket icon 1`] = `
               aria-label="MC: global.logoLabel"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
-              href="/gb/"
+              href="/gb"
             >
               <svg
                 class="css-15idaqd"
@@ -1563,7 +1563,7 @@ exports[`Header component shows sample basket icon 1`] = `
           <a
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
             data-testid="shopping-cart-dialog-complete-order-button"
-            href="/gb/sample-basket/"
+            href="/gb/sample-basket"
             tabindex="0"
           >
             MC: pdp.overview.completeSampleOrder
@@ -1630,7 +1630,7 @@ exports[`Header component toggles search 1`] = `
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-top-utilities-bar","action":"/gb/landing-page/","label":"Our story"}"
                 data-testid="button"
-                href="/gb/landing-page/"
+                href="/gb/landing-page"
                 tabindex="0"
                 target="_blank"
               >
@@ -1842,7 +1842,7 @@ exports[`Header component toggles search 1`] = `
               aria-label="MC: global.logoLabel"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
-              href="/gb/"
+              href="/gb"
             >
               <svg
                 class="css-15idaqd"

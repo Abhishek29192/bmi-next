@@ -4,7 +4,7 @@ import createGatsbyImageData from "./GatsbyImageDataHelper";
 const createGallerySectionImage = (
   gallerySectionImage?: Partial<GallerySectionImage>
 ): GallerySectionImage => ({
-  __typename: "ContentfulImage",
+  __typename: "Image",
   altText: "alt text",
   type: "Decorative",
   image: {

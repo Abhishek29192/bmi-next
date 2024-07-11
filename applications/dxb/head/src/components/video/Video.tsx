@@ -1,12 +1,14 @@
 import YoutubeVideo from "@bmi-digital/components/youtube-video";
-import { graphql } from "gatsby";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
+import React from "react";
 import { useGTM } from "../../utils/google-tag-manager";
 import createImageProps from "../image/createImageProps";
 import type { Data } from "./types";
 import type { CustomImageProps } from "@bmi-digital/components/dist/media/types";
+import type { ImageWidths } from "../image/types";
 
 export type Props = Omit<Data, "previewMedia"> & {
+  previewMediaWidths: ImageWidths;
   previewMedia?: CustomImageProps;
 };
 
@@ -18,6 +20,7 @@ const Video = ({
   videoRatio,
   defaultYouTubePreviewImage,
   layout,
+  previewMediaWidths,
   ...props
 }: Props) => {
   const gtm = useMemo(
@@ -50,69 +53,5 @@ const Video = ({
     />
   );
 };
-
-export const query = graphql`
-  fragment BaseVideoFragment on ContentfulVideo {
-    __typename
-    title
-    label
-    subtitle
-    videoUrl: youtubeId
-    videoRatio {
-      width
-      height
-    }
-    defaultYouTubePreviewImage
-  }
-
-  fragment VideoFragment on ContentfulVideo {
-    ...BaseVideoFragment
-    previewMedia {
-      ...VideoImageFragment
-    }
-  }
-
-  fragment VideoHeroFragment on ContentfulVideo {
-    ...BaseVideoFragment
-    previewMedia {
-      ...ImageHeroFragment
-    }
-  }
-
-  fragment VideoHeaderFragment on ContentfulVideo {
-    ...BaseVideoFragment
-    previewMedia {
-      ...ImageHeaderFragment
-    }
-  }
-
-  fragment VideoVillainFragment on ContentfulVideo {
-    ...BaseVideoFragment
-    previewMedia {
-      ...ImageVillainFragment
-    }
-  }
-
-  fragment VideoCardFragment on ContentfulVideo {
-    ...BaseVideoFragment
-    previewMedia {
-      ...ImageCardFragment
-    }
-  }
-
-  fragment VideoSlideFragment on ContentfulVideo {
-    ...BaseVideoFragment
-    previewMedia {
-      ...ImageSlideFragment
-    }
-  }
-
-  fragment VideoGallerySlideFragment on ContentfulVideo {
-    ...BaseVideoFragment
-    previewMedia {
-      ...ImageGallerySlideFragment
-    }
-  }
-`;
 
 export default Video;

@@ -6,13 +6,14 @@ import createGallerySectionImage from "../../__tests__/helpers/GallerySectionIma
 import createGallerySectionVideo from "../../__tests__/helpers/GallerySectionVideo";
 import MediaGallerySection, { Data } from "../MediaGallerySection";
 import { RichTextData } from "../RichText";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 
-const raw = {
+const raw: RichTextData["json"] = {
   nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
-      nodeType: "heading-2",
+      nodeType: BLOCKS.HEADING_2,
       content: [{ nodeType: "text", value: "Heading 2", marks: [], data: {} }],
       data: {}
     },
@@ -31,15 +32,7 @@ const raw = {
   ]
 };
 
-const document: RichTextData = {
-  raw: JSON.stringify(raw),
-  references: [
-    {
-      __typename: "NonType",
-      contentful_id: "3tcysaa3PGMlm42U4WnlmK"
-    }
-  ]
-};
+const document = createRichText({ json: raw });
 
 describe("MediaGallerySection component", () => {
   it("renders correctly", () => {

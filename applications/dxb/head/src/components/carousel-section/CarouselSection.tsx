@@ -8,7 +8,7 @@ import VerticalRoller, {
 } from "@bmi-digital/components/vertical-roller";
 import { microCopy } from "@bmi/microcopies";
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
-import { graphql } from "gatsby";
+import React from "react";
 import withGTM from "../../utils/google-tag-manager";
 import BrandLogo from "../BrandLogo";
 import { useSiteContext } from "../Site";
@@ -24,7 +24,7 @@ import type { ImageWidths } from "../image/types";
 type Slide = PromoData | PageInfoData;
 
 export type Data = {
-  __typename: "ContentfulCarouselSection";
+  __typename: "CarouselSection";
   title: string;
   variant: "horizontal" | "vertical";
   slides: Slide[];
@@ -86,7 +86,6 @@ const CarouselSection = ({
   data: Data;
 }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-
   return (
     <SectionElement
       backgroundColor={variant === "vertical" ? "pearl" : "white"}
@@ -140,20 +139,3 @@ const CarouselSection = ({
 };
 
 export default CarouselSection;
-
-export const query = graphql`
-  fragment CarouselSectionFragment on ContentfulCarouselSection {
-    __typename
-    title
-    variant
-    slides {
-      ... on ContentfulPromoOrPage {
-        ...PromoSlideFragment
-        ...PageInfoSlideFragment
-      }
-    }
-    link {
-      ...LinkFragment
-    }
-  }
-`;

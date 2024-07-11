@@ -245,9 +245,9 @@ describe("VisualiserProvider", () => {
 });
 
 describe("VisualiserContext", () => {
-  it("works correctly with default open method if GATSBY_VISUALISER_ASSETS_URL exists", () => {
-    const defaultAssetsUrl = process.env.GATSBY_VISUALISER_ASSETS_URL;
-    process.env.GATSBY_VISUALISER_ASSETS_URL = "https://fake_url";
+  it("works correctly with default open method if NEXT_PUBLIC_VISUALISER_ASSETS_URL exists", () => {
+    const defaultAssetsUrl = process.env.NEXT_PUBLIC_VISUALISER_ASSETS_URL;
+    process.env.NEXT_PUBLIC_VISUALISER_ASSETS_URL = "https://fake_url";
 
     rtlRender(
       <ThemeProvider>
@@ -261,12 +261,12 @@ describe("VisualiserContext", () => {
 
     fireEvent.click(screen.getByText("Open Visualiser"));
     expect(devLog).toHaveBeenCalledWith("Visualiser: Something went wrong");
-    process.env.GATSBY_VISUALISER_ASSETS_URL = defaultAssetsUrl;
+    process.env.NEXT_PUBLIC_VISUALISER_ASSETS_URL = defaultAssetsUrl;
   });
 
-  it("works correctly with default open method if GATSBY_VISUALISER_ASSETS_URL does not exist", () => {
-    const defaultAssetsUrl = process.env.GATSBY_VISUALISER_ASSETS_URL;
-    process.env.GATSBY_VISUALISER_ASSETS_URL = "";
+  it("works correctly with default open method if NEXT_PUBLIC_VISUALISER_ASSETS_URL does not exist", () => {
+    const defaultAssetsUrl = process.env.NEXT_PUBLIC_VISUALISER_ASSETS_URL;
+    process.env.NEXT_PUBLIC_VISUALISER_ASSETS_URL = "";
 
     rtlRender(
       <ThemeProvider>
@@ -280,8 +280,8 @@ describe("VisualiserContext", () => {
 
     fireEvent.click(screen.getByText("Open Visualiser"));
     expect(devLog).toHaveBeenCalledWith(
-      "Visualiser: Make sure you define GATSBY_VISUALISER_ASSETS_URL in the .env.development file."
+      "Visualiser: Make sure you define NEXT_PUBLIC_VISUALISER_ASSETS_URL in the .env.development file."
     );
-    process.env.GATSBY_VISUALISER_ASSETS_URL = defaultAssetsUrl;
+    process.env.NEXT_PUBLIC_VISUALISER_ASSETS_URL = defaultAssetsUrl;
   });
 });

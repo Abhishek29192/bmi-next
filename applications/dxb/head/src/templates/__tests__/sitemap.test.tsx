@@ -17,7 +17,7 @@ beforeAll(() => {
 
 describe("Sitemap", () => {
   const link: LinkData = {
-    __typename: "ContentfulLink",
+    __typename: "Link",
     id: "linkId",
     label: "linkLabel",
     icon: null,
@@ -27,10 +27,11 @@ describe("Sitemap", () => {
     type: DataTypeEnum.External,
     parameters: null,
     dialogContent: null,
-    hubSpotCTAID: null
+    hubSpotCTAID: null,
+    queryParams: null
   };
   const footerMainNavigation: NavigationData = {
-    __typename: "ContentfulNavigation",
+    __typename: "Navigation",
     label: "footerMainNavigationLabel",
     link,
     promos: null,
@@ -44,7 +45,7 @@ describe("Sitemap", () => {
     ]
   };
   const footerSecondaryNavigation: NavigationData = {
-    __typename: "ContentfulNavigation",
+    __typename: "Navigation",
     label: "footerSecondaryNavigationLabel",
     link,
     promos: null,
@@ -58,7 +59,7 @@ describe("Sitemap", () => {
     ]
   };
   const menuNavigation: NavigationData = {
-    __typename: "ContentfulNavigation",
+    __typename: "Navigation",
     label: "menuNavigationLabel",
     link,
     promos: null,
@@ -72,7 +73,7 @@ describe("Sitemap", () => {
     ]
   };
   const menuUtilities: NavigationData = {
-    __typename: "ContentfulNavigation",
+    __typename: "Navigation",
     label: "menuUtilitiesLabel",
     link,
     promos: null,

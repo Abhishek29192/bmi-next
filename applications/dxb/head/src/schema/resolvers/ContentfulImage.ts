@@ -1,41 +1,22 @@
-import type { Context, Node, ResolveArgs } from "./types/Gatsby";
+import type { Data as ImageData } from "../../components/image/contentful-image/types";
 
 const getFocalPoint = (size: number, position: number) =>
   parseFloat(((100 * position) / size).toFixed(0));
 
-export default {
-  focalPoint: {
-    type: `FocalPoint`,
-    async resolve(source: Node, args: ResolveArgs, context: Context) {
-      if (!source.image___NODE || !source.focalPoint___NODE) {
-        return null;
-      }
-
-      const image = await context.nodeModel.getNodeById<Node>({
-        id: source.image___NODE,
-        type: "ContentfulAsset"
-      });
-
-      if (!image?.file?.details?.image) {
-        return null;
-      }
-
-      const focalPoint = await context.nodeModel.getNodeById<Node>({
-        id: source.focalPoint___NODE,
-        type: "contentfulImageFocalPointJsonNode"
-      });
-
-      if (!focalPoint?.focalPoint?.x || !focalPoint?.focalPoint?.y) {
-        return null;
-      }
-
-      const { width, height } = image.file.details.image;
-      const { x: focalPointX, y: focalPointY } = focalPoint.focalPoint;
-
-      return {
-        x: getFocalPoint(width, focalPointX),
-        y: getFocalPoint(height, focalPointY)
-      };
-    }
+const resolveImage = (image: ImageData): ImageData => {
+  if (!image.focalPoint) {
+    return image;
   }
+
+  const { focalPoint, ...rest } = image;
+
+  return {
+    ...rest,
+    focalPoint: {
+      x: getFocalPoint(image.image.width, focalPoint.x),
+      y: getFocalPoint(image.image.height, focalPoint.y)
+    }
+  };
 };
+
+export default resolveImage;

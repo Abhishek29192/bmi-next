@@ -3,6 +3,7 @@ import Grid from "@bmi-digital/components/grid";
 import ProductOverviewCard from "@bmi-digital/components/product-overview-card";
 import { microCopy } from "@bmi/microcopies";
 import NextLink from "next/link";
+import React from "react";
 import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import BrandLogo from "../../../components/BrandLogo";
 import { getSearchParams } from "../../../utils/filters";

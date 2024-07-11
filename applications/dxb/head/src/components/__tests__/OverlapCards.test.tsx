@@ -46,7 +46,7 @@ const data: Data = [
     path: "some-page",
     featuredMedia: null,
     featuredVideo: {
-      __typename: "ContentfulVideo",
+      __typename: "Video",
       title: "video title",
       label: "video label",
       subtitle: "video subtitle",

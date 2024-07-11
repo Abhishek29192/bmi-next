@@ -3,7 +3,10 @@ import { useIsClient } from "@bmi-digital/components/hooks";
 import AnchorLink from "@bmi-digital/components/anchor-link";
 import Typography from "@bmi-digital/components/typography";
 import { transformHyphens } from "@bmi-digital/components/utils";
-import { Options } from "@contentful/rich-text-react-renderer";
+import {
+  Options,
+  documentToReactComponents
+} from "@contentful/rich-text-react-renderer";
 import {
   Block,
   BLOCKS,
@@ -12,8 +15,6 @@ import {
   MARKS
 } from "@contentful/rich-text-types";
 import classnames from "classnames";
-import { graphql } from "gatsby";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import { constructUrlWithPrevPage } from "../templates/myAccountPage/utils";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
@@ -21,8 +22,17 @@ import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedInline from "./EmbeddedInline";
 import InlineHyperlink from "./InlineHyperlink";
 import { classes, StyledRichText } from "./styles/RichTextStyles";
+import type { Data as LinkData } from "./link/types";
+import type { TableFields as TableData } from "./EmbeddedTable";
+import type { FileData as AssetData } from "./EmbeddedAssetBlock";
+import type { Data as InlineHyperLinkData } from "./InlineHyperlink";
 
-export type RichTextData = Parameters<typeof renderRichText>[0];
+type ReferenceData = AssetData | LinkData | TableData | InlineHyperLinkData;
+
+export type RichTextData = {
+  json: Parameters<typeof documentToReactComponents>[0];
+  references: Map<string, ReferenceData>;
+};
 
 type Settings = {
   theme?: "primary" | "secondary";
@@ -32,7 +42,11 @@ type Settings = {
   gtmLabel?: React.ReactNode;
 };
 
-const getOptions = (settings: Settings, isClient: boolean): Options => {
+const getOptions = (
+  settings: Settings,
+  references: RichTextData["references"],
+  isClient: boolean
+): Options => {
   const { underlineHeadings = [], gtmLabel } = settings;
 
   return {
@@ -97,14 +111,29 @@ const getOptions = (settings: Settings, isClient: boolean): Options => {
         </Typography>
       ),
       [BLOCKS.EMBEDDED_ENTRY]: (node: Block) => (
-        <EmbeddedBlock node={node} {...settings} />
+        <EmbeddedBlock
+          {...settings}
+          fields={getReferenceData<LinkData | TableData>(
+            references,
+            node.data.target.sys.id
+          )}
+        />
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Block) => (
-        <EmbeddedAssetBlock node={node} className="embedded-asset" />
+        <EmbeddedAssetBlock
+          data={getReferenceData<AssetData>(
+            references,
+            node.data.target.sys.id
+          )}
+          className="embedded-asset"
+        />
       ),
       [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: string) => (
         <InlineHyperlink
-          node={node}
+          data={getReferenceData<InlineHyperLinkData>(
+            references,
+            node.data.target.sys.id
+          )}
           gtmLabel={gtmLabel}
           data-testid={"rich-text-entry-hyperlink"}
         >
@@ -112,12 +141,19 @@ const getOptions = (settings: Settings, isClient: boolean): Options => {
         </InlineHyperlink>
       ),
       [INLINES.ASSET_HYPERLINK]: (node: Inline, children: string) => (
-        <InlineHyperlink node={node}>{children}</InlineHyperlink>
+        <InlineHyperlink
+          data={getReferenceData<AssetData>(
+            references,
+            node.data.target.sys.id
+          )}
+        >
+          {children}
+        </InlineHyperlink>
       ),
       [INLINES.HYPERLINK]: (node: Inline, children: string) => {
         const { uri } = node.data;
         const href =
-          isClient && uri.includes(process.env.GATSBY_INTOUCH_ORIGIN)
+          isClient && uri.includes(process.env.NEXT_PUBLIC_INTOUCH_ORIGIN)
             ? constructUrlWithPrevPage(uri)
             : uri;
 
@@ -140,7 +176,10 @@ const getOptions = (settings: Settings, isClient: boolean): Options => {
         );
       },
       [INLINES.EMBEDDED_ENTRY]: (node: Inline) => (
-        <EmbeddedInline node={node} {...settings} />
+        <EmbeddedInline
+          data={getReferenceData<LinkData>(references, node.data.target.sys.id)}
+          {...settings}
+        />
       )
     },
     renderMark: {
@@ -181,57 +220,36 @@ const RichText = ({
         className
       )}
     >
-      {renderRichText(document, getOptions(rest, isClient))}
+      {documentToReactComponents(
+        document.json,
+        getOptions(rest, document.references, isClient)
+      )}
     </StyledRichText>
   );
 };
 
-export const parseReachDataRawFields = (
+export const parseRichDataRawFields = (
   document: RichTextData
 ): Record<string, string | undefined> => {
-  const parsedRaw: {
-    nodeType: string;
-    data: Record<string, unknown>;
-    content: Array<{
-      nodeType: string;
-      data: Record<string, unknown>;
-      content: Array<{
-        value: string;
-        nodeType: string;
-        data: Record<string, unknown>;
-      }>;
-    }>;
-  } = JSON.parse(document.raw);
+  const parsedRaw = document?.json;
 
   let res: Record<string, string | undefined> = {};
   parsedRaw.content.forEach((item) => {
-    res = { ...res, [item.nodeType]: item.content[0]?.value };
+    res = {
+      ...res,
+      [item.nodeType]:
+        item.content[0] && "value" in item.content[0]
+          ? item.content[0].value
+          : undefined
+    };
   });
 
   return res;
 };
 
-export default RichText;
+const getReferenceData = <T extends ReferenceData>(
+  referencesMap: RichTextData["references"],
+  key: string
+) => referencesMap.get(key) as T;
 
-export const query = graphql`
-  fragment RichTextFragment on ContentfulRichText {
-    raw
-    references {
-      __typename
-      ...InlineHyperlinkFragment
-      ...EmbeddedAssetBlockFragment
-      ...EmbeddedBlockFragment
-      ...EmbeddedInlineFragment
-    }
-  }
-  fragment RichTextFragmentNonRecursive on ContentfulRichText {
-    raw
-    references {
-      __typename
-      ...InlineHyperlinkFragmentNonRecursive
-      ...EmbeddedAssetBlockFragment
-      ...EmbeddedBlockFragmentNonRecursive
-      ...EmbeddedInlineFragmentNonRecursive
-    }
-  }
-`;
+export default RichText;

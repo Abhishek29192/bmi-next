@@ -276,7 +276,7 @@ exports[`RichText component renders correctly 1`] = `
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
         data-gtm="{"id":"cta-click1","label":"Entry","action":"/testing-simple-page/"}"
         data-testid="rich-text-entry-hyperlink"
-        href="/testing-simple-page/"
+        href="/testing-simple-page"
       >
         Entry
       </a>
@@ -299,7 +299,7 @@ exports[`RichText component renders correctly 1`] = `
           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
           data-gtm="{"id":"cta-click1","action":"//product-category-page/product-sub-category-page/aerodek-robust-plus/","label":"Aerodek Robust Plus"}"
           data-testid="internal-button-link-Aerodek-Robust-Plus"
-          href="//product-category-page/product-sub-category-page/aerodek-robust-plus/"
+          href="//product-category-page/product-sub-category-page/aerodek-robust-plus"
           tabindex="0"
         >
           Aerodek Robust Plus
@@ -345,7 +345,7 @@ exports[`RichText component renders correctly 1`] = `
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium EmbeddedLinkStyles-embeddedLink css-1t4t4pf-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"cta-click1","action":"//landing-page/","label":"Support"}"
         data-testid="internal-button-link-Support"
-        href="//landing-page/"
+        href="//landing-page"
         tabindex="0"
       >
         Support

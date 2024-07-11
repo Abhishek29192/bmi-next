@@ -1,3 +1,4 @@
+import React from "react";
 import Hero from "@bmi-digital/components/hero";
 import Section from "@bmi-digital/components/section";
 import Typography from "@bmi-digital/components/typography";
@@ -25,7 +26,7 @@ import type { Data as SiteData } from "../components/Site";
 import type { Data as NextBestActionsData } from "../components/next-best-actions/NextBestActions";
 import type { ImageWidths } from "../components/image/types";
 
-export type Data = PageInfoData &
+export type Data = Omit<PageInfoData, "__typename" | "sections"> &
   PageData & {
     __typename: "ContentfulContactUsPage";
     queriesTitle: string;
@@ -88,7 +89,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={featuredMedia?.image?.file.url}
+      ogImageUrl={featuredMedia?.image.url}
     >
       <Hero
         level={1}

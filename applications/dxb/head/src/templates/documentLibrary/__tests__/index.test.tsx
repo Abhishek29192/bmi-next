@@ -25,6 +25,8 @@ import {
   filtersMock
 } from "../__mocks__/index.mock";
 import { DocumentLibraryPageContext, DocumentLibraryProps } from "../types";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
+import type { RichTextData } from "../../../components/RichText";
 
 const count = PAGE_SIZE;
 
@@ -109,7 +111,7 @@ describe("Document Library page", () => {
 
   it("renders description correctly", () => {
     const paragraphText = "this is a test paragraph";
-    const raw = {
+    const raw: RichTextData["json"] = {
       nodeType: BLOCKS.DOCUMENT,
       data: {},
       content: [
@@ -128,15 +130,12 @@ describe("Document Library page", () => {
       ]
     };
 
-    const richText = {
-      raw: JSON.stringify(raw),
-      references: [
-        {
-          __typename: "NonType",
-          contentful_id: "3tcysaa3PGMlm42U4WnlmK"
-        }
-      ]
-    };
+    const richTextReferences = new Map();
+    richTextReferences.set("3tcysaa3PGMlm42U4WnlmK", { __typename: "NonType" });
+    const richText = createRichText({
+      json: raw,
+      references: richTextReferences
+    });
     const data = createData([], { description: richText });
     renderWithProviders({ pageData: data });
 

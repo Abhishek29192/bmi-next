@@ -6,17 +6,35 @@ import {
   waitForElementToBeRemoved
 } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import WelcomeDialog, { Data } from "../WelcomeDialog";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 
 describe("WelcomeDialog component", () => {
   describe("Renders null", () => {
     it("when Title not present", () => {
       const data: Data = {
         welcomeDialogTitle: null,
-        welcomeDialogBody: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        welcomeDialogBody: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          }
+        }),
         welcomeDialogBrands: []
       };
 
@@ -49,10 +67,26 @@ describe("WelcomeDialog component", () => {
     it("When Title and rich text content are present", () => {
       const data: Data = {
         welcomeDialogTitle: "Dialog Title",
-        welcomeDialogBody: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        welcomeDialogBody: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          }
+        }),
         welcomeDialogBrands: []
       };
 
@@ -75,10 +109,26 @@ describe("WelcomeDialog component", () => {
     it("When Title rich text and icons are present", () => {
       const data: Data = {
         welcomeDialogTitle: "Dialog Title",
-        welcomeDialogBody: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        welcomeDialogBody: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          }
+        }),
         welcomeDialogBrands: ["Icopal", "Monier", "Monarplan"]
       };
 
@@ -106,10 +156,26 @@ describe("WelcomeDialog component", () => {
     it("when Dialog is Closed", async () => {
       const data: Data = {
         welcomeDialogTitle: "Dialog Title",
-        welcomeDialogBody: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        welcomeDialogBody: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          }
+        }),
         welcomeDialogBrands: []
       };
 

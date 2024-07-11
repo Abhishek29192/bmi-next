@@ -31,16 +31,16 @@ describe("getMicroCopies", () => {
     process.env.GATSBY_SPACE_MARKET_CODE = initial;
   });
 
-  it("returns undefined if GATSBY_MARKET_LOCALE_CODE does not exist", async () => {
-    const initial = process.env.GATSBY_MARKET_LOCALE_CODE;
-    delete process.env.GATSBY_MARKET_LOCALE_CODE;
+  it("returns undefined if NEXT_PUBLIC_MARKET_LOCALE_CODE does not exist", async () => {
+    const initial = process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE;
+    delete process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE;
 
     const res = await getMicroCopies(context);
     expect(res).toBe(undefined);
     expect(context.nodeModel.findOne).not.toHaveBeenCalled();
     expect(context.nodeModel.getNodeById).not.toHaveBeenCalled();
     expect(context.nodeModel.getNodesByIds).not.toHaveBeenCalled();
-    process.env.GATSBY_MARKET_LOCALE_CODE = initial;
+    process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE = initial;
   });
 
   it("returns undefined if contentful site does not exist", async () => {
@@ -54,7 +54,7 @@ describe("getMicroCopies", () => {
         query: {
           filter: {
             countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
-            node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
+            node_locale: { eq: process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE }
           }
         },
         type: "ContentfulSite"
@@ -80,7 +80,7 @@ describe("getMicroCopies", () => {
         query: {
           filter: {
             countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
-            node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
+            node_locale: { eq: process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE }
           }
         },
         type: "ContentfulSite"
@@ -115,7 +115,7 @@ describe("getMicroCopies", () => {
         query: {
           filter: {
             countryCode: { eq: process.env.GATSBY_SPACE_MARKET_CODE },
-            node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE }
+            node_locale: { eq: process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE }
           }
         },
         type: "ContentfulSite"

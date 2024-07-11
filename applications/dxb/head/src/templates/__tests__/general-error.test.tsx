@@ -9,7 +9,7 @@ import GeneralError from "../general-error";
 
 describe("General Error", () => {
   const link: LinkData = {
-    __typename: "ContentfulLink",
+    __typename: "Link",
     id: "string",
     label: "string",
     icon: null,
@@ -19,35 +19,38 @@ describe("General Error", () => {
     type: DataTypeEnum.Internal,
     parameters: null,
     dialogContent: null,
-    hubSpotCTAID: null
+    hubSpotCTAID: null,
+    queryParams: null
   };
   const errorGeneralTitle = "errorGeneralTitle";
 
   const data: { contentfulSite: SiteData } = {
     contentfulSite: {
-      node_locale: "it",
-      homePage: { title: "Home Page" },
+      sys: {
+        locale: "it"
+      },
+      homePage: { title: "Home Page", sys: { id: "home-page-id" } },
       countryCode: "no",
       menuNavigation: {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: "Main navigation",
         link,
         links: [link]
       },
       menuUtilities: {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: "label",
         link,
         links: [link]
       },
       footerMainNavigation: {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: "Get in touch",
         link,
         links: [link]
       },
       footerSecondaryNavigation: {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: "Secondary Navigation ",
         link,
         links: [link]
@@ -72,7 +75,7 @@ describe("General Error", () => {
         searchPageExploreBar: null,
         errorFourOFour: null,
         errorGeneral: {
-          __typename: "ContentfulPromo",
+          __typename: "Promo",
           id: "errorGeneralId",
           title: errorGeneralTitle,
           name: "",

@@ -39,17 +39,17 @@ describe("checkIfActiveLabelInParentNode function", () => {
   const mockBreadcrumbs = "label-mock";
   it("should return parentNode", () => {
     const mockNestedNavigation: NavigationData = {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Main navigation",
       link: null,
       links: [
         {
-          __typename: "ContentfulNavigation",
+          __typename: "Navigation",
           label: "test link",
           link: null,
           links: [
             {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "id-mock",
               url: null,
               label: "label-mock",
@@ -59,7 +59,8 @@ describe("checkIfActiveLabelInParentNode function", () => {
               type: DataTypeEnum.External,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             }
           ]
         }
@@ -73,17 +74,17 @@ describe("checkIfActiveLabelInParentNode function", () => {
   });
   it("should return empty strings", () => {
     const mockNestedNavigation: NavigationData = {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Main navigation",
       link: null,
       links: [
         {
-          __typename: "ContentfulNavigation",
+          __typename: "Navigation",
           label: "Get in touch",
           link: null,
           links: [
             {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "",
               label: "+44 (0) 1234567890",
               url: "tel:+4401234567890",
@@ -93,17 +94,18 @@ describe("checkIfActiveLabelInParentNode function", () => {
               type: DataTypeEnum.External,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             }
           ]
         },
         {
-          __typename: "ContentfulNavigation",
+          __typename: "Navigation",
           label: "About BMI",
           link: null,
           links: [
             {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "",
               label: "Our story",
               url: null,
@@ -115,7 +117,8 @@ describe("checkIfActiveLabelInParentNode function", () => {
               type: DataTypeEnum.Internal,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             }
           ]
         }

@@ -242,7 +242,7 @@ describe("Link", () => {
       );
 
       const internalLink = screen.getByTestId("internal-link-Find-out-more");
-      expect(internalLink).toHaveAttribute("href", "/no/linked/page/path/");
+      expect(internalLink).toHaveAttribute("href", "/no/linked/page/path");
     });
 
     it("should attach a href attribute equal to the countrycode prop (homepage url) when the ContentfulLink linkedpage prop is null", () => {
@@ -253,7 +253,7 @@ describe("Link", () => {
       );
 
       const internalLink = screen.getByTestId("internal-link-Find-out-more");
-      expect(internalLink).toHaveAttribute("href", "/no/");
+      expect(internalLink).toHaveAttribute("href", "/no");
     });
 
     it("should attach a data-gtm attribute, using the ContentfulLink label prop as the label and the ContentfulLink linkedpage path prop as the action, by default", () => {
@@ -1193,9 +1193,9 @@ describe("Link", () => {
       expect(hubSpotLink).toHaveTextContent(/^Find out more$/);
     });
 
-    it("should generate a url using the process.env.GATSBY_HUBSPOT_CTA_URL, process.env.GATSBY_HUBSPOT_ID and the hubSpotCtaId as apply it to the href attribute", () => {
-      process.env.GATSBY_HUBSPOT_CTA_URL = "www.gatsby-hubspot-";
-      process.env.GATSBY_HUBSPOT_ID = "gatsbyid-1234";
+    it("should generate a url using the process.env.NEXT_PUBLIC_HUBSPOT_CTA_URL, process.env.NEXT_PUBLIC_HUBSPOT_ID and the hubSpotCtaId as apply it to the href attribute", () => {
+      process.env.NEXT_PUBLIC_HUBSPOT_CTA_URL = "www.gatsby-hubspot-";
+      process.env.NEXT_PUBLIC_HUBSPOT_ID = "gatsbyid-1234";
 
       renderWithProviders(
         <Link data={createHubSpotCtaLinkData()}>{linkLabel}</Link>
@@ -1204,13 +1204,13 @@ describe("Link", () => {
       const hubSpotLink = screen.getByTestId("hubspot-link-Find-out-more");
       expect(hubSpotLink).toHaveAttribute(
         "href",
-        `${process.env.GATSBY_HUBSPOT_CTA_URL}${process.env.GATSBY_HUBSPOT_ID}/hubspot-cta-id`
+        `${process.env.NEXT_PUBLIC_HUBSPOT_CTA_URL}${process.env.NEXT_PUBLIC_HUBSPOT_ID}/hubspot-cta-id`
       );
     });
 
     it("will generate a broken url if the variables are undefined (to be fixed)", () => {
-      process.env.GATSBY_HUBSPOT_CTA_URL = undefined;
-      process.env.GATSBY_HUBSPOT_ID = undefined;
+      process.env.NEXT_PUBLIC_HUBSPOT_CTA_URL = undefined;
+      process.env.NEXT_PUBLIC_HUBSPOT_ID = undefined;
 
       renderWithProviders(
         <Link data={createHubSpotCtaLinkData({ hubSpotCTAID: null })}>
@@ -1223,8 +1223,8 @@ describe("Link", () => {
     });
 
     it("should attach a data-gtm attribute, using to prop for action and the transformed children prop for the label, by default", () => {
-      process.env.GATSBY_HUBSPOT_CTA_URL = "www.gatsby-hubspot-";
-      process.env.GATSBY_HUBSPOT_ID = "gatsbyid-1234";
+      process.env.NEXT_PUBLIC_HUBSPOT_CTA_URL = "www.gatsby-hubspot-";
+      process.env.NEXT_PUBLIC_HUBSPOT_ID = "gatsbyid-1234";
 
       renderWithProviders(
         <Link data={createHubSpotCtaLinkData()}>{linkLabel}</Link>

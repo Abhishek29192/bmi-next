@@ -1,15 +1,18 @@
-import { generateDigestFromData } from "../../../../libraries/utils/src/encryption";
-import type { Context, Node, ResolveArgs } from "./types/Gatsby";
+import { DataTypeEnum } from "../../components/link/types";
+import { getUrlFromPath, resolvePath } from "./utils/path";
+import resolveFormSection from "./ContentfulFormSection";
+import type { ContentfulLink } from "./types/Link";
+import type { Data as LinkData } from "../../components/link/types";
 
-interface FieldData {
-  id: string;
-  tileId: number;
-  colourId: number;
-  sidingId: number;
-  viewMode: string;
-}
+const getNumberValue = (value: unknown) => {
+  if (typeof value === "number") {
+    return value;
+  }
 
-const getNumberValue = (value: string) => {
+  if (typeof value !== "string") {
+    return null;
+  }
+
   const parsedValue = parseFloat(value);
 
   if (isNaN(parsedValue) || parsedValue < 0) {
@@ -19,8 +22,12 @@ const getNumberValue = (value: string) => {
   return parsedValue;
 };
 
-const getViewMode = (value: string | number = 0) => {
+const getViewMode = (value: unknown = 0) => {
   const availableModes = ["tile", "roof"];
+
+  if (typeof value !== "string" && typeof value !== "number") {
+    return availableModes[0];
+  }
 
   if (typeof value === "string" && availableModes.includes(value)) {
     return value;
@@ -29,42 +36,35 @@ const getViewMode = (value: string | number = 0) => {
   return availableModes[parseInt(value.toString())] || availableModes[0];
 };
 
-const getNodeData = (parentId: string, fieldData: FieldData) => ({
-  ...fieldData,
-  parent: parentId,
-  children: [],
-  internal: {
-    type: "contentfulLinkParametersJsonNode",
-    owner: "@bmi/resolvers",
-    contentDigest: generateDigestFromData(fieldData)
+const getParameters = (link: ContentfulLink): LinkData["parameters"] => {
+  if (link.type === DataTypeEnum.Visualiser) {
+    const { tileId, colourId, sidingId, viewMode } = link.parameters!;
+
+    return {
+      tileId: getNumberValue(tileId),
+      colourId: getNumberValue(colourId),
+      sidingId: getNumberValue(sidingId),
+      viewMode: getViewMode(viewMode)
+    };
   }
-});
 
-export default {
-  parameters: {
-    type: "contentfulLinkParametersJsonNode",
-    async resolve(source: Node, args: ResolveArgs, context: Context) {
-      if (!source.parameters___NODE) {
-        return null;
-      }
-
-      const parameters = await context.nodeModel.getNodeById<Node>({
-        id: source.parameters___NODE
-      });
-
-      if (source.type === "Visualiser") {
-        const { tileId, colourId, sidingId, viewMode } = parameters;
-
-        return getNodeData(source.id, {
-          id: source.parameters___NODE,
-          tileId: getNumberValue(tileId),
-          colourId: getNumberValue(colourId),
-          sidingId: getNumberValue(sidingId),
-          viewMode: getViewMode(viewMode)
-        });
-      }
-
-      return null;
-    }
-  }
+  return null;
 };
+
+const resolveLink = async (link: ContentfulLink): Promise<LinkData> => {
+  const { linkedPage, dialogContent, parameters, sys, ...rest } = link;
+
+  const linkedPagePath = linkedPage ? await resolvePath(linkedPage) : null;
+
+  return {
+    ...rest,
+    id: sys.id,
+    linkedPage: linkedPage ? { path: getUrlFromPath(linkedPagePath) } : null,
+    parameters: parameters ? getParameters(link) : null,
+    dialogContent: dialogContent
+      ? await resolveFormSection(dialogContent)
+      : null
+  };
+};
+
+export default resolveLink;

@@ -1,14 +1,17 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import ContactTopics from "../ContactTopics";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
+import type { RichTextData } from "../RichText";
 
-const contentMock = JSON.stringify({
-  nodeType: "document",
+const contentMock: RichTextData["json"] = {
+  nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           nodeType: "text",
@@ -21,7 +24,7 @@ const contentMock = JSON.stringify({
       data: {}
     }
   ]
-});
+};
 
 describe("ContactTopics component", () => {
   it("renders correctly", () => {
@@ -35,25 +38,27 @@ describe("ContactTopics component", () => {
               bodyTitle: "Did you know?2",
               bodyList: [
                 {
-                  __typename: "ContentfulTitleWithContent",
+                  __typename: "TitleWithContent",
                   name: "Frequently Asked Questions",
                   title: "Frequently Asked Questions",
-                  content: { raw: contentMock, references: [] }
+                  content: createRichText({
+                    json: contentMock
+                  })
                 },
                 {
-                  __typename: "ContentfulTitleWithContent",
+                  __typename: "TitleWithContent",
                   name: "CloseDach",
                   title: "CloseDach",
-                  content: { raw: contentMock, references: [] }
+                  content: createRichText({ json: contentMock })
                 }
               ],
               footerTitle: "footer title",
               footerList: [
                 {
-                  __typename: "ContentfulTitleWithContent",
+                  __typename: "TitleWithContent",
                   name: "teste",
                   title: "teste",
-                  content: { raw: contentMock, references: [] }
+                  content: createRichText({ json: contentMock })
                 }
               ]
             }

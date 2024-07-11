@@ -37,9 +37,9 @@ import {
 import { renderHero } from "../../../utils/heroTypesUI";
 import Protected from "../../../pages/protected";
 
-export type Data = Omit<PageInfoData, "sections"> &
+export type Data = Omit<PageInfoData, "sections" | "__typename"> &
   PageData & {
-    __typename: "ContentfulSimplePage";
+    __typename: "SimplePage";
     leadBlock: LeadBlockSectionData | null;
     shareWidget: ShareWidgetSectionData | null;
     sections: SectionsData | null;
@@ -141,7 +141,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
         pageData={pageData}
         siteData={data.contentfulSite}
         variantCodeToPathMap={pageContext.variantCodeToPathMap}
-        ogImageUrl={featuredMedia?.image?.file.url}
+        ogImageUrl={featuredMedia?.image?.url}
       >
         {renderHero(heroProps, breadcrumbsNode, heroType, {
           isHeroKeyLine: isHeroKeyLine
@@ -171,18 +171,6 @@ const SimplePage = ({ data, pageContext }: Props) => {
               <ExploreBar data={exploreBar} />
             </Section>
           )}
-          <Section
-            backgroundColor="alabaster"
-            isSlim
-            data-testid="breadcrumbs-section-bottom"
-          >
-            <BackToResults>
-              <Breadcrumbs
-                data={enhancedBreadcrumbs}
-                data-testid="simple-page-breadcrumbs-bottom"
-              />
-            </BackToResults>
-          </Section>
         </TableOfContent>
       </Page>
     </Protected>

@@ -1,6 +1,5 @@
 import Dialog from "@bmi-digital/components/dialog";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
 import React from "react";
 import useStickyState from "../utils/sticky-state";
 import RichText from "./RichText";
@@ -69,13 +68,3 @@ const WelcomeDialog = ({ data }: { data: Data }) => {
 };
 
 export default WelcomeDialog;
-
-export const query = graphql`
-  fragment WelcomeDialogFragment on ContentfulResources {
-    welcomeDialogTitle
-    welcomeDialogBrands
-    welcomeDialogBody {
-      ...RichTextFragment
-    }
-  }
-`;

@@ -372,11 +372,11 @@ export const getPageQueryObject = (
 };
 
 export const queryElasticSearch = async (query = {}, indexName: string) => {
-  if (process.env.GATSBY_DISABLE_SEARCH === "true") {
+  if (process.env.NEXT_PUBLIC_DISABLE_SEARCH === "true") {
     return;
   }
 
-  const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
+  const url = `${process.env.NEXT_PUBLIC_ES_ENDPOINT}/${indexName}/_search`;
 
   try {
     const response = await fetch(url, {
@@ -384,7 +384,7 @@ export const queryElasticSearch = async (query = {}, indexName: string) => {
       mode: "cors",
       headers: {
         authorization: `ApiKey ${btoa(
-          `${process.env.GATSBY_ES_API_KEY_ID}:${process.env.GATSBY_ES_API_KEY}`
+          `${process.env.NEXT_PUBLIC_ES_API_KEY_ID}:${process.env.NEXT_PUBLIC_ES_API_KEY}`
         )}`,
         "content-type": "application/json"
       },

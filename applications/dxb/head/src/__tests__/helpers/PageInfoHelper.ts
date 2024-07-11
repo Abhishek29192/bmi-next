@@ -1,7 +1,7 @@
 import { Data } from "../../components/PageInfo";
 
 const createPageInfoData = (pageInfoData?: Partial<Data>): Data => ({
-  __typename: "ContentfulSimplePage",
+  __typename: "Page",
   id: "example-id",
   title: "example-title",
   subtitle: null,

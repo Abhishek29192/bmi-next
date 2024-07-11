@@ -35,7 +35,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -85,7 +85,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -123,7 +123,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -173,7 +173,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -272,7 +272,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -322,7 +322,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -360,7 +360,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -410,7 +410,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -479,7 +479,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -529,7 +529,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-1 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -567,7 +567,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-2 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -617,7 +617,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-2 - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -686,7 +686,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -736,7 +736,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -774,7 +774,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -824,7 +824,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -893,7 +893,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -943,7 +943,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -1012,7 +1012,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -1062,7 +1062,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -1131,7 +1131,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                   data-testid="tappable-card-main"
-                  href="/en/s/path/"
+                  href="/en/s/path"
                   tabindex="0"
                 >
                   <img
@@ -1181,7 +1181,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"system-Name - MC: sdp.system.readMore","action":"/en/s/path/"}"
                     data-testid="button"
-                    href="/en/s/path/"
+                    href="/en/s/path"
                     tabindex="0"
                   >
                     <span
@@ -1229,7 +1229,7 @@ exports[`SystemCard renders correctly with related system 1`] = `
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
         data-gtm="{"id":"gtm-id"}"
         data-testid="tappable-card-main"
-        href="/en/related-system-path/"
+        href="/en/related-system-path"
         tabindex="0"
       >
         <img
@@ -1279,7 +1279,7 @@ exports[`SystemCard renders correctly with related system 1`] = `
           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
           data-gtm="{"id":"gtm-id"}"
           data-testid="button"
-          href="/en/related-system-path/"
+          href="/en/related-system-path"
           tabindex="0"
         >
           <span

@@ -3,12 +3,11 @@ import EqualHeights from "@bmi-digital/components/equal-heights";
 import Grid from "@bmi-digital/components/grid";
 import ProfileCard from "@bmi-digital/components/profile-card";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
-import { useState } from "react";
-import Icon from "./Icon";
-import ContentfulImage from "./image/contentful-image/ContentfulImage";
+import React, { useState } from "react";
 import { useSiteContext } from "./Site";
 import { ProfileRow } from "./styles/TeamListStyles";
+import ContentfulImage from "./image/contentful-image/ContentfulImage";
+import Icon from "./Icon";
 import type { Data as LinkData } from "./link/types";
 import type { Data as ImageData } from "./image/contentful-image/types";
 
@@ -90,26 +89,3 @@ const TeamList = ({ data }: { data: Data | null }) => {
 };
 
 export default TeamList;
-
-export const query = graphql`
-  fragment TeamMemberFragment on ContentfulTeamMember {
-    name
-    jobTitle
-    profileImage {
-      altText
-      image {
-        gatsbyImageData(
-          placeholder: DOMINANT_COLOR
-          width: 200
-          formats: [WEBP, AUTO]
-        )
-      }
-    }
-    links {
-      id
-      label
-      icon
-      url
-    }
-  }
-`;

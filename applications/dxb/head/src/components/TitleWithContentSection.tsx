@@ -1,6 +1,5 @@
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
-import { graphql } from "gatsby";
 import React from "react";
 import RichText from "./RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";
@@ -31,9 +30,3 @@ const TitleWithContentSection = ({ data }: Props) => {
 };
 
 export default TitleWithContentSection;
-
-export const query = graphql`
-  fragment TitleWithContentSectionFragment on ContentfulTitleWithContent {
-    ...TitleWithContentFragment
-  }
-`;

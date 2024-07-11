@@ -1,4 +1,3 @@
-import { graphql } from "gatsby";
 import React from "react";
 import ButtonLink from "./link/ButtonLink";
 import { Data as LinkData } from "./link/types";
@@ -36,16 +35,3 @@ const EmbeddedLink = ({
 };
 
 export default EmbeddedLink;
-
-export const query = graphql`
-  fragment EmbeddedLinkFragment on ContentfulLink {
-    __typename
-    contentful_id
-    ...LinkFragment
-  }
-  fragment EmbeddedLinkFragmentNonRecursive on ContentfulLink {
-    __typename
-    contentful_id
-    ...LinkFragmentNonRecursive
-  }
-`;

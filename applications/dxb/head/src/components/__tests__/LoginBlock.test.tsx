@@ -136,7 +136,8 @@ describe("LoginBlock Component", () => {
   });
 
   it("calls AuthService.login when Login button is clicked", () => {
-    process.env.GATSBY_INTOUCH_ORIGIN = "https://dev-en.intouch.bmigroup.com/";
+    process.env.NEXT_PUBLIC_INTOUCH_ORIGIN =
+      "https://dev-en.intouch.bmigroup.com/";
     mockUseAuth.mockReturnValue({
       isLoading: false,
       isLoggedIn: false,

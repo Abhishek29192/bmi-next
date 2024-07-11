@@ -1,4 +1,5 @@
 import { transformHyphens } from "@bmi-digital/components/utils";
+import React from "react";
 import ButtonLink from "../components/link/ButtonLink";
 import createVideoProps from "../components/video/createVideoProps";
 import createContentfulImageProps from "../components/image/contentful-image/createContentfulImageProps";

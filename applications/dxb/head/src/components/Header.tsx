@@ -5,7 +5,6 @@ import IconButton from "@bmi-digital/components/icon-button";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import { RegionCode } from "@bmi-digital/components/language-selection";
 import { microCopy } from "@bmi/microcopies";
-import { graphql, withPrefix } from "gatsby";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import NextLink from "next/link";
 import Toast from "@bmi-digital/components/toast";
@@ -64,13 +63,10 @@ const getPromoSection = (props: GetPromoSectionProps) => {
   const cta = getCTA(promo, countryCode, ctaLabelMicroCopy);
 
   const label =
-    promo.__typename === "ContentfulPromo"
-      ? promo.title || promo.name
-      : promo.title;
+    promo.__typename === "Promo" ? promo.title || promo.name : promo.title;
 
   const ctaLabel =
-    (promo.__typename === "ContentfulPromo" && promo.cta?.label) ||
-    ctaLabelMicroCopy;
+    (promo.__typename === "Promo" && promo.cta?.label) || ctaLabelMicroCopy;
 
   return [
     ...(promo.featuredMedia
@@ -113,7 +109,7 @@ const useHeaderAuthData = () => {
       isLoggedIn: Boolean(isLoggedIn && profile),
       myAccountBtnLabel: getMicroCopy(microCopy.MY_ACCOUNT_LABEL),
       myAccountBtnAction: {
-        to: getPathWithCountryCode(countryCode, accountPage?.slug),
+        href: getPathWithCountryCode(countryCode, accountPage?.slug),
         component: NextLink
       },
       loginBtnLabel: getMicroCopy(microCopy.LOG_IN_LABEL_BTN),
@@ -144,7 +140,7 @@ const parseNavigation = ({
   }
 
   return navigationItems.reduce((result, { __typename, ...item }) => {
-    if (__typename === "ContentfulNavigation") {
+    if (__typename === "Navigation") {
       const { label, links, link, promos } = item as NavigationData;
 
       const navItem = {
@@ -170,7 +166,7 @@ const parseNavigation = ({
       return result.concat(navItem);
     }
 
-    if (__typename === "ContentfulNavigationItem") {
+    if (__typename === "NavigationItem") {
       const { value, type } = item as NavigationItem;
 
       if (type === "Heading") {
@@ -191,7 +187,7 @@ const parseNavigation = ({
       }
     }
 
-    if (__typename === "ContentfulLink") {
+    if (__typename === "Link") {
       let action;
 
       const {
@@ -210,8 +206,8 @@ const parseNavigation = ({
       } else if (url) {
         const href =
           isClient &&
-          process.env.GATSBY_INTOUCH_ORIGIN &&
-          url.includes(process.env.GATSBY_INTOUCH_ORIGIN)
+          process.env.NEXT_PUBLIC_INTOUCH_ORIGIN &&
+          url.includes(process.env.NEXT_PUBLIC_INTOUCH_ORIGIN)
             ? constructUrlWithPrevPage(url)
             : url;
         action = {
@@ -265,8 +261,8 @@ const Header = ({
   utilitiesData: NavigationData | null;
   countryCode: string;
   activeLabel?: string;
-  countryNavigationIntroduction?: RichTextData | null;
   regions: Region[];
+  countryNavigationIntroduction?: RichTextData | null;
   sampleBasketLink?: PageInfoData;
   maximumSamples: number | null;
   lastNavigationLabel?: string;
@@ -277,32 +273,19 @@ const Header = ({
   const [toastMessage, setToastMessage] = useState<ToastProps["message"]>("");
   const toastRef = useRef<ToastProps["anchorEl"] | null>(null);
 
-  const languages = useMemo(
-    () =>
-      regions.map((region) => ({
-        ...region,
-        menu: region.menu.map((language) => ({
-          ...language,
-          icon: language.icon ? withPrefix(language.icon) : undefined
-        }))
-      })),
-    [regions]
-  );
-
   const language = useMemo(
     () =>
-      languages
-        .reduce<(typeof languages)[0]["menu"]>(
+      regions
+        .reduce<(typeof regions)[0]["menu"]>(
           (acc, { menu }) => acc.concat(menu),
           []
         )
         .find((l) => l.code === countryCode),
-    [languages, countryCode]
+    [countryCode]
   );
 
   const { getMicroCopy } = useSiteContext();
-  const { isGatsbyDisabledElasticSearch, isSampleOrderingEnabled } =
-    useConfig();
+  const { isNextDisabledElasticSearch, isSampleOrderingEnabled } = useConfig();
   const {
     basketState: { products: productsInBasket }
   } = useBasketContext();
@@ -354,8 +337,8 @@ const Header = ({
   return (
     <>
       <HeaderComponent
-        disableSearch={isGatsbyDisabledElasticSearch || disableSearch}
-        languages={languages}
+        disableSearch={isNextDisabledElasticSearch || disableSearch}
+        languages={regions}
         language={language}
         languageLabel={getMicroCopy(microCopy.MENU_LANGUAGE)}
         languageIntroduction={
@@ -399,7 +382,7 @@ const Header = ({
                   {...props}
                 />
               )
-            : undefined
+            : null
         }
         navigationButtonComponent={(props: ButtonProps) => (
           <Button
@@ -460,110 +443,3 @@ const Header = ({
 };
 
 export default Header;
-
-export const query = graphql`
-  fragment HeaderNavigationFragment on ContentfulNavigation {
-    __typename
-    label
-    links {
-      __typename
-      ... on ContentfulLink {
-        ...LinkFragment
-      }
-      ... on ContentfulNavigation {
-        link {
-          ...LinkFragment
-        }
-        label
-        promos {
-          ... on ContentfulPromoOrPage {
-            __typename
-            ...PromoHeaderFragment
-            ...PageInfoHeaderFragment
-          }
-        }
-        links {
-          __typename
-          ... on ContentfulNavigationItem {
-            type
-            value
-          }
-          ... on ContentfulLink {
-            ...LinkFragment
-          }
-          ... on ContentfulNavigation {
-            link {
-              ...LinkFragment
-            }
-            label
-            links {
-              __typename
-              ... on ContentfulNavigationItem {
-                type
-                value
-              }
-              ... on ContentfulLink {
-                ...LinkFragment
-              }
-              ... on ContentfulNavigation {
-                link {
-                  ...LinkFragment
-                }
-                label
-                links {
-                  __typename
-                  ... on ContentfulNavigationItem {
-                    type
-                    value
-                  }
-                  ... on ContentfulLink {
-                    ...LinkFragment
-                  }
-                  ... on ContentfulNavigation {
-                    link {
-                      ...LinkFragment
-                    }
-                    label
-                    links {
-                      __typename
-                      ... on ContentfulNavigationItem {
-                        type
-                        value
-                      }
-                      ... on ContentfulLink {
-                        ...LinkFragment
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  fragment HeaderUtilitiesFragment on ContentfulNavigation {
-    label
-    links {
-      __typename
-      ... on ContentfulLink {
-        ...LinkFragment
-      }
-    }
-  }
-  fragment HeaderLanguageFragment on ContentfulResources {
-    countryNavigationIntroduction {
-      ...RichTextFragment
-    }
-  }
-  fragment RegionFragment on RegionJson {
-    label
-    regionCode
-    menu {
-      code
-      label
-      icon
-    }
-  }
-`;

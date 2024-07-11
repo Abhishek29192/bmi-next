@@ -16,7 +16,6 @@ import { replaceSpaces } from "@bmi-digital/components/utils";
 import logger from "@bmi-digital/functions-logger";
 import { microCopy } from "@bmi/microcopies";
 import classNames from "classnames";
-import { graphql } from "gatsby";
 import uniqueId from "lodash-es/uniqueId";
 import { useRouter } from "next/navigation";
 import fetch from "node-fetch";
@@ -54,7 +53,7 @@ import { SourceType } from "./types/FormSectionTypes";
 import type { Data as LinkData } from "./link/types";
 
 export type Data = {
-  __typename: "ContentfulFormSection";
+  __typename: "Form";
   title?: string;
   showTitle: boolean | null;
   description?: React.ReactNode | RichTextData | null;
@@ -686,53 +685,3 @@ const FormSection = ({
   );
 };
 export default FormSection;
-
-export const query = graphql`
-  fragment FormSectionFragment on ContentfulFormSection {
-    __typename
-    title
-    showTitle
-    description {
-      ...RichTextFragment
-    }
-    recipients
-    inputs {
-      ...FormInputsFragment
-    }
-    submitText
-    successRedirect {
-      ...LinkFragment
-    }
-    source
-    hubSpotFormGuid
-    emailSubjectFormat
-  }
-  fragment FormInputsFragment on ContentfulFormInputs {
-    label
-    name
-    options
-    type
-    required
-    width
-    accept
-    maxSize
-  }
-  fragment FormSectionFragmentNonRecursive on ContentfulFormSection {
-    __typename
-    title
-    showTitle
-    description {
-      ...RichTextFragmentNonRecursive
-    }
-    recipients
-    inputs {
-      ...FormInputsFragment
-    }
-    submitText
-    successRedirect {
-      ...LinkFragmentNonRecursive
-    }
-    source
-    hubSpotFormGuid
-  }
-`;

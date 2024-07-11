@@ -65,14 +65,14 @@ export const toAnchorLinkActionProps = (
     };
   }
 
-  if (link.asset?.file?.url) {
+  if (link.asset?.url) {
     return {
-      href: link.asset.file.url,
+      href: link.asset.url,
       download: true,
       external: true,
       gtm: {
         id: "cta-click1",
-        action: link.asset.file.url,
+        action: link.asset.url,
         label: link.label
       }
     };

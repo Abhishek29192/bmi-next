@@ -1,10 +1,12 @@
 import { screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import createRichText from "../../__tests__/helpers/RichTextHelper";
 import { renderWithProviders } from "../../__tests__/renderWithProviders";
 import { ConfigProvider } from "../../contexts/ConfigProvider";
 import TeamSection, { Data, TeamCategoryType } from "../TeamSection";
+import { RichTextData } from "../RichText";
 
 const teamCategory: TeamCategoryType = {
   id: "team-category-id",
@@ -27,7 +29,7 @@ const data: Data = {
   teamCategories: [teamCategory]
 };
 
-const teamCategoryDescription = {
+const teamCategoryDescription: RichTextData["json"] = {
   data: {},
   content: [
     {
@@ -40,10 +42,10 @@ const teamCategoryDescription = {
           nodeType: "text"
         }
       ],
-      nodeType: "paragraph"
+      nodeType: BLOCKS.PARAGRAPH
     }
   ],
-  nodeType: "document"
+  nodeType: BLOCKS.DOCUMENT
 };
 
 describe("TeamSection component", () => {
@@ -75,7 +77,7 @@ describe("TeamSection component", () => {
               {
                 ...teamCategory,
                 description: createRichText({
-                  raw: JSON.stringify(teamCategoryDescription)
+                  json: teamCategoryDescription
                 })
               }
             ]
@@ -89,7 +91,7 @@ describe("TeamSection component", () => {
   });
 
   it("renders description only for the first team category when renderTeamCategoriesInColumn === true", () => {
-    const secondTeamCategoryDescription = {
+    const secondTeamCategoryDescription: RichTextData["json"] = {
       data: {},
       content: [
         {
@@ -102,10 +104,10 @@ describe("TeamSection component", () => {
               nodeType: "text"
             }
           ],
-          nodeType: "paragraph"
+          nodeType: BLOCKS.PARAGRAPH
         }
       ],
-      nodeType: "document"
+      nodeType: BLOCKS.DOCUMENT
     };
 
     const teamCategories = [
@@ -113,14 +115,14 @@ describe("TeamSection component", () => {
         ...teamCategory,
         id: "team-category-id-1",
         description: createRichText({
-          raw: JSON.stringify(teamCategoryDescription)
+          json: teamCategoryDescription
         })
       },
       {
         ...teamCategory,
         id: "team-category-id-2",
         description: createRichText({
-          raw: JSON.stringify(secondTeamCategoryDescription)
+          json: secondTeamCategoryDescription
         })
       }
     ];

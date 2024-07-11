@@ -1,9 +1,16 @@
+import { BLOCKS } from "@contentful/rich-text-types";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { Data as CardCollectionData } from "../../../components/CardCollectionSection";
 import { Data as SignUpBlockData } from "../../../components/SignupBlock";
 import { DataTypeEnum } from "../../../components/link/types";
 import { SourceType } from "../../../components/types/FormSectionTypes";
 import { PageContextType } from "../../productListerPage/components/product-lister-page";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
+import type { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
+import type { Data as PromoData } from "../../../components/Promo";
+import type { Data as LeadBlockData } from "../../../components/LeadBlockSection";
+import type { Data as ExploreBarData } from "../../../components/ExploreBar";
+import type { Data as LinkData } from "../../../components/link/types";
 
 export const pageContext: PageContextType = {
   allowFilterBy: [],
@@ -16,9 +23,9 @@ export const pageContext: PageContextType = {
   }
 };
 
-export const nextBestActions = [
+export const nextBestActions: PromoData[] = [
   {
-    __typename: "ContentfulPromo",
+    __typename: "Promo",
     id: "nextBestActionsId",
     name: "Action 1",
     title: "Action 1",
@@ -34,12 +41,33 @@ export const nextBestActions = [
 ];
 export const sections: CardCollectionData[] = [
   {
-    __typename: "ContentfulCardCollectionSection",
+    __typename: "CardCollectionSection",
     title: "ContentfulCardCollectionSectionTitle",
-    description: {
-      raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"ContentfulCardCollectionSectionText","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-      references: []
-    },
+    description: createRichText({
+      json: {
+        data: {},
+        content: [
+          {
+            data: {},
+            content: [
+              {
+                data: {},
+                marks: [],
+                value: "Contentful Card Collection Section Text",
+                nodeType: "text"
+              }
+            ],
+            nodeType: BLOCKS.PARAGRAPH
+          },
+          {
+            data: {},
+            content: [{ data: {}, marks: [], value: "", nodeType: "text" }],
+            nodeType: BLOCKS.PARAGRAPH
+          }
+        ],
+        nodeType: BLOCKS.DOCUMENT
+      }
+    }),
     cardType: "Highlight Card",
     cardLabel: "Testing",
     groupCards: true,
@@ -47,7 +75,7 @@ export const sections: CardCollectionData[] = [
     sortOrder: null,
     cards: [
       {
-        __typename: "ContentfulPromo",
+        __typename: "Promo",
         id: "id",
         name: "BMI test video on PROMO",
         title: "BMI test video on PROMO",
@@ -58,7 +86,7 @@ export const sections: CardCollectionData[] = [
         featuredMedia: null,
         cta: null,
         featuredVideo: {
-          __typename: "ContentfulVideo",
+          __typename: "Video",
           title: "BMI Group - We see further",
           label: "BMI Group VIDEO LABEL",
           subtitle:
@@ -79,37 +107,54 @@ export const sections: CardCollectionData[] = [
 ];
 export const featuredMedia = createImageData();
 
-export const leadBlockData = {
-  __typename: "ContentfulLeadBlockSection",
-  title: "ContentfulLeadBlockSectionTitle",
-  text: {
-    raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-    references: null
-  },
+export const leadBlockData: LeadBlockData = {
+  __typename: "LeadBlockSection",
+  title: "Contentful Lead Block Section Title",
+  text: createRichText({
+    json: {
+      nodeType: BLOCKS.DOCUMENT,
+      data: {},
+      content: [
+        {
+          nodeType: BLOCKS.PARAGRAPH,
+          content: [
+            { nodeType: "text", value: "test rich text", marks: [], data: {} }
+          ],
+          data: {}
+        }
+      ]
+    }
+  }),
   link: null,
   postItCard: null
 };
 
-export const exploreBarData = {
+export const exploreBarData: ExploreBarData = {
   label: "exploreBarDataLabel",
   links: []
 };
 
-export const linkColumnsData = {
-  __typename: "ContentfulLink",
+export const linkColumnsData: LinkColumnsSectionData = {
+  __typename: "ContentfulLinkColumnsSection",
   title: "linkColumnsTitle",
   columns: [
     {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Link column title",
       link: null,
-      links: [{ type: "Heading", value: "Link column value" }]
+      links: [
+        {
+          __typename: "NavigationItem",
+          type: "Heading",
+          value: "Link column value"
+        }
+      ]
     }
   ]
 };
 
-export const cta = {
-  __typename: "ContentfulLink",
+export const cta: LinkData = {
+  __typename: "Link",
   id: "ctaId",
   label: "ctaLabel",
   icon: null,
@@ -119,16 +164,17 @@ export const cta = {
   type: DataTypeEnum.External,
   parameters: null,
   dialogContent: null,
-  hubSpotCTAID: null
+  hubSpotCTAID: null,
+  queryParams: null
 };
 
 export const signupBlock: SignUpBlockData = {
-  __typename: "ContentfulSignupBlock",
+  __typename: "SignupBlock",
   title: "signupBlockTitle",
-  description: { description: "description" },
+  signUpBlockDescription: "description",
   signupLabel: "submitButtonLabel",
   signupDialogContent: {
-    __typename: "ContentfulFormSection",
+    __typename: "Form",
     title: "Test form",
     showTitle: null,
     description: null,

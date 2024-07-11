@@ -1,15 +1,18 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import IEDialog from "../index";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
+import type { RichTextData } from "../../../components/RichText";
 
-const richTextRaw = {
-  nodeType: "document",
+const richTextRaw: RichTextData["json"] = {
+  nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
-      nodeType: "heading-3",
+      nodeType: BLOCKS.HEADING_3,
       content: [
         {
           nodeType: "text",
@@ -21,7 +24,7 @@ const richTextRaw = {
       data: {}
     },
     {
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           nodeType: "text",
@@ -40,7 +43,7 @@ const data = { contentfulSite: createMockSiteData() };
 data.contentfulSite.resources = {
   ...data.contentfulSite.resources,
   ieDialogTitle: "IE Dialog Title",
-  ieDialogBody: { raw: JSON.stringify(richTextRaw), references: [] },
+  ieDialogBody: createRichText({ json: richTextRaw }),
   ieDialogActionLabel: "Label",
   ieDialogActionLink: "http://localhost"
 };

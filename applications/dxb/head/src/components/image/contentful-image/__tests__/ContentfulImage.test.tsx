@@ -22,12 +22,10 @@ beforeEach(() => {
 describe("ContentfulImage", () => {
   it("should map the ContentfulImage props to CustomImageProps", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",
@@ -79,12 +77,10 @@ describe("ContentfulImage", () => {
 
   it("should prepend URL with 'https:' if it doesn't already", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "//localhost/image.jpg"
-        }
+        url: "//localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",
@@ -114,12 +110,10 @@ describe("ContentfulImage", () => {
 
   it("should set style.objectFit to size if provided", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",
@@ -146,12 +140,10 @@ describe("ContentfulImage", () => {
 
   it("should set style.objectFit 'cover' if size not provided and type is 'Decorative'", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",
@@ -176,12 +168,10 @@ describe("ContentfulImage", () => {
 
   it("should set style.objectFit 'contain' if size not provided and type is 'Descriptive'", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Descriptive",
@@ -206,12 +196,10 @@ describe("ContentfulImage", () => {
 
   it("should set style.objectFit 'cover' if size and type is not provided", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       focalPoint: {
@@ -235,12 +223,10 @@ describe("ContentfulImage", () => {
 
   it("should default loading to 'lazy'", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",

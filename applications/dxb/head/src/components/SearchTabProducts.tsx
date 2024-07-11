@@ -26,7 +26,7 @@ import {
 } from "./styles/SearchTabProductsStyles";
 
 const PAGE_SIZE = 24;
-const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
+const ES_INDEX_NAME = process.env.NEXT_PUBLIC_ES_INDEX_NAME_PRODUCTS;
 
 type Props = {
   queryString: string;

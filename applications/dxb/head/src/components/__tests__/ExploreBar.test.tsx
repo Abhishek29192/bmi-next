@@ -62,10 +62,7 @@ describe("ExploreBar component", () => {
       name: exploreBarData.links[0].label
     });
 
-    expect(link).toHaveAttribute(
-      "href",
-      exploreBarData.links[0].asset!.file.url
-    );
+    expect(link).toHaveAttribute("href", exploreBarData.links[0].asset!.url);
 
     expect(link).toHaveAttribute("download");
     expect(link).toHaveAttribute("referrerpolicy", "no-referrer");
@@ -75,7 +72,7 @@ describe("ExploreBar component", () => {
       "data-gtm",
       JSON.stringify({
         id: "cta-click1",
-        action: exploreBarData.links[0].asset!.file.url,
+        action: exploreBarData.links[0].asset!.url,
         label: exploreBarData.links[0].label
       })
     );
@@ -127,7 +124,7 @@ describe("ExploreBar component", () => {
 
     expect(link).toHaveAttribute(
       "href",
-      `/${exploreBarData.links[0].linkedPage!.path}/`
+      `/${exploreBarData.links[0].linkedPage!.path}`
     );
 
     expect(link).toHaveAttribute(

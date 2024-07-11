@@ -1,13 +1,12 @@
 import createPromoData from "./PromoHelper";
 import createVideoData from "./VideoHelper";
 import createImageData from "./ImageDataHelper";
-import { createInternalLinkData } from "./LinkHelper";
-import type { HomepageData } from "../../templates/home-page";
+import type { Data as HomepageData } from "../../templates/home-page";
 
 const createHomePageData = (
-  homepageData?: Partial<HomepageData>
-): HomepageData => ({
-  __typename: "ContentfulHomePage",
+  homepageData?: Partial<HomepageData["homePage"]>
+): HomepageData["homePage"] => ({
+  __typename: "HomePage",
   title: "title",
   slides: [createPromoData()],
   overlapCards: [
@@ -21,22 +20,12 @@ const createHomePageData = (
       title: "PageInfo Card with Image",
       featuredMedia: createImageData(),
       featuredVideo: null,
-      cta: createInternalLinkData()
-    }
-  ],
-  brands: [
-    {
-      title: "brand title",
-      path: "/brand-path",
-      subtitle: undefined,
-      brandLogo: "Icopal"
+      path: "page-info-video/"
     }
   ],
   sections: [createPromoData()],
-  breadcrumbs: null,
   signupBlock: null,
   seo: null,
-  path: "/path",
   ...homepageData
 });
 

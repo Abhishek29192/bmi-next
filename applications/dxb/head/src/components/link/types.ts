@@ -102,7 +102,7 @@ export enum DataTypeEnum {
 }
 
 export type Data = {
-  __typename: "ContentfulLink";
+  __typename: "Link";
   id: string;
   label: string;
   icon: IconName | null;
@@ -115,21 +115,20 @@ export type Data = {
     path: string | null;
   } | null;
   asset?: {
-    file: {
-      url: string | null;
-    };
+    url: string | null;
   } | null;
   hubSpotCTAID: string | null;
+  queryParams: string | null;
 };
 
 export type NavigationItem = {
-  __typename: "ContentfulNavigationItem";
+  __typename: "NavigationItem";
   type: "Heading" | "Separator";
   value: string;
 };
 
 export type NavigationData = {
-  __typename: "ContentfulNavigation";
+  __typename: "Navigation";
   label: string | null;
   link: Data | null;
   promos?: (PromoData | PageInfoData)[] | null;

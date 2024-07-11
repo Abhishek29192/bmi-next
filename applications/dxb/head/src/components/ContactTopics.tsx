@@ -120,7 +120,7 @@ const Footer = ({
               item.title ? ` - ${item.title}` : ""
             }`;
 
-            if (item.__typename === "ContentfulTitleWithContent") {
+            if (item.__typename === "TitleWithContent") {
               const { title, content } = item;
               return (
                 <Grid key={key} {...gridItemProps}>

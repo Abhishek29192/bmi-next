@@ -1,5 +1,33 @@
-import { Context, Node } from "../../types/Gatsby";
 import { getUrlFromPath, resolvePath } from "../path";
+import originalGetContentfulData from "../../../../utils/getContentfulData";
+import createContentfulLink from "../../types/helpers/ContentfulLinkHelper";
+import createContentfulNavigation from "../../types/helpers/ContentfulNavigationHelper";
+import creatContentfulParentPage from "../../types/helpers/ContentfulParentPageHelper";
+import type { Page as PathPageData } from "../path";
+
+const getContentfulDataMock = jest.fn();
+jest.mock("../../../../utils/getContentfulData", () => ({
+  __esModule: true,
+  default: (...args: Parameters<typeof originalGetContentfulData>) =>
+    getContentfulDataMock(...args)
+}));
+
+const getContentfulMenuNavigationMock = jest.fn();
+jest.mock("../../../../app/fetchers/navigation", () => ({
+  __esModule: true,
+  getContentfulMenuNavigation: () => getContentfulMenuNavigationMock()
+}));
+
+const pageData: PathPageData = {
+  title: "Title",
+  slug: "page-slug",
+  sys: { id: "page-id" },
+  parentPage: null
+};
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
 
 describe("Path resolver util", () => {
   it("getUrlFromPath successfully gets url from path", () => {
@@ -22,322 +50,217 @@ describe("Path resolver util", () => {
   });
 
   describe("resolvePath", () => {
-    const source: Node = {
-      id: "source",
-      parent: null,
-      children: [],
-      internal: { type: "", contentDigest: "", owner: "" },
-      title: "source-title",
-      slug: "source-slug",
-      parentPage___NODE: "parentPage___NODE",
-      site___NODE: ["site"]
-    };
-    const context: Context = {
-      nodeModel: {
-        getNodeById: jest.fn(),
-        getNodesByIds: jest.fn(),
-        findAll: jest.fn(),
-        findOne: jest.fn()
-      }
-    };
-
-    it("should return path from source if no site___NODE found", async () => {
-      expect(
-        await resolvePath(
-          { ...source, parentPage___NODE: undefined, site___NODE: undefined },
-          undefined,
-          context
-        )
-      ).toEqual([{ id: "source", label: "source-title", slug: "source-slug" }]);
+    it("should return path from page data if no menuNavigation found", async () => {
+      getContentfulMenuNavigationMock.mockResolvedValue(null);
+      expect(await resolvePath(pageData)).toEqual([
+        { id: pageData.sys.id, label: pageData.title, slug: pageData.slug }
+      ]);
     });
 
-    it("should return path from source if no menuNavigation___NODE found", async () => {
-      context.nodeModel.getNodeById = jest
-        .fn()
-        .mockResolvedValueOnce({ menuNavigation___NODE: null });
-
-      expect(
-        await resolvePath(
-          { ...source, parentPage___NODE: undefined },
-          undefined,
-          context
-        )
-      ).toEqual([{ id: "source", label: "source-title", slug: "source-slug" }]);
-    });
-
-    it("should return path from source if no links___NODE found", async () => {
-      context.nodeModel.getNodeById = jest
-        .fn()
-        .mockResolvedValueOnce({
-          menuNavigation___NODE: "menuNavigation___NODE"
-        })
-        .mockResolvedValueOnce({
-          links___NODE: null
-        });
-
-      expect(
-        await resolvePath(
-          { ...source, parentPage___NODE: undefined },
-          undefined,
-          context
-        )
-      ).toEqual([{ id: "source", label: "source-title", slug: "source-slug" }]);
+    it("should return path from source if no links found", async () => {
+      getContentfulMenuNavigationMock.mockResolvedValue({
+        linksCollection: {
+          items: []
+        }
+      });
+      expect(await resolvePath(pageData)).toEqual([
+        { id: pageData.sys.id, label: pageData.title, slug: pageData.slug }
+      ]);
     });
 
     it("should resolve path", async () => {
-      context.nodeModel.getNodeById = jest
-        .fn()
-        .mockResolvedValueOnce({
-          menuNavigation___NODE: "menuNavigation___NODE"
-        })
-        .mockResolvedValueOnce({
-          links___NODE: ["link-1", "link-3", "link-2"]
-        })
-        .mockImplementation(({ id }) => {
-          switch (id) {
-            case "link-1":
-              return {
-                internal: {
-                  type: "ContentfulLink"
-                },
-                linkedPage___NODE: null
-              };
-            case "link-2":
-              return {
-                internal: {
-                  type: "ContentfulLink"
-                },
-                linkedPage___NODE: "linked-page-1"
-              };
-            case "link-3":
-              return {
-                internal: {
-                  type: "ContentfulLink"
-                },
-                linkedPage___NODE: "linked-page-invalid"
-              };
-            case "link-4":
-              return {
-                internal: {
-                  type: "ContentfulLink"
-                },
-                linkedPage___NODE: "linked-page-1",
-                label: "link-4-label",
-                queryParams: "?q=a"
-              };
-            case "linked-page-1":
-              return {
-                id: "source",
-                slug: "slug",
-                internal: {
-                  title: "title"
-                }
-              };
-            case "link-5":
-              return {
-                internal: {
-                  type: "ContentfulNavigation"
-                },
-                link___NODE: "link-6",
-                links___NODE: ["link-7"]
-              };
-            case "link-6":
-              return {
-                id: "source"
-              };
-            default:
-              return null;
-          }
-        });
+      const link = createContentfulLink({
+        linkedPage: {
+          __typename: "Page",
+          sys: {
+            id: pageData.sys.id
+          },
+          title: "Linked page title",
+          slug: "slug",
+          parentPage: null
+        }
+      });
+      getContentfulMenuNavigationMock.mockResolvedValue({
+        linksCollection: {
+          items: [link]
+        }
+      });
 
-      expect(
-        await resolvePath(
-          { ...source, parentPage___NODE: undefined },
-          undefined,
-          context
-        )
-      ).toEqual([
-        { id: "source", label: undefined, slug: "slug", queryParams: "" }
+      expect(await resolvePath(pageData)).toEqual([
+        {
+          id: link.linkedPage!.sys.id,
+          label: link.label,
+          slug: link.linkedPage!.slug,
+          queryParams: link.queryParams
+        }
       ]);
     });
 
     it("should resolve navigation", async () => {
-      context.nodeModel.getNodeById = jest
-        .fn()
-        .mockResolvedValueOnce({
-          menuNavigation___NODE: "menuNavigation___NODE"
-        })
-        .mockResolvedValueOnce({
-          links___NODE: ["link-1"]
-        })
-        .mockImplementation(({ id }) => {
-          switch (id) {
-            case "link-1":
-              return {
-                internal: {
-                  type: "ContentfulNavigation"
-                },
-                link___NODE: "link-2",
-                links___NODE: ["link-3"]
-              };
-            case "link-2":
-              return {
-                internal: {
-                  type: "ContentfulLink"
-                },
-                linkedPage___NODE: "linked-page-1"
-              };
-            case "link-3":
-              return {
-                internal: {
-                  type: "ContentfulLink"
-                },
-                id: "source"
-              };
-            case "linked-page-1":
-              return {
-                id: "source"
-              };
-            default:
-              return null;
-          }
-        });
+      const link = createContentfulLink({
+        linkedPage: {
+          __typename: "Page",
+          sys: {
+            id: pageData.sys.id
+          },
+          title: "Linked page title",
+          slug: "slug",
+          parentPage: null
+        }
+      });
 
-      expect(
-        await resolvePath(
-          { ...source, parentPage___NODE: undefined },
-          undefined,
-          context
-        )
-      ).toEqual([
+      getContentfulMenuNavigationMock.mockResolvedValue({
+        linksCollection: {
+          items: [createContentfulNavigation({ link })]
+        }
+      });
+
+      expect(await resolvePath(pageData)).toEqual([
         {
-          id: "source",
-          label: undefined,
-          queryParams: "",
-          slug: undefined
+          id: link.linkedPage!.sys.id,
+          label: link.label,
+          slug: link.linkedPage!.slug,
+          queryParams: link.queryParams
         }
       ]);
     });
 
     it("should resolve internal navigation", async () => {
-      context.nodeModel.getNodeById = jest
-        .fn()
-        .mockResolvedValueOnce({
-          menuNavigation___NODE: "menuNavigation___NODE"
-        })
-        .mockResolvedValueOnce({
-          links___NODE: ["link-1"]
-        })
-        .mockImplementation(({ id }) => {
-          switch (id) {
-            case "link-1":
-              return {
-                internal: {
-                  type: "ContentfulNavigation"
-                },
-                id: "link-1",
-                label: "link-1-label",
-                link___NODE: "link-2",
-                links___NODE: ["link-3"]
-              };
-            case "link-2":
-              return null;
-            case "link-3":
-              return {
-                internal: {
-                  type: "ContentfulLink"
-                },
-                label: "link-3-label",
-                linkedPage___NODE: "linked-page-1"
-              };
-            case "linked-page-1":
-              return {
-                id: "source"
-              };
-            default:
-              return null;
-          }
-        });
+      const nestedLink = createContentfulLink({
+        linkedPage: {
+          __typename: "Page",
+          sys: {
+            id: pageData.sys.id
+          },
+          title: "Nested linked page",
+          slug: "slug",
+          parentPage: null
+        }
+      });
+      const navigation = createContentfulNavigation({
+        link: null,
+        linksCollection: {
+          items: [nestedLink]
+        }
+      });
 
-      expect(
-        await resolvePath(
-          { ...source, parentPage___NODE: undefined },
-          undefined,
-          context
-        )
-      ).toEqual([
+      getContentfulMenuNavigationMock.mockResolvedValue({
+        linksCollection: {
+          items: [navigation]
+        }
+      });
+
+      expect(await resolvePath(pageData)).toEqual([
         {
-          id: "link-1",
-          label: "link-1-label"
+          id: navigation.sys.id,
+          label: navigation.label
         },
         {
-          id: "source",
-          label: "link-3-label",
-          queryParams: "",
-          slug: undefined
+          id: nestedLink.linkedPage!.sys.id,
+          label: nestedLink.label,
+          slug: nestedLink.linkedPage!.slug,
+          queryParams: nestedLink.queryParams
         }
       ]);
     });
 
     it("should resolve node from parent page", async () => {
-      context.nodeModel.getNodeById = jest.fn().mockImplementation(({ id }) => {
-        switch (id) {
-          case "parentPage___NODE":
-            return { ...source, parentPage___NODE: null };
-          case "site":
-            return {
-              menuNavigation___NODE: "menuNavigation___NODE"
-            };
-          case "menuNavigation___NODE":
-            return {
-              links___NODE: ["link-1"]
-            };
-          case "link-1":
-            return {
-              internal: {
-                type: "ContentfulNavigation"
-              },
-              id: "link-1",
-              label: "link-1-label",
-              link___NODE: "link-2",
-              links___NODE: ["link-3"]
-            };
-          case "link-2":
-            return null;
-          case "link-3":
-            return {
-              internal: {
-                type: "ContentfulLink"
-              },
-              label: "link-3-label",
-              linkedPage___NODE: "linked-page-1"
-            };
-          case "linked-page-1":
-            return {
-              id: "source"
-            };
-          default:
-            return null;
-        }
+      const parentPage = creatContentfulParentPage({ parentPage: null });
+      getContentfulDataMock.mockReturnValue({
+        data: { entryCollection: { items: [parentPage] } }
       });
 
-      expect(await resolvePath(source, undefined, context)).toEqual([
+      expect(await resolvePath({ ...pageData, parentPage })).toEqual([
         {
-          id: "link-1",
-          label: "link-1-label"
+          id: parentPage.sys.id,
+          label: parentPage.title,
+          slug: parentPage.slug
         },
         {
-          id: "source",
-          label: "link-3-label",
-          queryParams: "",
-          slug: undefined
-        },
-        {
-          id: "source",
-          label: "source-title",
-          slug: "source-slug"
+          id: pageData.sys.id,
+          label: pageData.title,
+          slug: pageData.slug
         }
       ]);
     });
+
+    it("should resolve node from parent page if it has its own parent page", async () => {
+      const nestedParentPage = creatContentfulParentPage({
+        sys: {
+          id: "parent-page-2-id"
+        },
+        title: "Parent page title 2",
+        slug: "parent-2-page-slug",
+        parentPage: null
+      });
+      const parentPage = creatContentfulParentPage({
+        sys: {
+          id: "parent-page-1-id"
+        },
+        title: "Parent page title 1",
+        slug: "parent-1-page-slug",
+        parentPage: nestedParentPage
+      });
+      getContentfulDataMock
+        .mockResolvedValueOnce({
+          data: { entryCollection: { items: [parentPage] } }
+        })
+        .mockResolvedValueOnce({
+          data: { entryCollection: { items: [nestedParentPage] } }
+        });
+
+      expect(await resolvePath({ ...pageData, parentPage })).toEqual([
+        {
+          id: nestedParentPage.sys.id,
+          label: nestedParentPage.title,
+          slug: nestedParentPage.slug
+        },
+        {
+          id: parentPage.sys.id,
+          label: parentPage.title,
+          slug: parentPage.slug
+        },
+        {
+          id: pageData.sys.id,
+          label: pageData.title,
+          slug: pageData.slug
+        }
+      ]);
+    });
+  });
+
+  it("should throw an error if getContentfulData fails", async () => {
+    const parentPage = creatContentfulParentPage({ parentPage: null });
+    const error = new Error("getContentfulDataMock failed");
+    getContentfulDataMock.mockRejectedValue(error);
+
+    await expect(resolvePath({ ...pageData, parentPage })).rejects.toThrow(
+      error
+    );
+  });
+
+  it("should throw an error if creatContentfulParentPage returns an array of errors", async () => {
+    const parentPage = creatContentfulParentPage({ parentPage: null });
+    const errors = ["error-1", "error-2"];
+    getContentfulDataMock.mockResolvedValue({ errors });
+
+    await expect(resolvePath({ ...pageData, parentPage })).rejects.toThrow(
+      JSON.stringify(errors)
+    );
+  });
+
+  it("should return only page basic data if creatContentfulParentPage does not return a page", async () => {
+    const parentPage = creatContentfulParentPage({ parentPage: null });
+    getContentfulDataMock.mockResolvedValue({
+      data: { entryCollection: { items: [] } }
+    });
+
+    expect(await resolvePath({ ...pageData, parentPage })).toEqual([
+      {
+        id: pageData.sys.id,
+        label: pageData.title,
+        slug: pageData.slug
+      }
+    ]);
   });
 });

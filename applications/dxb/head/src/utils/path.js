@@ -1,6 +1,7 @@
 "use strict";
 
-const dontUseCountryCode = process.env.GATSBY_DONT_USE_COUNTRY_CODE === "true";
+const dontUseCountryCode =
+  process.env.NEXT_PUBLIC_DONT_USE_COUNTRY_CODE === "true";
 
 const getCorrectedPath = (path) => {
   let [correctedPath, query] = (path || "").split("?");

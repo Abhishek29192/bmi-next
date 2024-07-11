@@ -2,6 +2,7 @@ import CTACard from "@bmi-digital/components/cta-card";
 import Grid from "@bmi-digital/components/grid";
 import Section from "@bmi-digital/components/section";
 import { DefaultImage } from "@bmi-digital/components";
+import React from "react";
 import { getCTA } from "../../../components/link/utils";
 import createImageProps from "../../../components/image/createImageProps";
 import createVideoProps from "../../../components/video/createVideoProps";

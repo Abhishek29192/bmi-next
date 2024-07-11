@@ -1,24 +1,18 @@
-import Card from "@bmi-digital/components/card";
 import Container from "@bmi-digital/components/container";
 import CTACard from "@bmi-digital/components/cta-card";
 import Grid from "@bmi-digital/components/grid";
-import { graphql } from "gatsby";
 import DefaultImage from "@bmi-digital/components/resources/DefaultImage";
+import React from "react";
 import { useSiteContext } from "./Site";
 import { getCTA } from "./link/utils";
 import { OverlapCardsSection, StyledGrid } from "./styles/OverlapCardsStyles";
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
-import type {
-  CTACardPageInfoData,
-  CTACardPromoData
-} from "./types/CTACardTypes";
 import type { ImageWidths } from "./image/types";
+import type { CTACardPageInfoData } from "./types/CTACardTypes";
 
-type Card = CTACardPromoData | CTACardPageInfoData;
-
-// NOTE: Minimum two cards required.
-export type Data = [Card, Card, ...Card[]];
+export type Card = CTACardPageInfoData;
+export type Data = Card[];
 
 const mediaWidths: ImageWidths = [561, 321, 381, 446, 330];
 
@@ -62,10 +56,3 @@ const IntegratedOverlapCards = ({ data }: { data: Data }) => {
 };
 
 export default IntegratedOverlapCards;
-
-export const query = graphql`
-  fragment OverlapCardFragment on ContentfulPromoOrPage {
-    ...PromoCardFragment
-    ...PageInfoCardFragment
-  }
-`;

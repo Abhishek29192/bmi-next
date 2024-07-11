@@ -20,8 +20,8 @@ const indexToBackgroundMap: DarkColor[] = [
   "secondary4"
 ];
 
-const getTitle = (data: PromoData | PageInfoData): string => {
-  if (data.__typename === "ContentfulPromo") {
+const getTitle = (data: PromoData | PageInfoData) => {
+  if (data.__typename === "Promo") {
     return transformHyphens(data.title || data.name);
   }
   return transformHyphens(data.title);
@@ -40,7 +40,7 @@ const NextBestActions = ({ data }: { data: Data }) => {
           const transformedTitle = getTitle(cardData);
           const cta = getCTA(cardData, countryCode, transformedTitle);
           const ctaLabel =
-            cardData.__typename === "ContentfulPromo"
+            cardData.__typename === "Promo"
               ? cardData.cta?.label
               : transformedTitle;
 

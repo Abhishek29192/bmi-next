@@ -18,7 +18,7 @@ jest.mock("@reach/router", () => ({
 describe("ServiceLocatorSection resulst list pannel component", () => {
   it("should render results list panel on page load if at list one chip exists in query params", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: false,
       title: "service locator section",
@@ -32,10 +32,10 @@ describe("ServiceLocatorSection resulst list pannel component", () => {
           id: "roofer_1",
           name: "roofer 1",
           serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof" },
-            { __typename: "ContentfulServiceType", name: "Pitched Roof" },
-            { __typename: "ContentfulServiceType", name: "Flat Roof 1" },
-            { __typename: "ContentfulServiceType", name: "Pitched Roof 2" }
+            { __typename: "ServiceType", name: "Flat Roof" },
+            { __typename: "ServiceType", name: "Pitched Roof" },
+            { __typename: "ServiceType", name: "Flat Roof 1" },
+            { __typename: "ServiceType", name: "Pitched Roof 2" }
           ]
         })
       ]

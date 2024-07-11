@@ -9,7 +9,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "https://fake/script.js",
@@ -31,7 +31,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: null,
             scriptSectionId: "test-id",
             url: "https://fake/script.js",
@@ -49,7 +49,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "https://fake/script.js",
@@ -76,7 +76,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "https://fake/script.js",
@@ -103,7 +103,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "https://fake/script.cjs",
@@ -130,7 +130,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "https://fake/script.cjs",
@@ -157,7 +157,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "https://fake/script.cjs?query=1",
@@ -187,7 +187,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "https://fake/script.mjs",
@@ -214,7 +214,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "https://fake/script.mjs",
@@ -241,7 +241,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "https://fake/script.mjs?query=1",
@@ -271,7 +271,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "test-id",
             url: "",
@@ -292,7 +292,7 @@ describe("EmbeddedScriptSection", () => {
       <ThemeProvider>
         <EmbeddedScriptSection
           data={{
-            __typename: "ContentfulEmbeddedScriptSection",
+            __typename: "EmbeddedScriptSection",
             title: "Embedded Script",
             scriptSectionId: "",
             url: "https://fake/script.js",

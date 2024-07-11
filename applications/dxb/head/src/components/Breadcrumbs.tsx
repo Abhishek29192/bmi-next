@@ -1,3 +1,4 @@
+import React from "react";
 import Breadcrumbs, {
   BreadcrumbsProps as BaseProps,
   LastBreadcrumbItemProps,
@@ -5,7 +6,6 @@ import Breadcrumbs, {
 } from "@bmi-digital/components/breadcrumbs";
 import { transformHyphens } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
 import NextLink from "next/link";
 import { useMemo } from "react";
 import { BreadcrumbItem } from "../types/pim";
@@ -142,16 +142,3 @@ const IntegratedBreadcrumbs = ({
 };
 
 export default IntegratedBreadcrumbs;
-
-export const query = graphql`
-  fragment BreadcrumbsFragment on ContentfulPage {
-    breadcrumbs {
-      ...BreadcrumbItemFragment
-    }
-  }
-  fragment BreadcrumbItemFragment on BreadcrumbItem {
-    id
-    label
-    slug
-  }
-`;

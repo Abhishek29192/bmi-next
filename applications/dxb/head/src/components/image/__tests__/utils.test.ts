@@ -6,7 +6,7 @@ describe("isContentfulImage", () => {
   it("should return true if __typename is 'ContentfulImage'", () => {
     expect(
       isContentfulImage({
-        ...createImageData({ __typename: "ContentfulImage" }),
+        ...createImageData({ __typename: "Image" }),
         widths: [1, 2, 3, 4, 5]
       })
     ).toEqual(true);

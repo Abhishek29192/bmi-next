@@ -4,7 +4,7 @@ const getPathWithCountryCode = async (
 ) => (await import("../path")).getPathWithCountryCode(countryCode, path);
 
 beforeEach(() => {
-  delete process.env.GATSBY_DONT_USE_COUNTRY_CODE;
+  delete process.env.NEXT_PUBLIC_DONT_USE_COUNTRY_CODE;
   jest.resetModules();
 });
 
@@ -52,9 +52,9 @@ describe("getPathWithCountryCode", () => {
     expect(pathWithCountryCode).toStrictEqual("/no/some/page/");
   });
 
-  describe("when GATSBY_DONT_USE_COUNTRY_CODE is true", () => {
+  describe("when NEXT_PUBLIC_DONT_USE_COUNTRY_CODE is true", () => {
     it("should return the root path if path is not provided", async () => {
-      process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+      process.env.NEXT_PUBLIC_DONT_USE_COUNTRY_CODE = "true";
       const countryCode = "no";
 
       const pathWithCountryCode = await getPathWithCountryCode(countryCode);
@@ -63,7 +63,7 @@ describe("getPathWithCountryCode", () => {
     });
 
     it("should return the root path if path is null", async () => {
-      process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+      process.env.NEXT_PUBLIC_DONT_USE_COUNTRY_CODE = "true";
       const countryCode = "no";
 
       const pathWithCountryCode = await getPathWithCountryCode(
@@ -75,7 +75,7 @@ describe("getPathWithCountryCode", () => {
     });
 
     it("should not prepend the path with the provided country code", async () => {
-      process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+      process.env.NEXT_PUBLIC_DONT_USE_COUNTRY_CODE = "true";
       const countryCode = "no";
       const path = "/some/page/";
 
@@ -88,7 +88,7 @@ describe("getPathWithCountryCode", () => {
     });
 
     it("should not prepend the relative path with the provided country code", async () => {
-      process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+      process.env.NEXT_PUBLIC_DONT_USE_COUNTRY_CODE = "true";
       const countryCode = "no";
       const path = "/some/page/";
 
@@ -102,7 +102,7 @@ describe("getPathWithCountryCode", () => {
 
     describe("when path does not end with /", () => {
       it("should append final path with trailing /", async () => {
-        process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+        process.env.NEXT_PUBLIC_DONT_USE_COUNTRY_CODE = "true";
         const countryCode = "no";
         const path = "/some/page";
 
@@ -116,7 +116,7 @@ describe("getPathWithCountryCode", () => {
     });
     describe("when path has query", () => {
       it("should return query in the final path", async () => {
-        process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+        process.env.NEXT_PUBLIC_DONT_USE_COUNTRY_CODE = "true";
         const countryCode = "no";
         const path = "/some/page?q=someValue";
 

@@ -40,7 +40,7 @@ const IEDialog = ({ data }: { data: { contentfulSite: SiteData } }) => {
           data.contentfulSite.countryCode,
           "ie-dialog"
         )}
-        htmlAttributes={{ lang: data.contentfulSite.node_locale }}
+        htmlAttributes={{ lang: data.contentfulSite.sys.locale }}
         countryCode={data.contentfulSite.countryCode}
       />
       <StyledIEDialogWrapper>

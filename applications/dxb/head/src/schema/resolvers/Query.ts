@@ -135,11 +135,11 @@ export default {
       }
 
       const marketCode = process.env.GATSBY_SPACE_MARKET_CODE;
-      const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
+      const localeCode = process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE;
       if (!marketCode || !localeCode) {
         // eslint-disable-next-line no-console
         console.warn(
-          `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+          `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'NEXT_PUBLIC_MARKET_LOCALE_CODE' not set!`
         );
         return { filters: [], allowFilterBy: allowFilterBy };
       }
@@ -246,11 +246,11 @@ export default {
       }
 
       const marketCode = process.env.GATSBY_SPACE_MARKET_CODE;
-      const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
+      const localeCode = process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE;
       if (!marketCode || !localeCode) {
         // eslint-disable-next-line no-console
         console.warn(
-          `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+          `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'NEXT_PUBLIC_MARKET_LOCALE_CODE' not set!`
         );
         return { filters: [], allowFilterBy: allowFilterBy };
       }
@@ -319,11 +319,11 @@ export default {
       context: Context
     ): Promise<FourOFourResponse> {
       const marketCode = process.env.GATSBY_SPACE_MARKET_CODE;
-      const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
+      const localeCode = process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE;
       if (!marketCode || !localeCode) {
         // eslint-disable-next-line no-console
         console.warn(
-          `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+          `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'NEXT_PUBLIC_MARKET_LOCALE_CODE' not set!`
         );
         return { errorPageData: undefined, siteData: undefined };
       }

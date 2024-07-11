@@ -8,9 +8,8 @@ import SystemResultsCard from "@bmi-digital/components/system-results-card";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { System as EsSystem, SystemAttribute } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
 import NextLink from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 import { RelatedSystem } from "../types/pim";
 import {
   getLevel,
@@ -215,22 +214,22 @@ const RelatedSystems = ({
 
 export default RelatedSystems;
 
-export const query = graphql`
-  fragment RelatedSystemFragment on System {
-    brand {
-      code
-    }
-    code
-    galleryImages {
-      ...PIMImageFragment
-    }
-    goodBetterBest
-    masterImage {
-      ...PIMImageFragment
-    }
-    name
-    path
-    scoringWeight
-    shortDescription
-  }
-`;
+// export const query = graphql`
+//   fragment RelatedSystemFragment on System {
+//     brand {
+//       code
+//     }
+//     code
+//     galleryImages {
+//       ...PIMImageFragment
+//     }
+//     goodBetterBest
+//     masterImage {
+//       ...PIMImageFragment
+//     }
+//     name
+//     path
+//     scoringWeight
+//     shortDescription
+//   }
+// `;

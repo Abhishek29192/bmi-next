@@ -1,26 +1,27 @@
 import { CarouselHeroItem } from "@bmi-digital/components/carousel-hero";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import { Context as SiteContext } from "../../components/Site";
 import ButtonLink from "../../components/link/ButtonLink";
 import { DataTypeEnum } from "../../components/link/types";
 import createImageProps from "../../components/image/createImageProps";
 import createVideoProps from "../../components/video/createVideoProps";
 import type { Data as LinkData } from "../../components/link/types";
-import type { HomepageData } from "../home-page";
+import type { Data as HomePageData } from "../../templates/home-page";
 import type { ImageWidths } from "../../components/image/types";
 
 const mediaWidths: ImageWidths = [593, 713, 408, 708, 988];
 
 export const getHeroItemsWithContext = (
   { getMicroCopy }: SiteContext,
-  slides: HomepageData["slides"]
+  slides: HomePageData["homePage"]["slides"]
 ): readonly CarouselHeroItem[] => {
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }, index) => {
       const hasPath = "path" in rest && !!rest.path;
 
       const callToAction =
-        rest.__typename === "ContentfulPromo" && rest.cta ? (
+        rest.__typename === "Promo" && rest.cta ? (
           <ButtonLink data={rest.cta} hasBrandColours>
             {rest.cta?.label}
           </ButtonLink>

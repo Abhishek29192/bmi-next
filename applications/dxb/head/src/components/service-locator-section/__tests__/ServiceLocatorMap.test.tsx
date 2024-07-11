@@ -52,12 +52,16 @@ describe("ServiceLocatorMap component", () => {
       <ServiceLocatorMap
         selectedRoofer={createService({
           companyLogo: {
+            __typename: "Image",
+            title: "Title",
             altText: "company-logo-alt-text",
             image: {
-              file: {
-                fileName: "company-logo-example-filename",
-                url: "company/logo/url"
-              }
+              fileName: "company-logo-example-filename",
+              url: "company/logo/url",
+              contentType: "image/jpg",
+              width: 100,
+              height: 100,
+              size: 100
             }
           }
         })}

@@ -1,7 +1,6 @@
 import ExploreBar from "@bmi-digital/components/explore-bar";
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
-import { graphql } from "gatsby";
 import React from "react";
 import { devLog } from "../utils/devLog";
 import { useSiteContext } from "./Site";
@@ -10,7 +9,7 @@ import type { Data as LinkData } from "./link/types";
 import type { ButtonProps } from "@bmi-digital/components/button";
 
 export type Data = {
-  __typename: "ContentfulNavigation";
+  __typename: "Navigation";
   label: string | null;
   links: LinkData[];
 };
@@ -44,12 +43,3 @@ const ExploreBarSection = ({ data }: { data: Data }) => {
 };
 
 export default ExploreBarSection;
-
-export const query = graphql`
-  fragment ExploreBarSectionFragment on ContentfulNavigation {
-    label
-    links {
-      ...LinkFragment
-    }
-  }
-`;

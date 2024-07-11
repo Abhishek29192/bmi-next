@@ -195,9 +195,13 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "component": [MockFunction],
+                  "component": {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "default": [Circular],
+                    "render": [Function],
+                  },
+                  "href": "/no/p/name-hashed-related-code/",
                   "model": "routerLink",
-                  "to": "/no/p/name-hashed-related-code/",
                 },
                 "isSelected": false,
                 "label": "colour-2",
@@ -276,9 +280,13 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "component": [MockFunction],
+                  "component": {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "default": [Circular],
+                    "render": [Function],
+                  },
+                  "href": "/no/p/name-hashed-related-code/",
                   "model": "routerLink",
-                  "to": "/no/p/name-hashed-related-code/",
                 },
                 "isSelected": false,
                 "label": "texture-family-2",
@@ -356,9 +364,13 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "component": [MockFunction],
+                  "component": {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "default": [Circular],
+                    "render": [Function],
+                  },
+                  "href": "/no/p/name-hashed-related-code/",
                   "model": "routerLink",
-                  "to": "/no/p/name-hashed-related-code/",
                 },
                 "isSelected": false,
                 "label": "70x40x10mm",
@@ -415,9 +427,13 @@ describe("product-details-transforms tests", () => {
             "variants": [
               {
                 "action": {
-                  "component": [MockFunction],
+                  "component": {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "default": [Circular],
+                    "render": [Function],
+                  },
+                  "href": "/no/p/name-hashed-related-code/",
                   "model": "routerLink",
-                  "to": "/no/p/name-hashed-related-code/",
                 },
                 "isSelected": false,
                 "label": "20x30x40",
@@ -582,9 +598,13 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "component": [MockFunction],
+                  "component": {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "default": [Circular],
+                    "render": [Function],
+                  },
+                  "href": "/no/p/name-hashed-related-code/",
                   "model": "routerLink",
-                  "to": "/no/p/name-hashed-related-code/",
                 },
                 "isSelected": false,
                 "label": "colour-1",

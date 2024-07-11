@@ -1,5 +1,6 @@
 import CommonHero from "@bmi-digital/components/hero";
 import Typography from "@bmi-digital/components/typography";
+import React from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import useAuth from "../../hooks/useAuth";

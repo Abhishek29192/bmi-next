@@ -20,11 +20,12 @@ jest.mock("@bmi-digital/components/micro-copy", () => ({
 }));
 
 function setEnvValue(value: string) {
-  const original = process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR;
-  process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR = value;
+  const original = process.env.NEXT_PUBLIC_ENABLE_V2_WEBTOOLS_VISUALISATOR;
+  process.env.NEXT_PUBLIC_ENABLE_V2_WEBTOOLS_VISUALISATOR = value;
 
   return {
-    reset: () => (process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR = original)
+    reset: () =>
+      (process.env.NEXT_PUBLIC_ENABLE_V2_WEBTOOLS_VISUALISATOR = original)
   };
 }
 describe("useMicroCopy", () => {

@@ -1,16 +1,16 @@
 import React from "react";
 import { DataTypeEnum } from "../../components/link/types";
 import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
-import type { Data as ContentfulImageData } from "../../components/image/types";
+import type { Data as ContentfulImageData } from "../../components/image/contentful-image/types";
 import type { Data as LinkData } from "../../components/link/types";
-import type { ContentfulVideoData } from "../../components/video/types";
+import type { Data as VideoData } from "../../components/video/types";
 
 const mockBreadCrumbs = [
   { id: "id-mock", label: "mock-breadcrumb", slug: "slug-mock" }
 ];
 
 const cta: LinkData = {
-  __typename: "ContentfulLink",
+  __typename: "Link",
   id: "string",
   label: "ImALink",
   icon: null,
@@ -20,23 +20,27 @@ const cta: LinkData = {
   type: DataTypeEnum.Dialog,
   parameters: null,
   dialogContent: null,
-  hubSpotCTAID: null
+  hubSpotCTAID: null,
+  queryParams: null
 };
 
 const featuredMedia: ContentfulImageData = {
+  __typename: "Image",
+  title: "Test title",
   type: null,
   altText: "Lorem ipsum",
   focalPoint: null,
   image: {
-    file: {
-      fileName: "Lorem ipsum",
-      url: "//images.asset.jpg"
-    }
+    fileName: "Lorem ipsum",
+    url: "//images.asset.jpg",
+    contentType: "image/webp",
+    height: 200,
+    width: 200,
+    size: 500
   }
 };
 
-const featureVideo: ContentfulVideoData = {
-  __typename: "ContentfulVideo",
+const featureVideo: VideoData = {
   title: "video title",
   label: "video label",
   subtitle: "video subtitle",
@@ -98,10 +102,19 @@ describe("generateHeroProps test", () => {
     expect(result.media).toEqual({
       alt: "Lorem ipsum",
       className: undefined,
+      component: expect.any(Object),
       "data-testid": undefined,
+      decoding: "async",
+      draggable: false,
+      fill: true,
+      loader: expect.any(Function),
       loading: "eager",
-      src: "//images.asset.jpg",
+      sizes:
+        "(max-width: 599px) 593px, (max-width: 719px) 713px, (max-width: 839px) 408px, (max-width: 1439px) 708px, 988px",
+      src: "https://images.asset.jpg",
       style: {
+        height: undefined,
+        width: undefined,
         objectFit: "cover",
         objectPosition: "center"
       }

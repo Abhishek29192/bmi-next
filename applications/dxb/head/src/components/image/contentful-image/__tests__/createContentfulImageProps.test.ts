@@ -24,12 +24,10 @@ beforeEach(() => {
 describe("createContentfulImageProps", () => {
   it("should map the ContentfulImage props to CustomImageProps", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",
@@ -55,7 +53,7 @@ describe("createContentfulImageProps", () => {
       expect.objectContaining({
         component: NextImage,
         loader: expect.any(Function),
-        src: contentfulImageProps.image.file.url,
+        src: contentfulImageProps.image.url,
         alt: contentfulImageProps.altText,
         draggable: false,
         style: {
@@ -85,12 +83,10 @@ describe("createContentfulImageProps", () => {
 
   it("should prepend URL with 'https:' if it doesn't already", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "//localhost/image.jpg"
-        }
+        url: "//localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",
@@ -117,12 +113,10 @@ describe("createContentfulImageProps", () => {
 
   it("should set style.objectFit to size if provided", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",
@@ -151,12 +145,10 @@ describe("createContentfulImageProps", () => {
 
   it("should set style.objectFit 'cover' if size not provided and type is 'Decorative'", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",
@@ -183,12 +175,10 @@ describe("createContentfulImageProps", () => {
 
   it("should set style.objectFit 'contain' if size not provided and type is 'Descriptive'", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Descriptive",
@@ -215,12 +205,10 @@ describe("createContentfulImageProps", () => {
 
   it("should set style.objectFit 'cover' if size and type is not provided", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       focalPoint: {
@@ -246,12 +234,10 @@ describe("createContentfulImageProps", () => {
 
   it("should default loading to 'lazy'", () => {
     const contentfulImageProps: Props = {
-      __typename: "ContentfulImage",
+      __typename: "Image",
       title: "title",
       image: {
-        file: {
-          url: "https://localhost/image.jpg"
-        }
+        url: "https://localhost/image.jpg"
       },
       altText: "alt-text",
       type: "Decorative",

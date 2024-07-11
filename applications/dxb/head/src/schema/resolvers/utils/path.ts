@@ -1,4 +1,10 @@
-import type { Context, Node, ResolveArgs } from "../types/Gatsby";
+import getContentfulData from "../../../utils/getContentfulData";
+import parentPageQuery from "../../queries/parentPageQuery";
+import { getContentfulMenuNavigation } from "../../../app/fetchers/navigation";
+import { NavigationItem } from "../../../components/link/types";
+import type { ParentPage } from "../types/Common";
+import type { ContentfulLink } from "../types/Link";
+import type { Navigation as ContentfulNavigation } from "../types/Site";
 
 export type Path = {
   id?: string;
@@ -7,6 +13,13 @@ export type Path = {
   queryParams?: string;
   slug?: string;
 }[];
+
+export type Page = {
+  title: string;
+  slug: string;
+  sys: { id: string };
+  parentPage: ParentPage | null;
+};
 
 export const getUrlFromPath = (path: Path) => {
   const queryParams = path
@@ -26,136 +39,109 @@ export const getUrlFromPath = (path: Path) => {
   return queryParams !== "" ? `${finalUrl}?${queryParams}` : finalUrl;
 };
 
-const getPath = async (
-  page: Partial<Node>,
-  context: Context
-): Promise<Path> => {
-  if (!page.site___NODE || !page.site___NODE.length) {
+const getPath = async (page: Page): Promise<Path> => {
+  const menuNavigation = await getContentfulMenuNavigation();
+
+  if (!menuNavigation?.linksCollection.items.length) {
     return [];
   }
 
-  const site = await context.nodeModel.getNodeById<Node>({
-    // TODO: Handle the case when a page belongs to multiple sites.
-    id: page.site___NODE[0],
-    type: "ContentfulSite"
-  });
-
-  if (!site?.menuNavigation___NODE || !site.menuNavigation___NODE.length) {
-    return [];
-  }
-
-  const menuNavigation = await context.nodeModel.getNodeById<Node>({
-    id: site.menuNavigation___NODE,
-    type: "ContentfulNavigation"
-  });
-
-  if (!menuNavigation?.links___NODE || !menuNavigation.links___NODE.length) {
-    return [];
-  }
-
-  const __getItemFromLink = async (link: Node) => {
-    if (!link || !link.linkedPage___NODE) {
+  const __getItemFromLink = async (link: ContentfulLink) => {
+    if (!link?.linkedPage) {
       return null;
     }
 
-    const linkedPage = await context.nodeModel.getNodeById({
-      id: link.linkedPage___NODE
-    });
-
-    if (!linkedPage) {
-      return null;
-    }
-
-    const { id, slug, title } = linkedPage;
+    const { sys, slug, title } = link.linkedPage;
 
     return {
-      id,
+      id: sys.id,
       slug,
       label: link.label || title,
       queryParams: link.queryParams || ""
     };
   };
 
-  const pageIdToPathMap = {};
+  const pageIdToPathMap: Record<string, Path> = {};
 
-  const __helper = async (items: string[], path) => {
-    if (pageIdToPathMap[page.id]) {
-      return pageIdToPathMap[page.id];
+  const __helper = async (
+    items: (ContentfulLink | ContentfulNavigation | NavigationItem)[],
+    path: Path
+  ) => {
+    if (pageIdToPathMap[page.sys.id]) {
+      return pageIdToPathMap[page.sys.id];
     }
 
-    const links = await Promise.all(
-      items.map((linkId) =>
-        context.nodeModel.getNodeById<Node>({
-          // TODO: Handle the case when a page belongs to multiple sites.
-          id: linkId
-        })
-      )
-    );
-
-    for (const item of links) {
-      const {
-        internal: { type }
-      } = item;
-
-      if (type === "ContentfulLink") {
+    for (const item of items) {
+      if (item.__typename === "Link") {
         const pathItem = await __getItemFromLink(item);
 
-        if (pathItem && pathItem.id === page.id) {
-          pageIdToPathMap[page.id] = path.concat(pathItem);
+        if (pathItem && pathItem.id === page.sys.id) {
+          pageIdToPathMap[page.sys.id] = path.concat(pathItem);
 
-          return pageIdToPathMap[page.id];
+          return pageIdToPathMap[page.sys.id];
         }
       }
 
-      if (type === "ContentfulNavigation") {
-        const { links___NODE: linkIds, link___NODE: linkId } = item;
-        const link = await context.nodeModel.getNodeById<Node>({
-          id: linkId,
-          type: "ContentfulLink"
-        });
-        const pathItem = await __getItemFromLink(link);
+      if (item.__typename === "Navigation") {
+        const pathItem = item.link
+          ? await __getItemFromLink(item.link)
+          : undefined;
 
-        if (pathItem && pathItem.id === page.id) {
-          pageIdToPathMap[page.id] = path.concat(
-            pathItem || { id: item?.id, label: item?.label }
-          );
-
-          return pageIdToPathMap[page.id];
+        if (pathItem && pathItem.id === page.sys.id) {
+          pageIdToPathMap[page.sys.id] = path.concat(pathItem);
+          return pageIdToPathMap[page.sys.id];
         }
 
         await __helper(
-          linkIds,
-          path.concat(pathItem || { id: item?.id, label: item?.label })
+          item.linksCollection.items,
+          path.concat(pathItem || { id: item.sys.id, label: item.label || "" })
         );
       }
     }
   };
 
-  await __helper(menuNavigation.links___NODE, []);
+  await __helper(menuNavigation.linksCollection.items, []);
 
-  return pageIdToPathMap[page.id] || [];
+  return pageIdToPathMap[page.sys.id] || [];
 };
 
-export const resolvePath = async (
-  source: Partial<Node>,
-  args?: ResolveArgs,
-  context?: Context
-): Promise<Path> => {
-  const { id, title: label, slug, parentPage___NODE } = source;
+type ParentPageResponse = {
+  entryCollection: {
+    items: [ParentPage];
+  };
+};
 
-  if (parentPage___NODE) {
-    const parentPage = await context?.nodeModel.getNodeById<Node>({
-      id: parentPage___NODE
+export const resolvePath = async (currentPage: Page): Promise<Path> => {
+  const {
+    sys: { id },
+    title: label,
+    slug,
+    parentPage
+  } = currentPage;
+  if (parentPage) {
+    const data = await getContentfulData<ParentPageResponse>(parentPageQuery, {
+      entryId: parentPage.sys.id
     });
-    const path = await resolvePath(parentPage, undefined, context);
+
+    if (data.errors) {
+      throw new Error(JSON.stringify(data.errors));
+    }
+
+    const page = data.data.entryCollection.items[0];
+
+    if (!page) {
+      return [{ id, label, slug }];
+    }
+
+    const path = await resolvePath({ ...page, slug: page.slug || "" });
     const pageItem = { id, label, slug };
 
     if (!path || !path.length) {
       return [
         {
-          id: parentPage?.id,
-          label: parentPage?.title,
-          slug: parentPage?.slug
+          id: page.sys.id,
+          label: page.title,
+          slug: page.slug || ""
         },
         pageItem
       ];
@@ -164,7 +150,7 @@ export const resolvePath = async (
     return [...path, pageItem];
   }
 
-  const path = await getPath(source, context);
+  const path = await getPath(currentPage);
 
   if (!path || !path.length) {
     return [{ id, label, slug }];

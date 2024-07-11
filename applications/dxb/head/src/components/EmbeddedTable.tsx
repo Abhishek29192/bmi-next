@@ -1,9 +1,9 @@
 import Table from "@bmi-digital/components/table";
-import { graphql } from "gatsby";
 import React from "react";
 import { StyledEmbeddedTableContainer } from "./styles/EmbeddedTableStyles";
 
-type TableFields = {
+export type TableFields = {
+  __typename: "Table";
   data: {
     tableData: readonly string[][];
   };
@@ -97,13 +97,3 @@ const EmbeddedTable = ({ fields }: Props) => {
 };
 
 export default EmbeddedTable;
-
-export const query = graphql`
-  fragment EmbeddedTableFragment on ContentfulTable {
-    __typename
-    contentful_id
-    data {
-      tableData
-    }
-  }
-`;

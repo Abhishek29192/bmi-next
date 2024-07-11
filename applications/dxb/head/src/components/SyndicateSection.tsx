@@ -4,8 +4,7 @@ import Villain from "@bmi-digital/components/villain";
 import { microCopy, MicroCopyValues } from "@bmi/microcopies";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { graphql } from "gatsby";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import Button from "@bmi-digital/components/button";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
@@ -13,20 +12,18 @@ import {
   DescriptionGrid,
   DescriptionTypoMultiLine
 } from "./styles/SyndicateSection.styles";
+import { getCTA } from "./link/utils";
 import createImageProps from "./image/createImageProps";
 import createVideoProps from "./video/createVideoProps";
-import { getCTA } from "./link/utils";
 import type { VillainProps } from "@bmi-digital/components/villain";
 import type { Data as PageInfoData } from "./PageInfo";
 import type { Data as PromoData } from "./Promo";
 import type { ImageWidths } from "./image/types";
 
 export type Data = {
-  __typename: "ContentfulSyndicateSection";
+  __typename: "VillainSection";
   title: string | null;
-  description: {
-    description: string;
-  } | null;
+  description: string | null;
   villains: (PromoData | PageInfoData)[] | null;
   isReversed: boolean;
 };
@@ -61,7 +58,7 @@ const SyndicateSection = ({
     );
 
     const label =
-      data.__typename == "ContentfulPromo" && data.cta
+      data.__typename == "Promo" && data.cta
         ? data.cta.label
         : getMicroCopy(microCopy.PAGE_LINK_LABEL);
 
@@ -120,7 +117,7 @@ const SyndicateSection = ({
               <DescriptionTypoMultiLine
                 data-testid={"syndicate-section-description"}
               >
-                {description.description}
+                {description}
               </DescriptionTypoMultiLine>
             </DescriptionGrid>
           )}
@@ -153,7 +150,7 @@ const SyndicateSection = ({
           <DescriptionTypoMultiLine
             data-testid={"syndicate-section-description"}
           >
-            {description.description}
+            {description}
           </DescriptionTypoMultiLine>
         </DescriptionGrid>
       )}
@@ -174,19 +171,3 @@ const SyndicateSection = ({
 };
 
 export default SyndicateSection;
-
-export const query = graphql`
-  fragment SyndicateSectionFragment on ContentfulSyndicateSection {
-    title
-    description {
-      description
-    }
-    villains {
-      ... on ContentfulPromoOrPage {
-        ...PromoVillainFragment
-        ...PageInfoVillainFragment
-      }
-    }
-    isReversed
-  }
-`;

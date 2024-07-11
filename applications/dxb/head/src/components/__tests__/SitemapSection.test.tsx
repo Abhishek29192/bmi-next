@@ -8,17 +8,17 @@ import type { Data as LinkData, NavigationData } from "../link/types";
 describe("SitemapSection component", () => {
   it("renders correctly", () => {
     const data: NavigationData = {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Main",
       link: null,
       links: [
         {
-          __typename: "ContentfulNavigation",
+          __typename: "Navigation",
           label: "Get in touch",
           link: null,
           links: [
             {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "",
               label: "+44 (0) 1234567890",
               url: "tel:+4401234567890",
@@ -28,17 +28,18 @@ describe("SitemapSection component", () => {
               type: DataTypeEnum.External,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             }
           ]
         },
         {
-          __typename: "ContentfulNavigation",
+          __typename: "Navigation",
           label: "About BMI",
           link: null,
           links: [
             {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "",
               label: "Our story",
               url: null,
@@ -50,7 +51,8 @@ describe("SitemapSection component", () => {
               type: DataTypeEnum.Internal,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             }
           ]
         }
@@ -67,17 +69,17 @@ describe("SitemapSection component", () => {
 
   it("renders correctly 2 levels deep", () => {
     const data: NavigationData = {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Main",
       link: null,
       links: [
         {
-          __typename: "ContentfulNavigation",
+          __typename: "Navigation",
           label: "Get in touch",
           link: null,
           links: [
             {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "",
               label: "+44 (0) 1234567890",
               url: "tel:+4401234567890",
@@ -87,15 +89,16 @@ describe("SitemapSection component", () => {
               type: DataTypeEnum.External,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             },
             {
-              __typename: "ContentfulNavigation",
+              __typename: "Navigation",
               label: "About BMI 2",
               link: null,
               links: [
                 {
-                  __typename: "ContentfulLink",
+                  __typename: "Link",
                   id: "",
                   label: "Our story",
                   url: null,
@@ -107,15 +110,16 @@ describe("SitemapSection component", () => {
                   type: DataTypeEnum.Internal,
                   parameters: null,
                   dialogContent: null,
-                  hubSpotCTAID: null
+                  hubSpotCTAID: null,
+                  queryParams: null
                 },
                 {
-                  __typename: "ContentfulNavigation",
+                  __typename: "Navigation",
                   label: "About BMI 2",
                   link: null,
                   links: [
                     {
-                      __typename: "ContentfulLink",
+                      __typename: "Link",
                       id: "",
                       label: "Our story",
                       url: null,
@@ -127,7 +131,8 @@ describe("SitemapSection component", () => {
                       type: DataTypeEnum.Internal,
                       parameters: null,
                       dialogContent: null,
-                      hubSpotCTAID: null
+                      hubSpotCTAID: null,
+                      queryParams: null
                     }
                   ]
                 }
@@ -136,12 +141,12 @@ describe("SitemapSection component", () => {
           ]
         },
         {
-          __typename: "ContentfulNavigation",
+          __typename: "Navigation",
           label: "About BMI",
           link: null,
           links: [
             {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "",
               label: "Our story",
               url: null,
@@ -153,7 +158,8 @@ describe("SitemapSection component", () => {
               type: DataTypeEnum.Internal,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             }
           ]
         }
@@ -170,7 +176,7 @@ describe("SitemapSection component", () => {
 
   it("renders correctly with header links", () => {
     const headerLink = {
-      __typename: "ContentfulLink",
+      __typename: "Link",
       id: "testLink",
       label: "Get in touch",
       url: "/test",
@@ -179,17 +185,17 @@ describe("SitemapSection component", () => {
     } as LinkData;
 
     const data: NavigationData = {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Main",
       link: null,
       links: [
         {
-          __typename: "ContentfulNavigation",
+          __typename: "Navigation",
           label: "Get in touch",
           link: headerLink,
           links: [
             {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "",
               label: "+44 (0) 1234567890",
               url: "tel:+4401234567890",
@@ -199,17 +205,18 @@ describe("SitemapSection component", () => {
               type: DataTypeEnum.External,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             }
           ]
         },
         {
-          __typename: "ContentfulNavigation",
+          __typename: "Navigation",
           label: "About BMI",
           link: null,
           links: [
             {
-              __typename: "ContentfulLink",
+              __typename: "Link",
               id: "",
               label: "Our story",
               url: null,
@@ -221,7 +228,8 @@ describe("SitemapSection component", () => {
               type: DataTypeEnum.Internal,
               parameters: null,
               dialogContent: null,
-              hubSpotCTAID: null
+              hubSpotCTAID: null,
+              queryParams: null
             }
           ]
         }
@@ -239,7 +247,7 @@ describe("SitemapSection component", () => {
 
   it("renders correctly if incomplete", () => {
     const data = {
-      __typename: "ContentfulNavigation"
+      __typename: "Navigation"
     } as NavigationData;
 
     const { container } = render(

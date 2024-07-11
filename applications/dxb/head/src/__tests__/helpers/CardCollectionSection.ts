@@ -5,7 +5,7 @@ import type { Data as CardCollectionSectionData } from "../../components/CardCol
 const createCardCollectionSection = (
   cardCollectionSection?: Partial<CardCollectionSectionData>
 ): CardCollectionSectionData => ({
-  __typename: "ContentfulCardCollectionSection",
+  __typename: "CardCollectionSection",
   title: null,
   description: null,
   cardType: "Highlight Card",

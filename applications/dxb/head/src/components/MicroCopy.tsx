@@ -1,4 +1,3 @@
-import { graphql } from "gatsby";
 import { MicroCopyValues } from "@bmi/microcopies";
 
 export type Data = {
@@ -33,10 +32,3 @@ export const generateGetMicroCopy = (microCopy?: Data[] | null) => {
 
   return getMicroCopy;
 };
-
-export const query = graphql`
-  fragment MicroCopyFragment on ContentfulMicroCopy {
-    key
-    value
-  }
-`;

@@ -4,7 +4,6 @@ import Video from "../Video";
 import { renderWithProviders } from "../../../__tests__/renderWithProviders";
 import createVideoData from "../../../__tests__/helpers/VideoHelper";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
-import createGatsbyImageData from "../../../__tests__/helpers/GatsbyImageDataHelper";
 
 const mockPushGTMEvent = jest.fn();
 
@@ -22,6 +21,7 @@ describe("Video", () => {
         {...createVideoData()}
         className="example-classname"
         data-testid="example-data-test-id"
+        previewMediaWidths={[10, 10, 10, 10, 10]}
       />
     );
     expect(container).toMatchSnapshot();
@@ -39,6 +39,7 @@ describe("Video", () => {
         })}
         className={undefined}
         data-testid={undefined}
+        previewMediaWidths={[10, 10, 10, 10, 10]}
       />
     );
     expect(container).toMatchSnapshot();
@@ -74,6 +75,7 @@ describe("Video", () => {
           })}
           className={undefined}
           data-testid={undefined}
+          previewMediaWidths={[10, 10, 10, 10, 10]}
         />
       );
       expect(container).toMatchSnapshot();
@@ -87,8 +89,12 @@ describe("Video", () => {
             subtitle: null,
             previewMedia: createImageData({
               image: {
-                file: { fileName: "example-filename" },
-                gatsbyImageData: createGatsbyImageData()
+                fileName: "example-filename",
+                contentType: "image/jpeg",
+                url: "http://localhost:8080/custom-image.jpg",
+                size: 1000,
+                height: 200,
+                width: 400
               }
             }),
             videoRatio: null,
@@ -96,6 +102,7 @@ describe("Video", () => {
           })}
           className={undefined}
           data-testid={undefined}
+          previewMediaWidths={[10, 10, 10, 10, 10]}
         />
       );
       expect(container).toMatchSnapshot();
@@ -109,7 +116,12 @@ describe("Video", () => {
             subtitle: null,
             previewMedia: createImageData({
               image: {
-                file: { fileName: "example-filename", url: "/example.url" }
+                fileName: "example-filename",
+                url: "/example.url",
+                contentType: "image/jpeg",
+                size: 1000,
+                height: 200,
+                width: 400
               }
             }),
             videoRatio: null,
@@ -117,29 +129,7 @@ describe("Video", () => {
           })}
           className={undefined}
           data-testid={undefined}
-        />
-      );
-      expect(container).toMatchSnapshot();
-    });
-
-    it("should render correctly if 'thumbnail' is undefined", () => {
-      const { container } = renderWithProviders(
-        <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: createImageData({
-              image: {
-                file: { fileName: "example-filename" },
-                gatsbyImageData: createGatsbyImageData(),
-                thumbnail: undefined
-              }
-            }),
-            videoRatio: null,
-            layout: undefined
-          })}
-          className={undefined}
-          data-testid={undefined}
+          previewMediaWidths={[10, 10, 10, 10, 10]}
         />
       );
       expect(container).toMatchSnapshot();
@@ -159,44 +149,7 @@ describe("Video", () => {
           })}
           className={undefined}
           data-testid={undefined}
-        />
-      );
-      expect(container).toMatchSnapshot();
-    });
-
-    it("should render correctly if 'loading' is eager", () => {
-      const { container } = renderWithProviders(
-        <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: createImageData({
-              loading: "eager"
-            }),
-            videoRatio: null,
-            layout: undefined
-          })}
-          className={undefined}
-          data-testid={undefined}
-        />
-      );
-      expect(container).toMatchSnapshot();
-    });
-
-    it("should render correctly if 'loading' is undefined", () => {
-      const { container } = renderWithProviders(
-        <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: createImageData({
-              loading: undefined
-            }),
-            videoRatio: null,
-            layout: undefined
-          })}
-          className={undefined}
-          data-testid={undefined}
+          previewMediaWidths={[10, 10, 10, 10, 10]}
         />
       );
       expect(container).toMatchSnapshot();
@@ -216,6 +169,7 @@ describe("Video", () => {
           })}
           className={undefined}
           data-testid={undefined}
+          previewMediaWidths={[10, 10, 10, 10, 10]}
         />
       );
       expect(container).toMatchSnapshot();
@@ -233,6 +187,7 @@ describe("Video", () => {
           })}
           className={undefined}
           data-testid={undefined}
+          previewMediaWidths={[10, 10, 10, 10, 10]}
         />
       );
       expect(container).toMatchSnapshot();
@@ -241,7 +196,12 @@ describe("Video", () => {
 
   describe("pushGTMEvent", () => {
     it("should call pushGTMEvent when the user clicks the video play button", () => {
-      renderWithProviders(<Video {...createVideoData()} />);
+      renderWithProviders(
+        <Video
+          {...createVideoData()}
+          previewMediaWidths={[10, 10, 10, 10, 10]}
+        />
+      );
 
       fireEvent.click(screen.getByRole("button"));
       expect(mockPushGTMEvent).toHaveBeenCalled();

@@ -4,7 +4,7 @@ import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { navigate, useLocation } from "@reach/router";
-import { graphql } from "gatsby";
+// import { graphql } from "gatsby";
 import fetch, { Response } from "node-fetch";
 import React, {
   createContext,
@@ -186,7 +186,7 @@ const SystemConfiguratorQuestion = ({
           | ResultData
           | TitleWithContentData;
 
-        if (data.__typename === "ContentfulTitleWithContent") {
+        if (data.__typename === "TitleWithContent") {
           setNextStep({ nextNoResult: data });
           setState((state) => ({
             ...state,
@@ -534,63 +534,63 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
 
 export default SystemConfiguratorSection;
 
-export const query = graphql`
-  fragment SystemConfiguratorSectionFragment on ContentfulSystemConfiguratorSection {
-    __typename
-    title
-    locale: node_locale
-    description {
-      ...RichTextFragment
-    }
-    label
-    question {
-      ...SystemConfiguratorQuestionFragment
-    }
-    systemProperties
-  }
-  fragment SystemConfiguratorQuestionFragment on ContentfulSystemConfiguratorQuestion {
-    __typename
-    id: contentful_id
-    locale: node_locale
-    title
-    label
-    description {
-      ...RichTextFragment
-    }
-    answers {
-      ...SystemConfiguratorAnswerFragment
-    }
-  }
-  fragment SystemConfiguratorAnswerFragment on ContentfulSystemConfiguratorAnswer {
-    __typename
-    id: contentful_id
-    locale: node_locale
-    title
-    label
-    description {
-      ...RichTextFragment
-    }
-    nextStep {
-      ... on ContentfulSystemConfiguratorQuestion {
-        id: contentful_id
-      }
-      ... on ContentfulTitleWithContent {
-        id: contentful_id
-      }
-      ... on ContentfulSystemConfiguratorResult {
-        id: contentful_id
-      }
-    }
-  }
-  fragment SystemConfiguratorResultFragment on ContentfulSystemConfiguratorResult {
-    __typename
-    id: contentful_id
-    locale: node_locale
-    title
-    label
-    description {
-      ...RichTextFragment
-    }
-    recommendedSystems
-  }
-`;
+// export const query = graphql`
+//   fragment SystemConfiguratorSectionFragment on ContentfulSystemConfiguratorSection {
+//     __typename
+//     title
+//     locale: node_locale
+//     description {
+//       ...RichTextFragment
+//     }
+//     label
+//     question {
+//       ...SystemConfiguratorQuestionFragment
+//     }
+//     systemProperties
+//   }
+//   fragment SystemConfiguratorQuestionFragment on ContentfulSystemConfiguratorQuestion {
+//     __typename
+//     id: contentful_id
+//     locale: node_locale
+//     title
+//     label
+//     description {
+//       ...RichTextFragment
+//     }
+//     answers {
+//       ...SystemConfiguratorAnswerFragment
+//     }
+//   }
+//   fragment SystemConfiguratorAnswerFragment on ContentfulSystemConfiguratorAnswer {
+//     __typename
+//     id: contentful_id
+//     locale: node_locale
+//     title
+//     label
+//     description {
+//       ...RichTextFragment
+//     }
+//     nextStep {
+//       ... on ContentfulSystemConfiguratorQuestion {
+//         id: contentful_id
+//       }
+//       ... on ContentfulTitleWithContent {
+//         id: contentful_id
+//       }
+//       ... on ContentfulSystemConfiguratorResult {
+//         id: contentful_id
+//       }
+//     }
+//   }
+//   fragment SystemConfiguratorResultFragment on ContentfulSystemConfiguratorResult {
+//     __typename
+//     id: contentful_id
+//     locale: node_locale
+//     title
+//     label
+//     description {
+//       ...RichTextFragment
+//     }
+//     recommendedSystems
+//   }
+// `;

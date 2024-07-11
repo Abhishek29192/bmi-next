@@ -3,7 +3,7 @@ import Grid from "@bmi-digital/components/grid";
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
+import React from "react";
 import NextLink from "next/link";
 import BrandLogo from "./BrandLogo";
 import { useSiteContext } from "./Site";
@@ -53,18 +53,3 @@ const Brands = ({ data }: { data: Data[] }) => {
 };
 
 export default Brands;
-
-export const query = graphql`
-  fragment BrandFragment on ContentfulBrandLandingPage {
-    title
-    path
-    subtitle
-    brandLogo
-  }
-  fragment SPABrandFragment on ContentfulBrand {
-    title
-    path
-    subtitle
-    brandLogo
-  }
-`;

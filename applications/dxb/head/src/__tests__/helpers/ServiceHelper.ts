@@ -14,7 +14,7 @@ export const createFullyPopulatedService = (
   instagram: "instagram",
   twitter: "twitter",
   fax: "01234567891",
-  serviceTypes: [{ __typename: "ContentfulServiceType", name: "Pitched Roof" }],
+  serviceTypes: [{ __typename: "ServiceType", name: "Pitched Roof" }],
   certification: "Elite",
   summary: "Contentful service summary",
   websiteLinkAsLabel: false,
@@ -24,7 +24,7 @@ export const createFullyPopulatedService = (
 });
 
 const createService = (service?: Partial<Service>): Service => ({
-  __typename: "ContentfulService",
+  __typename: "Roofer",
   entryType: EntryTypeEnum.ROOFER_TYPE,
   id: "roofer_id",
   name: "roofer 1",

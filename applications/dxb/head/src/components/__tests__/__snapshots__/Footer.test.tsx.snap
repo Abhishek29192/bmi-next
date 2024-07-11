@@ -89,7 +89,7 @@ exports[`Footer component renders correctly 1`] = `
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Our story"}"
                       data-testid="footer-navigation-button-Our-story"
-                      href="/uk/landing-page/"
+                      href="/uk/landing-page"
                       tabindex="0"
                     >
                       Our story
@@ -137,7 +137,7 @@ exports[`Footer component renders correctly 1`] = `
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Our story"}"
                   data-testid="footer-navigation-button-Our-story"
-                  href="/uk/landing-page/"
+                  href="/uk/landing-page"
                   tabindex="0"
                 >
                   Our story
@@ -153,7 +153,7 @@ exports[`Footer component renders correctly 1`] = `
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-footer1","action":"/uk/sitemap/","label":"global.sitemap"}"
                   data-testid="footer-navigation-button-global.sitemap"
-                  href="/uk/sitemap/"
+                  href="/uk/sitemap"
                   tabindex="0"
                 >
                   global.sitemap
@@ -311,7 +311,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Our story"}"
                       data-testid="footer-navigation-button-Our-story"
-                      href="/uk/landing-page/"
+                      href="/uk/landing-page"
                       tabindex="0"
                     >
                       Our story
@@ -359,7 +359,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-footer1","action":"/uk/landing-page/","label":"Icopal brand"}"
                   data-testid="footer-navigation-button-Icopal-brand"
-                  href="/uk/landing-page/"
+                  href="/uk/landing-page"
                   tabindex="0"
                 >
                   <span
@@ -412,7 +412,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-footer1","action":"/uk/sitemap/","label":"global.sitemap"}"
                   data-testid="footer-navigation-button-global.sitemap"
-                  href="/uk/sitemap/"
+                  href="/uk/sitemap"
                   tabindex="0"
                 >
                   global.sitemap

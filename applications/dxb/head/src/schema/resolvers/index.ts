@@ -1,7 +1,6 @@
 import ContentfulDocumentDownloadSection from "./ContentfulDocumentDownloadSection";
 import ContentfulDocumentLibraryPage from "./ContentfulDocumentLibraryPage";
 import ContentfulFormSection from "./ContentfulFormSection";
-import ContentfulHomePage from "./ContentfulHomePage";
 import ContentfulImage from "./ContentfulImage";
 import ContentfulLink from "./ContentfulLink";
 import ContentfulPage from "./ContentfulPage";
@@ -43,7 +42,6 @@ export default {
     ...ContentfulDocumentLibraryPageCommon
   },
   ContentfulFormSection,
-  ContentfulHomePage,
   ContentfulProductListerPage,
   ContentfulServiceLocatorSection,
   ContentfulSimplePage: {

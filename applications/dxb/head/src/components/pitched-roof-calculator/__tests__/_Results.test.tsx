@@ -21,6 +21,7 @@ import {
   VentilationHood,
   WidthBasedProduct
 } from "../types";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
 import { createProduct } from "./helpers/createProduct";
 import en from "./samples/copy/en.json";
 import { createTile } from "./helpers/createTile";
@@ -188,17 +189,16 @@ const resultsProps: ResultProps = {
   setIsHubSpotFormAvailable: jest.fn(),
   isHubSpotFormAvailable: true,
   needHelpSection: {
-    __typename: "ContentfulTitleWithContent",
+    __typename: "TitleWithContent",
     title: "",
     name: "",
-    content: {
-      raw: JSON.stringify({
+    content: createRichText({
+      json: {
         nodeType: BLOCKS.DOCUMENT,
         data: {},
         content: []
-      }),
-      references: []
-    }
+      }
+    })
   },
   measurements: {
     faces: [

@@ -3,6 +3,7 @@ import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
 import { graphql } from "gatsby";
 import NextLink from "next/link";
+import React from "react";
 import FallbackComponent from "../components/FallbackComponent";
 import Page from "../components/Page";
 import { getPathWithCountryCode } from "../utils/path";

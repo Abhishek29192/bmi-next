@@ -1,7 +1,8 @@
-import { RichTextData } from "../../components/RichText";
+import { BLOCKS } from "@contentful/rich-text-types";
+import type { RichTextData } from "../../components/RichText";
 
 const createRichText = (richText?: Partial<RichTextData>): RichTextData => ({
-  raw: JSON.stringify({
+  json: {
     data: {},
     content: [
       {
@@ -14,17 +15,12 @@ const createRichText = (richText?: Partial<RichTextData>): RichTextData => ({
             nodeType: "text"
           }
         ],
-        nodeType: "paragraph"
+        nodeType: BLOCKS.PARAGRAPH
       }
     ],
-    nodeType: "document"
-  }),
-  references: [
-    {
-      __typename: "paragraph",
-      contentful_id: "rich-text-reference-contentful-id"
-    }
-  ],
+    nodeType: BLOCKS.DOCUMENT
+  },
+  references: new Map(),
   ...richText
 });
 

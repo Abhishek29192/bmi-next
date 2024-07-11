@@ -1,8 +1,8 @@
 import auth0 from "auth0-js";
-import { navigate } from "gatsby";
+import { redirect, RedirectType } from "next/navigation";
 import { config } from "./config";
-import type { Auth0IdTokenPayload } from "../types/auth0";
 import type { AuthorizeOptions } from "auth0-js";
+import type { Auth0IdTokenPayload } from "../types/auth0";
 
 export interface SessionState {
   isLoggedIn: boolean;
@@ -51,7 +51,7 @@ class Auth {
             localStorage.removeItem("postLoginUrl");
             localStorage.setItem("showLoginToast", "true");
             if (postLoginUrl) {
-              navigate(postLoginUrl);
+              redirect(postLoginUrl, RedirectType.push);
             }
             return resolve(authResult);
           } else if (err) {

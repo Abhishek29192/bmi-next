@@ -1,9 +1,9 @@
+import React from "react";
 import Section from "@bmi-digital/components/section";
-import { graphql } from "gatsby";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 export type Data = {
-  __typename: "ContentfulEmbeddedScriptSection";
+  __typename: "EmbeddedScriptSection";
   title: string | null;
   scriptSectionId: string;
   url: string;
@@ -56,13 +56,3 @@ const EmbeddedScriptSection = ({
 };
 
 export default EmbeddedScriptSection;
-
-export const query = graphql`
-  fragment EmbeddedScriptSectionFragment on ContentfulEmbeddedScriptSection {
-    __typename
-    title
-    scriptSectionId
-    url
-    ecmaScript
-  }
-`;

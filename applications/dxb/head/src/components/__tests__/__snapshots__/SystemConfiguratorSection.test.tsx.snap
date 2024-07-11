@@ -253,7 +253,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"system-configurator01-results","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details","label":"efgh name"}"
                   data-testid="tappable-card-main"
-                  href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                  href="/no/s/efgh-name-efgh?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                   tabindex="0"
                 >
                   <svg
@@ -310,7 +310,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"system-configurator01-results","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details","label":"efgh name"}"
                     data-testid="button"
-                    href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                    href="/no/s/efgh-name-efgh?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                     tabindex="0"
                   >
                     <span
@@ -597,7 +597,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"system-configurator01-results","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details","label":"efgh name"}"
                   data-testid="tappable-card-main"
-                  href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                  href="/no/s/efgh-name-efgh?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                   tabindex="0"
                 >
                   <svg
@@ -654,7 +654,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"system-configurator01-results","action":"/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details","label":"efgh name"}"
                     data-testid="button"
-                    href="/no/s/efgh-name-efgh/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                    href="/no/s/efgh-name-efgh?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                     tabindex="0"
                   >
                     <span
@@ -3257,7 +3257,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details","label":"ijkl name"}"
                   data-testid="tappable-card-main"
-                  href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
+                  href="/no/related-system-path?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                   tabindex="0"
                 >
                   <img
@@ -3304,7 +3304,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details","label":"ijkl name"}"
                     data-testid="button"
-                    href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
+                    href="/no/related-system-path?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                     tabindex="0"
                   >
                     <span
@@ -3339,7 +3339,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details","label":"efgh name"}"
                   data-testid="tappable-card-main"
-                  href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                  href="/no/related-system-path?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                   tabindex="0"
                 >
                   <img
@@ -3386,7 +3386,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details","label":"efgh name"}"
                     data-testid="button"
-                    href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                    href="/no/related-system-path?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                     tabindex="0"
                   >
                     <span
@@ -3421,7 +3421,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details","label":"abcd name"}"
                   data-testid="tappable-card-main"
-                  href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
+                  href="/no/related-system-path?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                   tabindex="0"
                 >
                   <img
@@ -3468,7 +3468,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details","label":"abcd name"}"
                     data-testid="button"
-                    href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
+                    href="/no/related-system-path?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                     tabindex="0"
                   >
                     <span
@@ -3503,7 +3503,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details","label":"mnop name"}"
                   data-testid="tappable-card-main"
-                  href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
+                  href="/no/related-system-path?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                   tabindex="0"
                 >
                   <img
@@ -3550,7 +3550,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details","label":"mnop name"}"
                     data-testid="button"
-                    href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
+                    href="/no/related-system-path?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                     tabindex="0"
                   >
                     <span
@@ -3834,7 +3834,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details","label":"ijkl name"}"
                   data-testid="tappable-card-main"
-                  href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
+                  href="/no/related-system-path?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                   tabindex="0"
                 >
                   <img
@@ -3884,7 +3884,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details","label":"ijkl name"}"
                     data-testid="button"
-                    href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
+                    href="/no/related-system-path?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                     tabindex="0"
                   >
                     <span
@@ -3922,7 +3922,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details","label":"efgh name"}"
                   data-testid="tappable-card-main"
-                  href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                  href="/no/related-system-path?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                   tabindex="0"
                 >
                   <img
@@ -3972,7 +3972,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"system-configurator01-results","action":"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details","label":"efgh name"}"
                     data-testid="button"
-                    href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                    href="/no/related-system-path?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                     tabindex="0"
                   >
                     <span

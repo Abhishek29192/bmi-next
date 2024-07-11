@@ -1,8 +1,8 @@
 import React from "react";
-import { Block } from "@contentful/rich-text-types";
-import { graphql } from "gatsby";
 import EmbeddedTable from "./EmbeddedTable";
 import EmbeddedLink from "./EmbeddedLink";
+import type { Data as LinkData } from "./link/types";
+import type { TableFields as TableData } from "./EmbeddedTable";
 
 export type Settings = {
   theme?: "primary" | "secondary";
@@ -10,35 +10,16 @@ export type Settings = {
 };
 
 const EmbeddedBlock = ({
-  node,
+  fields,
   ...settings
 }: {
-  node: Block;
+  fields: LinkData | TableData;
 } & Settings) => {
-  // NOTE: No type for this from Contentful, protecting in case it's missing in JSON
-  const fields = node.data?.target;
-
-  const Component = {
-    ContentfulTable: EmbeddedTable,
-    ContentfulLink: EmbeddedLink
-  }[fields.__typename];
-
-  if (!Component) {
-    return null;
+  if (fields.__typename === "Link") {
+    return <EmbeddedLink fields={fields} {...settings} />;
   }
 
-  return <Component fields={fields} {...settings} />;
+  return <EmbeddedTable fields={fields} />;
 };
 
 export default EmbeddedBlock;
-
-export const query = graphql`
-  fragment EmbeddedBlockFragment on ContentfulRichTextReference {
-    ...EmbeddedTableFragment
-    ...EmbeddedLinkFragment
-  }
-  fragment EmbeddedBlockFragmentNonRecursive on ContentfulRichTextReference {
-    ...EmbeddedTableFragment
-    ...EmbeddedLinkFragmentNonRecursive
-  }
-`;

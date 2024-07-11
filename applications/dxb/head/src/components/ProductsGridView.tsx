@@ -1,3 +1,4 @@
+import React from "react";
 import Grid from "@bmi-digital/components/grid";
 import ProductOverviewCard from "@bmi-digital/components/product-overview-card";
 import Typography from "@bmi-digital/components/typography";

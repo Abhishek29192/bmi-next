@@ -55,11 +55,11 @@ describe("getSocialMediaGtm", () => {
       it("should create a label with comma separated service types", () => {
         const serviceTypes: Data[] = [
           {
-            __typename: "ContentfulServiceType",
+            __typename: "ServiceType",
             name: "foo"
           },
           {
-            __typename: "ContentfulServiceType",
+            __typename: "ServiceType",
             name: "bar"
           }
         ];

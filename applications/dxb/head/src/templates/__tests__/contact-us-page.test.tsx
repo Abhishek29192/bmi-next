@@ -2,9 +2,8 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
-import { Data as PageInfoData } from "../../components/PageInfo";
-import { Data as PromoData } from "../../components/Promo";
 import { Data as SiteData } from "../../components/Site";
 import { SourceType } from "../../components/types/FormSectionTypes";
 import { createMockSiteData } from "../../test/mockSiteData";
@@ -12,6 +11,7 @@ import { renderWithRouter } from "../../test/renderWithRouter";
 import ContactUsPage, { Data } from "../contact-us-page";
 import createPromoData from "../../__tests__/helpers/PromoHelper";
 import createPageInfoData from "../../__tests__/helpers/PageInfoHelper";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: SiteData } = {
@@ -29,7 +29,7 @@ describe("Contact us page", () => {
       nextBestActions: [createPromoData(), createPageInfoData()],
       featuredMedia: null,
       featuredVideo: {
-        __typename: "ContentfulVideo",
+        __typename: "Video",
         title: "featuredVideo",
         label: "label",
         subtitle: null,
@@ -56,24 +56,65 @@ describe("Contact us page", () => {
           bodyTitle: "Did you know?",
           bodyList: [
             {
-              __typename: "ContentfulTitleWithContent",
+              __typename: "TitleWithContent",
               name: "Our installation instructions show how a product is assembled",
               title:
                 "Our installation instructions show how a product is assembled",
-              content: {
-                raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-                references: []
-              }
+              content: createRichText({
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value:
+                            "If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: BLOCKS.PARAGRAPH
+                    },
+                    {
+                      data: {},
+                      content: [
+                        { data: {}, marks: [], value: "", nodeType: "text" }
+                      ],
+                      nodeType: BLOCKS.PARAGRAPH
+                    }
+                  ],
+                  nodeType: BLOCKS.DOCUMENT
+                }
+              })
             },
             {
-              __typename: "ContentfulTitleWithContent",
+              __typename: "TitleWithContent",
               name: "You can check relevant technical information whilst browsing our site",
               title:
                 "You can check relevant technical information whilst browsing our site",
-              content: {
-                raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-                references: []
-              }
+              content: createRichText({
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value:
+                            "Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: BLOCKS.PARAGRAPH
+                    }
+                  ],
+                  nodeType: BLOCKS.DOCUMENT
+                }
+              })
             }
           ],
           footerTitle: null,
@@ -85,13 +126,37 @@ describe("Contact us page", () => {
           bodyTitle: null,
           bodyList: [
             {
-              __typename: "ContentfulTitleWithContent",
+              __typename: "TitleWithContent",
               name: "Use our online form",
               title: "Use our online form",
-              content: {
-                raw: '{"data":{},"content":[{"data":{"target":{"sys":{"id":"7CVaEtq6uudGvsBBRvArMM","type":"Link","linkType":"Entry"}}},"content":[],"nodeType":"embedded-entry-block"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-                references: []
-              }
+              content: createRichText({
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {
+                        target: {
+                          sys: {
+                            id: "7CVaEtq6uudGvsBBRvArMM",
+                            type: "Link",
+                            linkType: "Entry"
+                          }
+                        }
+                      },
+                      content: [],
+                      nodeType: BLOCKS.EMBEDDED_ENTRY
+                    },
+                    {
+                      data: {},
+                      content: [
+                        { data: {}, marks: [], value: "", nodeType: "text" }
+                      ],
+                      nodeType: BLOCKS.PARAGRAPH
+                    }
+                  ],
+                  nodeType: BLOCKS.DOCUMENT
+                }
+              })
             }
           ],
           footerTitle: "Still need help?",
@@ -102,33 +167,71 @@ describe("Contact us page", () => {
               address: null,
               phoneNumber: "67679090",
               email: "vijay@bmigroup.com",
-              otherInformation: {
-                raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Monday - Friday,  08:00 - 17:00","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-                references: []
-              }
+              otherInformation: createRichText({
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Monday - Friday,  08:00 - 17:00",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: BLOCKS.PARAGRAPH
+                    }
+                  ],
+                  nodeType: BLOCKS.DOCUMENT
+                }
+              })
             },
             {
-              __typename: "ContentfulTitleWithContent",
+              __typename: "TitleWithContent",
               name: "Use our online form",
               title: "Use our online form",
-              content: {
-                raw: '{"data":{},"content":[{"data":{"target":{"sys":{"id":"7CVaEtq6uudGvsBBRvArMM","type":"Link","linkType":"Entry"}}},"content":[],"nodeType":"embedded-entry-block"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-                references: []
-              }
+              content: createRichText({
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {
+                        target: {
+                          sys: {
+                            id: "7CVaEtq6uudGvsBBRvArMM",
+                            type: "Link",
+                            linkType: "Entry"
+                          }
+                        }
+                      },
+                      content: [],
+                      nodeType: BLOCKS.EMBEDDED_ENTRY
+                    },
+                    {
+                      data: {},
+                      content: [
+                        { data: {}, marks: [], value: "", nodeType: "text" }
+                      ],
+                      nodeType: BLOCKS.PARAGRAPH
+                    }
+                  ],
+                  nodeType: BLOCKS.DOCUMENT
+                }
+              })
             }
           ]
         }
       ],
       signupBlock: {
-        __typename: "ContentfulSignupBlock",
+        __typename: "SignupBlock",
         title: "Sign up for our newsletter",
-        description: {
-          description:
-            "Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox."
-        },
+        signUpBlockDescription:
+          "Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.",
         signupLabel: "Sign up",
         signupDialogContent: {
-          __typename: "ContentfulFormSection",
+          __typename: "Form",
           title: "Test form",
           showTitle: null,
           description: null,
@@ -154,12 +257,35 @@ describe("Contact us page", () => {
       },
       sections: [
         {
-          __typename: "ContentfulCardCollectionSection",
+          __typename: "CardCollectionSection",
           title: "Testing Card Collection",
-          description: {
-            raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Texhting frhrofherfeh ffefeifehfi f","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-            references: []
-          },
+          description: createRichText({
+            json: {
+              data: {},
+              content: [
+                {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      value: "Texhting frhrofherfeh ffefeifehfi f",
+                      nodeType: "text"
+                    }
+                  ],
+                  nodeType: BLOCKS.PARAGRAPH
+                },
+                {
+                  data: {},
+                  content: [
+                    { data: {}, marks: [], value: "", nodeType: "text" }
+                  ],
+                  nodeType: BLOCKS.PARAGRAPH
+                }
+              ],
+              nodeType: BLOCKS.DOCUMENT
+            }
+          }),
           cardType: "Highlight Card",
           cardLabel: "Testing ",
           groupCards: true,
@@ -167,7 +293,7 @@ describe("Contact us page", () => {
           sortOrder: null,
           cards: [
             {
-              __typename: "ContentfulSimplePage",
+              __typename: "Page",
               id: "d6f5c74e-1e7a-56fe-91b9-4ae5001ecd8c",
               title: "News article page 2",
               subtitle:
@@ -183,9 +309,9 @@ describe("Contact us page", () => {
               featuredVideo: null,
               date: null,
               rawDate: null
-            } as PageInfoData,
+            },
             {
-              __typename: "ContentfulPromo",
+              __typename: "Promo",
               id: "a6f7e167-7c2b-5336-8df1-24e14f7203b8",
               name: "BMI test video on PROMO",
               title: "BMI test video on PROMO",
@@ -196,7 +322,7 @@ describe("Contact us page", () => {
               featuredMedia: null,
               cta: null,
               featuredVideo: {
-                __typename: "ContentfulVideo",
+                __typename: "Video",
                 title: "BMI Group - We see further",
                 label: "BMI Group VIDEO LABEL",
                 subtitle:
@@ -208,7 +334,7 @@ describe("Contact us page", () => {
                   "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
               },
               backgroundColor: null
-            } as PromoData
+            }
           ],
           justifyCenter: null,
           displaySingleRow: null
@@ -223,10 +349,26 @@ describe("Contact us page", () => {
             "Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX",
           phoneNumber: "0370 560 1000",
           email: "contactus@bmigroup.com",
-          otherInformation: {
-            raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Monday - Friday 8:00 - 16:00","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-            references: []
-          }
+          otherInformation: createRichText({
+            json: {
+              data: {},
+              content: [
+                {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      value: "Monday - Friday 8:00 - 16:00",
+                      nodeType: "text"
+                    }
+                  ],
+                  nodeType: BLOCKS.PARAGRAPH
+                }
+              ],
+              nodeType: BLOCKS.DOCUMENT
+            }
+          })
         },
         {
           __typename: "ContentfulContactDetails",
@@ -234,10 +376,26 @@ describe("Contact us page", () => {
           address: "Fjellhamarveien 52, P.O. Box 55, Fjellhamar, Norway, 1477",
           phoneNumber: "0370 560 1000",
           email: "www.bmigroup.com/no",
-          otherInformation: {
-            raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Monday - Friday 8:00 - 16:00","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-            references: []
-          }
+          otherInformation: createRichText({
+            json: {
+              data: {},
+              content: [
+                {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      value: "Monday - Friday 8:00 - 16:00",
+                      nodeType: "text"
+                    }
+                  ],
+                  nodeType: BLOCKS.PARAGRAPH
+                }
+              ],
+              nodeType: BLOCKS.DOCUMENT
+            }
+          })
         },
         {
           __typename: "ContentfulContactDetails",
@@ -245,14 +403,30 @@ describe("Contact us page", () => {
           address: "23-25 Avenue du Dr Lannelongue, Paris, France, 75014",
           phoneNumber: "004478123456789",
           email: "www.bmigroup.com/fr",
-          otherInformation: {
-            raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"Test test test PREview ","marks":[],"data":{}}],"data":{}}]}',
-            references: []
-          }
+          otherInformation: createRichText({
+            json: {
+              nodeType: BLOCKS.DOCUMENT,
+              data: {},
+              content: [
+                {
+                  nodeType: BLOCKS.PARAGRAPH,
+                  content: [
+                    {
+                      nodeType: "text",
+                      value: "Test test test PREview ",
+                      marks: [],
+                      data: {}
+                    }
+                  ],
+                  data: {}
+                }
+              ]
+            }
+          })
         }
       ],
       iframe: {
-        __typename: "ContentfulIframe",
+        __typename: "Iframe",
         title: "iFrame section",
         summary: null,
         url: "https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD",

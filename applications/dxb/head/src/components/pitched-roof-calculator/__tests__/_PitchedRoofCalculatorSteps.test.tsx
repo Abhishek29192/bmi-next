@@ -26,6 +26,7 @@ import {
   VentilationHood
 } from "../types";
 import { devLog } from "../../../utils/devLog";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
 import en from "./samples/copy/en.json";
 
 const dimensions = {
@@ -470,10 +471,10 @@ describe("PitchedRoofCalculatorSteps component", () => {
             hubSpotFormId: "mock",
             roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }],
             needHelpSection: {
-              __typename: "ContentfulTitleWithContent",
+              __typename: "TitleWithContent",
               title: "",
               name: "",
-              content: { raw: "", references: [] }
+              content: createRichText()
             }
           }}
         />
@@ -596,10 +597,10 @@ describe("PitchedRoofCalculatorSteps component", () => {
             hubSpotFormId: "mock",
             roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }],
             needHelpSection: {
-              __typename: "ContentfulTitleWithContent",
+              __typename: "TitleWithContent",
               title: "",
               name: "",
-              content: { raw: "", references: [] }
+              content: createRichText()
             }
           }}
         />
@@ -889,10 +890,10 @@ describe("PitchedRoofCalculatorSteps component", () => {
           hubSpotFormId: "mock",
           roofShapes: [],
           needHelpSection: {
-            __typename: "ContentfulTitleWithContent",
+            __typename: "TitleWithContent",
             title: "",
             name: "",
-            content: { raw: "", references: [] }
+            content: createRichText()
           }
         }}
       />

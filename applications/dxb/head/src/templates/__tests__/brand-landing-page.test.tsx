@@ -13,7 +13,7 @@ import BrandLandingPage, {
 
 describe("Brand Landing Page Template", () => {
   const slide: SlideData = {
-    __typename: "ContentfulPromo",
+    __typename: "Promo",
     id: "id",
     title: "searchPageNextBestActionsTitle",
     subtitle: null,
@@ -23,7 +23,7 @@ describe("Brand Landing Page Template", () => {
     tags: null,
     featuredMedia: null,
     cta: {
-      __typename: "ContentfulLink",
+      __typename: "Link",
       id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
       label: "slideCTA",
       icon: null,
@@ -36,10 +36,11 @@ describe("Brand Landing Page Template", () => {
       asset: null,
       parameters: null,
       dialogContent: null,
-      hubSpotCTAID: null
+      hubSpotCTAID: null,
+      queryParams: null
     },
     featuredVideo: {
-      __typename: "ContentfulVideo",
+      __typename: "Video",
       title: "featuredVideo",
       label: "label",
       subtitle: null,
@@ -54,7 +55,7 @@ describe("Brand Landing Page Template", () => {
   const data: BrandLandingPageData["data"] = {
     contentfulSite: createMockSiteData(),
     contentfulBrandLandingPage: {
-      __typename: "ContentfulBrandLandingPage",
+      __typename: "BrandLandingPage",
       id: "id",
       title: "title",
       subtitle: null,
@@ -107,7 +108,7 @@ describe("Brand Landing Page Template", () => {
         path: "some-page",
         featuredMedia: null,
         featuredVideo: {
-          __typename: "ContentfulVideo",
+          __typename: "Video",
           title: "featuredVideo",
           label: "label",
           subtitle: null,
@@ -123,7 +124,7 @@ describe("Brand Landing Page Template", () => {
         path: "some-page",
         featuredMedia: null,
         featuredVideo: {
-          __typename: "ContentfulVideo",
+          __typename: "Video",
           title: "featuredVideo",
           label: "label",
           subtitle: null,
@@ -151,7 +152,7 @@ describe("Brand Landing Page Template", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.sections = [
       {
-        __typename: "ContentfulNavigation",
+        __typename: "Navigation",
         label: "sectionTitle",
         links: []
       }
@@ -197,7 +198,7 @@ describe("Brand Landing Page Template", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.slides = [
       {
-        __typename: "ContentfulSimplePage",
+        __typename: "Page",
         id: "ContentfulSimplePageId",
         title: "ContentfulSimplePageTitle",
         subtitle: null,
@@ -254,7 +255,7 @@ describe("Brand Landing Page Template", () => {
       {
         ...slide,
         cta: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "cta_id",
           label: "",
           icon: null,
@@ -264,7 +265,8 @@ describe("Brand Landing Page Template", () => {
           parameters: null,
           dialogContent: null,
           linkedPage: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       }
     ];
@@ -290,7 +292,7 @@ describe("Brand Landing Page Template", () => {
       {
         ...slide,
         cta: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "cta_id",
           label: "test CTA",
           icon: null,
@@ -300,7 +302,8 @@ describe("Brand Landing Page Template", () => {
           parameters: null,
           dialogContent: null,
           linkedPage: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       }
     ];
@@ -325,7 +328,7 @@ describe("Brand Landing Page Template", () => {
     newData.contentfulBrandLandingPage.slides = [
       {
         ...slide,
-        __typename: "ContentfulSimplePage",
+        __typename: "Page",
         id: "ContentfulSimplePageId",
         title: "ContentfulSimplePageTitle",
         subtitle: null,
@@ -381,7 +384,7 @@ describe("Brand Landing Page Template", () => {
       ...data
     };
     newData.contentfulBrandLandingPage.cta = {
-      __typename: "ContentfulLink",
+      __typename: "Link",
       id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
       label: "firstSlideCTA",
       icon: null,
@@ -394,7 +397,8 @@ describe("Brand Landing Page Template", () => {
       asset: null,
       parameters: null,
       dialogContent: null,
-      hubSpotCTAID: null
+      hubSpotCTAID: null,
+      queryParams: null
     };
     const { container } = renderWithRouter(
       <ThemeProvider>
@@ -419,7 +423,7 @@ describe("Brand Landing Page Template", () => {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui"
       };
       newData.contentfulBrandLandingPage.cta = {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
         label: "firstSlideCTA",
         icon: null,
@@ -432,7 +436,8 @@ describe("Brand Landing Page Template", () => {
         asset: null,
         parameters: null,
         dialogContent: null,
-        hubSpotCTAID: null
+        hubSpotCTAID: null,
+        queryParams: null
       };
       const { container } = renderWithRouter(
         <ThemeProvider>
@@ -462,7 +467,7 @@ describe("Brand Landing Page Template", () => {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sunt in culpa qui officia deserunt mollit anim id est laborum"
       };
       newData.contentfulBrandLandingPage.cta = {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
         label: "firstSlideCTA",
         icon: null,
@@ -475,7 +480,8 @@ describe("Brand Landing Page Template", () => {
         asset: null,
         parameters: null,
         dialogContent: null,
-        hubSpotCTAID: null
+        hubSpotCTAID: null,
+        queryParams: null
       };
       const { container } = renderWithRouter(
         <ThemeProvider>

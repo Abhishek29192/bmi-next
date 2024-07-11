@@ -1,8 +1,11 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import DocumentDownloadSection from "../DocumentDownloadSection";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
+import type { RichTextData } from "../RichText";
 
 jest.mock("../link/utils", () => {
   const originalModule = jest.requireActual("../link/utils");
@@ -15,12 +18,12 @@ jest.mock("../link/utils", () => {
 
 const mockDescriptionText =
   "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s";
-const mockDescription = JSON.stringify({
-  nodeType: "document",
+const mockDescription: RichTextData["json"] = {
+  nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           nodeType: "text",
@@ -32,7 +35,7 @@ const mockDescription = JSON.stringify({
       data: {}
     }
   ]
-});
+};
 
 const document = createContentfulDocument({
   asset: {
@@ -77,10 +80,10 @@ describe("DocumentDownloadSection component", () => {
           data={{
             __typename: "ContentfulDocumentDownloadSection",
             title,
-            description: {
-              raw: mockDescription,
-              references: []
-            },
+            description: createRichText({
+              json: mockDescription,
+              references: new Map()
+            }),
             documents: new Array(30).fill(document)
           }}
         />

@@ -1,5 +1,4 @@
 import { RoofProLevel } from "@bmi-digital/components/company-details";
-import { graphql } from "gatsby";
 import { Data as ContentfulImageData } from "./image/contentful-image/types";
 import { Data as ServiceType } from "./ServiceType";
 
@@ -17,7 +16,7 @@ export enum ServiceTypesPrefixesEnum {
 export type ServiceTypeFilter = Record<string, boolean>;
 
 export type Data = {
-  __typename: "ContentfulService";
+  __typename: "Roofer";
   id: string;
   entryType: EntryTypeEnum;
   name: string;
@@ -40,34 +39,3 @@ export type Data = {
   certification: RoofProLevel | null;
   summary: string | null;
 };
-
-export const query = graphql`
-  fragment ServiceFragment on ContentfulService {
-    __typename
-    id
-    entryType
-    name
-    location {
-      lat
-      lon
-    }
-    address
-    phone
-    email
-    website
-    facebook
-    twitter
-    instagram
-    linkedIn
-    websiteLinkAsLabel
-    companyLogo {
-      ...ImageCardFragment
-    }
-    fax
-    serviceTypes {
-      ...ServiceTypeFragment
-    }
-    certification
-    summary
-  }
-`;

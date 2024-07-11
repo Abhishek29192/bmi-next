@@ -1,10 +1,12 @@
 import React from "react";
 import { screen, within } from "@testing-library/react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import CardCollectionSection from "../CardCollectionSection";
 import createPageInfoData from "../../__tests__/helpers/PageInfoHelper";
 import createPromoData from "../../__tests__/helpers/PromoHelper";
 import { renderWithProviders } from "../../__tests__/renderWithProviders";
 import createCardCollectionSection from "../../__tests__/helpers/CardCollectionSection";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 import type { Data as CardCollectionSectionData } from "../CardCollectionSection";
 
 describe("Card Collection Item Component", () => {
@@ -142,7 +144,7 @@ describe("Card Collection Item Component", () => {
             cardType: "Text Card",
             cards: [
               createPageInfoData({
-                __typename: "ContentfulBrandLandingPage",
+                __typename: "BrandLandingPage",
                 date: "1st January 2000"
               }),
               createPromoData()
@@ -240,10 +242,7 @@ describe("Card Collection Item Component", () => {
       );
 
       expect(pageInfoCardFooterCta).toHaveTextContent(/example-card-label/);
-      expect(pageInfoCardFooterCta).toHaveAttribute(
-        "href",
-        "/no/example/path/"
-      );
+      expect(pageInfoCardFooterCta).toHaveAttribute("href", "/no/example/path");
       expect(pageInfoCardFooterCta).toHaveAttribute(
         "data-gtm",
         '{"id":"cta-click1","label":"example-title - example-card-label","action":"/no/example/path/"}'
@@ -633,7 +632,7 @@ describe("Card Collection Item Component", () => {
               cardType: type,
               cards: [
                 createPageInfoData({
-                  __typename: "ContentfulBrandLandingPage",
+                  __typename: "BrandLandingPage",
                   date: "1st January 2000"
                 }),
                 createPromoData()
@@ -735,7 +734,7 @@ describe("Card Collection Item Component", () => {
         expect(pageInfoCardFooterCta).toHaveTextContent(/example-card-label/);
         expect(pageInfoCardFooterCta).toHaveAttribute(
           "href",
-          "/no/example/path/"
+          "/no/example/path"
         );
         expect(pageInfoCardFooterCta).toHaveAttribute(
           "data-gtm",
@@ -894,12 +893,10 @@ describe("Card Collection Section", () => {
   });
 
   it("should not render the card collection section title if null", () => {
-    const titleText = null;
-
     renderWithProviders(
       <CardCollectionSection
         data={createCardCollectionSection({
-          title: titleText
+          title: null
         })}
       />
     );
@@ -909,10 +906,21 @@ describe("Card Collection Section", () => {
   });
 
   it("should render the description if defined", () => {
-    const descriptionText = {
-      raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-      references: []
-    };
+    const descriptionText = createRichText({
+      json: {
+        nodeType: BLOCKS.DOCUMENT,
+        data: {},
+        content: [
+          {
+            nodeType: BLOCKS.PARAGRAPH,
+            content: [
+              { nodeType: "text", value: "test rich text", marks: [], data: {} }
+            ],
+            data: {}
+          }
+        ]
+      }
+    });
 
     renderWithProviders(
       <CardCollectionSection

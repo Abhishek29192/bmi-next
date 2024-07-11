@@ -64,7 +64,7 @@ export const getTileMaterials = async (
         },
         size: 100
       },
-      process.env.GATSBY_ES_INDEX_NAME_PRODUCTS!
+      process.env.NEXT_PUBLIC_ES_INDEX_NAME_PRODUCTS!
     );
 
     if (res?.hits?.hits?.length) {

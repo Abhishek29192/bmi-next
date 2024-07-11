@@ -6,7 +6,6 @@ import Tabs from "@bmi-digital/components/tabs";
 import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import Tab, { TabProps } from "@mui/material/Tab";
-import { graphql } from "gatsby";
 import React from "react";
 import RichText from "../components/RichText";
 import withGTM from "../utils/google-tag-manager";
@@ -115,17 +114,3 @@ const TabsOrAccordionSection = ({ data }: { data: Data }) => {
 };
 
 export default TabsOrAccordionSection;
-
-export const query = graphql`
-  fragment TabsOrAccordionSectionFragment on ContentfulTabsOrAccordionSection {
-    __typename
-    type
-    title
-    description {
-      description
-    }
-    items {
-      ...TitleWithContentFragment
-    }
-  }
-`;

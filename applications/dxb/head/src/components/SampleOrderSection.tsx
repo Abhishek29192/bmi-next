@@ -6,6 +6,7 @@ import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
+import React from "react";
 import {
   ACTION_TYPES,
   createSample,

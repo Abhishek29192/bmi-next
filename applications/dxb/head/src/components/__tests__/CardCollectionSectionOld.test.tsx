@@ -4,6 +4,7 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import CardCollectionSection, { Data } from "../CardCollectionSection";
 import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalculator";
@@ -11,7 +12,8 @@ import { Data as PromoData } from "../Promo";
 import { SiteContextProvider } from "../Site";
 import { TagData } from "../Tag";
 import { VisualiserContext } from "../Visualiser";
-import { DataTypeEnum, Data as LinkData } from "../link/types";
+import { Data as LinkData, DataTypeEnum } from "../link/types";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 type Card = PageInfoData | PromoData;
@@ -24,7 +26,7 @@ const testTag4: TagData = { type: "Group", title: "2006" };
 const card1: PageInfoData = {
   id: "test",
   title: "test",
-  __typename: "ContentfulSimplePage",
+  __typename: "Page",
   slug: "test1",
   path: "",
   subtitle: null,
@@ -38,7 +40,7 @@ const card1: PageInfoData = {
 const card2: PageInfoData = {
   id: "test 2",
   title: "test 2",
-  __typename: "ContentfulSimplePage",
+  __typename: "Page",
   slug: "test2",
   path: "",
   subtitle: null,
@@ -52,7 +54,7 @@ const card2: PageInfoData = {
 const card3: PageInfoData = {
   id: "test 3",
   title: "test 3",
-  __typename: "ContentfulSimplePage",
+  __typename: "Page",
   slug: "test3",
   path: "",
   subtitle: null,
@@ -64,7 +66,7 @@ const card3: PageInfoData = {
   tags: [testTag1, testTag2]
 };
 const card4: PromoData = {
-  __typename: "ContentfulPromo",
+  __typename: "Promo",
   id: "1234",
   name: "Villain 1",
   title: "Villain 1",
@@ -83,7 +85,7 @@ describe("CardCollectionSection component", () => {
     it("When dialogContent link is provided", () => {
       const cards: Card[] = [card1];
       const promo: PromoData = {
-        __typename: "ContentfulPromo",
+        __typename: "Promo",
         id: "testId",
         name: "test",
         title: "test",
@@ -97,7 +99,7 @@ describe("CardCollectionSection component", () => {
         backgroundColor: null
       };
       const link = {
-        __typename: "ContentfulLink",
+        __typename: "Link",
         id: "string",
         label: "string",
         icon: null,
@@ -112,12 +114,29 @@ describe("CardCollectionSection component", () => {
 
       const data: Data = {
         title: "test title",
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
         justifyCenter: null,
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
@@ -153,11 +172,28 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         justifyCenter: false,
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
-        __typename: "ContentfulCardCollectionSection",
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
@@ -209,11 +245,28 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         justifyCenter: false,
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
-        __typename: "ContentfulCardCollectionSection",
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
@@ -258,11 +311,28 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         justifyCenter: false,
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
-        __typename: "ContentfulCardCollectionSection",
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
@@ -328,11 +398,28 @@ describe("CardCollectionSection component", () => {
     const data: Data = {
       title: "test title",
       justifyCenter: true,
-      description: {
-        raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-        references: []
-      },
-      __typename: "ContentfulCardCollectionSection",
+      description: createRichText({
+        json: {
+          nodeType: BLOCKS.DOCUMENT,
+          data: {},
+          content: [
+            {
+              nodeType: BLOCKS.PARAGRAPH,
+              content: [
+                {
+                  nodeType: "text",
+                  value: "test rich text",
+                  marks: [],
+                  data: {}
+                }
+              ],
+              data: {}
+            }
+          ]
+        },
+        references: new Map()
+      }),
+      __typename: "CardCollectionSection",
       cardType: "Highlight Card",
       cardLabel: "a string",
       groupCards: true,
@@ -419,20 +506,37 @@ describe("CardCollectionSection component", () => {
 
       const data: Data = {
         title: "test title",
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
         justifyCenter: false,
         displaySingleRow: null,
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
         sortOrder: null,
         link: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "visualiser-id",
           label: "Visualiser",
           icon: null,
@@ -442,7 +546,8 @@ describe("CardCollectionSection component", () => {
           type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       };
 
@@ -468,19 +573,36 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         displaySingleRow: null,
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
         justifyCenter: false,
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
         sortOrder: null,
         link: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "visualiser-id",
           label: "Visualiser",
           icon: null,
@@ -490,7 +612,8 @@ describe("CardCollectionSection component", () => {
           type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       };
       const visualiserOpen = jest.fn().mockImplementation(() => {});
@@ -517,20 +640,37 @@ describe("CardCollectionSection component", () => {
 
       const data: Data = {
         title: "test title",
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
         justifyCenter: false,
         displaySingleRow: null,
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
         sortOrder: null,
         link: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "visualiser-id",
           label: "Visualiser",
           icon: null,
@@ -540,7 +680,8 @@ describe("CardCollectionSection component", () => {
           type: DataTypeEnum.Visualiser,
           dialogContent: null,
           linkedPage: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       };
 
@@ -570,20 +711,37 @@ describe("CardCollectionSection component", () => {
 
       const data: Data = {
         title: "test title",
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
         justifyCenter: false,
         displaySingleRow: null,
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
         sortOrder: null,
         link: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "calculator-id",
           label: "Calculator",
           icon: null,
@@ -593,7 +751,8 @@ describe("CardCollectionSection component", () => {
           type: DataTypeEnum.Calculator,
           dialogContent: null,
           linkedPage: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       };
 
@@ -618,20 +777,37 @@ describe("CardCollectionSection component", () => {
 
       const data: Data = {
         title: "test title",
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
         justifyCenter: false,
         displaySingleRow: null,
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
         sortOrder: null,
         link: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "calculator-id",
           label: "Calculator",
           icon: null,
@@ -641,7 +817,8 @@ describe("CardCollectionSection component", () => {
           type: DataTypeEnum.Calculator,
           dialogContent: null,
           linkedPage: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       };
 
@@ -669,20 +846,37 @@ describe("CardCollectionSection component", () => {
 
       const data: Data = {
         title: "test title",
-        description: {
-          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-          references: []
-        },
+        description: createRichText({
+          json: {
+            nodeType: BLOCKS.DOCUMENT,
+            data: {},
+            content: [
+              {
+                nodeType: BLOCKS.PARAGRAPH,
+                content: [
+                  {
+                    nodeType: "text",
+                    value: "test rich text",
+                    marks: [],
+                    data: {}
+                  }
+                ],
+                data: {}
+              }
+            ]
+          },
+          references: new Map()
+        }),
         justifyCenter: false,
         displaySingleRow: null,
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
         sortOrder: null,
         link: {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "calculator-id",
           label: "Calculator",
           icon: null,
@@ -692,7 +886,8 @@ describe("CardCollectionSection component", () => {
           type: DataTypeEnum.Calculator,
           dialogContent: null,
           linkedPage: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       };
 
@@ -721,7 +916,7 @@ describe("CardCollectionSection component", () => {
       const cards: Card[] = [card4, card1, card2, card3];
 
       const data: Data = {
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         title: "test title",
         description: null,
         displaySingleRow: null,
@@ -748,7 +943,7 @@ describe("CardCollectionSection component", () => {
       const cards: Card[] = [card4, card1, card2, card3];
 
       const data: Data = {
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         title: "test title",
         description: null,
         cardType: "Highlight Card",
@@ -775,7 +970,7 @@ describe("CardCollectionSection component", () => {
       const cards: Card[] = [card4, card1, card2, card3];
 
       const data: Data = {
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         title: "test title",
         description: null,
         cardType: "Highlight Card",
@@ -804,7 +999,7 @@ describe("CardCollectionSection component", () => {
       const cards: Card[] = [card4, card1, card2, card3];
 
       const data: Data = {
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         title: "test title",
         description: null,
         cardType: "Highlight Card",
@@ -834,7 +1029,7 @@ describe("CardCollectionSection component", () => {
       const cards: Card[] = [card4, card1, card2, card3];
 
       const data: Data = {
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         title: "test title",
         description: null,
         cardType: "Highlight Card",
@@ -863,7 +1058,7 @@ describe("CardCollectionSection component", () => {
       const cards: Card[] = [card4, card1, card2, card3];
 
       const data: Data = {
-        __typename: "ContentfulCardCollectionSection",
+        __typename: "CardCollectionSection",
         title: "test title",
         description: null,
         cardType: "Highlight Card",

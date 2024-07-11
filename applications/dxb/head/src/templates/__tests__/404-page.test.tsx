@@ -114,10 +114,7 @@ describe("404 page tests", () => {
       // verify image is rendered
       const img = screen.getByAltText(errorData.featuredMedia.altText);
       expect(img).toBeInTheDocument();
-      expect(img).toHaveAttribute(
-        "src",
-        errorData.featuredMedia.image.file.url
-      );
+      expect(img).toHaveAttribute("src", errorData.featuredMedia.image.url);
     });
   });
 });

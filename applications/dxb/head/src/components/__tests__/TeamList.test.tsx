@@ -441,7 +441,7 @@ describe("TeamList component", () => {
         },
         links: [
           {
-            __typename: "ContentfulLink",
+            __typename: "Link",
             id: "00000000-0000-0000-0000-000000000000",
             label: "Contact us",
             icon: null,
@@ -453,7 +453,8 @@ describe("TeamList component", () => {
             type: DataTypeEnum.Internal,
             parameters: null,
             dialogContent: null,
-            hubSpotCTAID: null
+            hubSpotCTAID: null,
+            queryParams: null
           }
         ]
       }

@@ -32,17 +32,22 @@ exports[`SampleBasketSection component renders correctly 1`] = `
             <a
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
               data-testid="shopping-cart-product-sample-1"
-              href="/no/sample-1-details/"
+              href="/no/sample-1-details"
               tabindex="0"
             >
               <img
                 alt="sample-1"
                 class="SampleBasketSectionProducts-product-image TappableCard-headerPicture TappableCard-contain css-1817fzu"
+                data-nimg="1"
                 data-testid="tappable-card-media"
+                decoding="async"
                 draggable="false"
+                height="80"
                 loading="lazy"
-                src="http://localhost:8000/image-real-file-name.jpg"
-                style="object-fit: contain; object-position: center;"
+                src="/_next/image?url=http%3A%2F%2Flocalhost%3A8000%2Fimage-real-file-name.jpg&w=256&q=75"
+                srcset="/_next/image?url=http%3A%2F%2Flocalhost%3A8000%2Fimage-real-file-name.jpg&w=128&q=75 1x, /_next/image?url=http%3A%2F%2Flocalhost%3A8000%2Fimage-real-file-name.jpg&w=256&q=75 2x"
+                style="color: transparent; object-fit: contain;"
+                width="110"
               />
               <div
                 class="TappableCard-body css-c6k36h"

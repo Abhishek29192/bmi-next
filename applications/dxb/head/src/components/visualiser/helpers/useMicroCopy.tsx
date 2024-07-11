@@ -20,7 +20,7 @@ export const useMicroCopy = () => {
   );
 
   const getMicroCopy =
-    process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true"
+    process.env.NEXT_PUBLIC_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true"
       ? getMicroCopyNew
       : getMicroCopyOldWrapper;
 

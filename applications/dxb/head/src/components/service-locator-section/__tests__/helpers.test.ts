@@ -37,20 +37,20 @@ describe("helpers functions", () => {
       const services = [
         createService({
           serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof" },
-            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+            { __typename: "ServiceType", name: "Flat Roof" },
+            { __typename: "ServiceType", name: "Pitched Roof" }
           ]
         }),
         createService({
           serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Country Offices" },
-            { __typename: "ContentfulServiceType", name: "Headquarters" }
+            { __typename: "ServiceType", name: "Country Offices" },
+            { __typename: "ServiceType", name: "Headquarters" }
           ]
         }),
         createService({
           serviceTypes: [
             {
-              __typename: "ContentfulServiceType",
+              __typename: "ServiceType",
               name: "BMI Icopal Flat Roof Systems"
             }
           ]
@@ -68,8 +68,8 @@ describe("helpers functions", () => {
   describe("getRooferTypes", () => {
     it("should filter uniqRoofersTypes array", () => {
       const uniqRooferTypesByDataMock: ServiceType[] = [
-        { __typename: "ContentfulServiceType", name: "Flat Roof" },
-        { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+        { __typename: "ServiceType", name: "Flat Roof" },
+        { __typename: "ServiceType", name: "Pitched Roof" }
       ];
       const allQueriesMock = ["Flat Roof", "Pitched Roof"];
       const resultRooferTypes = getRooferTypes(
@@ -80,8 +80,8 @@ describe("helpers functions", () => {
     });
     it("should return empty array if there is no specific service types", () => {
       const uniqRooferTypesByDataMock = [
-        { __typename: "ContentfulServiceType", name: "Flat Roof" },
-        { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+        { __typename: "ServiceType", name: "Flat Roof" },
+        { __typename: "ServiceType", name: "Pitched Roof" }
       ];
       const allQueriesMock = ["Flat Roof 2"];
       const resultRooferTypes = getRooferTypes(
@@ -171,22 +171,22 @@ describe("helpers functions", () => {
   });
   describe("typeFilter", () => {
     const typeDataMock: ServiceType[] = [
-      { __typename: "ContentfulServiceType", name: "Roof Coaters" },
+      { __typename: "ServiceType", name: "Roof Coaters" },
       {
-        __typename: "ContentfulServiceType",
+        __typename: "ServiceType",
         name: "Tile Roofs"
       }
     ];
     const branchTypeDataMock: ServiceType[] = [
       {
-        __typename: "ContentfulServiceType",
+        __typename: "ServiceType",
         name: "Headquarters"
       },
-      { __typename: "ContentfulServiceType", name: "Country offices" }
+      { __typename: "ServiceType", name: "Country offices" }
     ];
     const merchantTypeDataMock: ServiceType[] = [
-      { __typename: "ContentfulServiceType", name: "Distributers Siplast" },
-      { __typename: "ContentfulServiceType", name: "Distributers Monier" }
+      { __typename: "ServiceType", name: "Distributers Siplast" },
+      { __typename: "ServiceType", name: "Distributers Monier" }
     ];
     describe('typeData = Service["type"]', () => {
       it("should return true if all chips unselected", () => {
@@ -196,7 +196,7 @@ describe("helpers functions", () => {
       });
       it("should return true if some chip is selected", () => {
         const rooferTypesFiltersMock = createActiveFilterMocks([
-          { __typename: "ContentfulServiceType", name: "roofer" }
+          { __typename: "ServiceType", name: "roofer" }
         ]);
         const filtersMock = {
           ...rooferTypesFiltersMock,
@@ -209,7 +209,7 @@ describe("helpers functions", () => {
     describe('typeData = Service["branchType"]', () => {
       it("should return true if some chip is selected", () => {
         const branchTypesFiltersMock = createActiveFilterMocks([
-          { __typename: "ContentfulServiceType", name: "branch" }
+          { __typename: "ServiceType", name: "branch" }
         ]);
         const filtersMock = {
           ...branchTypesFiltersMock,
@@ -222,7 +222,7 @@ describe("helpers functions", () => {
     describe('typeData = Service["merchantType"]', () => {
       it("should return true if some chip is selected", () => {
         const merchantTypesFiltersMock = createActiveFilterMocks([
-          { __typename: "ContentfulServiceType", name: "merchant" }
+          { __typename: "ServiceType", name: "merchant" }
         ]);
         const filtersMock = {
           ...merchantTypesFiltersMock,
@@ -236,9 +236,7 @@ describe("helpers functions", () => {
       const typesData = null;
       const typeFilters = typeFilter(
         typesData,
-        createActiveFilterMocks([
-          { __typename: "ContentfulServiceType", name: "roofer" }
-        ])
+        createActiveFilterMocks([{ __typename: "ServiceType", name: "roofer" }])
       );
       expect(typeFilters).toBeTruthy();
     });
@@ -254,7 +252,7 @@ describe("helpers functions", () => {
       const servicesMock = [createService({ distance: undefined })];
       const centreMock = { lat: 59, lng: 10 };
       const activeFiltersMock = createActiveFilterMocks([
-        { __typename: "ContentfulServiceType", name: "roofer" }
+        { __typename: "ServiceType", name: "roofer" }
       ]);
       const result = servicesMock.reduce(
         filterServices(centreMock, activeFiltersMock, ""),
@@ -276,7 +274,7 @@ describe("helpers functions", () => {
       const servicesMock = [createService({ distance: undefined })];
       const centreMock = { lat: 59, lng: 10 };
       const activeFiltersMock = createActiveFilterMocks([
-        { __typename: "ContentfulServiceType", name: "roofer" }
+        { __typename: "ServiceType", name: "roofer" }
       ]);
       const result = servicesMock.reduce(
         filterServices(centreMock, activeFiltersMock, ""),
@@ -295,7 +293,7 @@ describe("helpers functions", () => {
       );
       const servicesMock = [createService({ distance: undefined })];
       const activeFiltersMock = createActiveFilterMocks([
-        { __typename: "ContentfulServiceType", name: "roofer" }
+        { __typename: "ServiceType", name: "roofer" }
       ]);
       const result = servicesMock.reduce(
         filterServices(null, activeFiltersMock, ""),

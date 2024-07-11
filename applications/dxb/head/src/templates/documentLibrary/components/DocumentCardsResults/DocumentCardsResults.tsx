@@ -1,6 +1,7 @@
 import DocumentCard from "@bmi-digital/components/document-card";
 import Grid from "@bmi-digital/components/grid";
 import { microCopy } from "@bmi/microcopies";
+import React from "react";
 import type { ContentfulDocument } from "@bmi/elasticsearch-types";
 import BrandLogo from "../../../../components/BrandLogo";
 import { useSiteContext } from "../../../../components/Site";

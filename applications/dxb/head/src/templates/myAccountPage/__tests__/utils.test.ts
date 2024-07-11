@@ -57,7 +57,7 @@ describe("getUserInfo", () => {
 
 describe("transformToolCard", () => {
   it("transforms tools correctly", () => {
-    process.env.GATSBY_INTOUCH_ORIGIN = "https://fake";
+    process.env.NEXT_PUBLIC_INTOUCH_ORIGIN = "https://fake";
     process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT = "/profile";
     process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT = "/training";
     process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT = "/roof-measurement";
@@ -86,7 +86,7 @@ describe("transformToolCard", () => {
       {
         icon: UserIcon,
         title: "Profile label",
-        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.NEXT_PUBLIC_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT
         }?prev_page=${encodeURIComponent(currentPageUrl)}`,
         external: true
@@ -94,7 +94,7 @@ describe("transformToolCard", () => {
       {
         icon: OtherTraining,
         title: "Training label",
-        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.NEXT_PUBLIC_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT
         }?prev_page=${encodeURIComponent(currentPageUrl)}`,
         external: true
@@ -102,7 +102,7 @@ describe("transformToolCard", () => {
       {
         icon: RoofMeasurement,
         title: "Roof measurement label",
-        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.NEXT_PUBLIC_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT
         }?prev_page=${encodeURIComponent(currentPageUrl)}`,
         external: true
@@ -111,7 +111,7 @@ describe("transformToolCard", () => {
   });
 
   it("orders the returned array", () => {
-    process.env.GATSBY_INTOUCH_ORIGIN = "https://fake";
+    process.env.NEXT_PUBLIC_INTOUCH_ORIGIN = "https://fake";
     process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT = "/profile";
     process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT = "/training";
     process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT = "/roof-measurement";
@@ -140,7 +140,7 @@ describe("transformToolCard", () => {
       {
         icon: UserIcon,
         title: "Profile label",
-        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.NEXT_PUBLIC_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT
         }?prev_page=${encodeURIComponent(currentPageUrl)}`,
         external: true
@@ -148,7 +148,7 @@ describe("transformToolCard", () => {
       {
         icon: OtherTraining,
         title: "Training label",
-        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.NEXT_PUBLIC_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT
         }?prev_page=${encodeURIComponent(currentPageUrl)}`,
         external: true
@@ -156,7 +156,7 @@ describe("transformToolCard", () => {
       {
         icon: RoofMeasurement,
         title: "Roof measurement label",
-        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.NEXT_PUBLIC_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT
         }?prev_page=${encodeURIComponent(currentPageUrl)}`,
         external: true

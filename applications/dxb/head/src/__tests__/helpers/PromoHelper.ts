@@ -6,7 +6,7 @@ import createLinkData from "./LinkHelper";
 import createVideoData from "./VideoHelper";
 
 const createPromoData = (promoData?: Partial<Data>): Data => ({
-  __typename: "ContentfulPromo",
+  __typename: "Promo",
   id: "contentful-id",
   name: "Contentful Promo data",
   title: "Contentful Promo Title",

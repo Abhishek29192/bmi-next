@@ -1,30 +1,33 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import { DataTypeEnum } from "../../components/link/types";
 import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as SlideData } from "../../components/Promo";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import HomePage, { HomepageData, Props as HomePageData } from "../home-page";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
+import HomePage, { Data as HomePageData } from "../home-page";
+import type { RichTextData } from "../../components/RichText";
 
-let isGatsbyDisabledElasticSearch: boolean;
+let isNextDisabledElasticSearch: boolean;
 let isLoginEnabled: boolean;
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
-    isGatsbyDisabledElasticSearch,
+    isNextDisabledElasticSearch,
     isLoginEnabled
   })
 }));
 
 describe("Home Page Template", () => {
-  const contentMock = JSON.stringify({
-    nodeType: "document",
+  const contentMock: RichTextData["json"] = {
+    nodeType: BLOCKS.DOCUMENT,
     data: {},
     content: [
       {
-        nodeType: "paragraph",
+        nodeType: BLOCKS.PARAGRAPH,
         content: [
           {
             nodeType: "text",
@@ -37,20 +40,19 @@ describe("Home Page Template", () => {
         data: {}
       }
     ]
-  });
-  const sectionsData: HomepageData["sections"] = [
+  };
+  const sectionsData: HomePageData["homePage"]["sections"] = [
     {
       __typename: "ContentfulTabsOrAccordionSection",
       description: { description: "string" },
       items: [
         {
-          __typename: "ContentfulTitleWithContent",
+          __typename: "TitleWithContent",
           name: "hello",
           title: "hello",
-          content: {
-            raw: contentMock,
-            references: []
-          }
+          content: createRichText({
+            json: contentMock
+          })
         }
       ],
       title: "string",
@@ -58,7 +60,7 @@ describe("Home Page Template", () => {
     }
   ];
 
-  const brandsData: HomepageData["brands"] = [
+  const brandsData: HomePageData["brands"] = [
     {
       title: "Smilex brand",
       path: "/smilex-brand",
@@ -85,41 +87,24 @@ describe("Home Page Template", () => {
       path: "some-page",
       featuredMedia: null,
       featuredVideo: {
-        __typename: "ContentfulVideo",
+        __typename: "Video",
         title: "video title",
         label: "video label",
         subtitle: "video subtitle",
         videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
         previewMedia: {
+          __typename: "Image",
+          title: "Image title",
           type: null,
           altText: "Lorem ipsum",
           focalPoint: null,
           image: {
-            gatsbyImageData: {
-              images: {
-                sources: [
-                  {
-                    srcSet:
-                      "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                    sizes: "(min-width: 948px) 948px, 100vw",
-                    type: "image/webp"
-                  }
-                ],
-                fallback: {
-                  src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw"
-                }
-              },
-              layout: "constrained",
-              backgroundColor: "#484848",
-              width: 948,
-              height: 720
-            },
-            file: {
-              fileName: "Lorem ipsum"
-            }
+            fileName: "Lorem ipsum",
+            contentType: "image/jpg",
+            url: "https://some-url",
+            width: 100,
+            height: 100,
+            size: 100
           }
         },
         defaultYouTubePreviewImage:
@@ -130,7 +115,7 @@ describe("Home Page Template", () => {
   ];
 
   const slide: SlideData = {
-    __typename: "ContentfulPromo",
+    __typename: "Promo",
     id: "id",
     title: "homePageSlideTitle",
     subtitle: null,
@@ -140,7 +125,7 @@ describe("Home Page Template", () => {
     tags: null,
     featuredMedia: null,
     cta: {
-      __typename: "ContentfulLink",
+      __typename: "Link",
       id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
       label: "slideCTA",
       icon: null,
@@ -153,10 +138,11 @@ describe("Home Page Template", () => {
       asset: null,
       parameters: null,
       dialogContent: null,
-      hubSpotCTAID: null
+      hubSpotCTAID: null,
+      queryParams: null
     },
     featuredVideo: {
-      __typename: "ContentfulVideo",
+      __typename: "Video",
       title: "featuredVideo",
       label: "label",
       subtitle: null,
@@ -170,36 +156,25 @@ describe("Home Page Template", () => {
   };
   const title = "string";
 
-  const data: HomePageData["data"] = {
-    contentfulSite: createMockSiteData(),
-    contentfulHomePage: {
-      __typename: "ContentfulHomePage",
-      title,
-      slides: [slide],
-      overlapCards: overlapCardsData,
-      brands: brandsData,
-      sections: sectionsData,
-      breadcrumbs: [
-        {
-          id: "breadcrumbsId",
-          label: "breadcrumbsLabel",
-          slug: null
-        }
-      ],
-      signupBlock: null,
-      seo: null,
-      path: ""
-    }
+  const data: HomePageData["homePage"] = {
+    __typename: "HomePage",
+    title,
+    slides: [slide],
+    overlapCards: overlapCardsData,
+    sections: sectionsData,
+    signupBlock: null,
+    seo: null
   };
 
   it("render correctly with all data", () => {
-    isGatsbyDisabledElasticSearch = false;
+    isNextDisabledElasticSearch = false;
     isLoginEnabled = true;
     const { container } = renderWithRouter(
       <ThemeProvider>
         <HomePage
-          data={data}
-          pageContext={{ variantCodeToPathMap: undefined }}
+          site={createMockSiteData()}
+          homePage={data}
+          brands={brandsData}
         />
       </ThemeProvider>
     );
@@ -229,21 +204,21 @@ describe("Home Page Template", () => {
     expect(screen.getByTestId("hero-video")).toBeInTheDocument();
   });
 
-  it("render slide with not ContentfulPromo __typename and featureMedia data", () => {
-    isGatsbyDisabledElasticSearch = false;
+  it("render slide with not Promo __typename and featureMedia data", () => {
+    isNextDisabledElasticSearch = false;
     slide.featuredMedia = createImageData({
-      altText: "Lorem ipsum ContentfulImage"
+      altText: "Lorem ipsum Contentful Image"
     });
 
     slide.featuredVideo = null;
     slide.cta = null;
-    data.contentfulSite.resources = null;
 
     renderWithRouter(
       <ThemeProvider>
         <HomePage
-          data={data}
-          pageContext={{ variantCodeToPathMap: undefined }}
+          homePage={data}
+          brands={brandsData}
+          site={createMockSiteData({ resources: null })}
         />
       </ThemeProvider>
     );
@@ -255,13 +230,12 @@ describe("Home Page Template", () => {
   });
 
   it("render page with brands", () => {
-    data.contentfulHomePage.brands = brandsData;
-
     renderWithRouter(
       <ThemeProvider>
         <HomePage
-          data={data}
-          pageContext={{ variantCodeToPathMap: undefined }}
+          homePage={data}
+          brands={brandsData}
+          site={createMockSiteData()}
         />
       </ThemeProvider>
     );
@@ -277,10 +251,7 @@ describe("Home Page Template", () => {
 
     renderWithRouter(
       <ThemeProvider>
-        <HomePage
-          data={data}
-          pageContext={{ variantCodeToPathMap: undefined }}
-        />
+        <HomePage homePage={data} brands={[]} site={createMockSiteData()} />
       </ThemeProvider>
     );
 
@@ -290,10 +261,7 @@ describe("Home Page Template", () => {
   it("render page with overlapCardsData", () => {
     renderWithRouter(
       <ThemeProvider>
-        <HomePage
-          data={data}
-          pageContext={{ variantCodeToPathMap: undefined }}
-        />
+        <HomePage homePage={data} brands={[]} site={createMockSiteData()} />
       </ThemeProvider>
     );
 
@@ -301,13 +269,12 @@ describe("Home Page Template", () => {
   });
 
   it("render page without overlapCardsData", () => {
-    data.contentfulHomePage.overlapCards = null;
-
     renderWithRouter(
       <ThemeProvider>
         <HomePage
-          data={data}
-          pageContext={{ variantCodeToPathMap: undefined }}
+          homePage={{ ...data, overlapCards: [] }}
+          brands={[]}
+          site={createMockSiteData()}
         />
       </ThemeProvider>
     );
@@ -320,10 +287,7 @@ describe("Home Page Template", () => {
   it("render page with sections", () => {
     renderWithRouter(
       <ThemeProvider>
-        <HomePage
-          data={data}
-          pageContext={{ variantCodeToPathMap: undefined }}
-        />
+        <HomePage homePage={data} brands={[]} site={createMockSiteData()} />
       </ThemeProvider>
     );
 
@@ -333,10 +297,12 @@ describe("Home Page Template", () => {
   });
 
   it("render page without sections", () => {
-    data.contentfulHomePage.sections = null;
-
     renderWithRouter(
-      <HomePage data={data} pageContext={{ variantCodeToPathMap: undefined }} />
+      <HomePage
+        homePage={{ ...data, sections: null }}
+        brands={[]}
+        site={createMockSiteData()}
+      />
     );
 
     expect(

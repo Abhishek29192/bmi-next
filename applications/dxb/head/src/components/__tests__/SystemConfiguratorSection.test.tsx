@@ -18,7 +18,9 @@ import SystemConfiguratorSection, {
   Data,
   QuestionData
 } from "../SystemConfiguratorSection";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
+import type { RichTextData } from "../RichText";
 
 let executeRecaptchaMock = jest.fn();
 jest.mock("react-google-recaptcha-v3", () => {
@@ -65,12 +67,12 @@ afterAll(() => {
   window.location = location;
 });
 
-const richTextRaw = {
+const richTextRaw: RichTextData["json"] = {
   nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
-      nodeType: "heading-3",
+      nodeType: BLOCKS.HEADING_3,
       content: [
         {
           nodeType: "text",
@@ -206,10 +208,10 @@ describe("SystemConfiguratorSection component", () => {
           <SystemConfiguratorSection
             data={{
               ...initialData,
-              description: {
-                raw: JSON.stringify(richTextRaw),
-                references: []
-              }
+              description: createRichText({
+                json: richTextRaw,
+                references: new Map()
+              })
             }}
           />
         </LocationProvider>
@@ -258,7 +260,7 @@ describe("SystemConfiguratorSection component", () => {
       getFetchResponse({
         __typename: "ContentfulSystemConfiguratorResult",
         title: "Result Title",
-        description: { raw: JSON.stringify(richTextRaw), references: null },
+        description: createRichText({ json: richTextRaw }),
         recommendedSystems: ["abcd", "efgh"]
       })
     );
@@ -287,9 +289,9 @@ describe("SystemConfiguratorSection component", () => {
   it("renders a no result section when answer clicked", async () => {
     fetchMock.mockResolvedValue(
       getFetchResponse({
-        __typename: "ContentfulTitleWithContent",
+        __typename: "TitleWithContent",
         title: "No Result Title",
-        content: { raw: JSON.stringify(richTextRaw), references: null }
+        content: createRichText({ json: richTextRaw })
       })
     );
 
@@ -312,17 +314,24 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders no result section with the correct image url", async () => {
+    const richTextReferences: RichTextData["references"] = new Map();
+    richTextReferences.set("abcd1", {
+      __typename: "Asset",
+      title: "image 2",
+      url: "https:// path to image.jpg",
+      contentType: "image/jpg"
+    });
     fetchMock.mockResolvedValue(
       getFetchResponse({
-        __typename: "ContentfulTitleWithContent",
+        __typename: "TitleWithContent",
         title: "No Result Title",
-        content: {
-          raw: JSON.stringify({
+        content: createRichText({
+          json: {
             nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {
-                nodeType: "embedded-asset-block",
+                nodeType: BLOCKS.EMBEDDED_ASSET,
                 content: [],
                 data: {
                   target: {
@@ -335,20 +344,9 @@ describe("SystemConfiguratorSection component", () => {
                 }
               }
             ]
-          }),
-          references: [
-            {
-              __typename: "ContentfulAsset",
-              contentful_id: "abcd1",
-              id: "abcd1",
-              title: "image 2",
-              file: {
-                url: "https:// path to image.jpg",
-                contentType: "image/jpg"
-              }
-            }
-          ]
-        }
+          },
+          references: richTextReferences
+        })
       })
     );
 
@@ -371,17 +369,25 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders no result section while ignoring assets other than image", async () => {
+    const richTextReferences = new Map();
+    richTextReferences.set("abcd1", {
+      __typename: "Asset",
+      id: "abcd1",
+      title: "image 2",
+      url: "https:// path to image.jpg",
+      contentType: "file/not-an-image"
+    });
     fetchMock.mockResolvedValue(
       getFetchResponse({
-        __typename: "ContentfulTitleWithContent",
+        __typename: "TitleWithContent",
         title: "No Result Title",
-        content: {
-          raw: JSON.stringify({
+        content: createRichText({
+          json: {
             nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {
-                nodeType: "embedded-asset-block",
+                nodeType: BLOCKS.EMBEDDED_ASSET,
                 content: [],
                 data: {
                   target: {
@@ -394,20 +400,9 @@ describe("SystemConfiguratorSection component", () => {
                 }
               }
             ]
-          }),
-          references: [
-            {
-              __typename: "ContentfulAsset",
-              contentful_id: "abcd1",
-              id: "abcd1",
-              title: "image 2",
-              file: {
-                url: "https:// path to image.jpg",
-                contentType: "file/not-an-image"
-              }
-            }
-          ]
-        }
+          },
+          references: richTextReferences
+        })
       })
     );
 
@@ -430,17 +425,25 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders no result section while ignoring invalid asset references", async () => {
+    const richTextReferences = new Map();
+    richTextReferences.set("abcd1", {
+      __typename: "Asset",
+      id: "abcd1",
+      title: "image 2",
+      url: "https:// path to image.jpg",
+      contentType: "file/not-an-image"
+    });
     fetchMock.mockResolvedValue(
       getFetchResponse({
-        __typename: "ContentfulTitleWithContent",
+        __typename: "TitleWithContent",
         title: "No Result Title",
-        content: {
-          raw: JSON.stringify({
+        content: createRichText({
+          json: {
             nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {
-                nodeType: "embedded-asset-block",
+                nodeType: BLOCKS.EMBEDDED_ASSET,
                 content: [],
                 data: {
                   target: {
@@ -453,9 +456,9 @@ describe("SystemConfiguratorSection component", () => {
                 }
               }
             ]
-          }),
-          references: []
-        }
+          },
+          references: richTextReferences
+        })
       })
     );
 
@@ -617,7 +620,9 @@ describe("SystemConfiguratorSection component", () => {
         getFetchResponse({
           __typename: "ContentfulSystemConfiguratorResult",
           title: "Result Title",
-          description: { raw: JSON.stringify(richTextRaw), references: null },
+          description: createRichText({
+            json: richTextRaw
+          }),
           recommendedSystems: ["abcd", "efgh"]
         })
       );
@@ -656,7 +661,9 @@ describe("SystemConfiguratorSection component", () => {
         getFetchResponse({
           __typename: "ContentfulSystemConfiguratorResult",
           title: "Result Title",
-          description: { raw: JSON.stringify(richTextRaw), references: null },
+          description: createRichText({
+            json: richTextRaw
+          }),
           recommendedSystems: ["abcd", "efgh"]
         })
       );
@@ -691,7 +698,9 @@ describe("SystemConfiguratorSection component", () => {
       getFetchResponse({
         __typename: "ContentfulSystemConfiguratorResult",
         title: "Result Title",
-        description: { raw: JSON.stringify(richTextRaw), references: null },
+        description: createRichText({
+          json: richTextRaw
+        }),
         recommendedSystems: ["abcd", "ijkl", "efgh"]
       })
     );
@@ -745,7 +754,9 @@ describe("SystemConfiguratorSection component", () => {
       getFetchResponse({
         __typename: "ContentfulSystemConfiguratorResult",
         title: "Result Title",
-        description: { raw: JSON.stringify(richTextRaw), references: null },
+        description: createRichText({
+          json: richTextRaw
+        }),
         recommendedSystems: ["ijkl", "efgh", "abcd", "mnop", "qrst"]
       })
     );
@@ -815,7 +826,9 @@ describe("SystemConfiguratorSection component", () => {
       getFetchResponse({
         __typename: "ContentfulSystemConfiguratorResult",
         title: "Result Title",
-        description: { raw: JSON.stringify(richTextRaw), references: null },
+        description: createRichText({
+          json: richTextRaw
+        }),
         recommendedSystems: ["abcd", "efgh"]
       })
     );
@@ -869,7 +882,7 @@ describe("SystemConfiguratorSection component", () => {
       getFetchResponse({
         __typename: "ContentfulSystemConfiguratorResult",
         title: "Result Title",
-        description: { raw: JSON.stringify(richTextRaw), references: null },
+        description: createRichText({ json: richTextRaw }),
         recommendedSystems: ["efgh", "ijkl"]
       })
     );

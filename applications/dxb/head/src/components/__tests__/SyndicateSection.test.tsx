@@ -9,11 +9,9 @@ import createPageInfoData from "../../__tests__/helpers/PageInfoHelper";
 const createSyndicateSectionData = (
   syndicateSectionData?: Partial<Data>
 ): Data => ({
-  __typename: "ContentfulSyndicateSection",
+  __typename: "VillainSection",
   title: "Hello",
-  description: {
-    description: "Coconuts have water in them"
-  },
+  description: "Coconuts have water in them",
   isReversed: false,
   villains: null,
   ...syndicateSectionData
@@ -25,7 +23,7 @@ describe("SyndicateSection", () => {
     renderWithProviders(<SyndicateSection data={data} position={1} />);
     expect(
       screen.getByTestId("syndicate-section-description")
-    ).toHaveTextContent(data.description!.description);
+    ).toHaveTextContent(data.description);
   });
 
   it("should not render description if not provided", () => {

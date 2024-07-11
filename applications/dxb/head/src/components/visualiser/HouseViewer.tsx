@@ -1,4 +1,3 @@
-import { graphql } from "gatsby";
 import {
   AmbientLight,
   AxesHelper,
@@ -551,11 +550,3 @@ export default class HouseViewer extends Viewer<Props, State> {
     obj?.parent?.remove(obj);
   }
 }
-
-export const query = graphql`
-  fragment VisualiserHouseFragment on ContentfulVisualiserHouseType {
-    houseModel {
-      url
-    }
-  }
-`;

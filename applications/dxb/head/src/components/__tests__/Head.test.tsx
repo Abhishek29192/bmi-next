@@ -49,13 +49,13 @@ describe("Head", () => {
       NodeList [
         <link
           data-react-helmet="true"
-          href="http://localhost/uk/some-page/"
+          href="http://localhost:8000/uk/some-page/"
           hreflang="en-GB"
           rel="alternate"
         />,
         <link
           data-react-helmet="true"
-          href="http://localhost/uk/some-page/"
+          href="http://localhost:8000/uk/some-page/"
           hreflang="x-default"
           rel="alternate"
         />,
@@ -87,7 +87,7 @@ describe("Head", () => {
       NodeList [
         <link
           data-react-helmet="true"
-          href="http://localhost/uk/some-page/"
+          href="http://localhost:8000/uk/some-page/"
           hreflang="x-default"
           rel="alternate"
         />,

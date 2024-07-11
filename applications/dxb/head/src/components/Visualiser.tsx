@@ -1,8 +1,6 @@
 // TODO: Move to under visualiser
 import MicroCopy from "@bmi-digital/components/micro-copy";
-import { navigate as navigateWithParams, useLocation } from "@reach/router";
-import { graphql } from "gatsby";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import queryString from "query-string";
 import React, { Suspense, createContext, useMemo, useState } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -37,9 +35,9 @@ const GtmEventsMap = {
 export const VisualiserContext = createContext<Context>({
   isOpen: false,
   open: () => {
-    if (!process.env.GATSBY_VISUALISER_ASSETS_URL) {
+    if (!process.env.NEXT_PUBLIC_VISUALISER_ASSETS_URL) {
       devLog(
-        "Visualiser: Make sure you define GATSBY_VISUALISER_ASSETS_URL in the .env.development file."
+        "Visualiser: Make sure you define NEXT_PUBLIC_VISUALISER_ASSETS_URL in the .env.development file."
       );
       return;
     }
@@ -87,10 +85,11 @@ const VisualiserProvider = ({
   houseTypes
 }: Props) => {
   const { isV2VisualiserEnabled } = useConfig();
-  const location = useLocation();
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const parsedQueryParameters = mapParameters(
-    queryString.parse(location.search, { parseNumbers: true })
+    queryString.parse(searchParams.toString(), { parseNumbers: true })
   );
 
   const [isOpen, setIsOpen] = useState(
@@ -98,7 +97,6 @@ const VisualiserProvider = ({
   );
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
   const { countryCode } = useSiteContext();
-  const router = useRouter();
   const Component = useMemo(() => {
     return isV2VisualiserEnabled ? Visualiser : VisualiserOld;
   }, [isV2VisualiserEnabled]);
@@ -125,7 +123,7 @@ const VisualiserProvider = ({
     isOpen,
     ...params
   }: Partial<Parameters & { isOpen: boolean }>) => {
-    navigateWithParams(
+    router.push(
       isOpen ? calculatePathFromData(params) : calculatePathFromData({})
     );
   };
@@ -202,14 +200,5 @@ const VisualiserProvider = ({
     </VisualiserContext.Provider>
   );
 };
-
-export const query = graphql`
-  fragment VisualiserFragment on contentfulLinkParametersJsonNode {
-    tileId
-    colourId
-    sidingId
-    viewMode
-  }
-`;
 
 export default VisualiserProvider;

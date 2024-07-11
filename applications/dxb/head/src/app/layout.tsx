@@ -1,4 +1,10 @@
+"use client";
+
 import React from "react";
+import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import { ConfigProvider } from "../contexts/ConfigProvider";
+import { theme } from "../styles/modifyTheme";
 import { GoogleTagManager } from "../components/gtm";
 
 export default function RootLayout({
@@ -11,7 +17,7 @@ export default function RootLayout({
     process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID
   ];
   return (
-    <html lang="en">
+    <html lang={process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE!}>
       <GoogleTagManager
         gtmIds={gtmIds}
         defaultDataLayer={{
@@ -19,7 +25,13 @@ export default function RootLayout({
           env: process.env.NODE_ENV
         }}
       />
-      <body>{children}</body>
+      <body>
+        <AppRouterCacheProvider>
+          <ConfigProvider>
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          </ConfigProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }

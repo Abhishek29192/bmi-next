@@ -16,7 +16,7 @@ const createContentfulImageProps = ({
   className,
   "data-testid": dataTestId
 }: Props): CustomImageProps => {
-  const { url } = image.file;
+  const { url } = image;
 
   const formattedUrl = url.startsWith("https:") ? url : `https:${url}`;
 

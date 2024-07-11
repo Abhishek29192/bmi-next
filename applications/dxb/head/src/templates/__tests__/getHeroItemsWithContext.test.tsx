@@ -6,7 +6,7 @@ import { getMockSiteContext } from "../../components/__tests__/utils/SiteContext
 import { DataTypeEnum } from "../../components/link/types";
 import { getHeroItemsWithContext } from "../helpers/getHeroItemsWithContext";
 import type { Data as SlideData } from "../../components/Promo";
-import type { ContentfulVideoData } from "../../components/video/types";
+import type { Data as VideoData } from "../../components/video/types";
 import type { Data as PageInfoData } from "../../components/PageInfo";
 
 const context: SiteContext = {
@@ -23,8 +23,7 @@ beforeEach(() => {
 });
 
 describe("getHeroItemsWithContext", () => {
-  const featuredVideo: ContentfulVideoData = {
-    __typename: "ContentfulVideo",
+  const featuredVideo: VideoData = {
     title: "featuredVideo",
     label: "label",
     subtitle: null,
@@ -37,7 +36,7 @@ describe("getHeroItemsWithContext", () => {
   };
 
   const slide: SlideData = {
-    __typename: "ContentfulPromo",
+    __typename: "Promo",
     id: "id",
     title: "homePageSlideTitle",
     subtitle: null,
@@ -47,7 +46,7 @@ describe("getHeroItemsWithContext", () => {
     tags: null,
     featuredMedia: null,
     cta: {
-      __typename: "ContentfulLink",
+      __typename: "Link",
       id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
       label: "slideCTA",
       icon: null,
@@ -60,15 +59,16 @@ describe("getHeroItemsWithContext", () => {
       asset: null,
       parameters: null,
       dialogContent: null,
-      hubSpotCTAID: null
+      hubSpotCTAID: null,
+      queryParams: null
     },
-    featuredVideo,
+    featuredVideo: { __typename: "Video", ...featuredVideo },
     backgroundColor: null
   };
 
   const pageSlide = {
     ...slide,
-    __typename: "ContentfulSimplePage",
+    __typename: "Page",
     cta: null,
     path: null,
     slug: "",
@@ -110,36 +110,24 @@ describe("getHeroItemsWithContext", () => {
     expect(result[0].title).toEqual(slide.title);
     expect(result[0].children).toEqual(slide.subtitle);
     expect(result[0].media).toEqual({
-      alt: "Image alt text",
+      alt: "Alt text",
       className: undefined,
       component: NextImage,
       "data-testid": "hero-image",
+      decoding: "async",
       draggable: false,
-      image: {
-        backgroundColor: "#484848",
-        height: 720,
-        images: {
-          fallback: {
-            sizes: "(min-width: 948px) 948px, 100vw",
-            src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-            srcSet:
-              "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-          },
-          sources: [
-            {
-              sizes: "(min-width: 948px) 948px, 100vw",
-              srcSet:
-                "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-              type: "image/webp"
-            }
-          ]
-        },
-        layout: "constrained",
-        width: 948
-      },
+      fill: true,
+      loader: expect.any(Function),
       loading: "eager",
-      objectFit: "cover",
-      objectPosition: "0% 0%"
+      sizes:
+        "(max-width: 599px) 593px, (max-width: 719px) 713px, (max-width: 839px) 408px, (max-width: 1439px) 708px, 988px",
+      src: "https:http://localhost:8080/custom-image.jpg",
+      style: {
+        height: undefined,
+        objectFit: "cover",
+        objectPosition: "0% 0%",
+        width: undefined
+      }
     });
     expect(result[0].cta).toBeTruthy();
   });
@@ -149,7 +137,7 @@ describe("getHeroItemsWithContext", () => {
     expect(result[0].cta).toBeFalsy();
   });
 
-  it("should call getMicroCopy function if slide __typename is not ContentfulPromo", () => {
+  it("should call getMicroCopy function if slide __typename is not Promo", () => {
     getHeroItemsWithContext(context, [pageSlide]);
 
     expect(context.getMicroCopy).toHaveBeenCalledTimes(1);
@@ -160,7 +148,7 @@ describe("getHeroItemsWithContext", () => {
 
   it("should call getMicroCopy function if slide doesn't have cta", () => {
     slide.cta = null;
-    slide.__typename = "ContentfulPromo";
+    slide.__typename = "Promo";
 
     getHeroItemsWithContext(context, [slide]);
 

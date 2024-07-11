@@ -103,7 +103,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -137,7 +137,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -387,7 +387,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -421,7 +421,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -459,7 +459,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -493,7 +493,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -531,7 +531,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -565,7 +565,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -723,7 +723,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -757,7 +757,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -795,7 +795,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -829,7 +829,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -867,7 +867,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -901,7 +901,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -1121,7 +1121,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -1155,7 +1155,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -1193,7 +1193,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -1227,7 +1227,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -1265,7 +1265,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -1299,7 +1299,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -1519,7 +1519,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -1553,7 +1553,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -1591,7 +1591,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -1625,7 +1625,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -1663,7 +1663,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -1697,7 +1697,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -1917,7 +1917,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -1951,7 +1951,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -1989,7 +1989,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-2"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -2023,7 +2023,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-2"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -2061,7 +2061,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                     data-testid="card-collection-section-item-test-3"
-                    href="/en/"
+                    href="/en"
                     tabindex="0"
                   >
                     <div
@@ -2095,7 +2095,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                       data-testid="highlight-card-footer-cta-test-3"
-                      href="/en/"
+                      href="/en"
                       tabindex="0"
                     >
                       <span
@@ -2337,7 +2337,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                               data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                               data-testid="card-collection-section-item-test"
-                              href="/en/"
+                              href="/en"
                               tabindex="0"
                             >
                               <div
@@ -2371,7 +2371,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                 data-gtm="{"id":"cta-click1","label":"test - a string","action":"/en/"}"
                                 data-testid="highlight-card-footer-cta-test"
-                                href="/en/"
+                                href="/en"
                                 tabindex="0"
                               >
                                 <span
@@ -2422,7 +2422,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                               data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                               data-testid="card-collection-section-item-test-2"
-                              href="/en/"
+                              href="/en"
                               tabindex="0"
                             >
                               <div
@@ -2456,7 +2456,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                 data-gtm="{"id":"cta-click1","label":"test 2 - a string","action":"/en/"}"
                                 data-testid="highlight-card-footer-cta-test-2"
-                                href="/en/"
+                                href="/en"
                                 tabindex="0"
                               >
                                 <span
@@ -2507,7 +2507,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                               data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                               data-testid="card-collection-section-item-test-3"
-                              href="/en/"
+                              href="/en"
                               tabindex="0"
                             >
                               <div
@@ -2541,7 +2541,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
                                 data-gtm="{"id":"cta-click1","label":"test 3 - a string","action":"/en/"}"
                                 data-testid="highlight-card-footer-cta-test-3"
-                                href="/en/"
+                                href="/en"
                                 tabindex="0"
                               >
                                 <span

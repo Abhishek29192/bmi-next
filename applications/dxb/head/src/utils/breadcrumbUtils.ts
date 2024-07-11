@@ -26,7 +26,7 @@ export const checkIfActiveLabelInParentNode = (
       });
     return (
       (parentMenuNode &&
-        parentMenuNode.__typename !== "ContentfulNavigationItem" &&
+        parentMenuNode.__typename !== "NavigationItem" &&
         parentMenuNode.label) ||
       ""
     );

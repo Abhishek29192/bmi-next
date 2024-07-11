@@ -1,6 +1,7 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { Config, ConfigProvider } from "../../contexts/ConfigProvider";
 import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
@@ -11,10 +12,13 @@ import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
 import createSampleData from "../../__tests__/helpers/SampleHelper";
 import { renderWithProviders } from "../../__tests__/renderWithProviders";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({
-  mockEnvConfig = { gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT" },
+  mockEnvConfig = {
+    gcpFormSubmitEndpoint: "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT"
+  },
   children
 }: {
   mockEnvConfig?: Partial<Config>;
@@ -49,12 +53,24 @@ const sample = createSampleData({
 
 const data: Data = {
   __typename: "SampleBasketSection",
-  description: {
-    raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
-    references: []
-  },
+  description: createRichText({
+    json: {
+      nodeType: BLOCKS.DOCUMENT,
+      data: {},
+      content: [
+        {
+          nodeType: BLOCKS.PARAGRAPH,
+          content: [
+            { nodeType: "text", value: "test rich text", marks: [], data: {} }
+          ],
+          data: {}
+        }
+      ]
+    },
+    references: new Map()
+  }),
   checkoutFormSection: {
-    __typename: "ContentfulFormSection",
+    __typename: "Form",
     title: "Complete form",
     showTitle: true,
     description: null,
@@ -71,14 +87,31 @@ const data: Data = {
     source: SourceType.Contentful,
     hubSpotFormGuid: null
   },
-  emptyBasketMessage: {
-    raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"your basket is empty.","marks":[],"data":{}}],"data":{}}]}',
-    references: []
-  },
+  emptyBasketMessage: createRichText({
+    json: {
+      nodeType: BLOCKS.DOCUMENT,
+      data: {},
+      content: [
+        {
+          nodeType: BLOCKS.PARAGRAPH,
+          content: [
+            {
+              nodeType: "text",
+              value: "your basket is empty.",
+              marks: [],
+              data: {}
+            }
+          ],
+          data: {}
+        }
+      ]
+    },
+    references: new Map()
+  }),
   browseProductsCTALabel: "browse all products",
   browseProductsCTA: {
     id: "5bcc3b0f-fcba-54b6-9ddb-2be3f4fc7fae",
-    __typename: "ContentfulProductListerPage",
+    __typename: "ProductListerPage",
     title: "torvtak",
     subtitle: "sub-title",
     brandLogo: null,
@@ -179,7 +212,7 @@ describe("SampleBasketSection with form", () => {
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -235,7 +268,7 @@ describe("SampleBasketSection with form", () => {
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -292,7 +325,7 @@ describe("SampleBasketSection with form", () => {
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -351,7 +384,7 @@ describe("SampleBasketSection with form", () => {
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -402,7 +435,7 @@ describe("SampleBasketSection remove sample from basket", () => {
       expect(screen.getByText("your basket is empty.")).toBeInTheDocument();
       expect(browseAllButton).toHaveAttribute(
         "href",
-        "/no/zanda-brand/torvtak/"
+        "/no/zanda-brand/torvtak"
       );
       expect(local.getItem).toHaveBeenLastCalledWith("no-basketItems");
       await waitFor(() =>

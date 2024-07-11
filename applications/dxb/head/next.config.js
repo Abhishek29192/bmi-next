@@ -1,6 +1,6 @@
 "use strict";
 
-const withTM = require("next-transpile-modules")([]);
+const withTM = require("next-transpile-modules")(["@bmi-digital/components"]);
 
 const headers = [];
 
@@ -35,6 +35,14 @@ const nextConfig = {
   },
   async redirects() {
     return [];
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(ttf|otf|eot|woff|woff2|svg|png)$/i,
+      loader: "file-loader"
+    });
+
+    return config;
   }
 };
 

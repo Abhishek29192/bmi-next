@@ -5,11 +5,11 @@ export const getMicroCopies = async (
   context: Context
 ): Promise<MicroCopyNode[] | undefined> => {
   const marketCode = process.env.GATSBY_SPACE_MARKET_CODE;
-  const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
+  const localeCode = process.env.NEXT_PUBLIC_MARKET_LOCALE_CODE;
 
   if (!marketCode || !localeCode) {
     console.error(
-      `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+      `Please check environment variables 'GATSBY_SPACE_MARKET_CODE' or 'NEXT_PUBLIC_MARKET_LOCALE_CODE' not set!`
     );
     return;
   }

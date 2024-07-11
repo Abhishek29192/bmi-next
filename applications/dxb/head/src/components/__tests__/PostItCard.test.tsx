@@ -10,7 +10,7 @@ import { DataTypeEnum, Data as LinkProps } from "../link/types";
 
 describe("PostItCard", () => {
   const linkData: LinkProps = {
-    __typename: "ContentfulLink",
+    __typename: "Link",
     id: "link_id",
     label: "Link Label",
     icon: null,
@@ -20,7 +20,8 @@ describe("PostItCard", () => {
     parameters: null,
     dialogContent: null,
     linkedPage: null,
-    hubSpotCTAID: null
+    hubSpotCTAID: null,
+    queryParams: null
   };
 
   const linkSectionData: SectionProps = {

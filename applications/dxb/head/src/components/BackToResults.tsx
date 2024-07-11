@@ -5,7 +5,7 @@ import { microCopy } from "@bmi/microcopies";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import NextLink from "next/link";
-import { FC, ReactElement } from "react";
+import React, { FC, ReactElement } from "react";
 import { PATHNAME_KEY, getBackToResultsPath } from "../utils/filters";
 import { useSiteContext } from "./Site";
 import {

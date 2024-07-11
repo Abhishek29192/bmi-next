@@ -1,15 +1,15 @@
 import React from "react";
-import { RichTextData } from "../../components/RichText";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { isRichText } from "../isRichText";
+import type { RichTextData } from "../../components/RichText";
 
 const richTextMock: RichTextData = {
-  raw: "rich-text-raw",
-  references: [
-    {
-      __typename: "paragraph",
-      contentful_id: "rich-text-reference-contentful-id"
-    }
-  ]
+  json: {
+    nodeType: BLOCKS.DOCUMENT,
+    data: {},
+    content: []
+  },
+  references: new Map()
 };
 
 describe("isRichText function", () => {
@@ -20,7 +20,7 @@ describe("isRichText function", () => {
   it("returns 'false'", () => {
     expect(isRichText(<p>mock</p>)).toBeFalsy();
     expect(isRichText("mock")).toBeFalsy();
-    expect(isRichText({ raw: richTextMock.raw })).toBeFalsy();
+    expect(isRichText({ json: richTextMock.json })).toBeFalsy();
     expect(isRichText({ references: richTextMock.references })).toBeFalsy();
     expect(isRichText({ ...richTextMock, testField: "mock" })).toBeFalsy();
   });

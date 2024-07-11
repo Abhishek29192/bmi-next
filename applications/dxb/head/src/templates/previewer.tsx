@@ -32,7 +32,7 @@ const Previewer = ({ data }: { data: Data }) => {
     if (pageData) {
       router.push(
         `/${
-          process.env.GATSBY_DONT_USE_COUNTRY_CODE
+          process.env.NEXT_PUBLIC_DONT_USE_COUNTRY_CODE
             ? ""
             : `${data.contentfulSite.countryCode}/`
         }${pageData.path}`

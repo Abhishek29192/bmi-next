@@ -74,7 +74,7 @@ const renderTrainingRegistrationPage = () => {
   render(
     <ConfigProvider
       configOverride={{
-        gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        gcpFormSubmitEndpoint: "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT"
       }}
     >
       <MockSiteContext>
@@ -160,7 +160,7 @@ describe("TrainingRegistrationForm", () => {
     );
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -426,7 +426,7 @@ describe("TrainingRegistrationForm", () => {
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -526,7 +526,7 @@ describe("TrainingRegistrationForm", () => {
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({

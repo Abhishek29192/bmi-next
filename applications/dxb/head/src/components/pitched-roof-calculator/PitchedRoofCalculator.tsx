@@ -1,6 +1,5 @@
 import ContainerDialog from "@bmi-digital/components/container-dialog";
 import { useIsClient } from "@bmi-digital/components/hooks";
-import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import ProgressIndicator from "../ProgressIndicator";
 import {
@@ -123,15 +122,3 @@ const PitchedRoofCalculator = ({
 };
 
 export default PitchedRoofCalculator;
-
-export const query = graphql`
-  fragment PitchedRoofCalculatorFragment on ContentfulWebToolCalculator {
-    hubSpotFormId
-    roofShapes {
-      roofShapeId
-    }
-    needHelpSection {
-      ...TitleWithContentFragment
-    }
-  }
-`;

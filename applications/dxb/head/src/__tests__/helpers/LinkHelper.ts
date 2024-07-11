@@ -2,7 +2,7 @@ import { Data, DataTypeEnum } from "../../components/link/types";
 import createTitleWithContentData from "./TitleWithContentHelper";
 
 const createCommonLinkData = (): Data => ({
-  __typename: "ContentfulLink",
+  __typename: "Link",
   id: "link-id",
   label: "Link label",
   icon: null,
@@ -13,7 +13,8 @@ const createCommonLinkData = (): Data => ({
   dialogContent: null,
   linkedPage: null,
   asset: null,
-  hubSpotCTAID: null
+  hubSpotCTAID: null,
+  queryParams: null
 });
 
 export const createInternalLinkData = (link?: Partial<Data>): Data => ({
@@ -43,9 +44,7 @@ export const createAssetLinkData = (link?: Partial<Data>): Data => ({
   isLabelHidden: false,
   type: DataTypeEnum.Asset,
   asset: {
-    file: {
-      url: "http://localhost:8080/asset.pdf"
-    }
+    url: "http://localhost:8080/asset.pdf"
   },
   ...link
 });
@@ -95,9 +94,7 @@ const createLinkData = (link?: Partial<Data>): Data => ({
     path: "linked/page/path/"
   },
   asset: {
-    file: {
-      url: "http://localhost:8080/asset.pdf"
-    }
+    url: "http://localhost:8080/asset.pdf"
   },
   hubSpotCTAID: "hubspot-cta-id",
   ...link

@@ -5,6 +5,7 @@ import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
 import { useMemo } from "react";
+import React from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Filters from "../../components/FiltersSidebar";

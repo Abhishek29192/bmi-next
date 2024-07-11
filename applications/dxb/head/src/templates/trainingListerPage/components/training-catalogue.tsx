@@ -6,6 +6,7 @@ import { Training } from "@bmi/elasticsearch-types";
 import { microCopy } from "@bmi/microcopies";
 import NextLink from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import React from "react";
 import { useSiteContext } from "../../../components/Site";
 import { trainingCategoryMicroCopies } from "../../../constants/trainingCategoryMicroCopies";
 import { trainingTypeMicroCopies } from "../../../constants/trainingTypeMicroCopies";

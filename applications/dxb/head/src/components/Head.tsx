@@ -54,15 +54,15 @@ export const Head = ({
       (variantProduct.seoDescription || variantProduct.description)) ||
     (seo && seo.metaDescription);
 
-  const correctGatsbySiteUrl: string = process.env.GATSBY_SITE_URL!.endsWith(
-    "/"
-  )
-    ? process.env.GATSBY_SITE_URL!.slice(0, -1)
-    : process.env.GATSBY_SITE_URL!;
+  const correctGatsbySiteUrl: string =
+    process.env.NEXT_PUBLIC_SITE_URL!.endsWith("/")
+      ? process.env.NEXT_PUBLIC_SITE_URL!.slice(0, -1)
+      : process.env.NEXT_PUBLIC_SITE_URL!;
+
   return (
     <Helmet
       htmlAttributes={htmlAttributes}
-      title={seo?.metaTitle || (transformHyphens(title) as string)}
+      title={seo?.metaTitle || transformHyphens(title)}
       defer={defer}
     >
       <script>{`

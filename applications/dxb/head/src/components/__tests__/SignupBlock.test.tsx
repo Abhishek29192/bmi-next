@@ -7,14 +7,12 @@ import SignupBlock, { Data } from "../SignupBlock";
 import { SourceType } from "../types/FormSectionTypes";
 
 const data: Data = {
-  __typename: "ContentfulSignupBlock",
+  __typename: "SignupBlock",
   title: "Newsletter signup block section",
-  description: {
-    description: "if it doesnt u it makes u stronger"
-  },
+  signUpBlockDescription: "if it doesnt u it makes u stronger",
   signupLabel: "sign up",
   signupDialogContent: {
-    __typename: "ContentfulFormSection",
+    __typename: "Form",
     title: "Test form",
     showTitle: null,
     description: null,

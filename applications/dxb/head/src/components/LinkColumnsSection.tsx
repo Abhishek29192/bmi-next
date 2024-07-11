@@ -30,7 +30,7 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
             const linksWithActions: ExpandableLinksTextCardsProps["links"] = (
               links || []
             )
-              .filter((link) => link.__typename === "ContentfulLink")
+              .filter((link) => link.__typename === "Link")
               .map((link: LinkData) => {
                 return {
                   ...toAnchorLinkActionProps(link, countryCode),

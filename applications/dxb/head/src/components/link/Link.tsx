@@ -1,7 +1,6 @@
 import Dialog from "@bmi-digital/components/dialog";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import classnames from "classnames";
-import { graphql } from "gatsby";
 import NextLink from "next/link";
 import uniqueId from "lodash-es/uniqueId";
 import React, { Suspense, useCallback, useContext, useState } from "react";
@@ -246,7 +245,7 @@ const HubSpotLink = ({
   gtm,
   children
 }: HubSpotProps) => {
-  const to = `${process.env.GATSBY_HUBSPOT_CTA_URL}${process.env.GATSBY_HUBSPOT_ID}/${hubSpotCtaId}`;
+  const to = `${process.env.NEXT_PUBLIC_HUBSPOT_CTA_URL}${process.env.NEXT_PUBLIC_HUBSPOT_ID}/${hubSpotCtaId}`;
   return (
     <StyledAnchorLink
       className={classnames(className, hasBrandColours && classes.branded)}
@@ -291,7 +290,7 @@ const Link = (props: Props) => {
     case DataTypeEnum.Asset:
       return (
         <AssetLink
-          to={`https:${props.data.asset?.file.url}`}
+          to={`https:${props.data.asset?.url}`}
           hasBrandColours={props.hasBrandColours}
           className={props.className}
           gtm={props.gtm}
@@ -350,43 +349,3 @@ const Link = (props: Props) => {
 };
 
 export default Link;
-
-export const query = graphql`
-  fragment LinkFragmentNonRecursive on ContentfulLink {
-    __typename
-    id
-    label
-    icon
-    isLabelHidden
-    url
-    type
-    linkedPage {
-      ... on ContentfulHomePage {
-        path
-      }
-      ... on ContentfulPage {
-        path
-      }
-    }
-    asset {
-      ... on ContentfulAsset {
-        file {
-          ... on ContentfulAssetFile {
-            url
-          }
-        }
-      }
-    }
-    parameters {
-      ...VisualiserFragment
-    }
-    hubSpotCTAID
-  }
-  fragment LinkFragment on ContentfulLink {
-    ...LinkFragmentNonRecursive
-    dialogContent {
-      # Potential to add more sections here.
-      ...FormSectionFragmentNonRecursive
-    }
-  }
-`;

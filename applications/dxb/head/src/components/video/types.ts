@@ -15,5 +15,5 @@ export type Data = {
 };
 
 export type ContentfulVideoData = Data & {
-  __typename: "ContentfulVideo";
+  __typename: "Video";
 };

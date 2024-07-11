@@ -6,7 +6,7 @@ import createPageInfoData from "./PageInfoHelper";
 const createSimplePageData = (simplePage?: Partial<Data>): Data => ({
   ...createPageInfoData(),
   ...createPageData(),
-  __typename: "ContentfulSimplePage",
+  __typename: "SimplePage",
   leadBlock: null,
   shareWidget: null,
   sections: null,

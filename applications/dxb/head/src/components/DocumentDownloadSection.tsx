@@ -1,7 +1,6 @@
 import DownloadList from "@bmi-digital/components/download-list";
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
-import { graphql } from "gatsby";
 import React, { useRef, useState } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
 import {
@@ -90,14 +89,14 @@ const DocumentDownloadSection = ({
 
 export default DocumentDownloadSection;
 
-export const query = graphql`
-  fragment DocumentDownloadSectionFragment on ContentfulDocumentDownloadSection {
-    title
-    description {
-      ...RichTextFragment
-    }
-    documents {
-      ...DocumentFragment
-    }
-  }
-`;
+// export const query = graphql`
+//   fragment DocumentDownloadSectionFragment on ContentfulDocumentDownloadSection {
+//     title
+//     description {
+//       ...RichTextFragment
+//     }
+//     documents {
+//       ...DocumentFragment
+//     }
+//   }
+// `;

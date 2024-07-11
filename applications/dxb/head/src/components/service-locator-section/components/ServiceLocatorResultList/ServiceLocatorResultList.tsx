@@ -63,7 +63,12 @@ export const ServiceLocatorResultList = ({
               isOpen={selectedRoofer?.id === service?.id}
               title={service.name}
               logo={
-                service.companyLogo && <CompanyLogo {...service.companyLogo} />
+                service.companyLogo && (
+                  <CompanyLogo
+                    {...service.companyLogo}
+                    widths={[561, 321, 381, 446, 330]}
+                  />
+                )
               }
               gtm={getResultDataGtm(service)}
               data-testid={"GTMIntegratedLinkCard-test-id"}

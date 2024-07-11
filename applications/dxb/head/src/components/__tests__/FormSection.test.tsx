@@ -34,7 +34,7 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
 const formId = "form-1";
 const submitText = "Submit";
 const data: Data = {
-  __typename: "ContentfulFormSection",
+  __typename: "Form",
   title: "Test form",
   showTitle: null,
   description: null,
@@ -112,7 +112,7 @@ const data: Data = {
   ],
   submitText,
   successRedirect: {
-    __typename: "ContentfulLink",
+    __typename: "Link",
     id: "link",
     label: "Thank you",
     icon: null,
@@ -122,13 +122,14 @@ const data: Data = {
     type: DataTypeEnum.Internal,
     parameters: null,
     dialogContent: null,
-    hubSpotCTAID: null
+    hubSpotCTAID: null,
+    queryParams: null
   },
   source: SourceType.Contentful,
   hubSpotFormGuid: null
 };
 const dataHubSpot: Data = {
-  __typename: "ContentfulFormSection",
+  __typename: "Form",
   title: "Test form",
   showTitle: null,
   description: null,
@@ -136,7 +137,7 @@ const dataHubSpot: Data = {
   inputs: null,
   submitText: "Submit",
   successRedirect: {
-    __typename: "ContentfulLink",
+    __typename: "Link",
     id: "link",
     label: "Thank you",
     icon: null,
@@ -146,7 +147,8 @@ const dataHubSpot: Data = {
     type: DataTypeEnum.Internal,
     parameters: null,
     dialogContent: null,
-    hubSpotCTAID: null
+    hubSpotCTAID: null,
+    queryParams: null
   },
   source: SourceType.HubSpot,
   hubSpotFormGuid: "abc123"
@@ -419,7 +421,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <ConfigProvider
         configOverride={{
-          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+          gcpFormSubmitEndpoint: "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
         <MockSiteContext>
@@ -443,7 +445,7 @@ describe("FormSection component", () => {
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -498,7 +500,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <ConfigProvider
         configOverride={{
-          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+          gcpFormSubmitEndpoint: "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
         <MockSiteContext>
@@ -522,7 +524,7 @@ describe("FormSection component", () => {
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -569,7 +571,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <ConfigProvider
         configOverride={{
-          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+          gcpFormSubmitEndpoint: "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
         <MockSiteContext>
@@ -593,7 +595,7 @@ describe("FormSection component", () => {
 
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -646,7 +648,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <ConfigProvider
         configOverride={{
-          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+          gcpFormSubmitEndpoint: "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
         <MockSiteContext>
@@ -669,7 +671,7 @@ describe("FormSection component", () => {
     fireEvent.submit(screen.getByTestId("test-form"));
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -822,7 +824,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <ConfigProvider
         configOverride={{
-          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+          gcpFormSubmitEndpoint: "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
         <MockSiteContext>
@@ -845,7 +847,7 @@ describe("FormSection component", () => {
     fireEvent.submit(screen.getByTestId("test-form"));
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({
@@ -887,7 +889,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <ConfigProvider
         configOverride={{
-          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+          gcpFormSubmitEndpoint: "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
         <MockSiteContext>
@@ -910,7 +912,7 @@ describe("FormSection component", () => {
     fireEvent.submit(screen.getByTestId("test-form"));
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
-        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        "NEXT_PUBLIC_GCP_FORM_SUBMIT_ENDPOINT",
         {
           method: "POST",
           body: JSON.stringify({

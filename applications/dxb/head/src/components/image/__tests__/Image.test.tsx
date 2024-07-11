@@ -30,7 +30,7 @@ describe("Image", () => {
   it("should render the ContentfulImage component if the props are from Contentful", () => {
     renderWithProviders(
       <Image
-        {...createImageData({ __typename: "ContentfulImage" })}
+        {...createImageData({ __typename: "Image" })}
         widths={[1, 2, 3, 4, 5]}
       />
     );

@@ -25,7 +25,7 @@ import type { Data as PromoData } from "../Promo";
 import type { Data as PageInfoData } from "../PageInfo";
 import type { useAuthType } from "../../hooks/useAuth";
 
-let isGatsbyDisabledElasticSearch: boolean;
+let isNextDisabledElasticSearch: boolean;
 let isSampleOrderingEnabled: boolean;
 let isLoginEnabled: boolean;
 
@@ -38,7 +38,7 @@ jest.mock("@bmi-digital/components", () => ({
 
 jest.mock("../../contexts/ConfigProvider", () => ({
   useConfig: () => ({
-    isGatsbyDisabledElasticSearch,
+    isNextDisabledElasticSearch,
     isSampleOrderingEnabled,
     isLoginEnabled
   })
@@ -62,7 +62,7 @@ jest.mock("../../auth/service", () => ({
 
 beforeEach(() => {
   jest.useFakeTimers();
-  isGatsbyDisabledElasticSearch = false;
+  isNextDisabledElasticSearch = false;
   isSampleOrderingEnabled = true;
   isLoginEnabled = true;
   useIsClientMock.mockReturnValue({ isClient: true });
@@ -93,7 +93,7 @@ const regions = [
 ];
 
 const card1: PromoData = {
-  __typename: "ContentfulPromo",
+  __typename: "Promo",
   id: "card1",
   name: "cardTitle1",
   title: "cardTitle1",
@@ -114,17 +114,17 @@ const card2: PageInfoData = createPageInfoData({
 const promos: NavigationData["promos"] = [card1, card2];
 
 const navigationData: NavigationData = {
-  __typename: "ContentfulNavigation",
+  __typename: "Navigation",
   label: "Main",
   link: null,
   links: [
     {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Get in touch",
       link: null,
       links: [
         {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "",
           label: "+44 (0) 1234567890",
           url: "tel:+4401234567890",
@@ -134,22 +134,23 @@ const navigationData: NavigationData = {
           type: DataTypeEnum.External,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       ]
     },
     {
-      __typename: "ContentfulNavigationItem",
+      __typename: "NavigationItem",
       type: "Separator",
       value: "separator"
     },
     {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "About BMI",
       link: null,
       links: [
         {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "",
           label: "Our story",
           url: null,
@@ -161,10 +162,11 @@ const navigationData: NavigationData = {
           type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         },
         {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "",
           label: "Another Page",
           url: null,
@@ -176,7 +178,8 @@ const navigationData: NavigationData = {
           type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       ],
       promos
@@ -191,12 +194,12 @@ const navigationData: NavigationData = {
 };
 
 const utilitiesData: NavigationData = {
-  __typename: "ContentfulNavigation",
+  __typename: "Navigation",
   label: "About BMI",
   link: null,
   links: [
     {
-      __typename: "ContentfulLink",
+      __typename: "Link",
       id: "",
       label: "Our story",
       url: null,
@@ -208,7 +211,8 @@ const utilitiesData: NavigationData = {
       type: DataTypeEnum.Internal,
       parameters: null,
       dialogContent: null,
-      hubSpotCTAID: null
+      hubSpotCTAID: null,
+      queryParams: null
     }
   ]
 };
@@ -216,7 +220,7 @@ const utilitiesData: NavigationData = {
 const sampleBasketLinkInfo: PageInfoData = {
   id: "test",
   title: "test",
-  __typename: "ContentfulSimplePage",
+  __typename: "Page",
   slug: "sample-basket",
   path: "sample-basket/",
   subtitle: null,
@@ -525,8 +529,8 @@ describe("Header component", () => {
 
     it("generates correct href if link isintouch link and is isClient is true", () => {
       useIsClientMock.mockReturnValue({ isClient: true });
-      const originalEnv = process.env.GATSBY_INTOUCH_ORIGIN;
-      process.env.GATSBY_INTOUCH_ORIGIN = "https://www.external.co.uk";
+      const originalEnv = process.env.NEXT_PUBLIC_INTOUCH_ORIGIN;
+      process.env.NEXT_PUBLIC_INTOUCH_ORIGIN = "https://www.external.co.uk";
 
       render(
         <ThemeProvider>
@@ -551,7 +555,7 @@ describe("Header component", () => {
 
       expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
 
-      process.env.GATSBY_INTOUCH_ORIGIN = originalEnv;
+      process.env.NEXT_PUBLIC_INTOUCH_ORIGIN = originalEnv;
     });
 
     it("generates correct href if link is not intouch link and isClient is false", () => {
@@ -875,7 +879,7 @@ describe("Header component", () => {
 
       expect(screen.getByText("MC: my.account.label")).toHaveAttribute(
         "href",
-        "/no/account/"
+        "/no/account"
       );
     });
   });

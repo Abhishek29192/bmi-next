@@ -4,7 +4,6 @@ import Section from "@bmi-digital/components/section";
 import Tabs from "@bmi-digital/components/tabs";
 import Tab, { TabProps } from "@mui/material/Tab";
 import classnames from "classnames";
-import { graphql } from "gatsby";
 import React from "react";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -118,20 +117,3 @@ const TeamCategorySection = (props: Omit<TeamCategoryType, "id">) => (
 );
 
 export default TeamSection;
-
-export const query = graphql`
-  fragment TeamSectionFragment on ContentfulTeamSection {
-    __typename
-    title
-    teamCategories {
-      title
-      description {
-        ...RichTextFragment
-      }
-      team_member {
-        ...TeamMemberFragment
-      }
-    }
-    backgroundColor
-  }
-`;

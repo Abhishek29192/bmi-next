@@ -13,12 +13,12 @@ jest.mock("../../contexts/ConfigProvider", () => ({
   })
 }));
 const mockNavigation: NavigationData = {
-  __typename: "ContentfulNavigation",
+  __typename: "Navigation",
   label: "Main navigation",
   link: null,
   links: [
     {
-      __typename: "ContentfulLink",
+      __typename: "Link",
       id: "string",
       label: "string",
       icon: null,
@@ -28,23 +28,24 @@ const mockNavigation: NavigationData = {
       type: DataTypeEnum.External,
       parameters: null,
       dialogContent: null,
-      hubSpotCTAID: null
+      hubSpotCTAID: null,
+      queryParams: null
     }
   ]
 };
 
 const mockNestedNavigation: NavigationData = {
-  __typename: "ContentfulNavigation",
+  __typename: "Navigation",
   label: "Main navigation",
   link: null,
   links: [
     {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "Get in touch",
       link: null,
       links: [
         {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "",
           label: "+44 (0) 1234567890",
           url: "tel:+4401234567890",
@@ -54,17 +55,18 @@ const mockNestedNavigation: NavigationData = {
           type: DataTypeEnum.External,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       ]
     },
     {
-      __typename: "ContentfulNavigation",
+      __typename: "Navigation",
       label: "About BMI",
       link: null,
       links: [
         {
-          __typename: "ContentfulLink",
+          __typename: "Link",
           id: "",
           label: "Our story",
           url: null,
@@ -76,12 +78,13 @@ const mockNestedNavigation: NavigationData = {
           type: DataTypeEnum.Internal,
           parameters: null,
           dialogContent: null,
-          hubSpotCTAID: null
+          hubSpotCTAID: null,
+          queryParams: null
         }
       ]
     },
     {
-      __typename: "ContentfulLink",
+      __typename: "Link",
       id: "string",
       label: "string",
       icon: null,
@@ -91,15 +94,21 @@ const mockNestedNavigation: NavigationData = {
       type: DataTypeEnum.External,
       parameters: null,
       dialogContent: null,
-      hubSpotCTAID: null
+      hubSpotCTAID: null,
+      queryParams: null
     }
   ]
 };
 
 const siteData: SiteData = {
-  node_locale: "en-US",
+  sys: {
+    locale: "en-US"
+  },
   homePage: {
-    title: "Home page title"
+    title: "Home page title",
+    sys: {
+      id: "home-page-id"
+    }
   },
   countryCode: "uk",
   footerMainNavigation: mockNavigation,

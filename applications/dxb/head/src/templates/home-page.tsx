@@ -1,82 +1,66 @@
-import CarouselHero from "@bmi-digital/components/carousel-hero";
+"use client";
+
 import { useIsClient } from "@bmi-digital/components/hooks";
+import React from "react";
 import Search from "@bmi-digital/components/search";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
-import { useMemo } from "react";
+import CarouselHero from "@bmi-digital/components/carousel-hero";
 import Brands from "../components/Brands";
 import OverlapCards from "../components/OverlapCards";
 import Page from "../components/Page";
 import Sections from "../components/Sections";
 import WelcomeDialog from "../components/WelcomeDialog";
-import { useConfig } from "../contexts/ConfigProvider";
 import { getPathWithCountryCode } from "../utils/path";
+import { useConfig } from "../contexts/ConfigProvider";
 import { getHeroItemsWithContext } from "./helpers/getHeroItemsWithContext";
+import type { Data as SEOContentData } from "../components/SEOContent";
+import type { Data as SignUpBlockData } from "../components/SignupBlock";
 import type { Data as OverlapCardData } from "../components/OverlapCards";
 import type { Data as BrandData } from "../components/Brands";
-import type { Data as PageData } from "../components/Page";
 import type { Data as SiteData } from "../components/Site";
 import type { Data as SectionsData } from "../components/Sections";
 import type { Data as SlideData } from "../components/Promo";
 import type { Data as PageInfoData } from "../components/PageInfo";
 
-export type HomepageData = {
-  __typename: "ContentfulHomePage";
+type HomePageData = {
+  __typename: "HomePage";
   title: string;
-  slides: readonly [SlideData | PageInfoData, ...(SlideData | PageInfoData)[]];
-  overlapCards: OverlapCardData | null;
-  brands: BrandData[];
+  slides: readonly (SlideData | PageInfoData)[];
+  overlapCards: OverlapCardData;
   sections: SectionsData | null;
-} & PageData;
-
-export type Props = {
-  data: {
-    contentfulHomePage: HomepageData;
-    contentfulSite: SiteData;
-  };
-  pageContext: {
-    variantCodeToPathMap?: Record<string, string>;
-  };
+  seo: SEOContentData | null;
+  signupBlock: SignUpBlockData | null;
 };
 
-const HomePage = ({ data, pageContext }: Props) => {
-  const {
-    __typename,
-    title,
-    slides,
-    overlapCards,
-    brands,
-    sections,
-    signupBlock,
-    seo
-  } = data.contentfulHomePage;
-  const pageData: PageData = useMemo(
-    () => ({
-      breadcrumbs: null,
-      signupBlock,
-      seo,
-      path: data.contentfulHomePage.path
-    }),
-    [data.contentfulHomePage.path, seo, signupBlock]
-  );
-  const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
-    data.contentfulSite.resources || {};
+export type Data = {
+  homePage: HomePageData;
+  brands: BrandData[];
+  site: SiteData;
+};
 
-  const { isGatsbyDisabledElasticSearch } = useConfig();
+const HomePage = ({ brands, homePage, site }: Data) => {
+  const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
+    site.resources || {};
+
+  const { isNextDisabledElasticSearch } = useConfig();
   const { isClient } = useIsClient();
 
   return (
     <Page
-      title={title}
-      pageData={pageData}
-      siteData={data.contentfulSite}
-      variantCodeToPathMap={pageContext.variantCodeToPathMap}
-      ogImageUrl={slides[0].featuredMedia?.image?.file.url}
+      title={homePage.title}
+      siteData={site}
+      pageData={{
+        breadcrumbs: null,
+        path: getPathWithCountryCode(process.env.NEXT_PUBLIC_SPACE_MARKET_CODE),
+        seo: homePage.seo,
+        signupBlock: homePage.signupBlock
+      }}
       pageType="homePage"
+      ogImageUrl={homePage.slides[0].featuredMedia?.image?.url}
     >
       {({ siteContext }) => {
         const { countryCode, getMicroCopy } = siteContext;
-        const heroItems = getHeroItemsWithContext(siteContext, slides);
+        const heroItems = getHeroItemsWithContext(siteContext, homePage.slides);
 
         return (
           <>
@@ -85,7 +69,7 @@ const HomePage = ({ data, pageContext }: Props) => {
               hasSpaceBottom
               disableLazyLoading={true}
             >
-              {!isGatsbyDisabledElasticSearch && (
+              {!isNextDisabledElasticSearch && (
                 <Search
                   gtm={{
                     id: "search2",
@@ -97,13 +81,18 @@ const HomePage = ({ data, pageContext }: Props) => {
                 />
               )}
             </CarouselHero>
-            {overlapCards && <OverlapCards data={overlapCards} />}
-            {brands.length > 0 && <Brands data={brands} />}
-            {sections && (
+            {homePage.overlapCards.length && (
+              <OverlapCards data={homePage.overlapCards} />
+            )}
+            {brands.length && <Brands data={brands} />}
+            {homePage.overlapCards && (
+              <OverlapCards data={homePage.overlapCards} />
+            )}
+            {homePage.sections?.length && (
               <Sections
                 data-testid="homepage-sections"
-                data={sections}
-                pageTypename={__typename}
+                data={homePage.sections}
+                pageTypename={homePage.__typename}
               />
             )}
             {isClient &&
@@ -126,38 +115,3 @@ const HomePage = ({ data, pageContext }: Props) => {
 };
 
 export default HomePage;
-
-export const pageQuery = graphql`
-  query HomePageById($pageId: String!, $siteId: String!) {
-    contentfulHomePage(id: { eq: $pageId }) {
-      __typename
-      # Only fetching slug to get it in the JSON file so it's indexed
-      slug
-      title
-      slides {
-        ... on ContentfulPromoOrPage {
-          ...PromoHeroFragment
-          ...PageInfoHeroFragment
-        }
-      }
-      overlapCards {
-        ...OverlapCardFragment
-      }
-      brands {
-        ...BrandFragment
-      }
-      sections {
-        ...SectionsFragment
-      }
-      signupBlock {
-        ...SignupBlockFragment
-      }
-      seo {
-        ...SEOContentFragment
-      }
-    }
-    contentfulSite(id: { eq: $siteId }) {
-      ...SiteFragment
-    }
-  }
-`;

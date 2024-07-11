@@ -1,9 +1,11 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createSystem from "../../../__tests__/helpers/SystemHelper";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
 import AboutLeadBlock from "../aboutLeadBlock";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
 
 const guaranteesWarrantiesMicroCopy = "MC: pdp.leadBlock.guaranteesWarranties";
 const awardsCertificatesMicroCopy = "MC: pdp.leadBlock.awardsCertificates";
@@ -11,13 +13,12 @@ const specificationMicroCopy = "MC: sdp.leadBlock.specification";
 const systemBenefitsMicroCopy = "MC: sdp.leadBlock.systemBenefits";
 const aboutLeadBlockSidebarTitle = "siderBarItem";
 const sidebarItem: TitleWithContentData = {
-  __typename: "ContentfulTitleWithContent",
+  __typename: "TitleWithContent",
   name: aboutLeadBlockSidebarTitle,
   title: aboutLeadBlockSidebarTitle,
-  content: {
-    raw: '{"nodeType":"document","data":{},"content":[]}',
-    references: []
-  }
+  content: createRichText({
+    json: { nodeType: BLOCKS.DOCUMENT, data: {}, content: [] }
+  })
 };
 
 describe("AboutLeadBlock tests", () => {

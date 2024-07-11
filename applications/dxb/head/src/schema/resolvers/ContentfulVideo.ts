@@ -1,13 +1,10 @@
-import { config } from "dotenv";
 import { google } from "googleapis";
 import fetchRetry from "@bmi/fetch-retry";
 import { getYoutubeId } from "@bmi/utils";
 import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
-import type { Node } from "./types/Gatsby";
-
-config({
-  path: `./.env.${process.env.NODE_ENV}`
-});
+import resolveImage from "./ContentfulImage";
+import type { ContentfulVideoData as VideoData } from "../../components/video/types";
+import type { Video as ContentfulVideo } from "./types/Video";
 
 const verifyEnvVariable = (name: string) => {
   // eslint-disable-next-line security/detect-object-injection
@@ -73,28 +70,32 @@ const getYoutubeDetailsFromCache = async (youtubeId: string) => {
   return { width: data.embedWidth, height: data.embedHeight };
 };
 
-export default {
-  videoRatio: {
-    async resolve(source: Node) {
-      const youtubeId = getYoutubeId(source.youtubeId ?? "");
-
-      if (process.env.ENABLE_YOUTUBE_CACHE === "true") {
-        return await getYoutubeDetailsFromCache(youtubeId);
-      }
-
-      return await getYoutubeDetailsFromYoutube(youtubeId);
-    }
-  },
-  youtubeId: {
-    async resolve(source: Node) {
-      return source.youtubeId?.startsWith("https://")
-        ? source.youtubeId
-        : `https://www.youtube.com/watch?v=${source.youtubeId}`;
-    }
-  },
-  defaultYouTubePreviewImage: {
-    async resolve(source: Node) {
-      return await getDefaultYoutubePreviewImage(source.youtubeId ?? "");
-    }
-  }
+const resolveVideo = async ({
+  youtubeId,
+  previewMedia,
+  ...rest
+}: ContentfulVideo): Promise<VideoData> => {
+  return {
+    ...rest,
+    previewMedia: previewMedia ? resolveImage(previewMedia) : null,
+    videoRatio: await getVideoRatio(youtubeId),
+    videoUrl: youtubeId?.startsWith("https://")
+      ? youtubeId
+      : `https://www.youtube.com/watch?v=${youtubeId}`,
+    defaultYouTubePreviewImage: await getDefaultYoutubePreviewImage(
+      youtubeId ?? ""
+    )
+  };
 };
+
+const getVideoRatio = async (originalYoutubeId: string) => {
+  const youtubeId = getYoutubeId(originalYoutubeId ?? "");
+
+  if (process.env.ENABLE_YOUTUBE_CACHE === "true") {
+    return await getYoutubeDetailsFromCache(youtubeId);
+  }
+
+  return await getYoutubeDetailsFromYoutube(youtubeId);
+};
+
+export default resolveVideo;

@@ -1,28 +1,22 @@
 import { ImageWidths } from "../types";
 
 type ImageData = {
-  file: {
-    fileName: string;
-    contentType:
-      | "image/jpg"
-      | "image/jpeg"
-      | "image/png"
-      | "image/webp"
-      | "image/gif"
-      | "image/svg+xml";
-    url: string;
-    details: {
-      image: {
-        width: number;
-        height: number;
-      };
-      size: number;
-    };
-  };
+  fileName: string;
+  contentType:
+    | "image/jpg"
+    | "image/jpeg"
+    | "image/png"
+    | "image/webp"
+    | "image/gif"
+    | "image/svg+xml";
+  url: string;
+  width: number;
+  height: number;
+  size: number;
 };
 
 export interface Data {
-  __typename: "ContentfulImage";
+  __typename: "Image";
   altText: string;
   image: ImageData;
   title: string;
@@ -44,5 +38,5 @@ export type Options = {
 
 export type Props = Omit<Data, "image"> & {
   widths: ImageWidths;
-  image: { file: { url: ImageData["file"]["url"] } };
+  image: { url: ImageData["url"] };
 } & Options;

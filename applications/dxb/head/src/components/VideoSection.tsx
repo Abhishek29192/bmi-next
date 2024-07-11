@@ -1,7 +1,6 @@
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import YoutubeVideo from "@bmi-digital/components/youtube-video";
-import { graphql } from "gatsby";
 import React from "react";
 import RichText from "./RichText";
 import { StyledVideoWrapper } from "./styles/VideoSection.styles";
@@ -9,7 +8,7 @@ import type { RichTextData } from "./RichText";
 import type { ContentfulVideoData } from "./video/types";
 
 export type Data = {
-  __typename: "ContentfulVideoSection";
+  __typename: "VideoSection";
   name: string;
   title: string | null;
   description: RichTextData | null;
@@ -39,17 +38,3 @@ const VideoSection = ({
 };
 
 export default VideoSection;
-
-export const query = graphql`
-  fragment VideoSectionFragment on ContentfulVideoSection {
-    __typename
-    name
-    title
-    description {
-      ...RichTextFragment
-    }
-    video {
-      ...VideoFragment
-    }
-  }
-`;

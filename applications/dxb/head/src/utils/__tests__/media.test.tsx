@@ -247,7 +247,7 @@ describe("transformMediaSrc function", () => {
     });
   });
 
-  it("should return correct object  if typeName === ContentfulImage and image.thumbnail.src is empty string", () => {
+  it("should return correct object  if typeName === Image and image.thumbnail.src is empty string", () => {
     const image = createGallerySectionImage({
       image: {
         file: {
@@ -268,10 +268,10 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("should return correct object  if typeName === ContentfulImage and image.thumbnail is null", () => {
+  it("should return correct object  if typeName === Image and image.thumbnail is null", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
-        __typename: "ContentfulImage",
+        __typename: "Image",
         altText: "alt text",
         type: null,
         image: {
@@ -299,7 +299,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("should return correct object if typeName === ContentfulImage and item caption is null", () => {
+  it("should return correct object if typeName === Image and item caption is null", () => {
     const image = createGallerySectionImage({
       caption: null
     });
@@ -315,7 +315,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("should return correct object if typeName === ContentfulImage and item altText is empty string", () => {
+  it("should return correct object if typeName === Image and item altText is empty string", () => {
     const image = createGallerySectionImage({
       altText: ""
     });

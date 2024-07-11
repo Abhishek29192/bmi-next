@@ -1,3 +1,4 @@
+import React from "react";
 import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";

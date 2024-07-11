@@ -61,7 +61,7 @@ beforeEach(() => {
 describe("ServiceLocatorSection component", () => {
   it("renders correctly with NO service", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -86,7 +86,7 @@ describe("ServiceLocatorSection component", () => {
   describe("renders single service", () => {
     it("with No service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -110,7 +110,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("with empty service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -132,7 +132,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("with single service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -143,9 +143,7 @@ describe("ServiceLocatorSection component", () => {
         zoom: 8,
         services: [
           createService({
-            serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat roof" }
-            ]
+            serviceTypes: [{ __typename: "ServiceType", name: "Flat roof" }]
           })
         ]
       };
@@ -160,7 +158,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("with multiple service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -172,8 +170,8 @@ describe("ServiceLocatorSection component", () => {
         services: [
           createService({
             serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat roof" },
-              { __typename: "ContentfulServiceType", name: "Pitched roof" }
+              { __typename: "ServiceType", name: "Flat roof" },
+              { __typename: "ServiceType", name: "Pitched roof" }
             ]
           })
         ]
@@ -191,7 +189,7 @@ describe("ServiceLocatorSection component", () => {
   describe("renders multiple services", () => {
     it("with No service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -216,7 +214,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("with single service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -229,16 +227,12 @@ describe("ServiceLocatorSection component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat roof" }
-            ]
+            serviceTypes: [{ __typename: "ServiceType", name: "Flat roof" }]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat roof" }
-            ]
+            serviceTypes: [{ __typename: "ServiceType", name: "Flat roof" }]
           })
         ]
       };
@@ -253,7 +247,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("for Branches", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.BRANCH_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -268,7 +262,7 @@ describe("ServiceLocatorSection component", () => {
             id: "roofer_7",
             name: "roofer 7",
             serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Country Offices" }
+              { __typename: "ServiceType", name: "Country Offices" }
             ],
             fax: "222222"
           }),
@@ -277,7 +271,7 @@ describe("ServiceLocatorSection component", () => {
             id: "roofer_8",
             name: "roofer 8",
             serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Country Offices" }
+              { __typename: "ServiceType", name: "Country Offices" }
             ]
           })
         ]
@@ -293,7 +287,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("for Merchant", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -309,7 +303,7 @@ describe("ServiceLocatorSection component", () => {
             name: "roofer 7",
             serviceTypes: [
               {
-                __typename: "ContentfulServiceType",
+                __typename: "ServiceType",
                 name: "BMI Icopal Flat Roof Systems"
               }
             ],
@@ -321,7 +315,7 @@ describe("ServiceLocatorSection component", () => {
             name: "roofer 8",
             serviceTypes: [
               {
-                __typename: "ContentfulServiceType",
+                __typename: "ServiceType",
                 name: "BMI Icopal Flat Roof Systems"
               }
             ]
@@ -339,7 +333,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("for Branches with invalid service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.BRANCH_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -373,7 +367,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("for Merchant with invalid service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -407,7 +401,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("for Merchants", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -423,7 +417,7 @@ describe("ServiceLocatorSection component", () => {
             name: "roofer 1",
             serviceTypes: [
               {
-                __typename: "ContentfulServiceType",
+                __typename: "ServiceType",
                 name: "BMI Icopal Flat Roof Systems"
               }
             ]
@@ -434,7 +428,7 @@ describe("ServiceLocatorSection component", () => {
             name: "roofer 2",
             serviceTypes: [
               {
-                __typename: "ContentfulServiceType",
+                __typename: "ServiceType",
                 name: "BMI Icopal Flat Roof Systems"
               }
             ]
@@ -452,7 +446,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("with multiple service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -466,16 +460,16 @@ describe("ServiceLocatorSection component", () => {
             id: "roofer_1",
             name: "roofer 1",
             serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat Roof" },
-              { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+              { __typename: "ServiceType", name: "Flat Roof" },
+              { __typename: "ServiceType", name: "Pitched Roof" }
             ]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
             serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat Roof 1" },
-              { __typename: "ContentfulServiceType", name: "Pitched Roof 1" }
+              { __typename: "ServiceType", name: "Flat Roof 1" },
+              { __typename: "ServiceType", name: "Pitched Roof 1" }
             ]
           })
         ]
@@ -491,7 +485,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("with ALL service type", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -505,20 +499,20 @@ describe("ServiceLocatorSection component", () => {
             id: "roofer_1",
             name: "roofer 1",
             serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat Roof" },
-              { __typename: "ContentfulServiceType", name: "Pitched Roof" },
-              { __typename: "ContentfulServiceType", name: "Flat Roof 1" },
-              { __typename: "ContentfulServiceType", name: "Pitched Roof 2" }
+              { __typename: "ServiceType", name: "Flat Roof" },
+              { __typename: "ServiceType", name: "Pitched Roof" },
+              { __typename: "ServiceType", name: "Flat Roof 1" },
+              { __typename: "ServiceType", name: "Pitched Roof 2" }
             ]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
             serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat Roof 3" },
-              { __typename: "ContentfulServiceType", name: "Pitched Roof 4" },
-              { __typename: "ContentfulServiceType", name: "Flat Roof 5" },
-              { __typename: "ContentfulServiceType", name: "Pitched Roof 6" }
+              { __typename: "ServiceType", name: "Flat Roof 3" },
+              { __typename: "ServiceType", name: "Pitched Roof 4" },
+              { __typename: "ServiceType", name: "Flat Roof 5" },
+              { __typename: "ServiceType", name: "Pitched Roof 6" }
             ]
           })
         ]
@@ -534,7 +528,7 @@ describe("ServiceLocatorSection component", () => {
 
     it("should execute handlePageChange correctly", () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -546,9 +540,7 @@ describe("ServiceLocatorSection component", () => {
         services: [...Array(25)].map(() =>
           createService({
             name: "test name 1",
-            serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat Roof 1" }
-            ]
+            serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof 1" }]
           })
         )
       };
@@ -573,7 +565,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("searches for a service", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -612,7 +604,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("doesn't search on entring the first letter", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -644,7 +636,7 @@ describe("ServiceLocatorSection component", () => {
       configurable: true
     });
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -686,7 +678,7 @@ describe("ServiceLocatorSection component", () => {
   });
   it("shouldn't send analytics event when user interacts with search field and its empty", async () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -739,7 +731,7 @@ describe("ServiceLocatorSection component", () => {
     });
 
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -776,7 +768,7 @@ describe("ServiceLocatorSection component", () => {
     const roofer2 = createService({ name: "roofer 2" });
 
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -803,7 +795,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("selects service", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -827,7 +819,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("selects and unselects service", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -852,7 +844,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("filters roofers using chip click", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -866,17 +858,13 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_1",
           name: "roofer 1",
           distance: 10,
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof" }]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
           distance: 5,
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Pitched Roof" }]
         }),
         createService({
           id: "roofer_3",
@@ -900,7 +888,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("filters branch using chip click", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.BRANCH_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -915,18 +903,14 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_9",
           name: "roofer 9",
           distance: 10,
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Country Offices" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Country Offices" }]
         }),
         createService({
           entryType: EntryTypeEnum.BRANCH_TYPE,
           id: "roofer_10",
           name: "roofer 10",
           distance: 5,
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Headquarters" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Headquarters" }]
         })
       ]
     };
@@ -945,7 +929,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("filters merchant using chip click", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.MERCHANT_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -962,7 +946,7 @@ describe("ServiceLocatorSection component", () => {
           distance: 10,
           serviceTypes: [
             {
-              __typename: "ContentfulServiceType",
+              __typename: "ServiceType",
               name: "BMI Icopal Flat Roof Systems"
             }
           ]
@@ -972,9 +956,7 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_10",
           name: "roofer 10",
           distance: 5,
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Merchant type 2" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Merchant type 2" }]
         })
       ]
     };
@@ -993,7 +975,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("click and unclick chip", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -1006,16 +988,12 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof" }]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Pitched Roof" }]
         })
       ]
     };
@@ -1035,7 +1013,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("click all roofer chips", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -1048,37 +1026,27 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof 1" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof 1" }]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof 2" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof 2" }]
         }),
         createService({
           id: "roofer_3",
           name: "roofer 3",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof 3" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof 3" }]
         }),
         createService({
           id: "roofer_4",
           name: "roofer 4",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof 4" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof 4" }]
         }),
         createService({
           id: "roofer_5",
           name: "roofer 5",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof 5" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof 5" }]
         })
       ]
     };
@@ -1115,7 +1083,7 @@ describe("ServiceLocatorSection component", () => {
     // Might affect other tests in this file
 
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -1128,16 +1096,12 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Pitched roof" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Pitched roof" }]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof" }]
         })
       ]
     };
@@ -1163,7 +1127,7 @@ describe("ServiceLocatorSection component", () => {
     });
 
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -1176,9 +1140,7 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof" }
-          ]
+          serviceTypes: [{ __typename: "ServiceType", name: "Flat Roof" }]
         })
       ]
     };
@@ -1208,7 +1170,7 @@ describe("ServiceLocatorSection component", () => {
     });
 
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -1222,12 +1184,12 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_1",
           name: "roofer 1",
           serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof" },
-            { __typename: "ContentfulServiceType", name: "Pitched Roof" },
-            { __typename: "ContentfulServiceType", name: "Country Offices" },
-            { __typename: "ContentfulServiceType", name: "Headquarters" },
+            { __typename: "ServiceType", name: "Flat Roof" },
+            { __typename: "ServiceType", name: "Pitched Roof" },
+            { __typename: "ServiceType", name: "Country Offices" },
+            { __typename: "ServiceType", name: "Headquarters" },
             {
-              __typename: "ContentfulServiceType",
+              __typename: "ServiceType",
               name: "BMI Icopal Merchant 1"
             }
           ]
@@ -1245,7 +1207,7 @@ describe("ServiceLocatorSection component", () => {
 
   it("filters using autocomplete", () => {
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -1259,16 +1221,16 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_1",
           name: "roofer 1",
           serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof" },
-            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+            { __typename: "ServiceType", name: "Flat Roof" },
+            { __typename: "ServiceType", name: "Pitched Roof" }
           ]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
           serviceTypes: [
-            { __typename: "ContentfulServiceType", name: "Flat Roof" },
-            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+            { __typename: "ServiceType", name: "Flat Roof" },
+            { __typename: "ServiceType", name: "Pitched Roof" }
           ]
         })
       ]
@@ -1295,7 +1257,7 @@ describe("ServiceLocatorSection component", () => {
     const roofer2 = createService({ name: "roofer 2" });
 
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",
@@ -1327,19 +1289,19 @@ describe("ServiceLocatorSection component", () => {
       id: "roofer_1",
       name: "roofer 1",
       serviceTypes: [
-        { __typename: "ContentfulServiceType", name: "Flat Roof" }
+        { __typename: "ServiceType", name: "Flat Roof" }
       ] as ServiceType[]
     };
     const roofer2 = {
       id: "roofer_2",
       name: "roofer 2",
       serviceTypes: [
-        { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+        { __typename: "ServiceType", name: "Pitched Roof" }
       ] as ServiceType[]
     };
 
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: false,
       title: "service locator section",
@@ -1419,7 +1381,7 @@ describe("ServiceLocatorSection component", () => {
     });
     it("should render GoogleAutocomplete component", async () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -1444,7 +1406,7 @@ describe("ServiceLocatorSection component", () => {
     });
     it("should execute GoogleAutocomplete onChange event when location changed", async () => {
       const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
+        __typename: "ServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,
         showDefaultResultList: true,
         title: "service locator section",
@@ -1511,7 +1473,7 @@ describe("ServiceLocatorSection component", () => {
     const roofer2 = createService({ name: "roofer 2" });
 
     const data: serviceLocatorDataType = {
-      __typename: "ContentfulServiceLocatorSection",
+      __typename: "ServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
       showDefaultResultList: true,
       title: "service locator section",

@@ -1947,6 +1947,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.23.9":
+  version: 7.24.7
+  resolution: "@babel/runtime@npm:7.24.7"
+  dependencies:
+    regenerator-runtime: ^0.14.0
+  checksum: b6fa3ec61a53402f3c1d75f4d808f48b35e0dfae0ec8e2bb5c6fc79fb95935da75766e0ca534d0f1c84871f6ae0d2ebdd950727cfadb745a2cdbef13faef5513
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.20.7, @babel/template@npm:^7.22.5, @babel/template@npm:^7.3.3":
   version: 7.22.5
   resolution: "@babel/template@npm:7.22.5"
@@ -3688,6 +3697,7 @@ __metadata:
     "@mui/icons-material": ^5.15.3
     "@mui/lab": ^5.0.0-alpha.159
     "@mui/material": ^5.15.3
+    "@mui/material-nextjs": ^5.15.11
     "@mui/styles": ^5.15.3
     "@netlify/edge-functions": ^2.3.1
     "@reach/router": ^1.3.4
@@ -3731,6 +3741,7 @@ __metadata:
     file-saver: ^2.0.5
     filesize: ^10.1.0
     googleapis: ^131.0.0
+    gqlmin: ^0.2.2
     graphql: ^16.8.1
     https-browserify: ^1.0.0
     if-env: ^1.0.4
@@ -6683,6 +6694,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mui/material-nextjs@npm:^5.15.11":
+  version: 5.15.11
+  resolution: "@mui/material-nextjs@npm:5.15.11"
+  dependencies:
+    "@babel/runtime": ^7.23.9
+  peerDependencies:
+    "@emotion/cache": ^11.11.0
+    "@emotion/server": ^11.11.0
+    "@mui/material": ^5.0.0
+    "@types/react": ^17.0.0 || ^18.0.0
+    next: ^13.0.0 || ^14.0.0
+    react: ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@emotion/cache":
+      optional: true
+    "@emotion/server":
+      optional: true
+    "@types/react":
+      optional: true
+  checksum: 1d01366b6a9501785571082dd2e5e5dc449ffb7ea95fa65f80508a763e716817f4832575b2f97f7b4749f1ea990ffd1b6b95aa7945ed7d0e6bb83d58be85d22f
+  languageName: node
+  linkType: hard
+
 "@mui/material@npm:^5.15.3":
   version: 5.15.3
   resolution: "@mui/material@npm:5.15.3"
@@ -9240,6 +9274,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: c3c6c9bdd1f13b2f114dd34122fd2b030220398501a2727bfe0442615a363dd8f3a89aa4e6d25727ee44c8478fb451aefef82e72184dc1bd04e48334808f37dd
+  languageName: node
+  linkType: hard
+
+"@types/moo@npm:^0.5.9":
+  version: 0.5.9
+  resolution: "@types/moo@npm:0.5.9"
+  checksum: e9f7abc6845f9c5717ef6f058dbe5678fe551c587c3eeb9a011ae739b2e82d1bf043cdafc5f754783b97d145e172fe1b1479874fce0c0424c67400f59477f1e8
   languageName: node
   linkType: hard
 
@@ -18622,6 +18663,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gqlmin@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "gqlmin@npm:0.2.2"
+  dependencies:
+    "@types/moo": ^0.5.9
+    moo: ^0.5.2
+  bin:
+    gqlmin: bin/cli.js
+  checksum: 8199e2f68cab75eed284f950ad2da46b6ae6f47dfb31c843b536c7e1b376f3bffedad4747a66438291d4d5945e9a36867b226c1cd0e7ada4afab58b9efe4f55f
+  languageName: node
+  linkType: hard
+
 "graceful-fs@npm:4.2.10":
   version: 4.2.10
   resolution: "graceful-fs@npm:4.2.10"
@@ -23788,6 +23841,13 @@ __metadata:
   version: 2.29.4
   resolution: "moment@npm:2.29.4"
   checksum: 844c6f3ce42862ac9467c8ca4f5e48a00750078682cc5bda1bc0e50cc7ca88e2115a0f932d65a06e4a90e26cb78892be9b3ca3dd6546ca2c4d994cebb787fc2b
+  languageName: node
+  linkType: hard
+
+"moo@npm:^0.5.2":
+  version: 0.5.2
+  resolution: "moo@npm:0.5.2"
+  checksum: a9d9ad8198a51fe35d297f6e9fdd718298ca0b39a412e868a0ebd92286379ab4533cfc1f1f34516177f5129988ab25fe598f78e77c84e3bfe0d4a877b56525a8
   languageName: node
   linkType: hard
 

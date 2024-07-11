@@ -5,7 +5,7 @@ import createLinkData from "./LinkHelper";
 const createCarouselSectionData = (
   carouselSectionData?: Partial<Data>
 ): Data => ({
-  __typename: "ContentfulCarouselSection",
+  __typename: "CarouselSection",
   link: createLinkData(),
   variant: "horizontal",
   title: "Carousel Section Title",

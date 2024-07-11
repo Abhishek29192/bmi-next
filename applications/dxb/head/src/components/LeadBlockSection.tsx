@@ -5,7 +5,6 @@ import LeadBlock from "@bmi-digital/components/lead-block";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
 import { BLOCKS } from "@contentful/rich-text-types";
-import { graphql } from "gatsby";
 import React from "react";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import RichText, { RichTextData, parseRichDataRawFields } from "./RichText";
@@ -20,7 +19,7 @@ import {
 } from "./styles/leadBlockSectionStyles";
 
 export type Data = {
-  __typename: "ContentfulLeadBlockSection";
+  __typename: "LeadBlockSection";
   title: string;
   text: RichTextData;
   link: LinkData | null;
@@ -108,18 +107,3 @@ const LeadBlockSection = ({
 };
 
 export default LeadBlockSection;
-
-export const query = graphql`
-  fragment LeadBlockSectionFragment on ContentfulLeadBlockSection {
-    title
-    text {
-      ...RichTextFragment
-    }
-    link {
-      ...LinkFragment
-    }
-    postItCard {
-      ...RichTextFragment
-    }
-  }
-`;

@@ -1,14 +1,11 @@
-import { Block } from "@contentful/rich-text-types";
 import { useTheme } from "@mui/material/styles";
-import { graphql } from "gatsby";
 import React from "react";
 
-type FileData = {
+export type FileData = {
+  __typename: "Asset";
   title: string;
-  file: {
-    url: string;
-    contentType: keyof typeof fallbackImageTypeMap;
-  };
+  contentType: keyof typeof fallbackImageTypeMap;
+  url: string;
 };
 
 // Note: embedded-asset-block not exclusively images
@@ -22,21 +19,18 @@ const fallbackImageTypeMap = {
 };
 
 const EmbeddedAssetBlock = ({
-  node,
+  data,
   className
 }: {
-  node: Block;
+  data: FileData;
   className: string;
 }) => {
-  const data: FileData = node.data.target;
-  const { title, file } = data;
+  const { title, url, contentType } = data;
   const theme = useTheme();
 
-  if (!file) {
+  if (!url) {
     return null;
   }
-
-  const { url, contentType } = file;
 
   // eslint-disable-next-line security/detect-object-injection
   const fallbackImageType = fallbackImageTypeMap[contentType];
@@ -71,15 +65,3 @@ const EmbeddedAssetBlock = ({
 };
 
 export default EmbeddedAssetBlock;
-
-export const query = graphql`
-  # TODO: This doesn't match the schema
-  fragment EmbeddedAssetBlockFragment on ContentfulAsset {
-    contentful_id
-    title
-    file {
-      url
-      contentType
-    }
-  }
-`;

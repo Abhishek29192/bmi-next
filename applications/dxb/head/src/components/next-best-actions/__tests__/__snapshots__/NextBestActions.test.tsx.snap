@@ -103,7 +103,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium TappableCard-cardButton css-82jeic-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
                 data-testid="nba-card-example-title"
-                href="/en/example/path/"
+                href="/en/example/path"
                 tabindex="0"
               >
                 <div
@@ -138,7 +138,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1c5pucp-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","action":"/en/example/path/","label":"example-title"}"
                   data-testid="anchor-link"
-                  href="/en/example/path/"
+                  href="/en/example/path"
                 >
                   <svg
                     aria-hidden="true"

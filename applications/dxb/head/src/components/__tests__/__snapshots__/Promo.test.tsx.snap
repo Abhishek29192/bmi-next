@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Promo component has no change to graphql query 1`] = `undefined`;
-
 exports[`Promo component renders correctly 1`] = `
 {
-  "__typename": "ContentfulPromo",
+  "__typename": "Promo",
   "backgroundColor": null,
   "body": null,
   "brandLogo": null,

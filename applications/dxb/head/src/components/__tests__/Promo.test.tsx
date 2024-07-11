@@ -1,9 +1,9 @@
-import { promoQuery, Data } from "../Promo";
+import { Data } from "../Promo";
 
 describe("Promo component", () => {
   it("renders correctly", () => {
     const promo: Data = {
-      __typename: "ContentfulPromo",
+      __typename: "Promo",
       id: "testId",
       name: "test",
       title: "test",
@@ -18,10 +18,5 @@ describe("Promo component", () => {
     };
 
     expect(promo).toMatchSnapshot();
-  });
-
-  it("has no change to graphql query", () => {
-    // Had to do this to get 100% coverage
-    expect(promoQuery).toMatchSnapshot();
   });
 });

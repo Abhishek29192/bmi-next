@@ -6,6 +6,7 @@ import Search from "@bmi-digital/components/search";
 import Section from "@bmi-digital/components/section";
 import { microCopy } from "@bmi/microcopies";
 import { graphql } from "gatsby";
+import React from "react";
 import BackToResults from "../components/BackToResults";
 import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
@@ -97,7 +98,7 @@ const getHeroItemsWithContext = (
             })
           : undefined,
       cta:
-        slide.__typename === "ContentfulPromo"
+        slide.__typename === "Promo"
           ? GetCTAButton(slide.cta)
           : GetCTALinkFromPath(slide)
     };
@@ -161,7 +162,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={featuredMedia?.image?.file.url}
+      ogImageUrl={featuredMedia?.image?.url}
       pageType="brandPage"
     >
       {({ siteContext }) => {

@@ -7,9 +7,8 @@ import GoogleApi, {
 import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
-import { useLocation } from "@reach/router";
-import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
+import { useSearchParams, usePathname } from "next/navigation";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
 import RichText from "../RichText";
 import { EntryTypeEnum, ServiceTypesPrefixesEnum } from "../Service";
@@ -47,16 +46,16 @@ import type { CompanyDetailProps } from "@bmi-digital/components/company-details
 import type { Data as ServiceType } from "../ServiceType";
 import type { Data as ServiceData, ServiceTypeFilter } from "../Service";
 import type { RichTextData } from "../RichText";
-import type { Data as ContentfulImageData } from "../image/types";
+import type { Data as ContentfulImageData } from "../image/contentful-image/types";
 
 export type Service = Omit<ServiceData, "companyLogo" | "summary"> & {
   distance?: number;
   companyLogo?: ContentfulImageData;
-  summary?: string;
+  summary: string | null;
 };
 
 export type Data = {
-  __typename: "ContentfulServiceLocatorSection";
+  __typename: "ServiceLocatorSection";
   type: EntryTypeEnum;
   showDefaultResultList: boolean;
   title: string;
@@ -93,12 +92,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
   const { getMicroCopy } = useSiteContext();
-  const windowLocation = useLocation();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
-  const params = new URLSearchParams(windowLocation.search);
   const userQueryString = useMemo(
-    () => params.get(QUERY_CHIP_FILTER_KEY),
-    [params]
+    () => searchParams.get(QUERY_CHIP_FILTER_KEY),
+    [searchParams]
   );
   const [uniqueRoofTypeByData, setUniqueRoofTypeByData] = useState([]);
   const [isUserAction, setUserAction] = useState(false);
@@ -258,7 +257,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   };
 
   const initialise = async () => {
-    await loadGoogleApi(process.env.GATSBY_GOOGLE_API_KEY, [
+    await loadGoogleApi(process.env.NEXT_PUBLIC_GOOGLE_API_KEY, [
       "places",
       "geometry"
     ]);
@@ -295,7 +294,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     // there were no matching queries in querystring
     // hence remove all querystring from user and make the url '/find-a-roofer/' again
     if (matchingRooferTypes.length === 0) {
-      history.replaceState(null, "", windowLocation.pathname);
+      history.replaceState(null, "", pathname);
     } else {
       // show result list panel on page load if selected chips exist
       matchingRooferTypes.forEach((serviceType: ServiceType) => {
@@ -303,7 +302,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       });
       setShowResultList(true);
     }
-  }, [services, userQueryString]);
+  }, [services, userQueryString, pathname]);
 
   useEffect(() => {
     if (!userQueryString) {
@@ -322,16 +321,16 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     );
 
     if (filteredChips.length > 0) {
-      const queryParams = new URLSearchParams(windowLocation.search);
-      queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
-      history.replaceState(null, "", "?" + queryParams.toString());
+      const params = new URLSearchParams(searchParams);
+      params.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
+      history.replaceState(null, "", "?" + params.toString());
     }
     if (filteredChips.length === 0 && isUserAction) {
       // Remove the query if there are no selected chips
       // otherwise url will look like `/?chip=`
-      history.replaceState(null, "", windowLocation.pathname);
+      history.replaceState(null, "", pathname);
     }
-  }, [activeFilters]);
+  }, [activeFilters, searchParams, pathname]);
 
   useEffect(() => {
     initialise();
@@ -419,26 +418,3 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 };
 
 export default ServiceLocatorSection;
-
-export const query = graphql`
-  fragment ServiceLocatorSectionFragment on ContentfulServiceLocatorSection {
-    __typename
-    type
-    showDefaultResultList
-    title
-    label
-    body {
-      ...RichTextFragment
-    }
-    services {
-      ... on ContentfulService {
-        ...ServiceFragment
-      }
-    }
-    centre {
-      lat
-      lon
-    }
-    zoom
-  }
-`;

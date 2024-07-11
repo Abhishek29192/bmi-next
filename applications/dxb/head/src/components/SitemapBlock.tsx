@@ -37,7 +37,7 @@ const levelVariantMap = {
 const isValidSitemapType = (
   item: NavigationData | NavigationItem | LinkData
 ): item is NavigationData | LinkData => {
-  return item.__typename !== "ContentfulNavigationItem";
+  return item.__typename !== "NavigationItem";
 };
 const WrapperComponent = ({
   isChild,
@@ -60,7 +60,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
       {validSitemapLinks?.map((linkData) => {
         const { __typename } = linkData;
 
-        if (__typename === "ContentfulLink") {
+        if (__typename === "Link") {
           return (
             <StyledSitemapItem
               variant={levelVariantMap[level.toString()].link}
@@ -76,7 +76,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
           );
         }
 
-        if (__typename === "ContentfulNavigation") {
+        if (__typename === "Navigation") {
           const { links, label, link } = linkData;
 
           return (

@@ -1,6 +1,7 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { screen } from "@testing-library/react";
 import React, { ReactNode } from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createBreadcrumbItem from "../../../__tests__/helpers/BreadcrumbItemHelper";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
@@ -18,7 +19,26 @@ const supportCards: SiteDataWithAccountPage["accountPage"]["serviceSupportCards"
         "Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX",
       phoneNumber: "0370 560 1000",
       email: "contactus@bmigroup.com",
-      otherInformation: createRichText()
+      otherInformation: createRichText({
+        json: {
+          data: {},
+          content: [
+            {
+              data: {},
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "Monday - Friday 8:00 - 16:00",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: BLOCKS.PARAGRAPH
+            }
+          ],
+          nodeType: BLOCKS.DOCUMENT
+        }
+      })
     }
   ];
 

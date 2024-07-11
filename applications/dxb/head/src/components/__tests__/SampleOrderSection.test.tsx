@@ -16,7 +16,7 @@ afterEach(() => {
 const sampleBasketLinkInfo: PageInfoData = {
   id: "test",
   title: "test",
-  __typename: "ContentfulSimplePage",
+  __typename: "Page",
   slug: "sample-basket",
   path: "sample-basket/",
   subtitle: null,
@@ -351,7 +351,9 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
       name: `MC: pdp.overview.addSample`
     });
     fireEvent.click(addSampleCta);
-    expect(JSON.parse(localStorage.getItem("basketItems")!)).toEqual(product);
+    expect(localStorage.getItem("basketItems")).toEqual(
+      JSON.stringify(product)
+    );
   });
   it("add redirect url to 'Complete order' CTA", async () => {
     render(
@@ -382,7 +384,7 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
       "MC: pdp.overview.completeSampleOrder"
     );
 
-    expect(completeOrderCta).toHaveAttribute("href", "/en/sample-basket/");
+    expect(completeOrderCta).toHaveAttribute("href", "/en/sample-basket");
   });
   it("should not to be rendered Complete order' CTA if no sampleBasketLinkInfo", () => {
     render(

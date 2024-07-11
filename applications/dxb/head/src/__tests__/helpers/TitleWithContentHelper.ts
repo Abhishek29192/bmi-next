@@ -4,7 +4,7 @@ import createRichText from "./RichTextHelper";
 const createTitleWithContentData = (
   titleWithContent?: Partial<Data>
 ): Data => ({
-  __typename: "ContentfulTitleWithContent",
+  __typename: "TitleWithContent",
   name: "Title with content name",
   title: "Title with content title",
   content: createRichText(),

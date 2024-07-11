@@ -1,13 +1,4 @@
-import { graphql } from "gatsby";
-
 export type Data = {
-  __typename: "ContentfulServiceType";
+  __typename: "ServiceType";
   name: string;
 };
-
-export const query = graphql`
-  fragment ServiceTypeFragment on ContentfulServiceType {
-    __typename
-    name
-  }
-`;

@@ -84,7 +84,7 @@ const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
     },
     path: "simple-page",
     // ContentfulSimplePageData
-    __typename: "ContentfulSimplePage",
+    __typename: "SimplePage",
     leadBlock: leadBlockData as LeadBlockSectionData,
     shareWidget: createShareWidgetData({
       copy: true,

@@ -2,7 +2,9 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import IframeSection, { Data } from "../IframeSection";
+import createRichText from "../../__tests__/helpers/RichTextHelper";
 
 const useHasOptanonBoxClosed = jest
   .fn()
@@ -20,12 +22,24 @@ beforeEach(() => {
 describe("IframeSection component", () => {
   it("renders correctly", () => {
     const data: Data = {
-      __typename: "ContentfulIframe",
+      __typename: "Iframe",
       title: "iFrame Section",
-      summary: {
-        raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Summary","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-        references: []
-      },
+      summary: createRichText({
+        json: {
+          data: {},
+          content: [
+            {
+              data: {},
+              content: [
+                { data: {}, marks: [], value: "Summary", nodeType: "text" }
+              ],
+              nodeType: BLOCKS.PARAGRAPH
+            }
+          ],
+          nodeType: BLOCKS.DOCUMENT
+        },
+        references: new Map()
+      }),
       url: "https://google.co.uk",
       height: "450px",
       allowCookieClasses: null
@@ -45,12 +59,24 @@ describe("IframeSection component", () => {
     describe("and single cookie class is provided", () => {
       it("renders single additional classe", () => {
         const data: Data = {
-          __typename: "ContentfulIframe",
+          __typename: "Iframe",
           title: "iFrame Section",
-          summary: {
-            raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Summary","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-            references: []
-          },
+          summary: createRichText({
+            json: {
+              data: {},
+              content: [
+                {
+                  data: {},
+                  content: [
+                    { data: {}, marks: [], value: "Summary", nodeType: "text" }
+                  ],
+                  nodeType: BLOCKS.PARAGRAPH
+                }
+              ],
+              nodeType: BLOCKS.DOCUMENT
+            },
+            references: new Map()
+          }),
           url: "https://google.co.uk",
           height: "450px",
           allowCookieClasses: ["Performance"]
@@ -72,12 +98,24 @@ describe("IframeSection component", () => {
     describe("and multiple cookie classes are provided", () => {
       it("renders with multiple classes", () => {
         const data: Data = {
-          __typename: "ContentfulIframe",
+          __typename: "Iframe",
           title: "iFrame Section",
-          summary: {
-            raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Summary","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-            references: []
-          },
+          summary: createRichText({
+            json: {
+              data: {},
+              content: [
+                {
+                  data: {},
+                  content: [
+                    { data: {}, marks: [], value: "Summary", nodeType: "text" }
+                  ],
+                  nodeType: BLOCKS.PARAGRAPH
+                }
+              ],
+              nodeType: BLOCKS.DOCUMENT
+            },
+            references: new Map()
+          }),
           url: "https://google.co.uk",
           height: "450px",
           allowCookieClasses: ["Analytics", "Targeting"]
@@ -104,12 +142,24 @@ describe("IframeSection component", () => {
       });
 
       const data: Data = {
-        __typename: "ContentfulIframe",
+        __typename: "Iframe",
         title: "iFrame Section",
-        summary: {
-          raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Summary","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-          references: []
-        },
+        summary: createRichText({
+          json: {
+            data: {},
+            content: [
+              {
+                data: {},
+                content: [
+                  { data: {}, marks: [], value: "Summary", nodeType: "text" }
+                ],
+                nodeType: BLOCKS.PARAGRAPH
+              }
+            ],
+            nodeType: BLOCKS.DOCUMENT
+          },
+          references: new Map()
+        }),
         url: "https://google.co.uk",
         height: "450px",
         allowCookieClasses: ["Analytics", "Targeting"]

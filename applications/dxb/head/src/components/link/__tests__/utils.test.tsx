@@ -68,13 +68,13 @@ describe("getCTA", () => {
     );
     expect(cta).toStrictEqual(
       expect.objectContaining({
-        component: expect.any(Function),
+        component: expect.any(Object),
         gtm: {
           action: "/no/example-path/",
           id: "cta-click1",
           label: undefined
         },
-        to: "/no/example-path/"
+        href: "/no/example-path/"
       })
     );
   });
@@ -86,7 +86,7 @@ describe("getCTA", () => {
     const cta = getCTA(createPageInfoData({ path: path }), "no");
 
     const normalizedPath = path.replace(/\/+/gi, "/");
-    expect(cta!.to).toBe(`/no${normalizedPath}`);
+    expect(cta!.href).toBe(`/no${normalizedPath}`);
   });
 
   it("should apply a custom label to GTM object's label property, if defined, for PageInfoData links", () => {
@@ -97,13 +97,13 @@ describe("getCTA", () => {
     );
     expect(cta).toStrictEqual(
       expect.objectContaining({
-        component: expect.any(Function),
+        component: expect.any(Object),
         gtm: {
           action: "/no/path/",
           id: "cta-click1",
           label: "custom-gtm-label"
         },
-        to: "/no/path/"
+        href: "/no/path/"
       })
     );
   });
@@ -149,13 +149,13 @@ describe("toAnchorLinkActionProps", () => {
     const cta = toAnchorLinkActionProps(createInternalLinkData());
     expect(cta).toStrictEqual(
       expect.objectContaining({
-        component: expect.any(Function),
+        component: expect.any(Object),
         gtm: {
           action: "/undefined/linked/page/path/",
           id: "cta-click1",
           label: "Link label"
         },
-        to: "/undefined/linked/page/path/"
+        href: "/undefined/linked/page/path/"
       })
     );
   });
@@ -164,13 +164,13 @@ describe("toAnchorLinkActionProps", () => {
     const cta = toAnchorLinkActionProps(createInternalLinkData(), "no");
     expect(cta).toStrictEqual(
       expect.objectContaining({
-        component: expect.any(Function),
+        component: expect.any(Object),
         gtm: {
           action: "/no/linked/page/path/",
           id: "cta-click1",
           label: "Link label"
         },
-        to: "/no/linked/page/path/"
+        href: "/no/linked/page/path/"
       })
     );
   });
@@ -201,7 +201,7 @@ describe("toAnchorLinkActionProps", () => {
     );
 
     const normalizedPath = `/${countrycode}/${path.replace(/\/+/gi, "/")}`;
-    expect(cta!.to).toBe(normalizedPath);
+    expect(cta!.href).toBe(normalizedPath);
   });
 
   it("should return the following cta object if link.linkedPage?.path, link.asset?.file?.url and link.hubSpotCTAID  are null, the url prop is defined, is not a mailto:, callto: or tel: action url and is an external link", () => {

@@ -38,8 +38,8 @@ describe("ServiceLocatorResultList component", () => {
   it("should render correctly with single service type", () => {
     const service = createService({
       serviceTypes: [
-        { __typename: "ContentfulServiceType", name: "Pitched Roof" },
-        { __typename: "ContentfulServiceType", name: "Pitched Roof 2" }
+        { __typename: "ServiceType", name: "Pitched Roof" },
+        { __typename: "ServiceType", name: "Pitched Roof 2" }
       ]
     });
     const expectedResult = `${service.name} - ${service.address}${

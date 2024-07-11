@@ -1,6 +1,5 @@
 import PromoSection from "@bmi-digital/components/promo-section";
-import { graphql } from "gatsby";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import RichText from "./RichText";
 import { SectionsContext } from "./Sections";
 import ButtonLink from "./link/ButtonLink";
@@ -70,9 +69,3 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
 };
 
 export default IntegratedPromoSection;
-
-export const query = graphql`
-  fragment PromoSectionFragment on ContentfulSection {
-    ...PromoVillainFragment
-  }
-`;

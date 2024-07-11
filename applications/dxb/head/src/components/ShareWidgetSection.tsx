@@ -3,7 +3,6 @@ import ShareWidget, {
   ShareWidgetProps
 } from "@bmi-digital/components/share-widget";
 import { microCopy } from "@bmi/microcopies";
-import { graphql } from "gatsby";
 import React from "react";
 import { useSiteContext } from "./Site";
 import type { GetMicroCopy } from "./MicroCopy";
@@ -109,19 +108,3 @@ const ShareWidgetSection = ({
 };
 
 export default ShareWidgetSection;
-
-export const query = graphql`
-  fragment ShareWidgetSectionFragment on ContentfulShareWidgetSection {
-    title
-    message
-    clipboardSuccessMessage
-    clipboardErrorMessage
-    isLeftAligned
-    email
-    copy
-    linkedin
-    twitter
-    facebook
-    pinterest
-  }
-`;
