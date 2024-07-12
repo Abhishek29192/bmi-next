@@ -335,12 +335,12 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -348,16 +348,12 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -690,12 +686,12 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root LinkCard-open css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -703,16 +699,12 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -758,12 +750,12 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                   </div>
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root LinkCard-open css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-2"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -771,16 +763,12 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       >
                         roofer 2
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -1282,12 +1270,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Flat Roof 1 - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Flat Roof 1 - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -1295,16 +1283,12 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -1637,12 +1621,12 @@ exports[`ServiceLocatorSection component close button 1`] = `
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -1650,16 +1634,12 @@ exports[`ServiceLocatorSection component close button 1`] = `
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -1705,12 +1685,12 @@ exports[`ServiceLocatorSection component close button 1`] = `
                   </div>
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-2"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -1718,16 +1698,12 @@ exports[`ServiceLocatorSection component close button 1`] = `
                       >
                         roofer 2
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -2065,12 +2041,12 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -2078,16 +2054,12 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -2337,12 +2309,12 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 9 - address 1 - Country Offices - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 9 - address 1 - Country Offices - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-9"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -2350,16 +2322,12 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                       >
                         roofer 9
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -2722,12 +2690,12 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 10 - address 1 - Merchant type 2 - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 10 - address 1 - Merchant type 2 - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-10"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -2735,16 +2703,12 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                       >
                         roofer 10
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -3107,12 +3071,12 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Flat Roof - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Flat Roof - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -3120,16 +3084,12 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -3606,12 +3566,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 7 - address 1 - Country Offices - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 7 - address 1 - Country Offices - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -3619,16 +3579,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     >
                       roofer 7
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -3704,12 +3660,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 8 - address 1 - Country Offices - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 8 - address 1 - Country Offices - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-8"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -3717,16 +3673,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     >
                       roofer 8
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -3910,12 +3862,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 7 - address 1 - Branch - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 7 - address 1 - Branch - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -3923,16 +3875,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     >
                       roofer 7
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -4008,12 +3956,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 8 - address 1 - Branch - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 8 - address 1 - Branch - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-8"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -4021,16 +3969,12 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                     >
                       roofer 8
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -4340,12 +4284,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 7 - address 1 - BMI Icopal Flat Roof Systems - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 7 - address 1 - BMI Icopal Flat Roof Systems - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -4353,16 +4297,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     >
                       roofer 7
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -4408,12 +4348,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 8 - address 1 - BMI Icopal Flat Roof Systems - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 8 - address 1 - BMI Icopal Flat Roof Systems - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-8"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -4421,16 +4361,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     >
                       roofer 8
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -4740,12 +4676,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 7 - address 1 - Merchant - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 7 - address 1 - Merchant - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -4753,16 +4689,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     >
                       roofer 7
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -4808,12 +4740,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 8 - address 1 - Branch - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 8 - address 1 - Branch - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-8"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -4821,16 +4753,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                     >
                       roofer 8
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -5140,12 +5068,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - BMI Icopal Flat Roof Systems - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - BMI Icopal Flat Roof Systems - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -5153,16 +5081,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -5208,12 +5132,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 2 - address 1 - BMI Icopal Flat Roof Systems - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 2 - address 1 - BMI Icopal Flat Roof Systems - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-2"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -5221,16 +5145,12 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                     >
                       roofer 2
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -5687,12 +5607,12 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -5700,16 +5620,12 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -5776,12 +5692,12 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-2"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -5789,16 +5705,12 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                     >
                       roofer 2
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -6129,12 +6041,12 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -6142,16 +6054,12 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -6197,12 +6105,12 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -6210,16 +6118,12 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -6612,12 +6516,12 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -6625,16 +6529,12 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -6701,12 +6601,12 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-2"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -6714,16 +6614,12 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                     >
                       roofer 2
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -7054,12 +6950,12 @@ exports[`ServiceLocatorSection component renders multiple services with single s
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Flat roof - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Flat roof - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -7067,16 +6963,12 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -7143,12 +7035,12 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 2 - address 1 - Flat roof - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 2 - address 1 - Flat roof - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-2"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -7156,16 +7048,12 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                     >
                       roofer 2
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -7496,12 +7384,12 @@ exports[`ServiceLocatorSection component renders single service with No service 
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -7509,16 +7397,12 @@ exports[`ServiceLocatorSection component renders single service with No service 
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -7828,12 +7712,12 @@ exports[`ServiceLocatorSection component renders single service with empty servi
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -7841,16 +7725,12 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -8211,12 +8091,12 @@ exports[`ServiceLocatorSection component renders single service with multiple se
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -8224,16 +8104,12 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -8564,12 +8440,12 @@ exports[`ServiceLocatorSection component renders single service with single serv
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Flat roof - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Flat roof - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -8577,16 +8453,12 @@ exports[`ServiceLocatorSection component renders single service with single serv
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"
@@ -8944,12 +8816,12 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -8957,16 +8829,12 @@ exports[`ServiceLocatorSection component searches for a service: Filtered main l
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -9306,12 +9174,12 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -9319,16 +9187,12 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -9374,12 +9238,12 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                   </div>
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"some other name - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"some other name - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-some-other-name"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -9387,16 +9251,12 @@ exports[`ServiceLocatorSection component searches for a service: Filtered option
                       >
                         some other name
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -9739,12 +9599,12 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -9752,16 +9612,12 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -10073,12 +9929,12 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root LinkCard-open css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -10086,16 +9942,12 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -10506,12 +10358,12 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -10519,16 +10371,12 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -11186,12 +11034,12 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"FK Bygg as - Helgerødveien 130, 3233 Sandefjord, Norway - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"FK Bygg as - Helgerødveien 130, 3233 Sandefjord, Norway - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-FK-Bygg-as"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -11199,16 +11047,12 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       >
                         FK Bygg as
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          Helgerødveien 130, 3233 Sandefjord, Norway
-                        </div>
-                      </p>
+                        Helgerødveien 130, 3233 Sandefjord, Norway
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -11254,12 +11098,12 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   </div>
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"GL Bygg AS - Lundvegen 8, 2316 Hamar, Norwa - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"GL Bygg AS - Lundvegen 8, 2316 Hamar, Norwa - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-GL-Bygg-AS"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -11267,16 +11111,12 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       >
                         GL Bygg AS
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          Lundvegen 8, 2316 Hamar, Norwa
-                        </div>
-                      </p>
+                        Lundvegen 8, 2316 Hamar, Norwa
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -11322,12 +11162,12 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   </div>
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"GL Bygg AS - Vindheiavegen 27, 2406 Elverum, Norway - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"GL Bygg AS - Vindheiavegen 27, 2406 Elverum, Norway - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-GL-Bygg-AS"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -11335,16 +11175,12 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       >
                         GL Bygg AS
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          Vindheiavegen 27, 2406 Elverum, Norway
-                        </div>
-                      </p>
+                        Vindheiavegen 27, 2406 Elverum, Norway
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -11965,12 +11801,12 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Flat Roof - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Flat Roof - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -11978,16 +11814,12 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"

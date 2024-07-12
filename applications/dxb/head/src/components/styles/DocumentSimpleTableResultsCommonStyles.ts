@@ -57,6 +57,7 @@ export const DocumentStatus = styled("span")<{ status: ApprovalStatus }>(
   ({ theme, status }) => ({
     fontWeight: 400,
     fontFamily: "Effra Medium",
-    color: status === "approved" ? theme.colours.success : theme.colours.blue300
+    color:
+      status === "approved" ? theme.colours.success400 : theme.colours.blue300
   })
 );

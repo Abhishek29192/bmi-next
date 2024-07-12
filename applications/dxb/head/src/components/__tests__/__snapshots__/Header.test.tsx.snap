@@ -3,11 +3,12 @@
 exports[`Header component renders correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+    data-testid="header-root"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar"
+      class="Header-utilitiesBar css-17m56du"
       role="navigation"
     >
       <div
@@ -58,7 +59,7 @@ exports[`Header component renders correctly 1`] = `
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
@@ -73,7 +74,7 @@ exports[`Header component renders correctly 1`] = `
                 />
                 GB
                 <span
-                  class="Header-downArrow"
+                  class=" css-18e6unn"
                 >
                   ▾
                 </span>
@@ -87,7 +88,7 @@ exports[`Header component renders correctly 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer Header-languageDrawer"
+      class="css-1nebz1u"
       data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
@@ -115,10 +116,10 @@ exports[`Header component renders correctly 1`] = `
         />
       </button>
       <div
-        class="Header-languageContainer css-ze8cyt"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
         >
           <div>
             <div
@@ -221,7 +222,7 @@ exports[`Header component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar"
+      class="Header-navigationBar css-1k1m9uw"
       data-testid="header-navigation-bar"
     >
       <div
@@ -231,16 +232,16 @@ exports[`Header component renders correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent"
+            class="css-1cixs2m"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
               href="/gb/"
             >
               <svg
-                class="Header-logo css-87lb9q"
+                class="css-15idaqd"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -259,7 +260,7 @@ exports[`Header component renders correctly 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation"
+              class="css-59oxux"
               role="navigation"
             >
               <div
@@ -342,12 +343,12 @@ exports[`Header component renders correctly 1`] = `
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons"
+              class="css-1778zyk"
               data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
@@ -369,7 +370,7 @@ exports[`Header component renders correctly 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -396,13 +397,13 @@ exports[`Header component renders correctly 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+      class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-drawer Header-navDrawer"
-      data-testid="nav-drawer"
+      class="css-1mlwg2c"
+      data-testid="drawer-false"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -429,11 +430,12 @@ exports[`Header component renders correctly 1`] = `
       </button>
     </div>
     <div
-      class="Header-searchDrawerContainer"
+      class="Header-searchDrawerContainerHidden css-yz5e9q"
+      data-testid="search-drawer-container"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-drawer Header-searchDrawer"
+        class="css-1sdv2sl"
       >
         <button
           aria-label="MC: global.close"
@@ -472,11 +474,12 @@ exports[`Header component renders correctly 1`] = `
 exports[`Header component renders correctly when flag doesn't exist 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+    data-testid="header-root"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar"
+      class="Header-utilitiesBar css-17m56du"
       role="navigation"
     >
       <div
@@ -527,7 +530,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
@@ -542,7 +545,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 />
                 EN
                 <span
-                  class="Header-downArrow"
+                  class=" css-18e6unn"
                 >
                   ▾
                 </span>
@@ -556,7 +559,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer Header-languageDrawer"
+      class="css-1nebz1u"
       data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
@@ -584,10 +587,10 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
         />
       </button>
       <div
-        class="Header-languageContainer css-ze8cyt"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
         >
           <div>
             <div
@@ -690,7 +693,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar"
+      class="Header-navigationBar css-1k1m9uw"
       data-testid="header-navigation-bar"
     >
       <div
@@ -700,16 +703,16 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent"
+            class="css-1cixs2m"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
               href="/grp/"
             >
               <svg
-                class="Header-logo css-87lb9q"
+                class="css-15idaqd"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -728,7 +731,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation"
+              class="css-59oxux"
               role="navigation"
             >
               <div
@@ -811,12 +814,12 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons"
+              class="css-1778zyk"
               data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
@@ -838,7 +841,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -865,13 +868,13 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+      class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-drawer Header-navDrawer"
-      data-testid="nav-drawer"
+      class="css-1mlwg2c"
+      data-testid="drawer-false"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -898,11 +901,12 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       </button>
     </div>
     <div
-      class="Header-searchDrawerContainer"
+      class="Header-searchDrawerContainerHidden css-yz5e9q"
+      data-testid="search-drawer-container"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-drawer Header-searchDrawer"
+        class="css-1sdv2sl"
       >
         <button
           aria-label="MC: global.close"
@@ -941,11 +945,12 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
 exports[`Header component shows sample basket icon 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+    data-testid="header-root"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar"
+      class="Header-utilitiesBar css-17m56du"
       role="navigation"
     >
       <div
@@ -996,7 +1001,7 @@ exports[`Header component shows sample basket icon 1`] = `
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
@@ -1011,7 +1016,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 />
                 GB
                 <span
-                  class="Header-downArrow"
+                  class=" css-18e6unn"
                 >
                   ▾
                 </span>
@@ -1025,7 +1030,7 @@ exports[`Header component shows sample basket icon 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer Header-languageDrawer"
+      class="css-1nebz1u"
       data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
@@ -1053,10 +1058,10 @@ exports[`Header component shows sample basket icon 1`] = `
         />
       </button>
       <div
-        class="Header-languageContainer css-ze8cyt"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
         >
           <div>
             <div
@@ -1159,7 +1164,7 @@ exports[`Header component shows sample basket icon 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar"
+      class="Header-navigationBar css-1k1m9uw"
       data-testid="header-navigation-bar"
     >
       <div
@@ -1169,16 +1174,16 @@ exports[`Header component shows sample basket icon 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent"
+            class="css-1cixs2m"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
               href="/gb/"
             >
               <svg
-                class="Header-logo css-87lb9q"
+                class="css-15idaqd"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -1197,7 +1202,7 @@ exports[`Header component shows sample basket icon 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation"
+              class="css-59oxux"
               role="navigation"
             >
               <div
@@ -1280,12 +1285,12 @@ exports[`Header component shows sample basket icon 1`] = `
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons"
+              class="css-1778zyk"
               data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
@@ -1307,7 +1312,7 @@ exports[`Header component shows sample basket icon 1`] = `
               </button>
               <button
                 aria-label="MC: basket.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-basketButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-r1qsz6-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="shopping-cart-button"
                 tabindex="0"
                 type="button"
@@ -1318,7 +1323,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium IconClasses-white css-1hwmxis-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vcax51-MuiSvgIcon-root"
                     data-testid="ShoppingCartOutlinedIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -1340,7 +1345,7 @@ exports[`Header component shows sample basket icon 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -1367,13 +1372,13 @@ exports[`Header component shows sample basket icon 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+      class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-drawer Header-navDrawer"
-      data-testid="nav-drawer"
+      class="css-1mlwg2c"
+      data-testid="drawer-false"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -1400,11 +1405,12 @@ exports[`Header component shows sample basket icon 1`] = `
       </button>
     </div>
     <div
-      class="Header-searchDrawerContainer"
+      class="Header-searchDrawerContainerHidden css-yz5e9q"
+      data-testid="search-drawer-container"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-drawer Header-searchDrawer"
+        class="css-1sdv2sl"
       >
         <button
           aria-label="MC: global.close"
@@ -1437,7 +1443,7 @@ exports[`Header component shows sample basket icon 1`] = `
       </div>
     </div>
     <div
-      class="Header-cartDrawerContainer"
+      class="Header-cartDrawerContainerHidden css-55fytd"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
@@ -1601,11 +1607,12 @@ exports[`Header component shows sample basket icon 1`] = `
 exports[`Header component toggles search 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+    data-testid="header-root"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar"
+      class="Header-utilitiesBar css-17m56du"
       role="navigation"
     >
       <div
@@ -1656,7 +1663,7 @@ exports[`Header component toggles search 1`] = `
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                 data-testid="language-button"
                 tabindex="0"
@@ -1671,7 +1678,7 @@ exports[`Header component toggles search 1`] = `
                 />
                 GB
                 <span
-                  class="Header-downArrow"
+                  class=" css-18e6unn"
                 >
                   ▾
                 </span>
@@ -1685,7 +1692,7 @@ exports[`Header component toggles search 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer Header-languageDrawer"
+      class="css-1nebz1u"
       data-testid="language-section"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
@@ -1713,10 +1720,10 @@ exports[`Header component toggles search 1`] = `
         />
       </button>
       <div
-        class="Header-languageContainer css-ze8cyt"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
         >
           <div>
             <div
@@ -1819,7 +1826,7 @@ exports[`Header component toggles search 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar"
+      class="Header-navigationBar css-1k1m9uw"
       data-testid="header-navigation-bar"
     >
       <div
@@ -1829,16 +1836,16 @@ exports[`Header component toggles search 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent"
+            class="css-1cixs2m"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
               href="/gb/"
             >
               <svg
-                class="Header-logo css-87lb9q"
+                class="css-15idaqd"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -1857,7 +1864,7 @@ exports[`Header component toggles search 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation"
+              class="css-59oxux"
               role="navigation"
             >
               <div
@@ -1940,12 +1947,12 @@ exports[`Header component toggles search 1`] = `
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons"
+              class="css-1778zyk"
               data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
@@ -1967,7 +1974,7 @@ exports[`Header component toggles search 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -1994,13 +2001,13 @@ exports[`Header component toggles search 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+      class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      class="Header-drawer Header-navDrawer"
-      data-testid="nav-drawer"
+      class="css-1mlwg2c"
+      data-testid="drawer-false"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
@@ -2027,11 +2034,12 @@ exports[`Header component toggles search 1`] = `
       </button>
     </div>
     <div
-      class="Header-searchDrawerContainer"
+      class="css-yz5e9q"
+      data-testid="search-drawer-container"
       style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="Header-drawer Header-searchDrawer"
+        class="css-1sdv2sl"
       >
         <button
           aria-label="MC: global.close"

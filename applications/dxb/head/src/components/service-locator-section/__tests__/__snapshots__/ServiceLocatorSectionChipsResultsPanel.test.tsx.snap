@@ -318,12 +318,12 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                  data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                  data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="css-c9b8pn"
-                    data-testid="linkCard-item"
+                    data-testid="linkCard-item-roofer-1"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -331,16 +331,12 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                     >
                       roofer 1
                     </h6>
-                    <p
-                      class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                    <address
+                      class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                       data-testid="typography"
                     >
-                      <div
-                        class="css-1upilqn"
-                      >
-                        address 1
-                      </div>
-                    </p>
+                      address 1
+                    </address>
                   </div>
                   <div
                     class="LinkCard-icon"

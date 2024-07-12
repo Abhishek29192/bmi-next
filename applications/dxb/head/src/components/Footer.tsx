@@ -10,7 +10,7 @@ import { getPathWithCountryCode } from "../utils/path";
 import Icon from "./Icon";
 import { useSiteContext } from "./Site";
 import { toAnchorLinkActionProps } from "./link/utils";
-import type { MainNavigationItem } from "@bmi-digital/components/dist/footer/Footer";
+import type { MainNavigationItem } from "@bmi-digital/components/footer";
 import type { NavigationData } from "./link/types";
 
 const parseNavigation = (

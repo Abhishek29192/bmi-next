@@ -7,11 +7,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -41,7 +42,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -56,7 +57,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -67,7 +68,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden;"
         >
@@ -92,10 +93,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             </svg>
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -189,7 +190,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -199,16 +200,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -227,7 +228,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -261,12 +262,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -285,7 +286,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -309,13 +310,13 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden;"
         >
           <button
@@ -339,11 +340,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden;"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -900,6 +902,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -1071,11 +1074,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -1105,7 +1109,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -1120,7 +1124,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -1131,7 +1135,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden;"
         >
@@ -1156,10 +1160,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             </svg>
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -1253,7 +1257,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -1263,16 +1267,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -1291,7 +1295,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -1325,12 +1329,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -1349,7 +1353,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -1373,13 +1377,13 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden;"
         >
           <button
@@ -1403,11 +1407,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden;"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -1970,6 +1975,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -2141,11 +2147,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -2178,7 +2185,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -2193,7 +2200,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -2207,7 +2214,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
@@ -2235,10 +2242,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             />
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -2341,7 +2348,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -2351,16 +2358,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -2379,7 +2386,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -2420,12 +2427,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -2447,7 +2454,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -2474,13 +2481,13 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -2507,11 +2514,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -3286,6 +3294,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -3457,11 +3466,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -3494,7 +3504,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -3509,7 +3519,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -3523,7 +3533,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
@@ -3551,10 +3561,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             />
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -3657,7 +3667,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -3667,16 +3677,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -3695,7 +3705,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -3736,12 +3746,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -3763,7 +3773,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -3790,13 +3800,13 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -3823,11 +3833,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -4588,6 +4599,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -4759,11 +4771,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -4793,7 +4806,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -4808,7 +4821,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -4819,7 +4832,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden;"
         >
@@ -4844,10 +4857,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
             </svg>
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -4941,7 +4954,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -4951,16 +4964,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -4979,7 +4992,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -5013,12 +5026,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -5037,7 +5050,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -5061,13 +5074,13 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden;"
         >
           <button
@@ -5091,11 +5104,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden;"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -5837,6 +5851,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -6008,11 +6023,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -6042,7 +6058,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -6057,7 +6073,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -6068,7 +6084,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden;"
         >
@@ -6093,10 +6109,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             </svg>
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -6190,7 +6206,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -6200,16 +6216,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -6228,7 +6244,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -6262,12 +6278,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -6286,7 +6302,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -6310,13 +6326,13 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden;"
         >
           <button
@@ -6340,11 +6356,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden;"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -6831,6 +6848,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -7002,11 +7020,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -7036,7 +7055,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -7051,7 +7070,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -7062,7 +7081,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden;"
         >
@@ -7087,10 +7106,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             </svg>
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -7184,7 +7203,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -7194,16 +7213,16 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -7222,7 +7241,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -7256,12 +7275,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -7280,7 +7299,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -7304,13 +7323,13 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden;"
         >
           <button
@@ -7334,11 +7353,12 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden;"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -7825,6 +7845,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -7996,11 +8017,12 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -8030,7 +8052,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -8045,7 +8067,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -8056,7 +8078,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden;"
         >
@@ -8081,10 +8103,10 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
             </svg>
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -8178,7 +8200,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -8188,16 +8210,16 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -8216,7 +8238,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -8250,12 +8272,12 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -8274,7 +8296,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -8298,13 +8320,13 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden;"
         >
           <button
@@ -8328,11 +8350,12 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden;"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -8879,6 +8902,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -9050,11 +9074,12 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -9087,7 +9112,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -9102,7 +9127,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -9116,7 +9141,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
@@ -9144,10 +9169,10 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
             />
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -9250,7 +9275,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -9260,16 +9285,16 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -9288,7 +9313,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -9329,12 +9354,12 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -9356,7 +9381,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -9383,13 +9408,13 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -9416,11 +9441,12 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -10167,6 +10193,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -10338,11 +10365,12 @@ exports[`ProductListerPage template renders an default image if there is no imag
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -10375,7 +10403,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -10390,7 +10418,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -10404,7 +10432,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
@@ -10432,10 +10460,10 @@ exports[`ProductListerPage template renders an default image if there is no imag
             />
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -10538,7 +10566,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -10548,16 +10576,16 @@ exports[`ProductListerPage template renders an default image if there is no imag
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -10576,7 +10604,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -10617,12 +10645,12 @@ exports[`ProductListerPage template renders an default image if there is no imag
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -10644,7 +10672,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -10671,13 +10699,13 @@ exports[`ProductListerPage template renders an default image if there is no imag
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -10704,11 +10732,12 @@ exports[`ProductListerPage template renders an default image if there is no imag
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -11455,6 +11484,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -11647,11 +11677,12 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -11684,7 +11715,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -11699,7 +11730,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -11713,7 +11744,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
@@ -11741,10 +11772,10 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
             />
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -11847,7 +11878,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -11857,16 +11888,16 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -11885,7 +11916,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -11926,12 +11957,12 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -11953,7 +11984,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -11980,13 +12011,13 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -12013,11 +12044,12 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -12778,6 +12810,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -12949,11 +12982,12 @@ exports[`ProductListerPage template test handle change url by click on filters a
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -12986,7 +13020,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -13001,7 +13035,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -13015,7 +13049,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
@@ -13043,10 +13077,10 @@ exports[`ProductListerPage template test handle change url by click on filters a
             />
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -13149,7 +13183,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -13159,16 +13193,16 @@ exports[`ProductListerPage template test handle change url by click on filters a
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -13187,7 +13221,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -13228,12 +13262,12 @@ exports[`ProductListerPage template test handle change url by click on filters a
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -13255,7 +13289,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -13282,13 +13316,13 @@ exports[`ProductListerPage template test handle change url by click on filters a
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -13315,11 +13349,12 @@ exports[`ProductListerPage template test handle change url by click on filters a
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -14100,6 +14135,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -14271,11 +14307,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -14308,7 +14345,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -14323,7 +14360,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -14337,7 +14374,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
@@ -14365,10 +14402,10 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             />
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -14471,7 +14508,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -14481,16 +14518,16 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -14509,7 +14546,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -14550,12 +14587,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -14577,7 +14614,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -14604,13 +14641,13 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -14637,11 +14674,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -17695,6 +17733,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"
@@ -17866,11 +17905,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       style="overflow-x: hidden; display: contents;"
     >
       <header
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-15q74cf-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+        data-testid="header-root"
       >
         <nav
           aria-label="Utilities"
-          class="Header-utilitiesBar"
+          class="Header-utilitiesBar css-17m56du"
           role="navigation"
         >
           <div
@@ -17903,7 +17943,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 >
                   <button
                     aria-label="MC: menu.language"
-                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                     data-testid="language-button"
                     tabindex="0"
@@ -17918,7 +17958,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                     />
                     UK
                     <span
-                      class="Header-downArrow"
+                      class=" css-18e6unn"
                     >
                       ▾
                     </span>
@@ -17932,7 +17972,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           </div>
         </nav>
         <div
-          class="Header-drawer Header-languageDrawer"
+          class="css-1nebz1u"
           data-testid="language-section"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
@@ -17960,10 +18000,10 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
             />
           </button>
           <div
-            class="Header-languageContainer css-ze8cyt"
+            class=" css-ze8cyt"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
             >
               <div>
                 <div
@@ -18066,7 +18106,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           </div>
         </div>
         <div
-          class="Header-navigationBar"
+          class="Header-navigationBar css-1k1m9uw"
           data-testid="header-navigation-bar"
         >
           <div
@@ -18076,16 +18116,16 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="Header-navigationBarContent"
+                class="css-1cixs2m"
               >
                 <a
                   aria-label="MC: global.logoLabel"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                   data-testid="anchor-link"
                   href="/uk/"
                 >
                   <svg
-                    class="Header-logo css-87lb9q"
+                    class="css-15idaqd"
                     viewBox="0 0 250 250"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -18104,7 +18144,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 </a>
                 <nav
                   aria-label="Navigation"
-                  class="Header-navigation"
+                  class="css-59oxux"
                   role="navigation"
                 >
                   <div
@@ -18145,12 +18185,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   </div>
                 </nav>
                 <div
-                  class="Header-navigationBarButtons"
+                  class="css-1778zyk"
                   data-testid="navigationBar-buttons"
                 >
                   <button
                     aria-label="MC: search.label"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="search-button"
                     tabindex="0"
                     type="button"
@@ -18172,7 +18212,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                   </button>
                   <button
                     aria-label="MC: menu.open"
-                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                     data-testid="open-button"
                     tabindex="0"
                     type="button"
@@ -18199,13 +18239,13 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         </div>
         <div
           aria-hidden="true"
-          class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+          class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
           data-testid="backdrop"
           style="opacity: 0; visibility: hidden;"
         />
         <div
-          class="Header-drawer Header-navDrawer"
-          data-testid="nav-drawer"
+          class="css-1mlwg2c"
+          data-testid="drawer-false"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
@@ -18232,11 +18272,12 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           </button>
         </div>
         <div
-          class="Header-searchDrawerContainer"
+          class="Header-searchDrawerContainerHidden css-yz5e9q"
+          data-testid="search-drawer-container"
           style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
-            class="Header-drawer Header-searchDrawer"
+            class="css-1sdv2sl"
           >
             <button
               aria-label="MC: global.close"
@@ -21290,6 +21331,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       </div>
       <div
         class=" css-bnck4c-HidePrint"
+        data-testid="hide-print-root"
       >
         <div
           class="css-an2sjs"

@@ -1,4 +1,4 @@
-import { VideoProps } from "@bmi-digital/components/dist/media/types";
+import { VideoProps } from "@bmi-digital/components/media";
 import createImageProps from "../image/createImageProps";
 import type { Data } from "./types";
 

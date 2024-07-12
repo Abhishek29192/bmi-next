@@ -3,7 +3,7 @@ import { getPosition, typeToObjectFitMap } from "./utils";
 import type {
   CustomImageProps,
   ImageProps
-} from "@bmi-digital/components/dist/media/types";
+} from "@bmi-digital/components/media";
 import type { Props } from "./types";
 
 export const createImageProps = (

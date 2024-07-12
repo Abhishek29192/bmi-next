@@ -490,14 +490,9 @@ exports[`Sections component renders correctly 1`] = `
           >
             <p
               class="MuiTypography-root MuiTypography-body1 css-nx0k8s-MuiTypography-root"
-              data-testid="typography"
+              data-testid="syndicate-section-description"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body1  css-1o02bdp-MuiTypography-root"
-                data-testid="syndicate-section-description"
-              >
-                string
-              </p>
+              string
             </p>
           </div>
           <div
@@ -1803,12 +1798,12 @@ exports[`Sections component renders correctly 1`] = `
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 1 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-1"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -1816,16 +1811,12 @@ exports[`Sections component renders correctly 1`] = `
                       >
                         roofer 1
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
@@ -1892,12 +1883,12 @@ exports[`Sections component renders correctly 1`] = `
                   </div>
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-1rcgz0z-MuiPaper-root-MuiCard-root"
-                    data-gtm="{"id":"selector-cards6","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
+                    data-gtm="{"id":"selector-cards6","event":"dxb.button_click","label":"roofer 2 - address 1 - Roofer - selected","action":"Expanded company details"}"
                     data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="css-c9b8pn"
-                      data-testid="linkCard-item"
+                      data-testid="linkCard-item-roofer-2"
                     >
                       <h6
                         class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-184lsht-MuiTypography-root"
@@ -1905,16 +1896,12 @@ exports[`Sections component renders correctly 1`] = `
                       >
                         roofer 2
                       </h6>
-                      <p
-                        class="MuiTypography-root MuiTypography-body1 css-1x746g3-MuiTypography-root"
+                      <address
+                        class="MuiTypography-root MuiTypography-body1 css-10rfna2-MuiTypography-root"
                         data-testid="typography"
                       >
-                        <div
-                          class="css-1upilqn"
-                        >
-                          address 1
-                        </div>
-                      </p>
+                        address 1
+                      </address>
                     </div>
                     <div
                       class="LinkCard-icon"
