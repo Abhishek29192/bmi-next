@@ -16,9 +16,12 @@ export type AccountPage = {
   breadcrumbTitle: string | null;
   breadcrumbs: BreadcrumbsData;
 } & ToolSectionProps &
-  ServiceSupportSectionProps &
+  Omit<ServiceSupportSectionProps, "serviceSupportCards"> &
   HeroProps & {
     path: string;
+    serviceSupportCards:
+      | ServiceSupportSectionProps["serviceSupportCards"]
+      | null;
   };
 
 export type SiteDataWithAccountPage = Omit<SiteData, "accountPage"> & {
@@ -77,10 +80,12 @@ const MyAccountPage = ({ data }: Props) => {
           allowTools={allowTools}
           path={path}
         />
-        <ServiceSupportSection
-          titleForServiceSupportSection={titleForServiceSupportSection}
-          serviceSupportCards={serviceSupportCards}
-        />
+        {serviceSupportCards && (
+          <ServiceSupportSection
+            titleForServiceSupportSection={titleForServiceSupportSection}
+            serviceSupportCards={serviceSupportCards}
+          />
+        )}
       </Page>
     </Protected>
   );
