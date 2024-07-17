@@ -6,7 +6,21 @@ import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import MyAccountPage from "../my-account";
+import createRichText from "../../../__tests__/helpers/RichTextHelper";
 import type { SiteDataWithAccountPage } from "../my-account";
+
+const supportCards: SiteDataWithAccountPage["accountPage"]["serviceSupportCards"] =
+  [
+    {
+      __typename: "ContentfulContactDetails",
+      title: "BMI Group Corporate Headquarters",
+      address:
+        "Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX",
+      phoneNumber: "0370 560 1000",
+      email: "contactus@bmigroup.com",
+      otherInformation: createRichText()
+    }
+  ];
 
 const createMockSiteDataWithAccountPage = (): SiteDataWithAccountPage => ({
   ...createMockSiteData(),
@@ -19,20 +33,7 @@ const createMockSiteDataWithAccountPage = (): SiteDataWithAccountPage => ({
     description: "description",
     titleForToolSection: "titleForToolSection",
     titleForServiceSupportSection: "titleForServiceSupportSection",
-    serviceSupportCards: [
-      {
-        __typename: "ContentfulContactDetails",
-        title: "BMI Group Corporate Headquarters",
-        address:
-          "Thames Tower, 4th Floor, Station Rd, Reading, United Kingdom, RG1 1LX",
-        phoneNumber: "0370 560 1000",
-        email: "contactus@bmigroup.com",
-        otherInformation: {
-          raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Monday - Friday 8:00 - 16:00","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-          references: []
-        }
-      }
-    ],
+    serviceSupportCards: supportCards,
     allowTools: ["My profile"],
     breadcrumbTitle: "Breadcrumb Title",
     path: "/my-account",
@@ -83,6 +84,56 @@ describe("MyAccountPage", () => {
 
     expect(
       screen.getByText(contentfulSite.accountPage.breadcrumbs[0].label)
+    ).toBeInTheDocument();
+  });
+
+  it("should not render ServiceSupportSection if serviceSupportCards is null ", () => {
+    const contentfulSite = createMockSiteDataWithAccountPage();
+    contentfulSite.accountPage.breadcrumbTitle = null;
+
+    renderWithRouter(
+      <ThemeProvider>
+        <MyAccountPage
+          data={{
+            contentfulSite: {
+              ...contentfulSite,
+              accountPage: {
+                ...contentfulSite.accountPage,
+                serviceSupportCards: null
+              }
+            }
+          }}
+        />
+      </ThemeProvider>
+    );
+
+    expect(
+      screen.queryByTestId("account-page-service-support-section")
+    ).not.toBeInTheDocument();
+  });
+
+  it("should render ServiceSupportSection if serviceSupportCards is provided", () => {
+    const contentfulSite = createMockSiteDataWithAccountPage();
+    contentfulSite.accountPage.breadcrumbTitle = null;
+
+    renderWithRouter(
+      <ThemeProvider>
+        <MyAccountPage
+          data={{
+            contentfulSite: {
+              ...contentfulSite,
+              accountPage: {
+                ...contentfulSite.accountPage,
+                serviceSupportCards: supportCards
+              }
+            }
+          }}
+        />
+      </ThemeProvider>
+    );
+
+    expect(
+      screen.getByTestId("account-page-service-support-section")
     ).toBeInTheDocument();
   });
 });

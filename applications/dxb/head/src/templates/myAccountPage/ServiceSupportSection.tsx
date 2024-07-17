@@ -8,7 +8,7 @@ import type { Data as ContactDetailsData } from "../../components/ContactDetails
 
 export type ServiceSupportSectionProps = {
   titleForServiceSupportSection: string;
-  serviceSupportCards: ContactDetailsData[];
+  serviceSupportCards: [ContactDetailsData, ...ContactDetailsData[]];
 };
 
 const ServiceSupportSection = ({
@@ -16,7 +16,7 @@ const ServiceSupportSection = ({
   serviceSupportCards
 }: ServiceSupportSectionProps) => {
   return (
-    <Section>
+    <Section data-testid="account-page-service-support-section">
       <Section.Title>{titleForServiceSupportSection}</Section.Title>
       <Grid container={serviceSupportCards.length > 1} spacing={3}>
         {serviceSupportCards.map((data) => {
