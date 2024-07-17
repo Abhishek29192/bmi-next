@@ -5,9 +5,7 @@ module.exports = {
     title: `BMI dxb NL redirects - universaleco`,
     description: `Website for NL redirects - universaleco`,
     author: `bmi`,
-        siteUrl: `https://bmidxbredirectsnluniversaleco.netlify.app`
+    siteUrl: `https://bmidxbredirectsnluniversaleco.netlify.app`
   },
-  plugins: [
-   
-  ]
+  plugins: []
 };
