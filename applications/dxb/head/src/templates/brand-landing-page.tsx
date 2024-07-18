@@ -162,10 +162,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           <>
             <CarouselHero
               breadcrumbs={
-                <BackToResults
-                  isDarkThemed
-                  data-testid="breadcrumbs-section-top"
-                >
+                <BackToResults data-testid="breadcrumbs-section-top">
                   <Breadcrumbs
                     data={enhancedBreadcrumbs}
                     data-testid="brand-landing-page-breadcrumbs-top"

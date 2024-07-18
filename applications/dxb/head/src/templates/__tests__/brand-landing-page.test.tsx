@@ -1,6 +1,7 @@
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { fireEvent, screen } from "@testing-library/react";
 import React from "react";
+import { buttonClasses } from "@bmi-digital/components/button";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import { Data as SlideData } from "../../components/Promo";
 import { DataTypeEnum } from "../../components/link/types";
@@ -520,5 +521,31 @@ describe("Brand Landing Page Template", () => {
         action: "/en/search/"
       })
     );
+  });
+
+  it("renders back to results button with the correct colour", () => {
+    const originalLocation = window.location;
+    Object.defineProperty(window, "location", {
+      value: {
+        ...originalLocation,
+        search: "?pathname=%2Fdxb%2Fsearch%2F&q=zanda&tab=pages"
+      }
+    });
+
+    renderWithRouter(
+      <ThemeProvider>
+        <BrandLandingPage
+          data={data}
+          pageContext={{ variantCodeToPathMap: undefined }}
+        />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId("back-to-results-button")).not.toHaveClass(
+      buttonClasses.textDarkBg
+    );
+    Object.defineProperty(window, "location", {
+      value: originalLocation
+    });
   });
 });
