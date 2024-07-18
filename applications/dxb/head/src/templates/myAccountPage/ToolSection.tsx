@@ -6,16 +6,16 @@ import { ToolCardsBox, classes } from "./styles";
 import { transformToolCard } from "./utils";
 import type { ToolCardItemProps } from "@bmi-digital/components/tool-cards";
 
-export type AllowTools = "My profile" | "Trainings" | "Roof measurement";
+export type GlobalTools = "My profile" | "Trainings" | "Roof measurement";
 
 export type ToolSectionProps = {
   titleForToolSection: string;
-  allowTools: readonly [AllowTools, ...AllowTools[]];
+  globalTools: readonly [GlobalTools, ...GlobalTools[]];
   path: string;
 };
 
 const ToolSection = ({
-  allowTools,
+  globalTools,
   titleForToolSection,
   path
 }: ToolSectionProps) => {
@@ -26,7 +26,7 @@ const ToolSection = ({
   }, [path, countryCode]);
 
   const transformToolCardData: [ToolCardItemProps, ...ToolCardItemProps[]] =
-    transformToolCard(currentPageUrl, allowTools, getMicroCopy);
+    transformToolCard(currentPageUrl, globalTools, getMicroCopy);
 
   return (
     <Section backgroundColor="pearl">
