@@ -13,9 +13,9 @@ const countryCode = "us";
 process.env.GATSBY_SITE_URL = "https://example.com";
 
 describe("ToolSection", () => {
-  it("calls the transformToolCard function with the correct currentPageUrl, allowTools and MicroCopy values", () => {
+  it("calls the transformToolCard function with the correct currentPageUrl, globalTools and MicroCopy values", () => {
     const titleForToolSection = "Test Tool Section";
-    const allowTools: ToolSectionProps["allowTools"] = [
+    const globalTools: ToolSectionProps["globalTools"] = [
       "My profile",
       "Trainings",
       "Roof measurement"
@@ -25,14 +25,14 @@ describe("ToolSection", () => {
     renderWithProviders(
       <ToolSection
         titleForToolSection={titleForToolSection}
-        allowTools={allowTools}
+        globalTools={globalTools}
         path={path}
       />,
       { countryCode: countryCode }
     );
     expect(transformToolCard).toHaveBeenCalledWith(
       `https://example.com/${countryCode}/${path}`,
-      allowTools,
+      globalTools,
       fallbackGetMicroCopy
     );
   });

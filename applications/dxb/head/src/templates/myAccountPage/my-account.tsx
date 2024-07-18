@@ -47,7 +47,7 @@ const MyAccountPage = ({ data }: Props) => {
     titleForServiceSupportSection,
     serviceSupportCards,
     slug,
-    allowTools,
+    globalTools,
     path
   } = data.contentfulSite.accountPage;
 
@@ -77,7 +77,7 @@ const MyAccountPage = ({ data }: Props) => {
         />
         <ToolSection
           titleForToolSection={titleForToolSection}
-          allowTools={allowTools}
+          globalTools={globalTools}
           path={path}
         />
         {serviceSupportCards && (
@@ -107,7 +107,7 @@ export const pageQuery = graphql`
         description
         titleForToolSection
         titleForServiceSupportSection
-        allowTools
+        globalTools
         serviceSupportCards {
           ...ContactDetailsFragment
         }

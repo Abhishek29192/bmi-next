@@ -6,7 +6,7 @@ import { isDefined } from "@bmi/utils";
 import type { ToolCardItemProps } from "@bmi-digital/components/tool-cards";
 import type { GetMicroCopy } from "../../components/MicroCopy";
 import type { Auth0IdTokenPayload } from "../../types/auth0";
-import type { AllowTools } from "./ToolSection";
+import type { GlobalTools } from "./ToolSection";
 
 const nameTemplate = "{{name}}";
 const roleTemplate = "{{role}}";
@@ -28,7 +28,7 @@ export const getUserInfo = (
 
 export const transformToolCard = (
   currentPageUrl: string,
-  tools: readonly [AllowTools, ...AllowTools[]],
+  tools: readonly [GlobalTools, ...GlobalTools[]],
   getMicroCopy: GetMicroCopy
 ): [ToolCardItemProps, ...ToolCardItemProps[]] => {
   const sortedTools: [
@@ -36,7 +36,7 @@ export const transformToolCard = (
     ToolCardItemProps | undefined,
     ToolCardItemProps | undefined
   ] = [undefined, undefined, undefined];
-  tools.forEach((tool: AllowTools): void => {
+  tools.forEach((tool: GlobalTools): void => {
     switch (tool) {
       case "My profile":
         sortedTools[0] = {

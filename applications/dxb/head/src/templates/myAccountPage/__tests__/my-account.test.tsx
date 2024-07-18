@@ -34,7 +34,7 @@ const createMockSiteDataWithAccountPage = (): SiteDataWithAccountPage => ({
     titleForToolSection: "titleForToolSection",
     titleForServiceSupportSection: "titleForServiceSupportSection",
     serviceSupportCards: supportCards,
-    allowTools: ["My profile"],
+    globalTools: ["My profile"],
     breadcrumbTitle: "Breadcrumb Title",
     path: "/my-account",
     breadcrumbs: [createBreadcrumbItem()]

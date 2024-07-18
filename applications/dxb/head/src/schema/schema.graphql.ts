@@ -1425,7 +1425,7 @@ type ContentfulAccountPage implements Node @dontInfer {
   featuredMedia: ContentfulImage! @link(by: "id", from: "featuredMedia___NODE")
   titleForToolSection: String!
   titleForServiceSupportSection: String!
-  allowTools: [String!]!
+  globalTools: [String!]!
   serviceSupportCards: [ContentfulContactDetails] @link(from: "serviceSupportCards___NODE")
   breadcrumbTitle: String
   path: String!
