@@ -474,22 +474,11 @@ const getRedirectConfig = (
   statusCode: number;
 } => {
   const isPermanent = redirect.status === 301;
-  let toPath = redirect.to.endsWith("/")
+  const toPath = redirect.to.endsWith("/")
     ? redirect.to
-    : process.env.IS_NETLIFY && redirect.status === 200 // Do not add trailing slash to Netlify rewrites.
+    : redirect.status === 200 // Do not add trailing slash to Netlify rewrites.
       ? redirect.to
       : `${redirect.to}/`;
-
-  if (!process.env.IS_NETLIFY) {
-    toPath = decodeURI(toPath); // Gatsby Cloud encodes the toPath URI, even if it is already encoded
-  }
-
-  //If we use wildcard redirects on production users will be redirected to gatsby domain
-  //Such approach allows us to prevent users from being redirected to Gatsby domain.
-  // This issue is not applicable to Netlify.
-  if (!redirect.to.startsWith("https://") && !process.env.IS_NETLIFY) {
-    toPath = `${process.env.GATSBY_SITE_URL}${toPath}`;
-  }
 
   if (redirect.from === "/" || redirect.from.endsWith("*")) {
     return {
@@ -502,20 +491,10 @@ const getRedirectConfig = (
 
   return {
     isPermanent,
-    fromPath: process.env.IS_NETLIFY
-      ? redirect.from // Netlify automatically passes on all querystring parameters to the destination
-      : addSplatToUrl(redirect.from),
+    fromPath: redirect.from, // Netlify automatically passes on all querystring parameters to the destination
     toPath,
     statusCode: redirect.status
   };
-};
-
-const addSplatToUrl = (url: string): string => {
-  if (url.endsWith("/")) {
-    return `${url}*`;
-  }
-
-  return `${url}/*`;
 };
 
 const areValuesEqual = (a, b) => {
