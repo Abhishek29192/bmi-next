@@ -1,3 +1,3 @@
-export const convertStrToBool = (param?: string) => {
+export const convertStrToBool = (param: string | null | undefined) => {
   return param === "true";
 };

@@ -61,6 +61,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     >
                       ▾
                     </span>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </li>
               </ul>
@@ -70,7 +73,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="css-1nebz1u"
           data-testid="language-section"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -137,6 +140,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           />
                         </span>
                         Albania
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -159,6 +165,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           />
                         </span>
                         Österreich
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -181,6 +190,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           />
                         </span>
                         United Kingdom
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                     </div>
                   </div>
@@ -240,7 +252,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     />
                     <div
                       class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                      style="overflow: hidden; margin-bottom: 0px;"
+                      style="margin-bottom: 0px;"
                     >
                       <div
                         class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
@@ -256,8 +268,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           tabindex="0"
                         >
                           string
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </a>
                       </div>
+                      <span
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
                     </div>
                   </div>
                 </nav>
@@ -283,6 +302,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                   <button
                     aria-label="MC: menu.open"
@@ -302,6 +324,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </div>
               </div>
@@ -317,7 +342,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="css-1mlwg2c"
           data-testid="drawer-false"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -337,12 +362,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
               />
             </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
           </button>
         </div>
         <div
           class="Header-searchDrawerContainerHidden css-yz5e9q"
           data-testid="search-drawer-container"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
             class="css-1sdv2sl"
@@ -365,6 +393,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </button>
             <h4
               class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -1128,6 +1159,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     >
                       ▾
                     </span>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </li>
               </ul>
@@ -1137,7 +1171,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="css-1nebz1u"
           data-testid="language-section"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -1204,6 +1238,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           />
                         </span>
                         Albania
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -1226,6 +1263,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           />
                         </span>
                         Österreich
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -1248,6 +1288,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           />
                         </span>
                         United Kingdom
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                     </div>
                   </div>
@@ -1307,7 +1350,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     />
                     <div
                       class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                      style="overflow: hidden; margin-bottom: 0px;"
+                      style="margin-bottom: 0px;"
                     >
                       <div
                         class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
@@ -1323,8 +1366,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           tabindex="0"
                         >
                           string
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </a>
                       </div>
+                      <span
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
                     </div>
                   </div>
                 </nav>
@@ -1350,6 +1400,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                   <button
                     aria-label="MC: menu.open"
@@ -1369,6 +1422,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </div>
               </div>
@@ -1384,7 +1440,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="css-1mlwg2c"
           data-testid="drawer-false"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -1404,12 +1460,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
               />
             </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
           </button>
         </div>
         <div
           class="Header-searchDrawerContainerHidden css-yz5e9q"
           data-testid="search-drawer-container"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
             class="css-1sdv2sl"
@@ -1432,6 +1491,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </button>
             <h4
               class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -4825,6 +4887,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     >
                       ▾
                     </span>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </li>
               </ul>
@@ -4834,7 +4899,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="css-1nebz1u"
           data-testid="language-section"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -4901,6 +4966,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           />
                         </span>
                         Albania
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -4923,6 +4991,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           />
                         </span>
                         Österreich
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -4945,6 +5016,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           />
                         </span>
                         United Kingdom
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                     </div>
                   </div>
@@ -5004,7 +5078,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     />
                     <div
                       class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                      style="overflow: hidden; margin-bottom: 0px;"
+                      style="margin-bottom: 0px;"
                     >
                       <div
                         class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
@@ -5020,8 +5094,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           tabindex="0"
                         >
                           string
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </a>
                       </div>
+                      <span
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
                     </div>
                   </div>
                 </nav>
@@ -5047,6 +5128,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                   <button
                     aria-label="MC: menu.open"
@@ -5066,6 +5150,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </div>
               </div>
@@ -5081,7 +5168,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="css-1mlwg2c"
           data-testid="drawer-false"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -5101,12 +5188,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
               />
             </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
           </button>
         </div>
         <div
           class="Header-searchDrawerContainerHidden css-yz5e9q"
           data-testid="search-drawer-container"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
             class="css-1sdv2sl"
@@ -5129,6 +5219,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </button>
             <h4
               class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -6077,6 +6170,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     >
                       ▾
                     </span>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </li>
               </ul>
@@ -6086,7 +6182,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         <div
           class="css-1nebz1u"
           data-testid="language-section"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -6153,6 +6249,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                           />
                         </span>
                         Albania
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -6175,6 +6274,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                           />
                         </span>
                         Österreich
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -6197,6 +6299,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                           />
                         </span>
                         United Kingdom
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                     </div>
                   </div>
@@ -6256,7 +6361,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     />
                     <div
                       class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                      style="overflow: hidden; margin-bottom: 0px;"
+                      style="margin-bottom: 0px;"
                     >
                       <div
                         class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
@@ -6272,8 +6377,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                           tabindex="0"
                         >
                           string
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </a>
                       </div>
+                      <span
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
                     </div>
                   </div>
                 </nav>
@@ -6299,6 +6411,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                   <button
                     aria-label="MC: menu.open"
@@ -6318,6 +6433,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </div>
               </div>
@@ -6333,7 +6451,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         <div
           class="css-1mlwg2c"
           data-testid="drawer-false"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -6353,12 +6471,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
               />
             </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
           </button>
         </div>
         <div
           class="Header-searchDrawerContainerHidden css-yz5e9q"
           data-testid="search-drawer-container"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
             class="css-1sdv2sl"
@@ -6381,6 +6502,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </button>
             <h4
               class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -7074,6 +7198,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     >
                       ▾
                     </span>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </li>
               </ul>
@@ -7083,7 +7210,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         <div
           class="css-1nebz1u"
           data-testid="language-section"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -7150,6 +7277,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                           />
                         </span>
                         Albania
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -7172,6 +7302,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                           />
                         </span>
                         Österreich
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -7194,6 +7327,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                           />
                         </span>
                         United Kingdom
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                     </div>
                   </div>
@@ -7253,7 +7389,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     />
                     <div
                       class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                      style="overflow: hidden; margin-bottom: 0px;"
+                      style="margin-bottom: 0px;"
                     >
                       <div
                         class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
@@ -7269,8 +7405,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                           tabindex="0"
                         >
                           string
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </a>
                       </div>
+                      <span
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
                     </div>
                   </div>
                 </nav>
@@ -7296,6 +7439,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                   <button
                     aria-label="MC: menu.open"
@@ -7315,6 +7461,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </div>
               </div>
@@ -7330,7 +7479,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         <div
           class="css-1mlwg2c"
           data-testid="drawer-false"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -7350,12 +7499,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
               />
             </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
           </button>
         </div>
         <div
           class="Header-searchDrawerContainerHidden css-yz5e9q"
           data-testid="search-drawer-container"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
             class="css-1sdv2sl"
@@ -7378,6 +7530,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </button>
             <h4
               class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"
@@ -8071,6 +8226,9 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     >
                       ▾
                     </span>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </li>
               </ul>
@@ -8080,7 +8238,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         <div
           class="css-1nebz1u"
           data-testid="language-section"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -8147,6 +8305,9 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                           />
                         </span>
                         Albania
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -8169,6 +8330,9 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                           />
                         </span>
                         Österreich
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                       <a
                         aria-pressed="false"
@@ -8191,6 +8355,9 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                           />
                         </span>
                         United Kingdom
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                     </div>
                   </div>
@@ -8250,7 +8417,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     />
                     <div
                       class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                      style="overflow: hidden; margin-bottom: 0px;"
+                      style="margin-bottom: 0px;"
                     >
                       <div
                         class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
@@ -8266,8 +8433,15 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                           tabindex="0"
                         >
                           string
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </a>
                       </div>
+                      <span
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
                     </div>
                   </div>
                 </nav>
@@ -8293,6 +8467,9 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                         d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                   <button
                     aria-label="MC: menu.open"
@@ -8312,6 +8489,9 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                         d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
                       />
                     </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </button>
                 </div>
               </div>
@@ -8327,7 +8507,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         <div
           class="css-1mlwg2c"
           data-testid="drawer-false"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <button
             aria-label="MC: global.close"
@@ -8347,12 +8527,15 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
               />
             </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
           </button>
         </div>
         <div
           class="Header-searchDrawerContainerHidden css-yz5e9q"
           data-testid="search-drawer-container"
-          style="visibility: hidden;"
+          style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
         >
           <div
             class="css-1sdv2sl"
@@ -8375,6 +8558,9 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                 />
               </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </button>
             <h4
               class="MuiTypography-root MuiTypography-h4  css-1x9euu8-MuiTypography-root"

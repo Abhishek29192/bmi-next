@@ -1,13 +1,14 @@
 import Button from "@bmi-digital/components/button";
 import { useIsClient } from "@bmi-digital/components/hooks";
 import HeaderComponent from "@bmi-digital/components/header";
-import HidePrint from "@bmi-digital/components/hide-print";
 import IconButton from "@bmi-digital/components/icon-button";
 import ArrowForwardIcon from "@bmi-digital/components/icon/ArrowForward";
 import { RegionCode } from "@bmi-digital/components/language-selection";
 import { microCopy } from "@bmi/microcopies";
 import { graphql, Link, withPrefix } from "gatsby";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import Toast from "@bmi-digital/components/toast";
+import type { MicroCopyValues } from "@bmi/microcopies";
 import AuthService from "../auth/service";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
@@ -17,12 +18,14 @@ import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
+import { convertStrToBool } from "../utils/convertStrToBool";
 import Image from "./image/Image";
 import Icon from "./Icon";
 import RichText from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
 import { Data as SiteData, useSiteContext } from "./Site";
 import { getCTA } from "./link/utils";
+import type { ToastProps } from "@bmi-digital/components/toast";
 import type { RichTextData } from "./RichText";
 import type { IconButtonProps } from "@bmi-digital/components/icon-button";
 import type { HeaderProps } from "@bmi-digital/components/header";
@@ -196,7 +199,9 @@ const parseNavigation = ({
         };
       } else if (url) {
         const href =
-          isClient && url.includes(process.env.GATSBY_INTOUCH_ORIGIN)
+          isClient &&
+          process.env.GATSBY_INTOUCH_ORIGIN &&
+          url.includes(process.env.GATSBY_INTOUCH_ORIGIN)
             ? constructUrlWithPrevPage(url)
             : url;
         action = {
@@ -258,6 +263,9 @@ const Header = ({
   disableSearch?: boolean;
 }) => {
   const { isClient } = useIsClient();
+  const [toastOpen, setToastOpen] = useState<ToastProps["open"]>(false);
+  const [toastMessage, setToastMessage] = useState<ToastProps["message"]>("");
+  const toastRef = useRef<ToastProps["anchorEl"] | null>(null);
 
   const languages = useMemo(
     () =>
@@ -290,6 +298,24 @@ const Header = ({
   } = useBasketContext();
   const authHeaderProps = useHeaderAuthData();
 
+  useEffect(() => {
+    const handleToast = (storageItem: string, message: MicroCopyValues) => {
+      const showItem = localStorage.getItem(storageItem);
+      if (convertStrToBool(showItem)) {
+        setToastOpen(true);
+        setToastMessage(getMicroCopy(message));
+        localStorage.removeItem(storageItem);
+      }
+    };
+
+    handleToast("showLoginToast", microCopy.LOG_IN_LABEL_ALERT);
+    handleToast("showLogoutToast", microCopy.LOG_OUT_LABEL_ALERT);
+  }, [getMicroCopy]);
+
+  const handleToastClose = () => {
+    setToastOpen(false);
+  };
+
   if (!navigationData || !utilitiesData) {
     return null;
   }
@@ -316,101 +342,110 @@ const Header = ({
     checkIfActiveLabelInParentNode(lastNavigationLabel, navigationData) ||
     activeLabel;
   return (
-    <HidePrint
-      component={() => (
-        <HeaderComponent
-          disableSearch={isGatsbyDisabledElasticSearch || disableSearch}
-          languages={languages}
-          language={language}
-          languageLabel={getMicroCopy(microCopy.MENU_LANGUAGE)}
-          languageIntroduction={
-            <RichText
-              hasNoBottomMargin
-              document={countryNavigationIntroduction}
-            />
-          }
-          utilities={utilities}
-          navigation={navigation}
-          logoAction={{
-            component: Link,
-            to: getPathWithCountryCode(countryCode, "")
-          }}
-          logoLabel={getMicroCopy(microCopy.GLOBAL_LOGO_LABEL)}
-          activeNavLabel={newActiveLabel}
-          closeLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
-          searchGtm={{
-            id: "search1",
-            label: getMicroCopy(microCopy.SEARCH_LABEL)
-          }}
-          navUtilityLinkButton={(props: ButtonProps) => (
-            <Button
-              gtm={{
-                id: "nav-top-utilities-bar",
-                action: stringifyToObject(props.to) || props.href,
-                label: React.Children.toArray(props.children).join("")
-              }}
-              {...props}
-            />
-          )}
-          shoppingCartCount={productsInBasket.length}
-          basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
-          sampleBasketDialog={
-            isSampleOrderingEnabled && sampleBasketLink?.sections?.[0]?.title
-              ? (props: { toggleCart: () => void }) => (
-                  <SampleBasketDialog
-                    title={sampleBasketLink.sections[0].title}
-                    basketUrl={basketUrl}
-                    maximumSamples={maximumSamples}
-                    {...props}
-                  />
-                )
-              : null
-          }
-          navigationButtonComponent={(props: ButtonProps) => (
-            <Button
-              gtm={{
-                id: "nav-main-menu",
-                action: stringifyToObject(props.to),
-                label:
-                  typeof props.children !== "string"
-                    ? props.accessibilityLabel
-                    : undefined
-              }}
-              {...props}
-            />
-          )}
-          promoButtonComponent={({ startIcon, ...props }: ButtonProps) => (
-            <Button
-              {...props}
-              variant="outlined"
-              endIcon={<ArrowForwardIcon />}
-              className="Button"
-              style={{ marginLeft: 16, marginBottom: 15 }}
-            />
-          )}
-          closeButtonComponent={(props: IconButtonProps) => (
-            <IconButton
-              gtm={{
-                id: "nav-country-selector",
-                label: "close panel",
-                action: "close panel"
-              }}
-              {...props}
-            />
-          )}
-          onCountrySelection={onCountrySelection}
-          useGTM={useGTM}
-          searchAction={getPathWithCountryCode(countryCode, "search")}
-          searchLabel={getMicroCopy(microCopy.SEARCH_LABEL)}
-          searchPlaceholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HEADER)}
-          searchTitle={getMicroCopy(microCopy.SEARCH_TITLE)}
-          openLabel={getMicroCopy(microCopy.MENU_OPEN)}
-          mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
-          mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
-          auth={authHeaderProps}
+    <>
+      <HeaderComponent
+        disableSearch={isGatsbyDisabledElasticSearch || disableSearch}
+        languages={languages}
+        language={language}
+        languageLabel={getMicroCopy(microCopy.MENU_LANGUAGE)}
+        languageIntroduction={
+          <RichText
+            hasNoBottomMargin
+            document={countryNavigationIntroduction}
+          />
+        }
+        utilities={utilities}
+        navigation={navigation}
+        logoAction={{
+          component: Link,
+          to: getPathWithCountryCode(countryCode, "")
+        }}
+        logoLabel={getMicroCopy(microCopy.GLOBAL_LOGO_LABEL)}
+        activeNavLabel={newActiveLabel}
+        closeLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
+        searchGtm={{
+          id: "search1",
+          label: getMicroCopy(microCopy.SEARCH_LABEL)
+        }}
+        navUtilityLinkButton={(props: ButtonProps) => (
+          <Button
+            gtm={{
+              id: "nav-top-utilities-bar",
+              action: stringifyToObject(props.to) || props.href,
+              label: React.Children.toArray(props.children).join("")
+            }}
+            {...props}
+          />
+        )}
+        shoppingCartCount={productsInBasket.length}
+        basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
+        sampleBasketDialog={
+          isSampleOrderingEnabled && sampleBasketLink?.sections?.[0]?.title
+            ? (props: { toggleCart: () => void }) => (
+                <SampleBasketDialog
+                  title={sampleBasketLink.sections?.[0].title}
+                  basketUrl={basketUrl}
+                  maximumSamples={maximumSamples}
+                  {...props}
+                />
+              )
+            : undefined
+        }
+        navigationButtonComponent={(props: ButtonProps) => (
+          <Button
+            gtm={{
+              id: "nav-main-menu",
+              action: stringifyToObject(props.to),
+              label:
+                typeof props.children !== "string"
+                  ? props.accessibilityLabel
+                  : undefined
+            }}
+            {...props}
+          />
+        )}
+        promoButtonComponent={({ startIcon, ...props }: ButtonProps) => (
+          <Button
+            {...props}
+            variant="outlined"
+            endIcon={<ArrowForwardIcon />}
+            className="Button"
+            style={{ marginLeft: 16, marginBottom: 15 }}
+          />
+        )}
+        closeButtonComponent={(props: IconButtonProps) => (
+          <IconButton
+            gtm={{
+              id: "nav-country-selector",
+              label: "close panel",
+              action: "close panel"
+            }}
+            {...props}
+          />
+        )}
+        onCountrySelection={onCountrySelection}
+        useGTM={useGTM}
+        searchAction={getPathWithCountryCode(countryCode, "search")}
+        searchLabel={getMicroCopy(microCopy.SEARCH_LABEL)}
+        searchPlaceholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HEADER)}
+        searchTitle={getMicroCopy(microCopy.SEARCH_TITLE)}
+        openLabel={getMicroCopy(microCopy.MENU_OPEN)}
+        mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
+        mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
+        auth={authHeaderProps}
+        ref={toastRef}
+      />
+      {toastRef.current && (
+        <Toast
+          closeButtonAriaLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
+          message={toastMessage}
+          type="success"
+          open={toastOpen}
+          onClose={handleToastClose}
+          anchorEl={toastRef.current}
         />
       )}
-    />
+    </>
   );
 };
 

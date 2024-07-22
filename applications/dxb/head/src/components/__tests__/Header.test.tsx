@@ -1,7 +1,13 @@
 import { RegionCode } from "@bmi-digital/components/language-selection";
 import ThemeProvider from "@bmi-digital/components/theme-provider";
 import { microCopy } from "@bmi/microcopies";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within
+} from "@testing-library/react";
 import React from "react";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import createLinkData, {
@@ -65,6 +71,8 @@ beforeEach(() => {
     isLoading: false,
     profile: undefined
   });
+  localStorage.removeItem("showLoginToast");
+  localStorage.removeItem("showLogoutToast");
 });
 
 afterEach(() => {
@@ -412,26 +420,6 @@ describe("Header component", () => {
     );
   });
 
-  it("shows login btn", () => {
-    render(
-      <ThemeProvider>
-        <BasketContext.Provider value={sampleBasketProducts}>
-          <Header
-            activeLabel="Main"
-            countryCode="gb"
-            navigationData={navigationData}
-            utilitiesData={utilitiesData}
-            regions={regions}
-            sampleBasketLink={sampleBasketLinkInfo}
-            maximumSamples={3}
-          />
-        </BasketContext.Provider>
-      </ThemeProvider>
-    );
-
-    expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
-  });
-
   it("applies a gtm attribute to the navigation tab component when a Contentful Link type", () => {
     render(
       <ThemeProvider>
@@ -507,104 +495,12 @@ describe("Header component", () => {
       })
     );
   });
-});
 
-describe("Intouch link behavior", () => {
-  it("generates correct href if link is not intouch link and isClient is true", () => {
-    useIsClientMock.mockReturnValue({ isClient: true });
+  describe("Intouch link behavior", () => {
+    it("generates correct href if link is not intouch link and isClient is true", () => {
+      useIsClientMock.mockReturnValue({ isClient: true });
 
-    render(
-      <ThemeProvider>
-        <Header
-          activeLabel="Main"
-          countryCode="gb"
-          navigationData={navigationData}
-          utilitiesData={utilitiesData}
-          regions={regions}
-          maximumSamples={3}
-          sampleBasketLink={sampleBasketLinkInfo}
-        />
-      </ThemeProvider>
-    );
-
-    const buttonOrLink = screen.getByText("inTouchLink");
-
-    expect(buttonOrLink).toBeInTheDocument();
-
-    const expectedHref = "https://www.external.co.uk";
-
-    expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
-  });
-
-  it("generates correct href if link isintouch link and is isClient is true", () => {
-    useIsClientMock.mockReturnValue({ isClient: true });
-    const originalEnv = process.env.GATSBY_INTOUCH_ORIGIN;
-    process.env.GATSBY_INTOUCH_ORIGIN = "https://www.external.co.uk";
-
-    render(
-      <ThemeProvider>
-        <Header
-          activeLabel="Main"
-          countryCode="gb"
-          navigationData={navigationData}
-          utilitiesData={utilitiesData}
-          regions={regions}
-          maximumSamples={3}
-          sampleBasketLink={sampleBasketLinkInfo}
-        />
-      </ThemeProvider>
-    );
-
-    const buttonOrLink = screen.getByText("inTouchLink");
-
-    expect(buttonOrLink).toBeInTheDocument();
-
-    const expectedHref =
-      "https://www.external.co.uk?prev_page=http%3A%2F%2Flocalhost%2F";
-
-    expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
-
-    process.env.GATSBY_INTOUCH_ORIGIN = originalEnv;
-  });
-
-  it("generates correct href if link is not intouch link and isClient is false", () => {
-    useIsClientMock.mockReturnValue({ isClient: false });
-
-    render(
-      <ThemeProvider>
-        <Header
-          activeLabel="Main"
-          countryCode="gb"
-          navigationData={navigationData}
-          utilitiesData={utilitiesData}
-          regions={regions}
-          maximumSamples={3}
-          sampleBasketLink={sampleBasketLinkInfo}
-        />
-      </ThemeProvider>
-    );
-
-    const buttonOrLink = screen.getByText("inTouchLink");
-
-    expect(buttonOrLink).toBeInTheDocument();
-
-    const expectedHref = "https://www.external.co.uk";
-
-    expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
-  });
-});
-
-describe("Login", () => {
-  it("should not render 'Login' button if isLoginEnabled === false", () => {
-    isLoginEnabled = false;
-
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: { slug: "account" }
-        }}
-      >
+      render(
         <ThemeProvider>
           <Header
             activeLabel="Main"
@@ -616,77 +512,23 @@ describe("Login", () => {
             sampleBasketLink={sampleBasketLinkInfo}
           />
         </ThemeProvider>
-      </SiteContextProvider>
-    );
-    expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
-  });
+      );
 
-  it("should render 'Login' button if isLoginEnabled === true", () => {
-    isLoginEnabled = true;
+      const buttonOrLink = screen.getByText("inTouchLink");
 
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: { slug: "account" }
-        }}
-      >
-        <ThemeProvider>
-          <Header
-            activeLabel="Main"
-            countryCode="gb"
-            navigationData={navigationData}
-            utilitiesData={utilitiesData}
-            regions={regions}
-            maximumSamples={3}
-            sampleBasketLink={sampleBasketLinkInfo}
-          />
-        </ThemeProvider>
-      </SiteContextProvider>
-    );
-    expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
-  });
+      expect(buttonOrLink).toBeInTheDocument();
 
-  it("should not render 'Login' button if account is not provided", () => {
-    isLoginEnabled = false;
+      const expectedHref = "https://www.external.co.uk";
 
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: null
-        }}
-      >
-        <ThemeProvider>
-          <Header
-            activeLabel="Main"
-            countryCode="gb"
-            navigationData={navigationData}
-            utilitiesData={utilitiesData}
-            regions={regions}
-            maximumSamples={3}
-            sampleBasketLink={sampleBasketLinkInfo}
-          />
-        </ThemeProvider>
-      </SiteContextProvider>
-    );
-    expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
-  });
-
-  it("should not render 'Login' button if a user is logged in", () => {
-    mockUseAuth.mockReturnValue({
-      isLoggedIn: true,
-      profile: createAuth0IdTokenPayload(),
-      isLoading: false
+      expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
     });
 
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: { slug: "account" }
-        }}
-      >
+    it("generates correct href if link isintouch link and is isClient is true", () => {
+      useIsClientMock.mockReturnValue({ isClient: true });
+      const originalEnv = process.env.GATSBY_INTOUCH_ORIGIN;
+      process.env.GATSBY_INTOUCH_ORIGIN = "https://www.external.co.uk";
+
+      render(
         <ThemeProvider>
           <Header
             activeLabel="Main"
@@ -698,25 +540,24 @@ describe("Login", () => {
             sampleBasketLink={sampleBasketLinkInfo}
           />
         </ThemeProvider>
-      </SiteContextProvider>
-    );
-    expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
-  });
+      );
 
-  it("should render 'Login' button if isLoggedIn === true but profile === undefined", () => {
-    mockUseAuth.mockReturnValue({
-      isLoggedIn: true,
-      profile: undefined,
-      isLoading: false
+      const buttonOrLink = screen.getByText("inTouchLink");
+
+      expect(buttonOrLink).toBeInTheDocument();
+
+      const expectedHref =
+        "https://www.external.co.uk?prev_page=http%3A%2F%2Flocalhost%2F";
+
+      expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
+
+      process.env.GATSBY_INTOUCH_ORIGIN = originalEnv;
     });
 
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: { slug: "account" }
-        }}
-      >
+    it("generates correct href if link is not intouch link and isClient is false", () => {
+      useIsClientMock.mockReturnValue({ isClient: false });
+
+      render(
         <ThemeProvider>
           <Header
             activeLabel="Main"
@@ -728,167 +569,661 @@ describe("Login", () => {
             sampleBasketLink={sampleBasketLinkInfo}
           />
         </ThemeProvider>
-      </SiteContextProvider>
-    );
-    expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+      );
+
+      const buttonOrLink = screen.getByText("inTouchLink");
+
+      expect(buttonOrLink).toBeInTheDocument();
+
+      const expectedHref = "https://www.external.co.uk";
+
+      expect(buttonOrLink.getAttribute("href")).toBe(expectedHref);
+    });
   });
 
-  it("should render 'Login' button if isLoggedIn === false but profile provided", () => {
-    mockUseAuth.mockReturnValue({
-      isLoggedIn: false,
-      profile: createAuth0IdTokenPayload(),
-      isLoading: false
+  describe("Login", () => {
+    it("should not render 'Login' button if isLoginEnabled === false", () => {
+      isLoginEnabled = false;
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="gb"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+      expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
     });
 
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: { slug: "account" }
-        }}
-      >
-        <ThemeProvider>
-          <Header
-            activeLabel="Main"
-            countryCode="gb"
-            navigationData={navigationData}
-            utilitiesData={utilitiesData}
-            regions={regions}
-            maximumSamples={3}
-            sampleBasketLink={sampleBasketLinkInfo}
-          />
-        </ThemeProvider>
-      </SiteContextProvider>
-    );
-    expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+    it("should render 'Login' button if isLoginEnabled === true", () => {
+      isLoginEnabled = true;
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="gb"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+      expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+    });
+
+    it("should not render 'Login' button if account is not provided", () => {
+      isLoginEnabled = false;
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: null
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="gb"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+      expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
+    });
+
+    it("should not render 'Login' button if a user is logged in", () => {
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="gb"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+      expect(screen.queryByText("MC: login.label.btn")).not.toBeInTheDocument();
+    });
+
+    it("should render 'Login' button if isLoggedIn === true but profile === undefined", () => {
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: undefined,
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="gb"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+      expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+    });
+
+    it("should render 'Login' button if isLoggedIn === false but profile provided", () => {
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: false,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="gb"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+      expect(screen.getByText("MC: login.label.btn")).toBeInTheDocument();
+    });
+
+    it("should call AuthService.login if a user clicks 'Login' button", () => {
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: false,
+        profile: undefined,
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="gb"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      fireEvent.click(screen.getByText("MC: login.label.btn"));
+      expect(loginMock).toHaveBeenCalledTimes(1);
+    });
+
+    it("should render 'Logout' and 'My account' buttons if a user is logged in", () => {
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="gb"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+      expect(screen.getByText("MC: logout.label.btn")).toBeInTheDocument();
+      expect(screen.getByText("MC: my.account.label")).toBeInTheDocument();
+    });
+
+    it("should call AuthService.logout if a user clicks 'Logout' button", () => {
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="gb"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      fireEvent.click(screen.getByText("MC: logout.label.btn"));
+      expect(logoutMock).toHaveBeenCalledTimes(1);
+    });
+
+    it("should render 'My account' button with 'href' attribute", () => {
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              activeLabel="Main"
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+              sampleBasketLink={sampleBasketLinkInfo}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      expect(screen.getByText("MC: my.account.label")).toHaveAttribute(
+        "href",
+        "/no/account/"
+      );
+    });
   });
 
-  it("should call AuthService.login if a user clicks 'Login' button", () => {
-    mockUseAuth.mockReturnValue({
-      isLoggedIn: false,
-      profile: undefined,
-      isLoading: false
+  describe("Toast", () => {
+    it("should not render the toast before the user has logged in", async () => {
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const toast = screen.queryByRole("tooltip");
+      expect(toast).not.toBeInTheDocument();
     });
 
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: { slug: "account" }
-        }}
-      >
-        <ThemeProvider>
-          <Header
-            activeLabel="Main"
-            countryCode="gb"
-            navigationData={navigationData}
-            utilitiesData={utilitiesData}
-            regions={regions}
-            maximumSamples={3}
-            sampleBasketLink={sampleBasketLinkInfo}
-          />
-        </ThemeProvider>
-      </SiteContextProvider>
-    );
+    it("should apply the global close microcopy value to the Toast's close button aria-label", async () => {
+      localStorage.setItem("showLoginToast", "true");
 
-    fireEvent.click(screen.getByText("MC: login.label.btn"));
-    expect(loginMock).toHaveBeenCalledTimes(1);
-  });
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
 
-  it("should render 'Logout' and 'My account' buttons if a user is logged in", () => {
-    mockUseAuth.mockReturnValue({
-      isLoggedIn: true,
-      profile: createAuth0IdTokenPayload(),
-      isLoading: false
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const tooltipWrapper = await screen.findByRole("tooltip");
+      const toastCloseButton =
+        within(tooltipWrapper).getByTestId("toast-close-button");
+
+      expect(toastCloseButton).toHaveAttribute(
+        "aria-label",
+        "MC: global.close"
+      );
     });
 
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: { slug: "account" }
-        }}
-      >
-        <ThemeProvider>
-          <Header
-            activeLabel="Main"
-            countryCode="gb"
-            navigationData={navigationData}
-            utilitiesData={utilitiesData}
-            regions={regions}
-            maximumSamples={3}
-            sampleBasketLink={sampleBasketLinkInfo}
-          />
-        </ThemeProvider>
-      </SiteContextProvider>
-    );
-    expect(screen.getByText("MC: logout.label.btn")).toBeInTheDocument();
-    expect(screen.getByText("MC: my.account.label")).toBeInTheDocument();
-  });
+    it("should apply the login label alert microcopy as the Toast's message when the user has succesfully logged in", async () => {
+      localStorage.setItem("showLoginToast", "true");
 
-  it("should call AuthService.logout if a user clicks 'Logout' button", () => {
-    mockUseAuth.mockReturnValue({
-      isLoggedIn: true,
-      profile: createAuth0IdTokenPayload(),
-      isLoading: false
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const tooltipWrapper = await screen.findByRole("tooltip");
+      const toastMessage =
+        within(tooltipWrapper).getByTestId("toast-message-text");
+
+      expect(toastMessage).toHaveTextContent("MC: login.label.alert");
     });
 
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: { slug: "account" }
-        }}
-      >
-        <ThemeProvider>
-          <Header
-            activeLabel="Main"
-            countryCode="gb"
-            navigationData={navigationData}
-            utilitiesData={utilitiesData}
-            regions={regions}
-            maximumSamples={3}
-            sampleBasketLink={sampleBasketLinkInfo}
-          />
-        </ThemeProvider>
-      </SiteContextProvider>
-    );
+    it("should apply the logout label alert microcopy as the Toast's message when the user has succesfully logged out", async () => {
+      localStorage.setItem("showLogoutToast", "true");
 
-    fireEvent.click(screen.getByText("MC: logout.label.btn"));
-    expect(logoutMock).toHaveBeenCalledTimes(1);
-  });
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
 
-  it("should render 'My account' button with 'href' attribute", () => {
-    mockUseAuth.mockReturnValue({
-      isLoggedIn: true,
-      profile: createAuth0IdTokenPayload(),
-      isLoading: false
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const tooltipWrapper = await screen.findByRole("tooltip");
+      const toastMessage =
+        within(tooltipWrapper).getByTestId("toast-message-text");
+
+      expect(toastMessage).toHaveTextContent("MC: logout.label.alert");
     });
 
-    render(
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          accountPage: { slug: "account" }
-        }}
-      >
-        <ThemeProvider>
-          <Header
-            activeLabel="Main"
-            countryCode="no"
-            navigationData={navigationData}
-            utilitiesData={utilitiesData}
-            regions={regions}
-            maximumSamples={3}
-            sampleBasketLink={sampleBasketLinkInfo}
-          />
-        </ThemeProvider>
-      </SiteContextProvider>
-    );
+    it("should render the success toast type when the user successfully logged in", async () => {
+      localStorage.setItem("showLoginToast", "true");
 
-    expect(screen.getByText("MC: my.account.label")).toHaveAttribute(
-      "href",
-      "/no/account/"
-    );
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const tooltipWrapper = await screen.findByRole("tooltip");
+      const toast = within(tooltipWrapper).getByTestId(
+        "toast-success-MC:-login.label.alert"
+      );
+
+      expect(toast).toHaveClass("Toast-success");
+    });
+
+    it("should render the success toast type when the user successfully logged out", async () => {
+      localStorage.setItem("showLogoutToast", "true");
+
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const tooltipWrapper = await screen.findByRole("tooltip");
+      const toast = within(tooltipWrapper).getByTestId(
+        "toast-success-MC:-logout.label.alert"
+      );
+
+      expect(toast).toHaveClass("Toast-success");
+    });
+
+    it("should remove the local storage showLoginToast item once the Toast has been rendered", async () => {
+      localStorage.setItem("showLoginToast", "true");
+
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const tooltip = await screen.findByRole("tooltip");
+      expect(tooltip).toBeInTheDocument();
+
+      const showLoginToast = localStorage.getItem("showLoginToast");
+      expect(showLoginToast).toBeNull();
+    });
+
+    it("should remove the local storage showLogoutToast item once the Toast has been rendered", async () => {
+      localStorage.setItem("showLogoutToast", "true");
+
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const tooltip = await screen.findByRole("tooltip");
+      expect(tooltip).toBeInTheDocument();
+
+      const showLogoutToast = localStorage.getItem("showLogoutToast");
+      expect(showLogoutToast).toBeNull();
+    });
+
+    it("should close the Toast component when the Toast's close button is clicked", async () => {
+      localStorage.setItem("showLogoutToast", "true");
+
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const tooltipWrapper = await screen.findByRole("tooltip");
+      const toastCloseButton =
+        within(tooltipWrapper).getByTestId("toast-close-button");
+
+      fireEvent.click(toastCloseButton);
+
+      expect(tooltipWrapper).not.toBeInTheDocument();
+    });
+
+    it("closes the Toast component when the user presses the escape key", async () => {
+      localStorage.setItem("showLogoutToast", "true");
+
+      mockUseAuth.mockReturnValue({
+        isLoggedIn: true,
+        profile: createAuth0IdTokenPayload(),
+        isLoading: false
+      });
+
+      render(
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            accountPage: { slug: "account" }
+          }}
+        >
+          <ThemeProvider>
+            <Header
+              countryCode="no"
+              navigationData={navigationData}
+              utilitiesData={utilitiesData}
+              regions={regions}
+              maximumSamples={3}
+            />
+          </ThemeProvider>
+        </SiteContextProvider>
+      );
+
+      const tooltipWrapper = await screen.findByRole("tooltip");
+
+      fireEvent.keyDown(document.body, { key: "Escape" });
+      expect(tooltipWrapper).not.toBeInTheDocument();
+    });
   });
 });
