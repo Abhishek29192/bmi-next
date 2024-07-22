@@ -1,6 +1,5 @@
 import CompanyDetails, {
-  CompanyDetailProps,
-  roofProLevelIconSourceMap
+  CompanyDetailProps
 } from "@bmi-digital/components/company-details";
 import Typography from "@bmi-digital/components/typography";
 import { microCopy } from "@bmi/microcopies";
@@ -9,16 +8,13 @@ import { useSiteContext } from "../../../Site";
 import { getResultDataGtm } from "../../helpers";
 import { Service } from "../../index";
 import { CompanyLogo } from "../../styles/styles";
-import { GTMIntegratedLinkCard } from "../IntegratedLinkCard";
+import { IntegratedLinkCard } from "../IntegratedLinkCard";
 import {
   List,
   NoResults,
   NoResultsHeading,
-  RoofProCertification,
-  RoofProLogo,
   StyledListWrapper,
-  StyledPagination,
-  Subtitle
+  StyledPagination
 } from "./style";
 
 export interface Props {
@@ -46,6 +42,11 @@ export const ServiceLocatorResultList = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
+  let roofProLabel: string | undefined;
+  if (shouldListCertification) {
+    roofProLabel = getMicroCopy(microCopy.FIND_A_ROOFER_CERTIFICATION_LABEL);
+  }
+
   return roofersList.length ? (
     <StyledListWrapper
       pageCount={pageCount}
@@ -55,7 +56,7 @@ export const ServiceLocatorResultList = ({
         {roofersList
           .filter((service): service is Service => service !== undefined)
           .map((service) => (
-            <GTMIntegratedLinkCard
+            <IntegratedLinkCard
               key={service.id}
               onClick={() => onListItemClick(service)}
               onCloseClick={onCloseCard}
@@ -66,23 +67,12 @@ export const ServiceLocatorResultList = ({
               }
               gtm={getResultDataGtm(service)}
               data-testid={"GTMIntegratedLinkCard-test-id"}
-              subtitle={
-                <Subtitle>
-                  {service.address}
-                  {service.certification && shouldListCertification && (
-                    <RoofProCertification>
-                      {getMicroCopy(
-                        microCopy.FIND_A_ROOFER_CERTIFICATION_LABEL
-                      )}
-                      :
-                      <RoofProLogo
-                        source={
-                          roofProLevelIconSourceMap[service.certification]
-                        }
-                      />
-                    </RoofProCertification>
-                  )}
-                </Subtitle>
+              address={service.address}
+              roofProLabel={roofProLabel}
+              roofProLevel={
+                roofProLabel && service.certification
+                  ? service.certification
+                  : undefined
               }
             >
               <CompanyDetails
@@ -92,7 +82,7 @@ export const ServiceLocatorResultList = ({
                   roofProLevel: undefined
                 }}
               />
-            </GTMIntegratedLinkCard>
+            </IntegratedLinkCard>
           ))}
       </List>
       {pageCount > 1 && (

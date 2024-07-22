@@ -1,6 +1,5 @@
 import LinkCard, { LinkCardProps } from "@bmi-digital/components/link-card";
 import React, { MutableRefObject, useRef } from "react";
-import withGTM from "../../../utils/google-tag-manager";
 import { useScrollTo } from "./useScrollTo";
 
 export const IntegratedLinkCard = ({
@@ -29,5 +28,3 @@ export const IntegratedLinkCard = ({
     </LinkCard>
   );
 };
-
-export const GTMIntegratedLinkCard = withGTM<LinkCardProps>(IntegratedLinkCard);

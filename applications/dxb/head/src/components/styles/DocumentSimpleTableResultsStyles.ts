@@ -63,6 +63,7 @@ export const ActionsContainer = styled("div")({
 export const DocumentStatus = styled("p")<{ status: ApprovalStatus }>(
   ({ theme, status }) => ({
     margin: 0,
-    color: status === "approved" ? theme.colours.success : theme.colours.blue300
+    color:
+      status === "approved" ? theme.colours.success400 : theme.colours.blue300
   })
 );

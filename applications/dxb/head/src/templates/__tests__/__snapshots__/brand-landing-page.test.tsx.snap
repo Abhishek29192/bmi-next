@@ -6,11 +6,12 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -115,7 +116,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -130,7 +131,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -144,7 +145,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -172,10 +173,10 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -303,7 +304,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -313,16 +314,16 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -341,7 +342,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -536,12 +537,12 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -563,7 +564,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -590,13 +591,13 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -623,11 +624,12 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -1465,6 +1467,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -1881,11 +1884,12 @@ exports[`Brand Landing Page Template render correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -1990,7 +1994,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -2005,7 +2009,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -2019,7 +2023,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -2047,10 +2051,10 @@ exports[`Brand Landing Page Template render correctly 1`] = `
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -2178,7 +2182,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -2188,16 +2192,16 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -2216,7 +2220,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -2411,12 +2415,12 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -2438,7 +2442,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -2465,13 +2469,13 @@ exports[`Brand Landing Page Template render correctly 1`] = `
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -2498,11 +2502,12 @@ exports[`Brand Landing Page Template render correctly 1`] = `
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -3098,6 +3103,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -3514,11 +3520,12 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -3623,7 +3630,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -3638,7 +3645,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -3652,7 +3659,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -3680,10 +3687,10 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -3811,7 +3818,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -3821,16 +3828,16 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -3849,7 +3856,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -4044,12 +4051,12 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -4071,7 +4078,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -4098,13 +4105,13 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -4131,11 +4138,12 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -4933,6 +4941,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -5349,11 +5358,12 @@ exports[`Brand Landing Page Template render no content for first slide when no d
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -5458,7 +5468,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -5473,7 +5483,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -5487,7 +5497,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -5515,10 +5525,10 @@ exports[`Brand Landing Page Template render no content for first slide when no d
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -5646,7 +5656,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -5656,16 +5666,16 @@ exports[`Brand Landing Page Template render no content for first slide when no d
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -5684,7 +5694,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -5879,12 +5889,12 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -5906,7 +5916,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -5933,13 +5943,13 @@ exports[`Brand Landing Page Template render no content for first slide when no d
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -5966,11 +5976,12 @@ exports[`Brand Landing Page Template render no content for first slide when no d
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -6798,6 +6809,7 @@ exports[`Brand Landing Page Template render no content for first slide when no d
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -7214,11 +7226,12 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -7323,7 +7336,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -7338,7 +7351,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -7352,7 +7365,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -7380,10 +7393,10 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -7511,7 +7524,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -7521,16 +7534,16 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -7549,7 +7562,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -7744,12 +7757,12 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -7771,7 +7784,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -7798,13 +7811,13 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -7831,11 +7844,12 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -8635,6 +8649,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -9051,11 +9066,12 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -9160,7 +9176,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -9175,7 +9191,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -9189,7 +9205,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -9217,10 +9233,10 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -9348,7 +9364,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -9358,16 +9374,16 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -9386,7 +9402,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -9581,12 +9597,12 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -9608,7 +9624,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -9635,13 +9651,13 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -9668,11 +9684,12 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -10502,6 +10519,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -10918,11 +10936,12 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -11027,7 +11046,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -11042,7 +11061,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -11056,7 +11075,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -11084,10 +11103,10 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -11215,7 +11234,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -11225,16 +11244,16 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -11253,7 +11272,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -11448,12 +11467,12 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -11475,7 +11494,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -11502,13 +11521,13 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -11535,11 +11554,12 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -12369,6 +12389,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -12785,11 +12806,12 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -12894,7 +12916,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -12909,7 +12931,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -12923,7 +12945,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -12951,10 +12973,10 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -13082,7 +13104,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -13092,16 +13114,16 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -13120,7 +13142,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -13315,12 +13337,12 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -13342,7 +13364,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -13369,13 +13391,13 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -13402,11 +13424,12 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -14246,6 +14269,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -14662,11 +14686,12 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -14771,7 +14796,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -14786,7 +14811,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -14800,7 +14825,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -14828,10 +14853,10 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -14959,7 +14984,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -14969,16 +14994,16 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -14997,7 +15022,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -15192,12 +15217,12 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -15219,7 +15244,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -15246,13 +15271,13 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -15279,11 +15304,12 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -16125,6 +16151,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -16541,11 +16568,12 @@ exports[`Brand Landing Page Template when description is more than 400 character
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -16650,7 +16678,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -16665,7 +16693,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -16679,7 +16707,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -16707,10 +16735,10 @@ exports[`Brand Landing Page Template when description is more than 400 character
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -16838,7 +16866,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -16848,16 +16876,16 @@ exports[`Brand Landing Page Template when description is more than 400 character
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -16876,7 +16904,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -17071,12 +17099,12 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -17098,7 +17126,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -17125,13 +17153,13 @@ exports[`Brand Landing Page Template when description is more than 400 character
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -17158,11 +17186,12 @@ exports[`Brand Landing Page Template when description is more than 400 character
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -18004,6 +18033,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"

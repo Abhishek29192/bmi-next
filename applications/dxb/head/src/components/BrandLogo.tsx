@@ -30,7 +30,6 @@ import RoofPro from "@bmi-digital/components/logo/RoofPro";
 import RoofProElite from "@bmi-digital/components/logo/RoofProElite";
 import RoofProExpert from "@bmi-digital/components/logo/RoofProExpert";
 import RoofProPartner from "@bmi-digital/components/logo/RoofProPartner";
-import RoofProPartnerSmall from "@bmi-digital/components/logo/RoofProPartnerSmall";
 import RoofProServiceTeam from "@bmi-digital/components/logo/RoofProServiceTeam";
 import Sealoflex from "@bmi-digital/components/logo/Sealoflex";
 import SereniCoperture from "@bmi-digital/components/logo/SereniCoperture";
@@ -81,7 +80,6 @@ export type Logo =
   | "RoofProElite"
   | "RoofProExpert"
   | "RoofProPartner"
-  | "RoofProPartnerSmall"
   | "RoofProServiceTeam"
   | "Sealoflex"
   | "SereniCoperture"
@@ -163,8 +161,6 @@ export const getLogo = (logo?: Logo | null) => {
       return RoofProExpert;
     case "RoofProPartner":
       return RoofProPartner;
-    case "RoofProPartnerSmall":
-      return RoofProPartnerSmall;
     case "RoofProServiceTeam":
       return RoofProServiceTeam;
     case "Sealoflex":

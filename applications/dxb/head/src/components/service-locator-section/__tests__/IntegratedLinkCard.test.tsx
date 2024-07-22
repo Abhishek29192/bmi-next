@@ -7,11 +7,16 @@ describe("IntegratedLinkCard component", () => {
   it("should renders correctly", () => {
     render(
       <ThemeProvider>
-        <IntegratedLinkCard isOpen={true} title={"test title"}>
+        <IntegratedLinkCard
+          isOpen={true}
+          title={"test title"}
+          address={"test address"}
+        >
           <p>Test paragraph</p>
         </IntegratedLinkCard>
       </ThemeProvider>
     );
     expect(screen.getByText("test title")).toBeInTheDocument();
+    expect(screen.getByText("test address")).toBeInTheDocument();
   });
 });

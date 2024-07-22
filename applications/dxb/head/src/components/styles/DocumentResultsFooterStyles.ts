@@ -163,7 +163,7 @@ export const TotalSize = styled("div")(({ theme }) => ({
     marginLeft: "6px",
 
     [`&.${classes.totalSizeExceeded}`]: {
-      color: theme.colours.error
+      color: theme.colours.error400
     }
   }
 }));
@@ -182,7 +182,7 @@ export const MaxSizeLabel = styled(Typography)(({ theme }) => ({
 }));
 
 export const ErrorMessage = styled(Typography)(({ theme }) => ({
-  color: theme.colours.error,
+  color: theme.colours.error400,
   fontSize: "12px",
   lineHeight: "14px",
   marginTop: "6px",
@@ -192,7 +192,7 @@ export const ErrorMessage = styled(Typography)(({ theme }) => ({
 }));
 
 export const StyledErrorIcon = styled(ErrorIcon)(({ theme }) => ({
-  fill: theme.colours.error,
+  fill: theme.colours.error400,
   width: "14px",
   height: "14px",
   marginRight: "5px"

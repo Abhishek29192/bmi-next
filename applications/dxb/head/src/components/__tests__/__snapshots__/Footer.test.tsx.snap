@@ -4,6 +4,7 @@ exports[`Footer component renders correctly 1`] = `
 <div>
   <div
     class=" css-bnck4c-HidePrint"
+    data-testid="hide-print-root"
   >
     <div
       class="css-an2sjs"
@@ -225,6 +226,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
 <div>
   <div
     class=" css-bnck4c-HidePrint"
+    data-testid="hide-print-root"
   >
     <div
       class="css-an2sjs"

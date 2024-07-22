@@ -1,5 +1,4 @@
 import Section from "@bmi-digital/components/section";
-import Typography from "@bmi-digital/components/typography";
 import { replaceSpaces, transformHyphens } from "@bmi-digital/components/utils";
 import Villain, { VillainProps } from "@bmi-digital/components/villain";
 import { microCopy, MicroCopyValues } from "@bmi/microcopies";
@@ -110,10 +109,10 @@ const SyndicateSection = ({
           {title && <Section.Title>{title}</Section.Title>}
           {description && (
             <DescriptionGrid container lg={8} xs={12}>
-              <DescriptionTypoMultiLine>
-                <Typography data-testid={"syndicate-section-description"}>
-                  {description.description}
-                </Typography>
+              <DescriptionTypoMultiLine
+                data-testid={"syndicate-section-description"}
+              >
+                {description.description}
               </DescriptionTypoMultiLine>
             </DescriptionGrid>
           )}
@@ -143,10 +142,10 @@ const SyndicateSection = ({
       {title && <Section.Title>{title}</Section.Title>}
       {description && (
         <DescriptionGrid container lg={8} xs={12}>
-          <DescriptionTypoMultiLine>
-            <Typography data-testid={"syndicate-section-description"}>
-              {description.description}
-            </Typography>
+          <DescriptionTypoMultiLine
+            data-testid={"syndicate-section-description"}
+          >
+            {description.description}
           </DescriptionTypoMultiLine>
         </DescriptionGrid>
       )}

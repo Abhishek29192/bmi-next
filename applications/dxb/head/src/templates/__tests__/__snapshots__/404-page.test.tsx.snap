@@ -6,11 +6,12 @@ exports[`404 page tests When error page data is partially populated renders plac
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -115,7 +116,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -130,7 +131,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -144,7 +145,7 @@ exports[`404 page tests When error page data is partially populated renders plac
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -172,10 +173,10 @@ exports[`404 page tests When error page data is partially populated renders plac
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -303,7 +304,7 @@ exports[`404 page tests When error page data is partially populated renders plac
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -313,16 +314,16 @@ exports[`404 page tests When error page data is partially populated renders plac
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -341,7 +342,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -536,12 +537,12 @@ exports[`404 page tests When error page data is partially populated renders plac
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -563,7 +564,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -590,13 +591,13 @@ exports[`404 page tests When error page data is partially populated renders plac
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -623,11 +624,12 @@ exports[`404 page tests When error page data is partially populated renders plac
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -737,6 +739,7 @@ exports[`404 page tests When error page data is partially populated renders plac
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
@@ -1153,11 +1156,12 @@ exports[`404 page tests When site data and error page data are fully populated r
     style="overflow-x: hidden; display: contents;"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-15q74cf-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3  css-l0z51s-MuiPaper-root"
+      data-testid="header-root"
     >
       <nav
         aria-label="Utilities"
-        class="Header-utilitiesBar"
+        class="Header-utilitiesBar css-17m56du"
         role="navigation"
       >
         <div
@@ -1262,7 +1266,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               >
                 <button
                   aria-label="MC: menu.language"
-                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-b02edm-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{"id":"nav-country-selector","label":"open panel","action":"open panel"}"
                   data-testid="language-button"
                   tabindex="0"
@@ -1277,7 +1281,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                   />
                   EN
                   <span
-                    class="Header-downArrow"
+                    class=" css-18e6unn"
                   >
                     ▾
                   </span>
@@ -1291,7 +1295,7 @@ exports[`404 page tests When site data and error page data are fully populated r
         </div>
       </nav>
       <div
-        class="Header-drawer Header-languageDrawer"
+        class="css-1nebz1u"
         data-testid="language-section"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
@@ -1319,10 +1323,10 @@ exports[`404 page tests When site data and error page data are fully populated r
           />
         </button>
         <div
-          class="Header-languageContainer css-ze8cyt"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-q1xv6y-MuiContainer-root"
           >
             <div>
               <div
@@ -1450,7 +1454,7 @@ exports[`404 page tests When site data and error page data are fully populated r
         </div>
       </div>
       <div
-        class="Header-navigationBar"
+        class="Header-navigationBar css-1k1m9uw"
         data-testid="header-navigation-bar"
       >
         <div
@@ -1460,16 +1464,16 @@ exports[`404 page tests When site data and error page data are fully populated r
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="Header-navigationBarContent"
+              class="css-1cixs2m"
             >
               <a
                 aria-label="MC: global.logoLabel"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Header-logoLink Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1ogz5y4-MuiTypography-root-MuiLink-root"
                 data-testid="anchor-link"
                 href="/en/"
               >
                 <svg
-                  class="Header-logo css-87lb9q"
+                  class="css-15idaqd"
                   viewBox="0 0 250 250"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -1488,7 +1492,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </a>
               <nav
                 aria-label="Navigation"
-                class="Header-navigation"
+                class="css-59oxux"
                 role="navigation"
               >
                 <div
@@ -1683,12 +1687,12 @@ exports[`404 page tests When site data and error page data are fully populated r
                 </div>
               </nav>
               <div
-                class="Header-navigationBarButtons"
+                class="css-1778zyk"
                 data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge Header-searchButton css-17arkyg-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained MuiIconButton-sizeLarge css-vhnfd7-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="search-button"
                   tabindex="0"
                   type="button"
@@ -1710,7 +1714,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-1mqce1m-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-text MuiIconButton-sizeLarge css-45sfo1-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -1737,13 +1741,13 @@ exports[`404 page tests When site data and error page data are fully populated r
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
+        class="MuiBackdrop-root css-18u8k9r-MuiBackdrop-root"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
       <div
-        class="Header-drawer Header-navDrawer"
-        data-testid="nav-drawer"
+        class="css-1mlwg2c"
+        data-testid="drawer-false"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
@@ -1770,11 +1774,12 @@ exports[`404 page tests When site data and error page data are fully populated r
         </button>
       </div>
       <div
-        class="Header-searchDrawerContainer"
+        class="Header-searchDrawerContainerHidden css-yz5e9q"
+        data-testid="search-drawer-container"
         style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
-          class="Header-drawer Header-searchDrawer"
+          class="css-1sdv2sl"
         >
           <button
             aria-label="MC: global.close"
@@ -1884,6 +1889,7 @@ exports[`404 page tests When site data and error page data are fully populated r
     </div>
     <div
       class=" css-bnck4c-HidePrint"
+      data-testid="hide-print-root"
     >
       <div
         class="css-an2sjs"
