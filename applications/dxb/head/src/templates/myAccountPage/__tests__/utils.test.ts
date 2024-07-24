@@ -3,13 +3,38 @@ import RoofMeasurement from "@bmi-digital/components/icon/RoofMeasurement";
 import UserIcon from "@bmi-digital/components/icon/User";
 import { microCopy } from "@bmi/microcopies";
 import { describe, it, jest } from "@jest/globals";
+import CompanyProfile from "@bmi-digital/components/icon/CompanyProfile";
+import BMIGuarantee from "@bmi-digital/components/icon/BMIGuarantees";
+import Calculator from "@bmi-digital/components/icon/Calculator";
+import Visualiser from "@bmi-digital/components/icon/Visualiser";
+import Team from "@bmi-digital/components/icon/Team";
 import { GetMicroCopy } from "../../../components/MicroCopy";
 import {
   constructUrlWithPrevPage,
   getUserInfo,
-  transformToolCard
+  transformGlobalTools,
+  transformLocalTools
 } from "../utils";
+import { toAnchorLinkActionProps as originalToAnchorLinkActionProps } from "../../../components/link/utils";
 import createAuth0IdTokenPayload from "./helpers/Auth0IdTokenPayloadHelper";
+import createLocalTool from "./helpers/LocalToolHelper";
+
+const mockToAnchorLinkActionProps = jest.fn();
+jest.mock("../../../components/link/utils", () => ({
+  toAnchorLinkActionProps: (
+    ...args: Parameters<typeof originalToAnchorLinkActionProps>
+  ) => mockToAnchorLinkActionProps(...args)
+}));
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
+beforeEach(() => {
+  mockToAnchorLinkActionProps.mockReturnValue({
+    href: "http://localhost:8000"
+  });
+});
 
 describe("getUserInfo", () => {
   it("should replace the name template with the user's first name", () => {
@@ -52,28 +77,35 @@ describe("transformToolCard", () => {
       throw Error(`Microcopy not found for unrecognised label ${label}`);
     });
     const tools = ["My profile", "Trainings", "Roof measurement"] as const;
-    const result = transformToolCard(currentPageUrl, tools, mockGetMicroCopy);
+    const result = transformGlobalTools(
+      currentPageUrl,
+      tools,
+      mockGetMicroCopy
+    );
     expect(result).toEqual([
       {
         icon: UserIcon,
         title: "Profile label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT
-        }?prev_page=${encodeURIComponent(currentPageUrl)}`
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`,
+        external: true
       },
       {
         icon: OtherTraining,
         title: "Training label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT
-        }?prev_page=${encodeURIComponent(currentPageUrl)}`
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`,
+        external: true
       },
       {
         icon: RoofMeasurement,
         title: "Roof measurement label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT
-        }?prev_page=${encodeURIComponent(currentPageUrl)}`
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`,
+        external: true
       }
     ]);
   });
@@ -99,28 +131,35 @@ describe("transformToolCard", () => {
       throw Error(`Microcopy not found for unrecognised label ${label}`);
     });
     const tools = ["Trainings", "Roof measurement", "My profile"] as const;
-    const result = transformToolCard(currentPageUrl, tools, mockGetMicroCopy);
+    const result = transformGlobalTools(
+      currentPageUrl,
+      tools,
+      mockGetMicroCopy
+    );
     expect(result).toEqual([
       {
         icon: UserIcon,
         title: "Profile label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_MY_PROFILE_ENDPOINT
-        }?prev_page=${encodeURIComponent(currentPageUrl)}`
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`,
+        external: true
       },
       {
         icon: OtherTraining,
         title: "Training label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_TRAININGS_ENDPOINT
-        }?prev_page=${encodeURIComponent(currentPageUrl)}`
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`,
+        external: true
       },
       {
         icon: RoofMeasurement,
         title: "Roof measurement label",
-        url: `${process.env.GATSBY_INTOUCH_ORIGIN}${
+        href: `${process.env.GATSBY_INTOUCH_ORIGIN}${
           process.env.GATSBY_INTOUCH_ROOF_MEASUREMENTS_ENDPOINT
-        }?prev_page=${encodeURIComponent(currentPageUrl)}`
+        }?prev_page=${encodeURIComponent(currentPageUrl)}`,
+        external: true
       }
     ]);
   });
@@ -144,5 +183,89 @@ describe("constructUrlWithPrevPage", () => {
     const result = constructUrlWithPrevPage(uri);
 
     expect(result).toBe(expectedUrl);
+  });
+});
+
+describe("transformLocalTools", () => {
+  const countryCode = "dxb";
+
+  it("should return an empty array if null", () => {
+    expect(transformLocalTools(null, countryCode)).toEqual([]);
+    expect(mockToAnchorLinkActionProps).not.toHaveBeenCalled();
+  });
+
+  it("should transform an entry of 'Calculator' type correctly", () => {
+    const tool = createLocalTool({ type: "Calculator" });
+    expect(transformLocalTools([tool], countryCode)).toEqual([
+      {
+        title: tool.title,
+        href: "http://localhost:8000",
+        icon: Calculator
+      }
+    ]);
+    expect(mockToAnchorLinkActionProps).toHaveBeenCalledWith(
+      tool.link,
+      countryCode
+    );
+  });
+
+  it("should transform an entry of 'Company Profile' type correctly", () => {
+    const tool = createLocalTool({ type: "Company Profile" });
+    expect(transformLocalTools([tool], countryCode)).toEqual([
+      {
+        title: tool.title,
+        href: "http://localhost:8000",
+        icon: CompanyProfile
+      }
+    ]);
+    expect(mockToAnchorLinkActionProps).toHaveBeenCalledWith(
+      tool.link,
+      countryCode
+    );
+  });
+
+  it("should transform an entry of 'Guarantees' type correctly", () => {
+    const tool = createLocalTool({ type: "Guarantees" });
+    expect(transformLocalTools([tool], countryCode)).toEqual([
+      {
+        title: tool.title,
+        href: "http://localhost:8000",
+        icon: BMIGuarantee
+      }
+    ]);
+    expect(mockToAnchorLinkActionProps).toHaveBeenCalledWith(
+      tool.link,
+      countryCode
+    );
+  });
+
+  it("should transform an entry of 'Team' type correctly", () => {
+    const tool = createLocalTool({ type: "Team" });
+    expect(transformLocalTools([tool], countryCode)).toEqual([
+      {
+        title: tool.title,
+        href: "http://localhost:8000",
+        icon: Team
+      }
+    ]);
+    expect(mockToAnchorLinkActionProps).toHaveBeenCalledWith(
+      tool.link,
+      countryCode
+    );
+  });
+
+  it("should transform an entry of 'Visualiser' type correctly", () => {
+    const tool = createLocalTool({ type: "Visualiser" });
+    expect(transformLocalTools([tool], countryCode)).toEqual([
+      {
+        title: tool.title,
+        href: "http://localhost:8000",
+        icon: Visualiser
+      }
+    ]);
+    expect(mockToAnchorLinkActionProps).toHaveBeenCalledWith(
+      tool.link,
+      countryCode
+    );
   });
 });

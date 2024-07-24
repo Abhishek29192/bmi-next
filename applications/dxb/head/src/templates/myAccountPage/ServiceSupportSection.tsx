@@ -4,12 +4,7 @@ import { replaceSpaces } from "@bmi-digital/components/utils";
 import React from "react";
 import { Card } from "@bmi-digital/components";
 import ContactDetails from "../../components/ContactDetails";
-import type { Data as ContactDetailsData } from "../../components/ContactDetails";
-
-export type ServiceSupportSectionProps = {
-  titleForServiceSupportSection: string;
-  serviceSupportCards: [ContactDetailsData, ...ContactDetailsData[]];
-};
+import type { ServiceSupportSectionProps } from "./types";
 
 const ServiceSupportSection = ({
   titleForServiceSupportSection,

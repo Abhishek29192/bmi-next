@@ -3,30 +3,10 @@ import React from "react";
 import Page from "../../components/Page";
 import Protected from "../../pages/protected";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
-import Hero, { HeroProps } from "./Hero";
+import Hero from "./Hero";
 import ServiceSupportSection from "./ServiceSupportSection";
 import ToolSection from "./ToolSection";
-import type { ServiceSupportSectionProps } from "./ServiceSupportSection";
-import type { ToolSectionProps } from "./ToolSection";
-import type { Data as SiteData } from "../../components/Site";
-import type { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
-
-export type AccountPage = {
-  title: string;
-  breadcrumbTitle: string | null;
-  breadcrumbs: BreadcrumbsData;
-} & ToolSectionProps &
-  Omit<ServiceSupportSectionProps, "serviceSupportCards"> &
-  HeroProps & {
-    path: string;
-    serviceSupportCards:
-      | ServiceSupportSectionProps["serviceSupportCards"]
-      | null;
-  };
-
-export type SiteDataWithAccountPage = Omit<SiteData, "accountPage"> & {
-  accountPage: AccountPage;
-};
+import type { SiteDataWithAccountPage } from "./types";
 
 type Props = {
   data: {
@@ -48,6 +28,7 @@ const MyAccountPage = ({ data }: Props) => {
     serviceSupportCards,
     slug,
     globalTools,
+    tools,
     path
   } = data.contentfulSite.accountPage;
 
@@ -79,6 +60,7 @@ const MyAccountPage = ({ data }: Props) => {
           titleForToolSection={titleForToolSection}
           globalTools={globalTools}
           path={path}
+          tools={tools}
         />
         {serviceSupportCards && (
           <ServiceSupportSection
@@ -108,6 +90,9 @@ export const pageQuery = graphql`
         titleForToolSection
         titleForServiceSupportSection
         globalTools
+        tools {
+          ...AccountToolFragment
+        }
         serviceSupportCards {
           ...ContactDetailsFragment
         }
