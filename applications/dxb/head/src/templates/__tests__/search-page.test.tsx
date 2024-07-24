@@ -3,16 +3,16 @@ import ThemeProvider from "@bmi-digital/components/theme-provider";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { fireEvent, screen, waitFor, within } from "@testing-library/react";
 import React from "react";
-import createLinkData from "../../__tests__/helpers/LinkHelper";
 import * as SearchTabDocuments from "../../components/SearchTabDocuments";
 import * as SearchTabPages from "../../components/SearchTabPages";
 import * as SearchTabProducts from "../../components/SearchTabProducts";
-import { ConfigProvider } from "../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import * as elasticSearch from "../../utils/elasticSearch";
 import SearchPage, { Props } from "../search-page";
 import createPromoData from "../../__tests__/helpers/PromoHelper";
+import { ConfigProvider } from "../../contexts/ConfigProvider";
+import createLinkData from "../../__tests__/helpers/LinkHelper";
 import type { Data as Resources } from "../../components/Resources";
 
 jest.mock("@mui/material/useMediaQuery", () => ({
@@ -220,7 +220,7 @@ describe("Search Page Template", () => {
     locationSpy.mockReturnValue({
       ...window.location,
       search:
-        'q=queryString&filters=%5B%7B"name"%3A"filterName"%2C"value"%3A%5B"filterValue"%5D%7D%5D&tab=pages&tab=products'
+        'q=queryString&filters=%5B%7B"name"%3A"filterName"%2C"value"%3A%5B"filterValue"%5D%7D%5D&tab=pages'
     });
 
     jest.spyOn(SearchTabProducts, "getCount").mockResolvedValueOnce(2);

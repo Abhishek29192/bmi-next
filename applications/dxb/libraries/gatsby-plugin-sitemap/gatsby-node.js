@@ -28,15 +28,16 @@ exports.onPostBuild = /*#__PURE__*/function () {
           _yield$graphql = _context.sent;
           queryRecords = _yield$graphql.data;
           errors = _yield$graphql.errors;
-          _context.next = 9;
-          return Promise.resolve(resolveSiteUrl(queryRecords)).catch(function (err) {
-            return reporter.panic(_internals.REPORTER_PREFIX + " Error resolving Site URL", err);
-          });
-        case 9:
-          siteUrl = _context.sent;
           if (errors) {
             reporter.panic("Error executing the GraphQL query inside gatsby-plugin-sitemap:\n", errors);
           }
+          // resolvePages and resolveSiteUrl are allowed to be sync or async. The Promise.resolve handles each possibility
+          _context.next = 10;
+          return Promise.resolve(resolveSiteUrl(queryRecords)).catch(function (err) {
+            return reporter.panic(_internals.REPORTER_PREFIX + " Error resolving Site URL", err);
+          });
+        case 10:
+          siteUrl = _context.sent;
           _context.next = 13;
           return Promise.resolve(resolvePages(queryRecords)).catch(function (err) {
             return reporter.panic(_internals.REPORTER_PREFIX + " Error resolving Pages", err);

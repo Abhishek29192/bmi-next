@@ -56,7 +56,7 @@ const MyAccountPage = ({ data }: Props) => {
     breadcrumbTitle
   );
   return (
-    <Protected>
+    <Protected isPageProtected>
       <Page
         title={title}
         pageData={{

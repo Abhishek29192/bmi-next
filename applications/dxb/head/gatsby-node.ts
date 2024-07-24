@@ -361,6 +361,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         ),
         component,
         context: {
+          isPageProtected: page.isSimplePageProtected,
           pageId: page.id,
           siteId: site.id,
           categoryCodes: page.categoryCodes,

@@ -87,7 +87,11 @@ function resolvePages(data) {
   if (!(data !== null && data !== void 0 && (_data$allSitePage = data.allSitePage) !== null && _data$allSitePage !== void 0 && _data$allSitePage.nodes)) {
     throw Error("Page array from `query` wasn't found at `data.allSitePage.nodes`.\nFix the custom query or provide a custom `resolvePages` function.\nhttps://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/#api-reference\n      ");
   }
-  return data.allSitePage.nodes;
+  var allFilteredPages = data.allSitePage.nodes.filter(function (page) {
+    var _page$pageContext;
+    return !((_page$pageContext = page.pageContext) !== null && _page$pageContext !== void 0 && _page$pageContext.isPageProtected);
+  });
+  return allFilteredPages;
 }
 
 /**

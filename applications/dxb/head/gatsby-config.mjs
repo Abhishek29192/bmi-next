@@ -58,6 +58,10 @@ const queries = [
             const { contentfulSite, ...pageData } =
               (dataJSON && dataJSON.result && dataJSON.result.data) || {};
 
+            if (pageData.contentfulSimplePage?.isSimplePageProtected) {
+              return;
+            }
+
             // Get something that might be the page data.
             // Also acts to specify what pages are handled
             // TODO: helper function to pick first?
@@ -428,7 +432,31 @@ const config = {
               output: useCountryCode
                 ? `/${process.env.GATSBY_SPACE_MARKET_CODE}`
                 : "/",
-              ignoreSitemapPathPrefix: true
+              query: `
+                {
+                  site {
+                    siteMetadata {
+                      siteUrl
+                    }
+                  }
+                  allSitePage {
+                    nodes {
+                      __typename
+                      path
+                      pageContext
+                    }
+                  }
+                }`,
+              resolveSiteUrl: (data) => {
+                return data ? data?.site?.siteMetadata?.siteUrl : "dxb";
+              },
+              ignoreSitemapPathPrefix: true,
+              filterPages: (page) => {
+                return !(
+                  page.__typename === "ContentfulSimplePage" &&
+                  page.isSimplePageProtected
+                );
+              }
             }
           }
         ]

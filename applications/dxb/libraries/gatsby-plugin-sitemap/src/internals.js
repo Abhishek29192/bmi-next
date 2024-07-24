@@ -83,8 +83,9 @@ https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/#api-reference
       `
     );
   }
+  const allFilteredPages = data.allSitePage.nodes.filter(page => !page.pageContext?.isPageProtected)
 
-  return data.allSitePage.nodes;
+  return allFilteredPages
 }
 
 /**
