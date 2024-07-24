@@ -1,21 +1,15 @@
 import Section from "@bmi-digital/components/section";
 import ToolCards from "@bmi-digital/components/tool-cards";
 import React, { useMemo } from "react";
+import { graphql } from "gatsby";
 import { useSiteContext } from "../../components/Site";
 import { ToolCardsBox, classes } from "./styles";
-import { transformToolCard } from "./utils";
-import type { ToolCardItemProps } from "@bmi-digital/components/tool-cards";
-
-export type GlobalTools = "My profile" | "Trainings" | "Roof measurement";
-
-export type ToolSectionProps = {
-  titleForToolSection: string;
-  globalTools: readonly [GlobalTools, ...GlobalTools[]];
-  path: string;
-};
+import { transformGlobalTools, transformLocalTools } from "./utils";
+import type { ToolSectionProps } from "./types";
 
 const ToolSection = ({
   globalTools,
+  tools,
   titleForToolSection,
   path
 }: ToolSectionProps) => {
@@ -25,17 +19,37 @@ const ToolSection = ({
     return url.href;
   }, [path, countryCode]);
 
-  const transformToolCardData: [ToolCardItemProps, ...ToolCardItemProps[]] =
-    transformToolCard(currentPageUrl, globalTools, getMicroCopy);
+  const transformedGlobalTools = useMemo(
+    () => transformGlobalTools(currentPageUrl, globalTools, getMicroCopy),
+    [currentPageUrl, globalTools, getMicroCopy]
+  );
+
+  const transformedLocalTools = useMemo(
+    () => transformLocalTools(tools, countryCode),
+    [tools, countryCode]
+  );
 
   return (
     <Section backgroundColor="pearl">
       <Section.Title>{titleForToolSection}</Section.Title>
       <ToolCardsBox>
-        <ToolCards items={transformToolCardData} className={classes.box} />
+        <ToolCards
+          items={[...transformedGlobalTools, ...transformedLocalTools]}
+          className={classes.box}
+        />
       </ToolCardsBox>
     </Section>
   );
 };
 
 export default ToolSection;
+
+export const query = graphql`
+  fragment AccountToolFragment on ContentfulAccountLink {
+    title
+    type
+    link {
+      ...LinkFragment
+    }
+  }
+`;

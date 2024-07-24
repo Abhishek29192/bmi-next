@@ -52,6 +52,19 @@ export const toAnchorLinkActionProps = (
   link: Data,
   countryCode?: string
 ): AnchorLinkActionProps => {
+  if (link.type === DataTypeEnum.HubSpotCta) {
+    const to = `${process.env.GATSBY_HUBSPOT_CTA_URL}${process.env.GATSBY_HUBSPOT_ID}/${link.hubSpotCTAID}`;
+    return {
+      href: to,
+      external: true,
+      gtm: {
+        id: "cta-click1",
+        action: to,
+        label: link.label
+      }
+    };
+  }
+
   if (link.asset?.file?.url) {
     return {
       href: link.asset.file.url,

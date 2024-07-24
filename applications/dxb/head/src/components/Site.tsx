@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
-import type { AccountPage } from "../templates/myAccountPage/my-account";
+import type { AccountPage } from "../templates/myAccountPage/types";
 import type { Region } from "./Header";
 import type { NavigationData } from "./link/types";
 import type { CalculatorConfig } from "./pitched-roof-calculator/types";

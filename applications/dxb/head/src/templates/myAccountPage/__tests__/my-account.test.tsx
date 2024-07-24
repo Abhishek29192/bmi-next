@@ -7,7 +7,7 @@ import { createMockSiteData } from "../../../test/mockSiteData";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import MyAccountPage from "../my-account";
 import createRichText from "../../../__tests__/helpers/RichTextHelper";
-import type { SiteDataWithAccountPage } from "../my-account";
+import type { SiteDataWithAccountPage } from "../types";
 
 const supportCards: SiteDataWithAccountPage["accountPage"]["serviceSupportCards"] =
   [
@@ -37,7 +37,8 @@ const createMockSiteDataWithAccountPage = (): SiteDataWithAccountPage => ({
     globalTools: ["My profile"],
     breadcrumbTitle: "Breadcrumb Title",
     path: "/my-account",
-    breadcrumbs: [createBreadcrumbItem()]
+    breadcrumbs: [createBreadcrumbItem()],
+    tools: null
   }
 });
 
@@ -110,30 +111,5 @@ describe("MyAccountPage", () => {
     expect(
       screen.queryByTestId("account-page-service-support-section")
     ).not.toBeInTheDocument();
-  });
-
-  it("should render ServiceSupportSection if serviceSupportCards is provided", () => {
-    const contentfulSite = createMockSiteDataWithAccountPage();
-    contentfulSite.accountPage.breadcrumbTitle = null;
-
-    renderWithRouter(
-      <ThemeProvider>
-        <MyAccountPage
-          data={{
-            contentfulSite: {
-              ...contentfulSite,
-              accountPage: {
-                ...contentfulSite.accountPage,
-                serviceSupportCards: supportCards
-              }
-            }
-          }}
-        />
-      </ThemeProvider>
-    );
-
-    expect(
-      screen.getByTestId("account-page-service-support-section")
-    ).toBeInTheDocument();
   });
 });

@@ -1413,6 +1413,12 @@ type DoceboCourses implements Node @dontInfer {
   breadcrumbs: [BreadcrumbItem!]!
 }
 
+type ContentfulAccountLink implements Node @dontInfer {
+  title: String!
+  type: String!
+  link: ContentfulLink! @link(by: "id", from: "link___NODE")
+}
+
 type ContentfulAccountPage implements Node @dontInfer {
   id: ID!
   contentful_id: String!
@@ -1426,6 +1432,7 @@ type ContentfulAccountPage implements Node @dontInfer {
   titleForToolSection: String!
   titleForServiceSupportSection: String!
   globalTools: [String!]!
+  tools: [ContentfulAccountLink!] @link(from: "tools___NODE")
   serviceSupportCards: [ContentfulContactDetails] @link(from: "serviceSupportCards___NODE")
   breadcrumbTitle: String
   path: String!

@@ -12,7 +12,7 @@ import type { RichTextData } from "../../../components/RichText";
 import type { ContentfulVideoData } from "../../../components/video/types";
 import type { CalculatorConfig } from "../../../components/pitched-roof-calculator/types";
 import type { HouseType } from "../../../components/visualiser/Types";
-import type { AccountPage } from "../../../templates/myAccountPage/my-account";
+import type { AccountPage } from "../../../templates/myAccountPage/types";
 import type { TrainingListerPageData as TrainingListerPageProps } from "../../../templates/trainingListerPage/types";
 import type { Node } from "./Gatsby";
 

@@ -175,6 +175,22 @@ describe("toAnchorLinkActionProps", () => {
     );
   });
 
+  it("should return correct cta object if link.type==='HubSpot CTA'", () => {
+    const linkData = createHubSpotCtaLinkData();
+    const expectedUrl = `${process.env.GATSBY_HUBSPOT_CTA_URL}${process.env.GATSBY_HUBSPOT_ID}/${linkData.hubSpotCTAID}`;
+
+    const cta = toAnchorLinkActionProps(linkData);
+    expect(cta).toStrictEqual({
+      external: true,
+      gtm: {
+        action: expectedUrl,
+        id: "cta-click1",
+        label: "Link label"
+      },
+      href: expectedUrl
+    });
+  });
+
   it("should modify the path string if one or more consecutive forward slash characters are in the string", () => {
     const path = "path//to///my////website/";
     const countrycode = "no";
@@ -188,7 +204,7 @@ describe("toAnchorLinkActionProps", () => {
     expect(cta!.to).toBe(normalizedPath);
   });
 
-  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, the url prop is defined, is not a mailto:, callto: or tel: action url and is an external link", () => {
+  it("should return the following cta object if link.linkedPage?.path, link.asset?.file?.url and link.hubSpotCTAID  are null, the url prop is defined, is not a mailto:, callto: or tel: action url and is an external link", () => {
     const cta = toAnchorLinkActionProps(createExternalLinkData());
     expect(cta).toStrictEqual({
       external: true,
@@ -202,8 +218,13 @@ describe("toAnchorLinkActionProps", () => {
   });
 
   //  TODO: DXB-7055 - This is a bug
-  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, the url prop is defined, is not a mailto:, callto: or tel: action url and is not an external link", () => {
-    const cta = toAnchorLinkActionProps(createHubSpotCtaLinkData());
+  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, link.type!=='HubSpot CTA', the url prop is defined, is not a mailto:, callto: or tel: action url and is not an external link", () => {
+    const cta = toAnchorLinkActionProps(
+      createInternalLinkData({
+        linkedPage: { path: null },
+        asset: { file: { url: null } }
+      })
+    );
     expect(cta).toStrictEqual({
       external: undefined,
       gtm: {
@@ -215,7 +236,7 @@ describe("toAnchorLinkActionProps", () => {
     });
   });
 
-  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, the url prop is defined, is a mailto: action url", () => {
+  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, link.type!=='HubSpot CTA', the url prop is defined, is a mailto: action url", () => {
     const cta = toAnchorLinkActionProps(
       createExternalLinkData({ url: "mailto:test@example.com" })
     );
@@ -230,7 +251,7 @@ describe("toAnchorLinkActionProps", () => {
     });
   });
 
-  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, the url prop is defined, is a callto: action url", () => {
+  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, link.type!=='HubSpot CTA', the url prop is defined, is a callto: action url", () => {
     const cta = toAnchorLinkActionProps(
       createExternalLinkData({ url: "callto:+1234567890" })
     );
@@ -245,7 +266,7 @@ describe("toAnchorLinkActionProps", () => {
     });
   });
 
-  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, the url prop is defined, is a tel: action url", () => {
+  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, link.type!=='HubSpot CTA', the url prop is defined, is a tel: action url", () => {
     const cta = toAnchorLinkActionProps(
       createExternalLinkData({ url: "tel:+1234567890" })
     );
@@ -261,7 +282,7 @@ describe("toAnchorLinkActionProps", () => {
   });
 
   //  TODO: DXB-7055 - This is a bug
-  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null and the url prop is null", () => {
+  it("should return the following cta object if link.linkedPage?.path and link.asset?.file?.url are null, link.type!=='HubSpot CTA' and the url prop is null", () => {
     const cta = toAnchorLinkActionProps(createExternalLinkData({ url: null }));
     expect(cta).toStrictEqual({
       external: undefined,
