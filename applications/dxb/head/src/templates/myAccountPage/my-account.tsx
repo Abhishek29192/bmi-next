@@ -82,7 +82,7 @@ export const pageQuery = graphql`
         title
         slug
         featuredMedia {
-          ...ImageDocumentFragment
+          ...ImageHeroFragment
         }
         salutation
         roleDescription

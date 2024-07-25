@@ -170,7 +170,7 @@ export const pageQuery = graphql`
       title
       subtitle
       featuredMedia {
-        ...ImageDocumentFragment
+        ...ImageHeroFragment
       }
       seo {
         ...SEOContentFragment
