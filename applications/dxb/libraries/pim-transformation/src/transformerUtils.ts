@@ -113,17 +113,29 @@ export const getAwardAndCertificateAsset = (
 export const getBrand = (
   categories?: readonly PimCategory[]
 ): Brand | undefined => {
-  const brand = categories?.find(
+  const brand = categories?.filter(
     ({ categoryType }) => categoryType === "Brand"
   );
-  if (!brand) {
-    return;
-  }
-  return {
-    code: brand.code,
-    name: brand.name,
-    logo: brand.image?.url
+
+  const defaultBrand: Brand = {
+    code: "BMI",
+    name: "BMI",
+    logo: "BMI"
   };
+
+  if (brand) {
+    if (brand.length > 1 || brand.length === 0) {
+      return defaultBrand;
+    } else {
+      return {
+        code: brand[0].code,
+        name: brand[0].name,
+        logo: brand[0].image?.url
+      };
+    }
+  } else {
+    return defaultBrand;
+  }
 };
 
 export const getCategories = (categories: readonly PimCategory[]): Category[] =>

@@ -6,6 +6,7 @@ import {
 } from "@bmi/pim-types/src/types.js";
 import {
   cleanImageName,
+  getBrand,
   getCategories,
   getVideoUrl,
   isImageAsset,
@@ -56,6 +57,63 @@ describe("transformUtils tests", () => {
         productLine
       ];
       expect(getCategories(categories)).toEqual(expectedCategories);
+    });
+  });
+
+  describe("getBrands", () => {
+    it("should return brand, code and logo as BMI when Brand is an empty array", () => {
+      const brandCategory = createCategory({
+        code: "BMI",
+        name: "BMI",
+        image: {
+          allowedToDownload: true,
+          fileSize: 10,
+          mime: "image/png",
+          name: "BMI",
+          realFileName: "BMI",
+          url: "http://localhost:8000"
+        }
+      });
+
+      const newBrands = [brandCategory];
+      const expectedBrand = {
+        name: "BMI",
+        code: "BMI",
+        logo: "BMI"
+      };
+
+      expect(getBrand(newBrands)).toEqual(expectedBrand);
+    });
+
+    it("should return brand, code and logo when there are more than one brands attached to a product", () => {
+      const firstBrand = createCategory({ categoryType: "Brand" });
+      const secondBrand = createCategory({
+        categoryType: "Brand"
+      });
+
+      const newBrands = [firstBrand, secondBrand];
+      const expectedBrand = {
+        name: "BMI",
+        code: "BMI",
+        logo: "BMI"
+      };
+      expect(getBrand(newBrands)).toEqual(expectedBrand);
+    });
+
+    it("should return brand, code and logo as BMI when Brand is undfined", () => {
+      expect(getBrand()).toEqual({ name: "BMI", code: "BMI", logo: "BMI" });
+    });
+
+    it("should return brand, code, and logo of first brand if only one brand is attached to product", () => {
+      const brand = createCategory({ categoryType: "Brand" });
+
+      const newBrands = [brand];
+      const expectedBrand = {
+        name: "name",
+        code: "code",
+        logo: "http://localhost:8000"
+      };
+      expect(getBrand(newBrands)).toEqual(expectedBrand);
     });
   });
 

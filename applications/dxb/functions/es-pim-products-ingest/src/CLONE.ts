@@ -15,9 +15,21 @@ export type ProductCategoryTree = {
   };
 };
 
-export const findProductBrandLogoCode = (product: Product) =>
-  product.categories?.find((category) => category.categoryType === "Brand")
-    ?.code;
+export const findProductBrandLogoCode = (product: Product) => {
+  const brand = product.categories?.filter(
+    (category) => category.categoryType === "Brand"
+  );
+
+  if (brand) {
+    if (brand.length > 1 || brand.length === 0) {
+      return "BMI";
+    } else {
+      return brand[0].code;
+    }
+  } else {
+    return "BMI";
+  }
+};
 
 export const findMainImage = (images: Image[]) => {
   const groupedImages = groupImages(images);

@@ -441,7 +441,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "name": "name",
     },
     "battenSpacings": undefined,
-    "brandCode": undefined,
+    "brandCode": "BMI",
     "classifications": [
       {
         "code": "appearanceAttributes",
@@ -575,7 +575,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "name": "name",
     },
     "battenSpacings": undefined,
-    "brandCode": undefined,
+    "brandCode": "BMI",
     "classifications": [
       {
         "code": "generalInformation",
@@ -698,7 +698,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "name": "name",
     },
     "battenSpacings": undefined,
-    "brandCode": undefined,
+    "brandCode": "BMI",
     "classifications": [
       {
         "code": "variant-code",
@@ -992,7 +992,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "name": "name",
     },
     "battenSpacings": undefined,
-    "brandCode": undefined,
+    "brandCode": "BMI",
     "classifications": [],
     "code": "variant-code",
     "description": "<p>Some description</p>",
@@ -1176,7 +1176,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "name": "name",
     },
     "battenSpacings": undefined,
-    "brandCode": undefined,
+    "brandCode": "BMI",
     "classifications": [
       {
         "code": "variant-code",
@@ -1505,7 +1505,7 @@ exports[`transformProduct original transform tests approval status scenarios sho
       "name": "name",
     },
     "battenSpacings": undefined,
-    "brandCode": undefined,
+    "brandCode": "BMI",
     "classifications": [
       {
         "code": "variant-code",

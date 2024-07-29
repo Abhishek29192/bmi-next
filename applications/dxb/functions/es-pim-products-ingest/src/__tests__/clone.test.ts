@@ -5,6 +5,7 @@ import {
   createFeatureUnit,
   createFeatureValue,
   createImage,
+  createCategory,
   createMeasurementsClassification,
   createProduct as createPimProduct,
   createVariantOption,
@@ -13,6 +14,7 @@ import {
 import {
   ESIndexObject,
   findMainImage,
+  findProductBrandLogoCode,
   generateSubtitleValues,
   getSizeLabel,
   groupBy,
@@ -1079,6 +1081,44 @@ describe("CLONE tests", () => {
         const result = generateSubtitleValues(classifications);
         expect(result).toEqual("gray, smooth");
       });
+    });
+  });
+
+  describe("findProductBrandLogoCode test", () => {
+    it("should return 'BMI' when there are no categories with categoryType of 'Brand'", () => {
+      const product = createPimProduct();
+      expect(findProductBrandLogoCode(product)).toEqual("BMI");
+    });
+
+    it("should return 'BMI' when there are more than one categories of type 'Brand' attached to a product", () => {
+      const product = createPimProduct({
+        categories: [
+          createCategory({
+            categoryType: "Brand"
+          }),
+          createCategory({
+            categoryType: "Brand"
+          })
+        ]
+      });
+
+      expect(findProductBrandLogoCode(product)).toEqual("BMI");
+    });
+
+    it("should return the code of the brand when there is exactly one category of type 'Brand' attached to a product", () => {
+      const product = createPimProduct({
+        categories: [
+          createCategory({
+            categoryType: "Brand"
+          })
+        ]
+      });
+      expect(findProductBrandLogoCode(product)).toEqual("code");
+    });
+
+    it("should return 'BMI' when there are no categories attached to a product", () => {
+      const product = createPimProduct({ categories: undefined });
+      expect(findProductBrandLogoCode(product)).toEqual("BMI");
     });
   });
 });
