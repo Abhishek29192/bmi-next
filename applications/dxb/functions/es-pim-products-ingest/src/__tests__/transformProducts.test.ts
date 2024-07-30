@@ -1891,7 +1891,7 @@ describe("transformProduct", () => {
         visualiserAssets: undefined,
         name: "name",
         baseProduct: { code: "base-code", name: "name" },
-        brandCode: undefined,
+        brandCode: "BMI",
         images: [
           {
             allowedToDownload: true,
@@ -2131,7 +2131,7 @@ describe("transformProduct", () => {
         visualiserAssets: undefined,
         name: "name",
         baseProduct: { code: "base-code", name: "name" },
-        brandCode: undefined,
+        brandCode: "BMI",
         images: [
           {
             allowedToDownload: true,

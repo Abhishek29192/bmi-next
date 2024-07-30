@@ -1,0 +1,567 @@
+{
+  "type": "UPDATED",
+  "itemType": "PRODUCTS",
+  "item": {
+    "approvalStatus": "approved",
+    "assets": [
+      {
+        "allowedToDownload": true,
+        "assetType": "PRODUCT_BROCHURE",
+        "fileSize": 8089324,
+        "hidden": false,
+        "mime": "application/pdf",
+        "name": "Bro BMI Norge betong-tegltakstein",
+        "realFileName": "BMI-Zanda-Monier-Takstein-BRO.pdf",
+        "url": "https://store-fit.bmigroup.com/medias/BMI-Zanda-Monier-Takstein-BRO.pdf?context=bWFzdGVyfHJvb3R8ODA4OTMyNHxhcHBsaWNhdGlvbi9wZGZ8YURoakwyaGpNUzg1TURZek1UQTVOVEkxTlRNMEwwSk5TUzFhWVc1a1lTMU5iMjVwWlhJdFZHRnJjM1JsYVc0dFFsSlBMbkJrWmd8NjFjN2U5ZWU0MzhiOTI0OWUzZTA4NzA3MjU3NmMxMTRhM2UxYzQ0YzZiODAzMzQxYTgzZGNkYmU5ZTUwOGJlZQ"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "ASSEMBLY_INSTRUCTIONS",
+        "fileSize": 9999041,
+        "hidden": false,
+        "mime": "application/pdf",
+        "name": "Mon BMI Norge betong-tegltakstein",
+        "realFileName": "Leggeanv-tegl-og-betongtakstein-2019-v1.pdf",
+        "url": "https://store-fit.bmigroup.com/medias/Leggeanv-tegl-og-betongtakstein-2019-v1.pdf?context=bWFzdGVyfHJvb3R8OTk5OTA0MXxhcHBsaWNhdGlvbi9wZGZ8YURjM0wyZzNNQzg1TURZek1UTTBNVFkzTURjd0wweGxaMmRsWVc1MkxYUmxaMnd0YjJjdFltVjBiMjVuZEdGcmMzUmxhVzR0TWpBeE9TMTJNUzV3WkdZfDJjNzk3MDBkOGI1NzBiNmEwY2FhNjk0NTk0MzVlODY1M2FmZjA2MTdiMDE1NmE0NDY4OGEyZDNjYmMzOTJmM2E"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "CERTIFICATES",
+        "fileSize": 402066,
+        "hidden": false,
+        "mime": "application/octet-stream",
+        "name": "test_dwg_test",
+        "realFileName": "test.dwg",
+        "url": "https://store-fit.bmigroup.com/medias/test.dwg?context=bWFzdGVyfHJvb3R8NDAyMDY2fGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbXxhRGcxTDJnM05TODVNRFl6TVRjNE1UUXhOekkyTDNSbGMzUXVaSGRufGU2NjYxZjZmOGU4ODVlM2U5MmIwN2ZhMzQyOTM3ZDMwMmYzM2EwMjUxNzJhNmNmMGE3ZjYwNjRlMTBjZDJkZDQ"
+      }
+    ],
+    "categories": [
+      {
+        "categoryType": "Brand",
+        "code": "BMI",
+        "image": {
+          "allowedToDownload": true,
+          "fileSize": 15602,
+          "hidden": false,
+          "mime": "image/png",
+          "name": "BMI Logo RGB NEW",
+          "realFileName": "BMI Logo RGB NEW.png",
+          "url": "https://store-fit.bmigroup.com/medias/BMI-Logo-RGB-NEW.png?context=bWFzdGVyfHJvb3R8MTU2MDJ8aW1hZ2UvcG5nfGFEWmhMMmhsTWk4NU1EWXpNVEE0T1RNMU56RXdMMEpOU1NCTWIyZHZJRkpIUWlCT1JWY3VjRzVufGFhNDBhMGQxNzg4ZDliMGY4MThjZGY3ZjliN2ZmYTg3YzBlY2IxMGEzODRkYzIyNzY1MTIyOWU2YTcwMjRmNTA"
+        },
+        "name": "BMI",
+        "parentCategoryCode": "BMI_Brands"
+      },
+      {
+        "categoryType": "Brand",
+        "code": "Icopal",
+        "image": {
+          "allowedToDownload": true,
+          "altText": "Icopal RGB logo",
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_Icopal_RGB_Logo",
+          "fileSize": 6144,
+          "hidden": false,
+          "mime": "image/png",
+          "name": "bmi_icopal",
+          "realFileName": "bmi_icopal.png",
+          "url": "https://store-fit.bmigroup.com/medias/bmi-icopal.png?context=bWFzdGVyfHJvb3R8NjE0NHxpbWFnZS9wbmd8YURKakwyZzFPQzg1TURZek1USTJOell4TlRBeUwySnRhVjlwWTI5d1lXd3VjRzVufGNjYTZjNzk5NTVkYjMxNGRjOWUzZTEzYTRiNWFlNDcyY2EzZjE4ODAxZTg1YjhlZTgwMmRmNDc3YWJkZWYzYzU"
+        },
+        "name": "Icopal",
+        "parentCategoryCode": "BMI_Brands"
+      },
+      {
+        "categoryType": "Brand",
+        "code": "AeroDek",
+        "image": {
+          "allowedToDownload": true,
+          "altText": "AeroDek RGB logo",
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_AeroDek_RGB_Logo",
+          "fileSize": 7211,
+          "hidden": false,
+          "mime": "image/png",
+          "name": "BMI AeroDek",
+          "realFileName": "BMI AeroDek.png",
+          "url": "https://store-fit.bmigroup.com/medias/BMI-AeroDek.png?context=bWFzdGVyfHJvb3R8NzIxMXxpbWFnZS9wbmd8YURjMUwyZzJOQzg1TURZek1UQTNNell5T0RRMkwwSk5TU0JCWlhKdlJHVnJMbkJ1Wnd8ZjNiYjNiMDQxMWNjNjIwZGRhZDYxY2ZhODI5MmRhMGU2NTA2NjkwODdlODY5MmRjYTY4ZjM4N2ZmMDE1NWIzYQ"
+        },
+        "name": "AeroDek",
+        "parentCategoryCode": "BMI_Brands"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Zanda_Protector",
+        "name": "Zanda Protector",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Zanda_Classic",
+        "name": "Zanda Classic",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Zanda_Arktis",
+        "name": "Zanda Arktis",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Zanda_Minster",
+        "name": "Zanda Minster",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Zanda_Vestland",
+        "name": "Zanda Vestland",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Monier_Nova",
+        "name": "Monier Nova",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Monier_Turmalin",
+        "name": "Monier Turmalin",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Monier_Nortegl",
+        "name": "Monier Nortegl",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Monier_KDN",
+        "name": "Monier KDN",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Monier_Hollander_V",
+        "name": "Monier Hollander-V",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "ProductFamily",
+        "code": "Monier_Dantegl",
+        "name": "Monier Dantegl",
+        "parentCategoryCode": "PRODUCT_FAMILY"
+      },
+      {
+        "categoryType": "Category",
+        "code": "NAILS_&_SCREWS_PITCHEDROOF_NO",
+        "name": "Spiker og skruer",
+        "parentCategoryCode": "FIXING_PITCHEDROOF_NO"
+      },
+      {
+        "categoryType": "Category",
+        "code": "PITCHEDROOF_NO",
+        "name": "Skråtak",
+        "parentCategoryCode": "ROOF_NO"
+      },
+      {
+        "categoryType": "Category",
+        "code": "PRODUCTS_NO",
+        "name": "Produkter",
+        "parentCategoryCode": ""
+      },
+      {
+        "categoryType": "Category",
+        "code": "FIXING_PITCHEDROOF_NO",
+        "name": "Festemateriell",
+        "parentCategoryCode": "PITCHEDROOF_NO"
+      },
+      {
+        "categoryType": "Category",
+        "code": "ROOF_NO",
+        "name": "Takprodukter",
+        "parentCategoryCode": "PRODUCTS_NO"
+      }
+    ],
+    "classifications": [
+      {
+        "code": "scoringWeightAttributes",
+        "features": [
+          {
+            "code": "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringWeight",
+            "featureValues": [{ "value": "1" }],
+            "name": "Scoring Weight"
+          }
+        ],
+        "name": "Produktrangering"
+      }
+    ],
+    "code": "Roof_tile_screw_4-8x75_flat_undercut",
+    "description": "Torx skrue med senk hode. Pakke a 100 stk eller 600 stk. Materiale:Rustfritt",
+    "images": [
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 321492,
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "306290010 taksteinskrue senk",
+        "realFileName": "306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8MzIxNDkyfGltYWdlL2pwZWd8YUdRekwyZzFOeTg1TURZek1UWXdNVGcwT0RZeUx6TXdOakk1TURBeE1DQjBZV3R6ZEdWcGJuTnJjblZsSUhObGJtc3VhbkJufDg0MGFlZGIwYzg2MTk2ZDlhOWQ4M2U5NTIyNTUxNWY5MDVmNGQwYmYyNjFjOTBhYzdjZmYwYWM0MzE3MDEyY2M"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 15533,
+        "format": "Product-Color-Selector-Mobile",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Product-Color-Selector-Mobile_306290010 taksteinskrue senk",
+        "realFileName": "Product-Color-Selector-Mobile_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Product-Color-Selector-Mobile-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8MTU1MzN8aW1hZ2UvanBlZ3xhR1ZsTDJnNVpDODVNRFkwTWpFek16UTRNemd5TDFCeWIyUjFZM1F0UTI5c2IzSXRVMlZzWldOMGIzSXRUVzlpYVd4bFh6TXdOakk1TURBeE1DQjBZV3R6ZEdWcGJuTnJjblZsSUhObGJtc3VhbkJufDNkN2YwMjkwZDBlZTBkMWZmZDdlY2U5MjFkMDZhMjkyZjExMDc0NjI2ZDgyMDkyYTdkODU5ZGM3NmZjNGQ1YmE"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 7573268,
+        "format": "Print",
+        "hidden": false,
+        "mime": "image/tiff",
+        "name": "Print_306290010 taksteinskrue senk",
+        "realFileName": "Print_306290010 taksteinskrue senk.tiff",
+        "url": "https://store-fit.bmigroup.com/medias/Print-306290010-taksteinskrue-senk.tiff?context=bWFzdGVyfHJvb3R8NzU3MzI2OHxpbWFnZS90aWZmfGFHWm1MMmhoTUM4NU1EWTBNakV6TkRFek9URTRMMUJ5YVc1MFh6TXdOakk1TURBeE1DQjBZV3R6ZEdWcGJuTnJjblZsSUhObGJtc3VkR2xtWmd8NzZhZTAyZTcwZWU1YjVlNWQzZTM5NDZlM2YyNDc2NmFmNTRiN2M4MjdkNmI1MGY0NGY0Y2Y2MjFiMDY0NzY1YQ"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 24564,
+        "format": "Product-Color-Selector-Large-Desktop",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Product-Color-Selector-Large-Desktop_306290010 taksteinskrue senk",
+        "realFileName": "Product-Color-Selector-Large-Desktop_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Product-Color-Selector-Large-Desktop-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8MjQ1NjR8aW1hZ2UvanBlZ3xhR0ZrTDJoaE1TODVNRFkwTWpFek5EYzVORFUwTDFCeWIyUjFZM1F0UTI5c2IzSXRVMlZzWldOMGIzSXRUR0Z5WjJVdFJHVnphM1J2Y0Y4ek1EWXlPVEF3TVRBZ2RHRnJjM1JsYVc1emEzSjFaU0J6Wlc1ckxtcHdad3xhN2IxMTEwNzIzYTA3YzVhMmZkZDdjYmZkMGFkYmU4OTE3Mjk3ODE5NGVmNDVlMDcwMjc2ZGRjMDY5MjU3ZDI1"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 18240,
+        "format": "Product-Hero-Mobile",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Product-Hero-Mobile_306290010 taksteinskrue senk",
+        "realFileName": "Product-Hero-Mobile_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Product-Hero-Mobile-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8MTgyNDB8aW1hZ2UvanBlZ3xhR0psTDJoaE5DODVNRFkwTWpFek5UUTBPVGt3TDFCeWIyUjFZM1F0U0dWeWJ5MU5iMkpwYkdWZk16QTJNamt3TURFd0lIUmhhM04wWldsdWMydHlkV1VnYzJWdWF5NXFjR2N8MTc3MWNiNmFlZjliOGEyMGJjOGI3ZjhiN2Q4MDdkNmU1NDU1N2Q0NmEyYzI5NDk5YWNjNzZkMDA5YmIwZjNhNw"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 18240,
+        "format": "Product-Color-Selector-Small-Desktop-Tablet",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Product-Color-Selector-Small-Desktop-Tablet_306290010 taksteinskrue senk",
+        "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Product-Color-Selector-Small-Desktop-Tablet-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8MTgyNDB8aW1hZ2UvanBlZ3xhR1F3TDJoaE55ODVNRFkwTWpFek5qRXdOVEkyTDFCeWIyUjFZM1F0UTI5c2IzSXRVMlZzWldOMGIzSXRVMjFoYkd3dFJHVnphM1J2Y0MxVVlXSnNaWFJmTXpBMk1qa3dNREV3SUhSaGEzTjBaV2x1YzJ0eWRXVWdjMlZ1YXk1cWNHY3w5YmYwZDY2OTMxZmRmYTY3MmJhYjdhOWZmNDlkODAxYjA0NTJiOTkzNjdhMmY2MmE4NjBkMDFiZDc5MDc4NzQ1"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 19907,
+        "format": "Product-Listing-Card-Large-Desktop",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Product-Listing-Card-Large-Desktop_306290010 taksteinskrue senk",
+        "realFileName": "Product-Listing-Card-Large-Desktop_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Product-Listing-Card-Large-Desktop-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8MTk5MDd8aW1hZ2UvanBlZ3xhRGhtTDJoaFlpODVNRFkwTWpFek56UXhOVGs0TDFCeWIyUjFZM1F0VEdsemRHbHVaeTFEWVhKa0xVeGhjbWRsTFVSbGMydDBiM0JmTXpBMk1qa3dNREV3SUhSaGEzTjBaV2x1YzJ0eWRXVWdjMlZ1YXk1cWNHY3w4M2Y0NDU1MGUwNTkzN2I5MjAxNTBkOWFlMGFiNDJmZDczMWM5ZDAwMGY2ZGJmODNjMzYyMWY1ZmZiZDRjNTYw"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 15230,
+        "format": "Product-Listing-Card-Small-Desktop-Tablet",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Product-Listing-Card-Small-Desktop-Tablet_306290010 taksteinskrue senk",
+        "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Product-Listing-Card-Small-Desktop-Tablet-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8MTUyMzB8aW1hZ2UvanBlZ3xhRGRsTDJoaE9DODVNRFkwTWpFek5qYzJNRFl5TDFCeWIyUjFZM1F0VEdsemRHbHVaeTFEWVhKa0xWTnRZV3hzTFVSbGMydDBiM0F0VkdGaWJHVjBYek13TmpJNU1EQXhNQ0IwWVd0emRHVnBibk5yY25WbElITmxibXN1YW5CbnxhNzUyN2FlYThlZDYxNDQxOTVkYTQzZjg5NjM1ZDlhYzQ3MzAxNWQ0NGVkZjhkNGNlNjFjNDk4MjA1Njc0ZTZj"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 66524,
+        "format": "Web",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Web_306290010 taksteinskrue senk",
+        "realFileName": "Web_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Web-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8NjY1MjR8aW1hZ2UvanBlZ3xhRGhrTDJoaFpTODVNRFkwTWpFek9EQTNNVE0wTDFkbFlsOHpNRFl5T1RBd01UQWdkR0ZyYzNSbGFXNXphM0oxWlNCelpXNXJMbXB3Wnd8MjQxNTZjNWQ4OTBiYzNmZWIyNWRjYWIzYzM4ZTJlMzdlNTNiNWY4NjQ3ODQ3NTA4NzY1NjRlZmQxYWNiNjE5Ng"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 52966,
+        "format": "Product-Hero-Large-Desktop",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Product-Hero-Large-Desktop_306290010 taksteinskrue senk",
+        "realFileName": "Product-Hero-Large-Desktop_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Product-Hero-Large-Desktop-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8NTI5NjZ8aW1hZ2UvanBlZ3xhRFJsTDJoaFppODVNRFkwTWpFek9EY3lOamN3TDFCeWIyUjFZM1F0U0dWeWJ5MU1ZWEpuWlMxRVpYTnJkRzl3WHpNd05qSTVNREF4TUNCMFlXdHpkR1ZwYm5OcmNuVmxJSE5sYm1zdWFuQm58MWZiZmI5YjVkNjM1M2QzNDk3MmE1NzAxNjE5NTc0Njc5M2YyNjBjOTYzMGU3NTE2ZTIxNGFkNmIyNDRiYTZiYg"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 31581,
+        "format": "Product-Hero-Small-Desktop-Tablet",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Product-Hero-Small-Desktop-Tablet_306290010 taksteinskrue senk",
+        "realFileName": "Product-Hero-Small-Desktop-Tablet_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Product-Hero-Small-Desktop-Tablet-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8MzE1ODF8aW1hZ2UvanBlZ3xhRFJqTDJoaU1pODVNRFkwTWpFek9UTTRNakEyTDFCeWIyUjFZM1F0U0dWeWJ5MVRiV0ZzYkMxRVpYTnJkRzl3TFZSaFlteGxkRjh6TURZeU9UQXdNVEFnZEdGcmMzUmxhVzV6YTNKMVpTQnpaVzVyTG1wd1p3fDFjOGRlZjhkMDM3M2YzOGYwNjRhMGZlNzk5YjYzNzA3ZjVjZmJlMDA1YWE2MmZmYzYxZDYxOGE0NGY0YjAxNDU"
+      },
+      {
+        "allowedToDownload": true,
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Taksteinsskrue m-senkhode 4-8x75",
+        "fileSize": 15631,
+        "format": "Product-Listing-Card-Mobile",
+        "hidden": false,
+        "mime": "image/jpeg",
+        "name": "Product-Listing-Card-Mobile_306290010 taksteinskrue senk",
+        "realFileName": "Product-Listing-Card-Mobile_306290010 taksteinskrue senk.jpg",
+        "url": "https://store-fit.bmigroup.com/medias/Product-Listing-Card-Mobile-306290010-taksteinskrue-senk.jpg?context=bWFzdGVyfHJvb3R8MTU2MzF8aW1hZ2UvanBlZ3xhREE0TDJobVpDODVNRFkwTWpFME1EQXpOelF5TDFCeWIyUjFZM1F0VEdsemRHbHVaeTFEWVhKa0xVMXZZbWxzWlY4ek1EWXlPVEF3TVRBZ2RHRnJjM1JsYVc1emEzSjFaU0J6Wlc1ckxtcHdad3wxNTMxMmJlYTczMGFkMTE4NTYyNzE2OTVmNjBiZjJkOTEzMjYyZWNlMGVmZTg4NGRhOTc4YTRhYjNmZTRmZDk5"
+      }
+    ],
+    "isSampleOrderAllowed": false,
+    "longDescription": "Torx skrue med senk hode. Pakke a 100 stk eller 600 stk. Materiale:Rustfritt",
+    "name": "Taksteinsskrue  m/senkhode",
+    "shortDescription": "Taksteinsskrue senk 4,8X75",
+    "summary": "Taksteinsskrue senk 4,8X75",
+    "variantOptions": [
+      {
+        "approvalStatus": "approved",
+        "categories": [
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Protector",
+            "name": "Zanda Protector",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Arktis",
+            "name": "Zanda Arktis",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Classic",
+            "name": "Zanda Classic",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Minster",
+            "name": "Zanda Minster",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Vestland",
+            "name": "Zanda Vestland",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_KDN",
+            "name": "Monier KDN",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Nortegl",
+            "name": "Monier Nortegl",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Nova",
+            "name": "Monier Nova",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Dantegl",
+            "name": "Monier Dantegl",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Turmalin",
+            "name": "Monier Turmalin",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Hollander_V",
+            "name": "Monier Hollander-V",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          }
+        ],
+        "classifications": [
+          {
+            "code": "appearanceAttributes",
+            "features": [
+              {
+                "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                "featureValues": [{ "value": "Stainless" }],
+                "name": "Farge"
+              }
+            ],
+            "name": "Farge og overflate"
+          },
+          {
+            "code": "packagingInformation",
+            "features": [
+              {
+                "code": "bmiClassificationCatalog/1.0/packagingInformation.packing",
+                "featureValues": [{ "value": "Pose" }],
+                "name": "Forpakning"
+              },
+              {
+                "code": "bmiClassificationCatalog/1.0/packagingInformation.quantityPerUnit",
+                "featureValues": [{ "value": "100" }],
+                "name": "Antall per enhet"
+              }
+            ],
+            "name": "Forpakningsinformasjon"
+          }
+        ],
+        "code": "306290010_Roof_tile_screw_4-8x75_flat_undercut",
+        "externalProductCode": "51222292",
+        "isSampleOrderAllowed": false,
+        "longDescription": "Torx skrue med senk hode. Pakke a 100 stk eller 600 stk. Materiale:Rustfritt",
+        "name": "Taksteinsskrue med senkhode",
+        "shortDescription": "Taksteinsskrue senk 4,8X75"
+      },
+      {
+        "approvalStatus": "approved",
+        "categories": [
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Protector",
+            "name": "Zanda Protector",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Arktis",
+            "name": "Zanda Arktis",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Classic",
+            "name": "Zanda Classic",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Nortegl",
+            "name": "Monier Nortegl",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Nova",
+            "name": "Monier Nova",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Turmalin",
+            "name": "Monier Turmalin",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Minster",
+            "name": "Zanda Minster",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Zanda_Vestland",
+            "name": "Zanda Vestland",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_KDN",
+            "name": "Monier KDN",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Dantegl",
+            "name": "Monier Dantegl",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          },
+          {
+            "categoryType": "ProductFamily",
+            "code": "Monier_Hollander_V",
+            "name": "Monier Hollander-V",
+            "parentCategoryCode": "PRODUCT_FAMILY"
+          }
+        ],
+        "classifications": [
+          {
+            "code": "appearanceAttributes",
+            "features": [
+              {
+                "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                "featureValues": [{ "value": "Svart" }],
+                "name": "Farge"
+              }
+            ],
+            "name": "Farge og overflate"
+          },
+          {
+            "code": "packagingInformation",
+            "features": [
+              {
+                "code": "bmiClassificationCatalog/1.0/packagingInformation.packing",
+                "featureValues": [{ "value": "Pakke" }],
+                "name": "Forpakning"
+              },
+              {
+                "code": "bmiClassificationCatalog/1.0/packagingInformation.quantityPerUnit",
+                "featureValues": [{ "value": "600" }],
+                "name": "Antall per enhet"
+              }
+            ],
+            "name": "Forpakningsinformasjon"
+          }
+        ],
+        "code": "306290020_Roof_tile_screw_4-8x75_flat_undercut",
+        "externalProductCode": "51222265",
+        "isSampleOrderAllowed": false,
+        "longDescription": "Torx skrue med senk hode. Pakke a 100 stk eller 600 stk. Materiale:Rustfritt",
+        "name": "Taksteinsskrue med senkhode",
+        "shortDescription": "Taksteinsskrue senk 4,8X75"
+      }
+    ]
+  }
+}
