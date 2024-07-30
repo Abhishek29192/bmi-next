@@ -54,41 +54,29 @@ describe("transformMediaSrc function", () => {
         className: undefined,
         component: NextImage,
         "data-testid": undefined,
+        decoding: "async",
         draggable: false,
-        image: {
-          backgroundColor: "#484848",
-          height: 720,
-          images: {
-            fallback: {
-              sizes: "(min-width: 948px) 948px, 100vw",
-              src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-              srcSet:
-                "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-            },
-            sources: [
-              {
-                sizes: "(min-width: 948px) 948px, 100vw",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                type: "image/webp"
-              }
-            ]
-          },
-          layout: "constrained",
-          width: 948
-        },
+        fill: true,
+        loader: expect.any(Function),
         loading: "lazy",
-        objectFit: "cover",
-        objectPosition: "center"
+        sizes:
+          "(max-width: 599px) 561px, (max-width: 719px) 665px, (max-width: 839px) 785px, (max-width: 1439px) 1285px, 1392px",
+        src: "https:http://localhost:8080/custom-image.jpg",
+        style: {
+          height: undefined,
+          objectFit: "cover",
+          objectPosition: "center",
+          width: undefined
+        }
       },
-      thumbnail:
-        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+      thumbnail: "http://localhost:8080/custom-image.jpg"
     });
     expect(expectResult[1]).toEqual({
       altText: "label",
       caption: "ContentfulVideoSubtitle",
       isVideo: true,
       media: {
+        classname: undefined,
         "data-testid": undefined,
         dataGTM: {
           action: "Play",
@@ -104,38 +92,25 @@ describe("transformMediaSrc function", () => {
           className: undefined,
           component: NextImage,
           "data-testid": undefined,
+          decoding: "async",
           draggable: false,
-          image: {
-            backgroundColor: "#484848",
-            height: 720,
-            images: {
-              fallback: {
-                sizes: "(min-width: 948px) 948px, 100vw",
-                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-              },
-              sources: [
-                {
-                  sizes: "(min-width: 948px) 948px, 100vw",
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                  type: "image/webp"
-                }
-              ]
-            },
-            layout: "constrained",
-            width: 948
-          },
+          fill: true,
+          loader: expect.any(Function),
           loading: "lazy",
-          objectFit: "contain",
-          objectPosition: "center"
+          sizes:
+            "(max-width: 599px) 561px, (max-width: 719px) 665px, (max-width: 839px) 785px, (max-width: 1439px) 1285px, 1392px",
+          src: "https:http://localhost:8080/custom-image.jpg",
+          style: {
+            height: undefined,
+            objectFit: "contain",
+            objectPosition: "center",
+            width: undefined
+          }
         },
         subtitle: "ContentfulVideoSubtitle",
         videoUrl: "https://youtu.be/01SUXJmB9Ik"
       },
-      thumbnail:
-        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+      thumbnail: "http://localhost:8080/custom-image.jpg"
     });
     expect(expectResult[2]).toEqual({
       caption: "PimVideoTitle",
@@ -197,6 +172,7 @@ describe("transformMediaSrc function", () => {
       caption: undefined,
       isVideo: true,
       media: {
+        classname: undefined,
         "data-testid": undefined,
         dataGTM: {
           action: "Play",
@@ -212,86 +188,45 @@ describe("transformMediaSrc function", () => {
           className: undefined,
           component: NextImage,
           "data-testid": undefined,
+          decoding: "async",
           draggable: false,
-          image: {
-            backgroundColor: "#484848",
-            height: 720,
-            images: {
-              fallback: {
-                sizes: "(min-width: 948px) 948px, 100vw",
-                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-              },
-              sources: [
-                {
-                  sizes: "(min-width: 948px) 948px, 100vw",
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                  type: "image/webp"
-                }
-              ]
-            },
-            layout: "constrained",
-            width: 948
-          },
+          fill: true,
+          loader: expect.any(Function),
           loading: "lazy",
-          objectFit: "contain",
-          objectPosition: "center"
+          sizes:
+            "(max-width: 599px) 561px, (max-width: 719px) 665px, (max-width: 839px) 785px, (max-width: 1439px) 1285px, 1392px",
+          src: "https:http://localhost:8080/custom-image.jpg",
+          style: {
+            height: undefined,
+            objectFit: "contain",
+            objectPosition: "center",
+            width: undefined
+          }
         },
         subtitle: null,
         videoUrl: "https://youtu.be/01SUXJmB9Ik"
       },
-      thumbnail:
-        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+      thumbnail: "http://localhost:8080/custom-image.jpg"
     });
   });
 
-  it("should return correct object  if typeName === Image and image.thumbnail.src is empty string", () => {
+  it("should return correct object  if typeName === Image and image.url is empty string", () => {
     const image = createGallerySectionImage({
+      __typename: "Image",
       image: {
-        file: {
-          fileName: "Lorem ipsum"
-        },
-        thumbnail: undefined
+        fileName: "Lorem ipsum",
+        contentType: "image/jpeg",
+        url: "",
+        size: 1000,
+        height: 200,
+        width: 400
       }
     });
     const expectResult = transformMediaSrc([image]);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: undefined,
-        isVideo: false,
-        caption: "CAPTION",
-        altText: "alt text"
-      })
-    );
-  });
-
-  it("should return correct object  if typeName === Image and image.thumbnail is null", () => {
-    const mockMedia: GallerySectionMedias[] = [
-      {
-        __typename: "Image",
-        altText: "alt text",
-        type: null,
-        image: {
-          file: {
-            fileName: "file",
-            url: "//images.asset.jpg"
-          },
-          thumbnail: undefined
-        },
-        caption: {
-          caption: "CAPTION"
-        },
-        focalPoint: null
-      }
-    ];
-    const expectResult = transformMediaSrc(mockMedia);
-
-    expect(expectResult[0]).toEqual(
-      expect.objectContaining({
-        thumbnail: undefined,
+        thumbnail: "",
         isVideo: false,
         caption: "CAPTION",
         altText: "alt text"
@@ -307,7 +242,7 @@ describe("transformMediaSrc function", () => {
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: image.image.thumbnail?.images.fallback?.src,
+        thumbnail: image.image.url,
         isVideo: false,
         caption: undefined,
         altText: "alt text"
@@ -323,7 +258,7 @@ describe("transformMediaSrc function", () => {
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: image.image.thumbnail?.images.fallback?.src,
+        thumbnail: image.image.url,
         isVideo: false,
         caption: "CAPTION",
         altText: undefined

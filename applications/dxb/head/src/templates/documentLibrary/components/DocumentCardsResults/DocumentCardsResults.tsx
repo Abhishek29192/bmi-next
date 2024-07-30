@@ -36,7 +36,12 @@ const DocumentCardsResults = ({ documents }: Props) => {
               media={
                 document.featuredMedia &&
                 createContentfulImageProps({
-                  ...document.featuredMedia,
+                  __typename: "Image",
+                  title: document.featuredMedia.title,
+                  focalPoint: document.featuredMedia.focalPoint,
+                  type: document.featuredMedia.type,
+                  altText: document.featuredMedia.altText,
+                  image: { url: document.featuredMedia.image.file.url },
                   widths: mediaWidths
                 })
               }

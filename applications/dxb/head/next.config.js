@@ -28,6 +28,10 @@ if (typeof contentSecurityPolicy !== "undefined") {
 const nextConfig = {
   images: {
     deviceSizes: [599, 719, 839, 1439, 2000],
+    imageSizes: [
+      200, 321, 326, 330, 359, 381, 408, 436, 446, 516, 561, 593, 665, 681, 708,
+      713, 785, 916, 920, 988, 1285, 1392
+    ],
     loader: "custom"
   },
   async headers() {

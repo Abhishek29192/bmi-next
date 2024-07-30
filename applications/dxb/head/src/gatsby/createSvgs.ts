@@ -8,7 +8,7 @@ const parser = new DOMParser();
 const serializer = new XMLSerializer();
 
 const createSvgs = () => {
-  const outputDir = `${__dirname}/../../static/brands`;
+  const outputDir = `${__dirname}/../../public/brands`;
   if (fs.existsSync(outputDir)) {
     fs.rmSync(outputDir, { recursive: true });
   }

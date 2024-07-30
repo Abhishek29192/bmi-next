@@ -247,8 +247,6 @@ describe("Home Page Template", () => {
   });
 
   it("render page without brands", () => {
-    data.contentfulHomePage.brands = [];
-
     renderWithRouter(
       <ThemeProvider>
         <HomePage homePage={data} brands={[]} site={createMockSiteData()} />

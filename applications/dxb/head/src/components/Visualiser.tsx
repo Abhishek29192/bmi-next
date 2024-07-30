@@ -1,6 +1,6 @@
 // TODO: Move to under visualiser
 import MicroCopy from "@bmi-digital/components/micro-copy";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import queryString from "query-string";
 import React, { Suspense, createContext, useMemo, useState } from "react";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -86,10 +86,14 @@ const VisualiserProvider = ({
 }: Props) => {
   const { isV2VisualiserEnabled } = useConfig();
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   const parsedQueryParameters = mapParameters(
-    queryString.parse(searchParams.toString(), { parseNumbers: true })
+    queryString.parse(
+      typeof window !== "undefined" ? window.location.search : null,
+      {
+        parseNumbers: true
+      }
+    )
   );
 
   const [isOpen, setIsOpen] = useState(

@@ -27,11 +27,15 @@ exports[`Brands component renders correctly 1`] = `
           <img
             alt="contentful image alt text"
             class="TappableCard-headerPicture css-k77jxl"
+            data-nimg="fill"
             data-testid="tappable-card-media"
+            decoding="async"
             draggable="false"
             loading="lazy"
-            src="http://localhost:9000/image-filname.jpg"
-            style="object-fit: cover; object-position: center;"
+            sizes="(max-width: 599px) 593px, (max-width: 719px) 713px, (max-width: 839px) 408px, (max-width: 1439px) 708px, 988px"
+            src="https:http://localhost:9000/image-filname.jpg?w=3840&q=50"
+            srcset="https:http://localhost:9000/image-filname.jpg?w=16&q=50 16w, https:http://localhost:9000/image-filname.jpg?w=32&q=50 32w, https:http://localhost:9000/image-filname.jpg?w=48&q=50 48w, https:http://localhost:9000/image-filname.jpg?w=64&q=50 64w, https:http://localhost:9000/image-filname.jpg?w=96&q=50 96w, https:http://localhost:9000/image-filname.jpg?w=128&q=50 128w, https:http://localhost:9000/image-filname.jpg?w=256&q=50 256w, https:http://localhost:9000/image-filname.jpg?w=384&q=50 384w, https:http://localhost:9000/image-filname.jpg?w=640&q=50 640w, https:http://localhost:9000/image-filname.jpg?w=750&q=50 750w, https:http://localhost:9000/image-filname.jpg?w=828&q=50 828w, https:http://localhost:9000/image-filname.jpg?w=1080&q=50 1080w, https:http://localhost:9000/image-filname.jpg?w=1200&q=50 1200w, https:http://localhost:9000/image-filname.jpg?w=1920&q=50 1920w, https:http://localhost:9000/image-filname.jpg?w=2048&q=50 2048w, https:http://localhost:9000/image-filname.jpg?w=3840&q=50 3840w"
+            style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; object-position: center; color: transparent;"
           />
           <div
             class="TappableCard-body css-c6k36h"

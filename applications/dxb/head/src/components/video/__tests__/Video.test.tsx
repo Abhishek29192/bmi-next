@@ -1,9 +1,9 @@
 import { fireEvent, screen } from "@testing-library/react";
 import React from "react";
+import NextImage from "next/image";
 import Video from "../Video";
 import { renderWithProviders } from "../../../__tests__/renderWithProviders";
-import createVideoData from "../../../__tests__/helpers/VideoHelper";
-import createImageData from "../../../__tests__/helpers/ImageDataHelper";
+import { createVideoProps } from "../../../__tests__/helpers/VideoHelper";
 
 const mockPushGTMEvent = jest.fn();
 
@@ -18,10 +18,10 @@ describe("Video", () => {
   it("renders correctly with everything populated", () => {
     const { container } = renderWithProviders(
       <Video
-        {...createVideoData()}
-        className="example-classname"
-        data-testid="example-data-test-id"
-        previewMediaWidths={[10, 10, 10, 10, 10]}
+        {...createVideoProps({
+          className: "example-classname",
+          "data-testid": "example-data-test-id"
+        })}
       />
     );
     expect(container).toMatchSnapshot();
@@ -30,16 +30,18 @@ describe("Video", () => {
   it("renders correctly with minimum populated", () => {
     const { container } = renderWithProviders(
       <Video
-        {...createVideoData({
-          title: null,
-          subtitle: null,
-          previewMedia: null,
-          videoRatio: null,
-          layout: undefined
+        {...createVideoProps({
+          className: undefined,
+          "data-testid": undefined,
+          previewMedia: {
+            component: NextImage,
+            title: null,
+            subtitle: null,
+            previewMedia: null,
+            videoRatio: null,
+            layout: undefined
+          }
         })}
-        className={undefined}
-        data-testid={undefined}
-        previewMediaWidths={[10, 10, 10, 10, 10]}
       />
     );
     expect(container).toMatchSnapshot();
@@ -47,109 +49,77 @@ describe("Video", () => {
 
   describe("Preview Media", () => {
     it("should render correctly if 'type' is descriptive", () => {
+      const videoProps = createVideoProps({
+        className: undefined,
+        "data-testid": undefined
+      });
+
       const { container } = renderWithProviders(
         <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: createImageData({ type: "Descriptive" }),
-            videoRatio: null,
-            layout: undefined
-          })}
-          className={undefined}
-          data-testid={undefined}
+          {...videoProps}
+          previewMedia={{
+            ...videoProps.previewMedia,
+            type: "Descriptive"
+          }}
         />
       );
       expect(container).toMatchSnapshot();
     });
 
     it("should render correctly if 'type' is null", () => {
+      const videoProps = createVideoProps({
+        className: undefined,
+        "data-testid": undefined
+      });
+
       const { container } = renderWithProviders(
         <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: createImageData({ type: null }),
-            videoRatio: null,
-            layout: undefined
-          })}
-          className={undefined}
-          data-testid={undefined}
-          previewMediaWidths={[10, 10, 10, 10, 10]}
+          {...videoProps}
+          previewMedia={{
+            ...videoProps.previewMedia,
+            type: null
+          }}
         />
       );
       expect(container).toMatchSnapshot();
     });
 
-    it("should render correctly if 'file.url' is undefined", () => {
+    it("should render correctly if 'src' is undefined", () => {
+      const videoProps = createVideoProps({
+        className: undefined,
+        "data-testid": undefined
+      });
+
       const { container } = renderWithProviders(
         <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: createImageData({
-              image: {
-                fileName: "example-filename",
-                contentType: "image/jpeg",
-                url: "http://localhost:8080/custom-image.jpg",
-                size: 1000,
-                height: 200,
-                width: 400
-              }
-            }),
-            videoRatio: null,
-            layout: undefined
-          })}
-          className={undefined}
-          data-testid={undefined}
-          previewMediaWidths={[10, 10, 10, 10, 10]}
+          {...videoProps}
+          previewMedia={{
+            ...videoProps.previewMedia,
+            src: undefined
+          }}
         />
       );
+
       expect(container).toMatchSnapshot();
     });
 
-    it("should render correctly if 'gatsbyImageData' is undefined", () => {
+    it("should render correctly if 'previewMedia' is undefined", () => {
       const { container } = renderWithProviders(
-        <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: createImageData({
-              image: {
-                fileName: "example-filename",
-                url: "/example.url",
-                contentType: "image/jpeg",
-                size: 1000,
-                height: 200,
-                width: 400
-              }
-            }),
-            videoRatio: null,
-            layout: undefined
-          })}
-          className={undefined}
-          data-testid={undefined}
-          previewMediaWidths={[10, 10, 10, 10, 10]}
-        />
+        <Video {...createVideoProps({ previewMedia: undefined })} />
       );
       expect(container).toMatchSnapshot();
     });
 
     it("should render correctly if 'focalPoint' is null", () => {
+      const videoProps = createVideoProps({
+        className: undefined,
+        "data-testid": undefined
+      });
+
       const { container } = renderWithProviders(
         <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: createImageData({
-              focalPoint: null
-            }),
-            videoRatio: null,
-            layout: undefined
-          })}
-          className={undefined}
-          data-testid={undefined}
-          previewMediaWidths={[10, 10, 10, 10, 10]}
+          {...videoProps}
+          previewMedia={{ ...videoProps.previewMedia, focalPoint: null }}
         />
       );
       expect(container).toMatchSnapshot();
@@ -160,16 +130,9 @@ describe("Video", () => {
     it("should render correctly when layout is in-place", () => {
       const { container } = renderWithProviders(
         <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: null,
-            videoRatio: null,
+          {...createVideoProps({
             layout: "in-place"
           })}
-          className={undefined}
-          data-testid={undefined}
-          previewMediaWidths={[10, 10, 10, 10, 10]}
         />
       );
       expect(container).toMatchSnapshot();
@@ -178,16 +141,9 @@ describe("Video", () => {
     it("should render correctly when layout is dialog", () => {
       const { container } = renderWithProviders(
         <Video
-          {...createVideoData({
-            title: null,
-            subtitle: null,
-            previewMedia: null,
-            videoRatio: null,
+          {...createVideoProps({
             layout: "dialog"
           })}
-          className={undefined}
-          data-testid={undefined}
-          previewMediaWidths={[10, 10, 10, 10, 10]}
         />
       );
       expect(container).toMatchSnapshot();
@@ -196,12 +152,7 @@ describe("Video", () => {
 
   describe("pushGTMEvent", () => {
     it("should call pushGTMEvent when the user clicks the video play button", () => {
-      renderWithProviders(
-        <Video
-          {...createVideoData()}
-          previewMediaWidths={[10, 10, 10, 10, 10]}
-        />
-      );
+      renderWithProviders(<Video {...createVideoProps()} />);
 
       fireEvent.click(screen.getByRole("button"));
       expect(mockPushGTMEvent).toHaveBeenCalled();

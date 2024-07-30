@@ -24,7 +24,7 @@ declare let window: Window & {
 const mockPush = jest.fn();
 window.dataLayer = {
   push: mockPush
-};
+} as unknown as (typeof window)["dataLayer"];
 
 beforeEach(() => {
   jest.clearAllMocks();

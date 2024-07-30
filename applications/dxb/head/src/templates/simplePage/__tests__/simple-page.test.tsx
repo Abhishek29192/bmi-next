@@ -6,11 +6,8 @@ import {
 } from "@reach/router";
 import { render, RenderResult, screen } from "@testing-library/react";
 import React from "react";
-import { Data as ExploreBarData } from "../../../components/ExploreBar";
 import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
 import { Data as LinkData } from "../../../components/link/types";
-import { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
-import { Data as NextBestActionsData } from "../../../components/next-best-actions/NextBestActions";
 import { Data as SiteData } from "../../../components/Site";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
@@ -92,9 +89,9 @@ const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
       pinterest: true
     }),
     sections: sections,
-    nextBestActions: nextBestActions as NextBestActionsData,
-    exploreBar: exploreBarData as unknown as ExploreBarData,
-    linkColumns: linkColumnsData as LinkColumnsSectionData,
+    nextBestActions: nextBestActions,
+    exploreBar: exploreBarData,
+    linkColumns: linkColumnsData,
     heroType: "Hierarchy",
     parentPage: null,
     breadcrumbs: [

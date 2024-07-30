@@ -23,6 +23,9 @@ import type {
 } from "../schema/resolvers/types/HomePage";
 import type { Data as HomePageData } from "../templates/home-page";
 
+export const dynamicParams = false;
+export const revalidate = 3000;
+
 async function getData(): Promise<
   | {
       homePage: HomePageData["homePage"];

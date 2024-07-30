@@ -91,7 +91,10 @@ describe("createVideoProps", () => {
         ...videoData,
         previewMediaWidths: [10, 10, 10, 10, 10]
       })
-    ).toHaveProperty("previewImageSource", createImageProps(previewMedia));
+    ).toHaveProperty(
+      "previewImageSource",
+      createImageProps({ ...previewMedia, widths: [10, 10, 10, 10, 10] })
+    );
   });
 
   it("should use the defaultYouTubePreviewImage if previewMedia is null", () => {

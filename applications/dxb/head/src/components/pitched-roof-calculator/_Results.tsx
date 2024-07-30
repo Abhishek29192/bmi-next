@@ -181,7 +181,7 @@ const PrintReportSection = ({
       onFormReady={onFormReady}
       onFormLoadError={onFormLoadError}
       data={{
-        __typename: "ContentfulFormSection",
+        __typename: "Form",
         hubSpotFormGuid: hubSpotFormId,
         showTitle: true,
         description: (

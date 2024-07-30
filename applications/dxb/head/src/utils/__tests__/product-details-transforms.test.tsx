@@ -195,13 +195,9 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "component": {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "default": [Circular],
-                    "render": [Function],
-                  },
-                  "href": "/no/p/name-hashed-related-code/",
+                  "component": [Function],
                   "model": "routerLink",
+                  "to": "/no/p/name-hashed-related-code/",
                 },
                 "isSelected": false,
                 "label": "colour-2",
@@ -598,13 +594,9 @@ describe("product-details-transforms tests", () => {
               },
               {
                 "action": {
-                  "component": {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "default": [Circular],
-                    "render": [Function],
-                  },
-                  "href": "/no/p/name-hashed-related-code/",
+                  "component": [Function],
                   "model": "routerLink",
+                  "to": "/no/p/name-hashed-related-code/",
                 },
                 "isSelected": false,
                 "label": "colour-1",

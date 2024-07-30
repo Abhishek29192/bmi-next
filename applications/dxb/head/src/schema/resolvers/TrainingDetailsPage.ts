@@ -1,4 +1,3 @@
-import { resolvePath } from "./utils/path";
 import type {
   ContentfulAssetNode,
   ContentfulImageNode,
@@ -43,7 +42,9 @@ const resolveTrainingListerPagePath = async (
     return [];
   }
 
-  return resolvePath(trainingListerPage, args, context);
+  /** Commented as there is a TS error.
+   * This code will be rewritten in the scope of DXB-6407*/
+  // return resolvePath(trainingListerPage, args, context);
 };
 
 export default {

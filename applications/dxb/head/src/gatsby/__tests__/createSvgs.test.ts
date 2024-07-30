@@ -30,7 +30,7 @@ jest.mock("react", () => ({
   ) => mockCreateElement(type, props)
 }));
 
-const outDir = `${__dirname.replace("/__tests__", "")}/../../static/brands`;
+const outDir = `${__dirname.replace("/__tests__", "")}/../../public/brands`;
 
 beforeEach(() => {
   jest.clearAllMocks();

@@ -1,4 +1,3 @@
-import { getUrlFromPath, resolvePath } from "./utils/path";
 import type { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 const pages = [
@@ -21,20 +20,22 @@ export default pages.reduce(
   (resolvers, pageName) => ({
     ...resolvers,
     [pageName]: {
-      path: {
-        type: "String!",
-        async resolve(...args: ResolveArgsArray) {
-          const path = await resolvePath(...args);
-
-          return getUrlFromPath(path);
-        }
-      },
-      breadcrumbs: {
-        type: ["BreadcrumbItem!"],
-        resolve(...args: ResolveArgsArray) {
-          return resolvePath(...args);
-        }
-      },
+      /** Commented as there are two TS errors.
+       * This code will be rewritten in the scope of DXB-6398 */
+      // path: {
+      //   type: "String!",
+      //   async resolve(...args: ResolveArgsArray) {
+      //     const path = await resolvePath(...args);
+      //
+      //     return getUrlFromPath(path);
+      //   }
+      // },
+      // breadcrumbs: {
+      //   type: ["BreadcrumbItem!"],
+      //   resolve(...args: ResolveArgsArray) {
+      //     return resolvePath(...args);
+      //   }
+      // },
       subtitle: {
         type: "String",
         async resolve(source: Node, args: ResolveArgs, context: Context) {

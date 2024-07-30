@@ -47,7 +47,7 @@ describe("product-details-transforms tests", () => {
                   "variants": [
                     {
                       "action": {
-                        "component": [MockFunction],
+                        "component": [Function],
                         "model": "routerLink",
                         "to": "/no/path-to-related-blue/",
                       },
@@ -255,9 +255,13 @@ describe("product-details-transforms tests", () => {
                     "variants": [
                       {
                         "action": {
-                          "component": [MockFunction],
+                          "component": {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "default": [Circular],
+                            "render": [Function],
+                          },
+                          "href": "/no/path-to-related-texture-family-2/",
                           "model": "routerLink",
-                          "to": "/no/path-to-related-texture-family-2/",
                         },
                         "isSelected": false,
                         "label": "gloss",
@@ -340,18 +344,26 @@ describe("product-details-transforms tests", () => {
                     "variants": [
                       {
                         "action": {
-                          "component": [MockFunction],
+                          "component": {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "default": [Circular],
+                            "render": [Function],
+                          },
+                          "href": "/no/p/name-hashed-related-code/",
                           "model": "routerLink",
-                          "to": "/no/p/name-hashed-related-code/",
                         },
                         "isSelected": false,
                         "label": "value-1",
                       },
                       {
                         "action": {
-                          "component": [MockFunction],
+                          "component": {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "default": [Circular],
+                            "render": [Function],
+                          },
+                          "href": "/no/path-to-related-variant-attrib-1/",
                           "model": "routerLink",
-                          "to": "/no/path-to-related-variant-attrib-1/",
                         },
                         "isSelected": false,
                         "label": "value-2",

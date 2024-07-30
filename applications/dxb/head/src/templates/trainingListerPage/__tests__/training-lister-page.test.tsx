@@ -192,7 +192,7 @@ describe("Training lister page", () => {
       1,
       {
         defaultImageUrl:
-          props.data.contentfulTrainingListerPage.featuredMedia.image.file.url,
+          props.data.contentfulTrainingListerPage.featuredMedia.image.url,
         courses: [training1],
         countryCode: props.data.contentfulSite.countryCode,
         fetchPaginatedTrainings: useTrainingsResult.fetchPaginatedTrainings,
@@ -205,7 +205,7 @@ describe("Training lister page", () => {
       2,
       {
         defaultImageUrl:
-          props.data.contentfulTrainingListerPage.featuredMedia.image.file.url,
+          props.data.contentfulTrainingListerPage.featuredMedia.image.url,
         courses: [training2],
         countryCode: props.data.contentfulSite.countryCode,
         fetchPaginatedTrainings: useTrainingsResult.fetchPaginatedTrainings,

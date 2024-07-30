@@ -3,15 +3,12 @@ import { LocationProvider } from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import FourOFour from "../../pages/404";
-import {
-  ContentfulPromoCard,
-  ContentfulSite
-} from "../../schema/resolvers/types/Contentful";
-import createContentfulPromoCard from "../../schema/resolvers/types/helpers/ContentfulPromoCardHelper";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
+import createPromoData from "../../__tests__/helpers/PromoHelper";
+import type { Data as PromoData } from "../../components/Promo";
 
-const errorData = createContentfulPromoCard();
+const errorData = createPromoData();
 
 describe("404 page tests", () => {
   describe("When site data and error page data are null", () => {
@@ -37,7 +34,7 @@ describe("404 page tests", () => {
             <FourOFour
               data={{
                 fourOFour: {
-                  siteData: createMockSiteData() as ContentfulSite,
+                  siteData: createMockSiteData(),
                   errorPageData: errorData
                 }
               }}
@@ -61,10 +58,7 @@ describe("404 page tests", () => {
       //verify image is rendered
       const img = screen.getByAltText(errorData.featuredMedia.altText);
       expect(img).toBeInTheDocument();
-      expect(img).toHaveAttribute(
-        "src",
-        errorData.featuredMedia.image.file.url
-      );
+      expect(img).toHaveAttribute("src", errorData.featuredMedia.image.url);
     });
   });
 
@@ -74,7 +68,7 @@ describe("404 page tests", () => {
       const expectedTitle = "Error:404.title";
       const expectedPlaceholderCTALabel = "Error:404.cta.label";
 
-      const errorPageData = {
+      const errorPageData: PromoData = {
         ...errorData,
         title: undefined,
         subtitle: undefined,
@@ -82,7 +76,7 @@ describe("404 page tests", () => {
           ...errorData.cta,
           label: null
         }
-      } as ContentfulPromoCard;
+      };
 
       const { container } = renderWithRouter(
         <ThemeProvider>
@@ -90,7 +84,7 @@ describe("404 page tests", () => {
             <FourOFour
               data={{
                 fourOFour: {
-                  siteData: createMockSiteData() as ContentfulSite,
+                  siteData: createMockSiteData(),
                   errorPageData
                 }
               }}

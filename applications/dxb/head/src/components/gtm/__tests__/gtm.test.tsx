@@ -3,14 +3,13 @@ import { render, screen } from "@testing-library/react";
 import { GoogleTagManager } from "../gtm";
 import { GTMParams } from "../types";
 
-jest.mock(
-  "next/script",
-  () =>
-    (
-      props: GTMParams &
-        DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-    ) => <div {...props} />
-);
+jest.mock("next/script", () => ({
+  __esModule: true,
+  default: (
+    props: GTMParams &
+      DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+  ) => <div {...props} />
+}));
 
 describe("GoogleTagManager Component", () => {
   const defaultProps = {
@@ -30,7 +29,7 @@ describe("GoogleTagManager Component", () => {
             (function(w,l){
               w[l]=w[l]||[];
               w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-              w[l].push([\"dataLayer\"])
+              w[l].push(["dataLayer"])
             })(window,'dataLayer');`);
 
     const gtmScript = screen.getByTestId("gtm-scipt");
@@ -43,7 +42,7 @@ describe("GoogleTagManager Component", () => {
     const { container } = render(
       <GoogleTagManager {...defaultProps} includeInDevelopment={false} />
     );
-    expect(container.firstChild).toBeNull();
+    expect(container).toBeEmptyDOMElement();
   });
 
   it("renders with a custom dataLayerName", () => {

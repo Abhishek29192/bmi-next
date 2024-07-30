@@ -75,7 +75,7 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
     <Page
       title={title}
       siteData={data.contentfulSite}
-      ogImageUrl={featuredMedia.image.file.url}
+      ogImageUrl={featuredMedia.image.url}
       pageData={{
         seo,
         path,
@@ -137,7 +137,7 @@ const TrainingListerPage = ({ data }: TrainingListerPageProps) => {
               Object.entries(groupedTrainings).map(([catalogueId, courses]) => (
                 <TrainingCatalogue
                   key={`training-catalogue-${catalogueId}`}
-                  defaultImageUrl={featuredMedia.image.file.url}
+                  defaultImageUrl={featuredMedia.image.url}
                   courses={courses}
                   countryCode={data.contentfulSite.countryCode}
                   fetchPaginatedTrainings={fetchPaginatedTrainings}

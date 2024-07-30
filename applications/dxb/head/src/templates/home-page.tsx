@@ -85,9 +85,6 @@ const HomePage = ({ brands, homePage, site }: Data) => {
               <OverlapCards data={homePage.overlapCards} />
             )}
             {brands.length && <Brands data={brands} />}
-            {homePage.overlapCards && (
-              <OverlapCards data={homePage.overlapCards} />
-            )}
             {homePage.sections?.length && (
               <Sections
                 data-testid="homepage-sections"

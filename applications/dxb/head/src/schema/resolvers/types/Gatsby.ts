@@ -7,10 +7,6 @@ import type {
 } from "@bmi/pim-types";
 import type { Node as GatsbyNode } from "gatsby";
 import type { GraphQLOutputType } from "graphql-compose/lib/graphql";
-import type {
-  HubspotFieldNames,
-  HubspotFieldTypes
-} from "../ContentfulFormSection";
 import type { DocumentsFilters } from "./DocumentsFilters";
 import type { GatsbyIterable } from "gatsby/dist/datastore/common/iterable";
 
@@ -57,16 +53,6 @@ export interface Node extends GatsbyNode {
   inputs___NODE?: string[];
 
   hubSpotFormGuid?: string;
-  formFieldGroups?: {
-    isPageBreak: boolean;
-    fields: {
-      name: HubspotFieldNames;
-      label: string;
-      fieldType: HubspotFieldTypes;
-      required: boolean;
-      options: { value: string }[];
-    }[];
-  }[];
   metaData?: MetaData[];
   title?: string;
   slug?: string;

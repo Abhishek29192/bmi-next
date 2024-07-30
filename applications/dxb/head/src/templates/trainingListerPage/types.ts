@@ -1,6 +1,6 @@
 import type { Training } from "@bmi/elasticsearch-types";
 import type { Filter } from "@bmi-digital/components/filters";
-import type { Data as ImageData } from "../../components/image/ContentfulImage";
+import type { Data as ImageData } from "../../components/image/contentful-image/types";
 import type { Data as PageData } from "../../components/Page";
 import type { Data as SiteData } from "../../components/Site";
 import type { Data as TitleWithContentData } from "../../components/TitleWithContent";

@@ -10,6 +10,7 @@ import ContentfulImage from "./image/contentful-image/ContentfulImage";
 import Icon from "./Icon";
 import type { Data as LinkData } from "./link/types";
 import type { Data as ImageData } from "./image/contentful-image/types";
+import type { ImageWidths } from "./image/types";
 
 export type Data = {
   name: string;
@@ -19,6 +20,8 @@ export type Data = {
 }[];
 
 const TEAM_MEMBERS_PER_PAGE = 8;
+
+const mediaWidths: ImageWidths = [200, 200, 200, 200, 200];
 
 const TeamList = ({ data }: { data: Data | null }) => {
   const { getMicroCopy } = useSiteContext();
@@ -35,7 +38,9 @@ const TeamList = ({ data }: { data: Data | null }) => {
             return (
               <Grid xs={12} sm={6} lg={3} key={index}>
                 <ProfileCard
-                  imageSource={<ContentfulImage {...profileImage} />}
+                  imageSource={
+                    <ContentfulImage {...profileImage} widths={mediaWidths} />
+                  }
                   body={
                     <EqualHeights.Consumer shouldDisableBoxSizing>
                       {({ addRef, equalHeight }) => {

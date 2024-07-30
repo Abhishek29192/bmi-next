@@ -6,7 +6,9 @@ export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const products: { slug: string }[] = await (
-    await fetch("https://run.mocky.io/v3/cdd01ce8-74da-43be-a28a-b00ddd8398d2")
+    await fetch(
+      "https://api.mockfly.dev/mocks/6ab0f701-aafb-4d9c-a8fb-16dcf0ad2111/products"
+    )
   ).json();
 
   return products;
@@ -19,7 +21,9 @@ type Product = {
 
 async function getProduct(slug: string): Promise<Product> {
   const products: { slug: string; id: string }[] = await (
-    await fetch("https://run.mocky.io/v3/cdd01ce8-74da-43be-a28a-b00ddd8398d2")
+    await fetch(
+      "https://api.mockfly.dev/mocks/6ab0f701-aafb-4d9c-a8fb-16dcf0ad2111/products"
+    )
   ).json();
 
   const product = products.find((product) => product.slug === slug);
@@ -28,7 +32,11 @@ async function getProduct(slug: string): Promise<Product> {
     return notFound();
   }
 
-  return (await fetch(`https://run.mocky.io/v3/${product.id}`)).json();
+  return (
+    await fetch(
+      `https://api.mockfly.dev/mocks/6ab0f701-aafb-4d9c-a8fb-16dcf0ad2111/product/${product.id}`
+    )
+  ).json();
 }
 
 export default async function ProductDetailsPage({

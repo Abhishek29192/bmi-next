@@ -6,10 +6,10 @@ import { DataTypeEnum } from "../../../components/link/types";
 import { SourceType } from "../../../components/types/FormSectionTypes";
 import { PageContextType } from "../../productListerPage/components/product-lister-page";
 import createRichText from "../../../__tests__/helpers/RichTextHelper";
+import createExploreBarData from "../../../__tests__/helpers/ExploreBarHelper";
 import type { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
 import type { Data as PromoData } from "../../../components/Promo";
 import type { Data as LeadBlockData } from "../../../components/LeadBlockSection";
-import type { Data as ExploreBarData } from "../../../components/ExploreBar";
 import type { Data as LinkData } from "../../../components/link/types";
 
 export const pageContext: PageContextType = {
@@ -129,10 +129,7 @@ export const leadBlockData: LeadBlockData = {
   postItCard: null
 };
 
-export const exploreBarData: ExploreBarData = {
-  label: "exploreBarDataLabel",
-  links: []
-};
+export const exploreBarData = createExploreBarData();
 
 export const linkColumnsData: LinkColumnsSectionData = {
   __typename: "ContentfulLinkColumnsSection",

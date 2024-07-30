@@ -31,8 +31,7 @@ describe("getHeroItemsWithContext", () => {
     previewMedia: null,
     videoRatio: null,
     defaultYouTubePreviewImage:
-      "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg",
-    previewMediaWidths: [400, 500, 400, 300, 400]
+      "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
   };
 
   const slide: SlideData = {

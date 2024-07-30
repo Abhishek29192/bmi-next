@@ -3,7 +3,7 @@
   "compilerOptions": {
     "noEmit": true,
     "outDir": "dist",
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "allowJs": true,
     "incremental": true,

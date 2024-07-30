@@ -1,11 +1,12 @@
 import { devLog } from "../devLog";
+import setNodeEnv from "../../__tests__/setNodeEnv";
 
 beforeEach(() => {
-  process.env.NODE_ENV = "development";
+  setNodeEnv("development");
   jest.spyOn(console, "log").mockImplementation(() => {});
 });
 afterEach(() => {
-  process.env.NODE_ENV = "test";
+  setNodeEnv("test");
   (console.log as jest.Mock).mockRestore();
 });
 
@@ -16,7 +17,7 @@ describe("devLog", () => {
   });
 
   it("does not log to console if NODE_ENV is not 'development'", () => {
-    process.env.NODE_ENV = "production";
+    setNodeEnv("production");
     devLog("test message");
     expect(console.log).not.toHaveBeenCalled();
   });

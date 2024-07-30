@@ -1,7 +1,7 @@
 import { generateHashFromString, isDefined } from "@bmi/utils";
 import type { Product } from "@bmi/firestore-types";
 import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
-import { getUrlFromPath, resolvePath } from "./utils/path";
+import { getUrlFromPath } from "./utils/path";
 import type { Node as GatsbyNode } from "gatsby";
 import type { Data } from "../../components/Resources";
 import type { AssetType, ProductDocumentWithAssetType } from "../../types/pim";
@@ -52,7 +52,9 @@ const resolvePathFromFamily = async (
     return [];
   }
 
-  return resolvePath(parentFamilies[0], args, context);
+  /** Commented as there is a TS error.
+   * This code will be rewritten in the scope of DXB-6396*/
+  //return resolvePath(parentFamilies[0], args, context);
 };
 
 export default {

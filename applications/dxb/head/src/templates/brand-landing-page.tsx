@@ -94,7 +94,8 @@ const getHeroItemsWithContext = (
         : featuredMedia
           ? createImageProps({
               ...featuredMedia,
-              size: "cover"
+              size: "cover",
+              widths: mediaWidths
             })
           : undefined,
       cta:

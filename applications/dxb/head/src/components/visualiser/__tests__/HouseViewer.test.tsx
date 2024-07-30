@@ -17,6 +17,7 @@ import { renderWithProviders } from "../../../__tests__/renderWithProviders";
 import HouseViewer, { Props as HouseViewerProps } from "../HouseViewer";
 import loadTexture from "../TextureCache";
 import cacheModel from "../ModelCache";
+import setNodeEnv from "../../../__tests__/setNodeEnv";
 import sidingMock from "./__mocks__/siding";
 import tileMock from "./__mocks__/tile";
 import houseModelMock from "./__mocks__/houseModel";
@@ -129,14 +130,14 @@ describe("Visualiser HouseViewer", () => {
 
     it("creates AxesHelper in dev mode", () => {
       const initialNodeEnvValue = process.env.NODE_ENV;
-      process.env.NODE_ENV = "development";
+      setNodeEnv("development");
 
       const houseViewer = new HouseViewer(defaultProps);
       houseViewer.scene = undefined;
       houseViewer.container = document.createElement("div");
       houseViewer.load();
       expect(AxesHelper).toHaveBeenCalled();
-      process.env.NODE_ENV = initialNodeEnvValue;
+      setNodeEnv(initialNodeEnvValue);
     });
 
     it("creates new PerspectiveCamera if camera does not exist", () => {

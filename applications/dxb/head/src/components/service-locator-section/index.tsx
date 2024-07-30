@@ -8,7 +8,7 @@ import Section from "@bmi-digital/components/section";
 import { replaceSpaces } from "@bmi-digital/components/utils";
 import { microCopy } from "@bmi/microcopies";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
-import { useSearchParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
 import RichText from "../RichText";
 import { EntryTypeEnum, ServiceTypesPrefixesEnum } from "../Service";
@@ -92,7 +92,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const isBranchLocator = sectionType == EntryTypeEnum.BRANCH_TYPE;
 
   const { getMicroCopy } = useSiteContext();
-  const searchParams = useSearchParams();
+  const isClient = typeof window !== "undefined";
+  const searchParams = useMemo(
+    () => new URLSearchParams(isClient ? window.location.search : null),
+    [isClient]
+  );
   const pathname = usePathname();
 
   const userQueryString = useMemo(
@@ -321,16 +325,16 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     );
 
     if (filteredChips.length > 0) {
-      const params = new URLSearchParams(searchParams);
-      params.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
-      history.replaceState(null, "", "?" + params.toString());
+      const queryParams = new URLSearchParams(location.search);
+      queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
+      history.replaceState(null, "", "?" + queryParams.toString());
     }
     if (filteredChips.length === 0 && isUserAction) {
       // Remove the query if there are no selected chips
       // otherwise url will look like `/?chip=`
       history.replaceState(null, "", pathname);
     }
-  }, [activeFilters, searchParams, pathname]);
+  }, [activeFilters, pathname]);
 
   useEffect(() => {
     initialise();

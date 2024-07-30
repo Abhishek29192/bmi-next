@@ -3,10 +3,10 @@ import { ProductOverviewPaneProps } from "@bmi-digital/components/product-overvi
 import DefaultImage from "@bmi-digital/components/resources/DefaultImage";
 import NextLink from "next/link";
 import { replaceSpaces } from "@bmi-digital/components";
-import { isDefined } from "../../../libraries/utils/src";
+import { isDefined } from "@bmi/utils";
+import React from "react";
 import { Image, Measurements, Product, RelatedVariant } from "../types/pim";
 import { getPathWithCountryCode } from "./path";
-
 // Returns an array of all the values of a certain prop
 export const getAllValues = (
   product: Product,
@@ -260,12 +260,13 @@ export const getProductAttributes = (
               ? { component: DefaultImage }
               : null,
           ...(!isSelected &&
-            allColours.length > 1 &&
-            path && {
+            allColours.length > 1 && {
               action: {
                 model: "routerLink",
-                component: NextLink,
-                href: path
+                component: ({ to, ...rest }) => (
+                  <NextLink href={to} {...rest} />
+                ),
+                to: path
               }
             })
         };

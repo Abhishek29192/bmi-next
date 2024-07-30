@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const useRouteUpdate = (onRouteUpdate: (url: string) => void) => {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const searchParams =
+    typeof window !== "undefined" ? window.location.search : null;
 
   const [prevPath, setPrevPath] = useState(pathname);
-  const [prevParams, setPrevParams] = useState(searchParams.toString());
+  const [prevParams, setPrevParams] = useState(searchParams);
 
   const pathChangeCount = useRef<number>(0);
 
@@ -14,12 +15,12 @@ const useRouteUpdate = (onRouteUpdate: (url: string) => void) => {
     pathChangeCount.current += 1;
     if (
       pathname !== prevPath ||
-      prevParams !== searchParams.toString() ||
+      prevParams !== searchParams ||
       pathChangeCount.current === 1
     ) {
       onRouteUpdate(pathname);
       setPrevPath(pathname);
-      setPrevParams(searchParams.toString());
+      setPrevParams(searchParams);
       window.addEventListener("hashchange", () => onRouteUpdate(pathname));
     }
 

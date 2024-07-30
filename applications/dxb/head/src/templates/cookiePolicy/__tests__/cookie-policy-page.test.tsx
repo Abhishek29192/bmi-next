@@ -6,8 +6,6 @@ import {
 } from "@reach/router";
 import { render, RenderResult, screen } from "@testing-library/react";
 import React from "react";
-import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
-import { Data as SectionsData } from "../../../components/Sections";
 import { Data as SiteData } from "../../../components/Site";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
@@ -52,8 +50,8 @@ const data: { contentfulCookiePolicyPage: Data; contentfulSite: SiteData } = {
     },
     path: "cookie-policy-page",
     __typename: "ContentfulCookiePolicyPage",
-    leadBlock: leadBlockData as LeadBlockSectionData,
-    sections: sections as SectionsData,
+    leadBlock: leadBlockData,
+    sections: sections,
     heroType: "Level 2",
     breadcrumbs: [
       {

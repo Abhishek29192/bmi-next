@@ -1,9 +1,10 @@
 "use client";
+
 import React from "react";
 import Script from "next/script";
 import { stripIndent } from "common-tags";
-import type { GTMParams } from "./types";
 import useRouteUpdate from "./useRouteUpdate";
+import type { GTMParams } from "./types";
 
 let currDataLayerName: string | undefined = undefined;
 
@@ -27,6 +28,7 @@ export function GoogleTagManager(props: GTMParams) {
   const gtmPreview = preview ? `&gtm_preview=${preview}&gtm_cookies_win=x` : "";
 
   useRouteUpdate(() => {
+    // eslint-disable-next-line security/detect-object-injection
     const dataLayer = window[dataLayerName];
     dataLayer?.push({ event: "nextjs-route-change" });
   });

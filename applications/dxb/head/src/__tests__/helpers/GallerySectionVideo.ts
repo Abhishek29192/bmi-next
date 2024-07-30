@@ -1,5 +1,4 @@
 import { GallerySectionVideo } from "../../utils/media";
-import createGatsbyImageData from "./GatsbyImageDataHelper";
 
 const createGallerySectionVideo = (
   gallerySectionVideo?: Partial<GallerySectionVideo>
@@ -10,14 +9,17 @@ const createGallerySectionVideo = (
   subtitle: "ContentfulVideoSubtitle",
   videoUrl: "https://youtu.be/01SUXJmB9Ik",
   previewMedia: {
+    __typename: "Image",
+    title: "Title",
     altText: "ContentfulVideoAltText",
     type: "Descriptive",
     image: {
-      gatsbyImageData: createGatsbyImageData(),
-      thumbnail: createGatsbyImageData(),
-      file: {
-        fileName: "fileName"
-      }
+      fileName: "fileName",
+      contentType: "image/jpeg",
+      url: "http://localhost:8080/custom-image.jpg",
+      size: 1000,
+      height: 200,
+      width: 400
     },
     focalPoint: { x: 0, y: 0 }
   },

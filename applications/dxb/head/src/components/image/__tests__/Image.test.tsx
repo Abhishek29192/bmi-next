@@ -1,6 +1,6 @@
 import React from "react";
-import { describe, expect, it, jest } from "@jest/globals";
 import { screen } from "@testing-library/react";
+import { describe, expect, it, jest } from "@jest/globals";
 import createImageData from "../../../__tests__/helpers/ImageDataHelper";
 import { renderWithProviders } from "../../../__tests__/renderWithProviders";
 import Image from "../Image";
@@ -35,8 +35,8 @@ describe("Image", () => {
       />
     );
 
-    expect(screen.getByText("ContentfulImage")).toBeInTheDocument();
-    expect(screen.queryByText("GenericImage")).not.toBeInTheDocument();
+    expect(screen.getByText("ContentfulImage")).toBeTruthy();
+    expect(screen.queryByText("GenericImage")).toBeNull();
   });
 
   it("should render the GenericImage component if the props are not from Contentful", () => {
@@ -50,7 +50,7 @@ describe("Image", () => {
       />
     );
 
-    expect(screen.queryByText("ContentfulImage")).not.toBeInTheDocument();
-    expect(screen.getByText("GenericImage")).toBeInTheDocument();
+    expect(screen.queryByText("ContentfulImage")).toBeNull();
+    expect(screen.getByText("GenericImage")).toBeTruthy();
   });
 });

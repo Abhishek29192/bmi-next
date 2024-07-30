@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { ConfigProvider, useConfig } from "../ConfigProvider";
+import setNodeEnv from "../../__tests__/setNodeEnv";
 
 const TestComponent = () => {
   const config = useConfig();
@@ -307,7 +308,7 @@ describe("ConfigProvider", () => {
   describe("isDevMode", () => {
     it("should be set to false if NODE_ENV is not set", () => {
       const originalEnvValue = process.env.NODE_ENV;
-      delete process.env.NODE_ENV;
+      setNodeEnv(undefined);
 
       render(
         <ConfigProvider>
@@ -316,14 +317,12 @@ describe("ConfigProvider", () => {
       );
 
       expect(screen.getByTestId("isDevMode")).toHaveTextContent("false");
-
-      // eslint-disable-next-line security/detect-object-injection
-      process.env.NODE_ENV = originalEnvValue;
+      setNodeEnv(originalEnvValue);
     });
 
     it("should be set to false if NODE_ENV is not set to DEVELOPMENT", () => {
       const originalEnvValue = process.env.NODE_ENV;
-      process.env.NODE_ENV = "production";
+      setNodeEnv("production");
 
       render(
         <ConfigProvider>
@@ -332,14 +331,12 @@ describe("ConfigProvider", () => {
       );
 
       expect(screen.getByTestId("isDevMode")).toHaveTextContent("false");
-
-      // eslint-disable-next-line security/detect-object-injection
-      process.env.NODE_ENV = originalEnvValue;
+      setNodeEnv(originalEnvValue);
     });
 
     it("should be set to true if NODE_ENV is set to DEVELOPMENT", () => {
       const originalEnvValue = process.env.NODE_ENV;
-      process.env.NODE_ENV = "development";
+      setNodeEnv("development");
 
       render(
         <ConfigProvider>
@@ -348,9 +345,7 @@ describe("ConfigProvider", () => {
       );
 
       expect(screen.getByTestId("isDevMode")).toHaveTextContent("true");
-
-      // eslint-disable-next-line security/detect-object-injection
-      process.env.NODE_ENV = originalEnvValue;
+      setNodeEnv(originalEnvValue);
     });
   });
 });

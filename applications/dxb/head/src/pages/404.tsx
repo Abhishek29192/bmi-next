@@ -1,7 +1,6 @@
 import Button from "@bmi-digital/components/button";
 import PromoSection from "@bmi-digital/components/promo-section";
 import Typography from "@bmi-digital/components/typography";
-import { graphql } from "gatsby";
 import NextLink from "next/link";
 import React from "react";
 import FallbackComponent from "../components/FallbackComponent";
@@ -10,21 +9,21 @@ import { getPathWithCountryCode } from "../utils/path";
 import { stringifyToObject } from "../utils/createActionLabelForAnalytics";
 import createVideoProps from "../components/video/createVideoProps";
 import createContentfulImageProps from "../components/image/contentful-image/createContentfulImageProps";
-import type {
-  ContentfulPromoCard,
-  ContentfulSite,
-  FourOFourResponse
-} from "../schema/resolvers/types/Contentful";
 import type { AnchorLinkActionProps } from "@bmi-digital/components/anchor-link";
 import type { ImageWidths } from "../components/image/types";
+import type { Data as SiteData } from "../components/Site";
+import type { Data as PromoData } from "../components/Promo";
 
 type Data = {
-  fourOFour: FourOFourResponse;
+  fourOFour: {
+    siteData: SiteData;
+    errorPageData: PromoData | null;
+  };
 };
 
 const Cta = (
-  props: ContentfulPromoCard["cta"] & {
-    countryCode: ContentfulSite["countryCode"];
+  props: PromoData["cta"] & {
+    countryCode: SiteData["countryCode"];
   }
 ) => {
   const placeholderCTALabel = "Error:404.cta.label";
@@ -53,6 +52,12 @@ const Cta = (
 const mediaWidths: ImageWidths = [561, 321, 381, 446, 330];
 
 const FourOFour = ({ data }: { data: Data }) => {
+  //Should be removed after the migration to Next.js.
+  //https://bmigroup.atlassian.net/browse/DXB-8044
+  //Currently, we do not have a function to get Contentful data
+  //So it is throwing an error during the build time
+  return <FallbackComponent />;
+
   const siteData = data.fourOFour.siteData;
   const errorFourOFour = data.fourOFour.errorPageData;
   const placeholderTitle = "Error:404.title";
@@ -104,15 +109,15 @@ const FourOFour = ({ data }: { data: Data }) => {
 
 export default FourOFour;
 
-export const pageQuery = graphql`
-  {
-    fourOFour {
-      errorPageData {
-        ...PromoCardFragment
-      }
-      siteData {
-        ...SiteFragment
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   {
+//     fourOFour {
+//       errorPageData {
+//         ...PromoCardFragment
+//       }
+//       siteData {
+//         ...SiteFragment
+//       }
+//     }
+//   }
+// `;

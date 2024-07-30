@@ -52,7 +52,6 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
       // valuesToSend is of type Record<string, NonNullable<InputValue>> but causes issues later on
       const valuesToSend = Object.entries(values).reduce(
         (acc, [key, value]) => {
-          // @ts-expect-error -- key should be typed as string
           return value ? ((acc[`${key}`] = value), acc) : acc;
         },
         {}
@@ -97,14 +96,12 @@ const TrainingRegistrationForm = (props: TrainingRegistrationFormProps) => {
         ) {
           // eslint-disable-next-line security/detect-object-injection
           sanitizedValues[key] =
-            // @ts-expect-error -- key should be typed as string
             // eslint-disable-next-line security/detect-object-injection
             valuesToSend[discoverySourceOtherFieldName]?.trim() ||
             props.formData.discoverySourceOther;
           continue;
         }
 
-        // @ts-expect-error -- key should be typed as string
         // eslint-disable-next-line security/detect-object-injection
         const trimmedValue = valuesToSend[key].trim();
         if (trimmedValue !== "") {

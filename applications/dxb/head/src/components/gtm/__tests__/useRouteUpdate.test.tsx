@@ -1,9 +1,5 @@
 import { renderHook } from "@testing-library/react-hooks";
-import {
-  ReadonlyURLSearchParams,
-  usePathname,
-  useSearchParams
-} from "next/navigation";
+import { usePathname } from "next/navigation";
 import useRouteUpdate from "../useRouteUpdate";
 
 // Mock the next/navigation module
@@ -15,22 +11,13 @@ jest.mock("next/navigation", () => ({
 describe("useRouteUpdate", () => {
   let onRouteUpdate: jest.Mock<any, any, any>;
   let usePathnameMock: { (): string; (): string; mockReturnValue?: any };
-  let useSearchParamsMock: {
-    (): ReadonlyURLSearchParams;
-    (): ReadonlyURLSearchParams;
-    mockReturnValue?: any;
-  };
 
   beforeEach(() => {
     onRouteUpdate = jest.fn();
     usePathnameMock = usePathname;
-    useSearchParamsMock = useSearchParams;
 
     // Reset the mocks before each test
     usePathnameMock.mockReturnValue("/initial-path");
-    useSearchParamsMock.mockReturnValue({
-      toString: () => "initial=params"
-    });
 
     jest.clearAllMocks();
   });
@@ -53,19 +40,35 @@ describe("useRouteUpdate", () => {
   });
 
   it("should call onRouteUpdate when searchParams change", () => {
+    const originalLocation = window.location;
+    Object.defineProperty(window, "location", {
+      value: {
+        ...originalLocation,
+        search: "?initial=params"
+      },
+      writable: true
+    });
+
     const { rerender } = renderHook(() => useRouteUpdate(onRouteUpdate));
 
     expect(onRouteUpdate).toHaveBeenCalledWith("/initial-path");
     expect(onRouteUpdate).toHaveBeenCalledTimes(1);
-    // Change the searchParams mock return value
-    useSearchParamsMock.mockReturnValue({
-      toString: () => "new=params"
+
+    Object.defineProperty(window, "location", {
+      value: {
+        ...originalLocation,
+        search: "?new=params"
+      }
     });
 
     rerender();
 
     expect(onRouteUpdate).toHaveBeenCalledWith("/initial-path");
     expect(onRouteUpdate).toHaveBeenCalledTimes(2);
+    Object.defineProperty(window, "location", {
+      value: originalLocation,
+      writable: true
+    });
   });
 
   it("should add and remove the hashchange event listener", () => {

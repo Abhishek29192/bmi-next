@@ -8,10 +8,7 @@ import createRichText from "../../../__tests__/helpers/RichTextHelper";
 import type { Data as PromoData } from "../../../components/Promo";
 import type { Data as CookiePolicyPageData } from "../components/cookie-policy-page";
 import type { Data as LeadBlockData } from "../../../components/LeadBlockSection";
-import type { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
 import type { Data as LinkData } from "../../../components/link/types";
-import type { Data as LinksColumnSectionData } from "../../../components/LinkColumnsSection";
-import type { Data as ExploreBarData } from "../../../components/ExploreBar";
 
 export const pageContext: PageContextType = {
   allowFilterBy: [],
@@ -128,45 +125,6 @@ export const leadBlockData: LeadBlockData = {
   }),
   link: null,
   postItCard: null
-};
-
-export const shareWidgetData: ShareWidgetSectionData = {
-  __typename: "ShareWidgetSection",
-  title: "ShareWidgetSectionTitle",
-  message: "ShareWidgetSectionMessage",
-  clipboardSuccessMessage: null,
-  clipboardErrorMessage: null,
-  isLeftAligned: null,
-  copy: null,
-  email: null,
-  facebook: null,
-  linkedin: null,
-  pinterest: null,
-  twitter: null
-};
-
-export const exploreBarData: ExploreBarData = {
-  label: "exploreBarDataLabel",
-  links: []
-};
-
-export const linkColumnsData: LinksColumnSectionData = {
-  __typename: "ContentfulLinkColumnsSection",
-  title: "linkColumnsTitle",
-  columns: [
-    {
-      __typename: "Navigation",
-      label: "Link column title",
-      link: null,
-      links: [
-        {
-          __typename: "NavigationItem",
-          type: "Heading",
-          value: "Link column value"
-        }
-      ]
-    }
-  ]
 };
 
 export const cta: LinkData = {
