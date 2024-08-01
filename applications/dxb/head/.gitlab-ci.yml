@@ -38,7 +38,7 @@ enforce_no_new_errors_head:
     - output=$(yarn workspace @bmi/head tsc --strict --pretty || true)
     - number_of_errors=$(echo $output | grep -o "Found [0-9]\+ errors" | awk -F'[^0-9]+' '{print $2}')
     - 'echo "Number of errors: $number_of_errors"'
-    - "[ $number_of_errors -gt 812 ] && exit 1 || exit 0"
+    - "[ $number_of_errors -ne 810 ] && exit 1 || exit 0"
 
 test_head:
   extends: .test_yarn_workspace
