@@ -1,5 +1,13 @@
 import React from "react";
 
+export async function generateStaticParams() {
+  return [
+    {
+      slug: ["a", "b"]
+    }
+  ];
+}
+
 export default function ContentfulPage({
   params
 }: {

@@ -24,8 +24,9 @@ if (typeof contentSecurityPolicy !== "undefined") {
   });
 }
 
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
+  output: "export",
   images: {
     deviceSizes: [599, 719, 839, 1439, 2000],
     imageSizes: [
