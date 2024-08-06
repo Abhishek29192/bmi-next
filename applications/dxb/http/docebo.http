@@ -1,0 +1,47 @@
+###
+
+# @name Get authentication token
+# @noRejectUnauthorized
+
+POST {{doceboHost}}/oauth2/token
+Content-Type: application/json
+
+{
+  "client_id": "{{doceboClientId}}",
+  "client_secret": "{{doceboClientSecret}}",
+  "grant_type": "password",
+  "scope": "api",
+  "username": "{{doceboUsername}}",
+  "password": "{{doceboPassword}}"
+}
+
+> {%
+  client.global.set("doceboToken", response.body.access_token);
+%}
+
+###
+
+# @name List catalogues
+
+GET {{doceboHost}}/learn/v1/catalog?page=1&page_size=50&show_item_list=1&
+  items_per_catalog=99
+Authorization: Bearer {{doceboToken}}
+
+###
+
+# @name Get internal catalogue details
+< {%
+  request.variables.set("catalogueId", "68")
+%}
+GET {{doceboHost}}/learn/v1/catalog_content/internal/{{catalogueId}}
+Authorization: Bearer {{doceboToken}}
+
+
+###
+
+# @name Get public catalogue details
+< {%
+  request.variables.set("catalogueId", "68")
+%}
+GET {{doceboHost}}/learn/v1/catalog_content/public/{{catalogueId}}
+Authorization: Bearer {{doceboToken}}
