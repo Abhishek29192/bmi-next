@@ -61,9 +61,10 @@ export const SearchLocationBlock = ({
           googleAutocompleteOptions={
             countryCode !== "grp" && {
               componentRestrictions: {
-                country: AutoCompleteCountryMap[
-                  formattedCountryCode as string
-                ] || [formattedCountryCode]
+                // eslint-disable-next-line security/detect-object-injection
+                country: AutoCompleteCountryMap[formattedCountryCode] || [
+                  formattedCountryCode
+                ]
               }
             }
           }
