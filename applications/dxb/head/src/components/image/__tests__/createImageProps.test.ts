@@ -7,7 +7,7 @@ import type createContentfulImageProps from "../contentful-image/createContentfu
 import type { Props as ContentfulImageProps } from "../contentful-image/types";
 import type createGenericImageProps from "../generic-image/createGenericImageProps";
 import type { Props as GenericImageProps } from "../generic-image/types";
-import type { CustomImageProps } from "@bmi-digital/components/dist/media/types";
+import type { CustomImageProps } from "@bmi-digital/components/media";
 
 const mockCreateContentfulImageProps =
   jest.fn<typeof createContentfulImageProps>();

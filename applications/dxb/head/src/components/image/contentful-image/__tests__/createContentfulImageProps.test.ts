@@ -4,7 +4,7 @@ import createContentfulImageProps from "../createContentfulImageProps";
 import type { ImageLoaderProps } from "next/image";
 import type { Options, Props } from "../types";
 import type { getPosition, getSizes, loader } from "../utils";
-import type { CustomImageProps } from "@bmi-digital/components/dist/media/types";
+import type { CustomImageProps } from "@bmi-digital/components/media";
 
 const mockGetPosition = jest.fn<typeof getPosition>();
 const mockGetSizes = jest.fn<typeof getSizes>();

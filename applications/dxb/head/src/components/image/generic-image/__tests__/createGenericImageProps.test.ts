@@ -2,7 +2,7 @@ import NextImage from "next/image";
 import { describe, expect, it } from "@jest/globals";
 import createGenericImageProps from "../createGenericImageProps";
 import type { Props } from "../types";
-import type { CustomImageProps } from "@bmi-digital/components/dist/media/types";
+import type { CustomImageProps } from "@bmi-digital/components/media";
 
 describe("createGenericImageProps", () => {
   it("should map the GenericImage props to CustomImageProps", () => {

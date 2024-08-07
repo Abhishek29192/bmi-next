@@ -1,9 +1,8 @@
 import YoutubeVideo from "@bmi-digital/components/youtube-video";
-import { useMemo } from "react";
-import React from "react";
+import React, { useMemo } from "react";
 import { useGTM } from "../../utils/google-tag-manager";
 import type { Data } from "./types";
-import type { CustomImageProps } from "@bmi-digital/components/dist/media/types";
+import type { CustomImageProps } from "@bmi-digital/components/media";
 
 export type Props = Omit<Data, "previewMedia"> & {
   previewMedia?: CustomImageProps;

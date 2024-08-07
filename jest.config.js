@@ -76,7 +76,8 @@ module.exports = {
       "token-types",
       // Dependencies of file-type end
       "@bmi-digital/functions-logger",
-      "@bmi-digital/use-dimensions"
+      "@bmi-digital/use-dimensions",
+      "gqlmin"
     ].join("|")})/)`
   ],
   setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],

@@ -1,7 +1,7 @@
 import type { Data as ResourcesData } from "../../../components/Resources";
 import type { CalculatorConfig } from "../../../components/pitched-roof-calculator/types";
 import type { HouseType } from "../../../components/visualiser/Types";
-import type { AccountPage } from "../../../templates/myAccountPage/my-account";
+import type { AccountPage } from "../../../templates/myAccountPage/types";
 import type {
   NavigationData,
   NavigationItem

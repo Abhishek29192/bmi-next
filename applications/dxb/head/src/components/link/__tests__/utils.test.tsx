@@ -222,7 +222,7 @@ describe("toAnchorLinkActionProps", () => {
     const cta = toAnchorLinkActionProps(
       createInternalLinkData({
         linkedPage: { path: null },
-        asset: { file: { url: null } }
+        asset: { url: null }
       })
     );
     expect(cta).toStrictEqual({

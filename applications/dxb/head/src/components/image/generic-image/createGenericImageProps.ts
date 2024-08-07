@@ -1,5 +1,5 @@
 import NextImage from "next/image";
-import type { CustomImageProps } from "@bmi-digital/components/dist/media/types";
+import type { CustomImageProps } from "@bmi-digital/components/media";
 import type { Props } from "./types";
 
 const createGenericImageProps = ({
