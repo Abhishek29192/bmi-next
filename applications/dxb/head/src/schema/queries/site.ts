@@ -37,6 +37,9 @@ query ($countryCode: String!) {
         locale
       }
       countryCode
+      accountPage {
+        title
+      }
       menuUtilities {
         ...HeaderUtilitiesFragment
       }

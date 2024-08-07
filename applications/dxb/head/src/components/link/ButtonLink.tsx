@@ -313,7 +313,7 @@ const ButtonLink = ({
     case DataTypeEnum.Asset:
       return (
         <AssetLink
-          to={`https:${data.asset?.url}`}
+          to={data.asset?.url}
           hasBrandColours={hasBrandColours}
           className={className}
           gtm={gtm}

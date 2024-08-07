@@ -65,11 +65,11 @@ const InlineHyperlink = ({
   if (data.__typename === "Asset") {
     return (
       <AnchorLink
-        href={`https:${data.url}`}
+        href={data.url}
         gtm={{
           id: "cta-click1",
           label,
-          action: `https:${data.url}`
+          action: data.url
         }}
         data-testid={dataTestId}
         external

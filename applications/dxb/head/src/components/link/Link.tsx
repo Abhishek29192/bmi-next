@@ -290,7 +290,7 @@ const Link = (props: Props) => {
     case DataTypeEnum.Asset:
       return (
         <AssetLink
-          to={`https:${props.data.asset?.url}`}
+          to={props.data.asset?.url}
           hasBrandColours={props.hasBrandColours}
           className={props.className}
           gtm={props.gtm}

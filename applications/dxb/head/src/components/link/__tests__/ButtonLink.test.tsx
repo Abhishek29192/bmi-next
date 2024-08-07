@@ -492,7 +492,7 @@ describe("ButtonLink", () => {
       );
       expect(assetButtonLink).toHaveAttribute(
         "href",
-        "https:http://localhost:8080/asset.pdf"
+        "http://localhost:8080/asset.pdf"
       );
     });
 
@@ -506,7 +506,7 @@ describe("ButtonLink", () => {
       const assetButtonLink = screen.getByTestId(
         "asset-button-link-Find-out-more"
       );
-      expect(assetButtonLink).toHaveAttribute("href", "https:undefined");
+      expect(assetButtonLink).not.toHaveAttribute("href");
     });
 
     it("should attach a data-gtm attribute, using the ContentfulLink label prop as the label and the ContentfulLink linkedpage path prop as the action, by default", () => {
@@ -519,7 +519,7 @@ describe("ButtonLink", () => {
       );
       expect(assetButtonLink).toHaveAttribute(
         "data-gtm",
-        '{"id":"cta-click1","action":"https:http://localhost:8080/asset.pdf","label":"Find out more"}'
+        '{"id":"cta-click1","action":"http://localhost:8080/asset.pdf","label":"Find out more"}'
       );
     });
 
