@@ -172,6 +172,7 @@ const PrintReportSection = ({
     setIsHubSpotFormAvailable(false);
     setLoading(false);
   };
+  console.log("999");
 
   return isHubSpotFormAvailable ? (
     <StyledFormSection
